@@ -5,7 +5,9 @@ import ToolCard from "@/components/ToolCard";
 import { websiteSchema, organizationSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: "FaunaHub — Pet Care, Animal Facts & Wildlife Intelligence",
+  // `absolute` prevents the root layout's title.template ("%s | FaunaHub")
+  // from appending a redundant brand suffix.
+  title: { absolute: "FaunaHub — Pet Care, Animal Facts & Wildlife Intelligence" },
   description:
     "Practical pet care guides, animal facts, wildlife explainers, and simple decision tools for responsible pet owners and curious readers.",
   alternates: { canonical: "https://faunahub.com" },

@@ -213,7 +213,7 @@ export default function LionPage() {
               </div>
             </article>
 
-            <aside className="space-y-6 lg:sticky lg:top-6 self-start">
+            <aside aria-label="Lion profile sidebar" className="space-y-6 lg:sticky lg:top-6 self-start">
               <div className="bg-white border border-[#E4E8ED] rounded-xl overflow-hidden">
                 <div className="bg-[#f0faf4] px-5 py-3 border-b border-[#E4E8ED]">
                   <p className="text-sm font-semibold text-[#2A7A4B] uppercase tracking-wider">

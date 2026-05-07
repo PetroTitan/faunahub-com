@@ -1,5 +1,6 @@
 const SITE_URL = "https://faunahub.com";
 const SITE_NAME = "FaunaHub";
+const LOGO_URL = `${SITE_URL}/logo.svg`;
 
 export function websiteSchema() {
   return {
@@ -9,14 +10,8 @@ export function websiteSchema() {
     url: SITE_URL,
     description:
       "Practical pet care guides, animal facts, wildlife explainers, and simple decision tools for responsible pet owners and curious readers.",
-    potentialAction: {
-      "@type": "SearchAction",
-      target: {
-        "@type": "EntryPoint",
-        urlTemplate: `${SITE_URL}/search?q={search_term_string}`,
-      },
-      "query-input": "required name=search_term_string",
-    },
+    // SearchAction intentionally omitted: no on-site search route exists yet.
+    // Re-add once /search is implemented.
   };
 }
 
@@ -26,8 +21,12 @@ export function organizationSchema() {
     "@type": "Organization",
     name: SITE_NAME,
     url: SITE_URL,
-    logo: `${SITE_URL}/logo.png`,
-    sameAs: [],
+    logo: {
+      "@type": "ImageObject",
+      url: LOGO_URL,
+      width: 240,
+      height: 60,
+    },
     contactPoint: {
       "@type": "ContactPoint",
       email: "info@helperg.com",
@@ -81,7 +80,12 @@ export function articleSchema({
       "@type": "Organization",
       name: SITE_NAME,
       url: SITE_URL,
-      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.png` },
+      logo: {
+        "@type": "ImageObject",
+        url: LOGO_URL,
+        width: 240,
+        height: 60,
+      },
     },
   };
 }

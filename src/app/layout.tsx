@@ -34,7 +34,7 @@ export const metadata: Metadata = {
       "Practical pet care guides, animal facts, wildlife explainers, and simple decision tools for responsible pet owners and curious readers.",
     images: [
       {
-        url: "https://faunahub.com/og-default.png",
+        url: "https://faunahub.com/og-default.svg",
         width: 1200,
         height: 630,
         alt: "FaunaHub",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     title: "FaunaHub — Pet Care, Animal Facts & Wildlife Intelligence",
     description:
       "Practical pet care guides, animal facts, wildlife explainers, and simple decision tools.",
-    images: ["https://faunahub.com/og-default.png"],
+    images: ["https://faunahub.com/og-default.svg"],
   },
   robots: {
     index: true,

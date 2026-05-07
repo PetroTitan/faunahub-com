@@ -19,16 +19,19 @@ export function buildMetadata({
   noindex?: boolean;
 }): Metadata {
   const url = `${SITE_URL}${path}`;
-  const image = ogImage ?? `${SITE_URL}/og-default.png`;
+  const image = ogImage ?? `${SITE_URL}/og-default.svg`;
+  const fullTitle = `${title} | ${SITE_NAME}`;
 
   return {
-    title: `${title} | ${SITE_NAME}`,
+    // `absolute` bypasses the title.template defined in the root layout,
+    // preventing the brand suffix from being applied twice.
+    title: { absolute: fullTitle },
     description,
     alternates: {
       canonical: url,
     },
     openGraph: {
-      title: `${title} | ${SITE_NAME}`,
+      title: fullTitle,
       description,
       url,
       siteName: SITE_NAME,
@@ -37,7 +40,7 @@ export function buildMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${title} | ${SITE_NAME}`,
+      title: fullTitle,
       description,
       images: [image],
     },
@@ -63,8 +66,7 @@ export function buildArticleMetadata({
   ogImage?: string;
 }): Metadata {
   const base = buildMetadata({ title, description, path, ogImage });
-  const url = `${SITE_URL}${path}`;
-  const image = ogImage ?? `${SITE_URL}/og-default.png`;
+  const image = ogImage ?? `${SITE_URL}/og-default.svg`;
 
   return {
     ...base,

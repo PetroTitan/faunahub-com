@@ -13,7 +13,8 @@ export const metadata: Metadata = buildArticleMetadata({
   description:
     "Wolf vs Dog: how they differ in behavior, anatomy, social structure, and domestication history. Clear facts about Canis lupus and Canis lupus familiaris.",
   path: "/compare/wolf-vs-dog",
-  datePublished: "2025-05-07",
+  publishedTime: "2025-05-07",
+  modifiedTime: "2025-05-07",
 });
 
 const tableRows = [
@@ -159,7 +160,7 @@ export default function WolfVsDogPage() {
               </div>
             </article>
 
-            <aside className="space-y-5 lg:pt-14">
+            <aside aria-label="Comparison sidebar" className="space-y-5 lg:pt-14">
               <RelatedLinks
                 title="Related Pages"
                 links={[

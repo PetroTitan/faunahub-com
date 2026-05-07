@@ -13,7 +13,8 @@ export const metadata: Metadata = buildArticleMetadata({
   description:
     "Lion vs Tiger: direct comparison of size, weight, habitat, social behavior, and conservation status. Clear facts, no speculation.",
   path: "/compare/lion-vs-tiger",
-  datePublished: "2025-05-07",
+  publishedTime: "2025-05-07",
+  modifiedTime: "2025-05-07",
 });
 
 const tableRows = [
@@ -152,7 +153,7 @@ export default function LionVsTigerPage() {
             </article>
 
             {/* Sidebar */}
-            <aside className="space-y-5 lg:pt-14">
+            <aside aria-label="Comparison sidebar" className="space-y-5 lg:pt-14">
               <RelatedLinks
                 title="Related Pages"
                 links={[

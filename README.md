@@ -40,7 +40,28 @@ npm run lint
 
 # Build for production
 npm run build
+
+# Run production build locally
+npm run start
 ```
+
+After cloning, run `npm install` first. Next.js will auto-generate `next-env.d.ts` on the first `dev`/`build`. Until then, IDEs may show transient `Cannot find module 'next'` errors — these resolve as soon as dependencies are installed.
+
+---
+
+## Deployment Notes (Vercel — for future setup)
+
+This project is a stock Next.js 15 App Router app and ships with sane defaults for Vercel:
+
+- No environment variables are required for the foundation build
+- `app/sitemap.ts` and `app/robots.ts` produce `/sitemap.xml` and `/robots.txt`
+- All routes are static-renderable by default (no dynamic data sources yet)
+- When connecting to Vercel:
+  1. Import the GitHub repo
+  2. Framework preset: **Next.js**
+  3. Build command: `next build` (default)
+  4. Output: `.next` (default)
+  5. No env vars needed for the initial deploy
 
 ---
 
