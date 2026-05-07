@@ -1,0 +1,140 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import HubGrid from "@/components/HubGrid";
+import RelatedLinks from "@/components/RelatedLinks";
+import { buildMetadata } from "@/lib/metadata";
+import { breadcrumbSchema, itemListSchema } from "@/lib/schema";
+
+export const metadata: Metadata = buildMetadata({
+  title: "Cat Care Guides — Breeds, Health, Food & More",
+  description:
+    "Complete cat care resources covering breed guides, health advice, nutrition, behavior, and cost planning for responsible cat owners.",
+  path: "/cats",
+});
+
+const sections = [
+  {
+    title: "Cat Breeds",
+    description: "Profiles of popular and rare cat breeds — coat type, temperament, size, and care needs.",
+    href: "/cats/breeds",
+    icon: "🐈",
+  },
+  {
+    title: "Cat Health",
+    description: "Common feline health conditions, preventive care, and when to call a veterinarian.",
+    href: "/cats/health",
+    icon: "🩺",
+  },
+  {
+    title: "Cat Food & Nutrition",
+    description: "Dietary requirements for cats, feeding schedules, and foods that are harmful to cats.",
+    href: "/cats/food",
+    icon: "🐟",
+  },
+  {
+    title: "Cat Behavior",
+    description: "Understanding feline body language, territorial behavior, and enrichment needs.",
+    href: "/cats/behavior",
+    icon: "🧠",
+  },
+  {
+    title: "Cost of Owning a Cat",
+    description: "Realistic monthly and annual cost estimates for cat ownership.",
+    href: "/cats/costs",
+    icon: "💰",
+  },
+  {
+    title: "Cat Insurance",
+    description: "Pet insurance options for cats, what is typically covered, and how to choose.",
+    href: "/cats/insurance",
+    icon: "📋",
+  },
+];
+
+export default function CatsPage() {
+  const breadcrumb = breadcrumbSchema([
+    { name: "Home", url: "https://faunahub.com" },
+    { name: "Cats", url: "https://faunahub.com/cats" },
+  ]);
+
+  const itemList = itemListSchema(
+    sections.map((s, i) => ({
+      name: s.title,
+      url: `https://faunahub.com${s.href}`,
+      position: i + 1,
+    }))
+  );
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumb, itemList]) }}
+      />
+
+      <main id="main-content">
+        <header className="bg-white border-b border-[#E4E8ED] py-12 sm:py-16">
+          <div className="container-content">
+            <nav aria-label="Breadcrumb" className="text-sm text-[#9CA5AF] mb-4 flex gap-2">
+              <Link href="/" className="hover:text-[#2A7A4B] hover:no-underline">Home</Link>
+              <span aria-hidden="true">/</span>
+              <span className="text-[#1C2B3A] font-medium" aria-current="page">Cats</span>
+            </nav>
+            <div className="max-w-2xl">
+              <span className="tag mb-4 inline-block">Pet Care</span>
+              <h1 className="text-3xl sm:text-4xl font-bold text-[#1C2B3A] mb-4">
+                Cat Care Guides
+              </h1>
+              <p className="text-base sm:text-lg text-[#3E4F60] leading-relaxed">
+                Practical, trustworthy cat care information — from choosing a breed to daily nutrition,
+                health monitoring, and understanding feline behavior.
+              </p>
+            </div>
+          </div>
+        </header>
+
+        <div className="container-content py-10">
+          <HubGrid
+            title="Explore Cat Topics"
+            subtitle="Select a section to find guides and information for cat owners."
+            items={sections}
+            columns={3}
+          />
+
+          <section className="prose-content mt-10 max-w-3xl" aria-label="Introduction">
+            <h2>Understanding Your Cat</h2>
+            <p>
+              Cats are obligate carnivores with specific nutritional, behavioral, and environmental needs
+              that differ significantly from dogs. Understanding feline biology is essential for providing
+              appropriate care.
+            </p>
+            <p>
+              Cats communicate primarily through body language, scent, and vocalizations. A cat that is
+              hiding, refusing food, or showing changes in litter box habits may be signaling a health
+              issue that warrants veterinary attention.
+            </p>
+            <h2>Cat Health Safety Note</h2>
+            <p>
+              Many substances that are safe for humans or dogs are toxic to cats, including certain
+              common plants, essential oils, and over-the-counter medications. Always verify with a
+              licensed veterinarian before introducing new foods, supplements, or products into your
+              cat&apos;s environment.
+            </p>
+          </section>
+
+          <div className="mt-10">
+            <RelatedLinks
+              title="Also Explore"
+              links={[
+                { label: "Dog Care Guides", href: "/dogs", description: "Comparable guides for dog owners" },
+                { label: "Pet Cost Calculator", href: "/tools/pet-cost-calculator", description: "Estimate cat ownership costs" },
+                { label: "Cat Age Calculator", href: "/tools/cat-age-calculator", description: "Convert your cat's age to human years" },
+                { label: "Animal Encyclopedia", href: "/animal-encyclopedia", description: "Wildlife profiles and animal facts" },
+              ]}
+            />
+          </div>
+        </div>
+      </main>
+    </>
+  );
+}
