@@ -42,16 +42,6 @@ const faqItems = [
   },
 ];
 
-const classificationRows = [
-  { attribute: "Kingdom", a: "Animalia", b: "" },
-  { attribute: "Phylum", a: "Chordata", b: "" },
-  { attribute: "Class", a: "Mammalia", b: "" },
-  { attribute: "Order", a: "Carnivora", b: "" },
-  { attribute: "Family", a: "Felidae", b: "" },
-  { attribute: "Genus", a: "Panthera", b: "" },
-  { attribute: "Species", a: "P. leo", b: "" },
-];
-
 export default function LionPage() {
   const schemas = [
     breadcrumbSchema([
