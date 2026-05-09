@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60" role="img" aria-label="FaunaHub logo">
-  <rect width="240" height="60" fill="#FAFAF8"/>
-  <g transform="translate(16, 14)">
-    <path d="M16 0 L32 16 L16 32 L0 16 Z" fill="#2A7A4B"/>
-    <path d="M16 6 L26 16 L16 26 L6 16 Z" fill="#3A9960"/>
-  </g>
-  <text x="64" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="700" fill="#1C2B3A" letter-spacing="-0.5">FaunaHub</text>
-</svg>

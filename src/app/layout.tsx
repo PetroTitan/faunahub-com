@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
+import WebmasterIdTracker from "@/components/WebmasterIdTracker";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://faunahub.com"),
@@ -34,10 +35,10 @@ export const metadata: Metadata = {
       "Practical pet care guides, animal facts, wildlife explainers, and simple decision tools for responsible pet owners and curious readers.",
     images: [
       {
-        url: "https://faunahub.com/og-default.svg",
-        width: 1200,
-        height: 630,
-        alt: "FaunaHub",
+        url: "https://faunahub.com/brand/faunahub-logo-horizontal.png",
+        width: 1600,
+        height: 900,
+        alt: "FaunaHub — Pet Care, Animal Facts & Wildlife Intelligence",
       },
     ],
   },
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
     title: "FaunaHub — Pet Care, Animal Facts & Wildlife Intelligence",
     description:
       "Practical pet care guides, animal facts, wildlife explainers, and simple decision tools.",
-    images: ["https://faunahub.com/og-default.svg"],
+    images: ["https://faunahub.com/brand/faunahub-logo-horizontal.png"],
   },
   robots: {
     index: true,
@@ -75,6 +76,7 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <SiteFooter />
+        <WebmasterIdTracker />
       </body>
     </html>
   );

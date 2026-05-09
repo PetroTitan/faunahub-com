@@ -5,7 +5,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 import LastUpdated from "@/components/LastUpdated";
 
 export const metadata: Metadata = buildMetadata({
-  title: "About FaunaHub — Independent Animal Knowledge Platform",
+  title: "About — Independent Animal Knowledge Platform",
   description:
     "FaunaHub is an independent educational platform covering pet care, wildlife profiles, animal facts, comparisons, and tools for pet owners and curious readers.",
   path: "/about",
@@ -24,16 +24,16 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
       <main id="main-content">
-        <header className="bg-white border-b border-[#E4E8ED] py-12 sm:py-16">
+        <header className="bg-white border-b border-[#DDE6DD] py-12 sm:py-16">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#9CA5AF] mb-4 flex gap-2">
-              <Link href="/" className="hover:text-[#2A7A4B] hover:no-underline">Home</Link>
+            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
+              <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
               <span>/</span>
-              <span className="text-[#1C2B3A] font-medium" aria-current="page">About</span>
+              <span className="text-[#17211B] font-medium" aria-current="page">About</span>
             </nav>
             <div className="max-w-2xl">
-              <h1 className="text-3xl sm:text-4xl font-bold text-[#1C2B3A] mb-4">About FaunaHub</h1>
-              <p className="text-base sm:text-lg text-[#3E4F60] leading-relaxed">
+              <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-4">About FaunaHub</h1>
+              <p className="text-base sm:text-lg text-[#2C3A2F] leading-relaxed">
                 An independent animal knowledge platform built for responsible pet owners and curious readers.
               </p>
             </div>

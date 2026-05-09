@@ -37,18 +37,18 @@ export default function FishPage() {
       />
 
       <main id="main-content">
-        <header className="bg-white border-b border-[#E4E8ED] py-10 sm:py-14">
+        <header className="bg-white border-b border-[#DDE6DD] py-10 sm:py-14">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#9CA5AF] mb-4 flex gap-2">
-              <Link href="/" className="hover:text-[#2A7A4B] hover:no-underline">Home</Link>
+            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
+              <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
               <span aria-hidden="true">/</span>
-              <span className="text-[#1C2B3A] font-medium" aria-current="page">Fish</span>
+              <span className="text-[#17211B] font-medium" aria-current="page">Fish</span>
             </nav>
             <span className="tag mb-3 inline-block">Pet Care</span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#1C2B3A] mb-3">
+            <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">
               Pet Fish &amp; Aquarium Guides
             </h1>
-            <p className="text-base text-[#3E4F60] leading-relaxed max-w-2xl">
+            <p className="text-base text-[#2C3A2F] leading-relaxed max-w-2xl">
               Fishkeeping rewards patience and attention to water chemistry — understanding nitrogen
               cycling, appropriate tank size, and species compatibility is the foundation of a
               healthy aquarium. Whether you are setting up your first 20-litre tank or managing a
@@ -72,18 +72,18 @@ export default function FishPage() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="card p-5 hover:shadow-md hover:border-[#c6e8d4] transition-all group hover:no-underline"
+                  className="card p-5 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
                 >
-                  <h3 className="text-sm font-semibold text-[#1C2B3A] group-hover:text-[#2A7A4B] transition-colors mb-1">
+                  <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
                     {link.label}
                   </h3>
-                  <p className="text-xs text-[#6B7684]">{link.desc}</p>
+                  <p className="text-xs text-[#5E6B63]">{link.desc}</p>
                 </Link>
               ))}
             </div>
           </section>
 
-          <p className="mt-8 text-sm text-[#6B7684]">
+          <p className="mt-8 text-sm text-[#5E6B63]">
             Aquarium setup guides and fish species profiles are in development.
           </p>
         </div>

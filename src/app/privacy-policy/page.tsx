@@ -5,7 +5,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 import LastUpdated from "@/components/LastUpdated";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Privacy Policy — FaunaHub",
+  title: "Privacy Policy",
   description:
     "FaunaHub privacy policy. What data we collect, how it is used, and your rights as a user.",
   path: "/privacy-policy",
@@ -24,15 +24,15 @@ export default function PrivacyPolicyPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
       <main id="main-content">
-        <header className="bg-white border-b border-[#E4E8ED] py-12">
+        <header className="bg-white border-b border-[#DDE6DD] py-12">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#9CA5AF] mb-4 flex gap-2">
-              <Link href="/" className="hover:text-[#2A7A4B] hover:no-underline">Home</Link>
+            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
+              <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
               <span>/</span>
-              <span className="text-[#1C2B3A] font-medium" aria-current="page">Privacy Policy</span>
+              <span className="text-[#17211B] font-medium" aria-current="page">Privacy Policy</span>
             </nav>
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#1C2B3A] mb-3">Privacy Policy</h1>
-            <p className="text-base text-[#3E4F60]">Effective date: May 7, 2025</p>
+            <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">Privacy Policy</h1>
+            <p className="text-base text-[#2C3A2F]">Effective date: May 7, 2025</p>
           </div>
         </header>
 
@@ -67,12 +67,29 @@ export default function PrivacyPolicyPage() {
             may be used on this Site.
           </p>
 
-          <h3>Analytics</h3>
+          <h3>Analytics — WebmasterID</h3>
           <p>
-            We may implement privacy-compliant analytics tools in the future to understand how visitors
-            use the Site. If and when analytics is implemented, this policy will be updated to describe
-            what data is collected and how it is processed. At this time, we do not claim to be
-            operating active analytics tracking.
+            FaunaHub uses <strong>WebmasterID</strong>, a third-party analytics service, to understand
+            how visitors use the Site. WebmasterID may collect:
+          </p>
+          <ul>
+            <li>Page views and the URLs of pages visited on FaunaHub</li>
+            <li>The referring URL that brought you to the Site</li>
+            <li>General browser and device information (browser family, operating system, screen size)</li>
+            <li>Anonymous interaction events such as link clicks or page-level actions</li>
+            <li>Approximate, non-precise geographic information derived from your IP address</li>
+          </ul>
+          <p>
+            WebmasterID may use cookies, local storage, or similar technologies to recognise a returning
+            visitor in an aggregated way. The collected information is used solely to measure traffic
+            patterns and improve the Site, and is not used by FaunaHub for advertising or sold to
+            third parties.
+          </p>
+          <p>
+            We do <strong>not</strong> currently operate Google Analytics, advertising trackers, or
+            marketing/retargeting pixels. If those are added in the future, this policy will be
+            updated and, where required by applicable law, your consent will be requested before
+            non-essential trackers are loaded.
           </p>
 
           <h2>2. How We Use Information</h2>

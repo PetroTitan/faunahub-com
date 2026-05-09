@@ -27,10 +27,10 @@ export default function SimpleCalculatorLayout({
 
         <div className="max-w-2xl mx-auto">
           <header className="mb-8">
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#1C2B3A] mb-3">
+            <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">
               {title}
             </h1>
-            <p className="text-base sm:text-lg text-[#3E4F60] leading-relaxed">
+            <p className="text-base sm:text-lg text-[#2C3A2F] leading-relaxed">
               {description}
             </p>
           </header>

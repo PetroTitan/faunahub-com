@@ -5,7 +5,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 import LastUpdated from "@/components/LastUpdated";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Cookie Policy — FaunaHub",
+  title: "Cookie Policy",
   description:
     "FaunaHub cookie policy. What cookies may be used on this site, why, and how to manage them.",
   path: "/cookie-policy",
@@ -24,15 +24,15 @@ export default function CookiePolicyPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
       <main id="main-content">
-        <header className="bg-white border-b border-[#E4E8ED] py-12">
+        <header className="bg-white border-b border-[#DDE6DD] py-12">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#9CA5AF] mb-4 flex gap-2">
-              <Link href="/" className="hover:text-[#2A7A4B] hover:no-underline">Home</Link>
+            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
+              <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
               <span>/</span>
-              <span className="text-[#1C2B3A] font-medium" aria-current="page">Cookie Policy</span>
+              <span className="text-[#17211B] font-medium" aria-current="page">Cookie Policy</span>
             </nav>
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#1C2B3A] mb-3">Cookie Policy</h1>
-            <p className="text-base text-[#3E4F60]">Effective date: May 7, 2025</p>
+            <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">Cookie Policy</h1>
+            <p className="text-base text-[#2C3A2F]">Effective date: May 7, 2025</p>
           </div>
         </header>
 
@@ -58,11 +58,27 @@ export default function CookiePolicyPage() {
             for advertising or analytics purposes.
           </p>
 
-          <h3>Analytics Cookies</h3>
+          <h3>Analytics Cookies and Storage — WebmasterID</h3>
           <p>
-            We do not currently operate active analytics cookie tracking. If analytics is implemented
-            in the future, this policy will be updated and, where required by applicable law, we will
-            seek your consent before setting analytics or marketing cookies.
+            FaunaHub uses <strong>WebmasterID</strong> for traffic analytics. WebmasterID may use
+            cookies, browser <code>localStorage</code>, or similar storage technologies to:
+          </p>
+          <ul>
+            <li>Distinguish a returning visitor from a new one in an aggregated, non-identifying way</li>
+            <li>Group page views into a session for traffic analysis</li>
+            <li>Avoid double-counting events from the same browser</li>
+          </ul>
+          <p>
+            WebmasterID is configured for site analytics only. It is not used for advertising,
+            cross-site tracking, or building profiles for third parties.
+          </p>
+          <p>
+            FaunaHub does not currently display a cookie consent banner. Visitors from jurisdictions
+            with strict consent requirements (for example the European Economic Area or the United
+            Kingdom under GDPR/PECR) should be aware that analytics may load by default. We plan to
+            introduce a granular consent banner before scaling traffic in those regions; until then,
+            you can disable cookies and local storage for this Site through your browser settings to
+            opt out of WebmasterID.
           </p>
 
           <h3>Marketing and Advertising Cookies</h3>

@@ -1,6 +1,8 @@
 const SITE_URL = "https://faunahub.com";
 const SITE_NAME = "FaunaHub";
-const LOGO_URL = `${SITE_URL}/logo.svg`;
+const LOGO_URL = `${SITE_URL}/brand/faunahub-logo-horizontal.png`;
+const LOGO_WIDTH = 1600;
+const LOGO_HEIGHT = 900;
 
 export function websiteSchema() {
   return {
@@ -24,8 +26,8 @@ export function organizationSchema() {
     logo: {
       "@type": "ImageObject",
       url: LOGO_URL,
-      width: 240,
-      height: 60,
+      width: LOGO_WIDTH,
+      height: LOGO_HEIGHT,
     },
     contactPoint: {
       "@type": "ContactPoint",

@@ -78,8 +78,8 @@ export default function LionPage() {
           />
           <div className="grid lg:grid-cols-[1fr_300px] gap-10 mt-2">
             <article className="prose-content min-w-0">
-              <h1 className="text-3xl sm:text-4xl font-bold text-[#1C2B3A] mb-2 leading-tight">
-                Lion <span className="italic font-normal text-[#6B7684]">(Panthera leo)</span>
+              <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-2 leading-tight">
+                Lion <span className="italic font-normal text-[#5E6B63]">(Panthera leo)</span>
               </h1>
               <p className="mb-8">
                 <span className="tag">Mammal</span>{" "}
@@ -109,9 +109,9 @@ export default function LionPage() {
               </p>
 
               <h2>Classification</h2>
-              <div className="overflow-x-auto rounded-xl border border-[#E4E8ED] mb-6">
+              <div className="overflow-x-auto rounded-xl border border-[#DDE6DD] mb-6">
                 <table>
-                  <caption className="text-xs text-[#9CA5AF] text-left px-4 pt-3 pb-1">
+                  <caption className="text-xs text-[#8A958E] text-left px-4 pt-3 pb-1">
                     Taxonomic classification of Panthera leo
                   </caption>
                   <tbody>
@@ -124,8 +124,8 @@ export default function LionPage() {
                       ["Genus", "Panthera"],
                       ["Species", "P. leo"],
                     ].map(([rank, taxon], i) => (
-                      <tr key={rank} className={i % 2 === 0 ? "bg-white" : "bg-[#FAFAF8]"}>
-                        <td className="font-medium text-[#1C2B3A] w-1/3">{rank}</td>
+                      <tr key={rank} className={i % 2 === 0 ? "bg-white" : "bg-[#F7F8F3]"}>
+                        <td className="font-medium text-[#17211B] w-1/3">{rank}</td>
                         <td className="italic">{taxon}</td>
                       </tr>
                     ))}
@@ -214,13 +214,13 @@ export default function LionPage() {
             </article>
 
             <aside aria-label="Lion profile sidebar" className="space-y-6 lg:sticky lg:top-6 self-start">
-              <div className="bg-white border border-[#E4E8ED] rounded-xl overflow-hidden">
-                <div className="bg-[#f0faf4] px-5 py-3 border-b border-[#E4E8ED]">
-                  <p className="text-sm font-semibold text-[#2A7A4B] uppercase tracking-wider">
+              <div className="bg-white border border-[#DDE6DD] rounded-xl overflow-hidden">
+                <div className="bg-[#EFF4E0] px-5 py-3 border-b border-[#DDE6DD]">
+                  <p className="text-sm font-semibold text-[#063F2A] uppercase tracking-wider">
                     Quick Facts
                   </p>
                 </div>
-                <dl className="divide-y divide-[#EEF1F4] text-sm">
+                <dl className="divide-y divide-[#EAF0EA] text-sm">
                   {[
                     ["Scientific name", "Panthera leo"],
                     ["Family", "Felidae"],
@@ -234,10 +234,10 @@ export default function LionPage() {
                     ["IUCN Status", "Vulnerable (verify before publication)"],
                   ].map(([label, value]) => (
                     <div key={label} className="px-5 py-3 flex flex-col gap-0.5">
-                      <dt className="text-[#9CA5AF] text-xs uppercase tracking-wide font-medium">
+                      <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">
                         {label}
                       </dt>
-                      <dd className="text-[#1C2B3A] font-medium">{value}</dd>
+                      <dd className="text-[#17211B] font-medium">{value}</dd>
                     </div>
                   ))}
                 </dl>

@@ -74,19 +74,19 @@ export default function DogsPage() {
 
       <main id="main-content">
         {/* Page header */}
-        <header className="bg-white border-b border-[#E4E8ED] py-12 sm:py-16">
+        <header className="bg-white border-b border-[#DDE6DD] py-12 sm:py-16">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#9CA5AF] mb-4 flex gap-2">
-              <Link href="/" className="hover:text-[#2A7A4B] hover:no-underline">Home</Link>
+            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
+              <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
               <span aria-hidden="true">/</span>
-              <span className="text-[#1C2B3A] font-medium" aria-current="page">Dogs</span>
+              <span className="text-[#17211B] font-medium" aria-current="page">Dogs</span>
             </nav>
             <div className="max-w-2xl">
               <span className="tag mb-4 inline-block">Pet Care</span>
-              <h1 className="text-3xl sm:text-4xl font-bold text-[#1C2B3A] mb-4">
+              <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-4">
                 Dog Care Guides
               </h1>
-              <p className="text-base sm:text-lg text-[#3E4F60] leading-relaxed">
+              <p className="text-base sm:text-lg text-[#2C3A2F] leading-relaxed">
                 From choosing the right breed to understanding health signs and managing daily care —
                 practical, trustworthy guides for dog owners at every stage.
               </p>

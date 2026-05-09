@@ -12,9 +12,9 @@ export default function SourceNote({ sources, pending = false }: SourceNoteProps
       <aside
         role="note"
         aria-label="Source status"
-        className="border border-[#E4E8ED] rounded-xl p-4 bg-[#f4f4f1] text-sm text-[#6B7684]"
+        className="border border-[#DDE6DD] rounded-xl p-4 bg-[#EFF1EB] text-sm text-[#5E6B63]"
       >
-        <p className="font-medium text-[#3E4F60] mb-1">Sources</p>
+        <p className="font-medium text-[#2C3A2F] mb-1">Sources</p>
         <p>{PENDING_NOTE}</p>
       </aside>
     );
@@ -24,12 +24,12 @@ export default function SourceNote({ sources, pending = false }: SourceNoteProps
     <aside
       role="note"
       aria-label="Sources"
-      className="border border-[#E4E8ED] rounded-xl p-4 bg-[#f4f4f1] text-sm text-[#6B7684]"
+      className="border border-[#DDE6DD] rounded-xl p-4 bg-[#EFF1EB] text-sm text-[#5E6B63]"
     >
-      <p className="font-medium text-[#3E4F60] mb-2">Sources</p>
+      <p className="font-medium text-[#2C3A2F] mb-2">Sources</p>
       <ul className="space-y-1 list-none">
         {sources.map((source, i) => (
-          <li key={i} className="text-sm text-[#6B7684]">
+          <li key={i} className="text-sm text-[#5E6B63]">
             {source}
           </li>
         ))}

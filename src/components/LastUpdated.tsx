@@ -4,7 +4,7 @@ interface LastUpdatedProps {
 
 export default function LastUpdated({ date }: LastUpdatedProps) {
   return (
-    <p className="text-xs text-[#9CA5AF] flex items-center gap-1.5">
+    <p className="text-xs text-[#8A958E] flex items-center gap-1.5">
       <span aria-hidden="true">🗓</span>
       <span>
         Last updated:{" "}

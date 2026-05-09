@@ -26,20 +26,20 @@ export default function CatHealthPage() {
       />
 
       <main id="main-content">
-        <header className="bg-white border-b border-[#E4E8ED] py-10 sm:py-14">
+        <header className="bg-white border-b border-[#DDE6DD] py-10 sm:py-14">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#9CA5AF] mb-4 flex gap-2">
-              <Link href="/" className="hover:text-[#2A7A4B] hover:no-underline">Home</Link>
+            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
+              <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
               <span aria-hidden="true">/</span>
-              <Link href="/cats" className="hover:text-[#2A7A4B] hover:no-underline">Cats</Link>
+              <Link href="/cats" className="hover:text-[#063F2A] hover:no-underline">Cats</Link>
               <span aria-hidden="true">/</span>
-              <span className="text-[#1C2B3A] font-medium" aria-current="page">Health</span>
+              <span className="text-[#17211B] font-medium" aria-current="page">Health</span>
             </nav>
             <span className="tag mb-3 inline-block">Cats</span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#1C2B3A] mb-3">
+            <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">
               Cat Health Guides
             </h1>
-            <p className="text-base text-[#3E4F60] leading-relaxed max-w-2xl">
+            <p className="text-base text-[#2C3A2F] leading-relaxed max-w-2xl">
               Cats are adept at masking illness, which means health problems are often not apparent
               until they have become significant — making regular veterinary check-ups and owner
               awareness of subtle behavioral changes essential parts of feline care.
@@ -71,14 +71,14 @@ export default function CatHealthPage() {
             </p>
           </section>
 
-          <p className="mt-8 text-sm text-[#6B7684]">
+          <p className="mt-8 text-sm text-[#5E6B63]">
             Individual condition guides are in development.
           </p>
 
           <div className="mt-8">
             <Link
               href="/cats"
-              className="text-sm font-medium text-[#2A7A4B] hover:underline"
+              className="text-sm font-medium text-[#063F2A] hover:underline"
             >
               &larr; Back to Cat Care Guides
             </Link>

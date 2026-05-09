@@ -5,7 +5,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 import LastUpdated from "@/components/LastUpdated";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Editorial Policy — How FaunaHub Creates and Reviews Content",
+  title: "Editorial Policy — How We Create and Review Content",
   description:
     "FaunaHub's editorial standards: no fake facts, no fabricated citations, no unsafe health advice. How we source, write, and update animal and pet care content.",
   path: "/editorial-policy",
@@ -24,15 +24,15 @@ export default function EditorialPolicyPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
       <main id="main-content">
-        <header className="bg-white border-b border-[#E4E8ED] py-12">
+        <header className="bg-white border-b border-[#DDE6DD] py-12">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#9CA5AF] mb-4 flex gap-2">
-              <Link href="/" className="hover:text-[#2A7A4B] hover:no-underline">Home</Link>
+            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
+              <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
               <span>/</span>
-              <span className="text-[#1C2B3A] font-medium" aria-current="page">Editorial Policy</span>
+              <span className="text-[#17211B] font-medium" aria-current="page">Editorial Policy</span>
             </nav>
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#1C2B3A] mb-3">Editorial Policy</h1>
-            <p className="text-base text-[#3E4F60]">How FaunaHub creates, reviews, and updates content.</p>
+            <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">Editorial Policy</h1>
+            <p className="text-base text-[#2C3A2F]">How FaunaHub creates, reviews, and updates content.</p>
           </div>
         </header>
 

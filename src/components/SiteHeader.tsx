@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const navItems = [
   { label: "Dogs", href: "/dogs" },
@@ -10,19 +11,33 @@ const navItems = [
 
 export default function SiteHeader() {
   return (
-    <header className="bg-white border-b border-[#E4E8ED] sticky top-0 z-50">
+    <header className="bg-white border-b border-[#DDE6DD] sticky top-0 z-50">
       <div className="container-content">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 font-bold text-xl text-[#1C2B3A] hover:no-underline hover:text-[#2A7A4B] transition-colors"
+            className="flex items-center hover:no-underline"
             aria-label="FaunaHub — home"
           >
-            <span className="text-[#2A7A4B]" aria-hidden="true">
-              ◆
-            </span>
-            FaunaHub
+            {/* Compact mark for the smallest screens */}
+            <Image
+              src="/brand/faunahub-logo-mark.png"
+              alt="FaunaHub"
+              width={500}
+              height={500}
+              priority
+              className="h-9 w-9 sm:hidden"
+            />
+            {/* Full horizontal logo for sm and up */}
+            <Image
+              src="/brand/faunahub-logo-horizontal.png"
+              alt="FaunaHub — Pet Care, Animal Facts & Wildlife Intelligence"
+              width={1600}
+              height={900}
+              priority
+              className="hidden sm:block h-10 w-auto"
+            />
           </Link>
 
           {/* Desktop nav */}
@@ -34,54 +49,29 @@ export default function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="px-3 py-2 rounded-md text-sm font-medium text-[#3E4F60] hover:text-[#2A7A4B] hover:bg-[#f0faf4] transition-colors hover:no-underline"
+                className="px-3 py-2 rounded-md text-sm font-medium text-[#2C3A2F] hover:text-[#063F2A] hover:bg-[#EFF4E0] transition-colors hover:no-underline"
               >
                 {item.label}
               </Link>
             ))}
           </nav>
 
-          {/* Mobile nav toggle — functional via CSS checkbox hack for zero-JS */}
-          <label
-            htmlFor="mobile-menu-toggle"
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-md text-[#3E4F60] hover:bg-[#f4f4f1] cursor-pointer"
-            aria-label="Open navigation menu"
+          {/* Compact nav for small screens — collapses to first three sections */}
+          <nav
+            aria-label="Compact navigation"
+            className="md:hidden flex items-center gap-0.5 -mr-2"
           >
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                fillRule="evenodd"
-                d="M3 5h14a1 1 0 010 2H3a1 1 0 010-2zm0 4h14a1 1 0 010 2H3a1 1 0 010-2zm0 4h14a1 1 0 010 2H3a1 1 0 010-2z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </label>
-        </div>
-
-        {/* Mobile nav — requires JS toggle in production; here as accessible fallback */}
-        <nav
-          aria-label="Mobile navigation"
-          className="md:hidden border-t border-[#E4E8ED] py-3 hidden"
-          id="mobile-nav"
-        >
-          <ul className="space-y-1">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="block px-3 py-2 rounded-md text-sm font-medium text-[#3E4F60] hover:text-[#2A7A4B] hover:bg-[#f0faf4] hover:no-underline"
-                >
-                  {item.label}
-                </Link>
-              </li>
+            {navItems.slice(0, 3).map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="px-2 py-2 rounded-md text-xs font-medium text-[#2C3A2F] hover:text-[#063F2A] hover:no-underline"
+              >
+                {item.label}
+              </Link>
             ))}
-          </ul>
-        </nav>
+          </nav>
+        </div>
       </div>
     </header>
   );

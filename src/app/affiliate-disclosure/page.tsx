@@ -5,7 +5,7 @@ import { breadcrumbSchema } from "@/lib/schema";
 import LastUpdated from "@/components/LastUpdated";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Affiliate Disclosure — FaunaHub",
+  title: "Affiliate Disclosure",
   description:
     "FaunaHub affiliate disclosure. How affiliate links work on this site, what it means for you, and our commitment to editorial independence.",
   path: "/affiliate-disclosure",
@@ -24,15 +24,15 @@ export default function AffiliateDisclosurePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
       <main id="main-content">
-        <header className="bg-white border-b border-[#E4E8ED] py-12">
+        <header className="bg-white border-b border-[#DDE6DD] py-12">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#9CA5AF] mb-4 flex gap-2">
-              <Link href="/" className="hover:text-[#2A7A4B] hover:no-underline">Home</Link>
+            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
+              <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
               <span>/</span>
-              <span className="text-[#1C2B3A] font-medium" aria-current="page">Affiliate Disclosure</span>
+              <span className="text-[#17211B] font-medium" aria-current="page">Affiliate Disclosure</span>
             </nav>
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#1C2B3A] mb-3">Affiliate Disclosure</h1>
-            <p className="text-base text-[#3E4F60]">Effective date: May 7, 2025</p>
+            <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">Affiliate Disclosure</h1>
+            <p className="text-base text-[#2C3A2F]">Effective date: May 7, 2025</p>
           </div>
         </header>
 

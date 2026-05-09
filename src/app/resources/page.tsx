@@ -69,18 +69,18 @@ export default function ResourcesPage() {
       />
 
       <main id="main-content">
-        <header className="bg-white border-b border-[#E4E8ED] py-10 sm:py-14">
+        <header className="bg-white border-b border-[#DDE6DD] py-10 sm:py-14">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#9CA5AF] mb-4 flex gap-2">
-              <Link href="/" className="hover:text-[#2A7A4B] hover:no-underline">Home</Link>
+            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
+              <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
               <span aria-hidden="true">/</span>
-              <span className="text-[#1C2B3A] font-medium" aria-current="page">Resources</span>
+              <span className="text-[#17211B] font-medium" aria-current="page">Resources</span>
             </nav>
             <span className="tag mb-3 inline-block">References</span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#1C2B3A] mb-3">
+            <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">
               Resources
             </h1>
-            <p className="text-base text-[#3E4F60] leading-relaxed max-w-2xl">
+            <p className="text-base text-[#2C3A2F] leading-relaxed max-w-2xl">
               This page links to authoritative external organizations whose published research,
               guidelines, and databases inform responsible pet ownership and wildlife education.
               These are the primary sources FaunaHub editorial refers to when verifying facts and
@@ -103,14 +103,14 @@ export default function ResourcesPage() {
                   key={resource.domain}
                   className="card p-5"
                 >
-                  <h3 className="text-sm font-semibold text-[#1C2B3A] mb-1">{resource.name}</h3>
-                  <p className="text-xs text-[#2A7A4B] mb-2">{resource.domain}</p>
-                  <p className="text-sm text-[#3E4F60] leading-relaxed">{resource.description}</p>
+                  <h3 className="text-sm font-semibold text-[#17211B] mb-1">{resource.name}</h3>
+                  <p className="text-xs text-[#063F2A] mb-2">{resource.domain}</p>
+                  <p className="text-sm text-[#2C3A2F] leading-relaxed">{resource.description}</p>
                 </li>
               ))}
             </ul>
 
-            <p className="mt-8 text-sm text-[#6B7684] max-w-2xl">
+            <p className="mt-8 text-sm text-[#5E6B63] max-w-2xl">
               FaunaHub is not affiliated with any of these organizations. External links are
               provided for informational purposes only. Always verify information directly with the
               source organization.

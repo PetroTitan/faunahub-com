@@ -34,28 +34,28 @@ export default function CatAgeCalculatorClient() {
   return (
     <main id="main-content">
       <div className="container-content py-10">
-        <nav aria-label="Breadcrumb" className="text-sm text-[#9CA5AF] mb-6 flex gap-2 items-center flex-wrap">
-          <Link href="/" className="hover:text-[#2A7A4B] hover:no-underline">Home</Link>
+        <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-6 flex gap-2 items-center flex-wrap">
+          <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
           <span>/</span>
-          <Link href="/tools" className="hover:text-[#2A7A4B] hover:no-underline">Tools</Link>
+          <Link href="/tools" className="hover:text-[#063F2A] hover:no-underline">Tools</Link>
           <span>/</span>
-          <span className="text-[#1C2B3A] font-medium">Cat Age Calculator</span>
+          <span className="text-[#17211B] font-medium">Cat Age Calculator</span>
         </nav>
 
         <div className="max-w-xl mx-auto">
           <header className="mb-8">
             <span className="tag mb-4 inline-block">Free Tool</span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#1C2B3A] mb-3">
+            <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">
               Cat Age Calculator
             </h1>
-            <p className="text-base text-[#3E4F60] leading-relaxed">
+            <p className="text-base text-[#2C3A2F] leading-relaxed">
               Enter your cat&apos;s age to get an approximate human-age equivalent and general life stage.
               This is a rough approximation — actual aging varies by breed, health, and individual factors.
             </p>
           </header>
 
           <div className="card p-6 mb-6">
-            <label htmlFor="cat-age" className="block text-sm font-medium text-[#1C2B3A] mb-1.5">
+            <label htmlFor="cat-age" className="block text-sm font-medium text-[#17211B] mb-1.5">
               Cat&apos;s age (years)
             </label>
             <input
@@ -67,34 +67,34 @@ export default function CatAgeCalculatorClient() {
               placeholder="e.g. 4"
               value={catAge}
               onChange={(e) => setCatAge(e.target.value)}
-              className="w-full px-3 py-2.5 border border-[#E4E8ED] rounded-lg text-sm text-[#1C2B3A] focus:outline-none focus:border-[#2A7A4B] focus:ring-1 focus:ring-[#2A7A4B]"
+              className="w-full px-3 py-2.5 border border-[#DDE6DD] rounded-lg text-sm text-[#17211B] focus:outline-none focus:border-[#063F2A] focus:ring-1 focus:ring-[#063F2A]"
             />
-            <p className="text-xs text-[#9CA5AF] mt-1.5">Enter the age in years (e.g. 1, 2.5, 10)</p>
+            <p className="text-xs text-[#8A958E] mt-1.5">Enter the age in years (e.g. 1, 2.5, 10)</p>
           </div>
 
           {humanAge !== null && lifeStage !== null && (
             <div
-              className="bg-[#f0faf4] border border-[#c6e8d4] rounded-xl p-6 mb-6 text-center"
+              className="bg-[#EFF4E0] border border-[#CFE0A8] rounded-xl p-6 mb-6 text-center"
               aria-live="polite"
               aria-label="Cat age result"
             >
-              <p className="text-sm text-[#6B7684] mb-2">
+              <p className="text-sm text-[#5E6B63] mb-2">
                 Approximate human-age equivalent
               </p>
-              <p className="text-5xl font-bold text-[#2A7A4B] mb-2">
+              <p className="text-5xl font-bold text-[#063F2A] mb-2">
                 {humanAge}
-                <span className="text-2xl font-normal ml-1 text-[#3A9960]">years</span>
+                <span className="text-2xl font-normal ml-1 text-[#7BAA35]">years</span>
               </p>
-              <div className="mt-3 inline-flex items-center gap-2 px-4 py-1.5 bg-white rounded-full border border-[#c6e8d4]">
-                <span className="text-xs text-[#6B7684]">Life stage:</span>
-                <span className="text-sm font-semibold text-[#2A7A4B]">{lifeStage}</span>
+              <div className="mt-3 inline-flex items-center gap-2 px-4 py-1.5 bg-white rounded-full border border-[#CFE0A8]">
+                <span className="text-xs text-[#5E6B63]">Life stage:</span>
+                <span className="text-sm font-semibold text-[#063F2A]">{lifeStage}</span>
               </div>
             </div>
           )}
 
           {/* Life stage reference */}
           <section className="card p-5 mb-6" aria-labelledby="stages-heading">
-            <h2 id="stages-heading" className="text-sm font-semibold text-[#1C2B3A] uppercase tracking-wider mb-3">
+            <h2 id="stages-heading" className="text-sm font-semibold text-[#17211B] uppercase tracking-wider mb-3">
               Feline Life Stage Reference
             </h2>
             <div className="space-y-1.5 text-sm">
@@ -107,12 +107,12 @@ export default function CatAgeCalculatorClient() {
                 ["Geriatric", "15+ years"],
               ].map(([stage, range]) => (
                 <div key={stage} className="flex justify-between">
-                  <span className="text-[#3E4F60] font-medium">{stage}</span>
-                  <span className="text-[#9CA5AF]">{range}</span>
+                  <span className="text-[#2C3A2F] font-medium">{stage}</span>
+                  <span className="text-[#8A958E]">{range}</span>
                 </div>
               ))}
             </div>
-            <p className="text-xs text-[#9CA5AF] mt-3">
+            <p className="text-xs text-[#8A958E] mt-3">
               Stage definitions are approximate and based on general feline veterinary guidelines.
               Individual cats vary. Life stage boundaries are used by veterinarians to guide
               preventive care frequency and health monitoring.
@@ -120,7 +120,7 @@ export default function CatAgeCalculatorClient() {
           </section>
 
           <section className="prose-content mb-6">
-            <h2 className="text-xl font-bold text-[#1C2B3A] mb-3">About the Cat Aging Model</h2>
+            <h2 className="text-xl font-bold text-[#17211B] mb-3">About the Cat Aging Model</h2>
             <p>
               Cats develop rapidly in their first two years — reaching a rough equivalent of human
               young adulthood by age two. After that, each cat year is roughly equivalent to around
@@ -140,7 +140,7 @@ export default function CatAgeCalculatorClient() {
             Consult your veterinarian for health-stage guidance specific to your cat.
           </div>
 
-          <p className="text-xs text-[#9CA5AF]">Last updated: May 7, 2025</p>
+          <p className="text-xs text-[#8A958E]">Last updated: May 7, 2025</p>
         </div>
       </div>
     </main>

@@ -72,34 +72,34 @@ export default function LionVsTigerPage() {
       <main id="main-content">
         <div className="container-content py-10">
           {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="text-sm text-[#9CA5AF] mb-6 flex gap-2 items-center flex-wrap">
-            <Link href="/" className="hover:text-[#2A7A4B] hover:no-underline">Home</Link>
+          <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-6 flex gap-2 items-center flex-wrap">
+            <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
             <span aria-hidden="true">/</span>
-            <Link href="/compare" className="hover:text-[#2A7A4B] hover:no-underline">Compare</Link>
+            <Link href="/compare" className="hover:text-[#063F2A] hover:no-underline">Compare</Link>
             <span aria-hidden="true">/</span>
-            <span className="text-[#1C2B3A] font-medium" aria-current="page">Lion vs Tiger</span>
+            <span className="text-[#17211B] font-medium" aria-current="page">Lion vs Tiger</span>
           </nav>
 
           <div className="grid lg:grid-cols-[1fr_280px] gap-10">
             <article>
               <span className="tag mb-4 inline-block">Animal Comparison</span>
-              <h1 className="text-3xl sm:text-4xl font-bold text-[#1C2B3A] mb-6">
+              <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-6">
                 Lion vs Tiger
               </h1>
 
               {/* Quick Answer */}
               <section aria-labelledby="quick-answer-heading">
-                <h2 id="quick-answer-heading" className="text-2xl font-bold text-[#1C2B3A] mt-2 mb-4 pb-2 border-b border-[#E4E8ED]">
+                <h2 id="quick-answer-heading" className="text-2xl font-bold text-[#17211B] mt-2 mb-4 pb-2 border-b border-[#DDE6DD]">
                   Quick Answer
                 </h2>
-                <p className="text-[#3E4F60] text-base leading-relaxed mb-4">
+                <p className="text-[#2C3A2F] text-base leading-relaxed mb-4">
                   Lions and tigers are the two largest wild cat species. The largest tiger subspecies —
                   particularly the Amur (Siberian) tiger — can be heavier than most lions on average,
                   though individual variation is significant. The two species occupy entirely different
                   parts of the world: lions primarily in sub-Saharan Africa, tigers in fragmented
                   habitats across Asia. They do not naturally encounter each other in the wild.
                 </p>
-                <p className="text-[#3E4F60] text-base leading-relaxed mb-4">
+                <p className="text-[#2C3A2F] text-base leading-relaxed mb-4">
                   Questions about &quot;who would win&quot; are not meaningful in biological terms —
                   these animals have never competed in nature, and captive encounters are not a reliable
                   measure of natural behavior or capability.
@@ -108,7 +108,7 @@ export default function LionVsTigerPage() {
 
               {/* Comparison Table */}
               <section aria-labelledby="comparison-table-heading">
-                <h2 id="comparison-table-heading" className="text-2xl font-bold text-[#1C2B3A] mt-10 mb-4 pb-2 border-b border-[#E4E8ED]">
+                <h2 id="comparison-table-heading" className="text-2xl font-bold text-[#17211B] mt-10 mb-4 pb-2 border-b border-[#DDE6DD]">
                   Lion vs Tiger Comparison
                 </h2>
                 <ComparisonTable
@@ -121,28 +121,28 @@ export default function LionVsTigerPage() {
 
               {/* Key Differences */}
               <section aria-labelledby="differences-heading">
-                <h2 id="differences-heading" className="text-2xl font-bold text-[#1C2B3A] mt-10 mb-4 pb-2 border-b border-[#E4E8ED]">
+                <h2 id="differences-heading" className="text-2xl font-bold text-[#17211B] mt-10 mb-4 pb-2 border-b border-[#DDE6DD]">
                   Key Differences
                 </h2>
-                <ul className="space-y-3 text-[#3E4F60] text-base">
-                  <li className="flex gap-2"><span className="text-[#2A7A4B] flex-shrink-0 mt-0.5">●</span><span><strong className="text-[#1C2B3A]">Social structure:</strong> Lions are the only truly social wild cat, living in prides. Tigers are solitary, establishing and defending individual territories.</span></li>
-                  <li className="flex gap-2"><span className="text-[#2A7A4B] flex-shrink-0 mt-0.5">●</span><span><strong className="text-[#1C2B3A]">Habitat:</strong> Lions favor open savannas and grasslands. Tigers are adapted to dense forest, grassland, and mangrove environments across Asia.</span></li>
-                  <li className="flex gap-2"><span className="text-[#2A7A4B] flex-shrink-0 mt-0.5">●</span><span><strong className="text-[#1C2B3A]">Coat:</strong> Lions have a tawny, unmarked coat; males develop a mane. Tigers have distinctive orange-and-black striped coats used as camouflage in forest environments.</span></li>
-                  <li className="flex gap-2"><span className="text-[#2A7A4B] flex-shrink-0 mt-0.5">●</span><span><strong className="text-[#1C2B3A]">Hunting style:</strong> Lions often hunt cooperatively in groups. Tigers are solitary ambush hunters relying on stealth and a powerful short charge.</span></li>
-                  <li className="flex gap-2"><span className="text-[#2A7A4B] flex-shrink-0 mt-0.5">●</span><span><strong className="text-[#1C2B3A]">Conservation threat:</strong> Both species are threatened; tigers are generally considered more critically endangered due to greater habitat fragmentation and smaller global population.</span></li>
+                <ul className="space-y-3 text-[#2C3A2F] text-base">
+                  <li className="flex gap-2"><span className="text-[#063F2A] flex-shrink-0 mt-0.5">●</span><span><strong className="text-[#17211B]">Social structure:</strong> Lions are the only truly social wild cat, living in prides. Tigers are solitary, establishing and defending individual territories.</span></li>
+                  <li className="flex gap-2"><span className="text-[#063F2A] flex-shrink-0 mt-0.5">●</span><span><strong className="text-[#17211B]">Habitat:</strong> Lions favor open savannas and grasslands. Tigers are adapted to dense forest, grassland, and mangrove environments across Asia.</span></li>
+                  <li className="flex gap-2"><span className="text-[#063F2A] flex-shrink-0 mt-0.5">●</span><span><strong className="text-[#17211B]">Coat:</strong> Lions have a tawny, unmarked coat; males develop a mane. Tigers have distinctive orange-and-black striped coats used as camouflage in forest environments.</span></li>
+                  <li className="flex gap-2"><span className="text-[#063F2A] flex-shrink-0 mt-0.5">●</span><span><strong className="text-[#17211B]">Hunting style:</strong> Lions often hunt cooperatively in groups. Tigers are solitary ambush hunters relying on stealth and a powerful short charge.</span></li>
+                  <li className="flex gap-2"><span className="text-[#063F2A] flex-shrink-0 mt-0.5">●</span><span><strong className="text-[#17211B]">Conservation threat:</strong> Both species are threatened; tigers are generally considered more critically endangered due to greater habitat fragmentation and smaller global population.</span></li>
                 </ul>
               </section>
 
               {/* Similarities */}
               <section aria-labelledby="similarities-heading">
-                <h2 id="similarities-heading" className="text-2xl font-bold text-[#1C2B3A] mt-10 mb-4 pb-2 border-b border-[#E4E8ED]">
+                <h2 id="similarities-heading" className="text-2xl font-bold text-[#17211B] mt-10 mb-4 pb-2 border-b border-[#DDE6DD]">
                   Similarities
                 </h2>
-                <ul className="space-y-3 text-[#3E4F60] text-base">
-                  <li className="flex gap-2"><span className="text-[#3B72A8] flex-shrink-0 mt-0.5">●</span><span>Both belong to the genus <em>Panthera</em> and are capable of roaring — a trait shared only by lions, tigers, leopards, and jaguars among wild cats.</span></li>
-                  <li className="flex gap-2"><span className="text-[#3B72A8] flex-shrink-0 mt-0.5">●</span><span>Both are apex predators in their respective ecosystems with no natural predators as adults.</span></li>
-                  <li className="flex gap-2"><span className="text-[#3B72A8] flex-shrink-0 mt-0.5">●</span><span>Both face significant threats from habitat loss, human-wildlife conflict, and poaching.</span></li>
-                  <li className="flex gap-2"><span className="text-[#3B72A8] flex-shrink-0 mt-0.5">●</span><span>Both are keystone species whose presence significantly shapes the ecological balance of their environments.</span></li>
+                <ul className="space-y-3 text-[#2C3A2F] text-base">
+                  <li className="flex gap-2"><span className="text-[#075FA8] flex-shrink-0 mt-0.5">●</span><span>Both belong to the genus <em>Panthera</em> and are capable of roaring — a trait shared only by lions, tigers, leopards, and jaguars among wild cats.</span></li>
+                  <li className="flex gap-2"><span className="text-[#075FA8] flex-shrink-0 mt-0.5">●</span><span>Both are apex predators in their respective ecosystems with no natural predators as adults.</span></li>
+                  <li className="flex gap-2"><span className="text-[#075FA8] flex-shrink-0 mt-0.5">●</span><span>Both face significant threats from habitat loss, human-wildlife conflict, and poaching.</span></li>
+                  <li className="flex gap-2"><span className="text-[#075FA8] flex-shrink-0 mt-0.5">●</span><span>Both are keystone species whose presence significantly shapes the ecological balance of their environments.</span></li>
                 </ul>
               </section>
 

@@ -25,20 +25,20 @@ export default function DogBreedsPage() {
       />
 
       <main id="main-content">
-        <header className="bg-white border-b border-[#E4E8ED] py-10 sm:py-14">
+        <header className="bg-white border-b border-[#DDE6DD] py-10 sm:py-14">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#9CA5AF] mb-4 flex gap-2">
-              <Link href="/" className="hover:text-[#2A7A4B] hover:no-underline">Home</Link>
+            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
+              <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
               <span aria-hidden="true">/</span>
-              <Link href="/dogs" className="hover:text-[#2A7A4B] hover:no-underline">Dogs</Link>
+              <Link href="/dogs" className="hover:text-[#063F2A] hover:no-underline">Dogs</Link>
               <span aria-hidden="true">/</span>
-              <span className="text-[#1C2B3A] font-medium" aria-current="page">Breeds</span>
+              <span className="text-[#17211B] font-medium" aria-current="page">Breeds</span>
             </nav>
             <span className="tag mb-3 inline-block">Dogs</span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#1C2B3A] mb-3">
+            <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">
               Dog Breed Guides
             </h1>
-            <p className="text-base text-[#3E4F60] leading-relaxed max-w-2xl">
+            <p className="text-base text-[#2C3A2F] leading-relaxed max-w-2xl">
               There are over 340 recognized dog breeds worldwide, each developed for specific
               purposes — from herding and guarding to companionship and scent work. Choosing a
               breed that suits your living situation, activity level, and experience with dogs
@@ -65,14 +65,14 @@ export default function DogBreedsPage() {
             </p>
           </section>
 
-          <p className="mt-8 text-sm text-[#6B7684]">
+          <p className="mt-8 text-sm text-[#5E6B63]">
             Individual breed profiles are in development and will be published progressively.
           </p>
 
           <div className="mt-8">
             <Link
               href="/dogs"
-              className="text-sm font-medium text-[#2A7A4B] hover:underline"
+              className="text-sm font-medium text-[#063F2A] hover:underline"
             >
               &larr; Back to Dog Care Guides
             </Link>

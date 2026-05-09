@@ -10,26 +10,25 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          green: "#2A7A4B",
-          "green-light": "#3A9960",
-          "green-dark": "#1E5C38",
-          blue: "#3B72A8",
-          "blue-light": "#4F88C0",
+          "green-dark": "#063F2A",
+          green: "#0F5A3A",
+          leaf: "#7BAA35",
+          blue: "#075FA8",
         },
         surface: {
-          DEFAULT: "#FAFAF8",
+          DEFAULT: "#F7F8F3",
           card: "#FFFFFF",
-          muted: "#F4F4F1",
+          muted: "#EFF1EB",
         },
         ink: {
-          DEFAULT: "#1C2B3A",
-          secondary: "#3E4F60",
-          muted: "#6B7684",
-          subtle: "#9CA5AF",
+          DEFAULT: "#17211B",
+          secondary: "#2C3A2F",
+          muted: "#5E6B63",
+          subtle: "#8A958E",
         },
         border: {
-          DEFAULT: "#E4E8ED",
-          light: "#EEF1F4",
+          DEFAULT: "#DDE6DD",
+          light: "#EAF0EA",
         },
       },
       fontFamily: {
@@ -50,17 +49,6 @@ const config: Config = {
           '"Courier New"',
           "monospace",
         ],
-      },
-      typography: {
-        DEFAULT: {
-          css: {
-            color: "#1C2B3A",
-            a: {
-              color: "#2A7A4B",
-              "&:hover": { color: "#1E5C38" },
-            },
-          },
-        },
       },
       maxWidth: {
         content: "72rem",

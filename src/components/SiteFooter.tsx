@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = {
   "Pet Care": [
@@ -33,22 +34,29 @@ const footerLinks = {
 
 export default function SiteFooter() {
   return (
-    <footer className="bg-[#1C2B3A] text-white mt-20">
+    <footer className="bg-[#17211B] text-white mt-20">
       <div className="container-content py-12">
         {/* Brand */}
-        <div className="mb-10">
+        <div className="mb-10 flex items-start gap-4">
           <Link
             href="/"
-            className="flex items-center gap-2 font-bold text-xl text-white hover:no-underline hover:text-[#3A9960] transition-colors w-fit"
+            className="hover:no-underline shrink-0"
+            aria-label="FaunaHub — home"
           >
-            <span className="text-[#3A9960]" aria-hidden="true">
-              ◆
-            </span>
-            FaunaHub
+            <Image
+              src="/brand/faunahub-logo-mark.png"
+              alt="FaunaHub"
+              width={500}
+              height={500}
+              className="h-12 w-12 rounded-md bg-white p-1"
+            />
           </Link>
-          <p className="mt-2 text-sm text-[#9CA5AF] max-w-sm">
-            Pet care, animal facts, and wildlife intelligence.
-          </p>
+          <div>
+            <p className="text-base font-semibold text-white">FaunaHub</p>
+            <p className="mt-1 text-sm text-[#B0BFB7] max-w-sm">
+              Pet care, animal facts, and wildlife intelligence.
+            </p>
+          </div>
         </div>
 
         {/* Link grid */}
@@ -58,7 +66,7 @@ export default function SiteFooter() {
         >
           {Object.entries(footerLinks).map(([section, links]) => (
             <div key={section}>
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-[#9CA5AF] mb-3">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-[#8A958E] mb-3">
                 {section}
               </h3>
               <ul className="space-y-2">
@@ -66,7 +74,7 @@ export default function SiteFooter() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-[#C5CDD6] hover:text-white hover:no-underline transition-colors"
+                      className="text-sm text-[#B0BFB7] hover:text-white hover:no-underline transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -78,7 +86,7 @@ export default function SiteFooter() {
         </nav>
 
         {/* Bottom bar */}
-        <div className="pt-6 border-t border-[#2E3F50] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs text-[#6B7684]">
+        <div className="pt-6 border-t border-[#2E3F50] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs text-[#5E6B63]">
           <p>
             © {new Date().getFullYear()} FaunaHub. All rights reserved.
           </p>

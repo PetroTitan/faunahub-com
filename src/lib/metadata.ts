@@ -19,7 +19,7 @@ export function buildMetadata({
   noindex?: boolean;
 }): Metadata {
   const url = `${SITE_URL}${path}`;
-  const image = ogImage ?? `${SITE_URL}/og-default.svg`;
+  const image = ogImage ?? `${SITE_URL}/brand/faunahub-logo-horizontal.png`;
   const fullTitle = `${title} | ${SITE_NAME}`;
 
   return {
@@ -66,7 +66,7 @@ export function buildArticleMetadata({
   ogImage?: string;
 }): Metadata {
   const base = buildMetadata({ title, description, path, ogImage });
-  const image = ogImage ?? `${SITE_URL}/og-default.svg`;
+  const image = ogImage ?? `${SITE_URL}/brand/faunahub-logo-horizontal.png`;
 
   return {
     ...base,

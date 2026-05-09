@@ -76,7 +76,7 @@ export default function EaglePage() {
           />
           <div className="grid lg:grid-cols-[1fr_300px] gap-10 mt-2">
             <article className="prose-content min-w-0">
-              <h1 className="text-3xl sm:text-4xl font-bold text-[#1C2B3A] mb-2 leading-tight">
+              <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-2 leading-tight">
                 Eagle — Overview of Eagle Species
               </h1>
               <p className="mb-2">
@@ -84,9 +84,9 @@ export default function EaglePage() {
                 <span className="tag ml-1">Raptor</span>{" "}
                 <span className="tag ml-1">Apex Predator</span>
               </p>
-              <p className="text-sm text-[#9CA5AF] mb-8">
+              <p className="text-sm text-[#8A958E] mb-8">
                 Reference species for specific details:{" "}
-                <strong className="text-[#3E4F60]">Golden Eagle</strong>{" "}
+                <strong className="text-[#2C3A2F]">Golden Eagle</strong>{" "}
                 (<em>Aquila chrysaetos</em>). This page provides a general overview and should not
                 be read as a comprehensive profile of all eagle species equally.
               </p>
@@ -212,19 +212,19 @@ export default function EaglePage() {
             </article>
 
             <aside aria-label="Eagle profile sidebar" className="space-y-6 lg:sticky lg:top-6 self-start">
-              <div className="bg-white border border-[#E4E8ED] rounded-xl overflow-hidden">
-                <div className="bg-[#f0faf4] px-5 py-3 border-b border-[#E4E8ED]">
-                  <p className="text-sm font-semibold text-[#2A7A4B] uppercase tracking-wider">
+              <div className="bg-white border border-[#DDE6DD] rounded-xl overflow-hidden">
+                <div className="bg-[#EFF4E0] px-5 py-3 border-b border-[#DDE6DD]">
+                  <p className="text-sm font-semibold text-[#063F2A] uppercase tracking-wider">
                     Quick Facts
                   </p>
                 </div>
-                <div className="px-5 py-2.5 bg-amber-50 border-b border-[#E4E8ED]">
+                <div className="px-5 py-2.5 bg-amber-50 border-b border-[#DDE6DD]">
                   <p className="text-xs text-amber-700">
                     Facts below refer to the Golden Eagle (<em>Aquila chrysaetos</em>) as the
                     reference species unless otherwise noted.
                   </p>
                 </div>
-                <dl className="divide-y divide-[#EEF1F4] text-sm">
+                <dl className="divide-y divide-[#EAF0EA] text-sm">
                   {[
                     ["Reference species", "Golden Eagle (Aquila chrysaetos)"],
                     ["Family", "Accipitridae"],
@@ -238,10 +238,10 @@ export default function EaglePage() {
                     ["Eagle species count", "60+ species (approximate; taxonomy evolving)"],
                   ].map(([label, value]) => (
                     <div key={label} className="px-5 py-3 flex flex-col gap-0.5">
-                      <dt className="text-[#9CA5AF] text-xs uppercase tracking-wide font-medium">
+                      <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">
                         {label}
                       </dt>
-                      <dd className="text-[#1C2B3A] font-medium">{value}</dd>
+                      <dd className="text-[#17211B] font-medium">{value}</dd>
                     </div>
                   ))}
                 </dl>

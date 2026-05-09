@@ -72,26 +72,26 @@ export default function WolfVsDogPage() {
       />
       <main id="main-content">
         <div className="container-content py-10">
-          <nav aria-label="Breadcrumb" className="text-sm text-[#9CA5AF] mb-6 flex gap-2 items-center flex-wrap">
-            <Link href="/" className="hover:text-[#2A7A4B] hover:no-underline">Home</Link>
+          <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-6 flex gap-2 items-center flex-wrap">
+            <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
             <span aria-hidden="true">/</span>
-            <Link href="/compare" className="hover:text-[#2A7A4B] hover:no-underline">Compare</Link>
+            <Link href="/compare" className="hover:text-[#063F2A] hover:no-underline">Compare</Link>
             <span aria-hidden="true">/</span>
-            <span className="text-[#1C2B3A] font-medium" aria-current="page">Wolf vs Dog</span>
+            <span className="text-[#17211B] font-medium" aria-current="page">Wolf vs Dog</span>
           </nav>
 
           <div className="grid lg:grid-cols-[1fr_280px] gap-10">
             <article>
               <span className="tag mb-4 inline-block">Animal Comparison</span>
-              <h1 className="text-3xl sm:text-4xl font-bold text-[#1C2B3A] mb-6">
+              <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-6">
                 Wolf vs Dog
               </h1>
 
               <section aria-labelledby="quick-answer-heading">
-                <h2 id="quick-answer-heading" className="text-2xl font-bold text-[#1C2B3A] mt-2 mb-4 pb-2 border-b border-[#E4E8ED]">
+                <h2 id="quick-answer-heading" className="text-2xl font-bold text-[#17211B] mt-2 mb-4 pb-2 border-b border-[#DDE6DD]">
                   Quick Answer
                 </h2>
-                <p className="text-[#3E4F60] text-base leading-relaxed mb-4">
+                <p className="text-[#2C3A2F] text-base leading-relaxed mb-4">
                   Dogs (<em>Canis lupus familiaris</em>) are a domesticated subspecies of the gray wolf
                   (<em>Canis lupus</em>). Despite sharing common ancestry, thousands of years of selective
                   breeding for life alongside humans have created profound differences in behavior,
@@ -102,7 +102,7 @@ export default function WolfVsDogPage() {
               </section>
 
               <section aria-labelledby="comparison-table-heading">
-                <h2 id="comparison-table-heading" className="text-2xl font-bold text-[#1C2B3A] mt-10 mb-4 pb-2 border-b border-[#E4E8ED]">
+                <h2 id="comparison-table-heading" className="text-2xl font-bold text-[#17211B] mt-10 mb-4 pb-2 border-b border-[#DDE6DD]">
                   Wolf vs Dog Comparison
                 </h2>
                 <ComparisonTable
@@ -114,40 +114,40 @@ export default function WolfVsDogPage() {
               </section>
 
               <section aria-labelledby="differences-heading">
-                <h2 id="differences-heading" className="text-2xl font-bold text-[#1C2B3A] mt-10 mb-4 pb-2 border-b border-[#E4E8ED]">
+                <h2 id="differences-heading" className="text-2xl font-bold text-[#17211B] mt-10 mb-4 pb-2 border-b border-[#DDE6DD]">
                   Key Differences
                 </h2>
-                <ul className="space-y-3 text-[#3E4F60] text-base">
-                  <li className="flex gap-2"><span className="text-[#2A7A4B] flex-shrink-0 mt-0.5">●</span><span><strong className="text-[#1C2B3A]">Human orientation:</strong> Dogs have a uniquely evolved ability to read human social cues and communicate with people. Wolves do not exhibit this behavior, even when raised by humans from birth.</span></li>
-                  <li className="flex gap-2"><span className="text-[#2A7A4B] flex-shrink-0 mt-0.5">●</span><span><strong className="text-[#1C2B3A]">Independence:</strong> Wolves are strongly independent and maintain complex social hierarchies within packs. Dogs typically defer to humans as their social reference point.</span></li>
-                  <li className="flex gap-2"><span className="text-[#2A7A4B] flex-shrink-0 mt-0.5">●</span><span><strong className="text-[#1C2B3A]">Diet:</strong> Wolves are obligate carnivores in practice, adapted to large prey. Dogs have evolved digestive adaptations to process starchy foods — a result of living alongside grain-farming humans.</span></li>
-                  <li className="flex gap-2"><span className="text-[#2A7A4B] flex-shrink-0 mt-0.5">●</span><span><strong className="text-[#1C2B3A]">Physical variation:</strong> All wolves within a subspecies have relatively similar body size and structure. Dogs show extraordinary physical variation — from 1 kg Chihuahuas to 90 kg mastiffs — all shaped by selective breeding.</span></li>
+                <ul className="space-y-3 text-[#2C3A2F] text-base">
+                  <li className="flex gap-2"><span className="text-[#063F2A] flex-shrink-0 mt-0.5">●</span><span><strong className="text-[#17211B]">Human orientation:</strong> Dogs have a uniquely evolved ability to read human social cues and communicate with people. Wolves do not exhibit this behavior, even when raised by humans from birth.</span></li>
+                  <li className="flex gap-2"><span className="text-[#063F2A] flex-shrink-0 mt-0.5">●</span><span><strong className="text-[#17211B]">Independence:</strong> Wolves are strongly independent and maintain complex social hierarchies within packs. Dogs typically defer to humans as their social reference point.</span></li>
+                  <li className="flex gap-2"><span className="text-[#063F2A] flex-shrink-0 mt-0.5">●</span><span><strong className="text-[#17211B]">Diet:</strong> Wolves are obligate carnivores in practice, adapted to large prey. Dogs have evolved digestive adaptations to process starchy foods — a result of living alongside grain-farming humans.</span></li>
+                  <li className="flex gap-2"><span className="text-[#063F2A] flex-shrink-0 mt-0.5">●</span><span><strong className="text-[#17211B]">Physical variation:</strong> All wolves within a subspecies have relatively similar body size and structure. Dogs show extraordinary physical variation — from 1 kg Chihuahuas to 90 kg mastiffs — all shaped by selective breeding.</span></li>
                 </ul>
               </section>
 
               <section aria-labelledby="similarities-heading">
-                <h2 id="similarities-heading" className="text-2xl font-bold text-[#1C2B3A] mt-10 mb-4 pb-2 border-b border-[#E4E8ED]">
+                <h2 id="similarities-heading" className="text-2xl font-bold text-[#17211B] mt-10 mb-4 pb-2 border-b border-[#DDE6DD]">
                   Similarities
                 </h2>
-                <ul className="space-y-3 text-[#3E4F60] text-base">
-                  <li className="flex gap-2"><span className="text-[#3B72A8] flex-shrink-0 mt-0.5">●</span><span>Both retain many aspects of pack social behavior — dogs display hierarchy, greeting rituals, and cooperative play that reflect wolf social patterns.</span></li>
-                  <li className="flex gap-2"><span className="text-[#3B72A8] flex-shrink-0 mt-0.5">●</span><span>Both communicate using posture, tail position, ear orientation, vocalization, and scent marking.</span></li>
-                  <li className="flex gap-2"><span className="text-[#3B72A8] flex-shrink-0 mt-0.5">●</span><span>Both are highly intelligent, capable of problem-solving, and responsive to social learning.</span></li>
-                  <li className="flex gap-2"><span className="text-[#3B72A8] flex-shrink-0 mt-0.5">●</span><span>Both are carnivore-lineage mammals with similar basic anatomy, reproductive patterns, and dental structures (though dogs show significant breed variation).</span></li>
+                <ul className="space-y-3 text-[#2C3A2F] text-base">
+                  <li className="flex gap-2"><span className="text-[#075FA8] flex-shrink-0 mt-0.5">●</span><span>Both retain many aspects of pack social behavior — dogs display hierarchy, greeting rituals, and cooperative play that reflect wolf social patterns.</span></li>
+                  <li className="flex gap-2"><span className="text-[#075FA8] flex-shrink-0 mt-0.5">●</span><span>Both communicate using posture, tail position, ear orientation, vocalization, and scent marking.</span></li>
+                  <li className="flex gap-2"><span className="text-[#075FA8] flex-shrink-0 mt-0.5">●</span><span>Both are highly intelligent, capable of problem-solving, and responsive to social learning.</span></li>
+                  <li className="flex gap-2"><span className="text-[#075FA8] flex-shrink-0 mt-0.5">●</span><span>Both are carnivore-lineage mammals with similar basic anatomy, reproductive patterns, and dental structures (though dogs show significant breed variation).</span></li>
                 </ul>
               </section>
 
               <section aria-labelledby="domestication-heading">
-                <h2 id="domestication-heading" className="text-2xl font-bold text-[#1C2B3A] mt-10 mb-4 pb-2 border-b border-[#E4E8ED]">
+                <h2 id="domestication-heading" className="text-2xl font-bold text-[#17211B] mt-10 mb-4 pb-2 border-b border-[#DDE6DD]">
                   The Science of Dog Domestication
                 </h2>
-                <p className="text-[#3E4F60] text-base leading-relaxed mb-4">
+                <p className="text-[#2C3A2F] text-base leading-relaxed mb-4">
                   Dogs were domesticated from a now-extinct wolf population — not from any living wolf
                   species. The process is believed to have involved gradual self-selection of less fearful
                   wolves that were able to live near human settlements, followed by intentional selective
                   breeding over thousands of generations.
                 </p>
-                <p className="text-[#3E4F60] text-base leading-relaxed mb-4">
+                <p className="text-[#2C3A2F] text-base leading-relaxed mb-4">
                   This process produced genetic changes affecting not only behavior but also physiology —
                   including the ability to digest starch (via increased copies of the AMY2B gene), reduced
                   stress hormone responses, and changes in facial muscle anatomy that allow dogs to make

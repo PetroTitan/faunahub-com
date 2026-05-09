@@ -73,19 +73,19 @@ export default function AnimalEncyclopediaPage() {
       />
 
       <main id="main-content">
-        <header className="bg-white border-b border-[#E4E8ED] py-12 sm:py-16">
+        <header className="bg-white border-b border-[#DDE6DD] py-12 sm:py-16">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#9CA5AF] mb-4 flex gap-2">
-              <Link href="/" className="hover:text-[#2A7A4B] hover:no-underline">Home</Link>
+            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
+              <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
               <span aria-hidden="true">/</span>
-              <span className="text-[#1C2B3A] font-medium" aria-current="page">Animal Encyclopedia</span>
+              <span className="text-[#17211B] font-medium" aria-current="page">Animal Encyclopedia</span>
             </nav>
             <div className="max-w-2xl">
               <span className="tag mb-4 inline-block">Wildlife & Nature</span>
-              <h1 className="text-3xl sm:text-4xl font-bold text-[#1C2B3A] mb-4">
+              <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-4">
                 Animal Encyclopedia
               </h1>
-              <p className="text-base sm:text-lg text-[#3E4F60] leading-relaxed">
+              <p className="text-base sm:text-lg text-[#2C3A2F] leading-relaxed">
                 Structured profiles covering habitat, diet, behavior, ecology, and human interaction
                 for mammals, birds, reptiles, marine animals, and insects.
               </p>
@@ -112,13 +112,13 @@ export default function AnimalEncyclopediaPage() {
                 <Link
                   key={animal.href}
                   href={animal.href}
-                  className="card p-5 hover:shadow-md hover:border-[#c6e8d4] transition-all group hover:no-underline"
+                  className="card p-5 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
                 >
-                  <h3 className="text-base font-semibold text-[#1C2B3A] group-hover:text-[#2A7A4B] mb-1 transition-colors">
+                  <h3 className="text-base font-semibold text-[#17211B] group-hover:text-[#063F2A] mb-1 transition-colors">
                     {animal.label}
                   </h3>
-                  <p className="text-sm text-[#6B7684]">{animal.desc}</p>
-                  <span className="text-xs font-medium text-[#2A7A4B] mt-3 block">
+                  <p className="text-sm text-[#5E6B63]">{animal.desc}</p>
+                  <span className="text-xs font-medium text-[#063F2A] mt-3 block">
                     Read profile →
                   </span>
                 </Link>

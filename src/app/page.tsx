@@ -122,15 +122,15 @@ export default function HomePage() {
 
       <main id="main-content">
         {/* Hero */}
-        <section className="py-16 sm:py-24 bg-gradient-to-b from-[#f0faf4] via-[#f7faf7] to-[#FAFAF8]">
+        <section className="py-16 sm:py-24 bg-gradient-to-b from-[#EFF4E0] via-[#f7faf7] to-[#F7F8F3]">
           <div className="container-content">
             <div className="max-w-2xl">
               <span className="tag mb-5 inline-block">Independent Animal Knowledge Platform</span>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#1C2B3A] leading-tight mb-5">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-[#17211B] leading-tight mb-5">
                 Pet care, animal facts,{" "}
-                <span className="text-[#2A7A4B]">and wildlife intelligence.</span>
+                <span className="text-[#063F2A]">and wildlife intelligence.</span>
               </h1>
-              <p className="text-lg sm:text-xl text-[#3E4F60] leading-relaxed mb-8">
+              <p className="text-lg sm:text-xl text-[#2C3A2F] leading-relaxed mb-8">
                 Practical guides for responsible pet owners, in-depth wildlife profiles, animal comparisons,
                 and simple decision tools — all in one trusted place.
               </p>
@@ -157,12 +157,12 @@ export default function HomePage() {
               <Link
                 key={cat.href}
                 href={cat.href}
-                className="card p-4 flex flex-col items-center gap-2 text-center hover:shadow-md hover:border-[#c6e8d4] transition-all group hover:no-underline"
+                className="card p-4 flex flex-col items-center gap-2 text-center hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
               >
                 <span className="text-3xl" role="img" aria-hidden="true">
                   {cat.icon}
                 </span>
-                <span className="text-sm font-semibold text-[#1C2B3A] group-hover:text-[#2A7A4B] transition-colors">
+                <span className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors">
                   {cat.title}
                 </span>
               </Link>
@@ -173,17 +173,17 @@ export default function HomePage() {
               <Link
                 key={cat.href + "-detail"}
                 href={cat.href}
-                className="card p-5 hover:shadow-md hover:border-[#c6e8d4] transition-all group hover:no-underline"
+                className="card p-5 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
               >
                 <div className="flex items-start gap-3">
                   <span className="text-2xl flex-shrink-0" role="img" aria-hidden="true">
                     {cat.icon}
                   </span>
                   <div>
-                    <h3 className="text-base font-semibold text-[#1C2B3A] group-hover:text-[#2A7A4B] transition-colors mb-1">
+                    <h3 className="text-base font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
                       {cat.title} Guide
                     </h3>
-                    <p className="text-sm text-[#6B7684] leading-snug">{cat.description}</p>
+                    <p className="text-sm text-[#5E6B63] leading-snug">{cat.description}</p>
                   </div>
                 </div>
               </Link>
@@ -192,7 +192,7 @@ export default function HomePage() {
         </section>
 
         {/* Animal Encyclopedia */}
-        <section className="py-14 bg-white border-y border-[#E4E8ED]">
+        <section className="py-14 bg-white border-y border-[#DDE6DD]">
           <div className="container-content">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
               <div>
@@ -209,8 +209,8 @@ export default function HomePage() {
             <HubGrid items={encyclopediaCategories} columns={4} />
 
             {/* Featured animal links */}
-            <div className="mt-8 p-5 bg-[#f4f4f1] rounded-xl border border-[#E4E8ED]">
-              <h3 className="text-sm font-semibold text-[#6B7684] uppercase tracking-wider mb-3">
+            <div className="mt-8 p-5 bg-[#EFF1EB] rounded-xl border border-[#DDE6DD]">
+              <h3 className="text-sm font-semibold text-[#5E6B63] uppercase tracking-wider mb-3">
                 Featured Animal Profiles
               </h3>
               <div className="flex flex-wrap gap-3">
@@ -222,7 +222,7 @@ export default function HomePage() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="px-4 py-2 bg-white border border-[#E4E8ED] rounded-lg text-sm font-medium text-[#3E4F60] hover:border-[#c6e8d4] hover:text-[#2A7A4B] transition-colors hover:no-underline"
+                    className="px-4 py-2 bg-white border border-[#DDE6DD] rounded-lg text-sm font-medium text-[#2C3A2F] hover:border-[#CFE0A8] hover:text-[#063F2A] transition-colors hover:no-underline"
                   >
                     {link.label}
                   </Link>
@@ -263,16 +263,16 @@ export default function HomePage() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="card p-6 hover:shadow-md hover:border-[#c6e8d4] transition-all group hover:no-underline"
+                className="card p-6 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
               >
                 <div className="text-3xl mb-3" role="img" aria-hidden="true">
                   {item.icon}
                 </div>
-                <h3 className="text-base font-semibold text-[#1C2B3A] group-hover:text-[#2A7A4B] mb-1 transition-colors">
+                <h3 className="text-base font-semibold text-[#17211B] group-hover:text-[#063F2A] mb-1 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-sm text-[#6B7684]">{item.question}</p>
-                <span className="text-xs font-medium text-[#2A7A4B] mt-3 block">
+                <p className="text-sm text-[#5E6B63]">{item.question}</p>
+                <span className="text-xs font-medium text-[#063F2A] mt-3 block">
                   Compare now →
                 </span>
               </Link>
@@ -281,7 +281,7 @@ export default function HomePage() {
         </section>
 
         {/* Tools Section */}
-        <section className="py-14 bg-[#f4f4f1] border-y border-[#E4E8ED]">
+        <section className="py-14 bg-[#EFF1EB] border-y border-[#DDE6DD]">
           <div className="container-content">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
               <div>
@@ -305,10 +305,10 @@ export default function HomePage() {
         {/* Trust Section */}
         <section className="py-14 container-content">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1C2B3A] mb-4">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#17211B] mb-4">
               Built on Editorial Integrity
             </h2>
-            <p className="text-base text-[#6B7684] leading-relaxed mb-8">
+            <p className="text-base text-[#5E6B63] leading-relaxed mb-8">
               FaunaHub is an independent platform. We do not invent veterinary facts, fake
               conservation statistics, or fabricate citations. Health content includes clear
               disclaimers and is not a substitute for professional veterinary care.
@@ -335,8 +335,8 @@ export default function HomePage() {
                   <span className="text-2xl mb-3 block" role="img" aria-hidden="true">
                     {item.icon}
                   </span>
-                  <h3 className="text-sm font-semibold text-[#1C2B3A] mb-1">{item.title}</h3>
-                  <p className="text-sm text-[#6B7684] leading-snug">{item.desc}</p>
+                  <h3 className="text-sm font-semibold text-[#17211B] mb-1">{item.title}</h3>
+                  <p className="text-sm text-[#5E6B63] leading-snug">{item.desc}</p>
                 </div>
               ))}
             </div>
