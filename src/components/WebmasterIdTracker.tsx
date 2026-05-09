@@ -17,7 +17,7 @@ export default function WebmasterIdTracker() {
       id="webmasterid-tracker"
       src="https://webmasterid.com/tracker.iife.min.js"
       strategy="afterInteractive"
-      data-wmid="wm_u3i07ypezlwubuui"
+      data-wmid="wm_shem93khz4zeyi0u"
       data-endpoint="https://webmasterid-ingest-api.vercel.app/api/events"
     />
   );
