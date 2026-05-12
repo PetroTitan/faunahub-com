@@ -21,19 +21,19 @@ const categories = [
   },
   {
     title: "Birds",
-    description: "Eagles, owls, parrots — wild bird species profiles, habitats, and behavior.",
+    description: "Eagles, owls, penguins — wild bird species profiles, habitats, and behavior.",
     href: "/animal-encyclopedia/birds",
     icon: "🦅",
   },
   {
     title: "Reptiles",
-    description: "Crocodiles, pythons, iguanas — reptile biology, ecology, and distribution.",
+    description: "Crocodiles, alligators, snakes — reptile biology, ecology, and distribution.",
     href: "/animal-encyclopedia/reptiles",
     icon: "🐊",
   },
   {
     title: "Marine Animals",
-    description: "Whales, sharks, dolphins, rays — ocean life from surface to deep sea.",
+    description: "Sharks, dolphins, whales — ocean life from surface to deep sea.",
     href: "/animal-encyclopedia/marine-animals",
     icon: "🐳",
   },
@@ -45,11 +45,33 @@ const categories = [
   },
 ];
 
-const featuredAnimals = [
-  { label: "Lion", href: "/animals/lion", desc: "Panthera leo — apex predator of African savannas" },
-  { label: "Wolf", href: "/animals/wolf", desc: "Canis lupus — ancestor of domestic dogs" },
-  { label: "Eagle", href: "/animals/eagle", desc: "Aquila chrysaetos — apex aerial predator" },
+const allAnimalProfiles: { label: string; href: string; group: string }[] = [
+  { label: "Lion", href: "/animals/lion", group: "Mammals" },
+  { label: "Tiger", href: "/animals/tiger", group: "Mammals" },
+  { label: "Leopard", href: "/animals/leopard", group: "Mammals" },
+  { label: "Jaguar", href: "/animals/jaguar", group: "Mammals" },
+  { label: "Cheetah", href: "/animals/cheetah", group: "Mammals" },
+  { label: "Wolf", href: "/animals/wolf", group: "Mammals" },
+  { label: "Fox", href: "/animals/fox", group: "Mammals" },
+  { label: "Bear", href: "/animals/bear", group: "Mammals" },
+  { label: "Panda", href: "/animals/panda", group: "Mammals" },
+  { label: "Elephant", href: "/animals/elephant", group: "Mammals" },
+  { label: "Giraffe", href: "/animals/giraffe", group: "Mammals" },
+  { label: "Zebra", href: "/animals/zebra", group: "Mammals" },
+  { label: "Gorilla", href: "/animals/gorilla", group: "Mammals" },
+  { label: "Chimpanzee", href: "/animals/chimpanzee", group: "Mammals" },
+  { label: "Kangaroo", href: "/animals/kangaroo", group: "Mammals" },
+  { label: "Koala", href: "/animals/koala", group: "Mammals" },
+  { label: "Eagle", href: "/animals/eagle", group: "Birds" },
+  { label: "Owl", href: "/animals/owl", group: "Birds" },
+  { label: "Penguin", href: "/animals/penguin", group: "Birds" },
+  { label: "Crocodile", href: "/animals/crocodile", group: "Reptiles" },
+  { label: "Alligator", href: "/animals/alligator", group: "Reptiles" },
+  { label: "Dolphin", href: "/animals/dolphin", group: "Marine Animals" },
+  { label: "Shark", href: "/animals/shark", group: "Marine Animals" },
 ];
+
+const ORDER = ["Mammals", "Birds", "Reptiles", "Marine Animals"];
 
 export default function AnimalEncyclopediaPage() {
   const breadcrumb = breadcrumbSchema([
@@ -58,9 +80,9 @@ export default function AnimalEncyclopediaPage() {
   ]);
 
   const itemList = itemListSchema(
-    categories.map((c, i) => ({
-      name: c.title,
-      url: `https://faunahub.com${c.href}`,
+    allAnimalProfiles.map((p, i) => ({
+      name: p.label,
+      url: `https://faunahub.com${p.href}`,
       position: i + 1,
     }))
   );
@@ -101,28 +123,41 @@ export default function AnimalEncyclopediaPage() {
             columns={3}
           />
 
-          {/* Featured animals */}
-          <section className="mt-12" aria-labelledby="featured-heading">
-            <h2 id="featured-heading" className="section-title">Featured Animal Profiles</h2>
+          <section className="mt-12" aria-labelledby="all-profiles-heading">
+            <h2 id="all-profiles-heading" className="section-title">
+              All Animal Profiles
+            </h2>
             <p className="section-subtitle">
-              Detailed profiles with classification, habitat, diet, behavior, and FAQ.
+              Browse the full set of detailed animal profiles, grouped by category.
             </p>
-            <div className="grid sm:grid-cols-3 gap-4">
-              {featuredAnimals.map((animal) => (
-                <Link
-                  key={animal.href}
-                  href={animal.href}
-                  className="card p-5 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
-                >
-                  <h3 className="text-base font-semibold text-[#17211B] group-hover:text-[#063F2A] mb-1 transition-colors">
-                    {animal.label}
-                  </h3>
-                  <p className="text-sm text-[#5E6B63]">{animal.desc}</p>
-                  <span className="text-xs font-medium text-[#063F2A] mt-3 block">
-                    Read profile →
-                  </span>
-                </Link>
-              ))}
+            <div className="space-y-8">
+              {ORDER.map((group) => {
+                const items = allAnimalProfiles.filter((p) => p.group === group);
+                if (!items.length) return null;
+                return (
+                  <div key={group}>
+                    <h3 className="text-base font-semibold text-[#17211B] uppercase tracking-wider mb-3">
+                      {group}
+                    </h3>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                      {items.map((p) => (
+                        <Link
+                          key={p.href}
+                          href={p.href}
+                          className="card p-4 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+                        >
+                          <h4 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors">
+                            {p.label}
+                          </h4>
+                          <span className="text-xs font-medium text-[#063F2A] mt-2 block">
+                            Read profile →
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </section>
 

@@ -232,8 +232,9 @@ export default function WolfPage() {
               <RelatedLinks
                 title="Related Pages"
                 links={[
+                  { label: "Fox Profile", href: "/animals/fox", description: "Vulpes vulpes — opportunistic canid" },
                   { label: "Lion Profile", href: "/animals/lion", description: "Panthera leo — pride predator" },
-                  { label: "Eagle Profile", href: "/animals/eagle", description: "Apex aerial predator" },
+                  { label: "Bear Profile", href: "/animals/bear", description: "Family Ursidae — overview" },
                   { label: "Wolf vs Dog", href: "/compare/wolf-vs-dog", description: "Full comparison" },
                   { label: "Mammal Encyclopedia", href: "/animal-encyclopedia/mammals" },
                 ]}

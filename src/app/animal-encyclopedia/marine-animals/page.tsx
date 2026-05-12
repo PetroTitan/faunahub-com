@@ -12,6 +12,16 @@ export const metadata: Metadata = buildMetadata({
 
 const links = [
   {
+    href: "/animals/dolphin",
+    label: "Dolphin",
+    desc: "Family Delphinidae — highly social marine mammals (Cetacea).",
+  },
+  {
+    href: "/animals/shark",
+    label: "Shark",
+    desc: "Cartilaginous fish — 500+ species in superorder Selachimorpha.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",
@@ -69,7 +79,7 @@ export default function MarineAnimalsPage() {
               where scientific knowledge is limited by the difficulty of direct observation.
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-4 mt-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
               {links.map((link) => (
                 <Link
                   key={link.href}

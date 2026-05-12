@@ -5,6 +5,54 @@ const BASE_URL = "https://faunahub.com";
 export default function sitemap(): MetadataRoute.Sitemap {
   const today = new Date().toISOString().split("T")[0];
 
+  const animalSlugs = [
+    "lion",
+    "tiger",
+    "leopard",
+    "jaguar",
+    "cheetah",
+    "wolf",
+    "fox",
+    "bear",
+    "panda",
+    "elephant",
+    "giraffe",
+    "zebra",
+    "gorilla",
+    "chimpanzee",
+    "kangaroo",
+    "koala",
+    "eagle",
+    "owl",
+    "penguin",
+    "crocodile",
+    "alligator",
+    "dolphin",
+    "shark",
+  ];
+
+  const compareSlugs = [
+    "lion-vs-tiger",
+    "wolf-vs-dog",
+    "leopard-vs-jaguar",
+    "alligator-vs-crocodile",
+    "cheetah-vs-leopard",
+    "falcon-vs-eagle",
+    "rabbit-vs-guinea-pig",
+  ];
+
+  const toolSlugs = [
+    "pet-cost-calculator",
+    "dog-age-calculator",
+    "cat-age-calculator",
+    "pet-age-calculator",
+    "rabbit-age-calculator",
+    "horse-age-calculator",
+    "hamster-age-calculator",
+    "guinea-pig-age-calculator",
+    "pet-life-stage-calculator",
+  ];
+
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: BASE_URL, lastModified: today, changeFrequency: "weekly", priority: 1.0 },
     { url: `${BASE_URL}/dogs`, lastModified: today, changeFrequency: "weekly", priority: 0.9 },
@@ -31,16 +79,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/animal-encyclopedia/reptiles`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/animal-encyclopedia/marine-animals`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/animal-encyclopedia/insects`, lastModified: today, changeFrequency: "weekly", priority: 0.7 },
-    { url: `${BASE_URL}/animals/lion`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE_URL}/animals/wolf`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE_URL}/animals/eagle`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/compare`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${BASE_URL}/compare/lion-vs-tiger`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE_URL}/compare/wolf-vs-dog`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/tools`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE_URL}/tools/pet-cost-calculator`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE_URL}/tools/dog-age-calculator`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE_URL}/tools/cat-age-calculator`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/guides`, lastModified: today, changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE_URL}/resources`, lastModified: today, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/about`, lastModified: today, changeFrequency: "yearly", priority: 0.5 },
@@ -51,5 +91,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/contact`, lastModified: today, changeFrequency: "yearly", priority: 0.4 },
   ];
 
-  return staticRoutes;
+  const animalRoutes: MetadataRoute.Sitemap = animalSlugs.map((slug) => ({
+    url: `${BASE_URL}/animals/${slug}`,
+    lastModified: today,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  const compareRoutes: MetadataRoute.Sitemap = compareSlugs.map((slug) => ({
+    url: `${BASE_URL}/compare/${slug}`,
+    lastModified: today,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  const toolRoutes: MetadataRoute.Sitemap = toolSlugs.map((slug) => ({
+    url: `${BASE_URL}/tools/${slug}`,
+    lastModified: today,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...animalRoutes, ...compareRoutes, ...toolRoutes];
 }

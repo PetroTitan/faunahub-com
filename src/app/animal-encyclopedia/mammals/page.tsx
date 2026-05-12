@@ -6,26 +6,27 @@ import { breadcrumbSchema } from "@/lib/schema";
 export const metadata: Metadata = buildMetadata({
   title: "Mammals Encyclopedia — Wildlife Profiles & Ecology",
   description:
-    "Profiles of mammal species from lions to wolves to bears — covering habitat, diet, behavior, and conservation context.",
+    "Profiles of mammal species from lions and tigers to bears, primates, and marsupials — covering habitat, diet, behavior, and conservation context.",
   path: "/animal-encyclopedia/mammals",
 });
 
-const links = [
-  {
-    href: "/animals/lion",
-    label: "Lion",
-    desc: "Panthera leo — apex predator of African savannas and woodlands.",
-  },
-  {
-    href: "/animals/wolf",
-    label: "Wolf",
-    desc: "Canis lupus — highly social pack hunter and ancestor of domestic dogs.",
-  },
-  {
-    href: "/animal-encyclopedia",
-    label: "Animal Encyclopedia",
-    desc: "Browse all animal categories including birds, reptiles, marine animals, and insects.",
-  },
+const mammals = [
+  { href: "/animals/lion", label: "Lion", desc: "Panthera leo — apex predator of African savannas." },
+  { href: "/animals/tiger", label: "Tiger", desc: "Panthera tigris — largest living cat species." },
+  { href: "/animals/leopard", label: "Leopard", desc: "Panthera pardus — most widely distributed big cat." },
+  { href: "/animals/jaguar", label: "Jaguar", desc: "Panthera onca — apex predator of the Americas." },
+  { href: "/animals/cheetah", label: "Cheetah", desc: "Acinonyx jubatus — fastest land animal." },
+  { href: "/animals/wolf", label: "Wolf", desc: "Canis lupus — pack-hunting ancestor of domestic dogs." },
+  { href: "/animals/fox", label: "Fox", desc: "Vulpes vulpes — adaptable opportunistic omnivore." },
+  { href: "/animals/bear", label: "Bear", desc: "Family Ursidae — eight living species." },
+  { href: "/animals/panda", label: "Giant Panda", desc: "Ailuropoda melanoleuca — bamboo-specialist bear." },
+  { href: "/animals/elephant", label: "Elephant", desc: "Three species — the largest land mammals." },
+  { href: "/animals/giraffe", label: "Giraffe", desc: "Genus Giraffa — tallest extant land animal." },
+  { href: "/animals/zebra", label: "Zebra", desc: "Three African equid species." },
+  { href: "/animals/gorilla", label: "Gorilla", desc: "Genus Gorilla — largest extant primate." },
+  { href: "/animals/chimpanzee", label: "Chimpanzee", desc: "Pan troglodytes — one of humans' closest relatives." },
+  { href: "/animals/kangaroo", label: "Kangaroo", desc: "Macropodidae — Australian marsupials." },
+  { href: "/animals/koala", label: "Koala", desc: "Phascolarctos cinereus — arboreal marsupial." },
 ];
 
 export default function MammalsPage() {
@@ -78,25 +79,46 @@ export default function MammalsPage() {
               research is ongoing or contested.
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-4 mt-8">
-              {links.map((link) => (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+              {mammals.map((m) => (
                 <Link
-                  key={link.href}
-                  href={link.href}
+                  key={m.href}
+                  href={m.href}
                   className="card p-5 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
                 >
                   <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
-                    {link.label}
+                    {m.label}
                   </h3>
-                  <p className="text-xs text-[#5E6B63]">{link.desc}</p>
+                  <p className="text-xs text-[#5E6B63]">{m.desc}</p>
                 </Link>
               ))}
             </div>
           </section>
 
-          <p className="mt-8 text-sm text-[#5E6B63]">
-            More mammal species profiles are in development and will be added progressively.
-          </p>
+          <section className="mt-10" aria-labelledby="related-heading">
+            <h2 id="related-heading" className="section-title">Related Comparisons</h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {[
+                { href: "/compare/lion-vs-tiger", label: "Lion vs Tiger" },
+                { href: "/compare/leopard-vs-jaguar", label: "Leopard vs Jaguar" },
+                { href: "/compare/cheetah-vs-leopard", label: "Cheetah vs Leopard" },
+                { href: "/compare/wolf-vs-dog", label: "Wolf vs Dog" },
+              ].map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="card p-4 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+                >
+                  <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors">
+                    {link.label}
+                  </h3>
+                  <span className="text-xs font-medium text-[#063F2A] mt-2 block">
+                    Compare →
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </section>
         </div>
       </main>
     </>

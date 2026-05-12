@@ -245,8 +245,9 @@ export default function LionPage() {
               <RelatedLinks
                 title="Related Pages"
                 links={[
-                  { label: "Wolf Profile", href: "/animals/wolf", description: "Canis lupus — pack predator" },
-                  { label: "Eagle Profile", href: "/animals/eagle", description: "Apex aerial predator" },
+                  { label: "Tiger Profile", href: "/animals/tiger", description: "Panthera tigris — largest living cat" },
+                  { label: "Leopard Profile", href: "/animals/leopard", description: "Panthera pardus — most widely distributed big cat" },
+                  { label: "Cheetah Profile", href: "/animals/cheetah", description: "Fastest land animal" },
                   { label: "Lion vs Tiger", href: "/compare/lion-vs-tiger", description: "Full species comparison" },
                   { label: "Mammal Encyclopedia", href: "/animal-encyclopedia/mammals" },
                 ]}

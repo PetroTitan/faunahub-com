@@ -6,20 +6,20 @@ import { breadcrumbSchema } from "@/lib/schema";
 export const metadata: Metadata = buildMetadata({
   title: "Reptiles Encyclopedia — Wild Reptile Species Profiles",
   description:
-    "Wild reptile species profiles covering crocodilians, snakes, lizards, and turtles — habitat, diet, behavior, and ecology.",
+    "Wild reptile species profiles covering crocodilians (crocodiles, alligators), snakes, lizards, and turtles — habitat, diet, behavior, and ecology.",
   path: "/animal-encyclopedia/reptiles",
 });
 
-const links = [
+const reptiles = [
   {
-    href: "/reptiles",
-    label: "Pet Reptile Care Guides",
-    desc: "Habitat, feeding, and health guides for lizards, snakes, turtles, and other pet reptiles.",
+    href: "/animals/crocodile",
+    label: "Crocodile",
+    desc: "Family Crocodylidae — large aquatic predators of the tropics and subtropics.",
   },
   {
-    href: "/animal-encyclopedia",
-    label: "Animal Encyclopedia",
-    desc: "Browse all animal categories including mammals, birds, marine animals, and insects.",
+    href: "/animals/alligator",
+    label: "Alligator",
+    desc: "Family Alligatoridae — two living species: American and Chinese alligator.",
   },
 ];
 
@@ -74,24 +74,62 @@ export default function EncyclopediaReptilesPage() {
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4 mt-8">
-              {links.map((link) => (
+              {reptiles.map((r) => (
                 <Link
-                  key={link.href}
-                  href={link.href}
+                  key={r.href}
+                  href={r.href}
                   className="card p-5 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
                 >
                   <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
-                    {link.label}
+                    {r.label}
                   </h3>
-                  <p className="text-xs text-[#5E6B63]">{link.desc}</p>
+                  <p className="text-xs text-[#5E6B63]">{r.desc}</p>
                 </Link>
               ))}
             </div>
           </section>
 
-          <p className="mt-8 text-sm text-[#5E6B63]">
-            Wild reptile species profiles are in development.
-          </p>
+          <section className="mt-10" aria-labelledby="related-heading">
+            <h2 id="related-heading" className="section-title">Related Comparisons</h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <Link
+                href="/compare/alligator-vs-crocodile"
+                className="card p-4 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+              >
+                <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors">
+                  Alligator vs Crocodile
+                </h3>
+                <span className="text-xs font-medium text-[#063F2A] mt-2 block">
+                  Compare →
+                </span>
+              </Link>
+            </div>
+          </section>
+
+          <div className="mt-8 grid sm:grid-cols-2 gap-4">
+            <Link
+              href="/reptiles"
+              className="card p-4 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+            >
+              <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
+                Pet Reptile Care Guides
+              </h3>
+              <p className="text-xs text-[#5E6B63]">
+                Habitat, feeding, and health guides for lizards, snakes, turtles, and other pet reptiles.
+              </p>
+            </Link>
+            <Link
+              href="/animal-encyclopedia"
+              className="card p-4 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+            >
+              <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
+                Animal Encyclopedia
+              </h3>
+              <p className="text-xs text-[#5E6B63]">
+                Browse all animal categories including mammals, birds, marine animals, and insects.
+              </p>
+            </Link>
+          </div>
         </div>
       </main>
     </>

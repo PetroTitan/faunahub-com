@@ -6,25 +6,25 @@ import { breadcrumbSchema } from "@/lib/schema";
 export const metadata: Metadata = buildMetadata({
   title: "Birds Encyclopedia — Wild Bird Species Profiles & Ecology",
   description:
-    "Wild bird species profiles covering eagles, owls, parrots, and more — habitat, diet, behavior, and conservation context.",
+    "Wild bird species profiles covering eagles, owls, penguins, and falcons — habitat, diet, behavior, and conservation context.",
   path: "/animal-encyclopedia/birds",
 });
 
-const links = [
+const birds = [
   {
     href: "/animals/eagle",
     label: "Eagle",
-    desc: "Aquila chrysaetos — one of the most powerful aerial predators in the Northern Hemisphere.",
+    desc: "Diurnal raptors of family Accipitridae — booted, fish, snake, and forest eagles.",
   },
   {
-    href: "/birds",
-    label: "Pet Bird Care Guides",
-    desc: "Guides for owners of pet birds including parrots, canaries, and cockatiels.",
+    href: "/animals/owl",
+    label: "Owl",
+    desc: "Nocturnal raptors (Strigiformes) with silent flight and acute hearing.",
   },
   {
-    href: "/animal-encyclopedia",
-    label: "Animal Encyclopedia",
-    desc: "Browse all animal categories including mammals, reptiles, marine animals, and insects.",
+    href: "/animals/penguin",
+    label: "Penguin",
+    desc: "Flightless seabirds of family Spheniscidae adapted for wing-propelled swimming.",
   },
 ];
 
@@ -77,25 +77,63 @@ export default function EncyclopediaBirdsPage() {
               the domesticated or captive-bred bird species covered in the pet birds section.
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-4 mt-8">
-              {links.map((link) => (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+              {birds.map((b) => (
                 <Link
-                  key={link.href}
-                  href={link.href}
+                  key={b.href}
+                  href={b.href}
                   className="card p-5 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
                 >
                   <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
-                    {link.label}
+                    {b.label}
                   </h3>
-                  <p className="text-xs text-[#5E6B63]">{link.desc}</p>
+                  <p className="text-xs text-[#5E6B63]">{b.desc}</p>
                 </Link>
               ))}
             </div>
           </section>
 
-          <p className="mt-8 text-sm text-[#5E6B63]">
-            More wild bird species profiles are in development.
-          </p>
+          <section className="mt-10" aria-labelledby="related-heading">
+            <h2 id="related-heading" className="section-title">Related Comparisons</h2>
+            <div className="grid sm:grid-cols-2 gap-4">
+              <Link
+                href="/compare/falcon-vs-eagle"
+                className="card p-4 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+              >
+                <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors">
+                  Falcon vs Eagle
+                </h3>
+                <span className="text-xs font-medium text-[#063F2A] mt-2 block">
+                  Compare →
+                </span>
+              </Link>
+            </div>
+          </section>
+
+          <div className="mt-8 grid sm:grid-cols-2 gap-4">
+            <Link
+              href="/birds"
+              className="card p-4 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+            >
+              <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
+                Pet Bird Care Guides
+              </h3>
+              <p className="text-xs text-[#5E6B63]">
+                Guides for owners of pet birds including parrots, canaries, and cockatiels.
+              </p>
+            </Link>
+            <Link
+              href="/animal-encyclopedia"
+              className="card p-4 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+            >
+              <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
+                Animal Encyclopedia
+              </h3>
+              <p className="text-xs text-[#5E6B63]">
+                Browse all animal categories including mammals, reptiles, marine animals, and insects.
+              </p>
+            </Link>
+          </div>
         </div>
       </main>
     </>

@@ -108,6 +108,13 @@ const tools = [
     icon: "🐈",
     badge: "Free",
   },
+  {
+    title: "Pet Life Stage Calculator",
+    description: "Cross-species life-stage estimator with general care focus by species.",
+    href: "/tools/pet-life-stage-calculator",
+    icon: "🩺",
+    badge: "Free",
+  },
 ];
 
 export default function HomePage() {
@@ -216,8 +223,13 @@ export default function HomePage() {
               <div className="flex flex-wrap gap-3">
                 {[
                   { label: "Lion", href: "/animals/lion" },
+                  { label: "Tiger", href: "/animals/tiger" },
+                  { label: "Elephant", href: "/animals/elephant" },
                   { label: "Wolf", href: "/animals/wolf" },
+                  { label: "Dolphin", href: "/animals/dolphin" },
                   { label: "Eagle", href: "/animals/eagle" },
+                  { label: "Penguin", href: "/animals/penguin" },
+                  { label: "Panda", href: "/animals/panda" },
                 ].map((link) => (
                   <Link
                     key={link.href}
@@ -245,13 +257,25 @@ export default function HomePage() {
               All Comparisons →
             </Link>
           </div>
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {[
               {
                 href: "/compare/lion-vs-tiger",
                 title: "Lion vs Tiger",
                 question: "Which is bigger? Which is stronger?",
                 icon: "🦁🐯",
+              },
+              {
+                href: "/compare/leopard-vs-jaguar",
+                title: "Leopard vs Jaguar",
+                question: "How do you tell two similar-looking cats apart?",
+                icon: "🐆🐆",
+              },
+              {
+                href: "/compare/alligator-vs-crocodile",
+                title: "Alligator vs Crocodile",
+                question: "Snout, teeth, and range — three reliable diagnostics.",
+                icon: "🐊🐊",
               },
               {
                 href: "/compare/wolf-vs-dog",
@@ -294,7 +318,7 @@ export default function HomePage() {
                 All Tools →
               </Link>
             </div>
-            <div className="grid sm:grid-cols-3 gap-4">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
               {tools.map((tool) => (
                 <ToolCard key={tool.href} {...tool} />
               ))}

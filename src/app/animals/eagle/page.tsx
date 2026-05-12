@@ -249,8 +249,9 @@ export default function EaglePage() {
               <RelatedLinks
                 title="Related Pages"
                 links={[
-                  { label: "Lion Profile", href: "/animals/lion", description: "Panthera leo — pride predator" },
-                  { label: "Wolf Profile", href: "/animals/wolf", description: "Canis lupus — pack predator" },
+                  { label: "Owl Profile", href: "/animals/owl", description: "Nocturnal raptors" },
+                  { label: "Penguin Profile", href: "/animals/penguin", description: "Flightless seabirds" },
+                  { label: "Falcon vs Eagle", href: "/compare/falcon-vs-eagle", description: "Compare raptor groups" },
                   { label: "Bird Encyclopedia", href: "/animal-encyclopedia/birds" },
                   { label: "Animal Comparisons", href: "/compare" },
                 ]}

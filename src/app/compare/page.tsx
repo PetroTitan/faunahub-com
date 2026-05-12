@@ -19,11 +19,46 @@ const comparisons = [
     tags: ["Mammals", "Big Cats", "Wildlife"],
   },
   {
+    title: "Leopard vs Jaguar",
+    question: "How do you tell two similar-looking spotted cats apart?",
+    href: "/compare/leopard-vs-jaguar",
+    icons: "🐆 vs 🐆",
+    tags: ["Mammals", "Big Cats", "Identification"],
+  },
+  {
+    title: "Cheetah vs Leopard",
+    question: "Solid spots vs rosettes — which is which, and how do they hunt?",
+    href: "/compare/cheetah-vs-leopard",
+    icons: "🐆 vs 🐆",
+    tags: ["Mammals", "Cats", "Identification"],
+  },
+  {
     title: "Wolf vs Dog",
     question: "How similar are wolves and domestic dogs? What are the real differences?",
     href: "/compare/wolf-vs-dog",
     icons: "🐺 vs 🐕",
     tags: ["Mammals", "Canines", "Domestic vs Wild"],
+  },
+  {
+    title: "Alligator vs Crocodile",
+    question: "Snout, teeth, and range — three reliable diagnostics.",
+    href: "/compare/alligator-vs-crocodile",
+    icons: "🐊 vs 🐊",
+    tags: ["Reptiles", "Crocodilians", "Identification"],
+  },
+  {
+    title: "Falcon vs Eagle",
+    question: "Two raptor groups, two flight styles, two different families.",
+    href: "/compare/falcon-vs-eagle",
+    icons: "🦅 vs 🦅",
+    tags: ["Birds", "Raptors", "Identification"],
+  },
+  {
+    title: "Rabbit vs Guinea Pig",
+    question: "Different orders, different care needs — which suits which household?",
+    href: "/compare/rabbit-vs-guinea-pig",
+    icons: "🐇 vs 🐹",
+    tags: ["Small Pets", "Care"],
   },
 ];
 
