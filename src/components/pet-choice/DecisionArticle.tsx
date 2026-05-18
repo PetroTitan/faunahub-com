@@ -3,6 +3,13 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQBlock from "@/components/FAQBlock";
 import LastUpdated from "@/components/LastUpdated";
 import RelatedLinks from "@/components/RelatedLinks";
+import SourcesSection from "@/components/educational/SourcesSection";
+import {
+  DECISION_SOURCES_CAT,
+  DECISION_SOURCES_DOG,
+  DECISION_SOURCES_GUIDE,
+} from "@/lib/educational/animal-sources";
+import type { SourceLink } from "@/lib/educational/types";
 import {
   DECISION_SOURCE_NOTE,
   type DecisionPage,
@@ -93,10 +100,22 @@ interface DecisionArticleViewProps {
   page: DecisionPage;
 }
 
+function defaultSourcesForKind(
+  kind: DecisionPage["kind"]
+): SourceLink[] {
+  if (kind === "dog-breed") return DECISION_SOURCES_DOG;
+  if (kind === "cat-breed") return DECISION_SOURCES_CAT;
+  return DECISION_SOURCES_GUIDE;
+}
+
 export default function DecisionArticleView({
   page,
 }: DecisionArticleViewProps) {
   const hubLabel = HUB_LABEL[page.parentHub];
+  const resolvedSources =
+    page.sources && page.sources.length > 0
+      ? page.sources
+      : defaultSourcesForKind(page.kind);
   const parentPath = HUB_PARENT_PATH[page.parentHub];
   const parentLabel = HUB_PARENT_LABEL[page.parentHub];
   const path = `${page.parentHub}/${page.slug}`;
@@ -272,6 +291,13 @@ export default function DecisionArticleView({
                   title={`${page.pageHeading} — Frequently Asked Questions`}
                 />
               </div>
+
+              <div className="not-prose mt-10">
+                <SourcesSection
+                  sources={resolvedSources}
+                  intro="Authoritative references for general pet-choice context. Breed-organization material reflects breed background and tendencies, not guarantees about an individual animal. External links open in a new tab."
+                />
+              </div>
             </article>
 
             <aside
@@ -340,7 +366,11 @@ export default function DecisionArticleView({
                 className="border border-[#DDE6DD] rounded-xl p-4 bg-[#EFF1EB] text-sm text-[#5E6B63]"
               >
                 <p className="font-medium text-[#2C3A2F] mb-1">Sources</p>
-                <p className="leading-relaxed">{DECISION_SOURCE_NOTE}</p>
+                <p className="leading-relaxed">
+                  {resolvedSources.length > 0
+                    ? "Verified references are listed at the bottom of this page under “Sources and further reading”. Breed-organization material describes breed background and tendencies, not guarantees about an individual animal."
+                    : DECISION_SOURCE_NOTE}
+                </p>
               </aside>
 
               <LastUpdated date={page.modifiedTime} />

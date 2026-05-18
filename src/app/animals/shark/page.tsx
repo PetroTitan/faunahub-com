@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
+import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
@@ -167,6 +168,7 @@ export default function SharkPage() {
         { label: "Marine Animals", href: "/animal-encyclopedia/marine-animals" },
         { label: "Animal Encyclopedia", href: "/animal-encyclopedia" },
       ]}
+      sources={ANIMAL_SOURCES.shark}
       publishedDate={PUBLISHED}
       modifiedDate={MODIFIED}
     />

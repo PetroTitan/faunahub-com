@@ -1,3 +1,5 @@
+import type { SourceLink } from "@/lib/educational/types";
+
 export type DecisionPageKind = "dog-breed" | "cat-breed" | "guide";
 
 export type ParentHub = "/dogs/breeds" | "/cats/breeds" | "/guides";
@@ -30,6 +32,10 @@ export interface DecisionPage {
   careExpectations: string[];
   notIdealFor: string[];
   faqs: DecisionPageFAQ[];
+  /** Optional verified-source list. When present, the page renders a
+   * SourcesSection inside the article body in addition to (or in place of)
+   * the generic "source review pending" sidebar note. */
+  sources?: SourceLink[];
   publishedTime: string;
   modifiedTime: string;
 }

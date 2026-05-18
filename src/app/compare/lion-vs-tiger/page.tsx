@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import ComparisonTable from "@/components/ComparisonTable";
 import FAQBlock from "@/components/FAQBlock";
-import SourceNote from "@/components/SourceNote";
 import LastUpdated from "@/components/LastUpdated";
 import RelatedLinks from "@/components/RelatedLinks";
+import SourcesSection from "@/components/educational/SourcesSection";
+import { COMPARISON_SOURCES } from "@/lib/educational/animal-sources";
 import { buildArticleMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, articleSchema, faqSchema } from "@/lib/schema";
 
@@ -150,6 +151,13 @@ export default function LionVsTigerPage() {
               <div className="mt-10">
                 <FAQBlock items={faqItems} />
               </div>
+
+              <div className="mt-10">
+                <SourcesSection
+                  sources={COMPARISON_SOURCES["lion-vs-tiger"]}
+                  intro="Authoritative wildlife references used for general educational context. Comparison claims are framed cautiously; conservation status should be verified against current IUCN Red List data. External links open in a new tab."
+                />
+              </div>
             </article>
 
             {/* Sidebar */}
@@ -164,7 +172,17 @@ export default function LionVsTigerPage() {
                   { label: "All Comparisons", href: "/compare", description: "Browse all animal comparisons" },
                 ]}
               />
-              <SourceNote pending />
+              <aside
+                role="note"
+                aria-label="Sources reference"
+                className="border border-[#DDE6DD] rounded-xl p-4 bg-[#EFF1EB] text-sm text-[#5E6B63]"
+              >
+                <p className="font-medium text-[#2C3A2F] mb-1">Sources</p>
+                <p>
+                  Verified wildlife references are listed at the bottom of
+                  this page under &quot;Sources and further reading&quot;.
+                </p>
+              </aside>
               <LastUpdated date="2025-05-07" />
             </aside>
           </div>

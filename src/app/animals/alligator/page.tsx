@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
+import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
@@ -176,6 +177,7 @@ export default function AlligatorPage() {
         { label: "Reptile Encyclopedia", href: "/animal-encyclopedia/reptiles" },
         { label: "Animal Encyclopedia", href: "/animal-encyclopedia" },
       ]}
+      sources={ANIMAL_SOURCES.alligator}
       publishedDate={PUBLISHED}
       modifiedDate={MODIFIED}
     />

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
+import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
@@ -164,6 +165,7 @@ export default function GorillaPage() {
         { label: "Animal Encyclopedia", href: "/animal-encyclopedia" },
         { label: "Animal Comparisons", href: "/compare" },
       ]}
+      sources={ANIMAL_SOURCES.gorilla}
       publishedDate={PUBLISHED}
       modifiedDate={MODIFIED}
     />

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ComparisonPageLayout from "@/components/ComparisonPageLayout";
+import { COMPARISON_SOURCES } from "@/lib/educational/animal-sources";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
@@ -27,6 +28,7 @@ export default function LeopardVsJaguarPage() {
       path="/compare/leopard-vs-jaguar"
       labelA="Leopard"
       labelB="Jaguar"
+      sources={COMPARISON_SOURCES["leopard-vs-jaguar"]}
       publishedDate={PUBLISHED}
       modifiedDate={MODIFIED}
       quickAnswer={

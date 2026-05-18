@@ -78,8 +78,48 @@ export default function EditorialPolicyPage() {
           <p>
             Conservation status references are based on IUCN Red List designations where available.
             Pages explicitly note when conservation data is approximate or pending review. We do not
-            claim exact population figures unless sourced from a cited authority.
+            claim exact population figures unless sourced from a cited authority. Where possible,
+            animal profiles and comparison pages link to source-verified entries on the IUCN
+            Red List, Animal Diversity Web (University of Michigan), Encyclopaedia Britannica, and
+            the Smithsonian&apos;s National Zoo, alongside relevant government wildlife agencies and
+            recognised conservation authorities.
           </p>
+          <p>
+            FaunaHub does not fabricate scientific names, weights, lifespans, geographic ranges, or
+            conservation statuses. Where an exact figure cannot be confidently sourced, the page
+            uses a range or a cautious framing such as &quot;varies by subspecies and source&quot;
+            rather than inventing a precise number. Pages without verified sources retain a
+            visible &quot;Source review pending&quot; note.
+          </p>
+
+          <h2>Pet Breed and Pet-Choice Content</h2>
+          <p>
+            Breed pages and pet-choice guides on FaunaHub are framed as educational decision support,
+            not guarantees of temperament, suitability, or health. Specifically:
+          </p>
+          <ul>
+            <li>
+              FaunaHub avoids universal &quot;perfect for everyone&quot;, &quot;safe for kids&quot;,
+              &quot;hypoallergenic&quot;, or &quot;low-maintenance&quot; claims. Individual animals
+              vary by genetics, health, training, socialisation, and environment.
+            </li>
+            <li>
+              Where the word &quot;best&quot; appears in a page title for SEO clarity, the body
+              copy explains that this means &quot;potentially suitable based on lifestyle
+              factors&quot;, not a universal recommendation.
+            </li>
+            <li>
+              Where possible, breed and pet-choice pages link to authoritative references such as
+              the American Kennel Club, the Cornell Feline Health Center, the AVMA, and ASPCA
+              pet-care resources. Reputable shelters, breeders, trainers, and licensed
+              veterinarians are the right source of advice about a specific animal.
+            </li>
+            <li>
+              FaunaHub does not cite random pet blogs, retailer product pages, breeder sales
+              pages, or social-media posts as primary sources. Breeder pages are not used as
+              endorsement evidence.
+            </li>
+          </ul>
 
           <h2>Sensitive Topics — Sources We Use</h2>
           <p>

@@ -6,6 +6,8 @@ import DisclaimerBlock from "@/components/DisclaimerBlock";
 import SourceNote from "@/components/SourceNote";
 import LastUpdated from "@/components/LastUpdated";
 import RelatedLinks from "@/components/RelatedLinks";
+import SourcesSection from "@/components/educational/SourcesSection";
+import type { SourceLink } from "@/lib/educational/types";
 import { breadcrumbSchema, articleSchema, faqSchema } from "@/lib/schema";
 
 export interface AnimalProfileSection {
@@ -55,6 +57,9 @@ export interface AnimalProfileLayoutProps {
   quickFacts: AnimalProfileFact[];
   relatedLinks: AnimalRelatedLink[];
   factsHeaderNote?: string;
+  /** Optional verified-source list. When present, renders SourcesSection
+   * inline and hides the "source review pending" sidebar note. */
+  sources?: SourceLink[];
   publishedDate: string;
   modifiedDate: string;
 }
@@ -80,9 +85,11 @@ export default function AnimalProfileLayout({
   quickFacts,
   relatedLinks,
   factsHeaderNote,
+  sources,
   publishedDate,
   modifiedDate,
 }: AnimalProfileLayoutProps) {
+  const hasSources = !!sources && sources.length > 0;
   const schemas = [
     breadcrumbSchema([
       { name: "Home", url: "https://faunahub.com" },
@@ -187,6 +194,15 @@ export default function AnimalProfileLayout({
                   title={`Frequently Asked Questions — ${commonName}`}
                 />
               </div>
+
+              {hasSources && (
+                <div className="not-prose mt-10">
+                  <SourcesSection
+                    sources={sources!}
+                    intro="Authoritative wildlife references used for general educational context. Conservation status should always be verified against current IUCN Red List data. External links open in a new tab."
+                  />
+                </div>
+              )}
             </article>
 
             <aside
@@ -216,7 +232,21 @@ export default function AnimalProfileLayout({
                 </dl>
               </div>
               <RelatedLinks title="Related Pages" links={relatedLinks} />
-              <SourceNote pending />
+              {hasSources ? (
+                <aside
+                  role="note"
+                  aria-label="Sources reference"
+                  className="border border-[#DDE6DD] rounded-xl p-4 bg-[#EFF1EB] text-sm text-[#5E6B63]"
+                >
+                  <p className="font-medium text-[#2C3A2F] mb-1">Sources</p>
+                  <p>
+                    Verified wildlife references are listed at the bottom of
+                    this page under &quot;Sources and further reading&quot;.
+                  </p>
+                </aside>
+              ) : (
+                <SourceNote pending />
+              )}
               <LastUpdated date={modifiedDate} />
             </aside>
           </div>

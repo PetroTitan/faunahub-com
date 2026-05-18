@@ -4,6 +4,12 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQBlock from "@/components/FAQBlock";
 import LastUpdated from "@/components/LastUpdated";
 import RelatedLinks from "@/components/RelatedLinks";
+import SourcesSection from "@/components/educational/SourcesSection";
+import {
+  AVMA_PET_CARE,
+  ASPCA_PET_CARE,
+  AKC_BREEDS,
+} from "@/lib/educational/animal-sources";
 import { buildMetadata } from "@/lib/metadata";
 import {
   breadcrumbSchema,
@@ -121,6 +127,13 @@ export default function PetBreedSelectorPage() {
                 <FAQBlock
                   items={SELECTOR_FAQS}
                   title="Pet Breed Selector — Frequently Asked Questions"
+                />
+              </div>
+
+              <div className="not-prose mt-10">
+                <SourcesSection
+                  sources={[AVMA_PET_CARE, ASPCA_PET_CARE, AKC_BREEDS]}
+                  intro="Authoritative pet-care references for responsible ownership context. The selector does not rank breeds against these sources; it points users toward authoritative information for further reading. External links open in a new tab."
                 />
               </div>
             </article>

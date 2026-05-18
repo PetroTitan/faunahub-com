@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
+import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
@@ -181,6 +182,7 @@ export default function TigerPage() {
         { label: "Lion vs Tiger", href: "/compare/lion-vs-tiger", description: "Full species comparison" },
         { label: "Mammal Encyclopedia", href: "/animal-encyclopedia/mammals" },
       ]}
+      sources={ANIMAL_SOURCES.tiger}
       publishedDate={PUBLISHED}
       modifiedDate={MODIFIED}
     />

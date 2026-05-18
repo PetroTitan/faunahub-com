@@ -3,10 +3,11 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQBlock from "@/components/FAQBlock";
 import DisclaimerBlock from "@/components/DisclaimerBlock";
-import SourceNote from "@/components/SourceNote";
 import LastUpdated from "@/components/LastUpdated";
 import RelatedLinks from "@/components/RelatedLinks";
 import ComparisonTable from "@/components/ComparisonTable";
+import SourcesSection from "@/components/educational/SourcesSection";
+import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
 import { buildArticleMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, articleSchema, faqSchema } from "@/lib/schema";
 
@@ -233,6 +234,13 @@ export default function LionPage() {
               <div className="mt-10">
                 <FAQBlock items={faqItems} title="Frequently Asked Questions — Lions" />
               </div>
+
+              <div className="mt-10">
+                <SourcesSection
+                  sources={ANIMAL_SOURCES.lion}
+                  intro="Authoritative wildlife references used for general educational context. Conservation status should always be verified against current IUCN Red List data. External links open in a new tab."
+                />
+              </div>
             </article>
 
             <aside aria-label="Lion profile sidebar" className="space-y-6 lg:sticky lg:top-6 self-start">
@@ -275,7 +283,17 @@ export default function LionPage() {
                   { label: "Mammal Encyclopedia", href: "/animal-encyclopedia/mammals" },
                 ]}
               />
-              <SourceNote pending />
+              <aside
+                role="note"
+                aria-label="Sources reference"
+                className="border border-[#DDE6DD] rounded-xl p-4 bg-[#EFF1EB] text-sm text-[#5E6B63]"
+              >
+                <p className="font-medium text-[#2C3A2F] mb-1">Sources</p>
+                <p>
+                  Verified wildlife references are listed at the bottom of
+                  this page under &quot;Sources and further reading&quot;.
+                </p>
+              </aside>
               <LastUpdated date="2026-05-18" />
             </aside>
           </div>
