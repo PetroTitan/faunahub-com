@@ -19,6 +19,16 @@ export default function DogCostPage() {
       article={article}
       relatedTools={[
         {
+          label: "Dog insurance overview",
+          href: "/dogs/insurance",
+          description: "Insurance considerations for dogs",
+        },
+        {
+          label: "Emergency vet costs",
+          href: "/vet-care/emergency-vet-costs",
+          description: "Why emergency care varies",
+        },
+        {
           label: "Dog Age Calculator",
           href: "/tools/dog-age-calculator",
           description: "Size-adjusted human-age equivalent",

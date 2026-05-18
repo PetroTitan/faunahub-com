@@ -1,16 +1,52 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import DisclaimerBlock from "@/components/DisclaimerBlock";
+import LastUpdated from "@/components/LastUpdated";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema } from "@/lib/schema";
+import { INSURANCE_SOURCE_REVIEW_NOTE } from "@/lib/educational/types";
+
+const LAST_UPDATED = "2026-05-18";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Cat Pet Insurance — How It Works & What to Consider",
+  title: "Cat Insurance — Educational Overview & Planning",
   description:
-    "How pet insurance works for cats, what is typically covered, and how to evaluate policies for your cat's needs.",
+    "Cautious, source-aware overview of pet insurance considerations for cats — indoor/outdoor lifestyle, age, chronic conditions, and how to compare policies.",
   path: "/cats/insurance",
 });
 
-export default function CatInsurancePage() {
+const LINKS = [
+  {
+    href: "/cats/insurance/is-pet-insurance-worth-it-for-cats",
+    title: "Is pet insurance worth it for cats?",
+    description:
+      "Trade-offs, cat-specific risk factors, and the emergency-fund alternative.",
+  },
+  {
+    href: "/pet-insurance",
+    title: "Pet insurance overview",
+    description:
+      "How policies generally work, common exclusions, and what to compare.",
+  },
+  {
+    href: "/cats/costs/how-much-does-a-cat-cost",
+    title: "How much does a cat cost?",
+    description: "Cost planning framework — pairs with insurance planning.",
+  },
+  {
+    href: "/tools/pet-cost-calculator",
+    title: "Pet Cost Calculator",
+    description: "Run insurance + emergency fund scenarios with your numbers.",
+  },
+  {
+    href: "/pet-insurance/pet-insurance-vs-emergency-fund",
+    title: "Pet insurance vs emergency fund",
+    description: "Compare the two approaches without hype.",
+  },
+];
+
+export default function CatInsuranceHubPage() {
   const breadcrumb = breadcrumbSchema([
     { name: "Home", url: "https://faunahub.com" },
     { name: "Cats", url: "https://faunahub.com/cats" },
@@ -23,76 +59,73 @@ export default function CatInsurancePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-
       <main id="main-content">
         <header className="bg-white border-b border-[#DDE6DD] py-10 sm:py-14">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
-              <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
-              <span aria-hidden="true">/</span>
-              <Link href="/cats" className="hover:text-[#063F2A] hover:no-underline">Cats</Link>
-              <span aria-hidden="true">/</span>
-              <span className="text-[#17211B] font-medium" aria-current="page">Insurance</span>
-            </nav>
-            <span className="tag mb-3 inline-block">Cats</span>
+            <Breadcrumbs
+              items={[{ label: "Cats", href: "/cats" }, { label: "Insurance" }]}
+            />
+            <p className="mb-3">
+              <span className="tag">Cats</span>{" "}
+              <span className="tag ml-1">Insurance</span>
+            </p>
             <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">
-              Cat Pet Insurance
+              Cat Insurance — Educational Overview
             </h1>
             <p className="text-base text-[#2C3A2F] leading-relaxed max-w-2xl">
-              Pet insurance for cats is designed to reduce the financial impact of unexpected
-              veterinary costs — from emergency treatment for trauma or poisoning to the ongoing
-              management of chronic conditions like kidney disease or hyperthyroidism. The value
-              of any policy depends on how closely its terms match your cat&apos;s actual risk
-              profile and your financial circumstances.
+              Cautious, source-aware planning pages for cat owners
+              considering pet insurance. FaunaHub does not recommend or rank
+              providers. These pages help you understand the trade-offs,
+              cat-specific factors that may matter, and the questions to ask
+              before reading any policy document.
             </p>
           </div>
         </header>
 
-        <div className="container-content py-10">
-          <section className="prose-content max-w-3xl" aria-labelledby="about-heading">
-            <h2 id="about-heading">How Cat Pet Insurance Works</h2>
-            <p>
-              The majority of pet insurance policies for cats use a reimbursement model: you pay
-              the veterinary bill at the time of service, then submit a claim for eligible expenses
-              above your deductible. Reimbursement rates typically range from 70% to 90% of
-              covered costs, and policies set either annual benefit limits or per-condition limits.
-              Some policies also offer wellness add-ons that cover routine preventive care such
-              as vaccinations and annual exams.
-            </p>
-            <p>
-              Key exclusions to understand before purchasing include pre-existing conditions,
-              bilateral conditions (where one side is pre-existing), elective procedures, dental
-              disease in some policies, and hereditary conditions in certain breeds. Cats insured
-              from a young age before any conditions develop typically have fewer exclusions
-              applied at the point of a claim.
-            </p>
-            <h2>Evaluating Coverage for Your Cat</h2>
-            <p>
-              Indoor-only cats and outdoor cats have different risk profiles. Outdoor cats face
-              higher risks of trauma, infectious disease, and bite wounds, which increases the
-              probability of needing emergency care. Pedigree cats with known breed-specific health
-              tendencies — such as polycystic kidney disease in Persians or respiratory issues in
-              flat-faced breeds — benefit from policies that do not exclude hereditary conditions.
-            </p>
-          </section>
+        <div className="container-content py-10 space-y-10">
+          <ul className="grid sm:grid-cols-2 gap-4">
+            {LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="block h-full rounded-xl border border-[#DDE6DD] bg-white p-5 hover:border-[#0F5A3A] hover:shadow-sm transition focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:ring-offset-2 hover:no-underline"
+                >
+                  <p className="text-base font-semibold text-[#17211B] mb-2 leading-snug">
+                    {link.title}
+                  </p>
+                  <p className="text-sm text-[#2C3A2F] leading-relaxed">
+                    {link.description}
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <DisclaimerBlock type="veterinary" />
 
           <aside
             role="note"
-            className="mt-8 max-w-3xl bg-[#EFF4E0] border border-[#CFE0A8] rounded-xl p-4 text-sm text-[#2C3A2F]"
+            aria-label="Source review note"
+            className="border border-[#DDE6DD] rounded-xl p-4 bg-[#EFF1EB] text-sm text-[#5E6B63]"
           >
-            FaunaHub does not endorse, recommend, or have a commercial relationship with any
-            specific pet insurance provider. Information on this page is for general educational
-            purposes only. Always read a policy&apos;s full terms and conditions before purchasing.
+            <p className="font-medium text-[#2C3A2F] mb-1">Sources</p>
+            <p className="leading-relaxed">{INSURANCE_SOURCE_REVIEW_NOTE}</p>
+            <p className="mt-2 leading-relaxed">
+              <strong className="text-[#2C3A2F]">Source review required.</strong>{" "}
+              No external citations have been added to this hub.
+            </p>
           </aside>
 
-          <div className="mt-8">
+          <LastUpdated date={LAST_UPDATED} />
+
+          <p>
             <Link
               href="/cats"
               className="text-sm font-medium text-[#063F2A] hover:underline"
             >
-              &larr; Back to Cat Care Guides
+              ← Back to Cat Care Guides
             </Link>
-          </div>
+          </p>
         </div>
       </main>
     </>

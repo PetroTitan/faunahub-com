@@ -19,6 +19,16 @@ export default function CatCostPage() {
       article={article}
       relatedTools={[
         {
+          label: "Cat insurance overview",
+          href: "/cats/insurance",
+          description: "Insurance considerations for cats",
+        },
+        {
+          label: "Emergency vet costs",
+          href: "/vet-care/emergency-vet-costs",
+          description: "Why emergency care varies",
+        },
+        {
           label: "Cat Age Calculator",
           href: "/tools/cat-age-calculator",
           description: "Feline human-age equivalent and life stage",

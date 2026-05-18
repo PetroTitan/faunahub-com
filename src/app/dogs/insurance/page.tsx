@@ -1,16 +1,52 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import DisclaimerBlock from "@/components/DisclaimerBlock";
+import LastUpdated from "@/components/LastUpdated";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema } from "@/lib/schema";
+import { INSURANCE_SOURCE_REVIEW_NOTE } from "@/lib/educational/types";
+
+const LAST_UPDATED = "2026-05-18";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Dog Pet Insurance — How It Works & What to Consider",
+  title: "Dog Insurance — Educational Overview & Planning",
   description:
-    "How pet insurance works for dogs, what is typically covered, deductibles and premiums, and how to evaluate your options.",
+    "Cautious, source-aware overview of pet insurance considerations for dogs — size, breed, activity, age, and how to compare policies. No provider recommendations.",
   path: "/dogs/insurance",
 });
 
-export default function DogInsurancePage() {
+const LINKS = [
+  {
+    href: "/dogs/insurance/is-pet-insurance-worth-it-for-dogs",
+    title: "Is pet insurance worth it for dogs?",
+    description:
+      "Trade-offs, dog-specific risk factors, and the emergency-fund alternative.",
+  },
+  {
+    href: "/pet-insurance",
+    title: "Pet insurance overview",
+    description:
+      "How policies generally work, common exclusions, and what to compare.",
+  },
+  {
+    href: "/dogs/costs/how-much-does-a-dog-cost",
+    title: "How much does a dog cost?",
+    description: "Cost planning framework — pairs with insurance planning.",
+  },
+  {
+    href: "/tools/pet-cost-calculator",
+    title: "Pet Cost Calculator",
+    description: "Run insurance + emergency fund scenarios with your numbers.",
+  },
+  {
+    href: "/pet-insurance/pet-insurance-vs-emergency-fund",
+    title: "Pet insurance vs emergency fund",
+    description: "Compare the two approaches without hype.",
+  },
+];
+
+export default function DogInsuranceHubPage() {
   const breadcrumb = breadcrumbSchema([
     { name: "Home", url: "https://faunahub.com" },
     { name: "Dogs", url: "https://faunahub.com/dogs" },
@@ -23,76 +59,73 @@ export default function DogInsurancePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-
       <main id="main-content">
         <header className="bg-white border-b border-[#DDE6DD] py-10 sm:py-14">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
-              <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
-              <span aria-hidden="true">/</span>
-              <Link href="/dogs" className="hover:text-[#063F2A] hover:no-underline">Dogs</Link>
-              <span aria-hidden="true">/</span>
-              <span className="text-[#17211B] font-medium" aria-current="page">Insurance</span>
-            </nav>
-            <span className="tag mb-3 inline-block">Dogs</span>
+            <Breadcrumbs
+              items={[{ label: "Dogs", href: "/dogs" }, { label: "Insurance" }]}
+            />
+            <p className="mb-3">
+              <span className="tag">Dogs</span>{" "}
+              <span className="tag ml-1">Insurance</span>
+            </p>
             <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">
-              Dog Pet Insurance
+              Dog Insurance — Educational Overview
             </h1>
             <p className="text-base text-[#2C3A2F] leading-relaxed max-w-2xl">
-              Pet insurance for dogs is a financial tool that helps offset the cost of unexpected
-              veterinary treatment — from emergency surgery to specialist consultations and
-              long-term condition management. Understanding how policies are structured helps owners
-              choose coverage that genuinely matches their dog&apos;s risk profile and their own
-              financial situation.
+              Cautious, source-aware planning pages for dog owners considering
+              pet insurance. FaunaHub does not recommend or rank providers.
+              These pages help you understand the trade-offs, dog-specific
+              factors that may matter, and the questions to ask before reading
+              any policy document.
             </p>
           </div>
         </header>
 
-        <div className="container-content py-10">
-          <section className="prose-content max-w-3xl" aria-labelledby="about-heading">
-            <h2 id="about-heading">How Pet Insurance Works</h2>
-            <p>
-              Most pet insurance policies operate on a reimbursement model: the owner pays the
-              veterinary bill at the time of treatment, then submits a claim to be reimbursed
-              for eligible costs above the deductible, up to the policy&apos;s annual or per-incident
-              limit. Key variables to compare across policies include the annual deductible amount,
-              the reimbursement percentage (commonly 70–90%), the annual or lifetime benefit
-              maximum, and the list of exclusions.
-            </p>
-            <p>
-              Common exclusions in dog insurance policies include pre-existing conditions, elective
-              procedures, breeding costs, and sometimes breed-specific hereditary conditions.
-              Reading the policy&apos;s definition of &quot;pre-existing condition&quot; carefully is
-              important — some insurers include conditions that existed before the policy start
-              date even if they were never diagnosed.
-            </p>
-            <h2>What to Consider Before Purchasing</h2>
-            <p>
-              The right time to purchase pet insurance is typically when your dog is young and
-              healthy, before any conditions can be classified as pre-existing. Breed matters too —
-              some breeds with known hereditary health issues may face higher premiums or exclusions
-              for those specific conditions. Comparing at least three to four policies side-by-side
-              against your dog&apos;s specific breed risk profile is advisable before committing.
-            </p>
-          </section>
+        <div className="container-content py-10 space-y-10">
+          <ul className="grid sm:grid-cols-2 gap-4">
+            {LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="block h-full rounded-xl border border-[#DDE6DD] bg-white p-5 hover:border-[#0F5A3A] hover:shadow-sm transition focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:ring-offset-2 hover:no-underline"
+                >
+                  <p className="text-base font-semibold text-[#17211B] mb-2 leading-snug">
+                    {link.title}
+                  </p>
+                  <p className="text-sm text-[#2C3A2F] leading-relaxed">
+                    {link.description}
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <DisclaimerBlock type="veterinary" />
 
           <aside
             role="note"
-            className="mt-8 max-w-3xl bg-[#EFF4E0] border border-[#CFE0A8] rounded-xl p-4 text-sm text-[#2C3A2F]"
+            aria-label="Source review note"
+            className="border border-[#DDE6DD] rounded-xl p-4 bg-[#EFF1EB] text-sm text-[#5E6B63]"
           >
-            FaunaHub does not endorse, recommend, or have a commercial relationship with any
-            specific pet insurance provider. Information on this page is for general educational
-            purposes only. Always read a policy&apos;s full terms and conditions before purchasing.
+            <p className="font-medium text-[#2C3A2F] mb-1">Sources</p>
+            <p className="leading-relaxed">{INSURANCE_SOURCE_REVIEW_NOTE}</p>
+            <p className="mt-2 leading-relaxed">
+              <strong className="text-[#2C3A2F]">Source review required.</strong>{" "}
+              No external citations have been added to this hub.
+            </p>
           </aside>
 
-          <div className="mt-8">
+          <LastUpdated date={LAST_UPDATED} />
+
+          <p>
             <Link
               href="/dogs"
               className="text-sm font-medium text-[#063F2A] hover:underline"
             >
-              &larr; Back to Dog Care Guides
+              ← Back to Dog Care Guides
             </Link>
-          </div>
+          </p>
         </div>
       </main>
     </>

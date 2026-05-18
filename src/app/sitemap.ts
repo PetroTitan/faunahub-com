@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { FOOD_SAFETY_ARTICLES } from "@/lib/food-safety/data";
 import { DECISION_PAGES } from "@/lib/pet-choice/data";
 import { BUDGET_GUIDES, PET_COST_ARTICLES } from "@/lib/pet-cost/data";
+import { INSURANCE_ARTICLES } from "@/lib/pet-insurance/data";
+import { VET_CARE_ARTICLES } from "@/lib/vet-care/data";
 
 const BASE_URL = "https://faunahub.com";
 
@@ -87,6 +89,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/compare`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/tools`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/costs`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE_URL}/pet-insurance`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE_URL}/vet-care`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/guides`, lastModified: today, changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE_URL}/resources`, lastModified: today, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/about`, lastModified: today, changeFrequency: "yearly", priority: 0.5 },
@@ -154,6 +158,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
+  const insuranceRoutes: MetadataRoute.Sitemap = INSURANCE_ARTICLES.map(
+    (article) => ({
+      url: `${BASE_URL}${article.path}`,
+      lastModified: article.modifiedTime,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    })
+  );
+
+  const vetCareRoutes: MetadataRoute.Sitemap = VET_CARE_ARTICLES.map(
+    (article) => ({
+      url: `${BASE_URL}${article.path}`,
+      lastModified: article.modifiedTime,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    })
+  );
+
   return [
     ...staticRoutes,
     ...animalRoutes,
@@ -163,5 +185,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...decisionRoutes,
     ...costArticleRoutes,
     ...budgetGuideRoutes,
+    ...insuranceRoutes,
+    ...vetCareRoutes,
   ];
 }

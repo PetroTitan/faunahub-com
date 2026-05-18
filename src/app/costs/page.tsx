@@ -196,6 +196,75 @@ export default function CostsHubPage() {
             </div>
           </section>
 
+          <section aria-labelledby="insurance-heading">
+            <h2 id="insurance-heading" className="section-title">
+              Insurance &amp; emergency care planning
+            </h2>
+            <p className="section-subtitle">
+              Pet insurance is one option for managing large unexpected
+              veterinary bills. An emergency fund is another. These pages
+              explain the trade-offs without recommending a provider.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 not-prose">
+              <Link
+                href="/pet-insurance"
+                className="rounded-xl border border-[#DDE6DD] bg-white p-5 hover:border-[#0F5A3A] hover:no-underline transition"
+              >
+                <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                  Educational hub
+                </p>
+                <p className="text-base font-semibold text-[#17211B]">
+                  Pet insurance overview →
+                </p>
+                <p className="text-sm text-[#5E6B63] mt-1">
+                  How policies generally work and what to compare.
+                </p>
+              </Link>
+              <Link
+                href="/pet-insurance/pet-insurance-vs-emergency-fund"
+                className="rounded-xl border border-[#DDE6DD] bg-white p-5 hover:border-[#0F5A3A] hover:no-underline transition"
+              >
+                <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                  Comparison
+                </p>
+                <p className="text-base font-semibold text-[#17211B]">
+                  Insurance vs emergency fund →
+                </p>
+                <p className="text-sm text-[#5E6B63] mt-1">
+                  Trade-offs without hype.
+                </p>
+              </Link>
+              <Link
+                href="/vet-care/emergency-vet-costs"
+                className="rounded-xl border border-[#DDE6DD] bg-white p-5 hover:border-[#0F5A3A] hover:no-underline transition"
+              >
+                <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                  Vet care
+                </p>
+                <p className="text-base font-semibold text-[#17211B]">
+                  Emergency vet costs →
+                </p>
+                <p className="text-sm text-[#5E6B63] mt-1">
+                  Why emergency care varies and how to plan.
+                </p>
+              </Link>
+              <Link
+                href="/vet-care/first-vet-visit-checklist"
+                className="rounded-xl border border-[#DDE6DD] bg-white p-5 hover:border-[#0F5A3A] hover:no-underline transition"
+              >
+                <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                  Vet care
+                </p>
+                <p className="text-base font-semibold text-[#17211B]">
+                  First vet visit checklist →
+                </p>
+                <p className="text-sm text-[#5E6B63] mt-1">
+                  What to bring and what to ask.
+                </p>
+              </Link>
+            </div>
+          </section>
+
           <section aria-labelledby="budget-heading">
             <h2 id="budget-heading" className="section-title">
               Budgeting and planning guides

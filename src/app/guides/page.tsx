@@ -182,6 +182,40 @@ export default function GuidesPage() {
                   </p>
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/pet-insurance"
+                  className="block h-full rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:shadow-sm transition focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:ring-offset-2 hover:no-underline"
+                >
+                  <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                    Educational hub
+                  </p>
+                  <p className="text-base font-semibold text-[#17211B] mb-2 leading-snug">
+                    Pet insurance overview →
+                  </p>
+                  <p className="text-sm text-[#2C3A2F] leading-relaxed">
+                    How insurance generally works, what may be covered or
+                    excluded, and the emergency-fund alternative.
+                  </p>
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/vet-care"
+                  className="block h-full rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:shadow-sm transition focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:ring-offset-2 hover:no-underline"
+                >
+                  <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                    Educational hub
+                  </p>
+                  <p className="text-base font-semibold text-[#17211B] mb-2 leading-snug">
+                    Vet care planning →
+                  </p>
+                  <p className="text-sm text-[#2C3A2F] leading-relaxed">
+                    Routine vs emergency care, first-visit checklist, and
+                    when to call an emergency vet.
+                  </p>
+                </Link>
+              </li>
             </ul>
           </section>
 
