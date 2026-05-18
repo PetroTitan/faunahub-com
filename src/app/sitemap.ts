@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { FOOD_SAFETY_ARTICLES } from "@/lib/food-safety/data";
+import { DECISION_PAGES } from "@/lib/pet-choice/data";
 
 const BASE_URL = "https://faunahub.com";
 
@@ -53,6 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "guinea-pig-age-calculator",
     "pet-life-stage-calculator",
     "can-my-pet-eat-this",
+    "pet-breed-selector",
   ];
 
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -123,11 +125,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
+  const decisionRoutes: MetadataRoute.Sitemap = DECISION_PAGES.map(
+    (page) => ({
+      url: `${BASE_URL}${page.parentHub}/${page.slug}`,
+      lastModified: page.modifiedTime,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    })
+  );
+
   return [
     ...staticRoutes,
     ...animalRoutes,
     ...compareRoutes,
     ...toolRoutes,
     ...foodSafetyRoutes,
+    ...decisionRoutes,
   ];
 }

@@ -1,84 +1,54 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import DecisionHub from "@/components/pet-choice/DecisionHub";
+import { getDecisionsByKind } from "@/lib/pet-choice/data";
 import { buildMetadata } from "@/lib/metadata";
-import { breadcrumbSchema } from "@/lib/schema";
+
+const LAST_UPDATED = "2026-05-18";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Dog Breed Guides — Profiles, Traits & Care Requirements",
+  title: "Dog Breed Decision Guides — Apartments, Families & First-Time Owners",
   description:
-    "Dog breed profiles covering size, temperament, exercise needs, health tendencies, and care requirements for popular and less common breeds.",
+    "Cautious, practical dog breed decision pages — apartment-friendly, family-friendly, low-maintenance, first-time-owner, and small dog breeds.",
   path: "/dogs/breeds",
 });
 
-export default function DogBreedsPage() {
-  const breadcrumb = breadcrumbSchema([
-    { name: "Home", url: "https://faunahub.com" },
-    { name: "Dogs", url: "https://faunahub.com/dogs" },
-    { name: "Breeds", url: "https://faunahub.com/dogs/breeds" },
-  ]);
+const HUB_FAQS = [
+  {
+    question: "How accurate are 'best dogs for X' lists?",
+    answer:
+      "Lists describe breed tendencies, not guarantees. Individual dogs vary by genetics, training, socialisation, and environment. Use these pages as starting points and meet specific dogs before deciding.",
+  },
+  {
+    question: "Should I choose a breed or adopt from a shelter?",
+    answer:
+      "Both can work. Reputable shelters often have small adult dogs with observable temperaments, which is helpful when matching a dog to your home. Reputable breeders are another option; avoid pet-store or unregulated sources.",
+  },
+  {
+    question: "Are 'hypoallergenic' dogs real?",
+    answer:
+      "No truly hypoallergenic dog exists. Some breeds shed less, but allergens also come from skin and saliva. Spend time with a specific dog before adopting if allergies are a concern.",
+  },
+  {
+    question: "How do I narrow down further?",
+    answer:
+      "Try the Pet Breed Selector tool, then talk to a reputable shelter, breeder, or veterinarian about realistic next steps. The pages here pair well with the dog age calculator and pet life stage calculator.",
+  },
+];
 
+export default function DogBreedsHub() {
+  const decisions = getDecisionsByKind("dog-breed");
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
-      />
-
-      <main id="main-content">
-        <header className="bg-white border-b border-[#DDE6DD] py-10 sm:py-14">
-          <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
-              <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
-              <span aria-hidden="true">/</span>
-              <Link href="/dogs" className="hover:text-[#063F2A] hover:no-underline">Dogs</Link>
-              <span aria-hidden="true">/</span>
-              <span className="text-[#17211B] font-medium" aria-current="page">Breeds</span>
-            </nav>
-            <span className="tag mb-3 inline-block">Dogs</span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">
-              Dog Breed Guides
-            </h1>
-            <p className="text-base text-[#2C3A2F] leading-relaxed max-w-2xl">
-              There are over 340 recognized dog breeds worldwide, each developed for specific
-              purposes — from herding and guarding to companionship and scent work. Choosing a
-              breed that suits your living situation, activity level, and experience with dogs
-              is one of the most important decisions in responsible dog ownership.
-            </p>
-          </div>
-        </header>
-
-        <div className="container-content py-10">
-          <section className="prose-content max-w-3xl" aria-labelledby="about-heading">
-            <h2 id="about-heading">About This Section</h2>
-            <p>
-              Dog breed profiles on FaunaHub cover the key information prospective and current
-              owners need: typical adult size and weight, energy and exercise requirements,
-              coat type and grooming needs, known health predispositions, and general suitability
-              for families, first-time owners, or apartment living. Breed-specific health
-              tendencies are noted to help owners work proactively with their veterinarian, not
-              to predict individual outcomes.
-            </p>
-            <p>
-              Breed characteristics describe typical tendencies in well-bred, socialized dogs.
-              Individual temperament is always influenced by early socialization, training history,
-              and environment — no breed profile should be taken as a guarantee of behavior.
-            </p>
-          </section>
-
-          <p className="mt-8 text-sm text-[#5E6B63]">
-            Individual breed profiles are in development and will be published progressively.
-          </p>
-
-          <div className="mt-8">
-            <Link
-              href="/dogs"
-              className="text-sm font-medium text-[#063F2A] hover:underline"
-            >
-              &larr; Back to Dog Care Guides
-            </Link>
-          </div>
-        </div>
-      </main>
-    </>
+    <DecisionHub
+      parentHub="/dogs/breeds"
+      hubLabel="Dog Breeds"
+      parentPath="/dogs"
+      parentLabel="Dogs"
+      h1="Dog Breed Decision Guides"
+      intro="Practical pages that organise dog breed thinking by household intent — apartment-friendly, family-friendly, low-maintenance, first-time-owner, and small breeds. Every page uses cautious framing and notes individual variation in temperament, health, and training."
+      decisionPages={decisions}
+      hubFaqs={HUB_FAQS}
+      faqTitle="Dog Breeds — Frequently Asked Questions"
+      lastUpdated={LAST_UPDATED}
+    />
   );
 }

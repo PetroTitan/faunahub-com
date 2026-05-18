@@ -1,85 +1,54 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import DecisionHub from "@/components/pet-choice/DecisionHub";
+import { getDecisionsByKind } from "@/lib/pet-choice/data";
 import { buildMetadata } from "@/lib/metadata";
-import { breadcrumbSchema } from "@/lib/schema";
+
+const LAST_UPDATED = "2026-05-18";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Cat Breed Guides — Profiles, Traits & Care Requirements",
+  title: "Cat Breed Decision Guides — Apartments, First-Time Owners & Families",
   description:
-    "Cat breed profiles covering coat type, temperament, size, health tendencies, and care requirements for popular breeds.",
+    "Cautious, practical cat breed decision pages — apartment-friendly, first-time-owner, low-maintenance, and family-friendly cat breeds.",
   path: "/cats/breeds",
 });
 
-export default function CatBreedsPage() {
-  const breadcrumb = breadcrumbSchema([
-    { name: "Home", url: "https://faunahub.com" },
-    { name: "Cats", url: "https://faunahub.com/cats" },
-    { name: "Breeds", url: "https://faunahub.com/cats/breeds" },
-  ]);
+const HUB_FAQS = [
+  {
+    question: "Is breed really the main thing to consider in a cat?",
+    answer:
+      "No. Individual personality, age at adoption, early socialisation, health, and environment usually matter more than breed. Breed gives a starting point for tendencies; the specific cat is the real decision.",
+  },
+  {
+    question: "Should I adopt a kitten or an adult cat?",
+    answer:
+      "Adult cats from reputable shelters have observable personalities and are often a calmer choice for first-time owners. Kittens need more supervision and play during their first year but build longer shared history.",
+  },
+  {
+    question: "Are 'hypoallergenic' cats real?",
+    answer:
+      "No truly hypoallergenic cat exists. Some breeds may be tolerated by some allergic people, but reactions vary individually. Spend time with the specific cat before adopting.",
+  },
+  {
+    question: "What pairs well with these pages?",
+    answer:
+      "Try the Pet Breed Selector tool to surface the right page for your household, then use the cat age calculator and pet life stage calculator to plan care across life stages.",
+  },
+];
 
+export default function CatBreedsHub() {
+  const decisions = getDecisionsByKind("cat-breed");
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
-      />
-
-      <main id="main-content">
-        <header className="bg-white border-b border-[#DDE6DD] py-10 sm:py-14">
-          <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
-              <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
-              <span aria-hidden="true">/</span>
-              <Link href="/cats" className="hover:text-[#063F2A] hover:no-underline">Cats</Link>
-              <span aria-hidden="true">/</span>
-              <span className="text-[#17211B] font-medium" aria-current="page">Breeds</span>
-            </nav>
-            <span className="tag mb-3 inline-block">Cats</span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">
-              Cat Breed Guides
-            </h1>
-            <p className="text-base text-[#2C3A2F] leading-relaxed max-w-2xl">
-              Recognized cat breeds differ in coat length and texture, body type, activity level,
-              and social personality — from the talkative Siamese to the quiet, placid Ragdoll.
-              Understanding a breed&apos;s typical characteristics helps prospective owners choose a
-              cat that suits their household and lifestyle.
-            </p>
-          </div>
-        </header>
-
-        <div className="container-content py-10">
-          <section className="prose-content max-w-3xl" aria-labelledby="about-heading">
-            <h2 id="about-heading">About This Section</h2>
-            <p>
-              Cat breed profiles on FaunaHub cover the characteristics owners find most useful:
-              coat type and grooming requirements, typical adult size and weight, energy and play
-              needs, social behavior with humans and other pets, and known breed-specific health
-              predispositions such as hypertrophic cardiomyopathy in Maine Coons or brachycephalic
-              airway issues in Persians and Exotic Shorthairs. These profiles are educational and
-              describe breed tendencies rather than guarantees of individual personality.
-            </p>
-            <p>
-              Many cats in shelters and rescues are domestic short or longhairs without a specific
-              breed background. Mixed-breed cats are often genetically diverse and can make
-              excellent companions — breed profiles are a starting point for those specifically
-              seeking or already living with a pedigree cat.
-            </p>
-          </section>
-
-          <p className="mt-8 text-sm text-[#5E6B63]">
-            Individual breed profiles are in development and will be published progressively.
-          </p>
-
-          <div className="mt-8">
-            <Link
-              href="/cats"
-              className="text-sm font-medium text-[#063F2A] hover:underline"
-            >
-              &larr; Back to Cat Care Guides
-            </Link>
-          </div>
-        </div>
-      </main>
-    </>
+    <DecisionHub
+      parentHub="/cats/breeds"
+      hubLabel="Cat Breeds"
+      parentPath="/cats"
+      parentLabel="Cats"
+      h1="Cat Breed Decision Guides"
+      intro="Practical pages that organise cat breed thinking by household intent — apartment, first-time owner, low-maintenance, and family situations. Every page uses cautious framing and emphasises that mixed-breed shelter cats with observable temperaments are often the most practical match."
+      decisionPages={decisions}
+      hubFaqs={HUB_FAQS}
+      faqTitle="Cat Breeds — Frequently Asked Questions"
+      lastUpdated={LAST_UPDATED}
+    />
   );
 }

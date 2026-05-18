@@ -74,6 +74,14 @@ const ageCalculators = [
 
 const otherTools = [
   {
+    title: "Pet Breed Selector",
+    description:
+      "Short questionnaire that surfaces pet and breed-category pages to read about based on your home, schedule, and preferences.",
+    href: "/tools/pet-breed-selector",
+    icon: "🧭",
+    badge: "Free",
+  },
+  {
     title: "Can my pet eat this?",
     description:
       "Search a common food to find FaunaHub's cautious dog and cat food safety guidance.",
