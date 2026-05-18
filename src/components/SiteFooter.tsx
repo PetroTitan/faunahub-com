@@ -1,26 +1,34 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const footerLinks = {
+const footerLinks: Record<string, { label: string; href: string }[]> = {
   "Pet Care": [
     { label: "Dogs", href: "/dogs" },
     { label: "Cats", href: "/cats" },
     { label: "Small Pets", href: "/small-pets" },
-    { label: "Birds", href: "/birds" },
-    { label: "Fish", href: "/fish" },
-    { label: "Reptiles", href: "/reptiles" },
+    { label: "Food Safety", href: "/dogs/food" },
+    { label: "Pet Costs", href: "/costs" },
   ],
-  Encyclopedia: [
+  "Animal Encyclopedia": [
     { label: "Animal Encyclopedia", href: "/animal-encyclopedia" },
     { label: "Mammals", href: "/animal-encyclopedia/mammals" },
     { label: "Birds", href: "/animal-encyclopedia/birds" },
+    { label: "Reptiles", href: "/animal-encyclopedia/reptiles" },
     { label: "Marine Animals", href: "/animal-encyclopedia/marine-animals" },
   ],
   Tools: [
     { label: "All Tools", href: "/tools" },
+    { label: "Pet Age Calculator", href: "/tools/pet-age-calculator" },
+    { label: "Pet Life Stage Calculator", href: "/tools/pet-life-stage-calculator" },
     { label: "Pet Cost Calculator", href: "/tools/pet-cost-calculator" },
-    { label: "Dog Age Calculator", href: "/tools/dog-age-calculator" },
-    { label: "Cat Age Calculator", href: "/tools/cat-age-calculator" },
+    { label: "Pet Breed Selector", href: "/tools/pet-breed-selector" },
+  ],
+  Planning: [
+    { label: "Pet Insurance", href: "/pet-insurance" },
+    { label: "Vet Care", href: "/vet-care" },
+    { label: "Pet Budget Checklist", href: "/guides/pet-budget-checklist" },
+    { label: "First-Year Pet Costs", href: "/guides/first-year-pet-costs" },
+    { label: "Hidden Costs of Pet Ownership", href: "/guides/hidden-costs-of-pet-ownership" },
   ],
   Legal: [
     { label: "About", href: "/about" },
@@ -59,10 +67,10 @@ export default function SiteFooter() {
           </div>
         </div>
 
-        {/* Link grid */}
+        {/* Link grid — 2 cols on phone, 3 on tablet, 5 on desktop */}
         <nav
           aria-label="Footer navigation"
-          className="grid grid-cols-2 sm:grid-cols-4 gap-8 mb-10"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-x-8 gap-y-10 mb-10"
         >
           {Object.entries(footerLinks).map(([section, links]) => (
             <div key={section}>
@@ -74,7 +82,7 @@ export default function SiteFooter() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-[#B0BFB7] hover:text-white hover:no-underline transition-colors"
+                      className="text-sm text-[#B0BFB7] hover:text-white hover:no-underline transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7BAA35] focus-visible:ring-offset-2 focus-visible:ring-offset-[#17211B] rounded"
                     >
                       {link.label}
                     </Link>
@@ -87,10 +95,8 @@ export default function SiteFooter() {
 
         {/* Bottom bar */}
         <div className="pt-6 border-t border-[#2E3F50] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs text-[#5E6B63]">
-          <p>
-            © {new Date().getFullYear()} FaunaHub. All rights reserved.
-          </p>
-          <p className="max-w-md text-right text-[11px]">
+          <p>© {new Date().getFullYear()} FaunaHub. All rights reserved.</p>
+          <p className="max-w-md text-right text-[11px] leading-relaxed">
             FaunaHub is an independent educational platform. Content is not a
             substitute for professional veterinary advice. Always consult a
             licensed veterinarian for your pet&apos;s health.

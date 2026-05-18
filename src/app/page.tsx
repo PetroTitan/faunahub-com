@@ -88,32 +88,74 @@ const encyclopediaCategories = [
 
 const tools = [
   {
+    title: "Pet Age Calculator",
+    description:
+      "Pick the right age calculator for your species — dog, cat, rabbit, horse, hamster, guinea pig.",
+    href: "/tools/pet-age-calculator",
+    icon: "🧮",
+    badge: "Free",
+  },
+  {
+    title: "Pet Life Stage Calculator",
+    description:
+      "Cross-species life-stage estimator with general care focus by species.",
+    href: "/tools/pet-life-stage-calculator",
+    icon: "🩺",
+    badge: "Free",
+  },
+  {
     title: "Pet Cost Calculator",
-    description: "Estimate monthly and annual costs for owning a pet — food, vet, grooming, and more.",
+    description:
+      "Estimate monthly, annual, and first-year cost — including an emergency fund line.",
     href: "/tools/pet-cost-calculator",
     icon: "💰",
     badge: "Free",
   },
   {
-    title: "Dog Age Calculator",
-    description: "Convert your dog's age to a human-equivalent estimate based on size.",
-    href: "/tools/dog-age-calculator",
-    icon: "🐕",
+    title: "Pet Breed Selector",
+    description:
+      "Short questionnaire that surfaces pet and breed-category pages to read about.",
+    href: "/tools/pet-breed-selector",
+    icon: "🧭",
     badge: "Free",
   },
+];
+
+const planningAndSafety = [
   {
-    title: "Cat Age Calculator",
-    description: "Find out your cat's approximate age in human years.",
-    href: "/tools/cat-age-calculator",
-    icon: "🐈",
-    badge: "Free",
+    title: "Pet Food Safety",
+    description:
+      "Cautious dog and cat food safety guides — what's safe, what's not, and when to call a vet.",
+    href: "/dogs/food",
+    icon: "🥕",
   },
   {
-    title: "Pet Life Stage Calculator",
-    description: "Cross-species life-stage estimator with general care focus by species.",
-    href: "/tools/pet-life-stage-calculator",
+    title: "Pet Ownership Costs",
+    description:
+      "Honest cost planning frameworks for dogs, cats, small pets, birds, fish, and reptiles.",
+    href: "/costs",
+    icon: "💰",
+  },
+  {
+    title: "Pet Insurance",
+    description:
+      "How pet insurance generally works, what to compare, and the emergency-fund alternative.",
+    href: "/pet-insurance",
+    icon: "🛡",
+  },
+  {
+    title: "Vet Care",
+    description:
+      "Routine and emergency vet care planning, first-visit checklist, and what to ask your vet.",
+    href: "/vet-care",
     icon: "🩺",
-    badge: "Free",
+  },
+  {
+    title: "Emergency Vet Guidance",
+    description:
+      "When to call an emergency vet — common warning signs and what to say on the phone.",
+    href: "/vet-care/when-to-call-an-emergency-vet",
+    icon: "🚨",
   },
 ];
 
@@ -222,14 +264,12 @@ export default function HomePage() {
               </h3>
               <div className="flex flex-wrap gap-3">
                 {[
-                  { label: "Lion", href: "/animals/lion" },
                   { label: "Tiger", href: "/animals/tiger" },
                   { label: "Elephant", href: "/animals/elephant" },
-                  { label: "Wolf", href: "/animals/wolf" },
                   { label: "Dolphin", href: "/animals/dolphin" },
-                  { label: "Eagle", href: "/animals/eagle" },
                   { label: "Penguin", href: "/animals/penguin" },
-                  { label: "Panda", href: "/animals/panda" },
+                  { label: "Alligator", href: "/animals/alligator" },
+                  { label: "Eagle", href: "/animals/eagle" },
                 ].map((link) => (
                   <Link
                     key={link.href}
@@ -323,6 +363,49 @@ export default function HomePage() {
                 <ToolCard key={tool.href} {...tool} />
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Planning & Safety */}
+        <section className="py-14 container-content">
+          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
+            <div>
+              <h2 className="section-title">Planning &amp; Safety</h2>
+              <p className="section-subtitle mb-0">
+                Cautious educational pages on the costs, insurance trade-offs,
+                and vet-care planning behind responsible pet ownership.
+              </p>
+            </div>
+            <Link href="/costs" className="btn-secondary text-sm shrink-0">
+              All Cost Guides →
+            </Link>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {planningAndSafety.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="card p-5 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+              >
+                <div className="flex items-start gap-3">
+                  <span
+                    className="text-2xl flex-shrink-0"
+                    role="img"
+                    aria-hidden="true"
+                  >
+                    {item.icon}
+                  </span>
+                  <div>
+                    <h3 className="text-base font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm text-[#5E6B63] leading-snug">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
         </section>
 
