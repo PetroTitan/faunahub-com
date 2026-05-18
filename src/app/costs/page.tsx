@@ -4,6 +4,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import DisclaimerBlock from "@/components/DisclaimerBlock";
 import FAQBlock from "@/components/FAQBlock";
 import LastUpdated from "@/components/LastUpdated";
+import SourcesSection from "@/components/educational/SourcesSection";
+import type { SourceLink } from "@/lib/educational/types";
 import { buildMetadata } from "@/lib/metadata";
 import {
   breadcrumbSchema,
@@ -12,9 +14,23 @@ import {
 } from "@/lib/schema";
 import {
   BUDGET_GUIDES,
-  COST_SOURCE_REVIEW_NOTE,
   PET_COST_ARTICLES,
 } from "@/lib/pet-cost/data";
+
+const HUB_SOURCES: SourceLink[] = [
+  {
+    label: "AVMA — Pet Care Resources",
+    url: "https://www.avma.org/resources-tools/pet-owners/petcare",
+    type: "veterinary",
+    note: "American Veterinary Medical Association consumer pet-care hub",
+  },
+  {
+    label: "AVMA — Pet Owner Resources",
+    url: "https://www.avma.org/resources-tools/pet-owners",
+    type: "veterinary",
+    note: "AVMA top-level pet-owner resource index",
+  },
+];
 
 const LAST_UPDATED = "2026-05-18";
 
@@ -292,14 +308,7 @@ export default function CostsHubPage() {
 
           <FAQBlock items={HUB_FAQS} title="Pet Ownership Costs — Frequently Asked Questions" />
 
-          <aside
-            role="note"
-            aria-label="Source review note"
-            className="border border-[#DDE6DD] rounded-xl p-4 bg-[#EFF1EB] text-sm text-[#5E6B63]"
-          >
-            <p className="font-medium text-[#2C3A2F] mb-1">Sources</p>
-            <p className="leading-relaxed">{COST_SOURCE_REVIEW_NOTE}</p>
-          </aside>
+          <SourcesSection sources={HUB_SOURCES} />
 
           <LastUpdated date={LAST_UPDATED} />
         </div>

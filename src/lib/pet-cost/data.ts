@@ -1,3 +1,5 @@
+import type { SourceLink } from "@/lib/educational/types";
+
 export type PetSpeciesKey =
   | "dog"
   | "cat"
@@ -40,6 +42,8 @@ export interface PetCostArticle {
   notFinanciallySuitableFor: string[];
   budgetChecklist: string[];
   faqs: PetCostFAQ[];
+  /** Optional verified-source list. Only add entries you have verified. */
+  sources?: SourceLink[];
   publishedTime: string;
   modifiedTime: string;
 }
@@ -54,12 +58,32 @@ export interface BudgetGuide {
   /** Top-level sections rendered as H2 + bullet list */
   sections: { heading: string; intro?: string; bullets: string[] }[];
   faqs: PetCostFAQ[];
+  /** Optional verified-source list. Only add entries you have verified. */
+  sources?: SourceLink[];
   publishedTime: string;
   modifiedTime: string;
 }
 
 const PUBLISHED = "2026-05-18";
 const MODIFIED = "2026-05-18";
+
+// ─── VERIFIED SOURCES ─────────────────────────────────────────────────────
+// Each URL has been fetched and confirmed to resolve to the content
+// described. Cost is regional, so we cite veterinary-context sources only.
+
+const SRC_AVMA_PET_CARE: SourceLink = {
+  label: "AVMA — Pet Care Resources",
+  url: "https://www.avma.org/resources-tools/pet-owners/petcare",
+  type: "veterinary",
+  note: "American Veterinary Medical Association consumer pet-care hub",
+};
+
+const SRC_AVMA_PET_OWNERS: SourceLink = {
+  label: "AVMA — Pet Owner Resources",
+  url: "https://www.avma.org/resources-tools/pet-owners",
+  type: "veterinary",
+  note: "AVMA top-level pet-owner resource index",
+};
 
 export const COST_SOURCE_REVIEW_NOTE =
   "Source review note: This page is an educational budgeting framework. Pet ownership costs vary by country, city, provider, animal health, breed, size, species, and lifestyle. Any specific price ranges should be verified against current local veterinary, insurance, shelter, retailer, or government/consumer data before being treated as definitive.";
@@ -160,6 +184,7 @@ export const PET_COST_ARTICLES: PetCostArticle[] = [
           "Emergency veterinary care and senior-stage care are the most commonly underestimated. Many owners plan for monthly recurring costs but not for the variable, sometimes large costs that show up over a dog's lifespan.",
       },
     ],
+    sources: [SRC_AVMA_PET_CARE, SRC_AVMA_PET_OWNERS],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -254,6 +279,7 @@ export const PET_COST_ARTICLES: PetCostArticle[] = [
           "Often, in some dimensions. Indoor cats are typically exposed to fewer infectious diseases and injuries, which can reduce some costs. They may need more enrichment investment. Either way, individual variation is significant.",
       },
     ],
+    sources: [SRC_AVMA_PET_CARE, SRC_AVMA_PET_OWNERS],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -340,6 +366,7 @@ export const PET_COST_ARTICLES: PetCostArticle[] = [
           "Specialist veterinary care, especially for dental disease and gastrointestinal emergencies. Many general vets do not see rabbits routinely.",
       },
     ],
+    sources: [SRC_AVMA_PET_CARE, SRC_AVMA_PET_OWNERS],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -421,6 +448,7 @@ export const PET_COST_ARTICLES: PetCostArticle[] = [
           "Less so than commonly assumed. They are fragile, can bite, are often nocturnal, and live only one to three years. Welfare considerations are real — talk to a small-mammal-savvy vet or shelter before deciding.",
       },
     ],
+    sources: [SRC_AVMA_PET_CARE, SRC_AVMA_PET_OWNERS],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -504,6 +532,7 @@ export const PET_COST_ARTICLES: PetCostArticle[] = [
           "Specialist veterinary care for dental, respiratory, and skin issues — and the cost of replacing an inadequate starter cage once welfare standards are understood.",
       },
     ],
+    sources: [SRC_AVMA_PET_CARE, SRC_AVMA_PET_OWNERS],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -585,6 +614,7 @@ export const PET_COST_ARTICLES: PetCostArticle[] = [
           "It depends heavily on species. Finches and budgies often live around 5 to 10 years. Cockatiels can live 15 to 25 years. Many parrot species live 25 to 60+ years — a multi-decade commitment.",
       },
     ],
+    sources: [SRC_AVMA_PET_CARE, SRC_AVMA_PET_OWNERS],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -668,6 +698,7 @@ export const PET_COST_ARTICLES: PetCostArticle[] = [
           "Yes. Saltwater setups generally need more specialised equipment, more careful chemistry, and more expensive livestock. They can be very rewarding but should be planned with much more financial headroom.",
       },
     ],
+    sources: [SRC_AVMA_PET_CARE, SRC_AVMA_PET_OWNERS],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -757,6 +788,7 @@ export const PET_COST_ARTICLES: PetCostArticle[] = [
           "Yes. Some species are restricted or prohibited in certain countries, regions, or buildings. Always verify legality before adopting.",
       },
     ],
+    sources: [SRC_AVMA_PET_CARE, SRC_AVMA_PET_OWNERS],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -848,6 +880,7 @@ export const BUDGET_GUIDES: BudgetGuide[] = [
           "Emergency veterinary care and senior-stage care. Many owners plan for monthly costs but not for the variable, sometimes large costs that show up later in a pet's life.",
       },
     ],
+    sources: [SRC_AVMA_PET_CARE, SRC_AVMA_PET_OWNERS],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -919,6 +952,7 @@ export const BUDGET_GUIDES: BudgetGuide[] = [
           "Senior pets often have lower setup costs (they may already be socialised and trained) but higher recurring vet costs. Read the species-specific cost page for honest planning.",
       },
     ],
+    sources: [SRC_AVMA_PET_CARE, SRC_AVMA_PET_OWNERS],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -991,6 +1025,7 @@ export const BUDGET_GUIDES: BudgetGuide[] = [
           "Build them into the pet budget checklist and an emergency fund. Read the species-specific cost page for the most common surprises in that species.",
       },
     ],
+    sources: [SRC_AVMA_PET_CARE, SRC_AVMA_PET_OWNERS],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },

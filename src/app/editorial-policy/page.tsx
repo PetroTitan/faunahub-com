@@ -97,6 +97,17 @@ export default function EditorialPolicyPage() {
               animal-health resources.
             </li>
             <li>
+              <strong>Pet food safety content:</strong> ASPCA Animal Poison
+              Control&apos;s people-foods guidance, the Merck Veterinary
+              Manual&apos;s food-hazards reference, and AVMA pet-care
+              resources. FaunaHub
+              avoids publishing exact toxicity thresholds, does not give
+              dosage advice, and does not tell readers to skip veterinary
+              care. Known-unsafe foods (such as chocolate and grapes for
+              dogs) are framed as veterinary questions rather than
+              quantified by amount.
+            </li>
+            <li>
               <strong>Insurance content:</strong> official insurance
               regulators (such as the NAIC in the United States), government
               consumer-protection agencies, national insurance associations
@@ -108,8 +119,9 @@ export default function EditorialPolicyPage() {
               <strong>Cost and budgeting content:</strong> recognised
               consumer-protection and government sources where available,
               alongside the veterinary sources above for clinical context.
-              FaunaHub does not publish country-specific price claims unless
-              they are sourced and clearly attributed.
+              FaunaHub does not publish country-specific price claims or
+              unsupported &quot;average cost&quot; figures. Cost content is
+              framed as a planning checklist, not financial advice.
             </li>
           </ul>
           <p>

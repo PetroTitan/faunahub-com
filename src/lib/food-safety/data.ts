@@ -1,3 +1,5 @@
+import type { SourceLink } from "@/lib/educational/types";
+
 export type Species = "dog" | "cat";
 
 export type SafetyClassification = "usually-safe" | "depends" | "usually-unsafe";
@@ -27,12 +29,53 @@ export interface FoodSafetyArticle {
   saferAlternatives: string[];
   faqs: FoodSafetyFAQ[];
   searchAliases: string[];
+  /** Optional verified-source list. Only add entries you have verified. */
+  sources?: SourceLink[];
   publishedTime: string;
   modifiedTime: string;
 }
 
 const PUBLISHED = "2026-05-18";
 const MODIFIED = "2026-05-18";
+
+// ─── VERIFIED SOURCES ─────────────────────────────────────────────────────
+// Each URL has been fetched and confirmed to resolve to the content
+// described. Keep this list small and high-quality.
+
+const SRC_ASPCA_PEOPLE_FOODS: SourceLink = {
+  label: "ASPCA — People Foods To Avoid Feeding Your Pets",
+  url: "https://www.aspca.org/pet-care/animal-poison-control/people-foods-avoid-feeding-your-pets",
+  type: "veterinary",
+  note: "ASPCA list of common toxic and risky people-foods",
+};
+
+const SRC_ASPCA_POISON_CONTROL: SourceLink = {
+  label: "ASPCA Animal Poison Control Center",
+  url: "https://www.aspca.org/pet-care/animal-poison-control",
+  type: "veterinary",
+  note: "24/7 emergency animal-poisoning helpline (US)",
+};
+
+const SRC_MERCK_FOOD_HAZARDS: SourceLink = {
+  label: "Merck Veterinary Manual — Food Hazards",
+  url: "https://www.merckvetmanual.com/toxicology/food-hazards",
+  type: "reference",
+  note: "Veterinary reference on food-related toxicology in animals",
+};
+
+const SRC_AVMA_PET_CARE: SourceLink = {
+  label: "AVMA — Pet Care Resources",
+  url: "https://www.avma.org/resources-tools/pet-owners/petcare",
+  type: "veterinary",
+  note: "American Veterinary Medical Association consumer pet-care hub",
+};
+
+const SRC_MERCK_VET_MANUAL: SourceLink = {
+  label: "Merck Veterinary Manual",
+  url: "https://www.merckvetmanual.com",
+  type: "reference",
+  note: "Comprehensive veterinary reference",
+};
 
 export const FOOD_SAFETY_ARTICLES: FoodSafetyArticle[] = [
   // ─── DOG ────────────────────────────────────────────────────────────────
@@ -100,6 +143,7 @@ export const FOOD_SAFETY_ARTICLES: FoodSafetyArticle[] = [
       },
     ],
     searchAliases: ["chocolate", "cocoa", "cacao", "dark chocolate", "milk chocolate"],
+    sources: [SRC_ASPCA_PEOPLE_FOODS, SRC_ASPCA_POISON_CONTROL, SRC_MERCK_FOOD_HAZARDS],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -167,6 +211,7 @@ export const FOOD_SAFETY_ARTICLES: FoodSafetyArticle[] = [
       },
     ],
     searchAliases: ["grapes", "grape", "raisin", "raisins", "currants", "sultanas"],
+    sources: [SRC_ASPCA_PEOPLE_FOODS, SRC_ASPCA_POISON_CONTROL, SRC_MERCK_FOOD_HAZARDS],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -232,6 +277,7 @@ export const FOOD_SAFETY_ARTICLES: FoodSafetyArticle[] = [
       },
     ],
     searchAliases: ["apple", "apples", "applesauce"],
+    sources: [SRC_AVMA_PET_CARE, SRC_MERCK_VET_MANUAL],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -298,6 +344,7 @@ export const FOOD_SAFETY_ARTICLES: FoodSafetyArticle[] = [
       },
     ],
     searchAliases: ["cheese", "cheddar", "mozzarella", "cottage cheese", "cream cheese", "parmesan"],
+    sources: [SRC_AVMA_PET_CARE, SRC_MERCK_VET_MANUAL],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -366,6 +413,7 @@ export const FOOD_SAFETY_ARTICLES: FoodSafetyArticle[] = [
       },
     ],
     searchAliases: ["chicken", "chicken meat", "rotisserie chicken", "chicken broth"],
+    sources: [SRC_AVMA_PET_CARE, SRC_MERCK_VET_MANUAL],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -431,6 +479,7 @@ export const FOOD_SAFETY_ARTICLES: FoodSafetyArticle[] = [
       },
     ],
     searchAliases: ["egg", "eggs", "scrambled egg", "hard boiled egg"],
+    sources: [SRC_AVMA_PET_CARE, SRC_MERCK_VET_MANUAL],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -497,6 +546,7 @@ export const FOOD_SAFETY_ARTICLES: FoodSafetyArticle[] = [
       },
     ],
     searchAliases: ["milk", "cow milk", "dairy", "lactose", "almond milk", "oat milk", "soy milk"],
+    sources: [SRC_AVMA_PET_CARE, SRC_MERCK_VET_MANUAL],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -562,6 +612,7 @@ export const FOOD_SAFETY_ARTICLES: FoodSafetyArticle[] = [
       },
     ],
     searchAliases: ["cheese", "cheddar", "mozzarella", "cottage cheese", "cream cheese", "parmesan"],
+    sources: [SRC_AVMA_PET_CARE, SRC_MERCK_VET_MANUAL],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -629,6 +680,7 @@ export const FOOD_SAFETY_ARTICLES: FoodSafetyArticle[] = [
       },
     ],
     searchAliases: ["chicken", "chicken meat", "rotisserie chicken"],
+    sources: [SRC_AVMA_PET_CARE, SRC_MERCK_VET_MANUAL],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -694,6 +746,7 @@ export const FOOD_SAFETY_ARTICLES: FoodSafetyArticle[] = [
       },
     ],
     searchAliases: ["egg", "eggs", "scrambled egg", "hard boiled egg"],
+    sources: [SRC_AVMA_PET_CARE, SRC_MERCK_VET_MANUAL],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -760,6 +813,7 @@ export const FOOD_SAFETY_ARTICLES: FoodSafetyArticle[] = [
       },
     ],
     searchAliases: ["tuna", "canned tuna", "tinned tuna", "fish"],
+    sources: [SRC_AVMA_PET_CARE, SRC_MERCK_VET_MANUAL],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -827,6 +881,7 @@ export const FOOD_SAFETY_ARTICLES: FoodSafetyArticle[] = [
       },
     ],
     searchAliases: ["chocolate", "cocoa", "cacao", "hot chocolate", "dark chocolate"],
+    sources: [SRC_ASPCA_PEOPLE_FOODS, SRC_ASPCA_POISON_CONTROL, SRC_MERCK_FOOD_HAZARDS],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },

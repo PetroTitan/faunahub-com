@@ -3,6 +3,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQBlock from "@/components/FAQBlock";
 import LastUpdated from "@/components/LastUpdated";
 import RelatedLinks from "@/components/RelatedLinks";
+import SourcesSection from "@/components/educational/SourcesSection";
 import {
   COST_SOURCE_REVIEW_NOTE,
   COST_VETERINARY_DISCLAIMER,
@@ -307,14 +308,18 @@ export default function CostArticleView({
 
               <RelatedLinks title="Related tools & care" links={relatedTools} />
 
-              <aside
-                role="note"
-                aria-label="Source review note"
-                className="border border-[#DDE6DD] rounded-xl p-4 bg-[#EFF1EB] text-sm text-[#5E6B63]"
-              >
-                <p className="font-medium text-[#2C3A2F] mb-1">Sources</p>
-                <p className="leading-relaxed">{COST_SOURCE_REVIEW_NOTE}</p>
-              </aside>
+              {article.sources && article.sources.length > 0 ? (
+                <SourcesSection sources={article.sources} />
+              ) : (
+                <aside
+                  role="note"
+                  aria-label="Source review note"
+                  className="border border-[#DDE6DD] rounded-xl p-4 bg-[#EFF1EB] text-sm text-[#5E6B63]"
+                >
+                  <p className="font-medium text-[#2C3A2F] mb-1">Sources</p>
+                  <p className="leading-relaxed">{COST_SOURCE_REVIEW_NOTE}</p>
+                </aside>
+              )}
 
               <LastUpdated date={article.modifiedTime} />
 

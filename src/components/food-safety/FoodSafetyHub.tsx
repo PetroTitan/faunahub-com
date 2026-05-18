@@ -3,10 +3,39 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import DisclaimerBlock from "@/components/DisclaimerBlock";
 import FAQBlock from "@/components/FAQBlock";
 import LastUpdated from "@/components/LastUpdated";
+import SourcesSection from "@/components/educational/SourcesSection";
+import type { SourceLink } from "@/lib/educational/types";
 import {
   RiskLevelBadge,
   SafetyBadge,
 } from "@/components/food-safety/RiskBadge";
+
+const FOOD_HUB_SOURCES: SourceLink[] = [
+  {
+    label: "ASPCA — People Foods To Avoid Feeding Your Pets",
+    url: "https://www.aspca.org/pet-care/animal-poison-control/people-foods-avoid-feeding-your-pets",
+    type: "veterinary",
+    note: "ASPCA list of common toxic and risky people-foods",
+  },
+  {
+    label: "ASPCA Animal Poison Control Center",
+    url: "https://www.aspca.org/pet-care/animal-poison-control",
+    type: "veterinary",
+    note: "24/7 emergency animal-poisoning helpline (US)",
+  },
+  {
+    label: "Merck Veterinary Manual — Food Hazards",
+    url: "https://www.merckvetmanual.com/toxicology/food-hazards",
+    type: "reference",
+    note: "Veterinary reference on food-related toxicology in animals",
+  },
+  {
+    label: "AVMA — Pet Care Resources",
+    url: "https://www.avma.org/resources-tools/pet-owners/petcare",
+    type: "veterinary",
+    note: "American Veterinary Medical Association consumer pet-care hub",
+  },
+];
 import type {
   FoodSafetyArticle,
   SafetyClassification,
@@ -253,6 +282,8 @@ export default function FoodSafetyHub({
               </p>
             </Link>
           </div>
+
+          <SourcesSection sources={FOOD_HUB_SOURCES} />
 
           <div>
             <LastUpdated date={lastUpdated} />
