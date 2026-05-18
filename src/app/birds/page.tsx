@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema } from "@/lib/schema";
 
@@ -88,8 +89,78 @@ export default function BirdsPage() {
             </div>
           </section>
 
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            <RelatedLinks
+              title="Planning and care resources for pet birds"
+              links={[
+                {
+                  label: "How much does a pet bird cost?",
+                  href: "/birds/how-much-does-a-bird-cost",
+                  description: "Cage, vet, and lifespan-cost framework",
+                },
+                {
+                  label: "Pet Cost Calculator",
+                  href: "/tools/pet-cost-calculator",
+                  description: "Run monthly, annual, and first-year scenarios",
+                },
+                {
+                  label: "Vet care hub",
+                  href: "/vet-care",
+                  description: "Routine and emergency planning for any pet",
+                },
+                {
+                  label: "When to call an emergency vet",
+                  href: "/vet-care/when-to-call-an-emergency-vet",
+                  description: "Common warning signs and what to say",
+                },
+                {
+                  label: "Best pets for beginners",
+                  href: "/guides/best-pets-for-beginners",
+                  description: "Honest pet-choice guide",
+                },
+                {
+                  label: "Best pets for apartments",
+                  href: "/guides/best-pets-for-apartments",
+                  description: "Apartment-fit considerations across pet categories",
+                },
+              ]}
+            />
+            <RelatedLinks
+              title="Wildlife & encyclopedia profiles (educational, not pet recommendations)"
+              links={[
+                {
+                  label: "Wild bird encyclopedia",
+                  href: "/animal-encyclopedia/birds",
+                  description: "Educational profiles — not pet-care guidance",
+                },
+                {
+                  label: "Eagle profile (wildlife)",
+                  href: "/animals/eagle",
+                  description: "Educational profile of wild eagles",
+                },
+                {
+                  label: "Owl profile (wildlife)",
+                  href: "/animals/owl",
+                  description: "Educational profile of wild owls",
+                },
+                {
+                  label: "Penguin profile (wildlife)",
+                  href: "/animals/penguin",
+                  description: "Educational profile of wild penguins",
+                },
+                {
+                  label: "Falcon vs Eagle (wildlife comparison)",
+                  href: "/compare/falcon-vs-eagle",
+                  description: "Educational comparison of wild raptors",
+                },
+              ]}
+            />
+          </div>
+
           <p className="mt-8 text-sm text-[#5E6B63]">
             Detailed pet bird species guides covering housing, diet, and health are in development.
+            The wildlife and encyclopedia profiles linked above are educational resources about
+            wild species and are not pet-care or pet-ownership recommendations.
           </p>
         </div>
       </main>

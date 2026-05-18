@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema } from "@/lib/schema";
 
@@ -89,8 +90,76 @@ export default function ReptilesPage() {
             </div>
           </section>
 
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            <RelatedLinks
+              title="Planning and care resources for pet reptiles"
+              links={[
+                {
+                  label: "How much does a pet reptile cost?",
+                  href: "/reptiles/how-much-does-a-reptile-cost",
+                  description: "Enclosure, heating, UVB, and lifetime-cost framework",
+                },
+                {
+                  label: "Pet Cost Calculator",
+                  href: "/tools/pet-cost-calculator",
+                  description: "Run monthly, annual, and first-year scenarios",
+                },
+                {
+                  label: "Vet care hub",
+                  href: "/vet-care",
+                  description: "Routine and emergency planning for any pet",
+                },
+                {
+                  label: "When to call an emergency vet",
+                  href: "/vet-care/when-to-call-an-emergency-vet",
+                  description: "Common warning signs and what to say",
+                },
+                {
+                  label: "Best pets for beginners",
+                  href: "/guides/best-pets-for-beginners",
+                  description: "Honest pet-choice guide including reptiles",
+                },
+                {
+                  label: "Low-maintenance pets",
+                  href: "/guides/low-maintenance-pets",
+                  description: "What 'low-maintenance' really means for reptiles",
+                },
+              ]}
+            />
+            <RelatedLinks
+              title="Wildlife & encyclopedia profiles (educational, not pet recommendations)"
+              links={[
+                {
+                  label: "Wild reptile encyclopedia",
+                  href: "/animal-encyclopedia/reptiles",
+                  description: "Educational profiles of wild reptile species",
+                },
+                {
+                  label: "Crocodile profile (wildlife)",
+                  href: "/animals/crocodile",
+                  description: "Educational profile — not a pet-keeping recommendation",
+                },
+                {
+                  label: "Alligator profile (wildlife)",
+                  href: "/animals/alligator",
+                  description: "Educational profile — not a pet-keeping recommendation",
+                },
+                {
+                  label: "Alligator vs Crocodile (wildlife comparison)",
+                  href: "/compare/alligator-vs-crocodile",
+                  description: "Educational comparison of wild crocodilians",
+                },
+              ]}
+            />
+          </div>
+
           <p className="mt-8 text-sm text-[#5E6B63]">
-            Individual reptile species care guides are in development.
+            Individual reptile species care guides are in development. The
+            wildlife and encyclopedia profiles linked above are educational
+            resources about wild species and are not pet-keeping
+            recommendations — crocodilians in particular are not appropriate
+            companion animals and are restricted or prohibited in many
+            jurisdictions.
           </p>
         </div>
       </main>

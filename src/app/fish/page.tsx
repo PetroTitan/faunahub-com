@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema } from "@/lib/schema";
 
@@ -83,8 +84,64 @@ export default function FishPage() {
             </div>
           </section>
 
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            <RelatedLinks
+              title="Planning and care resources for fish"
+              links={[
+                {
+                  label: "How much does an aquarium fish setup cost?",
+                  href: "/fish/how-much-does-a-fish-cost",
+                  description: "Tank, cycling, and equipment cost framework",
+                },
+                {
+                  label: "Pet Cost Calculator",
+                  href: "/tools/pet-cost-calculator",
+                  description: "Run monthly, annual, and first-year scenarios",
+                },
+                {
+                  label: "Vet care hub",
+                  href: "/vet-care",
+                  description: "General vet-care planning resources",
+                },
+                {
+                  label: "Best pets for beginners",
+                  href: "/guides/best-pets-for-beginners",
+                  description: "Honest pet-choice guide including fish",
+                },
+                {
+                  label: "Low-maintenance pets",
+                  href: "/guides/low-maintenance-pets",
+                  description: "What 'low-maintenance' really means",
+                },
+              ]}
+            />
+            <RelatedLinks
+              title="Wildlife & encyclopedia profiles (educational, not pet recommendations)"
+              links={[
+                {
+                  label: "Marine animals encyclopedia",
+                  href: "/animal-encyclopedia/marine-animals",
+                  description: "Educational profiles of wild marine species",
+                },
+                {
+                  label: "Dolphin profile (wildlife)",
+                  href: "/animals/dolphin",
+                  description: "Educational profile of dolphins — not pet-care",
+                },
+                {
+                  label: "Shark profile (wildlife)",
+                  href: "/animals/shark",
+                  description: "Educational profile of sharks — not pet-care",
+                },
+              ]}
+            />
+          </div>
+
           <p className="mt-8 text-sm text-[#5E6B63]">
             Aquarium setup guides and fish species profiles are in development.
+            The wildlife and encyclopedia profiles linked above are educational
+            resources about wild marine species and are not pet-care or
+            pet-ownership recommendations.
           </p>
         </div>
       </main>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import RelatedLinks from "@/components/RelatedLinks";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema } from "@/lib/schema";
 
@@ -10,7 +11,7 @@ export const metadata: Metadata = buildMetadata({
   path: "/small-pets",
 });
 
-const links = [
+const careHubLinks = [
   {
     href: "/dogs",
     label: "Dog Care Guides",
@@ -78,7 +79,7 @@ export default function SmallPetsPage() {
             </p>
 
             <div className="grid sm:grid-cols-2 gap-4 mt-8">
-              {links.map((link) => (
+              {careHubLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -93,10 +94,88 @@ export default function SmallPetsPage() {
             </div>
           </section>
 
-          <p className="mt-8 text-sm text-[#5E6B63]">
-            More small pet guides covering rabbits, hamsters, guinea pigs, and gerbils are in
-            development.
-          </p>
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            <RelatedLinks
+              title="Planning and care resources for small pets"
+              links={[
+                {
+                  label: "Rabbit care guides",
+                  href: "/small-pets/rabbits",
+                  description: "Species-specific care framework for rabbits",
+                },
+                {
+                  label: "Hamster care guides",
+                  href: "/small-pets/hamsters",
+                  description: "Species-specific care framework for hamsters",
+                },
+                {
+                  label: "Guinea pig care guides",
+                  href: "/small-pets/guinea-pigs",
+                  description: "Species-specific care framework for guinea pigs",
+                },
+                {
+                  label: "How much does a rabbit cost?",
+                  href: "/small-pets/rabbits/how-much-does-a-rabbit-cost",
+                  description: "Honest setup and recurring-cost framework",
+                },
+                {
+                  label: "How much does a hamster cost?",
+                  href: "/small-pets/hamsters/how-much-does-a-hamster-cost",
+                  description: "Honest setup and recurring-cost framework",
+                },
+                {
+                  label: "How much does a guinea pig cost?",
+                  href: "/small-pets/guinea-pigs/how-much-does-a-guinea-pig-cost",
+                  description: "Honest setup and recurring-cost framework",
+                },
+                {
+                  label: "Pet Cost Calculator",
+                  href: "/tools/pet-cost-calculator",
+                  description: "Run monthly, annual, and first-year scenarios",
+                },
+              ]}
+            />
+            <RelatedLinks
+              title="Age tools and vet care"
+              links={[
+                {
+                  label: "Rabbit Age Calculator",
+                  href: "/tools/rabbit-age-calculator",
+                  description: "Approximate human-age equivalent",
+                },
+                {
+                  label: "Hamster Age Calculator",
+                  href: "/tools/hamster-age-calculator",
+                  description: "Approximate human-age equivalent",
+                },
+                {
+                  label: "Guinea Pig Age Calculator",
+                  href: "/tools/guinea-pig-age-calculator",
+                  description: "Approximate human-age equivalent",
+                },
+                {
+                  label: "Vet care hub",
+                  href: "/vet-care",
+                  description: "Routine and emergency planning for any pet",
+                },
+                {
+                  label: "When to call an emergency vet",
+                  href: "/vet-care/when-to-call-an-emergency-vet",
+                  description: "Common warning signs and what to say",
+                },
+                {
+                  label: "Best pets for beginners",
+                  href: "/guides/best-pets-for-beginners",
+                  description: "Honest pet-choice guide",
+                },
+                {
+                  label: "Low-maintenance pets",
+                  href: "/guides/low-maintenance-pets",
+                  description: "What 'low-maintenance' really means",
+                },
+              ]}
+            />
+          </div>
         </div>
       </main>
     </>
