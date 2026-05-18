@@ -11,6 +11,7 @@ import {
   itemListSchema,
 } from "@/lib/schema";
 import { getDecisionsByKind } from "@/lib/pet-choice/data";
+import { BUDGET_GUIDES } from "@/lib/pet-cost/data";
 
 const LAST_UPDATED = "2026-05-18";
 
@@ -137,6 +138,50 @@ export default function GuidesPage() {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </section>
+
+          <section aria-labelledby="budget-heading">
+            <h2 id="budget-heading" className="section-title">
+              Budget and ownership cost planning
+            </h2>
+            <p className="section-subtitle">
+              Plan honestly before adopting. These pages pair with the pet cost
+              calculator and the species cost frameworks.
+            </p>
+            <ul className="grid sm:grid-cols-3 gap-4">
+              {BUDGET_GUIDES.map((g) => (
+                <li key={g.slug}>
+                  <Link
+                    href={g.path}
+                    className="block h-full rounded-xl border border-[#DDE6DD] bg-white p-5 hover:border-[#0F5A3A] hover:shadow-sm transition focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:ring-offset-2 hover:no-underline"
+                  >
+                    <p className="text-base font-semibold text-[#17211B] mb-2 leading-snug">
+                      {g.pageHeading}
+                    </p>
+                    <p className="text-sm text-[#2C3A2F] leading-relaxed">
+                      {g.description}
+                    </p>
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  href="/costs"
+                  className="block h-full rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:shadow-sm transition focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:ring-offset-2 hover:no-underline"
+                >
+                  <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                    All species
+                  </p>
+                  <p className="text-base font-semibold text-[#17211B] mb-2 leading-snug">
+                    Pet ownership cost hub →
+                  </p>
+                  <p className="text-sm text-[#2C3A2F] leading-relaxed">
+                    Cost planning frameworks across dogs, cats, rabbits,
+                    hamsters, guinea pigs, birds, fish, and reptiles.
+                  </p>
+                </Link>
+              </li>
             </ul>
           </section>
 

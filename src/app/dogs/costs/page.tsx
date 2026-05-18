@@ -1,14 +1,44 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Cost of Owning a Dog — Monthly & Annual Expense Guide",
+  title: "Cost of Owning a Dog — Planning Frameworks & Calculator",
   description:
-    "Realistic cost breakdown for dog ownership including food, vet care, grooming, training, insurance, and unexpected expenses.",
+    "Cautious dog cost planning: a full how-much-does-a-dog-cost framework, the pet cost calculator, dog breed selection, and food safety links.",
   path: "/dogs/costs",
 });
+
+const LINKS = [
+  {
+    href: "/dogs/costs/how-much-does-a-dog-cost",
+    title: "How much does a dog cost?",
+    description:
+      "One-time, monthly, yearly, and hidden cost categories — without fake exact prices.",
+  },
+  {
+    href: "/tools/pet-cost-calculator",
+    title: "Pet Cost Calculator",
+    description: "Run your own monthly, annual, and first-year estimate.",
+  },
+  {
+    href: "/dogs/breeds",
+    title: "Dog breed decision guides",
+    description: "Apartment, family, low-maintenance, first-time owner, small breeds.",
+  },
+  {
+    href: "/dogs/food",
+    title: "Dog food safety guides",
+    description: "What dogs can and cannot eat — careful, source-aware.",
+  },
+  {
+    href: "/guides/pet-budget-checklist",
+    title: "Pet budget checklist",
+    description: "Pre-adoption planning checklist that pairs with this page.",
+  },
+];
 
 export default function DogCostsPage() {
   const breadcrumb = breadcrumbSchema([
@@ -27,61 +57,51 @@ export default function DogCostsPage() {
       <main id="main-content">
         <header className="bg-white border-b border-[#DDE6DD] py-10 sm:py-14">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
-              <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
-              <span aria-hidden="true">/</span>
-              <Link href="/dogs" className="hover:text-[#063F2A] hover:no-underline">Dogs</Link>
-              <span aria-hidden="true">/</span>
-              <span className="text-[#17211B] font-medium" aria-current="page">Costs</span>
-            </nav>
-            <span className="tag mb-3 inline-block">Dogs</span>
+            <Breadcrumbs
+              items={[{ label: "Dogs", href: "/dogs" }, { label: "Costs" }]}
+            />
+            <p className="mb-3">
+              <span className="tag">Dogs</span>{" "}
+              <span className="tag ml-1">Cost Planning</span>
+            </p>
             <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">
               Cost of Owning a Dog
             </h1>
             <p className="text-base text-[#2C3A2F] leading-relaxed max-w-2xl">
-              The true cost of dog ownership extends well beyond the initial purchase or adoption
-              fee — food, veterinary care, grooming, training, boarding, and unexpected emergencies
-              are ongoing commitments that can add up significantly over a dog&apos;s 10 to 15-year
-              lifespan. Budgeting realistically before acquiring a dog is an act of responsible
-              ownership.
+              Planning the real cost of a dog goes well beyond the adoption fee.
+              These resources cover the categories you should plan for, a
+              calculator that uses your own numbers, and links to dog breed
+              decisions and food safety guides — none of it pretends to know
+              your local prices.
             </p>
           </div>
         </header>
 
         <div className="container-content py-10">
-          <section className="prose-content max-w-3xl" aria-labelledby="about-heading">
-            <h2 id="about-heading">What to Expect on This Page</h2>
-            <p>
-              Cost guides on FaunaHub break down dog ownership expenses into categories: one-time
-              setup costs (crate, bedding, collar, leash, microchipping, initial vaccinations),
-              recurring monthly costs (food, flea and tick prevention, treats), and annual costs
-              (wellness vet visits, license renewal, grooming for longer-coated breeds). Emergency
-              veterinary costs — which can reach thousands of dollars for surgeries, diagnostics,
-              or specialist referrals — are also addressed, including how an emergency fund or
-              pet insurance policy can mitigate financial risk.
-            </p>
-            <p>
-              Costs vary considerably by location, dog size, breed-specific grooming needs, and
-              individual health history. The Pet Cost Calculator below can help you estimate a
-              personalised annual budget.
-            </p>
-          </section>
-
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link
-              href="/tools/pet-cost-calculator"
-              className="inline-flex items-center gap-2 bg-[#063F2A] text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-[#235f3b] transition-colors hover:no-underline"
-            >
-              Open Pet Cost Calculator
-            </Link>
-          </div>
+          <ul className="grid sm:grid-cols-2 gap-4">
+            {LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="block h-full rounded-xl border border-[#DDE6DD] bg-white p-5 hover:border-[#0F5A3A] hover:shadow-sm transition focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:ring-offset-2 hover:no-underline"
+                >
+                  <p className="text-base font-semibold text-[#17211B] mb-2 leading-snug">
+                    {link.title}
+                  </p>
+                  <p className="text-sm text-[#2C3A2F] leading-relaxed">
+                    {link.description}
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
 
           <div className="mt-8">
             <Link
               href="/dogs"
               className="text-sm font-medium text-[#063F2A] hover:underline"
             >
-              &larr; Back to Dog Care Guides
+              ← Back to Dog Care Guides
             </Link>
           </div>
         </div>

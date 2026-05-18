@@ -1,14 +1,44 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Cost of Owning a Cat — Monthly & Annual Expense Guide",
+  title: "Cost of Owning a Cat — Planning Frameworks & Calculator",
   description:
-    "Realistic cost breakdown for cat ownership including food, vet care, litter, grooming, and emergency funds.",
+    "Cautious cat cost planning: a full how-much-does-a-cat-cost framework, the pet cost calculator, cat breed decision pages, and cat food safety links.",
   path: "/cats/costs",
 });
+
+const LINKS = [
+  {
+    href: "/cats/costs/how-much-does-a-cat-cost",
+    title: "How much does a cat cost?",
+    description:
+      "One-time, monthly, yearly, and hidden cost categories — without fake exact prices.",
+  },
+  {
+    href: "/tools/pet-cost-calculator",
+    title: "Pet Cost Calculator",
+    description: "Run your own monthly, annual, and first-year estimate.",
+  },
+  {
+    href: "/cats/breeds",
+    title: "Cat breed decision guides",
+    description: "Apartment, first-time owner, low-maintenance, family-friendly.",
+  },
+  {
+    href: "/cats/food",
+    title: "Cat food safety guides",
+    description: "What cats can and cannot eat — careful, source-aware.",
+  },
+  {
+    href: "/guides/pet-budget-checklist",
+    title: "Pet budget checklist",
+    description: "Pre-adoption planning checklist that pairs with this page.",
+  },
+];
 
 export default function CatCostsPage() {
   const breadcrumb = breadcrumbSchema([
@@ -27,61 +57,50 @@ export default function CatCostsPage() {
       <main id="main-content">
         <header className="bg-white border-b border-[#DDE6DD] py-10 sm:py-14">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
-              <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
-              <span aria-hidden="true">/</span>
-              <Link href="/cats" className="hover:text-[#063F2A] hover:no-underline">Cats</Link>
-              <span aria-hidden="true">/</span>
-              <span className="text-[#17211B] font-medium" aria-current="page">Costs</span>
-            </nav>
-            <span className="tag mb-3 inline-block">Cats</span>
+            <Breadcrumbs
+              items={[{ label: "Cats", href: "/cats" }, { label: "Costs" }]}
+            />
+            <p className="mb-3">
+              <span className="tag">Cats</span>{" "}
+              <span className="tag ml-1">Cost Planning</span>
+            </p>
             <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">
               Cost of Owning a Cat
             </h1>
             <p className="text-base text-[#2C3A2F] leading-relaxed max-w-2xl">
-              Cats are often perceived as low-maintenance pets, but the true annual cost of cat
-              ownership — including food, litter, veterinary care, and setting aside funds for
-              emergencies — can run into the thousands depending on the cat&apos;s age, health
-              status, and your location. Planning for these costs before adopting is essential.
+              Planning the real cost of a cat means going beyond the adoption
+              fee. These resources cover the categories you should plan for, a
+              calculator you can run with your own numbers, and links to cat
+              breed decisions and food safety guides.
             </p>
           </div>
         </header>
 
         <div className="container-content py-10">
-          <section className="prose-content max-w-3xl" aria-labelledby="about-heading">
-            <h2 id="about-heading">What to Expect on This Page</h2>
-            <p>
-              Cost guides for cat ownership cover one-time setup expenses (carrier, litter box,
-              scratching post, initial vaccinations, microchipping, spay/neuter), ongoing monthly
-              costs (food, litter, flea and tick prevention), and annual costs (wellness vet visits,
-              dental care, license if required). Emergency veterinary expenses — including
-              hospitalisation, diagnostics, and surgery — are also addressed, as these are
-              frequently the largest unplanned cost cat owners face.
-            </p>
-            <p>
-              Litter alone is a recurring cost many new cat owners underestimate. Dental disease
-              is extremely common in cats — by age three, most cats show some degree of dental
-              tartar — and professional dental cleaning under anaesthesia carries significant
-              cost. Budgeting for these anticipated expenses avoids difficult decisions when
-              a health issue arises.
-            </p>
-          </section>
-
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link
-              href="/tools/pet-cost-calculator"
-              className="inline-flex items-center gap-2 bg-[#063F2A] text-white text-sm font-medium px-5 py-2.5 rounded-lg hover:bg-[#235f3b] transition-colors hover:no-underline"
-            >
-              Open Pet Cost Calculator
-            </Link>
-          </div>
+          <ul className="grid sm:grid-cols-2 gap-4">
+            {LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="block h-full rounded-xl border border-[#DDE6DD] bg-white p-5 hover:border-[#0F5A3A] hover:shadow-sm transition focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:ring-offset-2 hover:no-underline"
+                >
+                  <p className="text-base font-semibold text-[#17211B] mb-2 leading-snug">
+                    {link.title}
+                  </p>
+                  <p className="text-sm text-[#2C3A2F] leading-relaxed">
+                    {link.description}
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
 
           <div className="mt-8">
             <Link
               href="/cats"
               className="text-sm font-medium text-[#063F2A] hover:underline"
             >
-              &larr; Back to Cat Care Guides
+              ← Back to Cat Care Guides
             </Link>
           </div>
         </div>

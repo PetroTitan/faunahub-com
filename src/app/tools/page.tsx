@@ -74,6 +74,14 @@ const ageCalculators = [
 
 const otherTools = [
   {
+    title: "Pet Cost Calculator",
+    description:
+      "Estimate monthly, annual, and first-year pet ownership cost — including optional one-time setup and an emergency fund line.",
+    href: "/tools/pet-cost-calculator",
+    icon: "💰",
+    badge: "Free",
+  },
+  {
     title: "Pet Breed Selector",
     description:
       "Short questionnaire that surfaces pet and breed-category pages to read about based on your home, schedule, and preferences.",
@@ -87,14 +95,6 @@ const otherTools = [
       "Search a common food to find FaunaHub's cautious dog and cat food safety guidance.",
     href: "/tools/can-my-pet-eat-this",
     icon: "🥕",
-    badge: "Free",
-  },
-  {
-    title: "Pet Cost Calculator",
-    description:
-      "Estimate monthly and annual costs for owning a pet — food, vet, grooming and more.",
-    href: "/tools/pet-cost-calculator",
-    icon: "💰",
     badge: "Free",
   },
 ];
