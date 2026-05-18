@@ -1,7 +1,53 @@
-import type { EducationalArticle } from "@/lib/educational/types";
+import type { EducationalArticle, SourceLink } from "@/lib/educational/types";
 
 const PUBLISHED = "2026-05-18";
 const MODIFIED = "2026-05-18";
+
+// ─── VERIFIED SOURCES ─────────────────────────────────────────────────────
+// Each URL has been fetched and confirmed to resolve to the content
+// described. Keep this list small and high-quality.
+
+const SRC_AVMA_PET_CARE: SourceLink = {
+  label: "AVMA — Pet Care Resources",
+  url: "https://www.avma.org/resources-tools/pet-owners/petcare",
+  type: "veterinary",
+  note: "American Veterinary Medical Association consumer pet-care hub",
+};
+
+const SRC_AVMA_PET_OWNERS: SourceLink = {
+  label: "AVMA — Pet Owner Resources",
+  url: "https://www.avma.org/resources-tools/pet-owners",
+  type: "veterinary",
+  note: "AVMA top-level pet-owner resource index",
+};
+
+const SRC_ASPCA_POISON: SourceLink = {
+  label: "ASPCA Animal Poison Control Center",
+  url: "https://www.aspca.org/pet-care/animal-poison-control",
+  type: "veterinary",
+  note: "24/7 emergency animal-poisoning helpline (US)",
+};
+
+const SRC_MERCK_VET_MANUAL: SourceLink = {
+  label: "Merck Veterinary Manual",
+  url: "https://www.merckvetmanual.com",
+  type: "reference",
+  note: "Comprehensive veterinary reference (consumer & professional)",
+};
+
+const SRC_CORNELL_FELINE: SourceLink = {
+  label: "Cornell Feline Health Center",
+  url: "https://www.vet.cornell.edu/departments-centers-and-institutes/cornell-feline-health-center",
+  type: "university",
+  note: "Cornell University College of Veterinary Medicine — cats",
+};
+
+const SRC_CORNELL_CANINE: SourceLink = {
+  label: "Cornell Riney Canine Health Center",
+  url: "https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center",
+  type: "university",
+  note: "Cornell University College of Veterinary Medicine — dogs",
+};
 
 export const VET_CARE_ARTICLES: EducationalArticle[] = [
   {
@@ -78,6 +124,7 @@ export const VET_CARE_ARTICLES: EducationalArticle[] = [
           "Many veterinarians recommend at least annual wellness visits for adult pets and more frequent visits (often twice yearly) for senior pets and several exotic species.",
       },
     ],
+    sources: [SRC_AVMA_PET_CARE, SRC_MERCK_VET_MANUAL],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -168,6 +215,7 @@ export const VET_CARE_ARTICLES: EducationalArticle[] = [
           "Most accident-and-illness policies in widely served markets cover eligible emergencies, but exclusions and reimbursement rules vary by policy. Read the actual policy document.",
       },
     ],
+    sources: [SRC_AVMA_PET_CARE, SRC_ASPCA_POISON, SRC_MERCK_VET_MANUAL],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -250,6 +298,7 @@ export const VET_CARE_ARTICLES: EducationalArticle[] = [
           "Tell the clinic in advance. Some vets offer fear-free or low-stress visit techniques and may suggest desensitisation strategies before a routine visit.",
       },
     ],
+    sources: [SRC_AVMA_PET_CARE, SRC_MERCK_VET_MANUAL],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -329,6 +378,7 @@ export const VET_CARE_ARTICLES: EducationalArticle[] = [
           "Many clinics allow short follow-up questions by phone or message portal. Ask what the clinic's policy is.",
       },
     ],
+    sources: [SRC_AVMA_PET_CARE, SRC_CORNELL_FELINE, SRC_CORNELL_CANINE],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -415,6 +465,7 @@ export const VET_CARE_ARTICLES: EducationalArticle[] = [
           "Try a 24-hour clinic, an emergency animal hospital, or an animal poison helpline if available in your region. Do not delay seeking help if the situation seems life-threatening.",
       },
     ],
+    sources: [SRC_AVMA_PET_CARE, SRC_ASPCA_POISON, SRC_AVMA_PET_OWNERS],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },

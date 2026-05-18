@@ -81,6 +81,46 @@ export default function EditorialPolicyPage() {
             claim exact population figures unless sourced from a cited authority.
           </p>
 
+          <h2>Sensitive Topics — Sources We Use</h2>
+          <p>
+            For sensitive editorial topics — veterinary health, pet food
+            safety, pet insurance, vet-care cost planning, and pet ownership
+            cost planning — FaunaHub aims to use authoritative sources rather
+            than secondary blog content. Specifically:
+          </p>
+          <ul>
+            <li>
+              <strong>Veterinary and health content:</strong> AVMA, AAHA,
+              Merck Veterinary Manual, ASPCA Animal Poison Control (where
+              relevant), Cornell University College of Veterinary Medicine,
+              and other recognised veterinary universities and government
+              animal-health resources.
+            </li>
+            <li>
+              <strong>Insurance content:</strong> official insurance
+              regulators (such as the NAIC in the United States), government
+              consumer-protection agencies, national insurance associations
+              where appropriate, and current policy documents from actual
+              insurers — only to explain generic policy mechanics, never as
+              endorsement.
+            </li>
+            <li>
+              <strong>Cost and budgeting content:</strong> recognised
+              consumer-protection and government sources where available,
+              alongside the veterinary sources above for clinical context.
+              FaunaHub does not publish country-specific price claims unless
+              they are sourced and clearly attributed.
+            </li>
+          </ul>
+          <p>
+            FaunaHub does not recommend, rank, or endorse specific insurance
+            providers. We avoid fake citations, unsupported provider
+            recommendations, and provider pages used as endorsement evidence.
+            Pet health content does not replace a veterinarian. Insurance and
+            cost content does not replace policy documents, regulators, or
+            qualified financial or legal advice.
+          </p>
+
           <h2>Source Transparency</h2>
           <p>
             Authoritative sources we reference for pet and veterinary content include:
@@ -125,7 +165,7 @@ export default function EditorialPolicyPage() {
           </p>
 
           <div className="mt-8">
-            <LastUpdated date="2025-05-07" />
+            <LastUpdated date="2026-05-18" />
           </div>
         </div>
       </main>

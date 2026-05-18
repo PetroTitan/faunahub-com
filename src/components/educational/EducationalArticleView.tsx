@@ -6,8 +6,10 @@ import RelatedLinks from "@/components/RelatedLinks";
 import {
   INSURANCE_SOURCE_REVIEW_NOTE,
   INSURANCE_VARIABILITY_WARNING,
+  VERIFIED_SOURCE_NOTE,
   VET_CARE_DISCLAIMER,
   VET_CARE_SOURCE_REVIEW_NOTE,
+  sourceTypeLabel,
   type ArticleSection,
   type EducationalArticle,
 } from "@/lib/educational/types";
@@ -132,9 +134,12 @@ export default function EducationalArticleView({
     faqSchema(article.faqs),
   ];
 
-  const sourceNote = isInsurance
-    ? INSURANCE_SOURCE_REVIEW_NOTE
-    : VET_CARE_SOURCE_REVIEW_NOTE;
+  const hasVerifiedSources = !!article.sources && article.sources.length > 0;
+  const sourceNote = hasVerifiedSources
+    ? VERIFIED_SOURCE_NOTE
+    : isInsurance
+      ? INSURANCE_SOURCE_REVIEW_NOTE
+      : VET_CARE_SOURCE_REVIEW_NOTE;
 
   return (
     <>
@@ -254,6 +259,50 @@ export default function EducationalArticleView({
                   title={`${article.pageHeading} — Frequently Asked Questions`}
                 />
               </div>
+
+              {article.sources && article.sources.length > 0 && (
+                <section
+                  aria-labelledby="sources-heading"
+                  className="not-prose mt-10 rounded-2xl border border-[#DDE6DD] bg-white p-5 sm:p-6"
+                >
+                  <h2
+                    id="sources-heading"
+                    className="text-sm font-semibold text-[#063F2A] uppercase tracking-wider mb-2"
+                  >
+                    Sources and further reading
+                  </h2>
+                  <p className="text-xs text-[#5E6B63] mb-4 leading-relaxed">
+                    Authoritative references used for general educational
+                    context. External links open in a new tab. These sources
+                    do not endorse FaunaHub.
+                  </p>
+                  <ul className="space-y-3">
+                    {article.sources.map((source, i) => (
+                      <li
+                        key={i}
+                        className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3"
+                      >
+                        <span className="inline-flex items-center self-start px-2 py-0.5 rounded-full text-[11px] font-medium bg-[#EFF4E0] text-[#063F2A] border border-[#CFE0A8] uppercase tracking-wide whitespace-nowrap">
+                          {sourceTypeLabel(source.type)}
+                        </span>
+                        <span className="text-sm text-[#2C3A2F] leading-relaxed">
+                          <a
+                            href={source.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-[#063F2A] font-medium hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#063F2A] focus-visible:ring-offset-2 rounded-sm"
+                          >
+                            {source.label}
+                          </a>
+                          {source.note && (
+                            <span className="text-[#5E6B63]"> — {source.note}</span>
+                          )}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
             </article>
 
             <aside
@@ -304,17 +353,21 @@ export default function EducationalArticleView({
 
               <aside
                 role="note"
-                aria-label="Source review note"
+                aria-label="Source note"
                 className="border border-[#DDE6DD] rounded-xl p-4 bg-[#EFF1EB] text-sm text-[#5E6B63]"
               >
                 <p className="font-medium text-[#2C3A2F] mb-1">Sources</p>
                 <p className="leading-relaxed">{sourceNote}</p>
-                <p className="mt-2 leading-relaxed">
-                  <strong className="text-[#2C3A2F]">Source review required.</strong>{" "}
-                  No external citations have been added to this page. For
-                  authoritative information, consult the references listed
-                  above and a licensed professional in your country.
-                </p>
+                {!hasVerifiedSources && (
+                  <p className="mt-2 leading-relaxed">
+                    <strong className="text-[#2C3A2F]">
+                      Source review required.
+                    </strong>{" "}
+                    No external citations have been added to this page. For
+                    authoritative information, consult the references listed
+                    above and a licensed professional in your country.
+                  </p>
+                )}
               </aside>
 
               <LastUpdated date={article.modifiedTime} />

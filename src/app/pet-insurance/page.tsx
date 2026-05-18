@@ -12,9 +12,26 @@ import {
 } from "@/lib/schema";
 import { INSURANCE_ARTICLES } from "@/lib/pet-insurance/data";
 import {
-  INSURANCE_SOURCE_REVIEW_NOTE,
   INSURANCE_VARIABILITY_WARNING,
+  VERIFIED_SOURCE_NOTE,
+  sourceTypeLabel,
+  type SourceLink,
 } from "@/lib/educational/types";
+
+const HUB_SOURCES: SourceLink[] = [
+  {
+    label: "NAIC — Pet Insurance",
+    url: "https://content.naic.org/insurance-topics/pet-insurance",
+    type: "insurance-regulator",
+    note: "U.S. insurance regulators' consumer overview of pet insurance",
+  },
+  {
+    label: "AVMA — Pet Care Resources",
+    url: "https://www.avma.org/resources-tools/pet-owners/petcare",
+    type: "veterinary",
+    note: "American Veterinary Medical Association consumer pet-care hub",
+  },
+];
 
 const LAST_UPDATED = "2026-05-18";
 
@@ -321,20 +338,45 @@ export default function PetInsuranceHubPage() {
             title="Pet Insurance — Frequently Asked Questions"
           />
 
-          <aside
-            role="note"
-            aria-label="Source review note"
-            className="border border-[#DDE6DD] rounded-xl p-4 bg-[#EFF1EB] text-sm text-[#5E6B63]"
+          <section
+            aria-labelledby="hub-sources-heading"
+            className="rounded-2xl border border-[#DDE6DD] bg-white p-5 sm:p-6"
           >
-            <p className="font-medium text-[#2C3A2F] mb-1">Sources</p>
-            <p className="leading-relaxed">{INSURANCE_SOURCE_REVIEW_NOTE}</p>
-            <p className="mt-2 leading-relaxed">
-              <strong className="text-[#2C3A2F]">Source review required.</strong>{" "}
-              No external citations have been added to this hub. For
-              authoritative information, consult the references listed above
-              and a licensed professional in your country.
+            <h2
+              id="hub-sources-heading"
+              className="text-sm font-semibold text-[#063F2A] uppercase tracking-wider mb-2"
+            >
+              Sources and further reading
+            </h2>
+            <p className="text-xs text-[#5E6B63] mb-4 leading-relaxed">
+              {VERIFIED_SOURCE_NOTE}
             </p>
-          </aside>
+            <ul className="space-y-3">
+              {HUB_SOURCES.map((source) => (
+                <li
+                  key={source.url}
+                  className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3"
+                >
+                  <span className="inline-flex items-center self-start px-2 py-0.5 rounded-full text-[11px] font-medium bg-[#EFF4E0] text-[#063F2A] border border-[#CFE0A8] uppercase tracking-wide whitespace-nowrap">
+                    {sourceTypeLabel(source.type)}
+                  </span>
+                  <span className="text-sm text-[#2C3A2F] leading-relaxed">
+                    <a
+                      href={source.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#063F2A] font-medium hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#063F2A] focus-visible:ring-offset-2 rounded-sm"
+                    >
+                      {source.label}
+                    </a>
+                    {source.note && (
+                      <span className="text-[#5E6B63]"> — {source.note}</span>
+                    )}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
 
           <LastUpdated date={LAST_UPDATED} />
         </div>

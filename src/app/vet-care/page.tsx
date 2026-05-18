@@ -11,7 +11,44 @@ import {
   itemListSchema,
 } from "@/lib/schema";
 import { VET_CARE_ARTICLES } from "@/lib/vet-care/data";
-import { VET_CARE_SOURCE_REVIEW_NOTE } from "@/lib/educational/types";
+import {
+  VERIFIED_SOURCE_NOTE,
+  sourceTypeLabel,
+  type SourceLink,
+} from "@/lib/educational/types";
+
+const HUB_SOURCES: SourceLink[] = [
+  {
+    label: "AVMA — Pet Care Resources",
+    url: "https://www.avma.org/resources-tools/pet-owners/petcare",
+    type: "veterinary",
+    note: "American Veterinary Medical Association consumer pet-care hub",
+  },
+  {
+    label: "ASPCA Animal Poison Control Center",
+    url: "https://www.aspca.org/pet-care/animal-poison-control",
+    type: "veterinary",
+    note: "24/7 emergency animal-poisoning helpline (US)",
+  },
+  {
+    label: "Merck Veterinary Manual",
+    url: "https://www.merckvetmanual.com",
+    type: "reference",
+    note: "Comprehensive veterinary reference",
+  },
+  {
+    label: "Cornell Feline Health Center",
+    url: "https://www.vet.cornell.edu/departments-centers-and-institutes/cornell-feline-health-center",
+    type: "university",
+    note: "Cornell University College of Veterinary Medicine — cats",
+  },
+  {
+    label: "Cornell Riney Canine Health Center",
+    url: "https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center",
+    type: "university",
+    note: "Cornell University College of Veterinary Medicine — dogs",
+  },
+];
 
 const LAST_UPDATED = "2026-05-18";
 
@@ -157,20 +194,45 @@ export default function VetCareHubPage() {
 
           <FAQBlock items={HUB_FAQS} title="Vet Care — Frequently Asked Questions" />
 
-          <aside
-            role="note"
-            aria-label="Source review note"
-            className="border border-[#DDE6DD] rounded-xl p-4 bg-[#EFF1EB] text-sm text-[#5E6B63]"
+          <section
+            aria-labelledby="hub-sources-heading"
+            className="rounded-2xl border border-[#DDE6DD] bg-white p-5 sm:p-6"
           >
-            <p className="font-medium text-[#2C3A2F] mb-1">Sources</p>
-            <p className="leading-relaxed">{VET_CARE_SOURCE_REVIEW_NOTE}</p>
-            <p className="mt-2 leading-relaxed">
-              <strong className="text-[#2C3A2F]">Source review required.</strong>{" "}
-              No external citations have been added to this hub. For
-              authoritative information, consult the references listed above
-              and a licensed veterinarian.
+            <h2
+              id="hub-sources-heading"
+              className="text-sm font-semibold text-[#063F2A] uppercase tracking-wider mb-2"
+            >
+              Sources and further reading
+            </h2>
+            <p className="text-xs text-[#5E6B63] mb-4 leading-relaxed">
+              {VERIFIED_SOURCE_NOTE}
             </p>
-          </aside>
+            <ul className="space-y-3">
+              {HUB_SOURCES.map((source) => (
+                <li
+                  key={source.url}
+                  className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3"
+                >
+                  <span className="inline-flex items-center self-start px-2 py-0.5 rounded-full text-[11px] font-medium bg-[#EFF4E0] text-[#063F2A] border border-[#CFE0A8] uppercase tracking-wide whitespace-nowrap">
+                    {sourceTypeLabel(source.type)}
+                  </span>
+                  <span className="text-sm text-[#2C3A2F] leading-relaxed">
+                    <a
+                      href={source.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#063F2A] font-medium hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#063F2A] focus-visible:ring-offset-2 rounded-sm"
+                    >
+                      {source.label}
+                    </a>
+                    {source.note && (
+                      <span className="text-[#5E6B63]"> — {source.note}</span>
+                    )}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </section>
 
           <LastUpdated date={LAST_UPDATED} />
         </div>

@@ -1,7 +1,47 @@
-import type { EducationalArticle } from "@/lib/educational/types";
+import type { EducationalArticle, SourceLink } from "@/lib/educational/types";
 
 const PUBLISHED = "2026-05-18";
 const MODIFIED = "2026-05-18";
+
+// ─── VERIFIED SOURCES ─────────────────────────────────────────────────────
+// Each URL listed below has been fetched and confirmed to resolve to the
+// content described in the label/note. Keep this list small and high-quality;
+// do not add unverified URLs.
+
+const SRC_NAIC_PET_INSURANCE: SourceLink = {
+  label: "NAIC — Pet Insurance",
+  url: "https://content.naic.org/insurance-topics/pet-insurance",
+  type: "insurance-regulator",
+  note: "U.S. insurance regulators' consumer overview of pet insurance",
+};
+
+const SRC_AVMA_PET_CARE: SourceLink = {
+  label: "AVMA — Pet Care Resources",
+  url: "https://www.avma.org/resources-tools/pet-owners/petcare",
+  type: "veterinary",
+  note: "American Veterinary Medical Association consumer pet-care hub",
+};
+
+const SRC_AVMA_PET_OWNERS: SourceLink = {
+  label: "AVMA — Pet Owner Resources",
+  url: "https://www.avma.org/resources-tools/pet-owners",
+  type: "veterinary",
+  note: "AVMA top-level pet-owner resource index",
+};
+
+const SRC_CORNELL_FELINE: SourceLink = {
+  label: "Cornell Feline Health Center",
+  url: "https://www.vet.cornell.edu/departments-centers-and-institutes/cornell-feline-health-center",
+  type: "university",
+  note: "Cornell University College of Veterinary Medicine",
+};
+
+const SRC_CORNELL_CANINE: SourceLink = {
+  label: "Cornell Riney Canine Health Center",
+  url: "https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center",
+  type: "university",
+  note: "Cornell University College of Veterinary Medicine",
+};
 
 export const INSURANCE_ARTICLES: EducationalArticle[] = [
   {
@@ -104,6 +144,7 @@ export const INSURANCE_ARTICLES: EducationalArticle[] = [
       },
     ],
     showVariabilityWarning: true,
+    sources: [SRC_NAIC_PET_INSURANCE],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -199,6 +240,7 @@ export const INSURANCE_ARTICLES: EducationalArticle[] = [
       },
     ],
     showVariabilityWarning: true,
+    sources: [SRC_NAIC_PET_INSURANCE],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -289,6 +331,7 @@ export const INSURANCE_ARTICLES: EducationalArticle[] = [
       },
     ],
     showVariabilityWarning: true,
+    sources: [SRC_NAIC_PET_INSURANCE],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -381,6 +424,7 @@ export const INSURANCE_ARTICLES: EducationalArticle[] = [
       },
     ],
     showVariabilityWarning: true,
+    sources: [SRC_NAIC_PET_INSURANCE],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -471,6 +515,7 @@ export const INSURANCE_ARTICLES: EducationalArticle[] = [
       },
     ],
     showVariabilityWarning: true,
+    sources: [SRC_NAIC_PET_INSURANCE, SRC_AVMA_PET_CARE],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -563,6 +608,7 @@ export const INSURANCE_ARTICLES: EducationalArticle[] = [
       },
     ],
     showVariabilityWarning: true,
+    sources: [SRC_NAIC_PET_INSURANCE, SRC_AVMA_PET_OWNERS],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -650,6 +696,7 @@ export const INSURANCE_ARTICLES: EducationalArticle[] = [
       },
     ],
     showVariabilityWarning: true,
+    sources: [SRC_NAIC_PET_INSURANCE, SRC_CORNELL_CANINE, SRC_AVMA_PET_CARE],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
@@ -735,6 +782,7 @@ export const INSURANCE_ARTICLES: EducationalArticle[] = [
       },
     ],
     showVariabilityWarning: true,
+    sources: [SRC_NAIC_PET_INSURANCE, SRC_CORNELL_FELINE, SRC_AVMA_PET_CARE],
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
