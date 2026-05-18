@@ -3,7 +3,7 @@ import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Cheetah — Profile, Habitat, Diet & Behavior";
 const description =
@@ -93,6 +93,33 @@ export default function CheetahPage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                Cheetahs are immediately separable from the &quot;big cats&quot; by build.
+                The body is slender and lightly muscled with notably <strong>long legs</strong>,
+                a deep but narrow chest, a small <strong>rounded head</strong> with small
+                ears, and a long, banded tail used as a counterbalance in fast turns. The
+                tan-to-yellow coat is marked with <strong>solid round black spots</strong>
+                rather than rosettes — a coat pattern that, together with the build, makes
+                misidentification with leopards or jaguars unlikely at close range.
+              </p>
+              <p>
+                The diagnostic facial feature is the pair of <strong>black tear lines</strong>
+                running from the inner corner of each eye down toward the corners of the
+                mouth. Claws are semi-retractile, which leaves clearer claw marks in tracks
+                than the fully retractile claws of leopards or jaguars. Appearance varies
+                less between cheetah populations than between the spotted big cats, but the
+                rare &quot;king cheetah&quot; coat — characterised by enlarged and partly
+                merged markings — is a documented variant rather than a separate species.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           Cheetahs are often confused with leopards (<em>Panthera pardus</em>) but are
@@ -137,6 +164,7 @@ export default function CheetahPage() {
       ]}
       relatedLinks={[
         { label: "Leopard Profile", href: "/animals/leopard", description: "Panthera pardus — adaptable spotted cat" },
+        { label: "Jaguar Profile", href: "/animals/jaguar", description: "Panthera onca — heavier American big cat" },
         { label: "Lion Profile", href: "/animals/lion", description: "Apex predator of African savannas" },
         { label: "Cheetah vs Leopard", href: "/compare/cheetah-vs-leopard" },
         { label: "Mammal Encyclopedia", href: "/animal-encyclopedia/mammals" },

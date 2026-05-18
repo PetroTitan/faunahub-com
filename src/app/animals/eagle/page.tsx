@@ -14,7 +14,7 @@ export const metadata: Metadata = buildArticleMetadata({
     "An overview of eagle species worldwide, using the Golden Eagle (Aquila chrysaetos) as the reference species for habitat, diet, flight, and conservation context.",
   path: "/animals/eagle",
   publishedTime: "2025-05-07",
-  modifiedTime: "2025-05-07",
+  modifiedTime: "2026-05-18",
 });
 
 const faqItems = [
@@ -54,7 +54,7 @@ export default function EaglePage() {
         "An overview of eagle species worldwide, using the Golden Eagle (Aquila chrysaetos) as the reference species for habitat, diet, flight, and conservation context.",
       path: "/animals/eagle",
       datePublished: "2025-05-07",
-      dateModified: "2025-05-07",
+      dateModified: "2026-05-18",
     }),
     faqSchema(faqItems),
   ];
@@ -176,6 +176,29 @@ export default function EaglePage() {
                 documented, where one bird flushes prey toward the other.
               </p>
 
+              <h2>Appearance & Recognition</h2>
+              <p>
+                &quot;Eagle&quot; covers a wide range of body sizes and plumage patterns, so
+                identification is strongly species-specific. Across the group, shared
+                features include a <strong>heavy hooked bill</strong>, strong feet with
+                large curved talons, broad wings with deeply &quot;slotted&quot; primary
+                feathers, and a soaring flight profile that is distinctive even from a
+                distance. Many species show pronounced sexual dimorphism, with females
+                typically larger than males.
+              </p>
+              <p>
+                Plumage and silhouette vary enormously between species. The Golden Eagle is
+                dark brown overall with a paler golden wash on the back of the head and
+                neck in adults. The adult Bald Eagle is unmistakable with its white head
+                and tail set against a dark body — though juveniles are mottled brown for
+                several years and are routinely misidentified as Golden Eagles or large
+                hawks. The Harpy Eagle is pale below with a broad dark chest band and a
+                tall grey crest. Field identification typically combines size, silhouette,
+                wing shape, tail shape, plumage stage, flight behaviour and geographic
+                range; for many juveniles, age (and therefore plumage) is itself a critical
+                clue.
+              </p>
+
               <h2>Flight & Physical Adaptations</h2>
               <p>
                 Eagles have large wingspans relative to body mass, allowing efficient soaring on
@@ -257,7 +280,7 @@ export default function EaglePage() {
                 ]}
               />
               <SourceNote pending />
-              <LastUpdated date="2025-05-07" />
+              <LastUpdated date="2026-05-18" />
             </aside>
           </div>
         </div>

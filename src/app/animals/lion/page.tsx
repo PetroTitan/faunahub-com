@@ -16,7 +16,7 @@ export const metadata: Metadata = buildArticleMetadata({
     "Explore Panthera leo: where lions live across Africa and India, how pride social structures work, what lions hunt, and key conservation context.",
   path: "/animals/lion",
   publishedTime: "2025-05-07",
-  modifiedTime: "2025-05-07",
+  modifiedTime: "2026-05-18",
 });
 
 const faqItems = [
@@ -56,7 +56,7 @@ export default function LionPage() {
         "Explore Panthera leo: where lions live across Africa and India, how pride social structures work, what lions hunt, and key conservation context.",
       path: "/animals/lion",
       datePublished: "2025-05-07",
-      dateModified: "2025-05-07",
+      dateModified: "2026-05-18",
     }),
     faqSchema(faqItems),
   ];
@@ -175,6 +175,28 @@ export default function LionPage() {
                 and warns off rivals.
               </p>
 
+              <h2>Appearance & Recognition</h2>
+              <p>
+                Lions are large, broadly built cats with a uniform <strong>tawny to
+                sand-coloured coat</strong>, a paler belly, and a black-tufted tail tip
+                that is distinctive in silhouette. Adult males typically carry a{" "}
+                <strong>mane</strong> around the head, neck and shoulders that ranges from
+                blond through ruddy to nearly black; mane size and colour vary with age,
+                genetics, health, and region — and some males (well-documented in parts of
+                Tsavo, Kenya) develop very small manes or none at all. Females lack a mane,
+                are lighter and more lithe, and do the majority of cooperative hunting.
+              </p>
+              <p>
+                Cubs are born with faint rosette-like markings that usually fade as they
+                mature; some traces can remain into adulthood on the legs and belly. At a
+                distance, lions are typically identified by the combination of group living
+                (no other African cat is consistently social), the tail tuft, and — in
+                males — the mane. The much smaller, isolated Asiatic lion in India
+                (<em>P. l. persica</em>) is broadly similar in colour but tends to be
+                slightly smaller, with a distinct longitudinal belly fold often noted by
+                field observers.
+              </p>
+
               <h2>Lion vs Tiger — Brief Comparison</h2>
               <p>
                 Lions and tigers are both members of genus <em>Panthera</em>. Lions are the only
@@ -247,13 +269,14 @@ export default function LionPage() {
                 links={[
                   { label: "Tiger Profile", href: "/animals/tiger", description: "Panthera tigris — largest living cat" },
                   { label: "Leopard Profile", href: "/animals/leopard", description: "Panthera pardus — most widely distributed big cat" },
+                  { label: "Jaguar Profile", href: "/animals/jaguar", description: "Panthera onca — the only Panthera in the Americas" },
                   { label: "Cheetah Profile", href: "/animals/cheetah", description: "Fastest land animal" },
                   { label: "Lion vs Tiger", href: "/compare/lion-vs-tiger", description: "Full species comparison" },
                   { label: "Mammal Encyclopedia", href: "/animal-encyclopedia/mammals" },
                 ]}
               />
               <SourceNote pending />
-              <LastUpdated date="2025-05-07" />
+              <LastUpdated date="2026-05-18" />
             </aside>
           </div>
         </div>

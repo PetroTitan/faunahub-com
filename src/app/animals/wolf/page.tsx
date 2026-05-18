@@ -15,7 +15,7 @@ export const metadata: Metadata = buildArticleMetadata({
     "Canis lupus: wolf habitat and range, pack social structure, hunting behaviour, the relationship with domestic dogs, and conservation context.",
   path: "/animals/wolf",
   publishedTime: "2025-05-07",
-  modifiedTime: "2025-05-07",
+  modifiedTime: "2026-05-18",
 });
 
 const faqItems = [
@@ -55,7 +55,7 @@ export default function WolfPage() {
         "Canis lupus: wolf habitat and range, pack social structure, hunting behaviour, the relationship with domestic dogs, and conservation context.",
       path: "/animals/wolf",
       datePublished: "2025-05-07",
-      dateModified: "2025-05-07",
+      dateModified: "2026-05-18",
     }),
     faqSchema(faqItems),
   ];
@@ -170,6 +170,29 @@ export default function WolfPage() {
                 to thousands of square kilometres in sparse environments.
               </p>
 
+              <h2>Appearance & Recognition</h2>
+              <p>
+                Grey wolves are long-legged, lean canids with a <strong>deep but narrow
+                chest</strong>, a relatively large head with long muzzle, and a thick,
+                bushy tail typically carried straight back or hanging — not curled over the
+                back as in many domestic dog breeds. Paws are noticeably large relative to
+                body size, an adaptation for moving on snow and uneven terrain. Eyes are
+                most commonly yellow to amber in adults; blue eyes are unusual in pure wild
+                wolves and more typical of certain dog breeds and wolf-dog hybrids.
+              </p>
+              <p>
+                Coat colour and density vary strongly with region and subspecies. Arctic
+                wolves of the high north are largely white; Eurasian and northern North
+                American wolves typically show a mix of greys, browns, blacks and creams
+                arranged in an &quot;agouti&quot; pattern; some North American populations
+                include high frequencies of black or near-black individuals. Subspecific
+                size also varies — northern wolves tend to be heavier and larger than
+                southern populations. Field identification can be complicated by large
+                wolf-like dog breeds (e.g. Northern Inuit, Tamaskan) and by wolf-dog
+                hybrids; behaviour and ranging context are typically more reliable than
+                colour alone.
+              </p>
+
               <h2>Wolves and Dogs</h2>
               <p>
                 Domestication produced profound changes: dogs became behaviourally, morphologically,
@@ -240,7 +263,7 @@ export default function WolfPage() {
                 ]}
               />
               <SourceNote pending />
-              <LastUpdated date="2025-05-07" />
+              <LastUpdated date="2026-05-18" />
             </aside>
           </div>
         </div>

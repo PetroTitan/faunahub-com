@@ -3,7 +3,7 @@ import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Leopard — Profile, Habitat, Diet & Behavior";
 const description =
@@ -92,6 +92,33 @@ export default function LeopardPage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                Leopards have a slim, long-bodied build with a comparatively small, rounded
+                head and a long tail roughly half their body length. The base coat ranges
+                from pale yellow on open-country individuals to a deeper gold or russet in
+                forest-living populations, and is broken up by clusters of small dark
+                <strong> rosettes</strong>. In adult leopards these rosettes are typically
+                <em> plain</em> inside (with no central spot) — the single most reliable
+                visual cue for distinguishing a leopard from a jaguar.
+              </p>
+              <p>
+                A well-documented <strong>melanistic morph</strong> — popularly called a
+                &quot;black panther&quot; — occurs in some leopard populations, particularly
+                in dense forest in parts of Asia. The rosette pattern is still present and
+                can be seen at close range under good light. Coat colour and rosette spacing
+                vary with subspecies and individual; size, build and tail proportions are
+                steadier identification cues. In the field, prey items cached in the fork of
+                a tree are an indirect indicator of leopard presence.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           Leopards are easily confused with jaguars (<em>P. onca</em>) and cheetahs (
@@ -138,7 +165,9 @@ export default function LeopardPage() {
       relatedLinks={[
         { label: "Jaguar Profile", href: "/animals/jaguar", description: "Panthera onca — South & Central American big cat" },
         { label: "Cheetah Profile", href: "/animals/cheetah", description: "Fastest land animal" },
+        { label: "Tiger Profile", href: "/animals/tiger", description: "Panthera tigris — largest cat species" },
         { label: "Leopard vs Jaguar", href: "/compare/leopard-vs-jaguar" },
+        { label: "Cheetah vs Leopard", href: "/compare/cheetah-vs-leopard" },
         { label: "Mammal Encyclopedia", href: "/animal-encyclopedia/mammals" },
       ]}
       publishedDate={PUBLISHED}

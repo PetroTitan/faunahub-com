@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Jaguar — Profile, Habitat, Diet & Behavior";
 const description =
@@ -90,6 +91,34 @@ export default function JaguarPage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                Jaguars carry a compact, heavily muscled build — broader chest and shoulders
+                than a leopard of comparable length — with a notably <strong>broad head</strong>,
+                short rounded ears, and proportionally short, powerful limbs. The tail is
+                relatively shorter than a leopard&apos;s. The base coat ranges from pale
+                yellow through gold to a richer tan, marked with <strong>large rosettes</strong>
+                that frequently contain <em>one or more small dark spots inside</em> — the
+                most reliable visual diagnostic versus the leopard, whose rosettes are
+                typically plain inside.
+              </p>
+              <p>
+                A <strong>black (melanistic) morph</strong> occurs in parts of the species&apos;
+                range; rosette markings are retained but may only be visible at close range
+                under good light. Because leopards and jaguars do not naturally overlap, the
+                most useful starting cue in field identification is geography: any wild
+                rosetted big cat in the Americas is a jaguar, while one in Africa or Asia is a
+                leopard. Compare directly on the{" "}
+                <Link href="/compare/leopard-vs-jaguar">Leopard vs Jaguar</Link> page.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           Jaguars are most easily confused with leopards (<em>Panthera pardus</em>) but have a

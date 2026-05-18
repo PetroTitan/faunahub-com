@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Crocodile — Profile, Habitat, Diet & Behavior";
 const description =
@@ -88,6 +89,37 @@ export default function CrocodilePage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                Crocodiles share the broad crocodilian body plan — a long, low-slung body
+                with a heavily armored back of bony osteoderms, short powerful limbs, and a
+                laterally compressed tail used for swimming. In most species the snout is
+                <strong> narrower and more V-shaped</strong> than that of alligators, and
+                the upper jaw is shaped so that <strong>several lower-jaw teeth — notably
+                the fourth — remain visible</strong> outside the closed mouth. Eyes and
+                nostrils sit high on the head, allowing the animal to remain almost fully
+                submerged while watching the surface.
+              </p>
+              <p>
+                Coloration varies by species, age, and habitat — typically olive, brown or
+                grey, often with darker mottling — and can appear quite different in turbid
+                versus clear water. Snout proportions also vary: the saltwater crocodile is
+                relatively broader-snouted than the slender-snouted species, and the gharial
+                (a separate family) has an extremely thin snout that should not be confused
+                with a true crocodile. Juvenile crocodilians are noticeably harder to
+                identify than adults; field guides typically rely on a combination of snout
+                shape, tooth visibility, and geographic range. See the{" "}
+                <Link href="/compare/alligator-vs-crocodile">Alligator vs Crocodile</Link>{" "}
+                comparison for a side-by-side walk-through.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           The closest relatives of crocodiles are alligators and caimans (family

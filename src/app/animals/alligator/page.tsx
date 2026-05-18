@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Alligator — Profile, Habitat, Diet & Behavior";
 const description =
@@ -99,6 +100,33 @@ export default function AlligatorPage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                Adult alligators are recognisable by a <strong>broad, rounded U-shaped
+                snout</strong> — broader than in most true crocodiles — and by an upper jaw
+                that <em>overhangs</em> the lower jaw so that, in most cases, none of the
+                lower-jaw teeth are visible when the mouth is closed. The body is heavy and
+                muscular, with bony osteoderm armor on the back, less prominent armor on
+                the belly, and a strong laterally compressed tail.
+              </p>
+              <p>
+                In the American alligator the adult body is typically dark grey to nearly
+                black, while juveniles often show pale yellowish or cream cross-bands that
+                fade with age. The much rarer Chinese alligator is generally lighter and
+                smaller and rarely seen in the wild. Apparent colour can vary considerably
+                with water clarity, light, and surface algae or mud, so colour alone is not
+                a reliable diagnostic — snout shape and tooth visibility are more
+                trustworthy. For the side-by-side decision between alligator and crocodile,
+                see <Link href="/compare/alligator-vs-crocodile">Alligator vs Crocodile</Link>.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           Alligators&apos; closest relatives are caimans, also in family Alligatoridae. They
