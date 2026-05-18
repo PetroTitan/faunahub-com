@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { FOOD_SAFETY_ARTICLES } from "@/lib/food-safety/data";
 
 const BASE_URL = "https://faunahub.com";
 
@@ -51,6 +52,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "hamster-age-calculator",
     "guinea-pig-age-calculator",
     "pet-life-stage-calculator",
+    "can-my-pet-eat-this",
   ];
 
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -112,5 +114,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...animalRoutes, ...compareRoutes, ...toolRoutes];
+  const foodSafetyRoutes: MetadataRoute.Sitemap = FOOD_SAFETY_ARTICLES.map(
+    (article) => ({
+      url: `${BASE_URL}/${article.species}s/food/${article.slug}`,
+      lastModified: article.modifiedTime,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    })
+  );
+
+  return [
+    ...staticRoutes,
+    ...animalRoutes,
+    ...compareRoutes,
+    ...toolRoutes,
+    ...foodSafetyRoutes,
+  ];
 }

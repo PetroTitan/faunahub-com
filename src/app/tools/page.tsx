@@ -74,6 +74,14 @@ const ageCalculators = [
 
 const otherTools = [
   {
+    title: "Can my pet eat this?",
+    description:
+      "Search a common food to find FaunaHub's cautious dog and cat food safety guidance.",
+    href: "/tools/can-my-pet-eat-this",
+    icon: "🥕",
+    badge: "Free",
+  },
+  {
     title: "Pet Cost Calculator",
     description:
       "Estimate monthly and annual costs for owning a pet — food, vet, grooming and more.",
