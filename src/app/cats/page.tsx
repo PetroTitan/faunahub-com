@@ -122,14 +122,54 @@ export default function CatsPage() {
             </p>
           </section>
 
-          <div className="mt-10">
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            <RelatedLinks
+              title="Planning and safety for cat owners"
+              links={[
+                {
+                  label: "Cat insurance overview",
+                  href: "/cats/insurance",
+                  description: "Cat-specific factors to weigh, with no provider rankings",
+                },
+                {
+                  label: "Pet insurance hub",
+                  href: "/pet-insurance",
+                  description: "How policies generally work and what to compare",
+                },
+                {
+                  label: "Vet care hub",
+                  href: "/vet-care",
+                  description: "Routine and emergency vet care planning",
+                },
+                {
+                  label: "When to call an emergency vet",
+                  href: "/vet-care/when-to-call-an-emergency-vet",
+                  description: "Common warning signs and what to say on the phone",
+                },
+                {
+                  label: "How much does a cat cost?",
+                  href: "/cats/costs/how-much-does-a-cat-cost",
+                  description: "Honest cost planning framework",
+                },
+                {
+                  label: "Cat Age Calculator",
+                  href: "/tools/cat-age-calculator",
+                  description: "Feline human-age equivalent and life stage",
+                },
+                {
+                  label: "Pet Cost Calculator",
+                  href: "/tools/pet-cost-calculator",
+                  description: "Run monthly, annual, and first-year scenarios",
+                },
+              ]}
+            />
             <RelatedLinks
               title="Also Explore"
               links={[
                 { label: "Dog Care Guides", href: "/dogs", description: "Comparable guides for dog owners" },
-                { label: "Pet Cost Calculator", href: "/tools/pet-cost-calculator", description: "Estimate cat ownership costs" },
-                { label: "Cat Age Calculator", href: "/tools/cat-age-calculator", description: "Convert your cat's age to human years" },
                 { label: "Animal Encyclopedia", href: "/animal-encyclopedia", description: "Wildlife profiles and animal facts" },
+                { label: "Cat food safety guides", href: "/cats/food", description: "What cats can and cannot eat" },
+                { label: "Pet Breed Selector", href: "/tools/pet-breed-selector", description: "Find pet and breed categories that fit your home" },
               ]}
             />
           </div>

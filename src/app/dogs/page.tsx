@@ -128,14 +128,54 @@ export default function DogsPage() {
             </p>
           </section>
 
-          <div className="mt-10">
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+            <RelatedLinks
+              title="Planning and safety for dog owners"
+              links={[
+                {
+                  label: "Dog insurance overview",
+                  href: "/dogs/insurance",
+                  description: "Dog-specific factors to weigh, with no provider rankings",
+                },
+                {
+                  label: "Pet insurance hub",
+                  href: "/pet-insurance",
+                  description: "How policies generally work and what to compare",
+                },
+                {
+                  label: "Vet care hub",
+                  href: "/vet-care",
+                  description: "Routine and emergency vet care planning",
+                },
+                {
+                  label: "When to call an emergency vet",
+                  href: "/vet-care/when-to-call-an-emergency-vet",
+                  description: "Common warning signs and what to say on the phone",
+                },
+                {
+                  label: "How much does a dog cost?",
+                  href: "/dogs/costs/how-much-does-a-dog-cost",
+                  description: "Honest cost planning framework",
+                },
+                {
+                  label: "Dog Age Calculator",
+                  href: "/tools/dog-age-calculator",
+                  description: "Size-adjusted human-age equivalent",
+                },
+                {
+                  label: "Pet Cost Calculator",
+                  href: "/tools/pet-cost-calculator",
+                  description: "Run monthly, annual, and first-year scenarios",
+                },
+              ]}
+            />
             <RelatedLinks
               title="Also Explore"
               links={[
                 { label: "Cat Care Guides", href: "/cats", description: "Comparable guides for cat owners" },
-                { label: "Pet Cost Calculator", href: "/tools/pet-cost-calculator", description: "Estimate your dog ownership costs" },
-                { label: "Dog Age Calculator", href: "/tools/dog-age-calculator", description: "Convert your dog's age to human years" },
                 { label: "Wolf vs Dog Comparison", href: "/compare/wolf-vs-dog", description: "How dogs differ from their wild ancestors" },
+                { label: "Dog food safety guides", href: "/dogs/food", description: "What dogs can and cannot eat" },
+                { label: "Pet Breed Selector", href: "/tools/pet-breed-selector", description: "Find pet and breed categories that fit your home" },
               ]}
             />
           </div>
