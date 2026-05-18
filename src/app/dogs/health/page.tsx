@@ -1,88 +1,77 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import DisclaimerBlock from "@/components/DisclaimerBlock";
+import HealthHub from "@/components/health/HealthHub";
+import type { SourceLink } from "@/lib/educational/types";
+import { getSymptomArticlesBySpecies } from "@/lib/health/data";
 import { buildMetadata } from "@/lib/metadata";
-import { breadcrumbSchema } from "@/lib/schema";
+
+const LAST_UPDATED = "2026-05-18";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Dog Health Guides — Common Conditions & Preventive Care",
+  title: "Dog Health — Cautious Symptom Awareness Guides",
   description:
-    "Educational guides on common dog health conditions, preventive care routines, and when to contact a veterinarian. Not a substitute for professional advice.",
+    "Educational, source-aware dog health pages: common symptom explainers, emergency warning signs, food and poisoning risks, and vet-care planning. Not a diagnosis — always consult a licensed veterinarian.",
   path: "/dogs/health",
 });
 
-export default function DogHealthPage() {
-  const breadcrumb = breadcrumbSchema([
-    { name: "Home", url: "https://faunahub.com" },
-    { name: "Dogs", url: "https://faunahub.com/dogs" },
-    { name: "Health", url: "https://faunahub.com/dogs/health" },
-  ]);
+const HUB_FAQS = [
+  {
+    question: "Is FaunaHub's dog health content a diagnosis tool?",
+    answer:
+      "No. These pages are educational symptom-awareness overviews, not diagnoses. They list possible cause categories and emergency warning signs so you can ask better questions of a licensed veterinarian — not so you can decide what's wrong yourself.",
+  },
+  {
+    question: "When should I contact an emergency vet rather than wait?",
+    answer:
+      "When any emergency sign is present — difficulty breathing, collapse, seizures, suspected poisoning, repeated vomiting, severe bleeding, sudden inability to use the legs, severe pain, or major behaviour change. When in doubt, call. Telephone triage is a normal part of veterinary care.",
+  },
+  {
+    question: "Why don't you list specific treatments or medications?",
+    answer:
+      "Diagnosis and treatment require examining the specific dog, often with laboratory or imaging tests. Publishing generic treatment or medication advice on a website would be unsafe. Several common human medications are also dangerous to dogs and should never be given without veterinary instruction.",
+  },
+  {
+    question: "What sources do these pages use?",
+    answer:
+      "Each symptom page cites authoritative veterinary references such as the AVMA, the Merck Veterinary Manual, the Cornell Riney Canine Health Center, and the ASPCA Animal Poison Control Center where toxicology is relevant. Pages still encourage owners to consult a licensed veterinarian directly.",
+  },
+];
 
+const HUB_SOURCES: SourceLink[] = [
+  {
+    label: "AVMA — Pet Care Resources",
+    url: "https://www.avma.org/resources-tools/pet-owners/petcare",
+    type: "veterinary",
+    note: "American Veterinary Medical Association consumer pet-care hub",
+  },
+  {
+    label: "Cornell Riney Canine Health Center",
+    url: "https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center",
+    type: "university",
+    note: "Cornell University College of Veterinary Medicine — dogs",
+  },
+  {
+    label: "Merck Veterinary Manual",
+    url: "https://www.merckvetmanual.com",
+    type: "reference",
+    note: "Comprehensive veterinary reference",
+  },
+  {
+    label: "ASPCA Animal Poison Control Center",
+    url: "https://www.aspca.org/pet-care/animal-poison-control",
+    type: "veterinary",
+    note: "24/7 emergency animal-poisoning helpline (US)",
+  },
+];
+
+export default function DogHealthHubPage() {
+  const articles = getSymptomArticlesBySpecies("dog");
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
-      />
-
-      <main id="main-content">
-        <header className="bg-white border-b border-[#DDE6DD] py-10 sm:py-14">
-          <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
-              <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
-              <span aria-hidden="true">/</span>
-              <Link href="/dogs" className="hover:text-[#063F2A] hover:no-underline">Dogs</Link>
-              <span aria-hidden="true">/</span>
-              <span className="text-[#17211B] font-medium" aria-current="page">Health</span>
-            </nav>
-            <span className="tag mb-3 inline-block">Dogs</span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">
-              Dog Health Guides
-            </h1>
-            <p className="text-base text-[#2C3A2F] leading-relaxed max-w-2xl">
-              Understanding common health conditions in dogs helps owners recognize warning signs
-              early and maintain preventive care routines that support long-term wellbeing.
-            </p>
-          </div>
-        </header>
-
-        <div className="container-content py-10">
-          <div className="max-w-3xl mb-8">
-            <DisclaimerBlock type="veterinary" />
-          </div>
-
-          <section className="prose-content max-w-3xl" aria-labelledby="about-heading">
-            <h2 id="about-heading">About This Section</h2>
-            <p>
-              Dog health guides on FaunaHub cover common conditions by body system — skin, joints,
-              digestive, dental, cardiac, and neurological — explaining what the condition is,
-              which breeds may be predisposed, how it is typically diagnosed and managed, and what
-              signs should prompt an immediate veterinary visit. Guides also cover preventive care
-              schedules, including vaccination timing, parasite prevention, and annual wellness
-              check recommendations.
-            </p>
-            <p>
-              Preventive veterinary care is the single most effective tool for extending a dog&apos;s
-              healthy lifespan. Annual wellness exams allow veterinarians to detect dental disease,
-              weight changes, early organ dysfunction, and other conditions before they become
-              serious — often before owners notice any outward signs.
-            </p>
-          </section>
-
-          <p className="mt-8 text-sm text-[#5E6B63]">
-            Individual condition guides are in development.
-          </p>
-
-          <div className="mt-8">
-            <Link
-              href="/dogs"
-              className="text-sm font-medium text-[#063F2A] hover:underline"
-            >
-              &larr; Back to Dog Care Guides
-            </Link>
-          </div>
-        </div>
-      </main>
-    </>
+    <HealthHub
+      species="dog"
+      articles={articles}
+      sources={HUB_SOURCES}
+      faqs={HUB_FAQS}
+      lastUpdated={LAST_UPDATED}
+    />
   );
 }

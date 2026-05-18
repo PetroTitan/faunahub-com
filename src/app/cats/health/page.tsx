@@ -1,90 +1,77 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import DisclaimerBlock from "@/components/DisclaimerBlock";
+import HealthHub from "@/components/health/HealthHub";
+import type { SourceLink } from "@/lib/educational/types";
+import { getSymptomArticlesBySpecies } from "@/lib/health/data";
 import { buildMetadata } from "@/lib/metadata";
-import { breadcrumbSchema } from "@/lib/schema";
+
+const LAST_UPDATED = "2026-05-18";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Cat Health Guides — Common Conditions & Preventive Care",
+  title: "Cat Health — Cautious Symptom Awareness Guides",
   description:
-    "Educational guides on common feline health conditions, preventive care, and warning signs that require immediate veterinary attention.",
+    "Educational, source-aware cat health pages: common symptom explainers, emergency warning signs, food and poisoning risks, and vet-care planning. Not a diagnosis — always consult a licensed veterinarian.",
   path: "/cats/health",
 });
 
-export default function CatHealthPage() {
-  const breadcrumb = breadcrumbSchema([
-    { name: "Home", url: "https://faunahub.com" },
-    { name: "Cats", url: "https://faunahub.com/cats" },
-    { name: "Health", url: "https://faunahub.com/cats/health" },
-  ]);
+const HUB_FAQS = [
+  {
+    question: "Is FaunaHub's cat health content a diagnosis tool?",
+    answer:
+      "No. These pages are educational symptom-awareness overviews, not diagnoses. They list possible cause categories and emergency warning signs so you can ask better questions of a licensed veterinarian — not so you can decide what's wrong yourself.",
+  },
+  {
+    question: "When should I contact an emergency vet rather than wait?",
+    answer:
+      "When any emergency sign is present — difficulty breathing, collapse, seizures, suspected poisoning, repeated vomiting, severe bleeding, sudden inability to use the legs, severe pain, inability to urinate (especially in male cats — life-threatening), or major behaviour change. When in doubt, call. Telephone triage is a normal part of veterinary care.",
+  },
+  {
+    question: "Why don't you list specific treatments or medications?",
+    answer:
+      "Diagnosis and treatment require examining the specific cat, often with laboratory or imaging tests. Publishing generic treatment or medication advice on a website would be unsafe. Several common human medications — including paracetamol/acetaminophen — are highly toxic to cats and should never be given without veterinary instruction.",
+  },
+  {
+    question: "What sources do these pages use?",
+    answer:
+      "Each symptom page cites authoritative veterinary references such as the AVMA, the Merck Veterinary Manual, the Cornell Feline Health Center, and the ASPCA Animal Poison Control Center where toxicology is relevant. Pages still encourage owners to consult a licensed veterinarian directly.",
+  },
+];
 
+const HUB_SOURCES: SourceLink[] = [
+  {
+    label: "AVMA — Pet Care Resources",
+    url: "https://www.avma.org/resources-tools/pet-owners/petcare",
+    type: "veterinary",
+    note: "American Veterinary Medical Association consumer pet-care hub",
+  },
+  {
+    label: "Cornell Feline Health Center",
+    url: "https://www.vet.cornell.edu/departments-centers-and-institutes/cornell-feline-health-center",
+    type: "university",
+    note: "Cornell University College of Veterinary Medicine — cats",
+  },
+  {
+    label: "Merck Veterinary Manual",
+    url: "https://www.merckvetmanual.com",
+    type: "reference",
+    note: "Comprehensive veterinary reference",
+  },
+  {
+    label: "ASPCA Animal Poison Control Center",
+    url: "https://www.aspca.org/pet-care/animal-poison-control",
+    type: "veterinary",
+    note: "24/7 emergency animal-poisoning helpline (US)",
+  },
+];
+
+export default function CatHealthHubPage() {
+  const articles = getSymptomArticlesBySpecies("cat");
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
-      />
-
-      <main id="main-content">
-        <header className="bg-white border-b border-[#DDE6DD] py-10 sm:py-14">
-          <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
-              <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
-              <span aria-hidden="true">/</span>
-              <Link href="/cats" className="hover:text-[#063F2A] hover:no-underline">Cats</Link>
-              <span aria-hidden="true">/</span>
-              <span className="text-[#17211B] font-medium" aria-current="page">Health</span>
-            </nav>
-            <span className="tag mb-3 inline-block">Cats</span>
-            <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">
-              Cat Health Guides
-            </h1>
-            <p className="text-base text-[#2C3A2F] leading-relaxed max-w-2xl">
-              Cats are adept at masking illness, which means health problems are often not apparent
-              until they have become significant — making regular veterinary check-ups and owner
-              awareness of subtle behavioral changes essential parts of feline care.
-            </p>
-          </div>
-        </header>
-
-        <div className="container-content py-10">
-          <div className="max-w-3xl mb-8">
-            <DisclaimerBlock type="veterinary" />
-          </div>
-
-          <section className="prose-content max-w-3xl" aria-labelledby="about-heading">
-            <h2 id="about-heading">About This Section</h2>
-            <p>
-              Cat health guides on FaunaHub cover common feline conditions including dental disease,
-              chronic kidney disease, hyperthyroidism, feline lower urinary tract disease (FLUTD),
-              diabetes mellitus, upper respiratory infections, and parasites. Each guide explains
-              the condition, typical clinical signs, how it is diagnosed and managed, and what
-              changes in your cat&apos;s behavior or physical state should prompt an immediate
-              veterinary visit.
-            </p>
-            <p>
-              Preventive care for cats includes annual wellness exams, core vaccinations, parasite
-              prevention, dental assessment, and weight monitoring. Indoor cats have different risk
-              profiles than outdoor cats, but both benefit significantly from regular veterinary
-              oversight — many conditions, including dental disease and early kidney changes, are
-              detectable before the cat shows obvious signs of discomfort.
-            </p>
-          </section>
-
-          <p className="mt-8 text-sm text-[#5E6B63]">
-            Individual condition guides are in development.
-          </p>
-
-          <div className="mt-8">
-            <Link
-              href="/cats"
-              className="text-sm font-medium text-[#063F2A] hover:underline"
-            >
-              &larr; Back to Cat Care Guides
-            </Link>
-          </div>
-        </div>
-      </main>
-    </>
+    <HealthHub
+      species="cat"
+      articles={articles}
+      sources={HUB_SOURCES}
+      faqs={HUB_FAQS}
+      lastUpdated={LAST_UPDATED}
+    />
   );
 }

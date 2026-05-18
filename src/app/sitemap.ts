@@ -4,6 +4,7 @@ import { DECISION_PAGES } from "@/lib/pet-choice/data";
 import { BUDGET_GUIDES, PET_COST_ARTICLES } from "@/lib/pet-cost/data";
 import { INSURANCE_ARTICLES } from "@/lib/pet-insurance/data";
 import { VET_CARE_ARTICLES } from "@/lib/vet-care/data";
+import { SYMPTOM_ARTICLES } from "@/lib/health/data";
 
 const BASE_URL = "https://faunahub.com";
 
@@ -176,6 +177,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
+  const symptomRoutes: MetadataRoute.Sitemap = SYMPTOM_ARTICLES.map(
+    (article) => ({
+      url: `${BASE_URL}${article.path}`,
+      lastModified: article.modifiedTime,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    })
+  );
+
   return [
     ...staticRoutes,
     ...animalRoutes,
@@ -187,5 +197,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...budgetGuideRoutes,
     ...insuranceRoutes,
     ...vetCareRoutes,
+    ...symptomRoutes,
   ];
 }
