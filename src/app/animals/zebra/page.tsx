@@ -3,7 +3,7 @@ import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Zebra — Profile, Habitat, Diet & Behavior";
 const description =
@@ -82,6 +82,34 @@ export default function ZebraPage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                Zebras have a typical horse-like body — long limbs, deep chest, large head
+                with broad muzzle — but the <strong>black-and-white stripe pattern</strong>
+                makes them immediately distinguishable from any other living equid. Unlike
+                domestic horses, the mane stands <em>upright</em> rather than falling to one
+                side, and the tail ends in a tassel of long hairs rather than a continuous
+                long flow.
+              </p>
+              <p>
+                Stripe pattern is itself a species cue. The plains zebra typically has
+                broad, wraparound stripes that continue onto the belly, often with fainter
+                <em> shadow stripes</em> between the black bands. The mountain zebra carries
+                a distinctive &quot;gridiron&quot; pattern of horizontal stripes across the
+                rump and a small dewlap on the throat. Grévy&apos;s zebra has the narrowest,
+                most closely-spaced stripes, large rounded ears, and a white belly without
+                ventral stripes. Individual stripe patterns are unique to each animal and
+                are used in research for identification; foals are usually born with a
+                brownish base coat that darkens to black as they mature.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           Zebras are part of the horse family Equidae, which also includes domestic horses,

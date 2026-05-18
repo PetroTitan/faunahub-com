@@ -3,7 +3,7 @@ import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Fox — Profile, Habitat, Diet & Behavior";
 const description =
@@ -90,6 +90,34 @@ export default function FoxPage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                True foxes are small to medium-sized canids with a <strong>narrow pointed
+                muzzle</strong>, large upright triangular ears, a slender agile body, and a
+                long bushy tail (often called a &quot;brush&quot;) that is typically more
+                than half their head-and-body length. The red fox — the reference species
+                for this page — is famously rusty-red over the back and flanks with paler
+                underparts, dark stockings on the lower legs, and a <em>white tip</em> to
+                the tail that is itself a useful field cue.
+              </p>
+              <p>
+                Coat colour and overall size vary considerably across the genus and within
+                species. The Arctic fox (<em>Vulpes lagopus</em>) turns near-white in winter
+                in northern populations; the fennec fox (<em>V. zerda</em>) of North African
+                deserts is small and pale with disproportionately large ears; melanistic
+                &quot;silver&quot;, &quot;cross&quot;, and almost-black colour morphs occur
+                naturally within red fox populations. Foxes are usually distinguishable from
+                wolves and dogs of similar weight by their smaller stature, sharper-featured
+                head, and proportionally longer, fluffier tail.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           Foxes share the family Canidae with the wolf (<em>Canis lupus</em>) and the domestic

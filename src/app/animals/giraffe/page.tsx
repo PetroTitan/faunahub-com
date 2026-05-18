@@ -3,7 +3,7 @@ import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Giraffe — Profile, Habitat, Diet & Behavior";
 const description =
@@ -86,6 +86,35 @@ export default function GiraffePage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                Giraffes are impossible to confuse with any other living animal. The
+                silhouette alone — an exceptionally long neck and long legs, a narrow
+                deep-chested body, and a sloping back — is diagnostic at any reasonable
+                distance. The head carries one or more pairs of bony{" "}
+                <strong>ossicones</strong> covered in skin and a small dark tuft of hair;
+                ossicones are typically present in both sexes but tend to be larger,
+                thicker, and balder on top in adult males that engage in &quot;necking&quot;
+                contests.
+              </p>
+              <p>
+                The coat is a tan-to-cream base broken by darker patches whose shape,
+                outline, and spacing differ between species and subspecies. The reticulated
+                giraffe shows large, clean-edged polygonal patches separated by sharp pale
+                lines; the Masai giraffe carries irregular, jagged-edged blotches; the
+                Rothschild&apos;s and southern giraffes show their own variants. Individual
+                spot patterns are unique and are routinely used by researchers for
+                identification. The tail is relatively short for the body, ending in a long
+                dark tassel.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           The okapi (<em>Okapia johnstoni</em>) is the giraffe&apos;s closest living relative

@@ -3,7 +3,7 @@ import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Gorilla — Profile, Habitat, Diet & Behavior";
 const description =
@@ -90,6 +90,34 @@ export default function GorillaPage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                Gorillas are the largest living primates, with a build that is unmistakable
+                in the field: a heavy barrel-shaped torso, broad chest and shoulders,
+                proportionally long arms, and shorter, powerfully muscled legs. The face,
+                hands, feet, and chest are largely bare; the rest of the body is covered in
+                short to medium-length hair that is typically black to dark brown in
+                younger adults. Adult males develop a tall sagittal crest on top of the
+                skull that produces a notably peaked head profile.
+              </p>
+              <p>
+                Appearance varies with <strong>age, sex, species and subspecies</strong>.
+                Mature males carry a distinctive saddle of <strong>silver-grey hair</strong>
+                across the back and rump — the &quot;silverback&quot; pattern — which
+                females and younger males do not show. Mountain gorillas
+                (<em>G. beringei beringei</em>) have longer, thicker fur as a cold-climate
+                adaptation; western lowland gorillas have shorter coats and sometimes a
+                rusty crown. All gorillas move quadrupedally on knuckles when on the
+                ground, a posture and gait that is itself part of recognition at a distance.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           Gorillas belong to the family Hominidae alongside chimpanzees, bonobos, orangutans

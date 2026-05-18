@@ -3,7 +3,7 @@ import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Owl — Overview of Owl Species, Habitat & Behavior";
 const description =
@@ -95,6 +95,35 @@ export default function OwlPage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                Owls share a compact, large-headed silhouette and a number of immediately
+                recognisable features: large <strong>forward-facing eyes</strong> set within
+                a feathered <strong>facial disc</strong> that channels sound toward the
+                ears, a short hooked beak that is often partly hidden by surrounding
+                feathers, and densely feathered legs ending in strong taloned feet. Plumage
+                is typically cryptic — mottled in earth, bark, or snow tones — providing
+                excellent camouflage at daytime roosts.
+              </p>
+              <p>
+                Body size, head shape, and markings vary enormously between species. Some
+                species (great horned owl, long-eared owl, eagle owls) carry conspicuous
+                tufts of feathers known as &quot;ear tufts&quot; or &quot;plumicorns&quot;,
+                which are <em>not</em> ears at all. The barn owl is recognisable by a clear
+                heart-shaped white facial disc, while the snowy owl is largely white with
+                varying dark barring. Field identification typically combines size,
+                silhouette, facial-disc shape, ear-tuft presence or absence, plumage
+                pattern, habitat, and call — colour alone is rarely sufficient because
+                cryptic plumage looks different in different lighting.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           Owls are part of the broader group of birds of prey, but they belong to a separate

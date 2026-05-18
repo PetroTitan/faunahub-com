@@ -3,7 +3,7 @@ import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Koala — Profile, Habitat, Diet & Behavior";
 const description =
@@ -86,6 +86,35 @@ export default function KoalaPage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                Koalas have a compact, round-bodied shape with no visible tail, large
+                <strong> rounded ears tufted with white fur</strong>, and a broad{" "}
+                <strong>dark spoon-shaped nose</strong> set against pale ash-grey to
+                light-brown fur. The chest and inner limbs are typically paler — often
+                white — with a small variable patch of light fur on the rump in some
+                southern populations. Body size and coat thickness vary regionally: koalas
+                from cooler southern Australian populations tend to be larger and woollier
+                than their northern counterparts.
+              </p>
+              <p>
+                A closer look at the forepaws shows a distinctive grip — two opposable
+                &quot;thumbs&quot; alongside three fingers — that combines with strong
+                hooked claws to provide a climbing hold on smooth eucalyptus trunks. The
+                typical viewing posture, wedged into a tree fork high in a eucalypt, is
+                itself a useful field cue. Despite the common nickname &quot;koala
+                bear&quot;, koalas are marsupials (with a forward-opening pouch in adult
+                females) and are not related to bears at all — their nearest living
+                relatives are wombats.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           The koala&apos;s closest living relatives are wombats, also marsupials. Together

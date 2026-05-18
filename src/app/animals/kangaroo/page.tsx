@@ -3,7 +3,7 @@ import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Kangaroo — Profile, Habitat, Diet & Behavior";
 const description =
@@ -86,6 +86,36 @@ export default function KangarooPage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                Kangaroos are unmistakable in body plan: small forelimbs held close to the
+                chest, very large and powerfully muscled <strong>hind limbs</strong>, and a
+                long, thick <strong>muscular tail</strong> that doubles as a counterbalance
+                in motion and as a third support point at rest. The head is relatively
+                small for the body, with a long muzzle, large dark eyes, and long mobile
+                ears. The standing &quot;upright on the tail&quot; posture is a near-perfect
+                field cue at any distance.
+              </p>
+              <p>
+                Coat colour and exact build vary across the large macropods. Red kangaroo
+                adult males are a clear brick-red across the upper body while females are
+                more bluish-grey — the well-known &quot;blue flyer&quot;. Eastern and
+                western grey kangaroos are more uniformly grey-brown; the antilopine
+                kangaroo of northern Australia shows a reddish-to-grey gradient and
+                proportionally longer legs. Females of all species carry a forward-opening
+                pouch in which a joey may be visible. Wallabies and smaller macropods share
+                the body plan but at substantially smaller body size; the distinction
+                between &quot;kangaroo&quot; and &quot;wallaby&quot; is essentially one of
+                size and not a strict biological boundary.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           Kangaroos are most closely related to other macropods including wallabies, wallaroos

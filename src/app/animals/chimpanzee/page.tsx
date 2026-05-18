@@ -3,7 +3,7 @@ import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Chimpanzee — Profile, Habitat, Diet & Behavior";
 const description =
@@ -90,6 +90,36 @@ export default function ChimpanzeePage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                Chimpanzees are noticeably lighter and more athletic in build than gorillas,
+                with proportionally longer arms relative to body size — an arrangement
+                adapted for both knuckle-walking on the ground and active climbing and
+                brachiation in the canopy. The body is covered in coarse{" "}
+                <strong>dark brown to black hair</strong>, while the face, ears, hands, and
+                feet are largely bare. Facial skin colour varies with age: many infants and
+                juveniles show pale pinkish or tan faces, while adult faces typically
+                darken to brown or near-black, sometimes with paler patches around the
+                muzzle.
+              </p>
+              <p>
+                Recognisable features include prominent rounded ears, a relatively flat but
+                slightly projecting muzzle, and a less pronounced brow ridge than in
+                gorillas. Adult body size, beard development, and facial scarring vary
+                between subspecies and between individuals; some older adults develop bald
+                patches on the head or grey hair on the back. Chimpanzees can be
+                distinguished cautiously from gorillas in the same range by their smaller
+                size, more upright posture when standing, and more agile climbing — but
+                overall build and behaviour are more reliable than any single visual cue.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           Chimpanzees are most closely related to bonobos within the genus <em>Pan</em>.

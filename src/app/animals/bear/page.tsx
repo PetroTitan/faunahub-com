@@ -3,7 +3,7 @@ import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Bear — Overview of Bear Species, Habitat & Behavior";
 const description =
@@ -87,6 +87,37 @@ export default function BearPage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                Bears share a heavily built body, a broad head with relatively small rounded
+                ears, a short tail, and a <strong>plantigrade stance</strong> in which they
+                walk on the whole sole of the foot — a feature that produces the
+                characteristic flat heavy footprint and contributes to the species&apos;
+                ability to stand upright on the hind legs to investigate or threaten. The
+                coat is dense and species-specific: uniform brown across most populations of
+                the brown bear, near-black across most American black bears (though some
+                Pacific Northwest individuals are cinnamon or chocolate), pure white-to-cream
+                in the polar bear, and a pale crescent or V-shape on the chest in Asian
+                black and sun bears.
+              </p>
+              <p>
+                Body silhouette is itself an identification cue. Adult brown bears typically
+                show a pronounced <strong>shoulder hump</strong> of muscle that American
+                black bears lack — useful when range overlaps, for example in parts of
+                western North America. Spectacled bears carry pale &quot;spectacle&quot;
+                markings around the eyes; sloth bears have shaggy black fur and a paler V on
+                the chest. Because so much varies between the eight living species, range,
+                build, and coat together are more reliable identification cues than colour
+                alone.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           Bears are part of the order Carnivora, which also includes felids (cats), canids

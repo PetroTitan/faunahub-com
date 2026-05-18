@@ -3,7 +3,7 @@ import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Giant Panda — Profile, Habitat, Diet & Behavior";
 const description =
@@ -92,6 +92,35 @@ export default function PandaPage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                The giant panda&apos;s appearance is one of the most recognisable of any
+                wild animal. The body is bear-like — stocky, round-faced, with a short tail
+                and a thick double-layered coat — but the colour pattern is unmistakable:
+                a <strong>white or cream base coat</strong> set against{" "}
+                <strong>black eye-patches</strong>, black ears, black limbs, and a black
+                band that runs across the shoulders and forelimbs. Individuals differ
+                slightly in the exact shape of the eye-patches and the extent of black on
+                the legs, but the overall pattern is consistent enough to function as a
+                species cue at first glance.
+              </p>
+              <p>
+                A closer look at the forepaw reveals a distinctive &quot;pseudothumb&quot;
+                — an enlarged radial sesamoid bone that helps the panda grip bamboo stems
+                while feeding. While the coat pattern alone is highly indicative, the
+                molecular evidence that places the giant panda firmly within family Ursidae
+                is more authoritative than appearance, and the unrelated red panda
+                (<em>Ailurus fulgens</em>) — despite the shared common name — is a much
+                smaller, reddish-brown animal in a separate family.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           Giant pandas are true bears (Ursidae), most closely related to other extant bear
