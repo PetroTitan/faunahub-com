@@ -3,10 +3,34 @@ import Link from "next/link";
 import ToolCard from "@/components/ToolCard";
 import DisclaimerBlock from "@/components/DisclaimerBlock";
 import LastUpdated from "@/components/LastUpdated";
+import FAQBlock from "@/components/FAQBlock";
 import { buildMetadata } from "@/lib/metadata";
-import { breadcrumbSchema, itemListSchema } from "@/lib/schema";
+import { breadcrumbSchema, itemListSchema, faqSchema } from "@/lib/schema";
 
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
+
+const HUB_FAQS = [
+  {
+    question: "Why are there separate calculators for each species?",
+    answer:
+      "Different species age in fundamentally different patterns. A single 'multiply by N' rule cannot fairly represent the aging of dogs, cats, rabbits, horses, hamsters, and guinea pigs at the same time. Each calculator uses a simplified model that is appropriate for that species, and the cross-species pet life stage calculator combines them under one interface.",
+  },
+  {
+    question: "Are the results suitable for veterinary decisions?",
+    answer:
+      "No. These tools are general orientation only. They do not assess individual health, breed-specific risks, or current clinical signs. For real health-stage decisions, use them as a conversation starter with a licensed veterinarian familiar with your specific pet.",
+  },
+  {
+    question: "Why do dog calculators ask for size but cat calculators don't?",
+    answer:
+      "Across breeds, dog body size correlates with aging rate and typical lifespan — larger dogs tend to age faster than smaller dogs. Within domestic cats this pattern is far weaker, so most simplified feline aging models do not split by size. The dog and pet life stage calculators reflect this by requiring a size category for dogs only.",
+  },
+  {
+    question: "Should I use the species calculator or the life stage calculator?",
+    answer:
+      "Use the species-specific calculator if you mainly want a 'human age' number for orientation. Use the pet life stage calculator if you mainly want to know which life stage your pet is likely in and which general care focus typically applies at that stage.",
+  },
+];
 
 export const metadata: Metadata = buildMetadata({
   title: "Pet Age Calculator — Approximate Human-Age Equivalents",
@@ -81,11 +105,13 @@ export default function PetAgeCalculatorHubPage() {
     }))
   );
 
+  const faqLd = faqSchema(HUB_FAQS);
+
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumb, itemList]) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumb, itemList, faqLd]) }}
       />
       <main id="main-content">
         <header className="bg-white border-b border-[#DDE6DD] py-12 sm:py-16">
@@ -158,6 +184,10 @@ export default function PetAgeCalculatorHubPage() {
               <Link href="/tools/pet-life-stage-calculator">Pet Life Stage Calculator</Link>.
             </p>
           </section>
+
+          <div className="mt-12 max-w-3xl">
+            <FAQBlock items={HUB_FAQS} />
+          </div>
 
           <div className="mt-10 max-w-2xl">
             <DisclaimerBlock type="tool" />

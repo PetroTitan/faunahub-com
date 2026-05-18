@@ -8,8 +8,8 @@ import Script from "next/script";
  * client hydration of the calculator pages.
  *
  * The data-wmid value is the public site identifier and is intentionally
- * visible in client HTML. The corresponding wmsk_* server secret must
- * never be added to client code, public files, or committed env files.
+ * visible in client HTML. The matching server-side secret key must never
+ * be added to client code, public files, or committed env files.
  */
 export default function WebmasterIdTracker() {
   return (

@@ -3,7 +3,7 @@ import ComparisonPageLayout from "@/components/ComparisonPageLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Leopard vs Jaguar";
 const pageTitle = "Leopard vs Jaguar — Size, Range, Rosettes & Key Differences";
@@ -125,10 +125,16 @@ export default function LeopardVsJaguarPage() {
           answer:
             "Both are listed at levels of conservation concern on the IUCN Red List, though differently — leopards are commonly listed as Vulnerable and jaguars as Near Threatened, with some subspecies of leopard listed as Critically Endangered. Always verify current designations on the IUCN Red List.",
         },
+        {
+          question: "Why do both species have black ('panther') colour morphs?",
+          answer:
+            "Melanism — a genetic variant that produces excess dark pigment — has evolved independently in both leopard and jaguar lineages. In good light the rosette pattern is still visible under the dark coat. Because the two species occupy different continents, every wild 'black panther' is genetically a black leopard (in Africa or Asia) or a black jaguar (in the Americas) — never the other.",
+        },
       ]}
       relatedLinks={[
         { label: "Leopard Profile", href: "/animals/leopard", description: "Panthera pardus — full species profile" },
         { label: "Jaguar Profile", href: "/animals/jaguar", description: "Panthera onca — full species profile" },
+        { label: "Tiger Profile", href: "/animals/tiger", description: "Panthera tigris — the largest cat" },
         { label: "Lion vs Tiger", href: "/compare/lion-vs-tiger", description: "Another big cat comparison" },
         { label: "Cheetah vs Leopard", href: "/compare/cheetah-vs-leopard", description: "Distinguish similar-looking African cats" },
         { label: "All Comparisons", href: "/compare" },

@@ -462,7 +462,48 @@ export default function PetLifeStageCalculatorClient() {
             concern, consult a licensed veterinarian familiar with your species of pet.
           </div>
 
-          <p className="text-xs text-[#8A958E]">Last updated: May 12, 2026</p>
+          <section
+            className="mt-2 mb-6"
+            aria-labelledby="related-tools-heading"
+          >
+            <h2
+              id="related-tools-heading"
+              className="text-sm font-semibold text-[#17211B] uppercase tracking-wider mb-3"
+            >
+              Related calculators
+            </h2>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link
+                  href="/tools/dog-age-calculator"
+                  className="text-[#063F2A] hover:underline font-medium"
+                >
+                  Dog Age Calculator
+                </Link>{" "}
+                — size-adjusted human-age equivalent.
+              </li>
+              <li>
+                <Link
+                  href="/tools/cat-age-calculator"
+                  className="text-[#063F2A] hover:underline font-medium"
+                >
+                  Cat Age Calculator
+                </Link>{" "}
+                — human-age equivalent and feline life stage.
+              </li>
+              <li>
+                <Link
+                  href="/tools/pet-age-calculator"
+                  className="text-[#063F2A] hover:underline font-medium"
+                >
+                  All pet age calculators
+                </Link>{" "}
+                — pick the right species-specific tool.
+              </li>
+            </ul>
+          </section>
+
+          <p className="text-xs text-[#8A958E]">Last updated: May 18, 2026</p>
         </div>
       </div>
     </main>

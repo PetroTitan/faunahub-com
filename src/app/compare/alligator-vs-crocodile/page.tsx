@@ -3,7 +3,7 @@ import ComparisonPageLayout from "@/components/ComparisonPageLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Alligator vs Crocodile";
 const pageTitle = "Alligator vs Crocodile — Snout, Teeth, Range & Key Differences";
@@ -125,11 +125,16 @@ export default function AlligatorVsCrocodilePage() {
           answer:
             "Combine three checks: snout shape (U vs V), whether the fourth lower-jaw tooth is visible when the mouth is closed, and what region you are in. Together these are reliable for adult animals; juveniles can be harder to distinguish from above.",
         },
+        {
+          question: "Is colour a reliable way to tell them apart?",
+          answer:
+            "Not on its own. Field colour varies with age, water clarity, algae and mud cover, and lighting. Generalisations such as 'alligators are darker' do not hold up across populations. Snout shape, the visible-tooth check, and geographic range are far more reliable than colour.",
+        },
       ]}
       relatedLinks={[
-        { label: "Alligator Profile", href: "/animals/alligator" },
-        { label: "Crocodile Profile", href: "/animals/crocodile" },
-        { label: "Reptile Encyclopedia", href: "/animal-encyclopedia/reptiles" },
+        { label: "Alligator Profile", href: "/animals/alligator", description: "American & Chinese alligator overview" },
+        { label: "Crocodile Profile", href: "/animals/crocodile", description: "Crocodile species and ecology" },
+        { label: "Reptile Encyclopedia", href: "/animal-encyclopedia/reptiles", description: "Browse all reptile profiles" },
         { label: "All Comparisons", href: "/compare" },
       ]}
     />

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import FAQBlock from "@/components/FAQBlock";
 
 // Model:
 // Year 1 = 15 human years
@@ -140,7 +141,74 @@ export default function CatAgeCalculatorClient() {
             Consult your veterinarian for health-stage guidance specific to your cat.
           </div>
 
-          <p className="text-xs text-[#8A958E]">Last updated: May 7, 2025</p>
+          <FAQBlock
+            title="Cat Age — Frequently Asked Questions"
+            items={[
+              {
+                question: "Why doesn't 'cat year = 7 human years' work?",
+                answer:
+                  "It oversimplifies a non-linear curve. Cats develop very quickly in the first year of life — reaching the rough equivalent of a human in their mid-teens — and then continue aging at roughly four 'human years' per cat year in most simplified models. A flat 7× multiplier ignores that early acceleration.",
+              },
+              {
+                question: "When should I start considering my cat 'senior'?",
+                answer:
+                  "Most feline veterinary frameworks consider cats senior from around 11 years and geriatric from around 15 years. These are conventions, not strict biology. Many vets recommend twice-yearly checkups from the senior stage onward to catch age-related conditions early — including kidney disease, hyperthyroidism, dental disease, and arthritis.",
+              },
+              {
+                question: "Do indoor and outdoor cats age differently?",
+                answer:
+                  "Lifestyle affects lifespan more than chronological aging rate, but the practical effect can look like 'aging differently'. Indoor cats are typically protected from many environmental risks (traffic, predators, infectious disease) and on average live longer; outdoor cats face higher exposure to those risks. Aging tools cannot account for individual circumstances.",
+              },
+              {
+                question: "Is this calculator a substitute for a vet visit?",
+                answer:
+                  "No. It is a general orientation tool. For actual health-stage decisions — vaccinations, diet, dental care, blood work cadence — a veterinarian familiar with your individual cat is the appropriate source.",
+              },
+            ]}
+          />
+
+          <section
+            className="mt-8 mb-6"
+            aria-labelledby="related-tools-heading"
+          >
+            <h2
+              id="related-tools-heading"
+              className="text-sm font-semibold text-[#17211B] uppercase tracking-wider mb-3"
+            >
+              Related calculators
+            </h2>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link
+                  href="/tools/dog-age-calculator"
+                  className="text-[#063F2A] hover:underline font-medium"
+                >
+                  Dog Age Calculator
+                </Link>{" "}
+                — size-adjusted human-age equivalent for dogs.
+              </li>
+              <li>
+                <Link
+                  href="/tools/pet-life-stage-calculator"
+                  className="text-[#063F2A] hover:underline font-medium"
+                >
+                  Pet Life Stage Calculator
+                </Link>{" "}
+                — cross-species life stage and general care focus.
+              </li>
+              <li>
+                <Link
+                  href="/tools/pet-age-calculator"
+                  className="text-[#063F2A] hover:underline font-medium"
+                >
+                  All pet age calculators
+                </Link>{" "}
+                — pick the right tool by species.
+              </li>
+            </ul>
+          </section>
+
+          <p className="text-xs text-[#8A958E]">Last updated: May 18, 2026</p>
         </div>
       </div>
     </main>

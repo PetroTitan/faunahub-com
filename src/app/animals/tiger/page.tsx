@@ -3,7 +3,7 @@ import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Tiger — Profile, Habitat, Diet & Behavior";
 const description =
@@ -100,16 +100,46 @@ export default function TigerPage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                The tiger is unmistakable among living mammals. Its base coat ranges from a
+                pale yellow-orange in some populations to a richer rust-orange in others, marked
+                with vertical black or dark-brown stripes that continue onto the limbs and tail.
+                Stripe patterns are individually unique — comparable in that sense to a human
+                fingerprint — and are sometimes used in identification studies of wild
+                populations. The belly, inner limbs and inside of the muzzle are typically
+                white or cream.
+              </p>
+              <p>
+                Tigers have a heavy, muscular build with a broad head, powerful forequarters,
+                and proportionally long hind limbs adapted for the explosive forward leap that
+                ends a stalk. Forepaws are large and broad; the retractable claws and dental
+                arrangement are typical of large felids. Males are generally larger than females
+                across subspecies, but reported size figures vary considerably by source and
+                population — they should be treated as ranges rather than fixed values.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           Other large cats sharing parts of the tiger&apos;s range or ecological role include
           the leopard (<em>Panthera pardus</em>) and, in different ecosystems, the lion (
           <em>P. leo</em>). The jaguar (<em>P. onca</em>) occupies a comparable apex predator
-          role in the Americas.
+          role in the Americas. The cheetah (<em>Acinonyx jubatus</em>) shares parts of the
+          tiger&apos;s historical Asian range but is a fundamentally different — open-country,
+          pursuit-hunting — cat.
         </p>
       }
       comparisonCallouts={[
         { href: "/compare/lion-vs-tiger", label: "Lion vs Tiger" },
+        { href: "/compare/leopard-vs-jaguar", label: "Leopard vs Jaguar" },
+        { href: "/compare/cheetah-vs-leopard", label: "Cheetah vs Leopard" },
       ]}
       faqs={[
         {
@@ -146,6 +176,8 @@ export default function TigerPage() {
       relatedLinks={[
         { label: "Lion Profile", href: "/animals/lion", description: "Panthera leo — pride predator" },
         { label: "Leopard Profile", href: "/animals/leopard", description: "Panthera pardus — adaptable solitary cat" },
+        { label: "Jaguar Profile", href: "/animals/jaguar", description: "Panthera onca — American big cat" },
+        { label: "Cheetah Profile", href: "/animals/cheetah", description: "Acinonyx jubatus — open-country pursuit hunter" },
         { label: "Lion vs Tiger", href: "/compare/lion-vs-tiger", description: "Full species comparison" },
         { label: "Mammal Encyclopedia", href: "/animal-encyclopedia/mammals" },
       ]}

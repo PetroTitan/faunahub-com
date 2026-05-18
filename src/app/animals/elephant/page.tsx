@@ -3,7 +3,7 @@ import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Elephant — Profile, Habitat, Diet & Behavior";
 const description =
@@ -97,6 +97,33 @@ export default function ElephantPage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                Elephants are immediately recognisable by their long, muscular trunk — a
+                fusion of nose and upper lip used for breathing, smelling, drinking, feeding,
+                tactile communication, and fine manipulation. African elephants generally have
+                a trunk &quot;tip&quot; with two finger-like projections, while Asian elephants
+                typically have one. Both groups have large fan-shaped ears, with African
+                elephant ears notably larger and roughly shaped like the African continent in
+                outline; Asian elephant ears are smaller and rounder.
+              </p>
+              <p>
+                Other distinguishing features include the head shape (African elephants
+                have a smoother, single-domed head; Asian elephants have a clearly twin-domed
+                head), the back profile (African: dipped or concave; Asian: convex or level),
+                and tusks (both sexes of African elephants commonly bear visible tusks; in
+                Asian elephants, prominent tusks are typically restricted to some males).
+                Skin is thick, deeply wrinkled, and largely hairless, and is often dusted with
+                soil or mud as part of thermoregulation and skin care.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           Elephants have no close living relatives among large mammals; their closest extant

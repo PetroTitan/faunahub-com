@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import FAQBlock from "@/components/FAQBlock";
 
 type SizeCategory = "small" | "medium" | "large" | "giant";
 
@@ -128,13 +129,103 @@ export default function DogAgeCalculatorClient() {
             </p>
           </section>
 
+          <section
+            className="card p-5 mb-6"
+            aria-labelledby="examples-heading"
+          >
+            <h2
+              id="examples-heading"
+              className="text-sm font-semibold text-[#17211B] uppercase tracking-wider mb-3"
+            >
+              Worked examples
+            </h2>
+            <ul className="space-y-2 text-sm text-[#2C3A2F]">
+              <li>
+                <strong>5-year-old small dog</strong> (e.g. under 10 kg): roughly{" "}
+                <strong>{calculateHumanAge(5, "small")}</strong> human years — a young adult by most measures.
+              </li>
+              <li>
+                <strong>5-year-old medium dog</strong> (10–25 kg): roughly{" "}
+                <strong>{calculateHumanAge(5, "medium")}</strong> human years.
+              </li>
+              <li>
+                <strong>5-year-old giant dog</strong> (over 45 kg): roughly{" "}
+                <strong>{calculateHumanAge(5, "giant")}</strong> human years — often already approaching the
+                senior threshold for that size class.
+              </li>
+              <li>
+                <strong>10-year-old medium dog</strong>: roughly{" "}
+                <strong>{calculateHumanAge(10, "medium")}</strong> human years — typically a candidate for
+                twice-yearly vet checks and senior-focused care.
+              </li>
+            </ul>
+          </section>
+
           <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-sm text-amber-800 mb-6">
             <strong>Limitation:</strong> Dog aging varies significantly by breed and size. This
             calculator uses a simplified general model and is not a veterinary assessment. Consult
             your veterinarian for health-stage guidance.
           </div>
 
-          <p className="text-xs text-[#8A958E]">Last updated: May 7, 2025</p>
+          <FAQBlock
+            title="Dog Age — Frequently Asked Questions"
+            items={[
+              {
+                question: "Why doesn't the '1 dog year = 7 human years' rule work?",
+                answer:
+                  "The 7-year rule is a long-running over-simplification. Dogs reach reproductive and physical maturity within their first two years — comparable to a human teenager or young adult — so early dog years map to many more human years than later ones. After that early phase, the rate of aging varies by size, with larger dogs tending to age faster than smaller ones.",
+              },
+              {
+                question: "Why does size matter so much for dog aging?",
+                answer:
+                  "Across breeds, larger dogs tend to have shorter typical lifespans than smaller dogs. This is a consistent pattern in veterinary literature, although the underlying biology is still actively researched. The size-adjusted rate in this calculator is a simple reflection of that pattern; it is not a precise prediction for any individual dog.",
+              },
+              {
+                question: "Is this calculator suitable for puppies under one year old?",
+                answer:
+                  "For under-one-year puppies, this calculator returns a rough human-age value but life stage is more useful than 'human age'. For a structured view of puppy through senior life stages and general care focus, see the cross-species pet life stage calculator.",
+              },
+              {
+                question: "Should I make health decisions based on this result?",
+                answer:
+                  "No. The output is a rough orientation, not a clinical assessment. Use it as a conversation starter with your veterinarian — particularly around when to transition to senior-focused care, dental work, weight management, or more frequent checkups.",
+              },
+            ]}
+          />
+
+          <section
+            className="mt-8 mb-6"
+            aria-labelledby="related-tools-heading"
+          >
+            <h2
+              id="related-tools-heading"
+              className="text-sm font-semibold text-[#17211B] uppercase tracking-wider mb-3"
+            >
+              Related calculators
+            </h2>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link href="/tools/cat-age-calculator" className="text-[#063F2A] hover:underline font-medium">
+                  Cat Age Calculator
+                </Link>{" "}
+                — feline human-age equivalent and life stage.
+              </li>
+              <li>
+                <Link href="/tools/pet-life-stage-calculator" className="text-[#063F2A] hover:underline font-medium">
+                  Pet Life Stage Calculator
+                </Link>{" "}
+                — cross-species life stage and general care focus.
+              </li>
+              <li>
+                <Link href="/tools/pet-age-calculator" className="text-[#063F2A] hover:underline font-medium">
+                  All pet age calculators
+                </Link>{" "}
+                — pick the right tool by species.
+              </li>
+            </ul>
+          </section>
+
+          <p className="text-xs text-[#8A958E]">Last updated: May 18, 2026</p>
         </div>
       </div>
     </main>

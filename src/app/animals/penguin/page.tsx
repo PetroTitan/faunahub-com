@@ -3,7 +3,7 @@ import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Penguin — Overview of Penguin Species, Habitat & Behavior";
 const description =
@@ -85,6 +85,34 @@ export default function PenguinPage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                Penguins share a strongly counter-shaded coat — dark dorsal surfaces and white
+                ventral surfaces — that provides camouflage in the water against predators
+                looking up at the lit surface and against prey looking down into darker depths.
+                The wings are stiff, narrow flippers that beat in an underwater &quot;flight&quot;
+                stroke rather than folding for aerial flight. The body is fusiform and densely
+                feathered; an insulating layer of subcutaneous fat is significant in
+                cold-climate species.
+              </p>
+              <p>
+                Field identification between species typically combines size, head and face
+                markings (eye-stripes, crests, throat patches), bill colour and shape, and
+                geographic location. King and emperor penguins are large with bright orange or
+                yellow neck patches and elongated bills; crested species (rockhopper, macaroni,
+                Fiordland) carry yellow head plumes; the &quot;banded&quot; African, Magellanic,
+                Humboldt and Galápagos penguins are mid-sized with characteristic chest-band
+                patterns; and the small little penguin is the world&apos;s smallest penguin
+                species.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           Penguins are not closely related to the flightless birds of the Northern Hemisphere

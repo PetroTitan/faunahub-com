@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Dolphin — Overview of Dolphin Species, Habitat & Behavior";
 const description =
@@ -94,11 +95,37 @@ export default function DolphinPage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                Dolphins share a clearly mammalian, streamlined body plan: a torpedo-shaped
+                torso, a single dorsal fin, two pectoral flippers, and a horizontal tail fluke
+                used for propulsion. The snout is typically extended into a beak (the
+                &quot;rostrum&quot;) of variable length depending on species — long and slender
+                in spinner and common dolphins, shorter and blunter in bottlenose dolphins,
+                and almost absent in some species such as the orca and Risso&apos;s dolphin.
+              </p>
+              <p>
+                Colouration is typically counter-shaded — darker above, lighter below — which
+                provides camouflage against both sunlit surface waters and deeper water. Many
+                species carry distinctive cape patterns, eye markings, or flank stripes.
+                Field identification at sea usually combines dorsal-fin shape and position,
+                overall body proportions, behavioural cues (e.g. bow-riding, surface
+                acrobatics), and group size rather than any single feature.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           Other cetaceans include whales (large baleen and toothed whales) and porpoises (a
-          separate family of small cetaceans). Sharks are sometimes confused with dolphins by
-          casual observers but are cartilaginous fish, not mammals.
+          separate family of small cetaceans). <strong>Sharks</strong> are sometimes confused
+          with dolphins by casual observers but are cartilaginous fish, not mammals — see the{" "}
+          <Link href="/animals/shark">shark profile</Link> for the practical distinguishing features.
         </p>
       }
       faqs={[

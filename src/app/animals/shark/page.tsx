@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-12";
+const MODIFIED = "2026-05-18";
 
 const title = "Shark — Overview of Shark Species, Habitat & Behavior";
 const description =
@@ -92,11 +93,40 @@ export default function SharkPage() {
           </p>
         </>
       }
+      extraSections={[
+        {
+          heading: "Appearance & Recognition",
+          body: (
+            <>
+              <p>
+                Across the group, sharks share a recognisable body plan: a streamlined
+                fusiform body, paired pectoral and pelvic fins, one or two dorsal fins, an
+                anal fin in many (but not all) groups, and a heterocercal tail in which the
+                upper lobe is typically longer than the lower. Five to seven gill slits on each
+                side of the head distinguish sharks from bony fish, which have a single
+                operculum-covered gill opening. The skin is covered in tooth-like dermal
+                denticles that reduce drag and give shark skin a characteristic rough texture.
+              </p>
+              <p>
+                Beyond this shared plan, body shape varies dramatically by ecology: torpedo-shaped
+                pelagic species such as the great white and mako are built for speed; the
+                hammerhead has a laterally expanded head (cephalofoil) housing widely spaced
+                sensory pores; the whale shark and basking shark are very large, slow-moving
+                filter-feeders with wide gaping mouths; and benthic species such as wobbegongs
+                are flattened and camouflaged for life on the seabed. Field identification
+                relies on body shape, fin profile, head shape, colouration, and tooth shape.
+              </p>
+            </>
+          ),
+        },
+      ]}
       similarAnimals={
         <p>
           Sharks are most closely related to other cartilaginous fish, including rays and
-          skates (Batoidea) and chimaeras (Chimaeriformes). Dolphins, although superficially
-          similar in shape, are mammals and not closely related to sharks.
+          skates (Batoidea) and chimaeras (Chimaeriformes). <Link href="/animals/dolphin">
+          Dolphins</Link>, although superficially similar in shape, are mammals and not closely
+          related to sharks — see the dolphin profile for the practical mammal-vs-fish
+          differences.
         </p>
       }
       faqs={[
