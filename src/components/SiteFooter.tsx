@@ -11,6 +11,7 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
   ],
   "Animal Encyclopedia": [
     { label: "Animal Encyclopedia", href: "/animal-encyclopedia" },
+    { label: "Wildlife & Biodiversity", href: "/wildlife" },
     { label: "Mammals", href: "/animal-encyclopedia/mammals" },
     { label: "Birds", href: "/animal-encyclopedia/birds" },
     { label: "Reptiles", href: "/animal-encyclopedia/reptiles" },

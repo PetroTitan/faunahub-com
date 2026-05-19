@@ -116,6 +116,26 @@ export default function AnimalEncyclopediaPage() {
         </header>
 
         <div className="container-content py-10">
+          {/* Wildlife & Biodiversity callout */}
+          <aside
+            aria-label="Wildlife and biodiversity intelligence"
+            className="card p-5 sm:p-6 mb-10 border-l-4 border-l-[#7BAA35] flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+          >
+            <div>
+              <span className="tag mb-2 inline-block">Wildlife Hub</span>
+              <h2 className="text-lg sm:text-xl font-semibold text-[#17211B] mb-1">
+                Wildlife &amp; Biodiversity Intelligence
+              </h2>
+              <p className="text-sm text-[#5E6B63] leading-relaxed max-w-2xl">
+                Explore wildlife and biodiversity context across animal groups, habitats,
+                comparisons, and source-reviewed conservation notes.
+              </p>
+            </div>
+            <Link href="/wildlife" className="btn-primary text-sm shrink-0">
+              Open Wildlife Hub →
+            </Link>
+          </aside>
+
           <HubGrid
             title="Browse by Animal Group"
             subtitle="Select a category to explore species within that group."
@@ -179,6 +199,7 @@ export default function AnimalEncyclopediaPage() {
             <RelatedLinks
               title="Also Explore"
               links={[
+                { label: "Wildlife & Biodiversity Intelligence", href: "/wildlife", description: "Source-reviewed wildlife profiles, groups, and biodiversity context" },
                 { label: "Compare Animals", href: "/compare", description: "Side-by-side animal comparisons" },
                 { label: "Dog Care Guides", href: "/dogs", description: "Domestic dog care and breeds" },
                 { label: "Cat Care Guides", href: "/cats", description: "Domestic cat care and breeds" },

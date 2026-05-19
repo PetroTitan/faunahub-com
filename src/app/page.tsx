@@ -190,6 +190,9 @@ export default function HomePage() {
                 <Link href="/animal-encyclopedia" className="btn-secondary">
                   Animal Encyclopedia
                 </Link>
+                <Link href="/wildlife" className="btn-secondary">
+                  Wildlife &amp; Biodiversity
+                </Link>
               </div>
             </div>
           </div>
@@ -280,6 +283,68 @@ export default function HomePage() {
                   </Link>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Wildlife & Biodiversity Intelligence */}
+        <section className="py-14 container-content">
+          <div className="grid lg:grid-cols-[1.1fr_1fr] gap-6 items-stretch">
+            <div className="card p-6 sm:p-8 flex flex-col justify-between border-l-4 border-l-[#7BAA35]">
+              <div>
+                <span className="tag mb-3 inline-block">New · Educational Hub</span>
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#17211B] mb-3">
+                  Wildlife &amp; Biodiversity Intelligence
+                </h2>
+                <p className="text-base text-[#2C3A2F] leading-relaxed mb-4">
+                  Explore wildlife profiles, animal groups, habitat context, and source-transparent
+                  conservation notes — an educational hub, not a live conservation database.
+                </p>
+                <ul className="text-sm text-[#5E6B63] space-y-1.5 mb-6 list-disc list-outside pl-5">
+                  <li>Source-reviewed wildlife profiles</li>
+                  <li>Biodiversity context and source standards</li>
+                  <li>Comparisons between related species</li>
+                </ul>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <Link href="/wildlife" className="btn-primary">
+                  Explore Wildlife Hub
+                </Link>
+                <Link href="/animal-encyclopedia" className="btn-secondary">
+                  Animal Encyclopedia
+                </Link>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              {[
+                { label: "Tiger", href: "/animals/tiger", icon: "🐯" },
+                { label: "Dolphin", href: "/animals/dolphin", icon: "🐬" },
+                { label: "Eagle", href: "/animals/eagle", icon: "🦅" },
+                { label: "Wolf", href: "/animals/wolf", icon: "🐺" },
+                {
+                  label: "Leopard vs Jaguar",
+                  href: "/compare/leopard-vs-jaguar",
+                  icon: "🐆",
+                },
+                {
+                  label: "Lion vs Tiger",
+                  href: "/compare/lion-vs-tiger",
+                  icon: "🦁",
+                },
+              ].map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="card p-4 flex flex-col gap-2 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+                >
+                  <span className="text-2xl" role="img" aria-hidden="true">
+                    {item.icon}
+                  </span>
+                  <span className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors">
+                    {item.label}
+                  </span>
+                </Link>
+              ))}
             </div>
           </div>
         </section>
