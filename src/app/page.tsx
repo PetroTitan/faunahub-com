@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import HubGrid from "@/components/HubGrid";
 import ToolCard from "@/components/ToolCard";
+import { getAnimalImage } from "@/lib/images/animal-images";
 import { websiteSchema, organizationSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
@@ -317,34 +319,55 @@ export default function HomePage() {
             </div>
             <div className="grid grid-cols-2 gap-3">
               {[
-                { label: "Tiger", href: "/animals/tiger", icon: "🐯" },
-                { label: "Dolphin", href: "/animals/dolphin", icon: "🐬" },
-                { label: "Eagle", href: "/animals/eagle", icon: "🦅" },
-                { label: "Wolf", href: "/animals/wolf", icon: "🐺" },
+                { label: "Tiger", href: "/animals/tiger", icon: "🐯", slug: "tiger" },
+                { label: "Dolphin", href: "/animals/dolphin", icon: "🐬", slug: "dolphin" },
+                { label: "Eagle", href: "/animals/eagle", icon: "🦅", slug: "eagle" },
+                { label: "Wolf", href: "/animals/wolf", icon: "🐺", slug: "wolf" },
                 {
                   label: "Leopard vs Jaguar",
                   href: "/compare/leopard-vs-jaguar",
                   icon: "🐆",
+                  slug: null,
                 },
                 {
                   label: "Lion vs Tiger",
                   href: "/compare/lion-vs-tiger",
                   icon: "🦁",
+                  slug: null,
                 },
-              ].map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="card p-4 flex flex-col gap-2 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
-                >
-                  <span className="text-2xl" role="img" aria-hidden="true">
-                    {item.icon}
-                  </span>
-                  <span className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors">
-                    {item.label}
-                  </span>
-                </Link>
-              ))}
+              ].map((item) => {
+                const img = item.slug ? getAnimalImage(item.slug) : null;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="card overflow-hidden flex flex-col hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+                  >
+                    {img ? (
+                      <div className="relative w-full aspect-[16/10] bg-[#EFF1EB] border-b border-[#DDE6DD] overflow-hidden">
+                        <Image
+                          src={img.localPath}
+                          alt={img.alt}
+                          fill
+                          sizes="(min-width: 1024px) 240px, 50vw"
+                          className="object-cover group-hover:scale-[1.03] transition-transform duration-300"
+                        />
+                      </div>
+                    ) : (
+                      <div className="px-4 pt-4">
+                        <span className="text-2xl" role="img" aria-hidden="true">
+                          {item.icon}
+                        </span>
+                      </div>
+                    )}
+                    <div className="p-4">
+                      <span className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors">
+                        {item.label}
+                      </span>
+                    </div>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>

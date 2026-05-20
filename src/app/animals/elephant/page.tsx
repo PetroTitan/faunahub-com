@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
+import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-18";
+const MODIFIED = "2026-05-20";
 
 const title = "Elephant — Profile, Habitat, Diet & Behavior";
 const description =
@@ -16,6 +17,7 @@ export const metadata: Metadata = buildArticleMetadata({
   path: "/animals/elephant",
   publishedTime: PUBLISHED,
   modifiedTime: MODIFIED,
+  ogImage: getAnimalOgImage("elephant"),
 });
 
 export default function ElephantPage() {
@@ -28,6 +30,7 @@ export default function ElephantPage() {
       parentCategory="Mammals"
       parentCategoryHref="/animal-encyclopedia/mammals"
       tags={["Mammal", "Megafauna", "Herbivore"]}
+      image={getAnimalImage("elephant") ?? undefined}
       factsHeaderNote="Three living species: African savanna, African forest, and Asian elephant. Specific figures cited below note which species they refer to."
       overview={
         <>

@@ -7,9 +7,13 @@ import LastUpdated from "@/components/LastUpdated";
 import RelatedLinks from "@/components/RelatedLinks";
 import ComparisonTable from "@/components/ComparisonTable";
 import SourcesSection from "@/components/educational/SourcesSection";
+import AnimalHeroImage from "@/components/AnimalHeroImage";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
+import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, articleSchema, faqSchema } from "@/lib/schema";
+
+const LION_IMAGE = getAnimalImage("lion");
 
 export const metadata: Metadata = buildArticleMetadata({
   title: "Lion — Profile, Habitat, Diet & Behavior",
@@ -17,7 +21,8 @@ export const metadata: Metadata = buildArticleMetadata({
     "Explore Panthera leo: where lions live across Africa and India, how pride social structures work, what lions hunt, and key conservation context.",
   path: "/animals/lion",
   publishedTime: "2025-05-07",
-  modifiedTime: "2026-05-18",
+  modifiedTime: "2026-05-20",
+  ogImage: getAnimalOgImage("lion"),
 });
 
 const faqItems = [
@@ -57,7 +62,7 @@ export default function LionPage() {
         "Explore Panthera leo: where lions live across Africa and India, how pride social structures work, what lions hunt, and key conservation context.",
       path: "/animals/lion",
       datePublished: "2025-05-07",
-      dateModified: "2026-05-18",
+      dateModified: "2026-05-20",
     }),
     faqSchema(faqItems),
   ];
@@ -86,6 +91,8 @@ export default function LionPage() {
                 <span className="tag">Mammal</span>{" "}
                 <span className="tag ml-1">Apex Predator</span>
               </p>
+
+              {LION_IMAGE && <AnimalHeroImage image={LION_IMAGE} priority />}
 
               <h2>Overview</h2>
               <p>
@@ -294,7 +301,7 @@ export default function LionPage() {
                   this page under &quot;Sources and further reading&quot;.
                 </p>
               </aside>
-              <LastUpdated date="2026-05-18" />
+              <LastUpdated date="2026-05-20" />
             </aside>
           </div>
         </div>

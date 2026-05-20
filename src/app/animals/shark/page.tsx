@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
+import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-18";
+const MODIFIED = "2026-05-20";
 
 const title = "Shark — Overview of Shark Species, Habitat & Behavior";
 const description =
@@ -17,6 +18,7 @@ export const metadata: Metadata = buildArticleMetadata({
   path: "/animals/shark",
   publishedTime: PUBLISHED,
   modifiedTime: MODIFIED,
+  ogImage: getAnimalOgImage("shark"),
 });
 
 export default function SharkPage() {
@@ -29,6 +31,7 @@ export default function SharkPage() {
       parentCategory="Marine Animals"
       parentCategoryHref="/animal-encyclopedia/marine-animals"
       tags={["Cartilaginous Fish", "Marine Predator"]}
+      image={getAnimalImage("shark") ?? undefined}
       factsHeaderNote='"Shark" covers more than 500 species in superorder Selachimorpha. Specific traits below vary considerably between species.'
       overview={
         <>

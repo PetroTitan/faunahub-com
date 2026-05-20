@@ -5,9 +5,13 @@ import DisclaimerBlock from "@/components/DisclaimerBlock";
 import LastUpdated from "@/components/LastUpdated";
 import RelatedLinks from "@/components/RelatedLinks";
 import SourcesSection from "@/components/educational/SourcesSection";
+import AnimalHeroImage from "@/components/AnimalHeroImage";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
+import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, articleSchema, faqSchema } from "@/lib/schema";
+
+const EAGLE_IMAGE = getAnimalImage("eagle");
 
 export const metadata: Metadata = buildArticleMetadata({
   title: "Eagle — Overview of Eagle Species, Habitat & Behavior",
@@ -15,7 +19,8 @@ export const metadata: Metadata = buildArticleMetadata({
     "An overview of eagle species worldwide, using the Golden Eagle (Aquila chrysaetos) as the reference species for habitat, diet, flight, and conservation context.",
   path: "/animals/eagle",
   publishedTime: "2025-05-07",
-  modifiedTime: "2026-05-18",
+  modifiedTime: "2026-05-20",
+  ogImage: getAnimalOgImage("eagle"),
 });
 
 const faqItems = [
@@ -55,7 +60,7 @@ export default function EaglePage() {
         "An overview of eagle species worldwide, using the Golden Eagle (Aquila chrysaetos) as the reference species for habitat, diet, flight, and conservation context.",
       path: "/animals/eagle",
       datePublished: "2025-05-07",
-      dateModified: "2026-05-18",
+      dateModified: "2026-05-20",
     }),
     faqSchema(faqItems),
   ];
@@ -91,6 +96,8 @@ export default function EaglePage() {
                 (<em>Aquila chrysaetos</em>). This page provides a general overview and should not
                 be read as a comprehensive profile of all eagle species equally.
               </p>
+
+              {EAGLE_IMAGE && <AnimalHeroImage image={EAGLE_IMAGE} priority />}
 
               <h2>Overview</h2>
               <p>
@@ -298,7 +305,7 @@ export default function EaglePage() {
                   this page under &quot;Sources and further reading&quot;.
                 </p>
               </aside>
-              <LastUpdated date="2026-05-18" />
+              <LastUpdated date="2026-05-20" />
             </aside>
           </div>
         </div>

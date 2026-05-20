@@ -9,17 +9,17 @@ import type { AnimalImage } from "./types";
  * GFDL-only, CC BY-NC, CC BY-ND, and unclear-license files are explicitly
  * excluded by FaunaHub editorial policy.
  *
- * Files have been downloaded into /public/images/animals/<slug>/ using
- * Wikimedia's thumbnail service (a derivative permitted by the license).
- *
- * If you add a new entry, fill every field and re-run the verification step.
+ * Files were downloaded via Wikimedia's thumbnail service (which is a
+ * permitted derivative) and converted to WebP locally with sharp (quality 82,
+ * max width 1600). The WebP conversion is itself a derivative and is allowed
+ * under every license used below.
  */
 export const ANIMAL_IMAGES: readonly AnimalImage[] = [
   {
     id: "tiger-wikimedia-001",
     animalSlug: "tiger",
     pagePath: "/animals/tiger",
-    localPath: "/images/animals/tiger/tiger-hero.jpg",
+    localPath: "/images/animals/tiger/tiger-hero.webp",
     sourceName: "Wikimedia Commons",
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Walking_tiger_female.jpg",
     author: "Charles J. Sharp",
@@ -36,13 +36,58 @@ export const ANIMAL_IMAGES: readonly AnimalImage[] = [
     attributionRequired: true,
     verifiedAt: "2026-05-20",
     riskNotes:
-      "Share-alike license — derivative works (e.g. crops) must also be released under CC BY-SA 4.0. Author is a recognised Wikimedia wildlife photographer; species identification is unambiguous.",
+      "Share-alike license — derivative works must also be released under CC BY-SA 4.0. Author is a recognised Wikimedia wildlife photographer; species identification is unambiguous.",
+  },
+  {
+    id: "lion-wikimedia-001",
+    animalSlug: "lion",
+    pagePath: "/animals/lion",
+    localPath: "/images/animals/lion/lion-hero.webp",
+    sourceName: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Lion_d%27Afrique_(Panthera_leo).jpg",
+    author: "Gzen92",
+    license: "CC BY-SA 4.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+    attribution: "Photo by Gzen92, CC BY-SA 4.0, via Wikimedia Commons.",
+    alt: "Adult African lion (Panthera leo) resting in golden grassland.",
+    caption: "African lion (Panthera leo).",
+    width: 1600,
+    height: 1067,
+    commercialUseAllowed: true,
+    modificationsAllowed: true,
+    attributionRequired: true,
+    verifiedAt: "2026-05-20",
+    riskNotes:
+      "Share-alike license. Species ID consistent with file description (Panthera leo).",
+  },
+  {
+    id: "elephant-wikimedia-001",
+    animalSlug: "elephant",
+    pagePath: "/animals/elephant",
+    localPath: "/images/animals/elephant/elephant-hero.webp",
+    sourceName: "Wikimedia Commons",
+    sourceUrl: "https://commons.wikimedia.org/wiki/File:Elephant_near_ndutu.jpg",
+    author: "nickandmel2006 (Flickr)",
+    license: "CC BY-SA 2.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0/",
+    attribution:
+      "Photo by nickandmel2006 (Flickr), CC BY-SA 2.0, via Wikimedia Commons.",
+    alt: "African bush elephant (Loxodonta africana) standing on dry savanna near Lake Ndutu, Tanzania.",
+    caption: "African bush elephant (Loxodonta africana) near Lake Ndutu, Tanzania.",
+    width: 1600,
+    height: 2133,
+    commercialUseAllowed: true,
+    modificationsAllowed: true,
+    attributionRequired: true,
+    verifiedAt: "2026-05-20",
+    riskNotes:
+      "Share-alike license. Location and species ID consistent with Wikimedia file description.",
   },
   {
     id: "dolphin-wikimedia-001",
     animalSlug: "dolphin",
     pagePath: "/animals/dolphin",
-    localPath: "/images/animals/dolphin/dolphin-hero.jpg",
+    localPath: "/images/animals/dolphin/dolphin-hero.webp",
     sourceName: "Wikimedia Commons (NASA)",
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Tursiops_truncatus_01.jpg",
     author: "NASA",
@@ -58,13 +103,84 @@ export const ANIMAL_IMAGES: readonly AnimalImage[] = [
     attributionRequired: false,
     verifiedAt: "2026-05-20",
     riskNotes:
-      "US federal government work — Public domain in the United States. Attribution provided for transparency though not legally required.",
+      "US federal government work — Public domain. Attribution provided for transparency though not legally required.",
+  },
+  {
+    id: "shark-wikimedia-001",
+    animalSlug: "shark",
+    pagePath: "/animals/shark",
+    localPath: "/images/animals/shark/shark-hero.webp",
+    sourceName: "Wikimedia Commons",
+    sourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Carcharhinus_melanopterus_Luc_Viatour.jpg",
+    author: "Luc Viatour",
+    license: "CC BY-SA 3.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+    attribution: "Photo by Luc Viatour, CC BY-SA 3.0, via Wikimedia Commons.",
+    alt: "Blacktip reef shark (Carcharhinus melanopterus) swimming in shallow coral reef water.",
+    caption: "Blacktip reef shark (Carcharhinus melanopterus) — used here to represent the broader shark group.",
+    width: 1600,
+    height: 1067,
+    commercialUseAllowed: true,
+    modificationsAllowed: true,
+    attributionRequired: true,
+    verifiedAt: "2026-05-20",
+    riskNotes:
+      "Share-alike license. Reference species (blacktip reef shark) clearly identified in the file description.",
+  },
+  {
+    id: "penguin-wikimedia-001",
+    animalSlug: "penguin",
+    pagePath: "/animals/penguin",
+    localPath: "/images/animals/penguin/penguin-hero.webp",
+    sourceName: "Wikimedia Commons",
+    sourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Penguin_in_Antarctica_jumping_out_of_the_water.jpg",
+    author: "Christopher Michel",
+    license: "CC BY 2.0",
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0/",
+    attribution:
+      "Photo by Christopher Michel, CC BY 2.0, via Wikimedia Commons.",
+    alt: "Emperor penguin (Aptenodytes forsteri) leaping out of icy Antarctic water onto pack ice.",
+    caption: "Emperor penguin (Aptenodytes forsteri) emerging from Antarctic water.",
+    width: 1600,
+    height: 1063,
+    commercialUseAllowed: true,
+    modificationsAllowed: true,
+    attributionRequired: true,
+    verifiedAt: "2026-05-20",
+    riskNotes:
+      "Attribution-only license. Antarctic context and species ID consistent with file description.",
+  },
+  {
+    id: "eagle-wikimedia-001",
+    animalSlug: "eagle",
+    pagePath: "/animals/eagle",
+    localPath: "/images/animals/eagle/eagle-hero.webp",
+    sourceName: "Wikimedia Commons (USFWS)",
+    sourceUrl:
+      "https://commons.wikimedia.org/wiki/File:Haliaeetus_leucocephalus2.jpg",
+    author: "David Menke / U.S. Fish and Wildlife Service",
+    license: "Public domain",
+    licenseUrl: "",
+    attribution:
+      "Photo by David Menke, U.S. Fish and Wildlife Service, Public domain, via Wikimedia Commons.",
+    alt: "Adult bald eagle (Haliaeetus leucocephalus) perched against a clear background.",
+    caption: "Bald eagle (Haliaeetus leucocephalus).",
+    width: 1600,
+    height: 1997,
+    commercialUseAllowed: true,
+    modificationsAllowed: true,
+    attributionRequired: false,
+    verifiedAt: "2026-05-20",
+    riskNotes:
+      "US federal government work — Public domain. Used as the lead reference image for the broader eagle profile.",
   },
   {
     id: "wolf-wikimedia-001",
     animalSlug: "wolf",
     pagePath: "/animals/wolf",
-    localPath: "/images/animals/wolf/wolf-hero.jpg",
+    localPath: "/images/animals/wolf/wolf-hero.webp",
     sourceName: "Wikimedia Commons (USFWS)",
     sourceUrl:
       "https://commons.wikimedia.org/wiki/File:Front_view_of_a_resting_Canis_lupus_ssp.jpg",
@@ -88,7 +204,7 @@ export const ANIMAL_IMAGES: readonly AnimalImage[] = [
     id: "panda-wikimedia-001",
     animalSlug: "panda",
     pagePath: "/animals/panda",
-    localPath: "/images/animals/panda/panda-hero.jpg",
+    localPath: "/images/animals/panda/panda-hero.webp",
     sourceName: "Wikimedia Commons",
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Grosser_Panda.JPG",
     author: "J. Patrick Fischer",
@@ -111,7 +227,7 @@ export const ANIMAL_IMAGES: readonly AnimalImage[] = [
     id: "cheetah-wikimedia-001",
     animalSlug: "cheetah",
     pagePath: "/animals/cheetah",
-    localPath: "/images/animals/cheetah/cheetah-hero.jpg",
+    localPath: "/images/animals/cheetah/cheetah-hero.webp",
     sourceName: "Wikimedia Commons",
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Cheetah_Kruger.jpg",
     author: "Mukul2u",
@@ -121,7 +237,7 @@ export const ANIMAL_IMAGES: readonly AnimalImage[] = [
     alt: "Adult cheetah (Acinonyx jubatus) standing in dry grassland in Kruger National Park.",
     caption: "Cheetah (Acinonyx jubatus) in Kruger National Park, South Africa.",
     width: 1600,
-    height: 1049,
+    height: 1048,
     commercialUseAllowed: true,
     modificationsAllowed: true,
     attributionRequired: true,
@@ -133,7 +249,7 @@ export const ANIMAL_IMAGES: readonly AnimalImage[] = [
     id: "leopard-wikimedia-001",
     animalSlug: "leopard",
     pagePath: "/animals/leopard",
-    localPath: "/images/animals/leopard/leopard-hero.jpg",
+    localPath: "/images/animals/leopard/leopard-hero.webp",
     sourceName: "Wikimedia Commons",
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Persian_leopard_1.jpg",
     author: "Benoit.boudeville",
@@ -156,7 +272,7 @@ export const ANIMAL_IMAGES: readonly AnimalImage[] = [
     id: "crocodile-wikimedia-001",
     animalSlug: "crocodile",
     pagePath: "/animals/crocodile",
-    localPath: "/images/animals/crocodile/crocodile-hero.jpg",
+    localPath: "/images/animals/crocodile/crocodile-hero.webp",
     sourceName: "Wikimedia Commons",
     sourceUrl: "https://commons.wikimedia.org/wiki/File:Nile_crocodile_head.jpg",
     author: "Leigh Bedford",
@@ -178,7 +294,7 @@ export const ANIMAL_IMAGES: readonly AnimalImage[] = [
     id: "alligator-wikimedia-001",
     animalSlug: "alligator",
     pagePath: "/animals/alligator",
-    localPath: "/images/animals/alligator/alligator-hero.jpg",
+    localPath: "/images/animals/alligator/alligator-hero.webp",
     sourceName: "Wikimedia Commons",
     sourceUrl: "https://commons.wikimedia.org/wiki/File:American_Alligator.jpg",
     author: "User:Postdlf",
@@ -204,12 +320,8 @@ export const ANIMAL_IMAGES: readonly AnimalImage[] = [
  * for. These should be picked up by a human-curated next pass.
  */
 export const ANIMAL_IMAGE_TODOS: readonly string[] = [
-  "lion",
-  "eagle",
-  "elephant",
   "fox",
   "owl",
-  "shark",
   "jaguar",
   "bear",
   "giraffe",
@@ -218,7 +330,6 @@ export const ANIMAL_IMAGE_TODOS: readonly string[] = [
   "chimpanzee",
   "kangaroo",
   "koala",
-  "penguin",
 ];
 
 const BY_SLUG: Record<string, AnimalImage> = Object.fromEntries(

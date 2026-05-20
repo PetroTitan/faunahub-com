@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import HubGrid from "@/components/HubGrid";
 import RelatedLinks from "@/components/RelatedLinks";
+import { getAnimalImage } from "@/lib/images/animal-images";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, itemListSchema } from "@/lib/schema";
 
@@ -160,20 +162,44 @@ export default function AnimalEncyclopediaPage() {
                       {group}
                     </h3>
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-                      {items.map((p) => (
-                        <Link
-                          key={p.href}
-                          href={p.href}
-                          className="card p-4 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
-                        >
-                          <h4 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors">
-                            {p.label}
-                          </h4>
-                          <span className="text-xs font-medium text-[#063F2A] mt-2 block">
-                            Read profile →
-                          </span>
-                        </Link>
-                      ))}
+                      {items.map((p) => {
+                        const slug = p.href.replace("/animals/", "");
+                        const img = getAnimalImage(slug);
+                        return (
+                          <Link
+                            key={p.href}
+                            href={p.href}
+                            className="card overflow-hidden hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline flex flex-col"
+                          >
+                            <div className="relative w-full aspect-[4/3] bg-[#EFF1EB] border-b border-[#DDE6DD] overflow-hidden">
+                              {img ? (
+                                <Image
+                                  src={img.localPath}
+                                  alt={img.alt}
+                                  fill
+                                  sizes="(min-width: 1024px) 220px, (min-width: 640px) 33vw, 50vw"
+                                  className="object-cover group-hover:scale-[1.03] transition-transform duration-300"
+                                />
+                              ) : (
+                                <span
+                                  aria-hidden="true"
+                                  className="absolute inset-0 flex items-center justify-center text-2xl text-[#8A958E]"
+                                >
+                                  {p.label.slice(0, 1)}
+                                </span>
+                              )}
+                            </div>
+                            <div className="p-3 flex-1 flex flex-col justify-between">
+                              <h4 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors">
+                                {p.label}
+                              </h4>
+                              <span className="text-xs font-medium text-[#063F2A] mt-2 block">
+                                Read profile →
+                              </span>
+                            </div>
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 );
