@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
+import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-18";
+const MODIFIED = "2026-05-20";
 
 const title = "Dolphin — Overview of Dolphin Species, Habitat & Behavior";
 const description =
@@ -17,6 +18,7 @@ export const metadata: Metadata = buildArticleMetadata({
   path: "/animals/dolphin",
   publishedTime: PUBLISHED,
   modifiedTime: MODIFIED,
+  ogImage: getAnimalOgImage("dolphin"),
 });
 
 export default function DolphinPage() {
@@ -29,6 +31,7 @@ export default function DolphinPage() {
       parentCategory="Marine Animals"
       parentCategoryHref="/animal-encyclopedia/marine-animals"
       tags={["Marine Mammal", "Cetacean", "Social"]}
+      image={getAnimalImage("dolphin") ?? undefined}
       factsHeaderNote={
         'Reference species for specific details below is the common bottlenose dolphin (Tursiops truncatus). "Dolphin" applies to many species in family Delphinidae and the river-dolphin families.'
       }

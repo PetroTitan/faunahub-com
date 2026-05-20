@@ -7,7 +7,9 @@ import SourceNote from "@/components/SourceNote";
 import LastUpdated from "@/components/LastUpdated";
 import RelatedLinks from "@/components/RelatedLinks";
 import SourcesSection from "@/components/educational/SourcesSection";
+import AnimalHeroImage from "@/components/AnimalHeroImage";
 import type { SourceLink } from "@/lib/educational/types";
+import type { AnimalImage } from "@/lib/images/types";
 import { breadcrumbSchema, articleSchema, faqSchema } from "@/lib/schema";
 
 export interface AnimalProfileSection {
@@ -60,6 +62,8 @@ export interface AnimalProfileLayoutProps {
   /** Optional verified-source list. When present, renders SourcesSection
    * inline and hides the "source review pending" sidebar note. */
   sources?: SourceLink[];
+  /** Optional verified hero image. When present, renders above the overview. */
+  image?: AnimalImage;
   publishedDate: string;
   modifiedDate: string;
 }
@@ -86,6 +90,7 @@ export default function AnimalProfileLayout({
   relatedLinks,
   factsHeaderNote,
   sources,
+  image,
   publishedDate,
   modifiedDate,
 }: AnimalProfileLayoutProps) {
@@ -142,6 +147,8 @@ export default function AnimalProfileLayout({
                   </span>
                 ))}
               </p>
+
+              {image && <AnimalHeroImage image={image} priority />}
 
               <h2>Overview</h2>
               {overview}

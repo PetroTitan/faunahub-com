@@ -5,6 +5,42 @@ const SITE_NAME = "FaunaHub";
 const DEFAULT_DESCRIPTION =
   "Practical pet care guides, animal facts, wildlife explainers, and simple decision tools for responsible pet owners and curious readers.";
 
+interface OgImageInput {
+  url: string;
+  width?: number;
+  height?: number;
+  alt?: string;
+}
+
+const DEFAULT_OG_IMAGE: OgImageInput = {
+  url: `${SITE_URL}/brand/faunahub-logo-horizontal.png`,
+  width: 1200,
+  height: 630,
+};
+
+function resolveOgImage(
+  ogImage: string | OgImageInput | undefined,
+  fallbackAlt: string,
+): { url: string; width: number; height: number; alt: string } {
+  if (typeof ogImage === "string") {
+    return { url: ogImage, width: 1200, height: 630, alt: fallbackAlt };
+  }
+  if (ogImage) {
+    return {
+      url: ogImage.url,
+      width: ogImage.width ?? 1200,
+      height: ogImage.height ?? 630,
+      alt: ogImage.alt ?? fallbackAlt,
+    };
+  }
+  return {
+    url: DEFAULT_OG_IMAGE.url,
+    width: DEFAULT_OG_IMAGE.width!,
+    height: DEFAULT_OG_IMAGE.height!,
+    alt: fallbackAlt,
+  };
+}
+
 export function buildMetadata({
   title,
   description,
@@ -15,11 +51,11 @@ export function buildMetadata({
   title: string;
   description: string;
   path: string;
-  ogImage?: string;
+  ogImage?: string | OgImageInput;
   noindex?: boolean;
 }): Metadata {
   const url = `${SITE_URL}${path}`;
-  const image = ogImage ?? `${SITE_URL}/brand/faunahub-logo-horizontal.png`;
+  const img = resolveOgImage(ogImage, title);
   const fullTitle = `${title} | ${SITE_NAME}`;
 
   return {
@@ -36,13 +72,13 @@ export function buildMetadata({
       url,
       siteName: SITE_NAME,
       type: "website",
-      images: [{ url: image, width: 1200, height: 630, alt: title }],
+      images: [{ url: img.url, width: img.width, height: img.height, alt: img.alt }],
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
-      images: [image],
+      images: [img.url],
     },
     robots: noindex
       ? { index: false, follow: false }
@@ -63,10 +99,10 @@ export function buildArticleMetadata({
   path: string;
   publishedTime?: string;
   modifiedTime?: string;
-  ogImage?: string;
+  ogImage?: string | OgImageInput;
 }): Metadata {
   const base = buildMetadata({ title, description, path, ogImage });
-  const image = ogImage ?? `${SITE_URL}/brand/faunahub-logo-horizontal.png`;
+  const img = resolveOgImage(ogImage, title);
 
   return {
     ...base,
@@ -76,7 +112,7 @@ export function buildArticleMetadata({
       publishedTime,
       modifiedTime,
       authors: [SITE_URL],
-      images: [{ url: image, width: 1200, height: 630, alt: title }],
+      images: [{ url: img.url, width: img.width, height: img.height, alt: img.alt }],
     },
   };
 }

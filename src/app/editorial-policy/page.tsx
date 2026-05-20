@@ -202,6 +202,40 @@ export default function EditorialPolicyPage() {
             &quot;Source review pending&quot; notice.
           </p>
 
+          <h2>Image Use Policy</h2>
+          <p>
+            FaunaHub uses photographs from legally reusable sources only. Approved
+            sources include Wikimedia Commons, public-domain government archives
+            (such as NASA, NOAA, and the U.S. Fish and Wildlife Service),
+            Creative Commons-licensed collections, and recognised educational
+            sources where reuse is clearly permitted.
+          </p>
+          <p>Every image used on FaunaHub must:</p>
+          <ul>
+            <li>
+              Be licensed under Public Domain, CC0, CC BY, or CC BY-SA — never
+              CC BY-NC, CC BY-NC-SA, CC BY-ND, unknown-license, or all-rights-reserved.
+            </li>
+            <li>
+              Include a recorded source URL, author, license name, and license
+              link. Compact attribution is displayed under the image, and full
+              details are listed on the{" "}
+              <Link href="/image-credits">Image Credits</Link> page.
+            </li>
+            <li>
+              Show a clearly identifiable species or subject — FaunaHub does
+              not publish photographs with doubtful species or breed identity.
+            </li>
+          </ul>
+          <p>
+            FaunaHub does not use AI-generated &quot;photos&quot; of animals,
+            social-media screenshots, breeder sales images, stock-photo
+            previews, or any image with unclear copyright. If you are an
+            author of an image used on FaunaHub and have a concern about
+            attribution or license treatment, contact{" "}
+            <a href="mailto:info@helperg.com">info@helperg.com</a>.
+          </p>
+
           <h2>Affiliate and Commercial Disclosure</h2>
           <p>
             FaunaHub may include affiliate links in some content. Commercial relationships do not
@@ -217,7 +251,7 @@ export default function EditorialPolicyPage() {
           </p>
 
           <div className="mt-8">
-            <LastUpdated date="2026-05-18" />
+            <LastUpdated date="2026-05-20" />
           </div>
         </div>
       </main>

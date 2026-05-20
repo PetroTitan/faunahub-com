@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
+import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-18";
+const MODIFIED = "2026-05-20";
 
 const title = "Alligator — Profile, Habitat, Diet & Behavior";
 const description =
@@ -17,6 +18,7 @@ export const metadata: Metadata = buildArticleMetadata({
   path: "/animals/alligator",
   publishedTime: PUBLISHED,
   modifiedTime: MODIFIED,
+  ogImage: getAnimalOgImage("alligator"),
 });
 
 export default function AlligatorPage() {
@@ -29,6 +31,7 @@ export default function AlligatorPage() {
       parentCategory="Reptiles"
       parentCategoryHref="/animal-encyclopedia/reptiles"
       tags={["Reptile", "Crocodilian", "Apex Predator"]}
+      image={getAnimalImage("alligator") ?? undefined}
       factsHeaderNote="Two living alligator species exist: the American alligator and the much rarer Chinese alligator. Caimans are in the same family but a separate genus."
       overview={
         <>

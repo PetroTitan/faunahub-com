@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
+import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-18";
+const MODIFIED = "2026-05-20";
 
 const title = "Tiger — Profile, Habitat, Diet & Behavior";
 const description =
@@ -16,6 +17,7 @@ export const metadata: Metadata = buildArticleMetadata({
   path: "/animals/tiger",
   publishedTime: PUBLISHED,
   modifiedTime: MODIFIED,
+  ogImage: getAnimalOgImage("tiger"),
 });
 
 export default function TigerPage() {
@@ -29,6 +31,7 @@ export default function TigerPage() {
       parentCategory="Mammals"
       parentCategoryHref="/animal-encyclopedia/mammals"
       tags={["Mammal", "Big Cat", "Apex Predator"]}
+      image={getAnimalImage("tiger") ?? undefined}
       overview={
         <>
           <p>
