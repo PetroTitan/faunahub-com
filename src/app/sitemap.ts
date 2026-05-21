@@ -75,6 +75,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "pet-life-stage-calculator",
     "can-my-pet-eat-this",
     "pet-breed-selector",
+    "pet-adoption-readiness-quiz",
   ];
 
   const staticRoutes: MetadataRoute.Sitemap = [
