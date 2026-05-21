@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
-import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
+import { getAnimalGalleryImages, getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
@@ -31,6 +31,7 @@ export default function PenguinPage() {
       parentCategoryHref="/animal-encyclopedia/birds"
       tags={["Bird", "Seabird", "Flightless"]}
       image={getAnimalImage("penguin") ?? undefined}
+      galleryImages={getAnimalGalleryImages("penguin")}
       factsHeaderNote="Approximately 18 living penguin species are recognised across multiple genera within family Spheniscidae."
       overview={
         <>

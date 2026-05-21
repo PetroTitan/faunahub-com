@@ -8,12 +8,14 @@ import RelatedLinks from "@/components/RelatedLinks";
 import ComparisonTable from "@/components/ComparisonTable";
 import SourcesSection from "@/components/educational/SourcesSection";
 import AnimalHeroImage from "@/components/AnimalHeroImage";
+import AnimalGallery from "@/components/AnimalGallery";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
-import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
+import { getAnimalGalleryImages, getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, articleSchema, faqSchema } from "@/lib/schema";
 
 const LION_IMAGE = getAnimalImage("lion");
+const LION_GALLERY = getAnimalGalleryImages("lion");
 
 export const metadata: Metadata = buildArticleMetadata({
   title: "Lion — Profile, Habitat, Diet & Behavior",
@@ -235,6 +237,8 @@ export default function LionPage() {
                 base depletion, and trophy hunting debates are additional pressures. Long-term lion
                 conservation requires the maintenance of large, contiguous wild landscapes.
               </p>
+
+              <AnimalGallery images={LION_GALLERY} commonName="Lion" />
 
               <DisclaimerBlock type="general" />
 

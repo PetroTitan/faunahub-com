@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
-import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
+import { getAnimalGalleryImages, getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
@@ -33,6 +33,7 @@ export default function JaguarPage() {
       parentCategoryHref="/animal-encyclopedia/mammals"
       tags={["Mammal", "Big Cat", "Apex Predator"]}
       image={getAnimalImage("jaguar") ?? undefined}
+      galleryImages={getAnimalGalleryImages("jaguar")}
       overview={
         <>
           <p>

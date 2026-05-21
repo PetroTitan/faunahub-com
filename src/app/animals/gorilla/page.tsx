@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
-import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
+import { getAnimalGalleryImages, getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
@@ -31,6 +31,7 @@ export default function GorillaPage() {
       parentCategoryHref="/animal-encyclopedia/mammals"
       tags={["Mammal", "Great Ape", "Primate"]}
       image={getAnimalImage("gorilla") ?? undefined}
+      galleryImages={getAnimalGalleryImages("gorilla")}
       factsHeaderNote="Two species and several subspecies are recognised. Conservation status is species- and subspecies-specific."
       overview={
         <>

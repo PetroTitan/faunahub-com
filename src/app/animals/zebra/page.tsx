@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
-import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
+import { getAnimalGalleryImages, getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
@@ -30,6 +30,7 @@ export default function ZebraPage() {
       parentCategoryHref="/animal-encyclopedia/mammals"
       tags={["Mammal", "Equid", "Herbivore"]}
       image={getAnimalImage("zebra") ?? undefined}
+      galleryImages={getAnimalGalleryImages("zebra")}
       factsHeaderNote="Three living zebra species are recognised: plains, mountain, and Grévy's zebra."
       overview={
         <>

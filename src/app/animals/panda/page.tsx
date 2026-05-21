@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
-import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
+import { getAnimalGalleryImages, getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
@@ -31,6 +31,7 @@ export default function PandaPage() {
       parentCategoryHref="/animal-encyclopedia/mammals"
       tags={["Mammal", "Bear", "Endemic to China"]}
       image={getAnimalImage("panda") ?? undefined}
+      galleryImages={getAnimalGalleryImages("panda")}
       overview={
         <>
           <p>

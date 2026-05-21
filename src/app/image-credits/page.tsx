@@ -86,7 +86,17 @@ export default function ImageCreditsPage() {
                       fill
                       sizes="(min-width: 1024px) 360px, (min-width: 640px) 50vw, 100vw"
                       className="object-cover"
+                      loading="lazy"
                     />
+                    <span
+                      className={`absolute top-2 right-2 text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full ${
+                        img.role === "hero"
+                          ? "bg-[#063F2A] text-white"
+                          : "bg-white/95 text-[#2C3A2F] border border-[#DDE6DD]"
+                      }`}
+                    >
+                      {img.role === "hero" ? "Hero" : "Gallery"}
+                    </span>
                   </div>
                   <div className="p-4 flex-1 flex flex-col gap-2">
                     <div>

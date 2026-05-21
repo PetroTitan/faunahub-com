@@ -6,12 +6,14 @@ import LastUpdated from "@/components/LastUpdated";
 import RelatedLinks from "@/components/RelatedLinks";
 import SourcesSection from "@/components/educational/SourcesSection";
 import AnimalHeroImage from "@/components/AnimalHeroImage";
+import AnimalGallery from "@/components/AnimalGallery";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
-import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
+import { getAnimalGalleryImages, getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, articleSchema, faqSchema } from "@/lib/schema";
 
 const EAGLE_IMAGE = getAnimalImage("eagle");
+const EAGLE_GALLERY = getAnimalGalleryImages("eagle");
 
 export const metadata: Metadata = buildArticleMetadata({
   title: "Eagle — Overview of Eagle Species, Habitat & Behavior",
@@ -234,6 +236,8 @@ export default function EaglePage() {
                 particular. Status varies markedly by species and should be verified on the IUCN
                 Red List for each individual species.
               </p>
+
+              <AnimalGallery images={EAGLE_GALLERY} commonName="Eagle" />
 
               <DisclaimerBlock type="general" />
 

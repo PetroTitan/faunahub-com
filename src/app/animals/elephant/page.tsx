@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
-import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
+import { getAnimalGalleryImages, getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
@@ -31,6 +31,7 @@ export default function ElephantPage() {
       parentCategoryHref="/animal-encyclopedia/mammals"
       tags={["Mammal", "Megafauna", "Herbivore"]}
       image={getAnimalImage("elephant") ?? undefined}
+      galleryImages={getAnimalGalleryImages("elephant")}
       factsHeaderNote="Three living species: African savanna, African forest, and Asian elephant. Specific figures cited below note which species they refer to."
       overview={
         <>

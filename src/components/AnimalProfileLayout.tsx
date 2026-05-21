@@ -8,6 +8,7 @@ import LastUpdated from "@/components/LastUpdated";
 import RelatedLinks from "@/components/RelatedLinks";
 import SourcesSection from "@/components/educational/SourcesSection";
 import AnimalHeroImage from "@/components/AnimalHeroImage";
+import AnimalGallery from "@/components/AnimalGallery";
 import type { SourceLink } from "@/lib/educational/types";
 import type { AnimalImage } from "@/lib/images/types";
 import { breadcrumbSchema, articleSchema, faqSchema } from "@/lib/schema";
@@ -64,6 +65,9 @@ export interface AnimalProfileLayoutProps {
   sources?: SourceLink[];
   /** Optional verified hero image. When present, renders above the overview. */
   image?: AnimalImage;
+  /** Optional verified gallery images. When non-empty, renders a "More photos"
+   * section after Human Interaction (i.e. after the main educational sections). */
+  galleryImages?: AnimalImage[];
   publishedDate: string;
   modifiedDate: string;
 }
@@ -91,6 +95,7 @@ export default function AnimalProfileLayout({
   factsHeaderNote,
   sources,
   image,
+  galleryImages,
   publishedDate,
   modifiedDate,
 }: AnimalProfileLayoutProps) {
@@ -191,6 +196,13 @@ export default function AnimalProfileLayout({
                     </Link>
                   ))}
                 </p>
+              )}
+
+              {galleryImages && galleryImages.length > 0 && (
+                <AnimalGallery
+                  images={galleryImages}
+                  commonName={commonName}
+                />
               )}
 
               <DisclaimerBlock type="general" />

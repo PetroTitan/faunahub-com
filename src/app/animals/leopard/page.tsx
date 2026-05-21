@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
-import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
+import { getAnimalGalleryImages, getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
@@ -32,6 +32,7 @@ export default function LeopardPage() {
       parentCategoryHref="/animal-encyclopedia/mammals"
       tags={["Mammal", "Big Cat", "Apex Predator"]}
       image={getAnimalImage("leopard") ?? undefined}
+      galleryImages={getAnimalGalleryImages("leopard")}
       overview={
         <>
           <p>

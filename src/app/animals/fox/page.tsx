@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
-import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
+import { getAnimalGalleryImages, getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
@@ -30,6 +30,7 @@ export default function FoxPage() {
       parentCategoryHref="/animal-encyclopedia/mammals"
       tags={["Mammal", "Canid", "Omnivore"]}
       image={getAnimalImage("fox") ?? undefined}
+      galleryImages={getAnimalGalleryImages("fox")}
       factsHeaderNote="Reference species below is the red fox (Vulpes vulpes), the most widely distributed wild canid. Other foxes (Arctic, fennec, etc.) differ substantially."
       overview={
         <>

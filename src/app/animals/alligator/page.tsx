@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
-import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
+import { getAnimalGalleryImages, getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
@@ -32,6 +32,7 @@ export default function AlligatorPage() {
       parentCategoryHref="/animal-encyclopedia/reptiles"
       tags={["Reptile", "Crocodilian", "Apex Predator"]}
       image={getAnimalImage("alligator") ?? undefined}
+      galleryImages={getAnimalGalleryImages("alligator")}
       factsHeaderNote="Two living alligator species exist: the American alligator and the much rarer Chinese alligator. Caimans are in the same family but a separate genus."
       overview={
         <>

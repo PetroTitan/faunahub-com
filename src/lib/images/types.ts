@@ -6,6 +6,8 @@
  * requires visible attribution and a link to the license, which is rendered by
  * the ImageCredit component using the fields below.
  */
+export type AnimalImageRole = "hero" | "gallery";
+
 export interface AnimalImage {
   /** Stable internal id, e.g. "tiger-wikimedia-001". */
   id: string;
@@ -13,6 +15,9 @@ export interface AnimalImage {
   animalSlug: string;
   /** Primary page this image is displayed on. */
   pagePath: string;
+  /** Role of this image on the animal profile page. "hero" is rendered at the
+   * top of the page; "gallery" entries are rendered in a grid further down. */
+  role: AnimalImageRole;
   /** Public path under /public, e.g. "/images/animals/tiger/tiger-hero.jpg". */
   localPath: string;
   /** Human-readable source name, e.g. "Wikimedia Commons", "NOAA Photo Library". */

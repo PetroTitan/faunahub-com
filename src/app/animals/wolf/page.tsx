@@ -7,12 +7,14 @@ import LastUpdated from "@/components/LastUpdated";
 import RelatedLinks from "@/components/RelatedLinks";
 import SourcesSection from "@/components/educational/SourcesSection";
 import AnimalHeroImage from "@/components/AnimalHeroImage";
+import AnimalGallery from "@/components/AnimalGallery";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
-import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
+import { getAnimalGalleryImages, getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, articleSchema, faqSchema } from "@/lib/schema";
 
 const WOLF_IMAGE = getAnimalImage("wolf");
+const WOLF_GALLERY = getAnimalGalleryImages("wolf");
 
 export const metadata: Metadata = buildArticleMetadata({
   title: "Wolf — Profile, Habitat, Diet & Behavior",
@@ -223,6 +225,8 @@ export default function WolfPage() {
                 predation risk. Wolf management remains one of the most politically contested areas
                 in wildlife conservation.
               </p>
+
+              <AnimalGallery images={WOLF_GALLERY} commonName="Wolf" />
 
               <DisclaimerBlock type="general" />
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
-import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
+import { getAnimalGalleryImages, getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
@@ -32,6 +32,7 @@ export default function DolphinPage() {
       parentCategoryHref="/animal-encyclopedia/marine-animals"
       tags={["Marine Mammal", "Cetacean", "Social"]}
       image={getAnimalImage("dolphin") ?? undefined}
+      galleryImages={getAnimalGalleryImages("dolphin")}
       factsHeaderNote={
         'Reference species for specific details below is the common bottlenose dolphin (Tursiops truncatus). "Dolphin" applies to many species in family Delphinidae and the river-dolphin families.'
       }
