@@ -127,6 +127,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  const dogBreedSlugs = [
+    "labrador-retriever",
+    "golden-retriever",
+    "german-shepherd",
+    "french-bulldog",
+    "beagle",
+    "poodle",
+    "border-collie",
+    "dachshund",
+  ];
+  const catBreedSlugs = [
+    "maine-coon",
+    "siamese",
+    "british-shorthair",
+    "persian-cat",
+    "ragdoll",
+    "bengal-cat",
+  ];
+  const breedRoutes: MetadataRoute.Sitemap = [
+    ...dogBreedSlugs.map((slug) => ({
+      url: `${BASE_URL}/dogs/breeds/${slug}`,
+      lastModified: today,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+    ...catBreedSlugs.map((slug) => ({
+      url: `${BASE_URL}/cats/breeds/${slug}`,
+      lastModified: today,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
+
   const compareRoutes: MetadataRoute.Sitemap = compareSlugs.map((slug) => ({
     url: `${BASE_URL}/compare/${slug}`,
     lastModified: today,
@@ -207,6 +240,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticRoutes,
     ...animalRoutes,
+    ...breedRoutes,
     ...compareRoutes,
     ...toolRoutes,
     ...foodSafetyRoutes,

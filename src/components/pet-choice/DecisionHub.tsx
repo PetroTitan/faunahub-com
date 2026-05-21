@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import DisclaimerBlock from "@/components/DisclaimerBlock";
@@ -21,6 +22,10 @@ interface DecisionHubProps {
   hubFaqs: { question: string; answer: string }[];
   faqTitle: string;
   lastUpdated: string;
+  /** Optional extra section rendered between the tool cards and the FAQ.
+   * Used for example by the dog/cat breed hubs to surface specific
+   * breed-profile cards alongside the decision pages. */
+  extraSection?: ReactNode;
 }
 
 export default function DecisionHub({
@@ -34,6 +39,7 @@ export default function DecisionHub({
   hubFaqs,
   faqTitle,
   lastUpdated,
+  extraSection,
 }: DecisionHubProps) {
   const breadcrumb = breadcrumbSchema([
     { name: "Home", url: "https://faunahub.com" },
@@ -149,6 +155,8 @@ export default function DecisionHub({
           </div>
 
           <DisclaimerBlock type="veterinary" />
+
+          {extraSection}
 
           <FAQBlock items={hubFaqs} title={faqTitle} />
 

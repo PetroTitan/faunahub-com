@@ -1,9 +1,21 @@
 import type { Metadata } from "next";
 import DecisionHub from "@/components/pet-choice/DecisionHub";
+import BreedProfileGrid from "@/components/breeds/BreedProfileGrid";
 import { getDecisionsByKind } from "@/lib/pet-choice/data";
 import { buildMetadata } from "@/lib/metadata";
 
-const LAST_UPDATED = "2026-05-18";
+const LAST_UPDATED = "2026-05-22";
+
+const DOG_BREED_PROFILES = [
+  { name: "Labrador Retriever", slug: "labrador-retriever" },
+  { name: "Golden Retriever", slug: "golden-retriever" },
+  { name: "German Shepherd", slug: "german-shepherd" },
+  { name: "French Bulldog", slug: "french-bulldog" },
+  { name: "Beagle", slug: "beagle" },
+  { name: "Poodle", slug: "poodle" },
+  { name: "Border Collie", slug: "border-collie" },
+  { name: "Dachshund", slug: "dachshund" },
+];
 
 export const metadata: Metadata = buildMetadata({
   title: "Dog Breed Decision Guides — Apartments, Families & First-Time Owners",
@@ -49,6 +61,9 @@ export default function DogBreedsHub() {
       hubFaqs={HUB_FAQS}
       faqTitle="Dog Breeds — Frequently Asked Questions"
       lastUpdated={LAST_UPDATED}
+      extraSection={
+        <BreedProfileGrid species="dog" breeds={DOG_BREED_PROFILES} />
+      }
     />
   );
 }

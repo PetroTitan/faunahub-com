@@ -1,4 +1,5 @@
 import { ANIMAL_IMAGES } from "@/lib/images/animal-images";
+import { BREED_IMAGES } from "@/lib/images/breed-images";
 
 const BASE_URL = "https://faunahub.com";
 
@@ -21,10 +22,34 @@ function escapeXml(value: string): string {
     .replace(/'/g, "&apos;");
 }
 
+interface SitemapImage {
+  pagePath: string;
+  localPath: string;
+  alt: string;
+  caption: string;
+  licenseUrl: string;
+}
+
 export function GET(): Response {
-  // Group images by animal page so each <url> gets all its <image:image> entries.
-  const byPage = new Map<string, typeof ANIMAL_IMAGES[number][]>();
-  for (const img of ANIMAL_IMAGES) {
+  // Group images by page so each <url> gets all its <image:image> entries.
+  const byPage = new Map<string, SitemapImage[]>();
+  const all: SitemapImage[] = [
+    ...ANIMAL_IMAGES.map((img) => ({
+      pagePath: img.pagePath,
+      localPath: img.localPath,
+      alt: img.alt,
+      caption: img.caption,
+      licenseUrl: img.licenseUrl,
+    })),
+    ...BREED_IMAGES.map((img) => ({
+      pagePath: img.pagePath,
+      localPath: img.localPath,
+      alt: img.alt,
+      caption: img.caption,
+      licenseUrl: img.licenseUrl,
+    })),
+  ];
+  for (const img of all) {
     const list = byPage.get(img.pagePath) ?? [];
     list.push(img);
     byPage.set(img.pagePath, list);

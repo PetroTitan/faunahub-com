@@ -5,6 +5,63 @@ import LastUpdated from "@/components/LastUpdated";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { ANIMAL_IMAGES, ANIMAL_IMAGE_TODOS } from "@/lib/images/animal-images";
+import { BREED_IMAGES } from "@/lib/images/breed-images";
+
+type CreditEntry = {
+  id: string;
+  localPath: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+  pagePath: string;
+  author: string;
+  license: string;
+  licenseUrl: string;
+  sourceName: string;
+  sourceUrl: string;
+  verifiedAt: string;
+  roleLabel: "Hero" | "Gallery" | "Dog breed" | "Cat breed";
+};
+
+const ALL_CREDITS: CreditEntry[] = [
+  ...ANIMAL_IMAGES.map((img) => ({
+    id: img.id,
+    localPath: img.localPath,
+    alt: img.alt,
+    caption: img.caption,
+    width: img.width,
+    height: img.height,
+    pagePath: img.pagePath,
+    author: img.author,
+    license: img.license,
+    licenseUrl: img.licenseUrl,
+    sourceName: img.sourceName,
+    sourceUrl: img.sourceUrl,
+    verifiedAt: img.verifiedAt,
+    roleLabel: (img.role === "hero" ? "Hero" : "Gallery") as
+      | "Hero"
+      | "Gallery",
+  })),
+  ...BREED_IMAGES.map((img) => ({
+    id: img.id,
+    localPath: img.localPath,
+    alt: img.alt,
+    caption: img.caption,
+    width: img.width,
+    height: img.height,
+    pagePath: img.pagePath,
+    author: img.author,
+    license: img.license,
+    licenseUrl: img.licenseUrl,
+    sourceName: img.sourceName,
+    sourceUrl: img.sourceUrl,
+    verifiedAt: img.verifiedAt,
+    roleLabel: (img.species === "dog" ? "Dog breed" : "Cat breed") as
+      | "Dog breed"
+      | "Cat breed",
+  })),
+];
 
 const IMAGE_CREDITS_FAQ = [
   {
@@ -36,7 +93,7 @@ export const metadata: Metadata = buildMetadata({
   path: "/image-credits",
 });
 
-const PAGE_UPDATED = "2026-05-21";
+const PAGE_UPDATED = "2026-05-22";
 
 export default function ImageCreditsPage() {
   const schemas = [
@@ -95,7 +152,7 @@ export default function ImageCreditsPage() {
               Photographs used on FaunaHub
             </h2>
             <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {ANIMAL_IMAGES.map((img) => (
+              {ALL_CREDITS.map((img) => (
                 <li
                   key={img.id}
                   className="border border-[#DDE6DD] rounded-xl bg-white overflow-hidden flex flex-col"
@@ -116,12 +173,14 @@ export default function ImageCreditsPage() {
                     />
                     <span
                       className={`absolute top-2 right-2 text-[10px] uppercase tracking-wider font-semibold px-2 py-0.5 rounded-full ${
-                        img.role === "hero"
+                        img.roleLabel === "Hero"
                           ? "bg-[#063F2A] text-white"
-                          : "bg-white/95 text-[#2C3A2F] border border-[#DDE6DD]"
+                          : img.roleLabel === "Gallery"
+                            ? "bg-white/95 text-[#2C3A2F] border border-[#DDE6DD]"
+                            : "bg-[#7BAA35] text-white"
                       }`}
                     >
-                      {img.role === "hero" ? "Hero" : "Gallery"}
+                      {img.roleLabel}
                     </span>
                   </div>
                   <div className="p-4 flex-1 flex flex-col gap-2">

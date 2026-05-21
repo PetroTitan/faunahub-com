@@ -1,9 +1,19 @@
 import type { Metadata } from "next";
 import DecisionHub from "@/components/pet-choice/DecisionHub";
+import BreedProfileGrid from "@/components/breeds/BreedProfileGrid";
 import { getDecisionsByKind } from "@/lib/pet-choice/data";
 import { buildMetadata } from "@/lib/metadata";
 
-const LAST_UPDATED = "2026-05-18";
+const LAST_UPDATED = "2026-05-22";
+
+const CAT_BREED_PROFILES = [
+  { name: "Maine Coon", slug: "maine-coon" },
+  { name: "Siamese", slug: "siamese" },
+  { name: "British Shorthair", slug: "british-shorthair" },
+  { name: "Persian", slug: "persian-cat" },
+  { name: "Ragdoll", slug: "ragdoll" },
+  { name: "Bengal", slug: "bengal-cat" },
+];
 
 export const metadata: Metadata = buildMetadata({
   title: "Cat Breed Decision Guides — Apartments, First-Time Owners & Families",
@@ -49,6 +59,9 @@ export default function CatBreedsHub() {
       hubFaqs={HUB_FAQS}
       faqTitle="Cat Breeds — Frequently Asked Questions"
       lastUpdated={LAST_UPDATED}
+      extraSection={
+        <BreedProfileGrid species="cat" breeds={CAT_BREED_PROFILES} />
+      }
     />
   );
 }
