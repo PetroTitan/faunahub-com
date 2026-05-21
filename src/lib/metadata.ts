@@ -14,8 +14,8 @@ interface OgImageInput {
 
 const DEFAULT_OG_IMAGE: OgImageInput = {
   url: `${SITE_URL}/brand/faunahub-logo-horizontal.png`,
-  width: 1200,
-  height: 630,
+  width: 1600,
+  height: 900,
 };
 
 function resolveOgImage(
