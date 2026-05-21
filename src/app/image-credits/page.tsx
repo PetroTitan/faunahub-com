@@ -3,8 +3,31 @@ import Image from "next/image";
 import Link from "next/link";
 import LastUpdated from "@/components/LastUpdated";
 import { buildMetadata } from "@/lib/metadata";
-import { breadcrumbSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { ANIMAL_IMAGES, ANIMAL_IMAGE_TODOS } from "@/lib/images/animal-images";
+
+const IMAGE_CREDITS_FAQ = [
+  {
+    question: "Where do FaunaHub animal images come from?",
+    answer:
+      "Every photograph on FaunaHub is sourced from a legally reusable archive — primarily Wikimedia Commons, U.S. federal public-domain photo libraries (NASA, NOAA, USFWS, NPS), and Creative Commons-licensed collections. Each image's author, source URL, and license are recorded in our internal metadata and displayed on this page.",
+  },
+  {
+    question: "Can I reuse these images on my own site?",
+    answer:
+      "FaunaHub does not own these photographs and cannot grant you a license. Each photo is governed by its own original license shown on this page — typically Public Domain, CC0, CC BY, or CC BY-SA. If you want to reuse an image, follow the terms of its original license, which usually requires attribution to the named author and a link to the license deed. For CC BY-SA, derivative works must be released under the same or a compatible licence.",
+  },
+  {
+    question: "What licenses does FaunaHub accept?",
+    answer:
+      "Only Public Domain, CC0, CC BY, and CC BY-SA. FaunaHub never publishes images with CC BY-NC, CC BY-NC-SA, CC BY-ND, GFDL-only, all-rights-reserved, AI-generated, or unclear-license status.",
+  },
+  {
+    question: "How do I request an attribution correction?",
+    answer:
+      "If you are the author of an image used here and believe the attribution, license treatment, or species identification is incorrect, email info@helperg.com and we will review the entry promptly.",
+  },
+];
 
 export const metadata: Metadata = buildMetadata({
   title: "Image Credits — Sources, Authors and Licenses",
@@ -13,19 +36,22 @@ export const metadata: Metadata = buildMetadata({
   path: "/image-credits",
 });
 
-const PAGE_UPDATED = "2026-05-20";
+const PAGE_UPDATED = "2026-05-21";
 
 export default function ImageCreditsPage() {
-  const breadcrumb = breadcrumbSchema([
-    { name: "Home", url: "https://faunahub.com" },
-    { name: "Image Credits", url: "https://faunahub.com/image-credits" },
-  ]);
+  const schemas = [
+    breadcrumbSchema([
+      { name: "Home", url: "https://faunahub.com" },
+      { name: "Image Credits", url: "https://faunahub.com/image-credits" },
+    ]),
+    faqSchema(IMAGE_CREDITS_FAQ),
+  ];
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }}
       />
       <main id="main-content">
         <header className="bg-white border-b border-[#DDE6DD] py-12">
@@ -235,6 +261,30 @@ export default function ImageCreditsPage() {
               <a href="mailto:info@helperg.com">info@helperg.com</a> and we
               will review the entry promptly.
             </p>
+          </section>
+
+          <section
+            aria-labelledby="image-credits-faq-heading"
+            className="mt-12 prose-content"
+          >
+            <h2 id="image-credits-faq-heading">
+              Image credits — frequently asked questions
+            </h2>
+            <dl className="not-prose mt-4 grid gap-5">
+              {IMAGE_CREDITS_FAQ.map((item) => (
+                <div
+                  key={item.question}
+                  className="border border-[#DDE6DD] rounded-xl bg-white p-5"
+                >
+                  <dt className="font-semibold text-[#17211B] mb-2">
+                    {item.question}
+                  </dt>
+                  <dd className="text-sm text-[#2C3A2F] leading-relaxed">
+                    {item.answer}
+                  </dd>
+                </div>
+              ))}
+            </dl>
           </section>
 
           <div className="mt-8">

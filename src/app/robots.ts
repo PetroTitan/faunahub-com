@@ -7,7 +7,10 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/_next/"],
     },
-    sitemap: "https://faunahub.com/sitemap.xml",
+    sitemap: [
+      "https://faunahub.com/sitemap.xml",
+      "https://faunahub.com/image-sitemap.xml",
+    ],
     host: "https://faunahub.com",
   };
 }
