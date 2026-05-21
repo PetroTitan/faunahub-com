@@ -40,13 +40,20 @@ export interface AnimalProfileLayoutProps {
   pageTitle: string;
   description: string;
   path: string;
-  parentCategory: "Mammals" | "Birds" | "Reptiles" | "Marine Animals" | "Insects";
+  parentCategory:
+    | "Mammals"
+    | "Birds"
+    | "Reptiles"
+    | "Marine Animals"
+    | "Insects"
+    | "Amphibians";
   parentCategoryHref:
     | "/animal-encyclopedia/mammals"
     | "/animal-encyclopedia/birds"
     | "/animal-encyclopedia/reptiles"
     | "/animal-encyclopedia/marine-animals"
-    | "/animal-encyclopedia/insects";
+    | "/animal-encyclopedia/insects"
+    | "/animal-encyclopedia";
   tags: string[];
   overview: ReactNode;
   habitat: ReactNode;

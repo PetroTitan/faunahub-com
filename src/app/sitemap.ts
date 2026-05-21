@@ -35,6 +35,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "alligator",
     "dolphin",
     "shark",
+    // Growth 2 additions
+    "horse",
+    "rabbit",
+    "guinea-pig",
+    "hamster",
+    "parrot",
+    "falcon",
+    "deer",
+    "raccoon",
+    "otter",
+    "seal",
+    "whale",
+    "octopus",
+    "snake",
+    "turtle",
+    "frog",
   ];
 
   const compareSlugs = [

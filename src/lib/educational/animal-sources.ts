@@ -148,6 +148,113 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_BRITANNICA_ANIMALS,
     SRC_IUCN,
   ],
+  horse: [
+    adw("Equus_caballus", "Equus caballus (domestic horse)"),
+    brit("horse", "Horse (Equus caballus)"),
+    {
+      label: "AVMA — Equine Welfare",
+      url: "https://www.avma.org/resources-tools/animal-health-welfare/equine-welfare",
+      type: "veterinary",
+      note: "Veterinary guidance on equine care",
+    },
+  ],
+  rabbit: [
+    adw("Oryctolagus_cuniculus", "Oryctolagus cuniculus (European rabbit)"),
+    brit("rabbit", "Rabbit (family Leporidae)"),
+    {
+      label: "House Rabbit Society — Care",
+      url: "https://rabbit.org/category/care/",
+      type: "wildlife",
+      note: "Educational guidance on rabbit welfare and care",
+    },
+  ],
+  "guinea-pig": [
+    adw("Cavia_porcellus", "Cavia porcellus (guinea pig)"),
+    brit("guinea-pig", "Guinea pig (Cavia porcellus)"),
+    {
+      label: "AVMA — Pet Owner Resources",
+      url: "https://www.avma.org/resources-tools/pet-owners/petcare",
+      type: "veterinary",
+      note: "American Veterinary Medical Association pet-care hub",
+    },
+  ],
+  hamster: [
+    adw(
+      "Mesocricetus_auratus",
+      "Mesocricetus auratus (golden / Syrian hamster)"
+    ),
+    brit("hamster", "Hamster — subfamily Cricetinae"),
+    {
+      label: "AVMA — Pet Owner Resources",
+      url: "https://www.avma.org/resources-tools/pet-owners/petcare",
+      type: "veterinary",
+      note: "American Veterinary Medical Association pet-care hub",
+    },
+  ],
+  parrot: [
+    adw("Ara_macao", "Ara macao (scarlet macaw)"),
+    brit("parrot", "Parrot — order Psittaciformes"),
+    SRC_IUCN,
+  ],
+  falcon: [
+    adw("Falco_peregrinus", "Falco peregrinus (peregrine falcon)"),
+    brit("falcon", "Falcon — family Falconidae"),
+    SRC_IUCN,
+  ],
+  deer: [
+    adw(
+      "Odocoileus_virginianus",
+      "Odocoileus virginianus (white-tailed deer)"
+    ),
+    brit("deer", "Deer — family Cervidae"),
+    SRC_IUCN,
+  ],
+  raccoon: [
+    adw("Procyon_lotor", "Procyon lotor (common raccoon)"),
+    brit("raccoon", "Raccoon (Procyon lotor)"),
+    SRC_IUCN,
+  ],
+  otter: [
+    adw("Lutra_lutra", "Lutra lutra (Eurasian otter)"),
+    brit("otter", "Otter — subfamily Lutrinae"),
+    SRC_IUCN,
+  ],
+  seal: [
+    adw("Phoca_vitulina", "Phoca vitulina (harbor seal)"),
+    brit("seal-mammal", "Seal — family Phocidae"),
+    SRC_IUCN,
+  ],
+  whale: [
+    adw(
+      "Megaptera_novaeangliae",
+      "Megaptera novaeangliae (humpback whale)"
+    ),
+    brit("whale", "Whale — infraorder Cetacea"),
+    SRC_IUCN,
+  ],
+  octopus: [
+    adw("Octopus_vulgaris", "Octopus vulgaris (common octopus)"),
+    brit("octopus-mollusk", "Octopus — order Octopoda"),
+    SRC_IUCN,
+  ],
+  snake: [
+    adw("Pantherophis_guttatus", "Pantherophis guttatus (corn snake)"),
+    brit("snake", "Snake — suborder Serpentes"),
+    SRC_IUCN,
+  ],
+  turtle: [
+    adw("Chelonia_mydas", "Chelonia mydas (green sea turtle)"),
+    brit("turtle-reptile", "Turtle — order Testudines"),
+    SRC_IUCN,
+  ],
+  frog: [
+    adw(
+      "Agalychnis_callidryas",
+      "Agalychnis callidryas (red-eyed tree frog)"
+    ),
+    brit("frog", "Frog — order Anura"),
+    SRC_IUCN,
+  ],
 };
 
 /**
