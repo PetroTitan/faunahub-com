@@ -6,6 +6,13 @@ import ToolCard from "@/components/ToolCard";
 import { getAnimalImage } from "@/lib/images/animal-images";
 import { websiteSchema, organizationSchema } from "@/lib/schema";
 
+const HOME_OG_IMAGE = {
+  url: "https://faunahub.com/brand/faunahub-logo-horizontal.png",
+  width: 1600,
+  height: 900,
+  alt: "FaunaHub — Pet Care, Animal Facts & Wildlife Intelligence",
+};
+
 export const metadata: Metadata = {
   // `absolute` prevents the root layout's title.template ("%s | FaunaHub")
   // from appending a redundant brand suffix.
@@ -18,7 +25,16 @@ export const metadata: Metadata = {
     description:
       "Practical pet care guides, animal facts, wildlife explainers, and decision tools for responsible pet owners and curious readers.",
     url: "https://faunahub.com",
+    siteName: "FaunaHub",
     type: "website",
+    images: [HOME_OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FaunaHub — Pet Care, Animal Facts & Wildlife Intelligence",
+    description:
+      "Practical pet care guides, animal facts, wildlife explainers, and decision tools for responsible pet owners and curious readers.",
+    images: [HOME_OG_IMAGE.url],
   },
 };
 
