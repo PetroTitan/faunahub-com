@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
+import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-18";
+const MODIFIED = "2026-05-21";
 
 const title = "Jaguar — Profile, Habitat, Diet & Behavior";
 const description =
@@ -17,6 +18,7 @@ export const metadata: Metadata = buildArticleMetadata({
   path: "/animals/jaguar",
   publishedTime: PUBLISHED,
   modifiedTime: MODIFIED,
+  ogImage: getAnimalOgImage("jaguar"),
 });
 
 export default function JaguarPage() {
@@ -30,6 +32,7 @@ export default function JaguarPage() {
       parentCategory="Mammals"
       parentCategoryHref="/animal-encyclopedia/mammals"
       tags={["Mammal", "Big Cat", "Apex Predator"]}
+      image={getAnimalImage("jaguar") ?? undefined}
       overview={
         <>
           <p>

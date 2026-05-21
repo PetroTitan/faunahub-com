@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
+import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-18";
+const MODIFIED = "2026-05-21";
 
 const title = "Bear — Overview of Bear Species, Habitat & Behavior";
 const description =
@@ -15,6 +16,7 @@ export const metadata: Metadata = buildArticleMetadata({
   path: "/animals/bear",
   publishedTime: PUBLISHED,
   modifiedTime: MODIFIED,
+  ogImage: getAnimalOgImage("bear"),
 });
 
 export default function BearPage() {
@@ -27,6 +29,7 @@ export default function BearPage() {
       parentCategory="Mammals"
       parentCategoryHref="/animal-encyclopedia/mammals"
       tags={["Mammal", "Carnivora", "Omnivore"]}
+      image={getAnimalImage("bear") ?? undefined}
       factsHeaderNote="Eight living bear species exist. Specific traits cited below note which species they refer to."
       overview={
         <>

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
+import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-18";
+const MODIFIED = "2026-05-21";
 
 const title = "Kangaroo — Profile, Habitat, Diet & Behavior";
 const description =
@@ -15,6 +16,7 @@ export const metadata: Metadata = buildArticleMetadata({
   path: "/animals/kangaroo",
   publishedTime: PUBLISHED,
   modifiedTime: MODIFIED,
+  ogImage: getAnimalOgImage("kangaroo"),
 });
 
 export default function KangarooPage() {
@@ -27,6 +29,7 @@ export default function KangarooPage() {
       parentCategory="Mammals"
       parentCategoryHref="/animal-encyclopedia/mammals"
       tags={["Mammal", "Marsupial", "Macropod"]}
+      image={getAnimalImage("kangaroo") ?? undefined}
       factsHeaderNote='"Kangaroo" is commonly applied to the four large macropod species: red, eastern grey, western grey and antilopine. Many other macropods (wallabies, tree-kangaroos, etc.) are related but distinct.'
       overview={
         <>

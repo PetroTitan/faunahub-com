@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
+import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-18";
+const MODIFIED = "2026-05-21";
 
 const title = "Koala — Profile, Habitat, Diet & Behavior";
 const description =
@@ -15,6 +16,7 @@ export const metadata: Metadata = buildArticleMetadata({
   path: "/animals/koala",
   publishedTime: PUBLISHED,
   modifiedTime: MODIFIED,
+  ogImage: getAnimalOgImage("koala"),
 });
 
 export default function KoalaPage() {
@@ -28,6 +30,7 @@ export default function KoalaPage() {
       parentCategory="Mammals"
       parentCategoryHref="/animal-encyclopedia/mammals"
       tags={["Mammal", "Marsupial", "Folivore"]}
+      image={getAnimalImage("koala") ?? undefined}
       overview={
         <>
           <p>

@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
+import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-18";
+const MODIFIED = "2026-05-21";
 
 const title = "Fox — Profile, Habitat, Diet & Behavior";
 const description =
@@ -15,6 +16,7 @@ export const metadata: Metadata = buildArticleMetadata({
   path: "/animals/fox",
   publishedTime: PUBLISHED,
   modifiedTime: MODIFIED,
+  ogImage: getAnimalOgImage("fox"),
 });
 
 export default function FoxPage() {
@@ -27,6 +29,7 @@ export default function FoxPage() {
       parentCategory="Mammals"
       parentCategoryHref="/animal-encyclopedia/mammals"
       tags={["Mammal", "Canid", "Omnivore"]}
+      image={getAnimalImage("fox") ?? undefined}
       factsHeaderNote="Reference species below is the red fox (Vulpes vulpes), the most widely distributed wild canid. Other foxes (Arctic, fennec, etc.) differ substantially."
       overview={
         <>

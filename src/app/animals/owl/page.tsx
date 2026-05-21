@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
+import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-18";
+const MODIFIED = "2026-05-21";
 
 const title = "Owl — Overview of Owl Species, Habitat & Behavior";
 const description =
@@ -15,6 +16,7 @@ export const metadata: Metadata = buildArticleMetadata({
   path: "/animals/owl",
   publishedTime: PUBLISHED,
   modifiedTime: MODIFIED,
+  ogImage: getAnimalOgImage("owl"),
 });
 
 export default function OwlPage() {
@@ -27,6 +29,7 @@ export default function OwlPage() {
       parentCategory="Birds"
       parentCategoryHref="/animal-encyclopedia/birds"
       tags={["Bird", "Raptor", "Nocturnal"]}
+      image={getAnimalImage("owl") ?? undefined}
       factsHeaderNote="Owls are a diverse order. Specific traits below are typical of many owl species but not universal."
       overview={
         <>

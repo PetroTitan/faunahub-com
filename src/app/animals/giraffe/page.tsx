@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import AnimalProfileLayout from "@/components/AnimalProfileLayout";
+import { getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
 
 const PUBLISHED = "2026-05-12";
-const MODIFIED = "2026-05-18";
+const MODIFIED = "2026-05-21";
 
 const title = "Giraffe — Profile, Habitat, Diet & Behavior";
 const description =
@@ -15,6 +16,7 @@ export const metadata: Metadata = buildArticleMetadata({
   path: "/animals/giraffe",
   publishedTime: PUBLISHED,
   modifiedTime: MODIFIED,
+  ogImage: getAnimalOgImage("giraffe"),
 });
 
 export default function GiraffePage() {
@@ -27,6 +29,7 @@ export default function GiraffePage() {
       parentCategory="Mammals"
       parentCategoryHref="/animal-encyclopedia/mammals"
       tags={["Mammal", "Megafauna", "Herbivore"]}
+      image={getAnimalImage("giraffe") ?? undefined}
       factsHeaderNote="Recent genetic work suggests multiple giraffe species rather than one; classifications differ between sources."
       overview={
         <>
