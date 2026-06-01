@@ -141,6 +141,7 @@ export default function GuineaPigPage() {
         { label: "Conservation status", value: "Domestic species" },
       ]}
       relatedLinks={[
+        { label: "Guinea Pig Care Guide", href: "/small-pets/guinea-pig-care" },
         { label: "Rabbit Profile", href: "/animals/rabbit" },
         { label: "Rabbit vs Guinea Pig", href: "/compare/rabbit-vs-guinea-pig" },
         { label: "Small Pets Hub", href: "/small-pets" },

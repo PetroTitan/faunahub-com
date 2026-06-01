@@ -144,6 +144,7 @@ export default function RabbitPage() {
         { label: "Conservation status", value: "Varies by species (verify per species)" },
       ]}
       relatedLinks={[
+        { label: "Rabbit Care Guide", href: "/small-pets/rabbit-care" },
         { label: "Guinea Pig Profile", href: "/animals/guinea-pig" },
         { label: "Rabbit vs Guinea Pig", href: "/compare/rabbit-vs-guinea-pig" },
         { label: "Pet Cost Calculator", href: "/tools/pet-cost-calculator" },

@@ -92,6 +92,37 @@ export default function SmallPetsPage() {
                 </Link>
               ))}
             </div>
+
+            <div className="mt-8 rounded-2xl border border-[#CFE0A8] bg-[#F7FAF0] p-5 sm:p-6">
+              <p className="text-xs uppercase tracking-wider text-[#063F2A] font-semibold mb-1">
+                Responsible care planning
+              </p>
+              <h3 className="text-lg font-bold text-[#17211B] mb-2">
+                <Link href="/small-pets/care" className="hover:underline text-[#17211B]">
+                  Small Pets Care — rabbits, guinea pigs &amp; hamsters →
+                </Link>
+              </h3>
+              <p className="text-sm text-[#2C3A2F] mb-3 max-w-2xl">
+                Housing, feeding, handling, enrichment, vet care, and warning
+                signs. Small pets are not low-effort — plan carefully.
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { href: "/small-pets/rabbit-care", label: "Rabbit care" },
+                  { href: "/small-pets/guinea-pig-care", label: "Guinea pig care" },
+                  { href: "/small-pets/hamster-care", label: "Hamster care" },
+                  { href: "/tools/small-pet-setup-checklist", label: "Setup checklist" },
+                ].map((l) => (
+                  <Link
+                    key={l.href}
+                    href={l.href}
+                    className="text-xs px-3 py-1.5 rounded-full border border-[#CFE0A8] bg-white text-[#063F2A] hover:border-[#0F5A3A] hover:no-underline transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#063F2A] focus-visible:ring-offset-2"
+                  >
+                    {l.label} →
+                  </Link>
+                ))}
+              </div>
+            </div>
           </section>
 
           <div className="mt-10 grid gap-6 lg:grid-cols-2">

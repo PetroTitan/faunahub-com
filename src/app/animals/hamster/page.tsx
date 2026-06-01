@@ -140,6 +140,7 @@ export default function HamsterPage() {
         { label: "Conservation status", value: "Varies by species (Syrian hamster is critically endangered in the wild)" },
       ]}
       relatedLinks={[
+        { label: "Hamster Care Guide", href: "/small-pets/hamster-care" },
         { label: "Small Pets Hub", href: "/small-pets" },
         { label: "Hamster age calculator", href: "/tools/hamster-age-calculator" },
         { label: "Pet Cost Calculator", href: "/tools/pet-cost-calculator" },

@@ -325,6 +325,14 @@ export default function PetAdoptionReadinessQuizPage() {
                       New kitten care →
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      href="/small-pets/care"
+                      className="underline decoration-dotted underline-offset-2 text-[#063F2A]"
+                    >
+                      Small pets care →
+                    </Link>
+                  </li>
                 </ul>
               </div>
 

@@ -199,6 +199,10 @@ export default function BudgetGuideView({ guide }: BudgetGuideViewProps) {
                     label: "New kitten care",
                     href: "/kitten-care",
                   },
+                  {
+                    label: "Small pets care",
+                    href: "/small-pets/care",
+                  },
                 ]}
               />
 

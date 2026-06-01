@@ -121,6 +121,14 @@ const otherTools = [
     icon: "🐾",
     badge: "Free",
   },
+  {
+    title: "Small Pet Setup Checklist",
+    description:
+      "Build a tailored setup checklist, vet questions, and safety reminders for a rabbit, guinea pig, or hamster. No medical advice; stays in your browser.",
+    href: "/tools/small-pet-setup-checklist",
+    icon: "🐹",
+    badge: "Free",
+  },
 ];
 
 export default function ToolsPage() {

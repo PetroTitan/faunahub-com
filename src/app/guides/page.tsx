@@ -76,6 +76,11 @@ const SECONDARY_LINKS = [
     label: "New Kitten Care",
     desc: "First weeks, vet planning, feeding, litter setup, and home safety for kittens.",
   },
+  {
+    href: "/small-pets/care",
+    label: "Small Pets Care",
+    desc: "Responsible rabbit, guinea pig, and hamster housing, feeding, and care planning.",
+  },
 ];
 
 export default function GuidesPage() {

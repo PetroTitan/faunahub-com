@@ -8,6 +8,7 @@ import { SYMPTOM_ARTICLES } from "@/lib/health/data";
 import { PET_SAFETY_ARTICLES } from "@/lib/pet-safety/data";
 import { PET_NUTRITION_ARTICLES } from "@/lib/pet-nutrition/data";
 import { EARLY_CARE_ARTICLES } from "@/lib/puppy-kitten/data";
+import { SMALL_PET_ARTICLES } from "@/lib/small-pets/data";
 
 const BASE_URL = "https://faunahub.com";
 
@@ -82,6 +83,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "pet-emergency-contact-list",
     "pet-feeding-schedule-planner",
     "puppy-kitten-first-week-checklist",
+    "small-pet-setup-checklist",
   ];
 
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -101,6 +103,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/cats/costs`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/cats/insurance`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/small-pets`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE_URL}/small-pets/care`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/birds`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/fish`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/reptiles`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
@@ -275,6 +278,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
+  const smallPetRoutes: MetadataRoute.Sitemap = SMALL_PET_ARTICLES.map(
+    (article) => ({
+      url: `${BASE_URL}${article.path}`,
+      lastModified: article.modifiedTime,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    })
+  );
+
   return [
     ...staticRoutes,
     ...animalRoutes,
@@ -291,5 +303,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...petSafetyRoutes,
     ...petNutritionRoutes,
     ...earlyCareRoutes,
+    ...smallPetRoutes,
   ];
 }

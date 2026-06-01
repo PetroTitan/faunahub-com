@@ -177,6 +177,12 @@ const TOOLS_AND_PLANNING: { label: string; href: string; description: string; ba
     description: "Early-care planning for a new kitten, including feeding routines.",
     badge: "Related hub",
   },
+  {
+    label: "Small Pets Care",
+    href: "/small-pets/care",
+    description: "Rabbit, guinea pig, and hamster feeding, housing, and care planning.",
+    badge: "Related hub",
+  },
 ];
 
 const HUB_SOURCES: SourceLink[] = [
