@@ -313,6 +313,11 @@ export default function HealthHub({
                   description: "Preparedness, poisoning awareness, and when to escalate",
                 },
                 {
+                  label: "Pet nutrition & feeding",
+                  href: "/pet-nutrition",
+                  description: "Feeding routines, food types, and life-stage needs",
+                },
+                {
                   label: "Questions to ask a vet",
                   href: "/vet-care/questions-to-ask-a-vet",
                   description: "Practical list for routine appointments",

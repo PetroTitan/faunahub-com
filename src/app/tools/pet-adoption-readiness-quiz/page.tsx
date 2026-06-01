@@ -301,6 +301,14 @@ export default function PetAdoptionReadinessQuizPage() {
                       Pet budget checklist →
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      href="/pet-nutrition"
+                      className="underline decoration-dotted underline-offset-2 text-[#063F2A]"
+                    >
+                      Pet nutrition &amp; feeding →
+                    </Link>
+                  </li>
                 </ul>
               </div>
 

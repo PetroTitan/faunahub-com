@@ -459,6 +459,15 @@ export default function PetCostCalculatorClient() {
             </Link>{" "}
             — care focus by life stage.
           </li>
+          <li>
+            <Link
+              href="/pet-nutrition"
+              className="text-[#063F2A] hover:underline font-medium"
+            >
+              Pet nutrition &amp; feeding
+            </Link>{" "}
+            — plan feeding routines, food types, and portions responsibly.
+          </li>
         </ul>
       </section>
 

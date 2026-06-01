@@ -105,6 +105,14 @@ const otherTools = [
     icon: "🚑",
     badge: "Free",
   },
+  {
+    title: "Pet Feeding Schedule Planner",
+    description:
+      "Build a sample daily feeding routine template by species, life stage, and schedule. No feeding amounts — a planning aid that stays in your browser.",
+    href: "/tools/pet-feeding-schedule-planner",
+    icon: "🍽️",
+    badge: "Free",
+  },
 ];
 
 export default function ToolsPage() {

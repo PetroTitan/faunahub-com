@@ -173,6 +173,21 @@ export default function VetCareHubPage() {
                 </p>
               </Link>
               <Link
+                href="/pet-nutrition"
+                className="rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:no-underline transition"
+              >
+                <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                  Related hub
+                </p>
+                <p className="text-base font-semibold text-[#17211B]">
+                  Pet Nutrition &amp; Feeding →
+                </p>
+                <p className="text-sm text-[#5E6B63] mt-1">
+                  Feeding routines, food types, life-stage needs, and reading
+                  labels.
+                </p>
+              </Link>
+              <Link
                 href="/tools/pet-cost-calculator"
                 className="rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:no-underline transition"
               >

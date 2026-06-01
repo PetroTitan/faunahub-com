@@ -164,6 +164,11 @@ export default function BudgetGuideView({ guide }: BudgetGuideViewProps) {
                     href: "/pet-safety",
                     description: "Plan ahead for emergency and poisoning risks",
                   },
+                  {
+                    label: "Pet nutrition & feeding",
+                    href: "/pet-nutrition",
+                    description: "Plan feeding routines and food choices",
+                  },
                 ]}
               />
 
