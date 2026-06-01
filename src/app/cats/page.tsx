@@ -38,6 +38,12 @@ const sections = [
     icon: "🧠",
   },
   {
+    title: "New Kitten Care",
+    description: "First weeks, vet visit planning, feeding, litter setup, and home safety for new kittens.",
+    href: "/kitten-care",
+    icon: "🐱",
+  },
+  {
     title: "Cost of Owning a Cat",
     description: "Realistic monthly and annual cost estimates for cat ownership.",
     href: "/cats/costs",

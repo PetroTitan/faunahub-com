@@ -165,6 +165,18 @@ const TOOLS_AND_PLANNING: { label: string; href: string; description: string; ba
     description: "Poisoning awareness, household safety, and emergency preparedness.",
     badge: "Related hub",
   },
+  {
+    label: "Puppy Care Foundation",
+    href: "/puppy-care",
+    description: "Early-care planning for a new puppy, including feeding routines.",
+    badge: "Related hub",
+  },
+  {
+    label: "Kitten Care Foundation",
+    href: "/kitten-care",
+    description: "Early-care planning for a new kitten, including feeding routines.",
+    badge: "Related hub",
+  },
 ];
 
 const HUB_SOURCES: SourceLink[] = [

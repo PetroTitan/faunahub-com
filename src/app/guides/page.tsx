@@ -66,6 +66,16 @@ const SECONDARY_LINKS = [
     label: "Animal Encyclopedia",
     desc: "Wildlife profiles for mammals, birds, reptiles, marine animals, and insects.",
   },
+  {
+    href: "/puppy-care",
+    label: "New Puppy Care",
+    desc: "First weeks, vet planning, feeding, socialization, and home safety for puppies.",
+  },
+  {
+    href: "/kitten-care",
+    label: "New Kitten Care",
+    desc: "First weeks, vet planning, feeding, litter setup, and home safety for kittens.",
+  },
 ];
 
 export default function GuidesPage() {

@@ -191,6 +191,14 @@ export default function BudgetGuideView({ guide }: BudgetGuideViewProps) {
                     label: "Low-maintenance pets",
                     href: "/guides/low-maintenance-pets",
                   },
+                  {
+                    label: "New puppy care",
+                    href: "/puppy-care",
+                  },
+                  {
+                    label: "New kitten care",
+                    href: "/kitten-care",
+                  },
                 ]}
               />
 

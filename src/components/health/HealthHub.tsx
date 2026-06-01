@@ -318,6 +318,14 @@ export default function HealthHub({
                   description: "Feeding routines, food types, and life-stage needs",
                 },
                 {
+                  label: species === "dog" ? "New puppy care" : "New kitten care",
+                  href: species === "dog" ? "/puppy-care" : "/kitten-care",
+                  description:
+                    species === "dog"
+                      ? "Early-care foundation for a new puppy"
+                      : "Early-care foundation for a new kitten",
+                },
+                {
                   label: "Questions to ask a vet",
                   href: "/vet-care/questions-to-ask-a-vet",
                   description: "Practical list for routine appointments",

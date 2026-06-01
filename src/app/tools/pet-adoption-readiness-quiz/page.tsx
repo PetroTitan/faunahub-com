@@ -309,6 +309,22 @@ export default function PetAdoptionReadinessQuizPage() {
                       Pet nutrition &amp; feeding →
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      href="/puppy-care"
+                      className="underline decoration-dotted underline-offset-2 text-[#063F2A]"
+                    >
+                      New puppy care →
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/kitten-care"
+                      className="underline decoration-dotted underline-offset-2 text-[#063F2A]"
+                    >
+                      New kitten care →
+                    </Link>
+                  </li>
                 </ul>
               </div>
 

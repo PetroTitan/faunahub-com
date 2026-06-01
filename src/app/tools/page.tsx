@@ -113,6 +113,14 @@ const otherTools = [
     icon: "🍽️",
     badge: "Free",
   },
+  {
+    title: "Puppy & Kitten First-Week Checklist",
+    description:
+      "Build a tailored first-week checklist, vet questions, and safety reminders for a new puppy or kitten. No medical schedules; stays in your browser.",
+    href: "/tools/puppy-kitten-first-week-checklist",
+    icon: "🐾",
+    badge: "Free",
+  },
 ];
 
 export default function ToolsPage() {

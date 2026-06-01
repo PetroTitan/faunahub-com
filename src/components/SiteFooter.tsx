@@ -5,6 +5,8 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
   "Pet Care": [
     { label: "Dogs", href: "/dogs" },
     { label: "Cats", href: "/cats" },
+    { label: "Puppy Care", href: "/puppy-care" },
+    { label: "Kitten Care", href: "/kitten-care" },
     { label: "Small Pets", href: "/small-pets" },
     { label: "Food Safety", href: "/dogs/food" },
     { label: "Pet Nutrition", href: "/pet-nutrition" },

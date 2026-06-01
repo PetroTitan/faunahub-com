@@ -38,6 +38,12 @@ const sections = [
     icon: "🧠",
   },
   {
+    title: "New Puppy Care",
+    description: "First weeks, vet visit planning, feeding, socialization, and home safety for new puppies.",
+    href: "/puppy-care",
+    icon: "🐶",
+  },
+  {
     title: "Cost of Owning a Dog",
     description: "Realistic cost breakdowns for food, veterinary care, grooming, and other expenses.",
     href: "/dogs/costs",

@@ -156,6 +156,9 @@ const FOLLOW_UP_LINKS = [
   { href: "/vet-care", label: "Vet care" },
   { href: "/dogs/health", label: "Dog health" },
   { href: "/cats/health", label: "Cat health" },
+  { href: "/puppy-care", label: "Puppy care" },
+  { href: "/kitten-care", label: "Kitten care" },
+  { href: "/tools/puppy-kitten-first-week-checklist", label: "First-week checklist" },
 ];
 
 function Field({

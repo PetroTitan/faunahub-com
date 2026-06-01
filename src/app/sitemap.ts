@@ -7,6 +7,7 @@ import { VET_CARE_ARTICLES } from "@/lib/vet-care/data";
 import { SYMPTOM_ARTICLES } from "@/lib/health/data";
 import { PET_SAFETY_ARTICLES } from "@/lib/pet-safety/data";
 import { PET_NUTRITION_ARTICLES } from "@/lib/pet-nutrition/data";
+import { EARLY_CARE_ARTICLES } from "@/lib/puppy-kitten/data";
 
 const BASE_URL = "https://faunahub.com";
 
@@ -80,6 +81,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "pet-adoption-readiness-quiz",
     "pet-emergency-contact-list",
     "pet-feeding-schedule-planner",
+    "puppy-kitten-first-week-checklist",
   ];
 
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -116,6 +118,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/vet-care`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/pet-safety`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/pet-nutrition`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE_URL}/puppy-care`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE_URL}/kitten-care`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/guides`, lastModified: today, changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE_URL}/resources`, lastModified: today, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/about`, lastModified: today, changeFrequency: "yearly", priority: 0.5 },
@@ -262,6 +266,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
+  const earlyCareRoutes: MetadataRoute.Sitemap = EARLY_CARE_ARTICLES.map(
+    (article) => ({
+      url: `${BASE_URL}${article.path}`,
+      lastModified: article.modifiedTime,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    })
+  );
+
   return [
     ...staticRoutes,
     ...animalRoutes,
@@ -277,5 +290,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...symptomRoutes,
     ...petSafetyRoutes,
     ...petNutritionRoutes,
+    ...earlyCareRoutes,
   ];
 }

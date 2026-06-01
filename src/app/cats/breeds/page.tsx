@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import DecisionHub from "@/components/pet-choice/DecisionHub";
 import BreedProfileGrid from "@/components/breeds/BreedProfileGrid";
+import RelatedLinks from "@/components/RelatedLinks";
 import { getDecisionsByKind } from "@/lib/pet-choice/data";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -60,7 +61,26 @@ export default function CatBreedsHub() {
       faqTitle="Cat Breeds — Frequently Asked Questions"
       lastUpdated={LAST_UPDATED}
       extraSection={
-        <BreedProfileGrid species="cat" breeds={CAT_BREED_PROFILES} />
+        <>
+          <BreedProfileGrid species="cat" breeds={CAT_BREED_PROFILES} />
+          <div className="mt-10">
+            <RelatedLinks
+              title="Bringing home a kitten?"
+              links={[
+                {
+                  label: "New kitten care foundation",
+                  href: "/kitten-care",
+                  description: "First weeks, vet planning, feeding, litter setup, and safety",
+                },
+                {
+                  label: "Pet adoption readiness quiz",
+                  href: "/tools/pet-adoption-readiness-quiz",
+                  description: "A privacy-safe readiness check before you adopt",
+                },
+              ]}
+            />
+          </div>
+        </>
       }
     />
   );
