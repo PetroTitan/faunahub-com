@@ -97,6 +97,14 @@ const otherTools = [
     icon: "🥕",
     badge: "Free",
   },
+  {
+    title: "Pet Emergency Contact List",
+    description:
+      "Build a printable emergency contact list — vet, clinic, poison control, microchip, and caretaker. Runs in your browser; nothing is stored or sent.",
+    href: "/tools/pet-emergency-contact-list",
+    icon: "🚑",
+    badge: "Free",
+  },
 ];
 
 export default function ToolsPage() {

@@ -27,6 +27,14 @@ export default function WhenToCallEmergencyVetPage() {
           ],
         },
         {
+          title: "Prepare and recognise",
+          links: [
+            { label: "Pet safety & emergency preparedness", href: "/pet-safety" },
+            { label: "When to go to the emergency vet", href: "/pet-safety/when-to-go-to-emergency-vet" },
+            { label: "Pet emergency checklist", href: "/pet-safety/pet-emergency-checklist" },
+          ],
+        },
+        {
           title: "Plan responsibly",
           links: [
             { label: "Pet insurance vs emergency fund", href: "/pet-insurance/pet-insurance-vs-emergency-fund" },

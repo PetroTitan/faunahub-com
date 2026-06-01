@@ -156,7 +156,22 @@ export default function VetCareHubPage() {
             <h2 id="tools-heading" className="section-title">
               Use the tools and guides
             </h2>
-            <div className="grid sm:grid-cols-2 gap-4 not-prose">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 not-prose">
+              <Link
+                href="/pet-safety"
+                className="rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:no-underline transition"
+              >
+                <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                  Related hub
+                </p>
+                <p className="text-base font-semibold text-[#17211B]">
+                  Pet Safety &amp; Emergencies →
+                </p>
+                <p className="text-sm text-[#5E6B63] mt-1">
+                  Preparedness checklists, poisoning awareness, and when to
+                  contact an emergency vet.
+                </p>
+              </Link>
               <Link
                 href="/tools/pet-cost-calculator"
                 className="rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:no-underline transition"

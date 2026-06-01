@@ -253,12 +253,18 @@ export default function HealthHub({
                 </li>
               ))}
             </ul>
-            <div className="mt-4">
+            <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2">
               <Link
                 href="/vet-care/when-to-call-an-emergency-vet"
                 className="text-sm font-medium text-[#063F2A] hover:underline"
               >
                 Full when-to-call-an-emergency-vet guide →
+              </Link>
+              <Link
+                href="/pet-safety/when-to-go-to-emergency-vet"
+                className="text-sm font-medium text-[#063F2A] hover:underline"
+              >
+                Pet safety: when to go to the emergency vet →
               </Link>
             </div>
           </section>
@@ -300,6 +306,11 @@ export default function HealthHub({
                   label: "Vet care hub",
                   href: "/vet-care",
                   description: "Routine and emergency planning for any pet",
+                },
+                {
+                  label: "Pet safety & emergencies",
+                  href: "/pet-safety",
+                  description: "Preparedness, poisoning awareness, and when to escalate",
                 },
                 {
                   label: "Questions to ask a vet",

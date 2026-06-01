@@ -24,7 +24,8 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
     { label: "Pet Cost Calculator", href: "/tools/pet-cost-calculator" },
     { label: "Pet Breed Selector", href: "/tools/pet-breed-selector" },
   ],
-  Planning: [
+  "Planning & Safety": [
+    { label: "Pet Safety & Emergencies", href: "/pet-safety" },
     { label: "Pet Insurance", href: "/pet-insurance" },
     { label: "Vet Care", href: "/vet-care" },
     { label: "Pet Budget Checklist", href: "/guides/pet-budget-checklist" },
@@ -44,7 +45,7 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
 
 export default function SiteFooter() {
   return (
-    <footer className="bg-[#17211B] text-white mt-20">
+    <footer className="bg-[#17211B] text-white mt-20 print:hidden print:mt-0">
       <div className="container-content py-12">
         {/* Brand */}
         <div className="mb-10 flex items-start gap-4">

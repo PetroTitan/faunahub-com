@@ -258,7 +258,7 @@ export default function FoodSafetyHub({
             title={`${speciesLabel} Food Safety — Frequently Asked Questions`}
           />
 
-          <div className="grid sm:grid-cols-2 gap-4 not-prose">
+          <div className="grid sm:grid-cols-3 gap-4 not-prose">
             <Link
               href={healthHref}
               className="rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:no-underline transition"
@@ -279,6 +279,17 @@ export default function FoodSafetyHub({
               </p>
               <p className="text-base font-semibold text-[#17211B]">
                 Can my pet eat this? →
+              </p>
+            </Link>
+            <Link
+              href="/pet-safety/pet-poisoning-warning-signs"
+              className="rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:no-underline transition"
+            >
+              <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                Pet safety
+              </p>
+              <p className="text-base font-semibold text-[#17211B]">
+                Poisoning warning signs →
               </p>
             </Link>
           </div>

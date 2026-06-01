@@ -23,7 +23,9 @@ export type SourceType =
   | "university"
   | "reference"
   | "wildlife"
-  | "breed-organization";
+  | "breed-organization"
+  | "government"
+  | "animal-welfare";
 
 export interface SourceLink {
   /** Human-readable label, including publisher + topic */
@@ -87,6 +89,8 @@ const SOURCE_TYPE_LABEL_MAP: Record<SourceType, string> = {
   reference: "Reference",
   wildlife: "Wildlife reference",
   "breed-organization": "Breed organization",
+  government: "Government",
+  "animal-welfare": "Animal welfare",
 };
 
 export function sourceTypeLabel(type: SourceType): string {

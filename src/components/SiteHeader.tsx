@@ -20,7 +20,7 @@ const compactNavItems = [
 
 export default function SiteHeader() {
   return (
-    <header className="bg-white border-b border-[#DDE6DD] sticky top-0 z-50">
+    <header className="bg-white border-b border-[#DDE6DD] sticky top-0 z-50 print:hidden">
       <div className="container-content">
         <div className="flex items-center justify-between h-16 sm:h-[68px]">
           {/* Logo */}

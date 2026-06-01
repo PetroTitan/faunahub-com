@@ -159,6 +159,11 @@ export default function BudgetGuideView({ guide }: BudgetGuideViewProps) {
                     href: "/tools/pet-breed-selector",
                     description: "Find categories that fit your home",
                   },
+                  {
+                    label: "Pet safety & emergencies",
+                    href: "/pet-safety",
+                    description: "Plan ahead for emergency and poisoning risks",
+                  },
                 ]}
               />
 
