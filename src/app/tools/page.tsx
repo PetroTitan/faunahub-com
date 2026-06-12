@@ -129,6 +129,14 @@ const otherTools = [
     icon: "🐹",
     badge: "Free",
   },
+  {
+    title: "Aquarium Setup Checklist",
+    description:
+      "Build a tailored beginner aquarium setup checklist with water-quality, species-research, and maintenance reminders. No chemical dosing; stays in your browser.",
+    href: "/tools/aquarium-setup-checklist",
+    icon: "🐟",
+    badge: "Free",
+  },
 ];
 
 export default function ToolsPage() {

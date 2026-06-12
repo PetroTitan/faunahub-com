@@ -402,6 +402,89 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     adw("Mantodea", "Mantodea (mantises)", "University of Michigan order-level account"),
     SRC_BRITANNICA_ANIMALS,
   ],
+
+  // ---------------------------------------------------------------------------
+  // Aquarium & Fish Encyclopedia Cluster. ADW species/group accounts below were
+  // each confirmed reachable (HTTP 200) on 2026-06-12. Group-level fish pages
+  // use the relevant higher taxon account rather than a single species.
+  // ---------------------------------------------------------------------------
+  "betta-fish": [
+    adw("Betta_splendens", "Betta splendens (Siamese fighting fish)"),
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  goldfish: [
+    adw("Carassius_auratus", "Carassius auratus (goldfish)"),
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  guppy: [
+    adw("Poecilia_reticulata", "Poecilia reticulata (guppy)"),
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  angelfish: [
+    adw("Pterophyllum_scalare", "Pterophyllum scalare (freshwater angelfish)"),
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  tetra: [
+    adw("Paracheirodon_innesi", "Paracheirodon innesi (neon tetra)"),
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  koi: [
+    adw("Cyprinus_carpio", "Cyprinus carpio (common carp / koi)"),
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  carp: [
+    adw("Cyprinus_carpio", "Cyprinus carpio (common carp)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  catfish: [
+    adw("Ictalurus_punctatus", "Ictalurus punctatus (channel catfish)"),
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  clownfish: [
+    adw("Amphiprion_ocellaris", "Amphiprion ocellaris (clown anemonefish)"),
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  salmon: [
+    adw("Oncorhynchus_nerka", "Oncorhynchus nerka (sockeye salmon)"),
+    {
+      label: "NOAA Fisheries — Sockeye Salmon",
+      url: "https://www.fisheries.noaa.gov/species/sockeye-salmon",
+      type: "government",
+      note: "U.S. government species page for sockeye salmon",
+    },
+    SRC_IUCN,
+  ],
+  tuna: [
+    adw("Thunnus_thynnus", "Thunnus thynnus (Atlantic bluefin tuna)"),
+    {
+      label: "NOAA Fisheries — Pacific Bluefin Tuna",
+      url: "https://www.fisheries.noaa.gov/species/pacific-bluefin-tuna",
+      type: "government",
+      note: "U.S. government species page for bluefin tuna",
+    },
+    SRC_IUCN,
+  ],
+  seahorse: [
+    adw("Hippocampus_erectus", "Hippocampus erectus (lined seahorse)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  ray: [
+    adw("Dasyatis", "Dasyatis (stingrays)", "University of Michigan genus-level account"),
+    SRC_NOAA_FISHERIES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  eel: [
+    adw("Anguilliformes", "Anguilliformes (true eels)", "University of Michigan order-level account"),
+    SRC_NOAA_FISHERIES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  pufferfish: [
+    adw("Tetraodontidae", "Tetraodontidae (pufferfish)", "University of Michigan family-level account"),
+    SRC_NOAA_FISHERIES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
 };
 
 /**

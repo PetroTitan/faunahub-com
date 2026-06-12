@@ -67,6 +67,26 @@ const links = [
     desc: "Sea stars (Asteroidea) — five-armed echinoderms of the seabed.",
   },
   {
+    href: "/animals/clownfish",
+    label: "Clownfish",
+    desc: "Reef anemonefish — see the Fish encyclopedia for more ocean fish.",
+  },
+  {
+    href: "/animals/seahorse",
+    label: "Seahorse",
+    desc: "Upright reef fish where the male carries the young.",
+  },
+  {
+    href: "/animals/ray",
+    label: "Ray",
+    desc: "Flattened cartilaginous fish related to sharks.",
+  },
+  {
+    href: "/animal-encyclopedia/fish",
+    label: "Fish Encyclopedia",
+    desc: "Salmon, tuna, eels, pufferfish, and aquarium fish — the full fish category.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",

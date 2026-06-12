@@ -117,6 +117,13 @@ const animalGroups = [
     icon: "🐳",
   },
   {
+    title: "Fish",
+    description:
+      "Aquarium and ocean fish — bettas and goldfish to salmon, tuna, and rays.",
+    href: "/animal-encyclopedia/fish",
+    icon: "🐟",
+  },
+  {
     title: "Insects & Invertebrates",
     description:
       "Bees, butterflies, ants, spiders, and mantises — the most diverse animals on Earth.",

@@ -40,6 +40,12 @@ const categories = [
     icon: "🐳",
   },
   {
+    title: "Fish",
+    description: "Bettas, goldfish, tetras, clownfish, salmon — aquarium and ocean fish.",
+    href: "/animal-encyclopedia/fish",
+    icon: "🐟",
+  },
+  {
     title: "Insects & Invertebrates",
     description: "Bees, butterflies, ants, spiders — the most diverse animals on Earth.",
     href: "/animal-encyclopedia/insects",
@@ -112,9 +118,25 @@ const allAnimalProfiles: { label: string; href: string; group: string }[] = [
   { label: "Dragonfly", href: "/animals/dragonfly", group: "Insects & Invertebrates" },
   { label: "Ladybug", href: "/animals/ladybug", group: "Insects & Invertebrates" },
   { label: "Praying Mantis", href: "/animals/praying-mantis", group: "Insects & Invertebrates" },
+  // Aquarium & Fish Encyclopedia Cluster
+  { label: "Betta Fish", href: "/animals/betta-fish", group: "Fish" },
+  { label: "Goldfish", href: "/animals/goldfish", group: "Fish" },
+  { label: "Guppy", href: "/animals/guppy", group: "Fish" },
+  { label: "Angelfish", href: "/animals/angelfish", group: "Fish" },
+  { label: "Tetra", href: "/animals/tetra", group: "Fish" },
+  { label: "Koi", href: "/animals/koi", group: "Fish" },
+  { label: "Carp", href: "/animals/carp", group: "Fish" },
+  { label: "Catfish", href: "/animals/catfish", group: "Fish" },
+  { label: "Clownfish", href: "/animals/clownfish", group: "Fish" },
+  { label: "Salmon", href: "/animals/salmon", group: "Fish" },
+  { label: "Tuna", href: "/animals/tuna", group: "Fish" },
+  { label: "Seahorse", href: "/animals/seahorse", group: "Fish" },
+  { label: "Ray", href: "/animals/ray", group: "Fish" },
+  { label: "Eel", href: "/animals/eel", group: "Fish" },
+  { label: "Pufferfish", href: "/animals/pufferfish", group: "Fish" },
 ];
 
-const ORDER = ["Mammals", "Birds", "Reptiles", "Marine Animals", "Insects & Invertebrates"];
+const ORDER = ["Mammals", "Birds", "Reptiles", "Marine Animals", "Fish", "Insects & Invertebrates"];
 
 export default function AnimalEncyclopediaPage() {
   const breadcrumb = breadcrumbSchema([

@@ -45,6 +45,7 @@ export interface AnimalProfileLayoutProps {
     | "Birds"
     | "Reptiles"
     | "Marine Animals"
+    | "Fish"
     | "Insects"
     | "Insects & Invertebrates"
     | "Amphibians";
@@ -53,6 +54,7 @@ export interface AnimalProfileLayoutProps {
     | "/animal-encyclopedia/birds"
     | "/animal-encyclopedia/reptiles"
     | "/animal-encyclopedia/marine-animals"
+    | "/animal-encyclopedia/fish"
     | "/animal-encyclopedia/insects"
     | "/animal-encyclopedia";
   tags: string[];

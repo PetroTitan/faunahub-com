@@ -13,6 +13,21 @@ export const metadata: Metadata = buildMetadata({
 
 const links = [
   {
+    href: "/aquarium-care",
+    label: "Aquarium Care Hub",
+    desc: "Responsible setup, water quality and cycling, feeding, maintenance, and warning signs.",
+  },
+  {
+    href: "/animal-encyclopedia/fish",
+    label: "Fish Encyclopedia",
+    desc: "Profiles with licensed photos — bettas, goldfish, guppies, clownfish, salmon, and more.",
+  },
+  {
+    href: "/tools/aquarium-setup-checklist",
+    label: "Aquarium Setup Checklist",
+    desc: "A free, privacy-safe planning checklist for a freshwater or marine tank.",
+  },
+  {
     href: "/small-pets",
     label: "Small Pet Care Guides",
     desc: "Care guides for rabbits, guinea pigs, hamsters, and other small companions.",
@@ -68,7 +83,7 @@ export default function FishPage() {
               experience is recommended.
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-4 mt-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
               {links.map((link) => (
                 <Link
                   key={link.href}
@@ -138,10 +153,10 @@ export default function FishPage() {
           </div>
 
           <p className="mt-8 text-sm text-[#5E6B63]">
-            Aquarium setup guides and fish species profiles are in development.
-            The wildlife and encyclopedia profiles linked above are educational
-            resources about wild marine species and are not pet-care or
-            pet-ownership recommendations.
+            The Aquarium Care hub and Fish Encyclopedia linked above cover
+            responsible setup and species profiles. The wildlife and
+            encyclopedia profiles are educational resources and are not
+            pet-care or pet-ownership recommendations.
           </p>
         </div>
       </main>
