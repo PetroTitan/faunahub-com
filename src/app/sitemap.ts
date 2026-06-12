@@ -9,6 +9,7 @@ import { PET_SAFETY_ARTICLES } from "@/lib/pet-safety/data";
 import { PET_NUTRITION_ARTICLES } from "@/lib/pet-nutrition/data";
 import { EARLY_CARE_ARTICLES } from "@/lib/puppy-kitten/data";
 import { SMALL_PET_ARTICLES } from "@/lib/small-pets/data";
+import { AQUARIUM_ARTICLES } from "@/lib/aquarium/data";
 
 const BASE_URL = "https://faunahub.com";
 
@@ -81,6 +82,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "dragonfly",
     "ladybug",
     "praying-mantis",
+    // Aquarium & Fish Encyclopedia Cluster
+    "betta-fish",
+    "goldfish",
+    "guppy",
+    "angelfish",
+    "tetra",
+    "koi",
+    "carp",
+    "catfish",
+    "clownfish",
+    "salmon",
+    "tuna",
+    "seahorse",
+    "ray",
+    "eel",
+    "pufferfish",
   ];
 
   const compareSlugs = [
@@ -110,6 +127,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "pet-feeding-schedule-planner",
     "puppy-kitten-first-week-checklist",
     "small-pet-setup-checklist",
+    "aquarium-setup-checklist",
   ];
 
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -139,7 +157,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/animal-encyclopedia/birds`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/animal-encyclopedia/reptiles`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/animal-encyclopedia/marine-animals`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE_URL}/animal-encyclopedia/fish`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/animal-encyclopedia/insects`, lastModified: today, changeFrequency: "weekly", priority: 0.7 },
+    { url: `${BASE_URL}/aquarium-care`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/compare`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/tools`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/costs`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
@@ -313,6 +333,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
+  const aquariumRoutes: MetadataRoute.Sitemap = AQUARIUM_ARTICLES.map(
+    (article) => ({
+      url: `${BASE_URL}${article.path}`,
+      lastModified: article.modifiedTime,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    })
+  );
+
   return [
     ...staticRoutes,
     ...animalRoutes,
@@ -330,5 +359,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...petNutritionRoutes,
     ...earlyCareRoutes,
     ...smallPetRoutes,
+    ...aquariumRoutes,
   ];
 }
