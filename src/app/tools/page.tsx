@@ -137,6 +137,14 @@ const otherTools = [
     icon: "🐟",
     badge: "Free",
   },
+  {
+    title: "Backyard Bird Observation Checklist",
+    description:
+      "Build a tailored ethical bird-watching checklist with ID notes and what-not-to-do reminders. No wildlife handling or feeding prescriptions; stays in your browser.",
+    href: "/tools/backyard-bird-observation-checklist",
+    icon: "🐦",
+    badge: "Free",
+  },
 ];
 
 export default function ToolsPage() {

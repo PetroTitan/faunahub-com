@@ -50,6 +50,20 @@ export const SRC_XERCES: SourceLink = {
   note: "Science-based invertebrate conservation resources",
 };
 
+export const SRC_CORNELL_BIRDS: SourceLink = {
+  label: "Cornell Lab of Ornithology — All About Birds",
+  url: "https://www.allaboutbirds.org/",
+  type: "university",
+  note: "Cornell University ornithology reference for bird species",
+};
+
+export const SRC_AUDUBON: SourceLink = {
+  label: "National Audubon Society — Bird Guide",
+  url: "https://www.audubon.org/",
+  type: "wildlife",
+  note: "Bird identification and conservation reference",
+};
+
 /** Per-species ADW account helper. */
 function adw(species: string, label: string, note?: string): SourceLink {
   return {
@@ -484,6 +498,87 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     adw("Tetraodontidae", "Tetraodontidae (pufferfish)", "University of Michigan family-level account"),
     SRC_NOAA_FISHERIES,
     SRC_BRITANNICA_ANIMALS,
+  ],
+
+  // ---------------------------------------------------------------------------
+  // Birds Expansion Cluster. ADW species accounts below were each confirmed
+  // reachable (HTTP 200) on 2026-06-12. Group-level bird pages name a
+  // reference species and use cautious, varies-by-species language.
+  // ---------------------------------------------------------------------------
+  robin: [
+    adw("Erithacus_rubecula", "Erithacus rubecula (European robin)"),
+    SRC_CORNELL_BIRDS,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  sparrow: [
+    adw("Passer_domesticus", "Passer domesticus (house sparrow)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  crow: [
+    adw("Corvus_brachyrhynchos", "Corvus brachyrhynchos (American crow)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  raven: [
+    adw("Corvus_corax", "Corvus corax (common raven)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  pigeon: [
+    adw("Columba_livia", "Columba livia (rock dove / pigeon)"),
+    SRC_CORNELL_BIRDS,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  swan: [
+    adw("Cygnus_olor", "Cygnus olor (mute swan)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  flamingo: [
+    adw("Phoenicopterus_roseus", "Phoenicopterus roseus (greater flamingo)"),
+    SRC_AUDUBON,
+    SRC_IUCN,
+  ],
+  peacock: [
+    adw("Pavo_cristatus", "Pavo cristatus (Indian peafowl)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  toucan: [
+    adw("Ramphastos_toco", "Ramphastos toco (toco toucan)"),
+    SRC_AUDUBON,
+    SRC_IUCN,
+  ],
+  hummingbird: [
+    adw("Calypte_anna", "Calypte anna (Anna's hummingbird)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  woodpecker: [
+    adw("Dendrocopos_major", "Dendrocopos major (great spotted woodpecker)"),
+    SRC_CORNELL_BIRDS,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  hawk: [
+    adw("Buteo_jamaicensis", "Buteo jamaicensis (red-tailed hawk)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  vulture: [
+    adw("Cathartes_aura", "Cathartes aura (turkey vulture)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  pelican: [
+    adw("Pelecanus_occidentalis", "Pelecanus occidentalis (brown pelican)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  stork: [
+    adw("Ciconia_ciconia", "Ciconia ciconia (white stork)"),
+    SRC_AUDUBON,
+    SRC_IUCN,
   ],
 };
 

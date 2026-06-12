@@ -36,6 +36,21 @@ const birds = [
     label: "Goose",
     desc: "Large grazing waterfowl (Anatidae) known for flocking and long migrations.",
   },
+  { href: "/animals/robin", label: "Robin", desc: "Small garden songbird (European robin as reference)." },
+  { href: "/animals/sparrow", label: "Sparrow", desc: "Small social seed-eaters; house sparrow as reference." },
+  { href: "/animals/crow", label: "Crow", desc: "Intelligent corvids in the genus Corvus." },
+  { href: "/animals/raven", label: "Raven", desc: "Corvus corax — the large corvid relative of the crow." },
+  { href: "/animals/pigeon", label: "Pigeon", desc: "Rock dove (Columba livia), wild and domestic forms." },
+  { href: "/animals/swan", label: "Swan", desc: "Large long-necked waterfowl; mute swan as reference." },
+  { href: "/animals/flamingo", label: "Flamingo", desc: "Pink filter-feeding wading birds (Phoenicopteridae)." },
+  { href: "/animals/peacock", label: "Peacock", desc: "Male Indian peafowl, famous for its display train." },
+  { href: "/animals/toucan", label: "Toucan", desc: "Tropical birds with huge bills (Ramphastidae)." },
+  { href: "/animals/hummingbird", label: "Hummingbird", desc: "Tiny hovering nectar specialists (Trochilidae)." },
+  { href: "/animals/woodpecker", label: "Woodpecker", desc: "Tree-climbing, drumming birds (Picidae)." },
+  { href: "/animals/hawk", label: "Hawk", desc: "Birds of prey; red-tailed hawk as reference." },
+  { href: "/animals/vulture", label: "Vulture", desc: "Scavenging birds; New World and Old World groups." },
+  { href: "/animals/pelican", label: "Pelican", desc: "Large waterbirds with a fish-catching throat pouch." },
+  { href: "/animals/stork", label: "Stork", desc: "Tall wading birds (Ciconiidae); white stork as reference." },
 ];
 
 export default function EncyclopediaBirdsPage() {
@@ -120,7 +135,29 @@ export default function EncyclopediaBirdsPage() {
             </div>
           </section>
 
-          <div className="mt-8 grid sm:grid-cols-2 gap-4">
+          <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <Link
+              href="/birdwatching"
+              className="card p-4 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+            >
+              <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
+                Birdwatching Hub
+              </h3>
+              <p className="text-xs text-[#5E6B63]">
+                Ethical observation, identification, feeding, and nesting-season guidance.
+              </p>
+            </Link>
+            <Link
+              href="/bird-care"
+              className="card p-4 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+            >
+              <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
+                Bird Care Basics
+              </h3>
+              <p className="text-xs text-[#5E6B63]">
+                Cautious pet-bird care planning and when to call an avian vet.
+              </p>
+            </Link>
             <Link
               href="/birds"
               className="card p-4 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"

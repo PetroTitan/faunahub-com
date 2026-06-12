@@ -134,6 +134,22 @@ const allAnimalProfiles: { label: string; href: string; group: string }[] = [
   { label: "Ray", href: "/animals/ray", group: "Fish" },
   { label: "Eel", href: "/animals/eel", group: "Fish" },
   { label: "Pufferfish", href: "/animals/pufferfish", group: "Fish" },
+  // Birds Expansion Cluster
+  { label: "Robin", href: "/animals/robin", group: "Birds" },
+  { label: "Sparrow", href: "/animals/sparrow", group: "Birds" },
+  { label: "Crow", href: "/animals/crow", group: "Birds" },
+  { label: "Raven", href: "/animals/raven", group: "Birds" },
+  { label: "Pigeon", href: "/animals/pigeon", group: "Birds" },
+  { label: "Swan", href: "/animals/swan", group: "Birds" },
+  { label: "Flamingo", href: "/animals/flamingo", group: "Birds" },
+  { label: "Peacock", href: "/animals/peacock", group: "Birds" },
+  { label: "Toucan", href: "/animals/toucan", group: "Birds" },
+  { label: "Hummingbird", href: "/animals/hummingbird", group: "Birds" },
+  { label: "Woodpecker", href: "/animals/woodpecker", group: "Birds" },
+  { label: "Hawk", href: "/animals/hawk", group: "Birds" },
+  { label: "Vulture", href: "/animals/vulture", group: "Birds" },
+  { label: "Pelican", href: "/animals/pelican", group: "Birds" },
+  { label: "Stork", href: "/animals/stork", group: "Birds" },
 ];
 
 const ORDER = ["Mammals", "Birds", "Reptiles", "Marine Animals", "Fish", "Insects & Invertebrates"];

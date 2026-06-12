@@ -459,6 +459,11 @@ export default function WildlifePage() {
             title="Also Explore"
             links={[
               {
+                label: "Birdwatching",
+                href: "/birdwatching",
+                description: "Responsible, ethical wild bird observation.",
+              },
+              {
                 label: "Animal Encyclopedia",
                 href: "/animal-encyclopedia",
                 description: "Browse profiles by animal group.",

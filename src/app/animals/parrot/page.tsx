@@ -147,9 +147,10 @@ export default function ParrotPage() {
         { label: "Conservation status", value: "Varies (many species threatened) — verify per species" },
       ]}
       relatedLinks={[
-        { label: "Eagle Profile", href: "/animals/eagle" },
-        { label: "Falcon Profile", href: "/animals/falcon" },
+        { label: "Bird Care Basics", href: "/bird-care", description: "Cautious pet-bird care planning" },
+        { label: "Toucan Profile", href: "/animals/toucan" },
         { label: "Birds Hub", href: "/animal-encyclopedia/birds" },
+        { label: "Birdwatching Hub", href: "/birdwatching" },
         { label: "Pet Cost Calculator", href: "/tools/pet-cost-calculator" },
       ]}
       sources={ANIMAL_SOURCES.parrot}
