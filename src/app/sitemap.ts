@@ -10,6 +10,8 @@ import { PET_NUTRITION_ARTICLES } from "@/lib/pet-nutrition/data";
 import { EARLY_CARE_ARTICLES } from "@/lib/puppy-kitten/data";
 import { SMALL_PET_ARTICLES } from "@/lib/small-pets/data";
 import { AQUARIUM_ARTICLES } from "@/lib/aquarium/data";
+import { BIRDWATCHING_ARTICLES } from "@/lib/birdwatching/data";
+import { BIRD_CARE_ARTICLES } from "@/lib/bird-care/data";
 
 const BASE_URL = "https://faunahub.com";
 
@@ -98,6 +100,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "ray",
     "eel",
     "pufferfish",
+    // Birds Expansion Cluster
+    "robin",
+    "sparrow",
+    "crow",
+    "raven",
+    "pigeon",
+    "swan",
+    "flamingo",
+    "peacock",
+    "toucan",
+    "hummingbird",
+    "woodpecker",
+    "hawk",
+    "vulture",
+    "pelican",
+    "stork",
   ];
 
   const compareSlugs = [
@@ -128,6 +146,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "puppy-kitten-first-week-checklist",
     "small-pet-setup-checklist",
     "aquarium-setup-checklist",
+    "backyard-bird-observation-checklist",
   ];
 
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -160,6 +179,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/animal-encyclopedia/fish`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/animal-encyclopedia/insects`, lastModified: today, changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE_URL}/aquarium-care`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE_URL}/birdwatching`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE_URL}/bird-care`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/compare`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/tools`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE_URL}/costs`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
@@ -342,6 +363,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   );
 
+  const birdGuideRoutes: MetadataRoute.Sitemap = [
+    ...BIRDWATCHING_ARTICLES,
+    ...BIRD_CARE_ARTICLES,
+  ].map((article) => ({
+    url: `${BASE_URL}${article.path}`,
+    lastModified: article.modifiedTime,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
   return [
     ...staticRoutes,
     ...animalRoutes,
@@ -360,5 +391,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...earlyCareRoutes,
     ...smallPetRoutes,
     ...aquariumRoutes,
+    ...birdGuideRoutes,
   ];
 }
