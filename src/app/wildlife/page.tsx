@@ -61,6 +61,30 @@ const wildlifeProfiles = [
     desc: "Large diurnal raptors with powerful vision and varied global range.",
     icon: "🦅",
   },
+  {
+    label: "Moose",
+    href: "/animals/moose",
+    desc: "Alces alces — the largest living deer, found in northern forests.",
+    icon: "🫎",
+  },
+  {
+    label: "Sea Turtle",
+    href: "/animals/sea-turtle",
+    desc: "Ancient ocean reptiles — seven species, several of them threatened.",
+    icon: "🐢",
+  },
+  {
+    label: "Bee",
+    href: "/animals/bee",
+    desc: "Clade Anthophila — pollinators essential to wild plants and crops.",
+    icon: "🐝",
+  },
+  {
+    label: "Beaver",
+    href: "/animals/beaver",
+    desc: "Castor — dam-building rodents that engineer entire wetlands.",
+    icon: "🦫",
+  },
 ];
 
 const animalGroups = [
@@ -93,9 +117,9 @@ const animalGroups = [
     icon: "🐳",
   },
   {
-    title: "Insects",
+    title: "Insects & Invertebrates",
     description:
-      "Bees, ants, butterflies — the most diverse animal class on Earth.",
+      "Bees, butterflies, ants, spiders, and mantises — the most diverse animals on Earth.",
     href: "/animal-encyclopedia/insects",
     icon: "🦋",
   },

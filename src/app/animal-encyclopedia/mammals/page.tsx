@@ -27,6 +27,16 @@ const mammals = [
   { href: "/animals/chimpanzee", label: "Chimpanzee", desc: "Pan troglodytes — one of humans' closest relatives." },
   { href: "/animals/kangaroo", label: "Kangaroo", desc: "Macropodidae — Australian marsupials." },
   { href: "/animals/koala", label: "Koala", desc: "Phascolarctos cinereus — arboreal marsupial." },
+  { href: "/animals/moose", label: "Moose", desc: "Alces alces — the largest living deer." },
+  { href: "/animals/lynx", label: "Lynx", desc: "Genus Lynx — tuft-eared forest wild cats." },
+  { href: "/animals/badger", label: "Badger", desc: "Stocky burrowing mammals; mostly mustelids." },
+  { href: "/animals/beaver", label: "Beaver", desc: "Castor — dam-building wetland engineers." },
+  { href: "/animals/hedgehog", label: "Hedgehog", desc: "Subfamily Erinaceinae — small spiny insectivores." },
+  { href: "/animals/bat", label: "Bat", desc: "Order Chiroptera — the only flying mammals." },
+  { href: "/animals/cow", label: "Cow (Cattle)", desc: "Bos taurus — domesticated farm ruminant." },
+  { href: "/animals/goat", label: "Goat", desc: "Capra hircus — agile domesticated browser." },
+  { href: "/animals/sheep", label: "Sheep", desc: "Ovis aries — woolly domesticated grazer." },
+  { href: "/animals/pig", label: "Pig", desc: "Sus domesticus — intelligent omnivorous livestock." },
 ];
 
 export default function MammalsPage() {

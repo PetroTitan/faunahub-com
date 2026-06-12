@@ -46,6 +46,7 @@ export interface AnimalProfileLayoutProps {
     | "Reptiles"
     | "Marine Animals"
     | "Insects"
+    | "Insects & Invertebrates"
     | "Amphibians";
   parentCategoryHref:
     | "/animal-encyclopedia/mammals"

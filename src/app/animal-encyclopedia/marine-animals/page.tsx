@@ -22,6 +22,51 @@ const links = [
     desc: "Cartilaginous fish — 500+ species in superorder Selachimorpha.",
   },
   {
+    href: "/animals/whale",
+    label: "Whale",
+    desc: "Cetaceans including the largest animals ever known to have lived.",
+  },
+  {
+    href: "/animals/seal",
+    label: "Seal",
+    desc: "Pinnipeds — marine mammals adapted to life in and out of water.",
+  },
+  {
+    href: "/animals/octopus",
+    label: "Octopus",
+    desc: "Eight-armed cephalopod molluscs known for intelligence and camouflage.",
+  },
+  {
+    href: "/animals/squid",
+    label: "Squid",
+    desc: "Fast-swimming cephalopods — a group-level overview of order Teuthida.",
+  },
+  {
+    href: "/animals/crab",
+    label: "Crab",
+    desc: "True crabs (Brachyura) — ten-legged crustaceans with a broad shell.",
+  },
+  {
+    href: "/animals/lobster",
+    label: "Lobster",
+    desc: "Clawed seabed crustaceans, using the American lobster as a reference.",
+  },
+  {
+    href: "/animals/jellyfish",
+    label: "Jellyfish",
+    desc: "Soft-bodied drifting cnidarians with stinging tentacles.",
+  },
+  {
+    href: "/animals/sea-turtle",
+    label: "Sea Turtle",
+    desc: "Ancient ocean reptiles — seven species, several of them threatened.",
+  },
+  {
+    href: "/animals/starfish",
+    label: "Starfish",
+    desc: "Sea stars (Asteroidea) — five-armed echinoderms of the seabed.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",
@@ -105,10 +150,6 @@ export default function MarineAnimalsPage() {
               or Not Evaluated, this is clearly stated rather than an estimate provided.
             </p>
           </section>
-
-          <p className="mt-8 text-sm text-[#5E6B63]">
-            Marine animal species profiles are in development.
-          </p>
         </div>
       </main>
     </>

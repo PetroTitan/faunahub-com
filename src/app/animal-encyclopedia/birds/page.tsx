@@ -26,6 +26,16 @@ const birds = [
     label: "Penguin",
     desc: "Flightless seabirds of family Spheniscidae adapted for wing-propelled swimming.",
   },
+  {
+    href: "/animals/duck",
+    label: "Duck",
+    desc: "Waterfowl of family Anatidae — a group-level overview using the mallard as a reference.",
+  },
+  {
+    href: "/animals/goose",
+    label: "Goose",
+    desc: "Large grazing waterfowl (Anatidae) known for flocking and long migrations.",
+  },
 ];
 
 export default function EncyclopediaBirdsPage() {

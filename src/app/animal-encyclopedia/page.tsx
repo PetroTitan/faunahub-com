@@ -40,8 +40,8 @@ const categories = [
     icon: "🐳",
   },
   {
-    title: "Insects",
-    description: "Bees, ants, beetles, butterflies — the most diverse animal class on Earth.",
+    title: "Insects & Invertebrates",
+    description: "Bees, butterflies, ants, spiders — the most diverse animals on Earth.",
     href: "/animal-encyclopedia/insects",
     icon: "🦋",
   },
@@ -86,9 +86,35 @@ const allAnimalProfiles: { label: string; href: string; group: string }[] = [
   { label: "Seal", href: "/animals/seal", group: "Marine Animals" },
   { label: "Whale", href: "/animals/whale", group: "Marine Animals" },
   { label: "Octopus", href: "/animals/octopus", group: "Marine Animals" },
+  // Encyclopedia Expansion Batch 2
+  { label: "Cow", href: "/animals/cow", group: "Mammals" },
+  { label: "Goat", href: "/animals/goat", group: "Mammals" },
+  { label: "Sheep", href: "/animals/sheep", group: "Mammals" },
+  { label: "Pig", href: "/animals/pig", group: "Mammals" },
+  { label: "Moose", href: "/animals/moose", group: "Mammals" },
+  { label: "Lynx", href: "/animals/lynx", group: "Mammals" },
+  { label: "Badger", href: "/animals/badger", group: "Mammals" },
+  { label: "Beaver", href: "/animals/beaver", group: "Mammals" },
+  { label: "Hedgehog", href: "/animals/hedgehog", group: "Mammals" },
+  { label: "Bat", href: "/animals/bat", group: "Mammals" },
+  { label: "Duck", href: "/animals/duck", group: "Birds" },
+  { label: "Goose", href: "/animals/goose", group: "Birds" },
+  { label: "Squid", href: "/animals/squid", group: "Marine Animals" },
+  { label: "Crab", href: "/animals/crab", group: "Marine Animals" },
+  { label: "Lobster", href: "/animals/lobster", group: "Marine Animals" },
+  { label: "Jellyfish", href: "/animals/jellyfish", group: "Marine Animals" },
+  { label: "Sea Turtle", href: "/animals/sea-turtle", group: "Marine Animals" },
+  { label: "Starfish", href: "/animals/starfish", group: "Marine Animals" },
+  { label: "Bee", href: "/animals/bee", group: "Insects & Invertebrates" },
+  { label: "Butterfly", href: "/animals/butterfly", group: "Insects & Invertebrates" },
+  { label: "Ant", href: "/animals/ant", group: "Insects & Invertebrates" },
+  { label: "Spider", href: "/animals/spider", group: "Insects & Invertebrates" },
+  { label: "Dragonfly", href: "/animals/dragonfly", group: "Insects & Invertebrates" },
+  { label: "Ladybug", href: "/animals/ladybug", group: "Insects & Invertebrates" },
+  { label: "Praying Mantis", href: "/animals/praying-mantis", group: "Insects & Invertebrates" },
 ];
 
-const ORDER = ["Mammals", "Birds", "Reptiles", "Marine Animals"];
+const ORDER = ["Mammals", "Birds", "Reptiles", "Marine Animals", "Insects & Invertebrates"];
 
 export default function AnimalEncyclopediaPage() {
   const breadcrumb = breadcrumbSchema([

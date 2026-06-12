@@ -4,17 +4,47 @@ import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Insects Encyclopedia — Species Profiles & Ecology",
+  title: "Insects & Invertebrates Encyclopedia — Species Profiles & Ecology",
   description:
-    "Educational profiles of insect species — the most diverse animal class on Earth. Covering bees, ants, beetles, butterflies, and more.",
+    "Educational profiles of insects and other invertebrates — bees, butterflies, ants, spiders, dragonflies, ladybugs, and mantises. Anatomy, diet, and ecology.",
   path: "/animal-encyclopedia/insects",
 });
 
-const links = [
+const groups = [
   {
-    href: "/animal-encyclopedia",
-    label: "Animal Encyclopedia",
-    desc: "Browse all animal categories including mammals, birds, reptiles, and marine animals.",
+    href: "/animals/bee",
+    label: "Bee",
+    desc: "Clade Anthophila — vital pollinators; a group-level overview using the honey bee.",
+  },
+  {
+    href: "/animals/butterfly",
+    label: "Butterfly",
+    desc: "Order Lepidoptera — day-flying insects with a four-stage life cycle.",
+  },
+  {
+    href: "/animals/ant",
+    label: "Ant",
+    desc: "Family Formicidae — highly social insects living in organised colonies.",
+  },
+  {
+    href: "/animals/dragonfly",
+    label: "Dragonfly",
+    desc: "Infraorder Anisoptera — fast aerial predators with aquatic larvae.",
+  },
+  {
+    href: "/animals/ladybug",
+    label: "Ladybug",
+    desc: "Family Coccinellidae — small beetles, many of them helpful aphid predators.",
+  },
+  {
+    href: "/animals/praying-mantis",
+    label: "Praying Mantis",
+    desc: "Order Mantodea — ambush predators with grasping forelegs and keen eyesight.",
+  },
+  {
+    href: "/animals/spider",
+    label: "Spider",
+    desc: "Order Araneae — eight-legged arachnids (not insects) that produce silk.",
   },
 ];
 
@@ -22,7 +52,7 @@ export default function InsectsPage() {
   const breadcrumb = breadcrumbSchema([
     { name: "Home", url: "https://faunahub.com" },
     { name: "Animal Encyclopedia", url: "https://faunahub.com/animal-encyclopedia" },
-    { name: "Insects", url: "https://faunahub.com/animal-encyclopedia/insects" },
+    { name: "Insects & Invertebrates", url: "https://faunahub.com/animal-encyclopedia/insects" },
   ]);
 
   return (
@@ -42,64 +72,85 @@ export default function InsectsPage() {
                 Animal Encyclopedia
               </Link>
               <span aria-hidden="true">/</span>
-              <span className="text-[#17211B] font-medium" aria-current="page">Insects</span>
+              <span className="text-[#17211B] font-medium" aria-current="page">Insects &amp; Invertebrates</span>
             </nav>
             <span className="tag mb-3 inline-block">Animal Encyclopedia</span>
             <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">
-              Insects
+              Insects &amp; Invertebrates
             </h1>
             <p className="text-base text-[#2C3A2F] leading-relaxed max-w-2xl">
               Insects are the most species-rich class of animals on Earth — with over one million
-              described species and estimates of the true total running from two to ten million or
-              more. They have colonized virtually every terrestrial and freshwater habitat and
-              perform ecological functions indispensable to global food systems, including
-              pollination, decomposition, and forming the base of many food webs.
+              described species and estimates of the true total running far higher. Together with
+              other invertebrates such as spiders, they have colonised virtually every land and
+              freshwater habitat and perform ecological functions indispensable to global food
+              systems, including pollination, decomposition, and forming the base of many food webs.
             </p>
           </div>
         </header>
 
         <div className="container-content py-10">
-          <section aria-labelledby="about-heading">
-            <h2 id="about-heading" className="section-title">About This Section</h2>
+          <section aria-labelledby="profiles-heading">
+            <h2 id="profiles-heading" className="section-title">Insect &amp; Invertebrate Profiles</h2>
             <p className="section-subtitle max-w-2xl">
-              Insect profiles on FaunaHub cover species from major insect orders including
-              Hymenoptera (bees, wasps, ants), Coleoptera (beetles), Lepidoptera (butterflies
-              and moths), Diptera (flies), and Orthoptera (grasshoppers and crickets). Each
-              profile addresses anatomy, life cycle, habitat, diet, ecological role, and where
-              relevant, the species&apos; relationship to agriculture or human environments.
+              Each profile is a cautious, group-level overview rather than a single-species
+              monograph. We cover anatomy, life cycle, habitat, diet, and ecological role, and we
+              note where a common name spans many species. Spiders are included here as familiar
+              invertebrates, with a clear reminder that they are arachnids, not insects.
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-4 mt-8">
-              {links.map((link) => (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+              {groups.map((g) => (
                 <Link
-                  key={link.href}
-                  href={link.href}
+                  key={g.href}
+                  href={g.href}
                   className="card p-5 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
                 >
                   <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
-                    {link.label}
+                    {g.label}
                   </h3>
-                  <p className="text-xs text-[#5E6B63]">{link.desc}</p>
+                  <p className="text-xs text-[#5E6B63]">{g.desc}</p>
                 </Link>
               ))}
             </div>
           </section>
 
           <section className="prose-content mt-10 max-w-3xl" aria-labelledby="ecology-heading">
-            <h2 id="ecology-heading">Why Insects Matter</h2>
+            <h2 id="ecology-heading">Why Insects &amp; Invertebrates Matter</h2>
             <p>
-              Insects pollinate approximately 75% of the world&apos;s flowering plant species and
-              around one third of global food crops. Beetles and flies are primary decomposers
-              that break down organic matter and cycle nutrients back into soil. Many vertebrate
-              species — including birds, fish, amphibians, and mammals — depend on insects as
-              a primary food source. Insect population declines documented in recent decades
-              represent a significant ecological concern with cascading effects across ecosystems.
+              Insects pollinate a large share of the world&apos;s flowering plants and many food
+              crops, while beetles, flies, and other invertebrates are primary decomposers that
+              break down organic matter and cycle nutrients back into soil. Spiders and predatory
+              insects help regulate the numbers of other invertebrates. Many vertebrate species —
+              including birds, fish, amphibians, and mammals — depend on insects and other
+              invertebrates as a primary food source. Documented declines in some insect populations
+              are a significant ecological concern with cascading effects across ecosystems.
             </p>
           </section>
 
-          <p className="mt-8 text-sm text-[#5E6B63]">
-            Individual insect species profiles are in development.
-          </p>
+          <div className="mt-8 grid sm:grid-cols-2 gap-4">
+            <Link
+              href="/wildlife"
+              className="card p-4 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+            >
+              <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
+                Wildlife &amp; Biodiversity Hub
+              </h3>
+              <p className="text-xs text-[#5E6B63]">
+                Explore wildlife and biodiversity context across animal groups and habitats.
+              </p>
+            </Link>
+            <Link
+              href="/animal-encyclopedia"
+              className="card p-4 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+            >
+              <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
+                Animal Encyclopedia
+              </h3>
+              <p className="text-xs text-[#5E6B63]">
+                Browse all animal categories including mammals, birds, reptiles, and marine animals.
+              </p>
+            </Link>
+          </div>
         </div>
       </main>
     </>

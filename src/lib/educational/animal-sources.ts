@@ -36,6 +36,20 @@ export const SRC_IUCN: SourceLink = {
   note: "Authoritative source for current conservation status",
 };
 
+export const SRC_NOAA_FISHERIES: SourceLink = {
+  label: "NOAA Fisheries — Marine Life",
+  url: "https://www.fisheries.noaa.gov/",
+  type: "government",
+  note: "U.S. government science agency for marine species and habitats",
+};
+
+export const SRC_XERCES: SourceLink = {
+  label: "Xerces Society for Invertebrate Conservation",
+  url: "https://www.xerces.org/",
+  type: "wildlife",
+  note: "Science-based invertebrate conservation resources",
+};
+
 /** Per-species ADW account helper. */
 function adw(species: string, label: string, note?: string): SourceLink {
   return {
@@ -254,6 +268,139 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     ),
     brit("frog", "Frog — order Anura"),
     SRC_IUCN,
+  ],
+
+  // ---------------------------------------------------------------------------
+  // Animal Encyclopedia Expansion Batch 2. ADW species/group accounts below
+  // were each confirmed reachable (HTTP 200) on 2026-06-12. Group-level pages
+  // use the relevant higher taxon account rather than a single species.
+  // ---------------------------------------------------------------------------
+  cow: [
+    adw("Bos_taurus", "Bos taurus (domestic cattle)"),
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  goat: [
+    adw("Capra_hircus", "Capra hircus (domestic goat)"),
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  sheep: [
+    adw("Ovis_aries", "Ovis aries (domestic sheep)"),
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  pig: [
+    adw("Sus_scrofa", "Sus scrofa (wild boar / domestic pig)"),
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  duck: [
+    adw("Anas_platyrhynchos", "Anas platyrhynchos (mallard)"),
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  goose: [
+    adw("Anser_anser", "Anser anser (greylag goose)"),
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  moose: [
+    adw("Alces_alces", "Alces alces (moose)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  lynx: [
+    adw("Lynx_lynx", "Lynx lynx (Eurasian lynx)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  badger: [
+    adw("Meles_meles", "Meles meles (European badger)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  beaver: [
+    adw("Castor_canadensis", "Castor canadensis (North American beaver)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  hedgehog: [
+    adw("Erinaceus_europaeus", "Erinaceus europaeus (European hedgehog)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  bat: [
+    adw("Chiroptera", "Chiroptera (bats)", "University of Michigan order-level account"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  squid: [
+    adw("Cephalopoda", "Cephalopoda (cephalopods, including squid)", "University of Michigan class-level account"),
+    SRC_NOAA_FISHERIES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  crab: [
+    adw("Brachyura", "Brachyura (true crabs)", "University of Michigan infraorder-level account"),
+    SRC_NOAA_FISHERIES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  lobster: [
+    adw("Homarus_americanus", "Homarus americanus (American lobster)"),
+    {
+      label: "NOAA Fisheries — American Lobster",
+      url: "https://www.fisheries.noaa.gov/species/american-lobster",
+      type: "government",
+      note: "U.S. government species page for the American lobster",
+    },
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  jellyfish: [
+    adw("Scyphozoa", "Scyphozoa (true jellyfish)", "University of Michigan class-level account"),
+    SRC_NOAA_FISHERIES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  "sea-turtle": [
+    adw("Chelonia_mydas", "Chelonia mydas (green sea turtle)"),
+    {
+      label: "NOAA Fisheries — Green Sea Turtle",
+      url: "https://www.fisheries.noaa.gov/species/green-sea-turtle",
+      type: "government",
+      note: "U.S. government species page for the green sea turtle",
+    },
+    SRC_IUCN,
+  ],
+  starfish: [
+    adw("Asteroidea", "Asteroidea (sea stars)", "University of Michigan class-level account"),
+    SRC_NOAA_FISHERIES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  bee: [
+    adw("Apis_mellifera", "Apis mellifera (western honey bee)"),
+    SRC_XERCES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  butterfly: [
+    adw("Danaus_plexippus", "Danaus plexippus (monarch butterfly)"),
+    SRC_XERCES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  ant: [
+    adw("Formicidae", "Formicidae (ants)", "University of Michigan family-level account"),
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  spider: [
+    adw("Araneae", "Araneae (spiders)", "University of Michigan order-level account"),
+    SRC_XERCES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  dragonfly: [
+    adw("Anisoptera", "Anisoptera (dragonflies)", "University of Michigan infraorder-level account"),
+    SRC_XERCES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  ladybug: [
+    adw("Coccinellidae", "Coccinellidae (lady beetles)", "University of Michigan family-level account"),
+    SRC_XERCES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  "praying-mantis": [
+    adw("Mantodea", "Mantodea (mantises)", "University of Michigan order-level account"),
+    SRC_BRITANNICA_ANIMALS,
   ],
 };
 
