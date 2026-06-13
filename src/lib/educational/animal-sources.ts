@@ -580,6 +580,112 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_AUDUBON,
     SRC_IUCN,
   ],
+
+  // ---------------------------------------------------------------------------
+  // Reptiles & Amphibians + Mammals Batch 3. ADW species accounts below were
+  // each confirmed reachable (HTTP 200) on 2026-06-12. Group-level pages name a
+  // reference species and use cautious, varies-by-species conservation wording.
+  // ---------------------------------------------------------------------------
+  chameleon: [
+    adw("Furcifer_pardalis", "Furcifer pardalis (panther chameleon)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  iguana: [
+    adw("Iguana_iguana", "Iguana iguana (green iguana)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  "komodo-dragon": [
+    adw("Varanus_komodoensis", "Varanus komodoensis (Komodo dragon)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  gecko: [
+    adw("Eublepharis_macularius", "Eublepharis macularius (leopard gecko)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  newt: [
+    adw("Lissotriton_vulgaris", "Lissotriton vulgaris (smooth newt)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  salamander: [
+    adw("Salamandra_salamandra", "Salamandra salamandra (fire salamander)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  toad: [
+    adw("Bufo_bufo", "Bufo bufo (common toad)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  caiman: [
+    adw("Caiman_crocodilus", "Caiman crocodilus (spectacled caiman)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  "monitor-lizard": [
+    adw("Varanus_niloticus", "Varanus niloticus (Nile monitor)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  anaconda: [
+    adw("Eunectes_murinus", "Eunectes murinus (green anaconda)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  "red-panda": [
+    adw("Ailurus_fulgens", "Ailurus fulgens (red panda)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  sloth: [
+    adw("Bradypus_variegatus", "Bradypus variegatus (brown-throated sloth)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  armadillo: [
+    adw("Dasypus_novemcinctus", "Dasypus novemcinctus (nine-banded armadillo)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  porcupine: [
+    adw("Erethizon_dorsatum", "Erethizon dorsatum (North American porcupine)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  meerkat: [
+    adw("Suricata_suricatta", "Suricata suricatta (meerkat)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  wombat: [
+    adw("Vombatus_ursinus", "Vombatus ursinus (common wombat)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  platypus: [
+    adw("Ornithorhynchus_anatinus", "Ornithorhynchus anatinus (platypus)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  lemur: [
+    adw("Lemur_catta", "Lemur catta (ring-tailed lemur)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  tapir: [
+    adw("Tapirus_terrestris", "Tapirus terrestris (South American tapir)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  hyena: [
+    adw("Crocuta_crocuta", "Crocuta crocuta (spotted hyena)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
 };
 
 /**

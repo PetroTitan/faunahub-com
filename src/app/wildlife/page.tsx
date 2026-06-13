@@ -85,6 +85,18 @@ const wildlifeProfiles = [
     desc: "Castor — dam-building rodents that engineer entire wetlands.",
     icon: "🦫",
   },
+  {
+    label: "Red Panda",
+    href: "/animals/red-panda",
+    desc: "Ailurus fulgens — a small bamboo-eating mammal of Asian mountain forests.",
+    icon: "🐼",
+  },
+  {
+    label: "Komodo Dragon",
+    href: "/animals/komodo-dragon",
+    desc: "Varanus komodoensis — the largest living lizard, native to Indonesia.",
+    icon: "🦎",
+  },
 ];
 
 const animalGroups = [
@@ -103,9 +115,9 @@ const animalGroups = [
     icon: "🦅",
   },
   {
-    title: "Reptiles",
+    title: "Reptiles & Amphibians",
     description:
-      "Crocodilians, lizards, and snakes — ancient lineages still thriving.",
+      "Crocodilians, lizards, snakes, turtles, frogs, and salamanders.",
     href: "/animal-encyclopedia/reptiles",
     icon: "🐊",
   },

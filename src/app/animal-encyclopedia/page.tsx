@@ -28,8 +28,8 @@ const categories = [
     icon: "🦅",
   },
   {
-    title: "Reptiles",
-    description: "Crocodiles, alligators, snakes — reptile biology, ecology, and distribution.",
+    title: "Reptiles & Amphibians",
+    description: "Crocodilians, lizards, snakes, turtles, frogs, and salamanders.",
     href: "/animal-encyclopedia/reptiles",
     icon: "🐊",
   },
@@ -82,11 +82,11 @@ const allAnimalProfiles: { label: string; href: string; group: string }[] = [
   { label: "Penguin", href: "/animals/penguin", group: "Birds" },
   { label: "Parrot", href: "/animals/parrot", group: "Birds" },
   { label: "Falcon", href: "/animals/falcon", group: "Birds" },
-  { label: "Crocodile", href: "/animals/crocodile", group: "Reptiles" },
-  { label: "Alligator", href: "/animals/alligator", group: "Reptiles" },
-  { label: "Snake", href: "/animals/snake", group: "Reptiles" },
-  { label: "Turtle", href: "/animals/turtle", group: "Reptiles" },
-  { label: "Frog", href: "/animals/frog", group: "Reptiles" },
+  { label: "Crocodile", href: "/animals/crocodile", group: "Reptiles & Amphibians" },
+  { label: "Alligator", href: "/animals/alligator", group: "Reptiles & Amphibians" },
+  { label: "Snake", href: "/animals/snake", group: "Reptiles & Amphibians" },
+  { label: "Turtle", href: "/animals/turtle", group: "Reptiles & Amphibians" },
+  { label: "Frog", href: "/animals/frog", group: "Reptiles & Amphibians" },
   { label: "Dolphin", href: "/animals/dolphin", group: "Marine Animals" },
   { label: "Shark", href: "/animals/shark", group: "Marine Animals" },
   { label: "Seal", href: "/animals/seal", group: "Marine Animals" },
@@ -150,9 +150,30 @@ const allAnimalProfiles: { label: string; href: string; group: string }[] = [
   { label: "Vulture", href: "/animals/vulture", group: "Birds" },
   { label: "Pelican", href: "/animals/pelican", group: "Birds" },
   { label: "Stork", href: "/animals/stork", group: "Birds" },
+  // Reptiles & Amphibians + Mammals Batch 3
+  { label: "Chameleon", href: "/animals/chameleon", group: "Reptiles & Amphibians" },
+  { label: "Iguana", href: "/animals/iguana", group: "Reptiles & Amphibians" },
+  { label: "Komodo Dragon", href: "/animals/komodo-dragon", group: "Reptiles & Amphibians" },
+  { label: "Gecko", href: "/animals/gecko", group: "Reptiles & Amphibians" },
+  { label: "Newt", href: "/animals/newt", group: "Reptiles & Amphibians" },
+  { label: "Salamander", href: "/animals/salamander", group: "Reptiles & Amphibians" },
+  { label: "Toad", href: "/animals/toad", group: "Reptiles & Amphibians" },
+  { label: "Caiman", href: "/animals/caiman", group: "Reptiles & Amphibians" },
+  { label: "Monitor Lizard", href: "/animals/monitor-lizard", group: "Reptiles & Amphibians" },
+  { label: "Anaconda", href: "/animals/anaconda", group: "Reptiles & Amphibians" },
+  { label: "Red Panda", href: "/animals/red-panda", group: "Mammals" },
+  { label: "Sloth", href: "/animals/sloth", group: "Mammals" },
+  { label: "Armadillo", href: "/animals/armadillo", group: "Mammals" },
+  { label: "Porcupine", href: "/animals/porcupine", group: "Mammals" },
+  { label: "Meerkat", href: "/animals/meerkat", group: "Mammals" },
+  { label: "Wombat", href: "/animals/wombat", group: "Mammals" },
+  { label: "Platypus", href: "/animals/platypus", group: "Mammals" },
+  { label: "Lemur", href: "/animals/lemur", group: "Mammals" },
+  { label: "Tapir", href: "/animals/tapir", group: "Mammals" },
+  { label: "Hyena", href: "/animals/hyena", group: "Mammals" },
 ];
 
-const ORDER = ["Mammals", "Birds", "Reptiles", "Marine Animals", "Fish", "Insects & Invertebrates"];
+const ORDER = ["Mammals", "Birds", "Reptiles & Amphibians", "Marine Animals", "Fish", "Insects & Invertebrates"];
 
 export default function AnimalEncyclopediaPage() {
   const breadcrumb = breadcrumbSchema([

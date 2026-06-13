@@ -4,30 +4,39 @@ import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema } from "@/lib/schema";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Reptiles Encyclopedia — Wild Reptile Species Profiles",
+  title: "Reptiles & Amphibians Encyclopedia — Species Profiles & Ecology",
   description:
-    "Wild reptile species profiles covering crocodilians (crocodiles, alligators), snakes, lizards, and turtles — habitat, diet, behavior, and ecology.",
+    "Educational profiles of reptiles and amphibians — crocodilians, lizards, snakes, turtles, frogs, toads, newts, and salamanders. Habitat, diet, behaviour, and ecology.",
   path: "/animal-encyclopedia/reptiles",
 });
 
 const reptiles = [
-  {
-    href: "/animals/crocodile",
-    label: "Crocodile",
-    desc: "Family Crocodylidae — large aquatic predators of the tropics and subtropics.",
-  },
-  {
-    href: "/animals/alligator",
-    label: "Alligator",
-    desc: "Family Alligatoridae — two living species: American and Chinese alligator.",
-  },
+  { href: "/animals/crocodile", label: "Crocodile", desc: "Family Crocodylidae — large aquatic predators of the tropics." },
+  { href: "/animals/alligator", label: "Alligator", desc: "Family Alligatoridae — American and Chinese alligators." },
+  { href: "/animals/caiman", label: "Caiman", desc: "American crocodilians; spectacled caiman as a reference." },
+  { href: "/animals/snake", label: "Snake", desc: "Suborder Serpentes — limbless reptiles, a group-level overview." },
+  { href: "/animals/anaconda", label: "Anaconda", desc: "Green anaconda — a giant, non-venomous constrictor." },
+  { href: "/animals/turtle", label: "Turtle", desc: "Order Testudines — shelled reptiles of land and water." },
+  { href: "/animals/sea-turtle", label: "Sea Turtle", desc: "Ocean-going reptiles (also in Marine Animals)." },
+  { href: "/animals/chameleon", label: "Chameleon", desc: "Colour-changing lizards; panther chameleon as a reference." },
+  { href: "/animals/iguana", label: "Iguana", desc: "Large lizards; green iguana as a reference." },
+  { href: "/animals/gecko", label: "Gecko", desc: "Climbing lizards; leopard gecko as a reference." },
+  { href: "/animals/monitor-lizard", label: "Monitor Lizard", desc: "Genus Varanus; Nile monitor as a reference." },
+  { href: "/animals/komodo-dragon", label: "Komodo Dragon", desc: "The largest living lizard, native to Indonesia." },
+];
+
+const amphibians = [
+  { href: "/animals/frog", label: "Frog", desc: "Order Anura — tailless amphibians, a group-level overview." },
+  { href: "/animals/toad", label: "Toad", desc: "Warty-skinned frogs; common toad as a reference." },
+  { href: "/animals/salamander", label: "Salamander", desc: "Tailed amphibians; fire salamander as a reference." },
+  { href: "/animals/newt", label: "Newt", desc: "Semi-aquatic salamanders; smooth newt as a reference." },
 ];
 
 export default function EncyclopediaReptilesPage() {
   const breadcrumb = breadcrumbSchema([
     { name: "Home", url: "https://faunahub.com" },
     { name: "Animal Encyclopedia", url: "https://faunahub.com/animal-encyclopedia" },
-    { name: "Reptiles", url: "https://faunahub.com/animal-encyclopedia/reptiles" },
+    { name: "Reptiles & Amphibians", url: "https://faunahub.com/animal-encyclopedia/reptiles" },
   ]);
 
   return (
@@ -47,33 +56,29 @@ export default function EncyclopediaReptilesPage() {
                 Animal Encyclopedia
               </Link>
               <span aria-hidden="true">/</span>
-              <span className="text-[#17211B] font-medium" aria-current="page">Reptiles</span>
+              <span className="text-[#17211B] font-medium" aria-current="page">Reptiles &amp; Amphibians</span>
             </nav>
             <span className="tag mb-3 inline-block">Animal Encyclopedia</span>
             <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-3">
-              Wild Reptiles
+              Reptiles &amp; Amphibians
             </h1>
             <p className="text-base text-[#2C3A2F] leading-relaxed max-w-2xl">
-              Reptiles are a diverse group of ectothermic vertebrates that includes over 10,000
-              species of lizards, snakes, crocodilians, turtles, and the tuatara. They are found
-              on every continent except Antarctica and play crucial roles as predators, prey, and
-              seed dispersers in their ecosystems.
+              Reptiles and amphibians are two distinct groups of ectothermic vertebrates. Reptiles —
+              lizards, snakes, crocodilians, and turtles — have dry, scaly skin and (mostly) lay
+              shelled eggs on land. Amphibians — frogs, toads, newts, and salamanders — have moist,
+              permeable skin and usually depend on water to breed. These profiles are educational,
+              not care guides, and wild reptiles and amphibians should be observed without handling.
             </p>
           </div>
         </header>
 
         <div className="container-content py-10">
-          <section aria-labelledby="about-heading">
-            <h2 id="about-heading" className="section-title">About This Section</h2>
+          <section aria-labelledby="reptiles-heading">
+            <h2 id="reptiles-heading" className="section-title">Reptiles</h2>
             <p className="section-subtitle max-w-2xl">
-              Wild reptile profiles on FaunaHub cover species classification, natural geographic
-              range, preferred habitat conditions, thermoregulation behavior, diet and prey
-              capture strategies, reproduction, and conservation status from IUCN Red List data.
-              The distinction between wild ecology and captive husbandry needs is clearly noted
-              where relevant — for pet reptile care information, see the Pet Reptiles section.
+              Scaly, mostly land-egg-laying vertebrates — crocodilians, lizards, snakes, and turtles.
             </p>
-
-            <div className="grid sm:grid-cols-2 gap-4 mt-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
               {reptiles.map((r) => (
                 <Link
                   key={r.href}
@@ -89,6 +94,40 @@ export default function EncyclopediaReptilesPage() {
             </div>
           </section>
 
+          <section aria-labelledby="amphibians-heading" className="mt-12">
+            <h2 id="amphibians-heading" className="section-title">Amphibians</h2>
+            <p className="section-subtitle max-w-2xl">
+              Moist-skinned vertebrates that usually breed in water — frogs, toads, newts, and
+              salamanders. Wild amphibians have sensitive skin and should not be handled.
+            </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
+              {amphibians.map((a) => (
+                <Link
+                  key={a.href}
+                  href={a.href}
+                  className="card p-5 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+                >
+                  <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
+                    {a.label}
+                  </h3>
+                  <p className="text-xs text-[#5E6B63]">{a.desc}</p>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          <section className="prose-content mt-12 max-w-3xl" aria-labelledby="about-heading">
+            <h2 id="about-heading">About This Section</h2>
+            <p>
+              Profiles cover classification, geographic range, habitat, diet, behaviour, and
+              conservation context, with conservation status drawn from sources such as the IUCN Red
+              List where available. The distinction between wild ecology and any captive context is
+              clearly noted, and these pages do not provide care, handling, or veterinary advice.
+              Amphibians worldwide face serious declines, so conservation status should always be
+              checked against current sources.
+            </p>
+          </section>
+
           <section className="mt-10" aria-labelledby="related-heading">
             <h2 id="related-heading" className="section-title">Related Comparisons</h2>
             <div className="grid sm:grid-cols-2 gap-4">
@@ -99,9 +138,7 @@ export default function EncyclopediaReptilesPage() {
                 <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors">
                   Alligator vs Crocodile
                 </h3>
-                <span className="text-xs font-medium text-[#063F2A] mt-2 block">
-                  Compare →
-                </span>
+                <span className="text-xs font-medium text-[#063F2A] mt-2 block">Compare →</span>
               </Link>
             </div>
           </section>
@@ -115,7 +152,7 @@ export default function EncyclopediaReptilesPage() {
                 Pet Reptile Care Guides
               </h3>
               <p className="text-xs text-[#5E6B63]">
-                Habitat, feeding, and health guides for lizards, snakes, turtles, and other pet reptiles.
+                Habitat, feeding, and health guides for pet reptiles — separate from these wild profiles.
               </p>
             </Link>
             <Link

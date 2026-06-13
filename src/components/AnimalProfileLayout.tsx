@@ -44,6 +44,7 @@ export interface AnimalProfileLayoutProps {
     | "Mammals"
     | "Birds"
     | "Reptiles"
+    | "Reptiles & Amphibians"
     | "Marine Animals"
     | "Fish"
     | "Insects"

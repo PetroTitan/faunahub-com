@@ -37,6 +37,16 @@ const mammals = [
   { href: "/animals/goat", label: "Goat", desc: "Capra hircus — agile domesticated browser." },
   { href: "/animals/sheep", label: "Sheep", desc: "Ovis aries — woolly domesticated grazer." },
   { href: "/animals/pig", label: "Pig", desc: "Sus domesticus — intelligent omnivorous livestock." },
+  { href: "/animals/red-panda", label: "Red Panda", desc: "Ailurus fulgens — small bamboo-eating Himalayan mammal." },
+  { href: "/animals/sloth", label: "Sloth", desc: "Slow-moving tree-dwelling mammals of the Americas." },
+  { href: "/animals/armadillo", label: "Armadillo", desc: "Armoured digging mammals; nine-banded as a reference." },
+  { href: "/animals/porcupine", label: "Porcupine", desc: "Quill-covered rodents (Old and New World groups)." },
+  { href: "/animals/meerkat", label: "Meerkat", desc: "Suricata suricatta — social mongoose of southern Africa." },
+  { href: "/animals/wombat", label: "Wombat", desc: "Stocky burrowing Australian marsupials." },
+  { href: "/animals/platypus", label: "Platypus", desc: "Ornithorhynchus anatinus — egg-laying Australian monotreme." },
+  { href: "/animals/lemur", label: "Lemur", desc: "Primates of Madagascar; ring-tailed lemur as a reference." },
+  { href: "/animals/tapir", label: "Tapir", desc: "Browsing mammals with a short prehensile snout." },
+  { href: "/animals/hyena", label: "Hyena", desc: "Social carnivores; spotted hyena as a reference." },
 ];
 
 export default function MammalsPage() {
