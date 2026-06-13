@@ -116,6 +116,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "vulture",
     "pelican",
     "stork",
+    // Reptiles & Amphibians + Mammals Batch 3
+    "chameleon",
+    "iguana",
+    "komodo-dragon",
+    "gecko",
+    "newt",
+    "salamander",
+    "toad",
+    "caiman",
+    "monitor-lizard",
+    "anaconda",
+    "red-panda",
+    "sloth",
+    "armadillo",
+    "porcupine",
+    "meerkat",
+    "wombat",
+    "platypus",
+    "lemur",
+    "tapir",
+    "hyena",
   ];
 
   const compareSlugs = [
