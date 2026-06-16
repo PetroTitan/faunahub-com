@@ -49,6 +49,14 @@ export const INDEX_VS_PROFILE_EXPLAINER =
 export const GLOBAL_VS_LOCAL_EXPLAINER =
   "IUCN Red List categories describe global extinction risk. A species can be globally threatened while remaining locally common in part of its range, or be globally secure but protected nationally. National and regional assessments — for example a country's own red list or endangered-species law — can differ from the global category and are maintained by separate authorities.";
 
+/** Global vs national legal status — the core regional caveat. */
+export const NATIONAL_STATUS_EXPLAINER =
+  "A global IUCN Red List category is not the same as legal protection in any particular country. Many nations keep their own national Red Books and endangered-species laws, which can classify a species differently and carry the actual legal force. A species can be globally threatened yet locally common in part of its range, or globally secure yet strictly protected nationally. FaunaHub's regional pages show the global category and where a species occurs; they never assert national legal status. Always confirm legal protections with the relevant national wildlife authority.";
+
+/** Why FaunaHub scales the dataset deliberately rather than dumping pages. */
+export const SCALING_PLAN_EXPLAINER =
+  "FaunaHub deliberately does not publish a page for every threatened species at once. Thousands of thin, weakly sourced pages would help no one and would risk repeating errors at scale. Instead the dataset grows in reviewed batches: index records are added only with at least one authoritative, reachable source and a confident category, and a species earns a full profile only when there is enough verified material — and, ideally, a properly licensed photograph — to justify one. Reaching a larger milestone of verified records is a future goal, pursued at the pace that source verification and image licensing allow. Quality gates always override volume targets.";
+
 /** IUCN attribution and compliance note. */
 export const IUCN_ATTRIBUTION_NOTE =
   "Conservation status categories originate with the IUCN Red List of Threatened Species. FaunaHub links to IUCN and other authoritative references rather than reproducing their assessment text, maps, or datasets. Category definitions are summarised here in original language for educational use.";

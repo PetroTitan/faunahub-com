@@ -4,6 +4,7 @@ import {
   CATEGORY_PAGE_SLUG,
   getCategoryMeta,
 } from "./categories";
+import { REGION_SPECIES, type RedListRegion } from "./regions";
 import type {
   RedListCategoryCode,
   RedListSpeciesRecord,
@@ -36,6 +37,19 @@ export function getByGroup(
   return sortByRiskThenName(
     RED_LIST_SPECIES.filter((s) => s.taxonGroup === group),
   );
+}
+
+export function getByRegion(region: RedListRegion): RedListSpeciesRecord[] {
+  const slugs = new Set(REGION_SPECIES[region] ?? []);
+  return sortByRiskThenName(RED_LIST_SPECIES.filter((s) => slugs.has(s.slug)));
+}
+
+export function countByRegion(): Record<RedListRegion, number> {
+  const out = {} as Record<RedListRegion, number>;
+  (Object.keys(REGION_SPECIES) as RedListRegion[]).forEach((r) => {
+    out[r] = getByRegion(r).length;
+  });
+  return out;
 }
 
 export function getDetailedProfiles(): RedListSpeciesRecord[] {

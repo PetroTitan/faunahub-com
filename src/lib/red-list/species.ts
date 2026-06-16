@@ -1,5 +1,8 @@
 import type { RedListSpeciesRecord } from "./types";
-import { RED_LIST_LAST_REVIEW } from "./methodology";
+import { adw, noaa, szoo, fws, birdlife, fishbase, amphibiaweb, rec } from "./_builders";
+import { RED_LIST_SPECIES_BATCH2 } from "./species-batch2";
+import { RED_LIST_SPECIES_BATCH3 } from "./species-batch3";
+import { RED_LIST_SPECIES_BATCH4 } from "./species-batch4";
 
 /**
  * Red List Species Intelligence — Phase 1 index dataset (100 records).
@@ -20,65 +23,15 @@ import { RED_LIST_LAST_REVIEW } from "./methodology";
  *    at /endangered-animals/species/[slug]; existing-profile-linked records
  *    point at /animals/[slug].
  *
+ * Later batches (2/3/4) live in species-batch2/3/4.ts and are concatenated
+ * below. Region assignments live in regions.ts (REGION_BY_SLUG), kept separate
+ * so every claim about where a species occurs is reviewable in one place.
+ *
  * Verify any record against the live IUCN Red List entry before treating it as
  * definitive: https://www.iucnredlist.org/
  */
 
-const LAST_VERIFIED = RED_LIST_LAST_REVIEW;
-
-/** Animal Diversity Web species account (University of Michigan). */
-const adw = (binomial: string): string =>
-  `https://animaldiversity.org/accounts/${binomial}/`;
-/** NOAA Fisheries species page. */
-const noaa = (slug: string): string =>
-  `https://www.fisheries.noaa.gov/species/${slug}`;
-/** Smithsonian's National Zoo & Conservation Biology Institute species page. */
-const szoo = (slug: string): string =>
-  `https://nationalzoo.si.edu/animals/${slug}`;
-/** U.S. Fish & Wildlife Service species profile. */
-const fws = (slug: string): string => `https://www.fws.gov/species/${slug}`;
-/** BirdLife International DataZone factsheet (the Red List authority for birds). */
-const birdlife = (slug: string): string =>
-  `http://datazone.birdlife.org/species/factsheet/${slug}`;
-/** FishBase species summary. */
-const fishbase = (binomialDash: string): string =>
-  `https://www.fishbase.se/summary/${binomialDash}.html`;
-/** AmphibiaWeb species query (University of California, Berkeley). */
-const amphibiaweb = (genus: string, species: string): string =>
-  `https://amphibiaweb.org/cgi/amphib_query?where-genus=${genus}&where-species=${species}`;
-/** IUCN Red List species lookup link (human-facing, not a scraped page). */
-const iucn = (scientificName: string): string =>
-  `https://www.iucnredlist.org/search?query=${encodeURIComponent(
-    scientificName,
-  )}&searchType=species`;
-
-const CAT_LABEL = {
-  CR: "Critically Endangered",
-  EN: "Endangered",
-  VU: "Vulnerable",
-  NT: "Near Threatened",
-  LC: "Least Concern",
-  DD: "Data Deficient",
-  EW: "Extinct in the Wild",
-  EX: "Extinct",
-  NE: "Not Evaluated",
-} as const;
-
-/** Builds a record with shared defaults to keep the dataset DRY and consistent. */
-function rec(
-  r: Omit<RedListSpeciesRecord, "redListCategoryLabel" | "lastVerified" | "iucnUrl"> & {
-    iucnUrl?: string;
-  },
-): RedListSpeciesRecord {
-  return {
-    ...r,
-    redListCategoryLabel: CAT_LABEL[r.redListCategory],
-    iucnUrl: r.iucnUrl ?? iucn(r.scientificName),
-    lastVerified: LAST_VERIFIED,
-  };
-}
-
-export const RED_LIST_SPECIES: readonly RedListSpeciesRecord[] = [
+const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
   // ===========================================================================
   // MAMMALS (34)
   // ===========================================================================
@@ -260,10 +213,18 @@ export const RED_LIST_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Panthera uncia",
     taxonGroup: "mammals",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "High mountains of Central and South Asia, across the Himalaya, Tibetan Plateau, and neighbouring ranges.",
+    primaryThreats: [
+      "Poaching and illegal trade in pelts and bones",
+      "Retaliatory killing over livestock losses",
+      "Loss and fragmentation of mountain habitat",
+    ],
     sourceUrls: [adw("Uncia_uncia")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
-    imageStatus: "not-planned",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "lion",
@@ -457,10 +418,18 @@ export const RED_LIST_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Lycaon pictus",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Fragmented populations across sub-Saharan Africa, with strongholds in southern and eastern Africa.",
+    primaryThreats: [
+      "Habitat loss and fragmentation",
+      "Conflict with livestock farmers",
+      "Infectious disease and road deaths",
+    ],
     sourceUrls: [adw("Lycaon_pictus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
-    imageStatus: "not-planned",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "polar-bear",
@@ -468,10 +437,18 @@ export const RED_LIST_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Ursus maritimus",
     taxonGroup: "mammals",
     redListCategory: "VU",
+    populationTrend: "unknown",
+    rangeSummary:
+      "Circumpolar across the Arctic sea ice of Canada, the United States (Alaska), Russia, Greenland, and Norway.",
+    primaryThreats: [
+      "Loss of sea-ice habitat linked to a warming climate",
+      "Pollution",
+      "Disturbance from industrial activity",
+    ],
     sourceUrls: [adw("Ursus_maritimus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
-    imageStatus: "not-planned",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "sunda-pangolin",
@@ -542,10 +519,18 @@ export const RED_LIST_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Strigops habroptilus",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "increasing",
+    rangeSummary:
+      "Survives only on predator-free islands of New Zealand under intensive management.",
+    primaryThreats: [
+      "Introduced mammalian predators",
+      "Very small population size",
+      "Disease and low genetic diversity",
+    ],
     sourceUrls: [adw("Strigops_habroptila")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
-    imageStatus: "not-planned",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
+    imageStatus: "has-image",
     notes:
       "A flightless nocturnal parrot from New Zealand managed on predator-free islands.",
   }),
@@ -794,10 +779,18 @@ export const RED_LIST_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Dermochelys coriacea",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "The most wide-ranging sea turtle, found across tropical and temperate oceans worldwide.",
+    primaryThreats: [
+      "Fisheries bycatch",
+      "Egg collection and loss of nesting beaches",
+      "Plastic ingestion and vessel strikes",
+    ],
     sourceUrls: [noaa("leatherback-turtle"), adw("Dermochelys_coriacea")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
-    imageStatus: "not-planned",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
+    imageStatus: "has-image",
     notes:
       "Globally Vulnerable, but several regional sub-populations are assessed as Critically Endangered.",
   }),
@@ -1001,10 +994,18 @@ export const RED_LIST_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Carcharodon carcharias",
     taxonGroup: "fish",
     redListCategory: "VU",
+    populationTrend: "unknown",
+    rangeSummary:
+      "Coastal and offshore temperate and subtropical seas around the world.",
+    primaryThreats: [
+      "Targeted and incidental fishing",
+      "Bycatch in other fisheries",
+      "Demand for jaws, teeth, and fins",
+    ],
     sourceUrls: [noaa("white-shark"), adw("Carcharodon_carcharias")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
-    imageStatus: "not-planned",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "scalloped-hammerhead",
@@ -1317,6 +1318,17 @@ export const RED_LIST_SPECIES: readonly RedListSpeciesRecord[] = [
     profileStatus: "index-only",
     imageStatus: "not-planned",
   }),
+];
+
+/**
+ * The full Red List dataset: Phase 1 plus every later batch, concatenated in
+ * one frozen array. All consumers import RED_LIST_SPECIES from here.
+ */
+export const RED_LIST_SPECIES: readonly RedListSpeciesRecord[] = [
+  ...PHASE1_SPECIES,
+  ...RED_LIST_SPECIES_BATCH2,
+  ...RED_LIST_SPECIES_BATCH3,
+  ...RED_LIST_SPECIES_BATCH4,
 ];
 
 export const RED_LIST_SPECIES_COUNT = RED_LIST_SPECIES.length;
