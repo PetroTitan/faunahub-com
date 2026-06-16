@@ -6,6 +6,7 @@ import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { ANIMAL_IMAGES, ANIMAL_IMAGE_TODOS } from "@/lib/images/animal-images";
 import { BREED_IMAGES } from "@/lib/images/breed-images";
+import { ENDANGERED_ANIMAL_IMAGES } from "@/lib/images/endangered-animal-images";
 
 type CreditEntry = {
   id: string;
@@ -21,7 +22,12 @@ type CreditEntry = {
   sourceName: string;
   sourceUrl: string;
   verifiedAt: string;
-  roleLabel: "Hero" | "Gallery" | "Dog breed" | "Cat breed";
+  roleLabel:
+    | "Hero"
+    | "Gallery"
+    | "Dog breed"
+    | "Cat breed"
+    | "Endangered species";
 };
 
 const ALL_CREDITS: CreditEntry[] = [
@@ -61,6 +67,22 @@ const ALL_CREDITS: CreditEntry[] = [
       | "Dog breed"
       | "Cat breed",
   })),
+  ...ENDANGERED_ANIMAL_IMAGES.map((img) => ({
+    id: img.id,
+    localPath: img.localPath,
+    alt: img.alt,
+    caption: img.caption,
+    width: img.width,
+    height: img.height,
+    pagePath: img.pagePath,
+    author: img.author,
+    license: img.license,
+    licenseUrl: img.licenseUrl,
+    sourceName: img.sourceName,
+    sourceUrl: img.sourceUrl,
+    verifiedAt: img.verifiedAt,
+    roleLabel: "Endangered species" as const,
+  })),
 ];
 
 const IMAGE_CREDITS_FAQ = [
@@ -93,7 +115,7 @@ export const metadata: Metadata = buildMetadata({
   path: "/image-credits",
 });
 
-const PAGE_UPDATED = "2026-05-22";
+const PAGE_UPDATED = "2026-06-16";
 
 export default function ImageCreditsPage() {
   const schemas = [

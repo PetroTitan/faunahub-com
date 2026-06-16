@@ -1,5 +1,6 @@
 import { ANIMAL_IMAGES } from "@/lib/images/animal-images";
 import { BREED_IMAGES } from "@/lib/images/breed-images";
+import { ENDANGERED_ANIMAL_IMAGES } from "@/lib/images/endangered-animal-images";
 
 const BASE_URL = "https://faunahub.com";
 
@@ -42,6 +43,13 @@ export function GET(): Response {
       licenseUrl: img.licenseUrl,
     })),
     ...BREED_IMAGES.map((img) => ({
+      pagePath: img.pagePath,
+      localPath: img.localPath,
+      alt: img.alt,
+      caption: img.caption,
+      licenseUrl: img.licenseUrl,
+    })),
+    ...ENDANGERED_ANIMAL_IMAGES.map((img) => ({
       pagePath: img.pagePath,
       localPath: img.localPath,
       alt: img.alt,

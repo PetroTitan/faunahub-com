@@ -427,6 +427,65 @@ export default function WildlifePage() {
             </div>
           </section>
 
+          {/* Endangered species — Red List cluster */}
+          <section
+            aria-labelledby="endangered-heading"
+            className="mb-16 bg-white border border-[#DDE6DD] rounded-2xl p-6 sm:p-8"
+          >
+            <div className="max-w-3xl mb-6">
+              <h2 id="endangered-heading" className="section-title">
+                Endangered Species &amp; Conservation Status
+              </h2>
+              <p className="section-subtitle mb-0">
+                A source-transparent guide to IUCN Red List categories — browse
+                threatened species by risk level and animal group, with verified
+                references and clear data limitations.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                {
+                  href: "/endangered-animals",
+                  title: "Endangered Animals Hub",
+                  desc: "Start here: how FaunaHub uses conservation status carefully.",
+                  icon: "🌍",
+                },
+                {
+                  href: "/endangered-animals/critically-endangered",
+                  title: "Critically Endangered",
+                  desc: "Species at the highest risk of extinction in the wild.",
+                  icon: "🛑",
+                },
+                {
+                  href: "/endangered-animals/endangered",
+                  title: "Endangered",
+                  desc: "Species facing a very high risk of extinction.",
+                  icon: "⚠️",
+                },
+                {
+                  href: "/endangered-animals/red-list-explained",
+                  title: "Red List Explained",
+                  desc: "What CR, EN, VU, and the other categories mean.",
+                  icon: "📖",
+                },
+              ].map((c) => (
+                <Link
+                  key={c.href}
+                  href={c.href}
+                  className="card p-5 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+                >
+                  <span className="text-2xl mb-2 block" role="img" aria-hidden="true">
+                    {c.icon}
+                  </span>
+                  <h3 className="text-base font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
+                    {c.title}
+                  </h3>
+                  <p className="text-sm text-[#5E6B63] leading-snug">{c.desc}</p>
+                </Link>
+              ))}
+            </div>
+          </section>
+
           {/* 5. Sources and Review Standards */}
           <section aria-labelledby="sources-heading" className="mb-12">
             <div className="max-w-3xl mb-6">
@@ -470,6 +529,12 @@ export default function WildlifePage() {
           <RelatedLinks
             title="Also Explore"
             links={[
+              {
+                label: "Endangered Animals",
+                href: "/endangered-animals",
+                description:
+                  "IUCN Red List categories and threatened species, carefully sourced.",
+              },
               {
                 label: "Birdwatching",
                 href: "/birdwatching",

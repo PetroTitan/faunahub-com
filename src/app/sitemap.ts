@@ -12,6 +12,7 @@ import { SMALL_PET_ARTICLES } from "@/lib/small-pets/data";
 import { AQUARIUM_ARTICLES } from "@/lib/aquarium/data";
 import { BIRDWATCHING_ARTICLES } from "@/lib/birdwatching/data";
 import { BIRD_CARE_ARTICLES } from "@/lib/bird-care/data";
+import { getDetailedSlugs } from "@/lib/red-list/helpers";
 
 const BASE_URL = "https://faunahub.com";
 
@@ -394,6 +395,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
+  // Red List Species Intelligence cluster.
+  const endangeredStaticRoutes: MetadataRoute.Sitemap = [
+    { path: "/endangered-animals", priority: 0.9 },
+    { path: "/endangered-animals/red-list-explained", priority: 0.7 },
+    { path: "/endangered-animals/how-conservation-status-works", priority: 0.7 },
+    { path: "/endangered-animals/red-list-data-methodology", priority: 0.6 },
+    { path: "/endangered-animals/critically-endangered", priority: 0.8 },
+    { path: "/endangered-animals/endangered", priority: 0.8 },
+    { path: "/endangered-animals/vulnerable", priority: 0.8 },
+    { path: "/endangered-animals/mammals", priority: 0.8 },
+    { path: "/endangered-animals/birds", priority: 0.8 },
+    { path: "/endangered-animals/reptiles-amphibians", priority: 0.8 },
+    { path: "/endangered-animals/fish", priority: 0.8 },
+    { path: "/endangered-animals/invertebrates", priority: 0.8 },
+  ].map(({ path, priority }) => ({
+    url: `${BASE_URL}${path}`,
+    lastModified: today,
+    changeFrequency: "weekly" as const,
+    priority,
+  }));
+
+  const endangeredSpeciesRoutes: MetadataRoute.Sitemap = getDetailedSlugs().map(
+    (slug) => ({
+      url: `${BASE_URL}/endangered-animals/species/${slug}`,
+      lastModified: today,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    }),
+  );
+
   return [
     ...staticRoutes,
     ...animalRoutes,
@@ -413,5 +444,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...smallPetRoutes,
     ...aquariumRoutes,
     ...birdGuideRoutes,
+    ...endangeredStaticRoutes,
+    ...endangeredSpeciesRoutes,
   ];
 }

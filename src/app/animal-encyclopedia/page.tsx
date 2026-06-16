@@ -238,6 +238,30 @@ export default function AnimalEncyclopediaPage() {
             </Link>
           </aside>
 
+          {/* Endangered animals callout */}
+          <aside
+            aria-label="Endangered animals and conservation status"
+            className="card p-5 sm:p-6 mb-10 border-l-4 border-l-[#9A4A12] flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+          >
+            <div>
+              <span className="tag mb-2 inline-block">Red List</span>
+              <h2 className="text-lg sm:text-xl font-semibold text-[#17211B] mb-1">
+                Endangered Animals &amp; Conservation Status
+              </h2>
+              <p className="text-sm text-[#5E6B63] leading-relaxed max-w-2xl">
+                Browse threatened species by IUCN Red List category and animal
+                group — source-transparent, carefully dated, and never presented
+                as permanent.
+              </p>
+            </div>
+            <Link
+              href="/endangered-animals"
+              className="btn-secondary text-sm shrink-0"
+            >
+              Open Endangered Animals →
+            </Link>
+          </aside>
+
           <HubGrid
             title="Browse by Animal Group"
             subtitle="Select a category to explore species within that group."
@@ -326,6 +350,7 @@ export default function AnimalEncyclopediaPage() {
               title="Also Explore"
               links={[
                 { label: "Wildlife & Biodiversity Intelligence", href: "/wildlife", description: "Source-reviewed wildlife profiles, groups, and biodiversity context" },
+                { label: "Endangered Animals", href: "/endangered-animals", description: "IUCN Red List categories and threatened species" },
                 { label: "Compare Animals", href: "/compare", description: "Side-by-side animal comparisons" },
                 { label: "Dog Care Guides", href: "/dogs", description: "Domestic dog care and breeds" },
                 { label: "Cat Care Guides", href: "/cats", description: "Domestic cat care and breeds" },
