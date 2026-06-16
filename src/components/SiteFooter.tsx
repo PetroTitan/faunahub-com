@@ -15,10 +15,13 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
   "Animal Encyclopedia": [
     { label: "Animal Encyclopedia", href: "/animal-encyclopedia" },
     { label: "Wildlife & Biodiversity", href: "/wildlife" },
+    { label: "Endangered Animals", href: "/endangered-animals" },
     { label: "Mammals", href: "/animal-encyclopedia/mammals" },
     { label: "Birds", href: "/animal-encyclopedia/birds" },
-    { label: "Reptiles", href: "/animal-encyclopedia/reptiles" },
+    { label: "Reptiles & Amphibians", href: "/animal-encyclopedia/reptiles" },
+    { label: "Fish", href: "/animal-encyclopedia/fish" },
     { label: "Marine Animals", href: "/animal-encyclopedia/marine-animals" },
+    { label: "Insects & Invertebrates", href: "/animal-encyclopedia/insects" },
   ],
   Tools: [
     { label: "All Tools", href: "/tools" },
