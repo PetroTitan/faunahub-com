@@ -304,4 +304,79 @@ export const RED_LIST_PROFILES: Record<string, RedListProfileContent> = {
       },
     ],
   },
+  okapi: {
+    summary: [
+      "The okapi is a forest-dwelling relative of the giraffe, endemic to the rainforests of the Democratic Republic of the Congo. It is assessed as Endangered.",
+      "Its dark coat and boldly striped hindquarters provide camouflage in dense forest; it was unknown to Western science until the early 1900s.",
+    ],
+    whyItMatters:
+      "Found nowhere else, the shy okapi is a flagship for Congo Basin rainforest and an indicator of how secure that forest is.",
+    faq: [
+      { question: "Is the okapi related to the zebra?", answer: "No. Despite its striped legs, the okapi is the only living relative of the giraffe, not a member of the horse or zebra family." },
+      { question: "Why is the okapi Endangered?", answer: "Published assessments point to habitat loss from logging and settlement, hunting, and instability in parts of its range." },
+    ],
+    relatedAnimal: { label: "Giraffe profile", href: "/animals/giraffe" },
+  },
+  bonobo: {
+    summary: [
+      "The bonobo is, with the chimpanzee, one of humanity's two closest living relatives. It lives only south of the Congo River in the Democratic Republic of the Congo and is assessed as Endangered.",
+      "Bonobos are known for cooperative, female-centred societies.",
+    ],
+    whyItMatters:
+      "As a great ape found in just one country, the bonobo is a flagship for Congo Basin conservation and key to understanding our own evolution.",
+    faq: [
+      { question: "What is the difference between a bonobo and a chimpanzee?", answer: "They are separate species. Bonobos are slightly more slender, live only south of the Congo River, and are noted for more cooperative social behaviour." },
+      { question: "Why is the bonobo Endangered?", answer: "Published assessments cite poaching for bushmeat, habitat loss and fragmentation, and civil instability across its range." },
+    ],
+    relatedAnimal: { label: "Chimpanzee profile", href: "/animals/chimpanzee" },
+  },
+  "proboscis-monkey": {
+    summary: [
+      "The proboscis monkey is a large, pot-bellied monkey endemic to Borneo, famous for the male's pendulous nose. It is assessed as Endangered.",
+      "It lives in coastal mangrove, swamp, and riverside forest and is an accomplished swimmer.",
+    ],
+    whyItMatters:
+      "As a specialist of Borneo's coastal forests, the proboscis monkey reflects the health of mangrove and riverine habitats that also help protect coastlines.",
+    faq: [
+      { question: "Why do male proboscis monkeys have such large noses?", answer: "The big nose is a sexual signal that amplifies calls and is thought to attract females. Only males develop the prominent nose." },
+      { question: "Why is the proboscis monkey Endangered?", answer: "Published assessments cite loss of mangrove and lowland forest, conversion of habitat to oil-palm plantations, and hunting." },
+    ],
+  },
+  dhole: {
+    summary: [
+      "The dhole, or Asiatic wild dog, is a social pack-hunting canid found across parts of South, Southeast, and East Asia. It is assessed as Endangered.",
+      "Packs are highly cooperative and keep in contact with distinctive whistles.",
+    ],
+    whyItMatters:
+      "As a wide-ranging social predator, the dhole needs large, prey-rich landscapes, so its presence signals intact forest ecosystems.",
+    faq: [
+      { question: "Is the dhole the same as a wolf or jackal?", answer: "No. The dhole is a distinct species (Cuon alpinus), the only member of its genus, though it belongs to the dog family." },
+      { question: "Why is the dhole Endangered?", answer: "Published assessments cite habitat loss and fragmentation, depletion of wild prey, and persecution and disease linked to domestic dogs." },
+    ],
+  },
+  gharial: {
+    summary: [
+      "The gharial is a fish-eating crocodilian with an extremely long, narrow snout, restricted to a few river systems of the northern Indian subcontinent. It is assessed as Critically Endangered.",
+      "Males develop a bulbous growth, the 'ghara', at the tip of the snout.",
+    ],
+    whyItMatters:
+      "As a specialist of clean, flowing rivers with sandbanks, the gharial is an indicator of healthy river systems across South Asia.",
+    faq: [
+      { question: "How is a gharial different from a crocodile?", answer: "The gharial has a much thinner, longer snout adapted for catching fish and rarely takes large prey. It sits in its own family within the crocodilians." },
+      { question: "Why is the gharial Critically Endangered?", answer: "Published assessments cite loss of riverine sandbank habitat, dams and water extraction, and deaths in fishing nets." },
+    ],
+    relatedAnimal: { label: "Crocodile profile", href: "/animals/crocodile" },
+  },
+  shoebill: {
+    summary: [
+      "The shoebill is a tall wading bird of central African wetlands, instantly recognisable by its enormous shoe-shaped bill. It is assessed as Vulnerable.",
+      "It hunts fish — especially lungfish — with patient, motionless stalking.",
+    ],
+    whyItMatters:
+      "As a wetland specialist, the shoebill depends on extensive undisturbed swamps, making it a flagship for African wetland conservation.",
+    faq: [
+      { question: "Is the shoebill a stork?", answer: "It was long grouped with storks, but it is now placed in its own family, more closely allied with pelicans and herons." },
+      { question: "Why is the shoebill Vulnerable?", answer: "Published assessments cite wetland degradation and drainage, disturbance and nest destruction, and capture for the bird trade." },
+    ],
+  },
 };

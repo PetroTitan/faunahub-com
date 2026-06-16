@@ -153,10 +153,18 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Cuon alpinus",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Scattered populations across South, Southeast, and East Asia.",
+    primaryThreats: [
+      "Habitat loss and fragmentation",
+      "Depletion of wild prey",
+      "Persecution and disease from domestic dogs",
+    ],
     sourceUrls: [adw("Cuon_alpinus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
-    imageStatus: "not-planned",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "iberian-lynx",
@@ -177,10 +185,18 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Okapia johnstoni",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Endemic to the rainforests of the northern and eastern Democratic Republic of the Congo.",
+    primaryThreats: [
+      "Habitat loss from logging and settlement",
+      "Hunting for meat and skins",
+      "Instability across parts of its range",
+    ],
     sourceUrls: [adw("Okapia_johnstoni")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
-    imageStatus: "not-planned",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "pygmy-hippopotamus",

@@ -3,6 +3,7 @@ import { adw, noaa, szoo, fws, birdlife, fishbase, amphibiaweb, rec } from "./_b
 import { RED_LIST_SPECIES_BATCH2 } from "./species-batch2";
 import { RED_LIST_SPECIES_BATCH3 } from "./species-batch3";
 import { RED_LIST_SPECIES_BATCH4 } from "./species-batch4";
+import { RED_LIST_SPECIES_BATCH5 } from "./species-batch5";
 
 /**
  * Red List Species Intelligence — Phase 1 index dataset (100 records).
@@ -121,10 +122,18 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Pan paniscus",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Lowland rainforest south of the Congo River in the Democratic Republic of the Congo.",
+    primaryThreats: [
+      "Poaching for bushmeat",
+      "Habitat loss and fragmentation",
+      "Civil instability across its range",
+    ],
     sourceUrls: [adw("Pan_paniscus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
-    imageStatus: "not-planned",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "ring-tailed-lemur",
@@ -177,10 +186,18 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Nasalis larvatus",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Endemic to Borneo, mainly in coastal mangrove, swamp, and riverine forest.",
+    primaryThreats: [
+      "Loss of mangrove and lowland forest",
+      "Conversion of habitat to oil-palm plantations",
+      "Hunting",
+    ],
     sourceUrls: [adw("Nasalis_larvatus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
-    imageStatus: "not-planned",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "golden-lion-tamarin",
@@ -700,10 +717,18 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Balaeniceps rex",
     taxonGroup: "birds",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Freshwater swamps of central tropical Africa, notably South Sudan, Uganda, and Zambia.",
+    primaryThreats: [
+      "Wetland degradation and drainage",
+      "Disturbance and nest destruction",
+      "Capture for the bird trade",
+    ],
     sourceUrls: [adw("Balaeniceps_rex")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
-    imageStatus: "not-planned",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "secretarybird",
@@ -811,10 +836,18 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Gavialis gangeticus",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "CR",
+    populationTrend: "unknown",
+    rangeSummary:
+      "A few river systems of the northern Indian subcontinent, chiefly in India and Nepal.",
+    primaryThreats: [
+      "Loss of riverine sandbank habitat",
+      "Dams and water extraction",
+      "Fishing nets and egg collection",
+    ],
     sourceUrls: [adw("Gavialis_gangeticus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
-    imageStatus: "not-planned",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "chinese-alligator",
@@ -1329,6 +1362,7 @@ export const RED_LIST_SPECIES: readonly RedListSpeciesRecord[] = [
   ...RED_LIST_SPECIES_BATCH2,
   ...RED_LIST_SPECIES_BATCH3,
   ...RED_LIST_SPECIES_BATCH4,
+  ...RED_LIST_SPECIES_BATCH5,
 ];
 
 export const RED_LIST_SPECIES_COUNT = RED_LIST_SPECIES.length;
