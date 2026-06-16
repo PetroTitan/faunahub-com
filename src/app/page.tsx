@@ -5,6 +5,9 @@ import HubGrid from "@/components/HubGrid";
 import ToolCard from "@/components/ToolCard";
 import { getAnimalImage } from "@/lib/images/animal-images";
 import { websiteSchema, organizationSchema } from "@/lib/schema";
+import { RED_LIST_SPECIES_COUNT } from "@/lib/red-list/species";
+import { getDetailedProfiles, getFeaturedSpecies } from "@/lib/red-list/helpers";
+import CategoryBadge from "@/components/red-list/CategoryBadge";
 
 const HOME_OG_IMAGE = {
   url: "https://faunahub.com/brand/faunahub-logo-horizontal.png",
@@ -91,16 +94,28 @@ const encyclopediaCategories = [
     icon: "🦅",
   },
   {
+    title: "Reptiles & Amphibians",
+    description: "Wild crocodiles, constrictors, iguanas, frogs and salamanders.",
+    href: "/animal-encyclopedia/reptiles",
+    icon: "🐊",
+  },
+  {
     title: "Marine Animals",
     description: "Whales, sharks, dolphins and the full scope of ocean life.",
     href: "/animal-encyclopedia/marine-animals",
     icon: "🐳",
   },
   {
-    title: "Reptiles",
-    description: "Wild crocodiles, constrictors, iguanas and reptile ecology.",
-    href: "/animal-encyclopedia/reptiles",
-    icon: "🐊",
+    title: "Fish",
+    description: "Aquarium and ocean fish — bettas and goldfish to salmon and rays.",
+    href: "/animal-encyclopedia/fish",
+    icon: "🐟",
+  },
+  {
+    title: "Insects & Invertebrates",
+    description: "Bees, butterflies, ants, spiders — the most diverse animals on Earth.",
+    href: "/animal-encyclopedia/insects",
+    icon: "🦋",
   },
 ];
 
@@ -178,6 +193,11 @@ const planningAndSafety = [
 ];
 
 export default function HomePage() {
+  // Counts are derived from the dataset at build time — never hard-coded or
+  // exaggerated. Used for honest, verifiable discovery copy.
+  const redListDetailedCount = getDetailedProfiles().length;
+  const redListFeatured = getFeaturedSpecies(6);
+
   return (
     <>
       <script
@@ -276,7 +296,7 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <HubGrid items={encyclopediaCategories} columns={4} />
+            <HubGrid items={encyclopediaCategories} columns={3} />
 
             {/* Featured animal links */}
             <div className="mt-8 p-5 bg-[#EFF1EB] rounded-xl border border-[#DDE6DD]">
@@ -384,6 +404,74 @@ export default function HomePage() {
                   </Link>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        {/* Endangered Animals / Red List Intelligence */}
+        <section className="py-14 bg-white border-y border-[#DDE6DD]">
+          <div className="container-content">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
+              <div>
+                <span className="tag mb-3 inline-block">Red List Intelligence</span>
+                <h2 className="section-title">Endangered Animals</h2>
+                <p className="section-subtitle mb-0">
+                  A source-transparent guide to IUCN Red List categories —{" "}
+                  {RED_LIST_SPECIES_COUNT} reviewed species records and{" "}
+                  {redListDetailedCount} detailed conservation profiles. Status is
+                  shown as a dated snapshot, never as permanent.
+                </p>
+              </div>
+              <Link
+                href="/endangered-animals"
+                className="btn-secondary text-sm shrink-0"
+              >
+                Explore Endangered Animals →
+              </Link>
+            </div>
+
+            {/* Featured threatened species */}
+            <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-6">
+              {redListFeatured.map((r) => {
+                const href =
+                  r.profileStatus === "detailed-profile"
+                    ? `/endangered-animals/species/${r.slug}`
+                    : r.existingAnimalSlug
+                      ? `/animals/${r.existingAnimalSlug}`
+                      : "/endangered-animals";
+                return (
+                  <li key={r.slug}>
+                    <Link
+                      href={href}
+                      className="card p-4 flex flex-col gap-2 h-full hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+                    >
+                      <CategoryBadge code={r.redListCategory} size="sm" />
+                      <span className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] leading-snug">
+                        {r.commonName}
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+
+            {/* Quick browse */}
+            <div className="flex flex-wrap gap-2">
+              {[
+                { label: "Critically Endangered", href: "/endangered-animals/critically-endangered" },
+                { label: "Endangered", href: "/endangered-animals/endangered" },
+                { label: "Vulnerable", href: "/endangered-animals/vulnerable" },
+                { label: "Browse by region", href: "/endangered-animals/regions" },
+                { label: "Red List explained", href: "/endangered-animals/red-list-explained" },
+              ].map((l) => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className="px-3 py-1.5 bg-[#EFF1EB] border border-[#DDE6DD] rounded-full text-sm font-medium text-[#2C3A2F] hover:border-[#CFE0A8] hover:text-[#063F2A] transition-colors hover:no-underline"
+                >
+                  {l.label}
+                </Link>
+              ))}
             </div>
           </div>
         </section>
@@ -510,6 +598,41 @@ export default function HomePage() {
                 </div>
               </Link>
             ))}
+          </div>
+        </section>
+
+        {/* More to explore */}
+        <section className="py-14 bg-[#EFF1EB] border-y border-[#DDE6DD]">
+          <div className="container-content">
+            <h2 className="section-title">More to Explore</h2>
+            <p className="section-subtitle">
+              Dedicated guide clusters across pet care, wild birds, and aquariums.
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+              {[
+                { label: "Birdwatching", href: "/birdwatching", icon: "🔭" },
+                { label: "Bird Care", href: "/bird-care", icon: "🐦" },
+                { label: "Aquarium Care", href: "/aquarium-care", icon: "🐠" },
+                { label: "Small Pets", href: "/small-pets", icon: "🐹" },
+                { label: "Puppy Care", href: "/puppy-care", icon: "🐶" },
+                { label: "Kitten Care", href: "/kitten-care", icon: "🐱" },
+                { label: "Pet Safety", href: "/pet-safety", icon: "⛑" },
+                { label: "Pet Nutrition", href: "/pet-nutrition", icon: "🥗" },
+              ].map((l) => (
+                <Link
+                  key={l.href}
+                  href={l.href}
+                  className="card p-4 flex items-center gap-3 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+                >
+                  <span className="text-2xl" role="img" aria-hidden="true">
+                    {l.icon}
+                  </span>
+                  <span className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors">
+                    {l.label}
+                  </span>
+                </Link>
+              ))}
+            </div>
           </div>
         </section>
 
