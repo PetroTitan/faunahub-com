@@ -119,6 +119,171 @@ export const RED_LIST_PROFILES: Record<string, RedListProfileContent> = {
       },
     ],
   },
+  "snow-leopard": {
+    summary: [
+      "The snow leopard is an elusive big cat of the high mountains of Central and South Asia, superbly adapted to cold, rugged terrain. It is assessed as Vulnerable on the IUCN Red List.",
+      "Its thick coat, long tail, and broad paws suit a life among cliffs and alpine meadows, where it preys mainly on wild sheep and goats.",
+    ],
+    whyItMatters:
+      "As a top predator of high-mountain ecosystems, the snow leopard is an indicator of the health of some of Asia's most important watersheds.",
+    faq: [
+      {
+        question: "Why is the snow leopard Vulnerable rather than Endangered?",
+        answer:
+          "It was reassessed from Endangered to Vulnerable in 2017 using updated population estimates and criteria. It remains threatened — confirm the current category on the IUCN Red List.",
+      },
+      {
+        question: "Where do snow leopards live?",
+        answer:
+          "Across the mountains of Central and South Asia, including the Himalaya and Tibetan Plateau, spanning around a dozen countries.",
+      },
+    ],
+  },
+  "polar-bear": {
+    summary: [
+      "The polar bear is the largest living land carnivore — a marine mammal that hunts seals from Arctic sea ice. It is assessed as Vulnerable.",
+      "It depends on sea ice to hunt, so the timing and extent of ice strongly shape where and how well polar bears can feed.",
+    ],
+    whyItMatters:
+      "The polar bear sits at the top of the Arctic food web and has become a widely recognised indicator of change in that environment.",
+    faq: [
+      {
+        question: "Why is the polar bear Vulnerable?",
+        answer:
+          "Published assessments link its outlook to the loss of the sea-ice habitat it depends on for hunting. For the current assessment, see the IUCN Red List.",
+      },
+      {
+        question: "Are polar bears marine mammals?",
+        answer:
+          "Yes. They are classified as marine mammals because they depend on the sea-ice environment and hunt marine prey.",
+      },
+    ],
+    relatedAnimal: { label: "Bear profile", href: "/animals/bear" },
+  },
+  "african-wild-dog": {
+    summary: [
+      "The African wild dog, or painted wolf, is a highly social, pack-hunting canid of sub-Saharan Africa. It is assessed as Endangered.",
+      "Packs cooperate closely to hunt and to raise pups, and they range over very large territories.",
+    ],
+    whyItMatters:
+      "As wide-ranging social predators, African wild dogs need large, connected landscapes, so their presence reflects room for wildlife to move.",
+    faq: [
+      {
+        question: "Why is the African wild dog Endangered?",
+        answer:
+          "Published assessments point to habitat fragmentation, conflict with livestock farmers, disease, and road deaths. See the IUCN Red List for the current assessment.",
+      },
+      {
+        question: "Is the African wild dog a kind of domestic dog?",
+        answer:
+          "No. It is a distinct species (Lycaon pictus), the only member of its genus, and not closely related enough to domestic dogs to interbreed.",
+      },
+    ],
+  },
+  "giant-otter": {
+    summary: [
+      "The giant otter is the largest otter in the world, a social river predator of tropical South America. It is assessed as Endangered.",
+      "Family groups are noisy and conspicuous, fishing together in rivers and oxbow lakes of the Amazon and Pantanal.",
+    ],
+    whyItMatters:
+      "As a top predator of South American waterways, the giant otter reflects the health of those freshwater systems.",
+    faq: [
+      {
+        question: "Why is the giant otter Endangered?",
+        answer:
+          "Published assessments cite habitat degradation, historical hunting for pelts, pollution, and conflict with fisheries.",
+      },
+      {
+        question: "How big is a giant otter?",
+        answer:
+          "It is the longest member of the weasel family, noticeably larger than the otters familiar from Europe and North America.",
+      },
+    ],
+    relatedAnimal: { label: "Otter profile", href: "/animals/otter" },
+  },
+  "andean-condor": {
+    summary: [
+      "The Andean condor is one of the largest flying birds in the world, a high-soaring scavenger of South America. It is assessed as Vulnerable.",
+      "It rides mountain updrafts over the Andes and adjacent coasts, feeding mainly on carrion.",
+    ],
+    whyItMatters:
+      "As a scavenger, the condor helps recycle nutrients across vast Andean landscapes, and it is a cultural icon across the region.",
+    faq: [
+      {
+        question: "Why is the Andean condor Vulnerable?",
+        answer:
+          "Published assessments point to poisoning — often secondary, from baited carcasses — along with persecution and reduced food availability.",
+      },
+      {
+        question: "How large is the Andean condor?",
+        answer:
+          "It has one of the largest wingspans of any land bird, letting it soar long distances with little flapping.",
+      },
+    ],
+  },
+  kakapo: {
+    summary: [
+      "The kākāpō is a large, flightless, nocturnal parrot endemic to New Zealand and one of the world's most intensively managed birds. It is assessed as Critically Endangered.",
+      "Every known individual is monitored, and the population survives on predator-free islands.",
+    ],
+    whyItMatters:
+      "The kākāpō is a flagship for island conservation and a striking example of how isolated species suffer when mammalian predators arrive.",
+    faq: [
+      {
+        question: "Why can't the kākāpō fly?",
+        answer:
+          "It evolved in New Zealand without ground predators and became flightless, which left it highly vulnerable once mammals were introduced.",
+      },
+      {
+        question: "Is the kākāpō population growing?",
+        answer:
+          "Intensive management has increased numbers in recent years, but the species remains Critically Endangered and dependent on that management.",
+      },
+    ],
+    relatedAnimal: { label: "Parrot profile", href: "/animals/parrot" },
+  },
+  "leatherback-turtle": {
+    summary: [
+      "The leatherback is the largest sea turtle and the only one without a hard shell, instead having a leathery, ridged carapace. It is assessed as Vulnerable globally.",
+      "It makes some of the longest migrations of any reptile and feeds largely on jellyfish.",
+    ],
+    whyItMatters:
+      "By feeding on jellyfish across ocean basins, leatherbacks fill a role in marine food webs that few other reptiles do.",
+    faq: [
+      {
+        question: "Why is the leatherback only Vulnerable globally?",
+        answer:
+          "The global assessment is Vulnerable, but several regional sub-populations are assessed as Critically Endangered. Check the relevant entry on the IUCN Red List.",
+      },
+      {
+        question: "What do leatherback turtles eat?",
+        answer:
+          "Mainly jellyfish and other soft-bodied animals, which makes floating plastic a particular hazard for them.",
+      },
+    ],
+    relatedAnimal: { label: "Sea turtle profile", href: "/animals/sea-turtle" },
+  },
+  "great-white-shark": {
+    summary: [
+      "The great white shark is a large, powerful predatory fish found in temperate and subtropical seas worldwide. It is assessed as Vulnerable.",
+      "It is slow-growing and late-maturing, which makes its populations slow to recover from losses.",
+    ],
+    whyItMatters:
+      "As an apex predator, the great white helps shape marine communities; its slow life history also makes it sensitive to fishing pressure.",
+    faq: [
+      {
+        question: "Why is the great white shark Vulnerable?",
+        answer:
+          "Published assessments point to targeted and incidental fishing, bycatch, and demand for jaws, teeth, and fins.",
+      },
+      {
+        question: "Are great white sharks common?",
+        answer:
+          "They are naturally uncommon apex predators, and their slow reproduction means populations recover slowly — part of why they are considered Vulnerable.",
+      },
+    ],
+    relatedAnimal: { label: "Shark profile", href: "/animals/shark" },
+  },
   axolotl: {
     summary: [
       "The axolotl is a salamander famous for keeping its larval form — including feathery external gills — throughout life, a trait called neoteny. Its wild population is assessed as Critically Endangered.",
