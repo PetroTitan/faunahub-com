@@ -13,6 +13,7 @@ import { AQUARIUM_ARTICLES } from "@/lib/aquarium/data";
 import { BIRDWATCHING_ARTICLES } from "@/lib/birdwatching/data";
 import { BIRD_CARE_ARTICLES } from "@/lib/bird-care/data";
 import { getDetailedSlugs } from "@/lib/red-list/helpers";
+import { REGION_ORDER } from "@/lib/red-list/regions";
 
 const BASE_URL = "https://faunahub.com";
 
@@ -425,6 +426,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
+  const endangeredRegionRoutes: MetadataRoute.Sitemap = [
+    {
+      url: `${BASE_URL}/endangered-animals/regions`,
+      lastModified: today,
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    ...REGION_ORDER.map((region) => ({
+      url: `${BASE_URL}/endangered-animals/regions/${region}`,
+      lastModified: today,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    })),
+  ];
+
   return [
     ...staticRoutes,
     ...animalRoutes,
@@ -446,5 +462,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...birdGuideRoutes,
     ...endangeredStaticRoutes,
     ...endangeredSpeciesRoutes,
+    ...endangeredRegionRoutes,
   ];
 }
