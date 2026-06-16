@@ -3,8 +3,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQBlock from "@/components/FAQBlock";
 import RelatedLinks from "@/components/RelatedLinks";
 import LastUpdated from "@/components/LastUpdated";
-import SpeciesList from "@/components/red-list/SpeciesList";
-import MethodologyNote from "@/components/red-list/MethodologyNote";
+import SpeciesBrowser from "@/components/red-list/SpeciesBrowser";
+import DataLimitations from "@/components/red-list/DataLimitations";
 import { breadcrumbSchema, faqSchema, itemListSchema } from "@/lib/schema";
 import { recordInternalHref } from "@/lib/red-list/helpers";
 import { RED_LIST_LAST_REVIEW } from "@/lib/red-list/methodology";
@@ -99,16 +99,27 @@ export default function CategoryPageLayout({
         </header>
 
         <div className="container-content py-10 space-y-10">
-          <MethodologyNote
-            lastVerified={RED_LIST_LAST_REVIEW}
-            extra={methodologyExtra}
-          />
+          {methodologyExtra && (
+            <p className="text-sm text-[#5E6B63] max-w-3xl -mt-2">
+              {methodologyExtra}
+            </p>
+          )}
+          <DataLimitations />
 
           <section aria-labelledby="records-heading">
             <h2 id="records-heading" className="sr-only">
               {breadcrumbLabel} records
             </h2>
-            <SpeciesList records={records} hideGroup={hideGroup} />
+            <SpeciesBrowser
+              records={records}
+              hideGroup={hideGroup}
+              facets={{
+                group: !hideGroup,
+                category: !!hideGroup,
+                region: true,
+                status: true,
+              }}
+            />
           </section>
 
           <div className="grid gap-8 lg:grid-cols-3">
