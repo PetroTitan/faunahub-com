@@ -16,6 +16,7 @@ import {
   getGroupMeta,
   CATEGORY_PAGE_SLUG,
 } from "@/lib/red-list/categories";
+import { REGION_ORDER, getRegionMeta } from "@/lib/red-list/regions";
 import {
   getFeaturedSpecies,
   getRecentlyVerified,
@@ -39,6 +40,7 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const HERO_LINKS = [
+  { label: "Browse by region", href: "/endangered-animals/regions" },
   { label: "Red List explained", href: "/endangered-animals/red-list-explained" },
   {
     label: "How conservation status works",
@@ -289,6 +291,40 @@ export default function EndangeredAnimalsHubPage() {
                   </Link>
                 );
               })}
+            </div>
+          </section>
+
+          {/* 5b. Browse by Region */}
+          <section aria-labelledby="region-heading">
+            <div className="flex items-end justify-between gap-3 flex-wrap mb-5">
+              <h2
+                id="region-heading"
+                className="text-2xl font-bold text-[#17211B]"
+              >
+                Browse by region
+              </h2>
+              <Link
+                href="/endangered-animals/regions"
+                className="text-sm font-medium text-[#063F2A] hover:underline"
+              >
+                All regions →
+              </Link>
+            </div>
+            <p className="text-sm text-[#5E6B63] mb-5 max-w-2xl">
+              Explore threatened species by where they live. Region pages show
+              the global Red List category — national legal status is separate.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {REGION_ORDER.map((region) => (
+                <Link
+                  key={region}
+                  href={`/endangered-animals/regions/${region}`}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-[#DDE6DD] bg-white px-3 py-1.5 text-sm text-[#2C3A2F] hover:border-[#CFE0A8] hover:text-[#063F2A] hover:no-underline transition-colors"
+                >
+                  <span aria-hidden="true">{getRegionMeta(region).icon}</span>
+                  {getRegionMeta(region).label}
+                </Link>
+              ))}
             </div>
           </section>
 

@@ -11,6 +11,8 @@ import {
   DATA_CONFIDENCE_NOTES,
   RED_LIST_METHODOLOGY_SUMMARY,
   IUCN_ATTRIBUTION_NOTE,
+  NATIONAL_STATUS_EXPLAINER,
+  SCALING_PLAN_EXPLAINER,
   RED_LIST_PRIMARY_SOURCES,
   METHODOLOGY_FAQ,
   RED_LIST_LAST_REVIEW,
@@ -131,6 +133,20 @@ export default function RedListDataMethodologyPage() {
                   museum and university references. We do not rely on listicles,
                   pet shops, tourism pages, or AI-generated fact pages.
                 </p>
+
+                <h2>Global status vs national and regional status</h2>
+                <p>{NATIONAL_STATUS_EXPLAINER}</p>
+                <p>
+                  Our{" "}
+                  <Link href="/endangered-animals/regions">
+                    endangered animals by region
+                  </Link>{" "}
+                  pages group species by where they occur and always show the
+                  global category — never a claim of national legal protection.
+                </p>
+
+                <h2>How FaunaHub scales — and why not 1,000 pages at once</h2>
+                <p>{SCALING_PLAN_EXPLAINER}</p>
 
                 <h2>IUCN compliance</h2>
                 <p>{IUCN_ATTRIBUTION_NOTE}</p>
