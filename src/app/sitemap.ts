@@ -204,6 +204,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "pilot-whale",
     "rissos-dolphin",
     "commersons-dolphin",
+    // Marine predators batch (2026-06-19)
+    "great-white-shark",
+    "hammerhead-shark",
+    "barracuda",
+    "grouper",
+    "moray-eel",
+    "lionfish",
   ];
 
   const compareSlugs = [
