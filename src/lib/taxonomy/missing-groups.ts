@@ -26,7 +26,7 @@ export const COVERAGE_GAPS: readonly CoverageGap[] = [
   {
     heading: "Regional fauna coverage gaps",
     body: "The continents layer is representative, not complete. Each continent has well-known animals still to add, especially smaller mammals, regional birds, and herpetofauna.",
-    examples: ["wildebeest", "gibbon", "capybara", "pronghorn", "echidna", "wild boar"],
+    examples: ["echidna", "wild boar", "okapi", "saiga", "markhor", "Tasmanian devil"],
   },
   {
     heading: "Conservation (Red List) coverage gaps",
