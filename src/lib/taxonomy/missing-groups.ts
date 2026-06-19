@@ -26,7 +26,7 @@ export const COVERAGE_GAPS: readonly CoverageGap[] = [
   {
     heading: "Regional fauna coverage gaps",
     body: "The continents layer is representative, not complete. Each continent has well-known animals still to add, especially smaller mammals, regional birds, and herpetofauna.",
-    examples: ["hippopotamus", "orangutan", "capybara", "bison", "echidna", "wild boar"],
+    examples: ["wildebeest", "gibbon", "capybara", "pronghorn", "echidna", "wild boar"],
   },
   {
     heading: "Conservation (Red List) coverage gaps",
@@ -36,6 +36,6 @@ export const COVERAGE_GAPS: readonly CoverageGap[] = [
   {
     heading: "Domestic, farm & urban gaps",
     body: "Common domestic, farm, and urban-adapted animals are only partly covered, and should be clearly labelled as domestic or human-associated rather than wild fauna.",
-    examples: ["chicken", "turkey", "donkey", "squirrel", "opossum"],
+    examples: ["chicken", "turkey", "donkey", "opossum", "starling"],
   },
 ];
