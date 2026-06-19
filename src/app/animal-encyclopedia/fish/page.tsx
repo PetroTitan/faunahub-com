@@ -29,6 +29,10 @@ const marine = [
   { href: "/animals/ray", label: "Ray", desc: "Flattened cartilaginous fish related to sharks." },
   { href: "/animals/eel", label: "Eel", desc: "Elongated true eels (Anguilliformes), using the moray eel." },
   { href: "/animals/pufferfish", label: "Pufferfish", desc: "Tetraodontidae — inflating fish, many of them highly toxic." },
+  { href: "/animals/barracuda", label: "Barracuda", desc: "Sphyraena — fast, streamlined ambush predators with sharp teeth." },
+  { href: "/animals/grouper", label: "Grouper", desc: "Serranidae — large suction-feeding reef ambush predators." },
+  { href: "/animals/moray-eel", label: "Moray Eel", desc: "Muraenidae — reef eels with a hidden second set of jaws." },
+  { href: "/animals/lionfish", label: "Lionfish", desc: "Pterois — venomous-spined reef fish; invasive in the Atlantic." },
 ];
 
 export default function FishEncyclopediaPage() {

@@ -972,6 +972,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_NOAA_FISHERIES,
     SRC_IUCN,
   ],
+  // Marine predators batch (2026-06-19)
+  "great-white-shark": [
+    adw("Carcharodon_carcharias", "Carcharodon carcharias (great white shark)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "hammerhead-shark": [
+    SRC_NOAA_FISHERIES,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  barracuda: [
+    adw("Sphyraena_barracuda", "Sphyraena barracuda (great barracuda)"),
+    brit("barracuda", "Barracuda"),
+    SRC_IUCN,
+  ],
+  grouper: [
+    brit("grouper", "Grouper"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  "moray-eel": [
+    brit("moray", "Moray"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  lionfish: [
+    adw("Pterois_volitans", "Pterois volitans (red lionfish)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
 };
 
 /**

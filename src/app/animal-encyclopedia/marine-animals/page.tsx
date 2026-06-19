@@ -117,6 +117,16 @@ const links = [
     desc: "Cephalorhynchus commersonii — tiny black-and-white \"panda dolphin\" of cold southern seas.",
   },
   {
+    href: "/animals/great-white-shark",
+    label: "Great White Shark",
+    desc: "Carcharodon carcharias — the largest predatory fish and an ocean apex predator.",
+  },
+  {
+    href: "/animals/hammerhead-shark",
+    label: "Hammerhead Shark",
+    desc: "Sphyrnidae — sharks with a wide, sensory-packed hammer-shaped head.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",
