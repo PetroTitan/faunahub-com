@@ -87,6 +87,36 @@ const links = [
     desc: "Salmon, tuna, eels, pufferfish, and aquarium fish — the full fish category.",
   },
   {
+    href: "/animals/orca",
+    label: "Orca (Killer Whale)",
+    desc: "Orcinus orca — the ocean's apex predator and largest member of the dolphin family.",
+  },
+  {
+    href: "/animals/common-dolphin",
+    label: "Common Dolphin",
+    desc: "Delphinus delphis — fast, acrobatic dolphin of huge, highly social pods.",
+  },
+  {
+    href: "/animals/spinner-dolphin",
+    label: "Spinner Dolphin",
+    desc: "Stenella longirostris — famous for spinning leaps and day-night rhythms.",
+  },
+  {
+    href: "/animals/pilot-whale",
+    label: "Pilot Whale",
+    desc: "Globicephala — a large, deep-diving dolphin with exceptionally strong social bonds.",
+  },
+  {
+    href: "/animals/rissos-dolphin",
+    label: "Risso's Dolphin",
+    desc: "Grampus griseus — robust, scarred grey dolphin that hunts squid in deep water.",
+  },
+  {
+    href: "/animals/commersons-dolphin",
+    label: "Commerson's Dolphin",
+    desc: "Cephalorhynchus commersonii — tiny black-and-white \"panda dolphin\" of cold southern seas.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",

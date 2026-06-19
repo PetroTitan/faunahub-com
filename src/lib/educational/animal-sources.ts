@@ -941,6 +941,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_ADW,
     SRC_IUCN,
   ],
+  // Dolphin family (Delphinidae) batch (2026-06-19)
+  orca: [
+    adw("Orcinus_orca", "Orcinus orca (orca / killer whale)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "common-dolphin": [
+    adw("Delphinus_delphis", "Delphinus delphis (common dolphin)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "spinner-dolphin": [
+    adw("Stenella_longirostris", "Stenella longirostris (spinner dolphin)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "pilot-whale": [
+    adw("Globicephala_melas", "Globicephala melas (long-finned pilot whale)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "rissos-dolphin": [
+    adw("Grampus_griseus", "Grampus griseus (Risso's dolphin)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "commersons-dolphin": [
+    adw("Cephalorhynchus_commersonii", "Cephalorhynchus commersonii (Commerson's dolphin)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
 };
 
 /**
