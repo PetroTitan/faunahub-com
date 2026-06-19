@@ -23,6 +23,12 @@ const reptiles = [
   { href: "/animals/gecko", label: "Gecko", desc: "Climbing lizards; leopard gecko as a reference." },
   { href: "/animals/monitor-lizard", label: "Monitor Lizard", desc: "Genus Varanus; Nile monitor as a reference." },
   { href: "/animals/komodo-dragon", label: "Komodo Dragon", desc: "The largest living lizard, native to Indonesia." },
+  { href: "/animals/tortoise", label: "Tortoise", desc: "Family Testudinidae — land-dwelling, long-lived shelled reptiles." },
+  { href: "/animals/cobra", label: "Cobra", desc: "Genus Naja and relatives — venomous, hood-spreading snakes." },
+  { href: "/animals/python", label: "Python", desc: "Family Pythonidae — non-venomous constrictors of the Old World." },
+  { href: "/animals/rattlesnake", label: "Rattlesnake", desc: "Crotalus & Sistrurus — venomous New World pit vipers with a rattle." },
+  { href: "/animals/gila-monster", label: "Gila Monster", desc: "Heloderma suspectum — a venomous desert lizard." },
+  { href: "/animals/tuatara", label: "Tuatara", desc: "Sphenodon punctatus — sole survivor of an ancient reptile order." },
 ];
 
 const amphibians = [

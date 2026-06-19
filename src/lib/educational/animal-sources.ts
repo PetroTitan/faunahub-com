@@ -810,6 +810,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("weasel", "Weasel"),
     SRC_IUCN,
   ],
+  // Land fauna batch 5 — reptiles (2026-06-19)
+  tortoise: [
+    brit("tortoise", "Tortoise"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  cobra: [
+    adw("Naja_naja", "Naja naja (Indian cobra)"),
+    brit("cobra", "Cobra"),
+    SRC_IUCN,
+  ],
+  python: [
+    brit("python", "Python"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  rattlesnake: [
+    brit("rattlesnake", "Rattlesnake"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  "gila-monster": [
+    adw("Heloderma_suspectum", "Heloderma suspectum (Gila monster)"),
+    brit("Gila-monster", "Gila monster"),
+    SRC_IUCN,
+  ],
+  tuatara: [
+    adw("Sphenodon_punctatus", "Sphenodon punctatus (tuatara)"),
+    brit("tuatara", "Tuatara"),
+    SRC_IUCN,
+  ],
 };
 
 /**
