@@ -60,6 +60,8 @@ const birds = [
   { href: "/animals/heron", label: "Heron", desc: "Family Ardeidae — tall wading birds; grey heron as a reference." },
   { href: "/animals/kingfisher", label: "Kingfisher", desc: "Family Alcedinidae — vivid waterside birds; common kingfisher as a reference." },
   { href: "/animals/kookaburra", label: "Kookaburra", desc: "Genus Dacelo — large Australasian kingfishers with a laughing call." },
+  { href: "/animals/hornbill", label: "Hornbill", desc: "Family Bucerotidae — big-billed tropical birds; great hornbill as a reference." },
+  { href: "/animals/bee-eater", label: "Bee-eater", desc: "Family Meropidae — vivid birds that catch insects in flight." },
 ];
 
 export default function EncyclopediaBirdsPage() {

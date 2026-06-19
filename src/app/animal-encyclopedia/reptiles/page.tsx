@@ -29,6 +29,8 @@ const reptiles = [
   { href: "/animals/rattlesnake", label: "Rattlesnake", desc: "Crotalus & Sistrurus — venomous New World pit vipers with a rattle." },
   { href: "/animals/gila-monster", label: "Gila Monster", desc: "Heloderma suspectum — a venomous desert lizard." },
   { href: "/animals/tuatara", label: "Tuatara", desc: "Sphenodon punctatus — sole survivor of an ancient reptile order." },
+  { href: "/animals/boa", label: "Boa Constrictor", desc: "Boa constrictor — large non-venomous constrictor of the Americas." },
+  { href: "/animals/gharial", label: "Gharial", desc: "Gavialis gangeticus — critically endangered, thin-snouted fish-eating crocodilian." },
 ];
 
 const amphibians = [
@@ -39,6 +41,8 @@ const amphibians = [
   { href: "/animals/tree-frog", label: "Tree Frog", desc: "Climbing frogs with sticky toe pads; red-eyed tree frog as a reference." },
   { href: "/animals/poison-dart-frog", label: "Poison Dart Frog", desc: "Family Dendrobatidae — vivid, toxic rainforest frogs." },
   { href: "/animals/fire-salamander", label: "Fire Salamander", desc: "Salamandra salamandra — striking black-and-yellow European amphibian." },
+  { href: "/animals/axolotl", label: "Axolotl", desc: "Ambystoma mexicanum — neotenic salamander famous for regeneration." },
+  { href: "/animals/bullfrog", label: "American Bullfrog", desc: "Lithobates catesbeianus — large, deep-voiced frog; invasive where introduced." },
 ];
 
 export default function EncyclopediaReptilesPage() {

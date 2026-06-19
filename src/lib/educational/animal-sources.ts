@@ -910,6 +910,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_ADW,
     SRC_IUCN,
   ],
+  // Land fauna batch 8 — amphibians + reptiles + birds (2026-06-19)
+  axolotl: [
+    SRC_AMPHIBIAWEB,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  bullfrog: [
+    SRC_AMPHIBIAWEB,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  boa: [
+    adw("Boa_constrictor", "Boa constrictor (boa)"),
+    brit("boa", "Boa"),
+    SRC_IUCN,
+  ],
+  gharial: [
+    adw("Gavialis_gangeticus", "Gavialis gangeticus (gharial)"),
+    brit("gharial", "Gharial"),
+    SRC_IUCN,
+  ],
+  hornbill: [
+    brit("hornbill", "Hornbill"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  "bee-eater": [
+    brit("bee-eater", "Bee eater"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
 };
 
 /**
