@@ -496,7 +496,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  // Animal taxonomy coverage cluster.
+  // Animal taxonomy coverage cluster + domestic/wild separation hub.
   const taxonomyRoutes: MetadataRoute.Sitemap = [
     "/animal-taxonomy",
     "/animal-taxonomy/vertebrates",
@@ -504,11 +504,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/animal-taxonomy/marine-animal-groups",
     "/animal-taxonomy/missing-animals",
     "/animal-taxonomy/coverage-roadmap",
+    "/domestic-animals",
   ].map((p) => ({
     url: `${BASE_URL}${p}`,
     lastModified: today,
     changeFrequency: "monthly" as const,
-    priority: p === "/animal-taxonomy" ? 0.7 : 0.6,
+    priority: p === "/animal-taxonomy" || p === "/domestic-animals" ? 0.7 : 0.6,
   }));
 
   return [

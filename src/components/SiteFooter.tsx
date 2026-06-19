@@ -18,6 +18,7 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
     { label: "Endangered Animals", href: "/endangered-animals" },
     { label: "Fauna by Continent", href: "/fauna" },
     { label: "Animal Taxonomy", href: "/animal-taxonomy" },
+    { label: "Domestic & Companion Animals", href: "/domestic-animals" },
     { label: "Mammals", href: "/animal-encyclopedia/mammals" },
     { label: "Birds", href: "/animal-encyclopedia/birds" },
     { label: "Reptiles & Amphibians", href: "/animal-encyclopedia/reptiles" },

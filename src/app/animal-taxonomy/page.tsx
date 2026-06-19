@@ -186,7 +186,7 @@ export default function AnimalTaxonomyHub() {
               {sectionSummary("Vertebrates", "/animal-taxonomy/vertebrates", verts, "Animals with a backbone — mammals, birds, reptiles, amphibians, and fish.")}
               {sectionSummary("Invertebrates", "/animal-taxonomy/invertebrates", inverts, "Animals without a backbone — insects, mollusks, corals, and many more.")}
               {sectionSummary("Marine animal groups", "/animal-taxonomy/marine-animal-groups", marine, "Cross-cutting ocean groupings, from reefs to the deep sea.")}
-              {sectionSummary("Domestic & human-associated", "/animal-taxonomy", human, "Domestic, farm, companion, and urban-adapted animals — clearly distinguished from wild fauna.")}
+              {sectionSummary("Domestic & human-associated", "/domestic-animals", human, "Domestic, farm, companion, and urban-adapted animals — clearly distinguished from wild fauna.")}
             </div>
           </section>
 
