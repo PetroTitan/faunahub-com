@@ -190,6 +190,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "tree-frog",
     "poison-dart-frog",
     "fire-salamander",
+    // Land fauna batch 8 — amphibians + reptiles + birds (2026-06-19)
+    "axolotl",
+    "bullfrog",
+    "boa",
+    "gharial",
+    "hornbill",
+    "bee-eater",
   ];
 
   const compareSlugs = [
