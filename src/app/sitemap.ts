@@ -141,6 +141,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "lemur",
     "tapir",
     "hyena",
+    // Land fauna batch 1 (2026-06-19)
+    "hippopotamus",
+    "rhinoceros",
+    "orangutan",
+    "bison",
+    "camel",
+    "squirrel",
   ];
 
   const compareSlugs = [
