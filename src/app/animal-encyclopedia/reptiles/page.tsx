@@ -36,6 +36,9 @@ const amphibians = [
   { href: "/animals/toad", label: "Toad", desc: "Warty-skinned frogs; common toad as a reference." },
   { href: "/animals/salamander", label: "Salamander", desc: "Tailed amphibians; fire salamander as a reference." },
   { href: "/animals/newt", label: "Newt", desc: "Semi-aquatic salamanders; smooth newt as a reference." },
+  { href: "/animals/tree-frog", label: "Tree Frog", desc: "Climbing frogs with sticky toe pads; red-eyed tree frog as a reference." },
+  { href: "/animals/poison-dart-frog", label: "Poison Dart Frog", desc: "Family Dendrobatidae — vivid, toxic rainforest frogs." },
+  { href: "/animals/fire-salamander", label: "Fire Salamander", desc: "Salamandra salamandra — striking black-and-yellow European amphibian." },
 ];
 
 export default function EncyclopediaReptilesPage() {

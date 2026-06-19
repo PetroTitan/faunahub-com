@@ -57,6 +57,9 @@ const birds = [
   { href: "/animals/kiwi", label: "Kiwi", desc: "Genus Apteryx — small, nocturnal flightless birds of New Zealand." },
   { href: "/animals/magpie", label: "Magpie", desc: "Pica pica — bold, intelligent black-and-white corvid." },
   { href: "/animals/cardinal", label: "Cardinal", desc: "Cardinalis cardinalis — vivid red North American songbird." },
+  { href: "/animals/heron", label: "Heron", desc: "Family Ardeidae — tall wading birds; grey heron as a reference." },
+  { href: "/animals/kingfisher", label: "Kingfisher", desc: "Family Alcedinidae — vivid waterside birds; common kingfisher as a reference." },
+  { href: "/animals/kookaburra", label: "Kookaburra", desc: "Genus Dacelo — large Australasian kingfishers with a laughing call." },
 ];
 
 export default function EncyclopediaBirdsPage() {

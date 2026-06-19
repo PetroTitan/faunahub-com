@@ -64,6 +64,13 @@ export const SRC_AUDUBON: SourceLink = {
   note: "Bird identification and conservation reference",
 };
 
+export const SRC_AMPHIBIAWEB: SourceLink = {
+  label: "AmphibiaWeb — University of California, Berkeley",
+  url: "https://amphibiaweb.org/",
+  type: "university",
+  note: "Authoritative database of amphibian biology and conservation",
+};
+
 /** Per-species ADW account helper. */
 function adw(species: string, label: string, note?: string): SourceLink {
   return {
@@ -870,6 +877,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
   cardinal: [
     SRC_CORNELL_BIRDS,
     SRC_AUDUBON,
+    SRC_IUCN,
+  ],
+  // Land fauna batch 7 — birds + amphibians (2026-06-19)
+  heron: [
+    brit("heron", "Heron"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  kingfisher: [
+    brit("kingfisher", "Kingfisher"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  kookaburra: [
+    brit("kookaburra", "Kookaburra"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  "tree-frog": [
+    SRC_AMPHIBIAWEB,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  "poison-dart-frog": [
+    SRC_AMPHIBIAWEB,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  "fire-salamander": [
+    SRC_AMPHIBIAWEB,
+    SRC_ADW,
     SRC_IUCN,
   ],
 };
