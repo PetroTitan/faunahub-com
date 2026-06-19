@@ -717,6 +717,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("squirrel", "Squirrel"),
     SRC_IUCN,
   ],
+  // Land fauna batch 2 (2026-06-19)
+  warthog: [
+    adw("Phacochoerus_africanus", "Phacochoerus africanus (common warthog)"),
+    brit("warthog", "Warthog"),
+    SRC_IUCN,
+  ],
+  wildebeest: [
+    adw("Connochaetes_taurinus", "Connochaetes taurinus (blue wildebeest)"),
+    brit("wildebeest", "Wildebeest"),
+    SRC_IUCN,
+  ],
+  capybara: [
+    adw("Hydrochoerus_hydrochaeris", "Hydrochoerus hydrochaeris (capybara)"),
+    brit("capybara", "Capybara"),
+    SRC_IUCN,
+  ],
+  gibbon: [
+    adw("Hylobates_lar", "Hylobates lar (lar gibbon)"),
+    brit("gibbon", "Gibbon"),
+    SRC_IUCN,
+  ],
+  pangolin: [
+    adw("Manis_javanica", "Manis javanica (Sunda pangolin)"),
+    brit("pangolin", "Pangolin"),
+    SRC_IUCN,
+  ],
+  pronghorn: [
+    adw("Antilocapra_americana", "Antilocapra americana (pronghorn)"),
+    brit("pronghorn", "Pronghorn"),
+    SRC_IUCN,
+  ],
 };
 
 /**

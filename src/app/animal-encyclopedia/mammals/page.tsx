@@ -53,6 +53,12 @@ const mammals = [
   { href: "/animals/bison", label: "Bison", desc: "Bison bison — North America's largest land mammal." },
   { href: "/animals/camel", label: "Camel", desc: "Genus Camelus — desert-adapted dromedary and Bactrian camels." },
   { href: "/animals/squirrel", label: "Squirrel", desc: "Family Sciuridae — tree, ground, and flying squirrels." },
+  { href: "/animals/warthog", label: "Warthog", desc: "Phacochoerus africanus — wild pig of African savannas." },
+  { href: "/animals/wildebeest", label: "Wildebeest", desc: "Genus Connochaetes — migratory African antelopes (gnus)." },
+  { href: "/animals/capybara", label: "Capybara", desc: "Hydrochoerus hydrochaeris — the world's largest rodent." },
+  { href: "/animals/gibbon", label: "Gibbon", desc: "Family Hylobatidae — small, agile apes of Asian forests." },
+  { href: "/animals/pangolin", label: "Pangolin", desc: "Order Pholidota — scale-covered, ant-eating mammals." },
+  { href: "/animals/pronghorn", label: "Pronghorn", desc: "Antilocapra americana — North America's fastest land mammal." },
 ];
 
 export default function MammalsPage() {
