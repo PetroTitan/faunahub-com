@@ -211,6 +211,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "grouper",
     "moray-eel",
     "lionfish",
+    // Deep-sea batch (2026-06-19)
+    "giant-isopod",
+    "dumbo-octopus",
+    "coelacanth",
+    "giant-squid",
+    "anglerfish",
+    "frilled-shark",
   ];
 
   const compareSlugs = [
