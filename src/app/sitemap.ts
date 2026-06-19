@@ -169,6 +169,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "mongoose",
     "skunk",
     "weasel",
+    // Land fauna batch 5 — reptiles (2026-06-19)
+    "tortoise",
+    "cobra",
+    "python",
+    "rattlesnake",
+    "gila-monster",
+    "tuatara",
   ];
 
   const compareSlugs = [
