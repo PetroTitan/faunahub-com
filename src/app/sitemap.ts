@@ -197,6 +197,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "gharial",
     "hornbill",
     "bee-eater",
+    // Dolphin family (Delphinidae) batch (2026-06-19)
+    "orca",
+    "common-dolphin",
+    "spinner-dolphin",
+    "pilot-whale",
+    "rissos-dolphin",
+    "commersons-dolphin",
   ];
 
   const compareSlugs = [
