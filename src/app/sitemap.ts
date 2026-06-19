@@ -176,6 +176,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "rattlesnake",
     "gila-monster",
     "tuatara",
+    // Land fauna batch 6 — birds (2026-06-19)
+    "ostrich",
+    "emu",
+    "cassowary",
+    "kiwi",
+    "magpie",
+    "cardinal",
   ];
 
   const compareSlugs = [
