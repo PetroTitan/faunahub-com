@@ -1041,6 +1041,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_ADW,
     SRC_IUCN,
   ],
+  // Invertebrates batch (2026-06-19)
+  beetle: [
+    SRC_ADW,
+    brit("beetle", "Beetle"),
+    SRC_IUCN,
+  ],
+  scorpion: [
+    SRC_ADW,
+    brit("scorpion", "Scorpion"),
+    SRC_IUCN,
+  ],
+  nautilus: [
+    SRC_WORMS,
+    brit("nautilus", "Nautilus"),
+    SRC_IUCN,
+  ],
+  "sea-urchin": [
+    SRC_WORMS,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  coral: [
+    SRC_WORMS,
+    brit("coral", "Coral"),
+    SRC_IUCN,
+  ],
+  earthworm: [
+    SRC_ADW,
+    brit("earthworm", "Earthworm"),
+    SRC_IUCN,
+  ],
 };
 
 /**

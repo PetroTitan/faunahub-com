@@ -157,6 +157,21 @@ const links = [
     desc: "Latimeria — a lobe-finned \"living fossil\" found alive in 1938.",
   },
   {
+    href: "/animals/nautilus",
+    label: "Nautilus",
+    desc: "Nautilus pompilius — a shelled cephalopod and living-fossil mollusc.",
+  },
+  {
+    href: "/animals/sea-urchin",
+    label: "Sea Urchin",
+    desc: "Echinoidea — spiny echinoderms that graze the seabed.",
+  },
+  {
+    href: "/animals/coral",
+    label: "Coral",
+    desc: "Anthozoa — colonial cnidarian animals whose polyps build reefs.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",

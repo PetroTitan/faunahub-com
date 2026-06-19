@@ -46,6 +46,21 @@ const groups = [
     label: "Spider",
     desc: "Order Araneae — eight-legged arachnids (not insects) that produce silk.",
   },
+  {
+    href: "/animals/beetle",
+    label: "Beetle",
+    desc: "Order Coleoptera — the most species-rich animal group, with hardened wing cases.",
+  },
+  {
+    href: "/animals/scorpion",
+    label: "Scorpion",
+    desc: "Order Scorpiones — arachnids with pincers and a venomous tail sting.",
+  },
+  {
+    href: "/animals/earthworm",
+    label: "Earthworm",
+    desc: "Annelida — segmented worms that aerate and enrich the soil.",
+  },
 ];
 
 export default function InsectsPage() {
