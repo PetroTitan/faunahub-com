@@ -71,6 +71,13 @@ export const SRC_AMPHIBIAWEB: SourceLink = {
   note: "Authoritative database of amphibian biology and conservation",
 };
 
+export const SRC_WORMS: SourceLink = {
+  label: "WoRMS — World Register of Marine Species",
+  url: "https://www.marinespecies.org/",
+  type: "reference",
+  note: "Authoritative register of marine species names",
+};
+
 /** Per-species ADW account helper. */
 function adw(species: string, label: string, note?: string): SourceLink {
   return {
@@ -1001,6 +1008,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
   lionfish: [
     adw("Pterois_volitans", "Pterois volitans (red lionfish)"),
     SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  // Deep-sea batch (2026-06-19)
+  "giant-isopod": [
+    SRC_WORMS,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  "dumbo-octopus": [
+    SRC_WORMS,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  coelacanth: [
+    adw("Latimeria_chalumnae", "Latimeria chalumnae (coelacanth)"),
+    brit("coelacanth", "Coelacanth"),
+    SRC_IUCN,
+  ],
+  "giant-squid": [
+    SRC_WORMS,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  anglerfish: [
+    SRC_WORMS,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  "frilled-shark": [
+    SRC_WORMS,
+    SRC_ADW,
     SRC_IUCN,
   ],
 };

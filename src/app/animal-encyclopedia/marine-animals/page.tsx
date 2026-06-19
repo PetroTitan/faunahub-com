@@ -127,6 +127,36 @@ const links = [
     desc: "Sphyrnidae — sharks with a wide, sensory-packed hammer-shaped head.",
   },
   {
+    href: "/animals/giant-isopod",
+    label: "Giant Isopod",
+    desc: "Bathynomus — a large deep-sea crustacean and seafloor scavenger.",
+  },
+  {
+    href: "/animals/dumbo-octopus",
+    label: "Dumbo Octopus",
+    desc: "Grimpoteuthis — among the deepest-living octopuses, with ear-like fins.",
+  },
+  {
+    href: "/animals/giant-squid",
+    label: "Giant Squid",
+    desc: "Architeuthis dux — one of the largest invertebrates, of the deep ocean.",
+  },
+  {
+    href: "/animals/anglerfish",
+    label: "Anglerfish",
+    desc: "Deep-sea predators that lure prey with a glowing, bacteria-powered light.",
+  },
+  {
+    href: "/animals/frilled-shark",
+    label: "Frilled Shark",
+    desc: "Chlamydoselachus anguineus — a rare, eel-like deep-sea \"living fossil\" shark.",
+  },
+  {
+    href: "/animals/coelacanth",
+    label: "Coelacanth",
+    desc: "Latimeria — a lobe-finned \"living fossil\" found alive in 1938.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",
