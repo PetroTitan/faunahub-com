@@ -148,6 +148,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "bison",
     "camel",
     "squirrel",
+    // Land fauna batch 2 (2026-06-19)
+    "warthog",
+    "wildebeest",
+    "capybara",
+    "gibbon",
+    "pangolin",
+    "pronghorn",
   ];
 
   const compareSlugs = [
