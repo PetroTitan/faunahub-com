@@ -162,6 +162,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "sun-bear",
     "aardvark",
     "echidna",
+    // Land fauna batch 4 (2026-06-19)
+    "wolverine",
+    "bobcat",
+    "coyote",
+    "mongoose",
+    "skunk",
+    "weasel",
   ];
 
   const compareSlugs = [
