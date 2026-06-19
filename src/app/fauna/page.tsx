@@ -263,6 +263,7 @@ export default function FaunaHubPage() {
                 title="Explore more"
                 links={[
                   { label: "Ocean fauna by depth", href: "/fauna/ocean" },
+                  { label: "Animal Taxonomy & Coverage", href: "/animal-taxonomy" },
                   { label: "Animal Encyclopedia", href: "/animal-encyclopedia" },
                   { label: "Wildlife & Biodiversity", href: "/wildlife" },
                   { label: "Endangered Animals", href: "/endangered-animals" },

@@ -193,6 +193,7 @@ export default function ContinentsHubPage() {
                 links={[
                   { label: "Fauna hub", href: "/fauna" },
                   { label: "Ocean fauna by depth", href: "/fauna/ocean" },
+                  { label: "Animal Taxonomy & Coverage", href: "/animal-taxonomy" },
                   {
                     label: "From water to land",
                     href: "/fauna/evolution/from-water-to-land",

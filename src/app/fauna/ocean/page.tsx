@@ -188,6 +188,7 @@ export default function OceanHubPage() {
                     label: "From water to land",
                     href: "/fauna/evolution/from-water-to-land",
                   },
+                  { label: "Animal Taxonomy & Coverage", href: "/animal-taxonomy" },
                   { label: "Animal Encyclopedia", href: "/animal-encyclopedia" },
                   { label: "Wildlife & Biodiversity", href: "/wildlife" },
                 ]}

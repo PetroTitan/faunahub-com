@@ -373,6 +373,7 @@ export default function AnimalEncyclopediaPage() {
                 { label: "Wildlife & Biodiversity Intelligence", href: "/wildlife", description: "Source-reviewed wildlife profiles, groups, and biodiversity context" },
                 { label: "Endangered Animals", href: "/endangered-animals", description: "IUCN Red List categories and threatened species" },
                 { label: "Fauna by Continent", href: "/fauna", description: "Land animals by continent, habitat, and evolution" },
+                { label: "Animal Taxonomy & Coverage", href: "/animal-taxonomy", description: "How animals are grouped and how coverage expands" },
                 { label: "Compare Animals", href: "/compare", description: "Side-by-side animal comparisons" },
                 { label: "Dog Care Guides", href: "/dogs", description: "Domestic dog care and breeds" },
                 { label: "Cat Care Guides", href: "/cats", description: "Domestic cat care and breeds" },

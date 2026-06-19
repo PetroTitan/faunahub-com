@@ -542,6 +542,12 @@ export default function WildlifePage() {
                   "Land animals by continent and habitat, plus the water-to-land evolution story.",
               },
               {
+                label: "Animal Taxonomy & Coverage",
+                href: "/animal-taxonomy",
+                description:
+                  "How FaunaHub groups animals and expands coverage in verified batches.",
+              },
+              {
                 label: "Birdwatching",
                 href: "/birdwatching",
                 description: "Responsible, ethical wild bird observation.",
