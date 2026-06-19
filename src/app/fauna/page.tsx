@@ -96,6 +96,9 @@ export default function FaunaHubPage() {
               <Link href="/fauna/continents" className="btn-primary text-sm">
                 Browse by continent
               </Link>
+              <Link href="/fauna/ocean" className="btn-secondary text-sm">
+                Ocean by depth
+              </Link>
               <Link
                 href="/fauna/evolution/from-water-to-land"
                 className="btn-secondary text-sm"
@@ -226,23 +229,27 @@ export default function FaunaHubPage() {
             </p>
           </section>
 
-          {/* 7. Future Ocean Depths Layer */}
+          {/* 7. Ocean Depths Layer */}
           <section aria-labelledby="ocean-heading">
-            <div className="rounded-xl border border-dashed border-[#CFE0A8] bg-[#F7F8F3] p-5 sm:p-6">
-              <span className="text-xs uppercase tracking-wider text-[#7BAA35] font-semibold">
-                Coming next
+            <div className="card p-6 sm:p-8 border-l-4 border-l-[#075FA8]">
+              <span className="text-xs uppercase tracking-wider text-[#075FA8] font-semibold">
+                Now live
               </span>
               <h2
                 id="ocean-heading"
-                className="text-xl font-semibold text-[#17211B] mt-1 mb-1"
+                className="text-2xl font-bold text-[#17211B] mt-1 mb-2"
               >
                 Ocean fauna by depth zones
               </h2>
-              <p className="text-sm text-[#5E6B63] leading-relaxed max-w-2xl">
-                A future layer will organise ocean animals by depth — from the
-                sunlit surface to the deep sea. We will publish it as a complete,
-                source-backed cluster rather than thin placeholder pages.
+              <p className="text-base text-[#2C3A2F] leading-relaxed max-w-3xl mb-4">
+                The ocean is layered by depth, light, and pressure. Explore marine
+                animals from the sunlit surface to the deep trenches across five
+                depth zones — source-backed zone science, with the animals
+                documented in each layer.
               </p>
+              <Link href="/fauna/ocean" className="btn-primary text-sm">
+                Explore ocean depth zones →
+              </Link>
             </div>
           </section>
 
@@ -255,6 +262,7 @@ export default function FaunaHubPage() {
               <RelatedLinks
                 title="Explore more"
                 links={[
+                  { label: "Ocean fauna by depth", href: "/fauna/ocean" },
                   { label: "Animal Encyclopedia", href: "/animal-encyclopedia" },
                   { label: "Wildlife & Biodiversity", href: "/wildlife" },
                   { label: "Endangered Animals", href: "/endangered-animals" },

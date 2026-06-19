@@ -15,6 +15,7 @@ import { BIRD_CARE_ARTICLES } from "@/lib/bird-care/data";
 import { getDetailedSlugs } from "@/lib/red-list/helpers";
 import { REGION_ORDER } from "@/lib/red-list/regions";
 import { CONTINENT_ORDER } from "@/lib/fauna/continents";
+import { OCEAN_ZONE_ORDER } from "@/lib/fauna/ocean";
 
 const BASE_URL = "https://faunahub.com";
 
@@ -457,6 +458,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: today,
       changeFrequency: "weekly" as const,
       priority: 0.8,
+    })),
+    { url: `${BASE_URL}/fauna/ocean`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
+    ...OCEAN_ZONE_ORDER.map((z) => ({
+      url: `${BASE_URL}/fauna/ocean/${z}`,
+      lastModified: today,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
     })),
   ];
 
