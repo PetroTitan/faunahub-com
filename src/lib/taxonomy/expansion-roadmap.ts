@@ -13,7 +13,7 @@ export const FUTURE_BATCHES: readonly FutureBatch[] = [
     purpose:
       "Add dedicated profiles for deep-sea animals so the ocean depth pages can link real profiles, not just zone science.",
     priority: "high",
-    exampleSpecies: ["anglerfish","giant-isopod","vampire-squid","dumbo-octopus","gulper-eel","barreleye","yeti-crab","snailfish","lanternfish","hatchetfish"],
+    exampleSpecies: ["vampire-squid","gulper-eel","barreleye","yeti-crab","snailfish","lanternfish","hatchetfish","viperfish"],
     requiredSourceTypes: ["NOAA Ocean Exploration","MBARI","WoRMS","peer-reviewed deep-sea research"],
     imageDifficulty: "hard",
     riskNotes:
