@@ -841,6 +841,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("tuatara", "Tuatara"),
     SRC_IUCN,
   ],
+  // Land fauna batch 6 — birds (2026-06-19)
+  ostrich: [
+    adw("Struthio_camelus", "Struthio camelus (ostrich)"),
+    brit("ostrich", "Ostrich"),
+    SRC_IUCN,
+  ],
+  emu: [
+    adw("Dromaius_novaehollandiae", "Dromaius novaehollandiae (emu)"),
+    brit("emu", "Emu"),
+    SRC_IUCN,
+  ],
+  cassowary: [
+    adw("Casuarius_casuarius", "Casuarius casuarius (southern cassowary)"),
+    brit("cassowary", "Cassowary"),
+    SRC_IUCN,
+  ],
+  kiwi: [
+    brit("kiwi", "Kiwi"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  magpie: [
+    brit("magpie", "Magpie"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  cardinal: [
+    SRC_CORNELL_BIRDS,
+    SRC_AUDUBON,
+    SRC_IUCN,
+  ],
 };
 
 /**

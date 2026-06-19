@@ -51,6 +51,12 @@ const birds = [
   { href: "/animals/vulture", label: "Vulture", desc: "Scavenging birds; New World and Old World groups." },
   { href: "/animals/pelican", label: "Pelican", desc: "Large waterbirds with a fish-catching throat pouch." },
   { href: "/animals/stork", label: "Stork", desc: "Tall wading birds (Ciconiidae); white stork as reference." },
+  { href: "/animals/ostrich", label: "Ostrich", desc: "Struthio camelus — the world's largest living bird." },
+  { href: "/animals/emu", label: "Emu", desc: "Dromaius novaehollandiae — Australia's largest bird." },
+  { href: "/animals/cassowary", label: "Cassowary", desc: "Genus Casuarius — powerful flightless rainforest birds." },
+  { href: "/animals/kiwi", label: "Kiwi", desc: "Genus Apteryx — small, nocturnal flightless birds of New Zealand." },
+  { href: "/animals/magpie", label: "Magpie", desc: "Pica pica — bold, intelligent black-and-white corvid." },
+  { href: "/animals/cardinal", label: "Cardinal", desc: "Cardinalis cardinalis — vivid red North American songbird." },
 ];
 
 export default function EncyclopediaBirdsPage() {
