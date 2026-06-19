@@ -172,6 +172,36 @@ const links = [
     desc: "Anthozoa — colonial cnidarian animals whose polyps build reefs.",
   },
   {
+    href: "/animals/brain-coral",
+    label: "Brain Coral",
+    desc: "Diploria — boulder-shaped stony coral with a maze-like surface.",
+  },
+  {
+    href: "/animals/staghorn-coral",
+    label: "Staghorn Coral",
+    desc: "Acropora cervicornis — fast-growing branching coral; critically endangered.",
+  },
+  {
+    href: "/animals/elkhorn-coral",
+    label: "Elkhorn Coral",
+    desc: "Acropora palmata — reef-crest builder with broad branches; critically endangered.",
+  },
+  {
+    href: "/animals/sea-fan",
+    label: "Sea Fan",
+    desc: "Gorgonians — flexible, fan-shaped soft corals that filter-feed.",
+  },
+  {
+    href: "/animals/mushroom-coral",
+    label: "Mushroom Coral",
+    desc: "Fungia — solitary, often free-living corals that can right themselves.",
+  },
+  {
+    href: "/animals/sea-anemone",
+    label: "Sea Anemone",
+    desc: "Actiniaria — soft coral relatives whose tentacles shelter clownfish.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",

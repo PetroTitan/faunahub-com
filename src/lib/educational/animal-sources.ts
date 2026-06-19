@@ -1072,6 +1072,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("earthworm", "Earthworm"),
     SRC_IUCN,
   ],
+  // Corals batch (2026-06-19)
+  "brain-coral": [
+    SRC_WORMS,
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "staghorn-coral": [
+    SRC_WORMS,
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "elkhorn-coral": [
+    SRC_WORMS,
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "sea-fan": [
+    SRC_WORMS,
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "mushroom-coral": [
+    SRC_WORMS,
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "sea-anemone": [
+    SRC_WORMS,
+    brit("sea-anemone", "Sea anemone"),
+    SRC_IUCN,
+  ],
 };
 
 /**
