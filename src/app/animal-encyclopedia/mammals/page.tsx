@@ -59,6 +59,12 @@ const mammals = [
   { href: "/animals/gibbon", label: "Gibbon", desc: "Family Hylobatidae — small, agile apes of Asian forests." },
   { href: "/animals/pangolin", label: "Pangolin", desc: "Order Pholidota — scale-covered, ant-eating mammals." },
   { href: "/animals/pronghorn", label: "Pronghorn", desc: "Antilocapra americana — North America's fastest land mammal." },
+  { href: "/animals/okapi", label: "Okapi", desc: "Okapia johnstoni — the giraffe's striped forest relative." },
+  { href: "/animals/wild-boar", label: "Wild Boar", desc: "Sus scrofa — wild ancestor of the domestic pig." },
+  { href: "/animals/elk", label: "Elk (Wapiti)", desc: "Cervus canadensis — one of the largest deer." },
+  { href: "/animals/sun-bear", label: "Sun Bear", desc: "Helarctos malayanus — the world's smallest bear." },
+  { href: "/animals/aardvark", label: "Aardvark", desc: "Orycteropus afer — nocturnal African ant-eater." },
+  { href: "/animals/echidna", label: "Echidna", desc: "Tachyglossidae — spiny, egg-laying monotreme." },
 ];
 
 export default function MammalsPage() {

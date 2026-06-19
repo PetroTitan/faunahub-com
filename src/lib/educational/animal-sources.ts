@@ -748,6 +748,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("pronghorn", "Pronghorn"),
     SRC_IUCN,
   ],
+  // Land fauna batch 3 (2026-06-19)
+  okapi: [
+    adw("Okapia_johnstoni", "Okapia johnstoni (okapi)"),
+    brit("okapi", "Okapi"),
+    SRC_IUCN,
+  ],
+  "wild-boar": [
+    adw("Sus_scrofa", "Sus scrofa (wild boar)"),
+    brit("wild-boar", "Wild boar"),
+    SRC_IUCN,
+  ],
+  elk: [
+    adw("Cervus_canadensis", "Cervus canadensis (elk / wapiti)"),
+    brit("elk", "Elk (wapiti)"),
+    SRC_IUCN,
+  ],
+  "sun-bear": [
+    adw("Helarctos_malayanus", "Helarctos malayanus (sun bear)"),
+    brit("sun-bear", "Sun bear"),
+    SRC_IUCN,
+  ],
+  aardvark: [
+    adw("Orycteropus_afer", "Orycteropus afer (aardvark)"),
+    brit("aardvark", "Aardvark"),
+    SRC_IUCN,
+  ],
+  echidna: [
+    adw("Tachyglossus_aculeatus", "Tachyglossus aculeatus (short-beaked echidna)"),
+    brit("echidna", "Echidna"),
+    SRC_IUCN,
+  ],
 };
 
 /**
