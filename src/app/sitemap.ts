@@ -218,6 +218,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "giant-squid",
     "anglerfish",
     "frilled-shark",
+    // Invertebrates batch (2026-06-19)
+    "beetle",
+    "scorpion",
+    "nautilus",
+    "sea-urchin",
+    "coral",
+    "earthworm",
   ];
 
   const compareSlugs = [
