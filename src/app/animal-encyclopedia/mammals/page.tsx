@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema } from "@/lib/schema";
+import DomesticationBadge from "@/components/animals/DomesticationBadge";
+import { getAnimalClassification, isDomestic } from "@/lib/animals/classification";
 
 export const metadata: Metadata = buildMetadata({
   title: "Mammals Encyclopedia — Wildlife Profiles & Ecology",
@@ -124,18 +126,26 @@ export default function MammalsPage() {
             </p>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-              {mammals.map((m) => (
-                <Link
-                  key={m.href}
-                  href={m.href}
-                  className="card p-5 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
-                >
-                  <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
-                    {m.label}
-                  </h3>
-                  <p className="text-xs text-[#5E6B63]">{m.desc}</p>
-                </Link>
-              ))}
+              {mammals.map((m) => {
+                const slug = m.href.replace("/animals/", "");
+                return (
+                  <Link
+                    key={m.href}
+                    href={m.href}
+                    className="card p-5 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+                  >
+                    <div className="flex items-start justify-between gap-2 mb-1">
+                      <h3 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors">
+                        {m.label}
+                      </h3>
+                      {isDomestic(slug) && (
+                        <DomesticationBadge classification={getAnimalClassification(slug)} />
+                      )}
+                    </div>
+                    <p className="text-xs text-[#5E6B63]">{m.desc}</p>
+                  </Link>
+                );
+              })}
             </div>
           </section>
 

@@ -33,7 +33,7 @@ export default function RabbitPage() {
       path="/animals/rabbit"
       parentCategory="Mammals"
       parentCategoryHref="/animal-encyclopedia/mammals"
-      tags={["Mammal", "Lagomorph", "Herbivore"]}
+      tags={["Mammal", "Lagomorph", "Companion", "Herbivore"]}
       image={getAnimalImage("rabbit") ?? undefined}
       galleryImages={getAnimalGalleryImages("rabbit")}
       factsHeaderNote='Reference species for specific details below is the European rabbit (Oryctolagus cuniculus), the wild ancestor of all domestic rabbit breeds. Many other rabbit and hare species exist in family Leporidae.'

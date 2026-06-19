@@ -33,7 +33,7 @@ export default function HamsterPage() {
       path="/animals/hamster"
       parentCategory="Mammals"
       parentCategoryHref="/animal-encyclopedia/mammals"
-      tags={["Mammal", "Rodent", "Nocturnal"]}
+      tags={["Mammal", "Rodent", "Companion", "Nocturnal"]}
       image={getAnimalImage("hamster") ?? undefined}
       galleryImages={getAnimalGalleryImages("hamster")}
       factsHeaderNote='Reference species for specific details below is the Syrian or golden hamster (Mesocricetus auratus), the most common pet hamster. Several smaller "dwarf" hamster species are also kept as pets.'
