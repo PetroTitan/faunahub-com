@@ -183,6 +183,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "kiwi",
     "magpie",
     "cardinal",
+    // Land fauna batch 7 — birds + amphibians (2026-06-19)
+    "heron",
+    "kingfisher",
+    "kookaburra",
+    "tree-frog",
+    "poison-dart-frog",
+    "fire-salamander",
   ];
 
   const compareSlugs = [
