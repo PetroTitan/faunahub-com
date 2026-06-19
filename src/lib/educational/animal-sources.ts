@@ -779,6 +779,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("echidna", "Echidna"),
     SRC_IUCN,
   ],
+  // Land fauna batch 4 (2026-06-19)
+  wolverine: [
+    adw("Gulo_gulo", "Gulo gulo (wolverine)"),
+    brit("wolverine", "Wolverine"),
+    SRC_IUCN,
+  ],
+  bobcat: [
+    adw("Lynx_rufus", "Lynx rufus (bobcat)"),
+    brit("bobcat", "Bobcat"),
+    SRC_IUCN,
+  ],
+  coyote: [
+    adw("Canis_latrans", "Canis latrans (coyote)"),
+    brit("coyote", "Coyote"),
+    SRC_IUCN,
+  ],
+  mongoose: [
+    adw("Mungos_mungo", "Mungos mungo (banded mongoose)"),
+    brit("mongoose", "Mongoose"),
+    SRC_IUCN,
+  ],
+  skunk: [
+    adw("Mephitis_mephitis", "Mephitis mephitis (striped skunk)"),
+    brit("skunk", "Skunk"),
+    SRC_IUCN,
+  ],
+  weasel: [
+    adw("Mustela_nivalis", "Mustela nivalis (least weasel)"),
+    brit("weasel", "Weasel"),
+    SRC_IUCN,
+  ],
 };
 
 /**

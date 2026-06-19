@@ -65,6 +65,12 @@ const mammals = [
   { href: "/animals/sun-bear", label: "Sun Bear", desc: "Helarctos malayanus — the world's smallest bear." },
   { href: "/animals/aardvark", label: "Aardvark", desc: "Orycteropus afer — nocturnal African ant-eater." },
   { href: "/animals/echidna", label: "Echidna", desc: "Tachyglossidae — spiny, egg-laying monotreme." },
+  { href: "/animals/wolverine", label: "Wolverine", desc: "Gulo gulo — the largest land mustelid." },
+  { href: "/animals/bobcat", label: "Bobcat", desc: "Lynx rufus — adaptable North American wild cat." },
+  { href: "/animals/coyote", label: "Coyote", desc: "Canis latrans — highly adaptable North American canid." },
+  { href: "/animals/mongoose", label: "Mongoose", desc: "Family Herpestidae — agile carnivores of Africa and Asia." },
+  { href: "/animals/skunk", label: "Skunk", desc: "Family Mephitidae — known for its defensive spray." },
+  { href: "/animals/weasel", label: "Weasel", desc: "Genus Mustela — small, slender carnivores." },
 ];
 
 export default function MammalsPage() {
