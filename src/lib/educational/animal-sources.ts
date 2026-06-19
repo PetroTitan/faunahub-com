@@ -686,6 +686,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_BRITANNICA_ANIMALS,
     SRC_IUCN,
   ],
+  // Land fauna batch 1 (2026-06-19)
+  hippopotamus: [
+    adw("Hippopotamus_amphibius", "Hippopotamus amphibius (hippopotamus)"),
+    brit("hippopotamus", "Hippopotamus"),
+    SRC_IUCN,
+  ],
+  rhinoceros: [
+    adw("Ceratotherium_simum", "Ceratotherium simum (white rhinoceros)"),
+    brit("rhinoceros", "Rhinoceros"),
+    SRC_IUCN,
+  ],
+  orangutan: [
+    adw("Pongo_pygmaeus", "Pongo pygmaeus (Bornean orangutan)"),
+    brit("orangutan", "Orangutan"),
+    SRC_IUCN,
+  ],
+  bison: [
+    adw("Bison_bison", "Bison bison (American bison)"),
+    brit("American-bison", "American bison"),
+    SRC_IUCN,
+  ],
+  camel: [
+    adw("Camelus_dromedarius", "Camelus dromedarius (dromedary camel)"),
+    brit("camel", "Camel"),
+    SRC_SMITHSONIAN_ZOO,
+  ],
+  squirrel: [
+    adw("Sciurus_vulgaris", "Sciurus vulgaris (Eurasian red squirrel)"),
+    brit("squirrel", "Squirrel"),
+    SRC_IUCN,
+  ],
 };
 
 /**

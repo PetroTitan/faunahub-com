@@ -47,6 +47,12 @@ const mammals = [
   { href: "/animals/lemur", label: "Lemur", desc: "Primates of Madagascar; ring-tailed lemur as a reference." },
   { href: "/animals/tapir", label: "Tapir", desc: "Browsing mammals with a short prehensile snout." },
   { href: "/animals/hyena", label: "Hyena", desc: "Social carnivores; spotted hyena as a reference." },
+  { href: "/animals/hippopotamus", label: "Hippopotamus", desc: "Hippopotamus amphibius — semi-aquatic African megaherbivore." },
+  { href: "/animals/rhinoceros", label: "Rhinoceros", desc: "Family Rhinocerotidae — five horned species across Africa and Asia." },
+  { href: "/animals/orangutan", label: "Orangutan", desc: "Genus Pongo — arboreal great apes of Borneo and Sumatra." },
+  { href: "/animals/bison", label: "Bison", desc: "Bison bison — North America's largest land mammal." },
+  { href: "/animals/camel", label: "Camel", desc: "Genus Camelus — desert-adapted dromedary and Bactrian camels." },
+  { href: "/animals/squirrel", label: "Squirrel", desc: "Family Sciuridae — tree, ground, and flying squirrels." },
 ];
 
 export default function MammalsPage() {
