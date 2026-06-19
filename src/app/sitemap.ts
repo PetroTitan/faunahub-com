@@ -155,6 +155,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "gibbon",
     "pangolin",
     "pronghorn",
+    // Land fauna batch 3 (2026-06-19)
+    "okapi",
+    "wild-boar",
+    "elk",
+    "sun-bear",
+    "aardvark",
+    "echidna",
   ];
 
   const compareSlugs = [
