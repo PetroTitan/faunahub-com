@@ -536,6 +536,12 @@ export default function WildlifePage() {
                   "IUCN Red List categories and threatened species, carefully sourced.",
               },
               {
+                label: "Fauna by Continent",
+                href: "/fauna",
+                description:
+                  "Land animals by continent and habitat, plus the water-to-land evolution story.",
+              },
+              {
                 label: "Birdwatching",
                 href: "/birdwatching",
                 description: "Responsible, ethical wild bird observation.",

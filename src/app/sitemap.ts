@@ -14,6 +14,7 @@ import { BIRDWATCHING_ARTICLES } from "@/lib/birdwatching/data";
 import { BIRD_CARE_ARTICLES } from "@/lib/bird-care/data";
 import { getDetailedSlugs } from "@/lib/red-list/helpers";
 import { REGION_ORDER } from "@/lib/red-list/regions";
+import { CONTINENT_ORDER } from "@/lib/fauna/continents";
 
 const BASE_URL = "https://faunahub.com";
 
@@ -441,8 +442,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
+  // Fauna geography & evolution cluster.
+  const faunaRoutes: MetadataRoute.Sitemap = [
+    { url: `${BASE_URL}/fauna`, lastModified: today, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE_URL}/fauna/continents`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
+    {
+      url: `${BASE_URL}/fauna/evolution/from-water-to-land`,
+      lastModified: today,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    ...CONTINENT_ORDER.map((c) => ({
+      url: `${BASE_URL}/fauna/continents/${c}`,
+      lastModified: today,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    })),
+  ];
+
   return [
     ...staticRoutes,
+    ...faunaRoutes,
     ...animalRoutes,
     ...breedRoutes,
     ...compareRoutes,

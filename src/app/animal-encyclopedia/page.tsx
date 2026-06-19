@@ -262,6 +262,27 @@ export default function AnimalEncyclopediaPage() {
             </Link>
           </aside>
 
+          {/* Fauna geography callout */}
+          <aside
+            aria-label="Fauna by continent and evolution"
+            className="card p-5 sm:p-6 mb-10 border-l-4 border-l-[#075FA8] flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+          >
+            <div>
+              <span className="tag mb-2 inline-block">Fauna Geography</span>
+              <h2 className="text-lg sm:text-xl font-semibold text-[#17211B] mb-1">
+                Fauna by Continent &amp; Evolution
+              </h2>
+              <p className="text-sm text-[#5E6B63] leading-relaxed max-w-2xl">
+                Explore land animals by continent and habitat, and the
+                evolutionary story connecting land fauna to aquatic ancestors —
+                source-transparent, never a complete range map.
+              </p>
+            </div>
+            <Link href="/fauna" className="btn-secondary text-sm shrink-0">
+              Open Fauna Hub →
+            </Link>
+          </aside>
+
           <HubGrid
             title="Browse by Animal Group"
             subtitle="Select a category to explore species within that group."
@@ -351,6 +372,7 @@ export default function AnimalEncyclopediaPage() {
               links={[
                 { label: "Wildlife & Biodiversity Intelligence", href: "/wildlife", description: "Source-reviewed wildlife profiles, groups, and biodiversity context" },
                 { label: "Endangered Animals", href: "/endangered-animals", description: "IUCN Red List categories and threatened species" },
+                { label: "Fauna by Continent", href: "/fauna", description: "Land animals by continent, habitat, and evolution" },
                 { label: "Compare Animals", href: "/compare", description: "Side-by-side animal comparisons" },
                 { label: "Dog Care Guides", href: "/dogs", description: "Domestic dog care and breeds" },
                 { label: "Cat Care Guides", href: "/cats", description: "Domestic cat care and breeds" },
