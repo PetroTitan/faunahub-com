@@ -225,6 +225,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "sea-urchin",
     "coral",
     "earthworm",
+    // Corals batch (2026-06-19)
+    "brain-coral",
+    "staghorn-coral",
+    "elkhorn-coral",
+    "sea-fan",
+    "mushroom-coral",
+    "sea-anemone",
   ];
 
   const compareSlugs = [
