@@ -91,6 +91,11 @@ const mammals = [
   { href: "/animals/bandicoot", label: "Bandicoot", desc: "Order Peramelemorphia — pointy-snouted, digging marsupials." },
   { href: "/animals/tenrec", label: "Tenrec", desc: "Family Tenrecidae — Madagascar's hedgehog- and shrew-like mammals." },
   { href: "/animals/colugo", label: "Colugo", desc: "Order Dermoptera — the 'flying lemur', the best gliding mammal." },
+  { href: "/animals/aye-aye", label: "Aye-Aye", desc: "Daubentonia madagascariensis — a strange nocturnal Madagascan lemur." },
+  { href: "/animals/sifaka", label: "Sifaka", desc: "Genus Propithecus — leaping lemurs that 'dance' across the ground." },
+  { href: "/animals/tarsier", label: "Tarsier", desc: "Family Tarsiidae — tiny, huge-eyed carnivorous primates of SE Asia." },
+  { href: "/animals/slow-loris", label: "Slow Loris", desc: "Genus Nycticebus — slow, big-eyed, venomous nocturnal primates." },
+  { href: "/animals/springhare", label: "Springhare", desc: "Pedetes capensis — a hopping, kangaroo-like African rodent." },
 ];
 
 export default function MammalsPage() {

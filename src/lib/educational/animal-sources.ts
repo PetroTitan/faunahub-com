@@ -1371,6 +1371,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_ADW,
     SRC_IUCN,
   ],
+  // Mammals + birds batch 4 (2026-06-20)
+  "aye-aye": [
+    adw("Daubentonia_madagascariensis", "Daubentonia madagascariensis (aye-aye)"),
+    brit("aye-aye", "Aye-aye"),
+    SRC_IUCN,
+  ],
+  sifaka: [
+    adw("Propithecus_verreauxi", "Propithecus verreauxi (Verreaux's sifaka)"),
+    brit("sifaka", "Sifaka"),
+    SRC_IUCN,
+  ],
+  tarsier: [
+    adw("Carlito_syrichta", "Carlito syrichta (Philippine tarsier)"),
+    brit("tarsier", "Tarsier"),
+    SRC_IUCN,
+  ],
+  "slow-loris": [
+    adw("Nycticebus_coucang", "Nycticebus coucang (Sunda slow loris)"),
+    brit("slow-loris", "Slow loris"),
+    SRC_IUCN,
+  ],
+  springhare: [
+    adw("Pedetes_capensis", "Pedetes capensis (springhare)"),
+    brit("springhare", "Springhare"),
+    SRC_IUCN,
+  ],
+  shoebill: [
+    brit("shoebill", "Shoebill"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  frogmouth: [
+    brit("frogmouth", "Frogmouth"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  potoo: [
+    brit("potoo", "Potoo"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  hoatzin: [
+    brit("hoatzin", "Hoatzin"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  jacana: [
+    brit("jacana", "Jacana"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
 };
 
 /**

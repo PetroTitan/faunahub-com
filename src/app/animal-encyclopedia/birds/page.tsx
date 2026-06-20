@@ -75,6 +75,11 @@ const birds = [
   { href: "/animals/nightjar", label: "Nightjar", desc: "Family Caprimulgidae — camouflaged nocturnal insect-catchers." },
   { href: "/animals/lyrebird", label: "Lyrebird", desc: "Menura novaehollandiae — an Australian master of vocal mimicry." },
   { href: "/animals/turaco", label: "Turaco", desc: "Family Musophagidae — colourful African birds with unique pigments." },
+  { href: "/animals/shoebill", label: "Shoebill", desc: "Balaeniceps rex — a tall African swamp bird with a huge shoe-shaped bill." },
+  { href: "/animals/frogmouth", label: "Frogmouth", desc: "Family Podargidae — nocturnal birds that mimic broken branches." },
+  { href: "/animals/potoo", label: "Potoo", desc: "Family Nyctibiidae — neotropical 'tree-stump' camouflage masters." },
+  { href: "/animals/hoatzin", label: "Hoatzin", desc: "Opisthocomus hoazin — the leaf-fermenting Amazonian 'stinkbird'." },
+  { href: "/animals/jacana", label: "Jacana", desc: "Family Jacanidae — long-toed 'lily-trotters' with role-reversed parenting." },
 ];
 
 export default function EncyclopediaBirdsPage() {
