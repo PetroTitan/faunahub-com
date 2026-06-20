@@ -1103,6 +1103,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("sea-anemone", "Sea anemone"),
     SRC_IUCN,
   ],
+  // Invertebrates batch 2 (2026-06-19)
+  shrimp: [
+    SRC_WORMS,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  barnacle: [
+    SRC_WORMS,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  tarantula: [
+    SRC_ADW,
+    brit("tarantula", "Tarantula"),
+    SRC_IUCN,
+  ],
+  centipede: [
+    SRC_ADW,
+    brit("centipede", "Centipede"),
+    SRC_IUCN,
+  ],
+  cuttlefish: [
+    SRC_WORMS,
+    brit("cuttlefish", "Cuttlefish"),
+    SRC_IUCN,
+  ],
+  nudibranch: [
+    SRC_WORMS,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
 };
 
 /**

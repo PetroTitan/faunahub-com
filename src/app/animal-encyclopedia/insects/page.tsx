@@ -61,6 +61,16 @@ const groups = [
     label: "Earthworm",
     desc: "Annelida — segmented worms that aerate and enrich the soil.",
   },
+  {
+    href: "/animals/tarantula",
+    label: "Tarantula",
+    desc: "Theraphosidae — large, hairy spiders, mostly calm and only mildly venomous.",
+  },
+  {
+    href: "/animals/centipede",
+    label: "Centipede",
+    desc: "Chilopoda — fast, venomous, many-legged predators (one leg pair per segment).",
+  },
 ];
 
 export default function InsectsPage() {

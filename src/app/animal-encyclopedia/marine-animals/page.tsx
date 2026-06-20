@@ -202,6 +202,26 @@ const links = [
     desc: "Actiniaria — soft coral relatives whose tentacles shelter clownfish.",
   },
   {
+    href: "/animals/shrimp",
+    label: "Shrimp",
+    desc: "Decapod crustaceans, from reef cleaner shrimp to deep-sea species.",
+  },
+  {
+    href: "/animals/barnacle",
+    label: "Barnacle",
+    desc: "Cirripedia — sessile crustaceans that filter-feed from inside a shell.",
+  },
+  {
+    href: "/animals/cuttlefish",
+    label: "Cuttlefish",
+    desc: "Sepiida — intelligent cephalopods that change colour in an instant.",
+  },
+  {
+    href: "/animals/nudibranch",
+    label: "Nudibranch",
+    desc: "Nudibranchia — dazzling shell-less sea slugs with borrowed defences.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",
