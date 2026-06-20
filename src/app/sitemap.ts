@@ -232,6 +232,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "sea-fan",
     "mushroom-coral",
     "sea-anemone",
+    // Invertebrates batch 2 (2026-06-19)
+    "shrimp",
+    "barnacle",
+    "tarantula",
+    "centipede",
+    "cuttlefish",
+    "nudibranch",
   ];
 
   const compareSlugs = [
