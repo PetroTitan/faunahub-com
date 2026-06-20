@@ -281,6 +281,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "mole-rat",
     "quoll",
     "bilby",
+    // Mammals + birds batch 3 (2026-06-20)
+    "tenrec",
+    "bandicoot",
+    "sugar-glider",
+    "quokka",
+    "colugo",
+    "weaver",
+    "oxpecker",
+    "nightjar",
+    "lyrebird",
+    "turaco",
   ];
 
   const compareSlugs = [
