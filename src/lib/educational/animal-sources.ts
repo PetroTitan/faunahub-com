@@ -1227,6 +1227,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_AUDUBON,
     SRC_IUCN,
   ],
+  // Mammals + birds batch 2 (2026-06-20)
+  civet: [
+    adw("Civettictis_civetta", "Civettictis civetta (African civet)"),
+    brit("civet", "Civet"),
+    SRC_IUCN,
+  ],
+  genet: [
+    adw("Genetta_genetta", "Genetta genetta (common genet)"),
+    brit("genet", "Genet"),
+    SRC_IUCN,
+  ],
+  stoat: [
+    adw("Mustela_erminea", "Mustela erminea (stoat / ermine)"),
+    brit("stoat", "Stoat"),
+    SRC_IUCN,
+  ],
+  quetzal: [
+    brit("quetzal", "Quetzal"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  hoopoe: [
+    brit("hoopoe", "Hoopoe"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  sunbird: [
+    brit("sunbird", "Sunbird"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
 };
 
 /**

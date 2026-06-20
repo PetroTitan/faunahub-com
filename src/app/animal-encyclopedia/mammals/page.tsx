@@ -75,6 +75,9 @@ const mammals = [
   { href: "/animals/weasel", label: "Weasel", desc: "Genus Mustela — small, slender carnivores." },
   { href: "/animals/pine-marten", label: "Pine Marten", desc: "Martes martes — agile, tree-climbing woodland mustelid." },
   { href: "/animals/mole", label: "Mole", desc: "Family Talpidae — burrowing insectivores with spade-like paws." },
+  { href: "/animals/stoat", label: "Stoat (Ermine)", desc: "Mustela erminea — bold little mustelid that turns white in winter." },
+  { href: "/animals/civet", label: "Civet", desc: "Family Viverridae — cat-like nocturnal omnivores of Africa and Asia." },
+  { href: "/animals/genet", label: "Genet", desc: "Genus Genetta — slender, spotted viverrids; agile climbers." },
 ];
 
 export default function MammalsPage() {

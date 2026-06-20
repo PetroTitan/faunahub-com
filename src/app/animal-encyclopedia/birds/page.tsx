@@ -65,6 +65,9 @@ const birds = [
   { href: "/animals/albatross", label: "Albatross", desc: "Family Diomedeidae — ocean wanderers with the largest wingspans." },
   { href: "/animals/seagull", label: "Seagull (Gull)", desc: "Family Laridae — adaptable, intelligent coastal birds." },
   { href: "/animals/roadrunner", label: "Roadrunner", desc: "Geococcyx californianus — a fast-running desert cuckoo." },
+  { href: "/animals/quetzal", label: "Resplendent Quetzal", desc: "Pharomachrus mocinno — dazzling cloud-forest bird of Central America." },
+  { href: "/animals/hoopoe", label: "Hoopoe", desc: "Upupa epops — unmistakable crested bird with a long curved bill." },
+  { href: "/animals/sunbird", label: "Sunbird", desc: "Family Nectariniidae — iridescent Old World nectar-feeders." },
 ];
 
 export default function EncyclopediaBirdsPage() {
