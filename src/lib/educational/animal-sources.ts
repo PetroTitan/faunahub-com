@@ -1289,6 +1289,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_ADW,
     SRC_IUCN,
   ],
+  // Unusual mammals batch (2026-06-20)
+  "tasmanian-devil": [
+    adw("Sarcophilus_harrisii", "Sarcophilus harrisii (Tasmanian devil)"),
+    brit("Tasmanian-devil", "Tasmanian devil"),
+    SRC_IUCN,
+  ],
+  fossa: [
+    adw("Cryptoprocta_ferox", "Cryptoprocta ferox (fossa)"),
+    brit("fossa", "Fossa"),
+    SRC_IUCN,
+  ],
+  numbat: [
+    adw("Myrmecobius_fasciatus", "Myrmecobius fasciatus (numbat)"),
+    brit("numbat", "Numbat"),
+    SRC_IUCN,
+  ],
+  "mole-rat": [
+    adw("Heterocephalus_glaber", "Heterocephalus glaber (naked mole-rat)"),
+    brit("naked-mole-rat", "Naked mole rat"),
+    SRC_IUCN,
+  ],
+  quoll: [
+    adw("Dasyurus_maculatus", "Dasyurus maculatus (spotted-tailed quoll)"),
+    brit("quoll", "Quoll"),
+    SRC_IUCN,
+  ],
+  bilby: [
+    adw("Macrotis_lagotis", "Macrotis lagotis (greater bilby)"),
+    brit("bilby", "Bilby"),
+    SRC_IUCN,
+  ],
 };
 
 /**

@@ -80,6 +80,12 @@ const mammals = [
   { href: "/animals/genet", label: "Genet", desc: "Genus Genetta — slender, spotted viverrids; agile climbers." },
   { href: "/animals/binturong", label: "Binturong", desc: "Arctictis binturong — shaggy \"bearcat\" with a prehensile tail." },
   { href: "/animals/shrew", label: "Shrew", desc: "Family Soricidae — tiny insectivores with a non-stop metabolism." },
+  { href: "/animals/tasmanian-devil", label: "Tasmanian Devil", desc: "Sarcophilus harrisii — the largest carnivorous marsupial." },
+  { href: "/animals/quoll", label: "Quoll", desc: "Genus Dasyurus — spotted marsupial carnivores of Australasia." },
+  { href: "/animals/numbat", label: "Numbat", desc: "Myrmecobius fasciatus — a striped, day-active termite-eating marsupial." },
+  { href: "/animals/bilby", label: "Bilby", desc: "Macrotis lagotis — a long-eared, burrowing desert marsupial." },
+  { href: "/animals/fossa", label: "Fossa", desc: "Cryptoprocta ferox — Madagascar's largest carnivore." },
+  { href: "/animals/mole-rat", label: "Naked Mole-Rat", desc: "Heterocephalus glaber — an underground, eusocial rodent." },
 ];
 
 export default function MammalsPage() {
