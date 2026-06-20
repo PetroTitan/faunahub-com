@@ -1134,6 +1134,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_ADW,
     SRC_IUCN,
   ],
+  // Invertebrates batch 3 (2026-06-20)
+  snail: [
+    SRC_ADW,
+    brit("snail", "Snail"),
+    SRC_IUCN,
+  ],
+  slug: [
+    SRC_ADW,
+    brit("slug", "Slug"),
+    SRC_IUCN,
+  ],
+  millipede: [
+    SRC_ADW,
+    brit("millipede", "Millipede"),
+    SRC_IUCN,
+  ],
+  moth: [
+    SRC_ADW,
+    brit("moth", "Moth"),
+    SRC_IUCN,
+  ],
+  grasshopper: [
+    SRC_ADW,
+    brit("grasshopper", "Grasshopper"),
+    SRC_IUCN,
+  ],
+  krill: [
+    SRC_WORMS,
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
 };
 
 /**

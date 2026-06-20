@@ -222,6 +222,11 @@ const links = [
     desc: "Nudibranchia — dazzling shell-less sea slugs with borrowed defences.",
   },
   {
+    href: "/animals/krill",
+    label: "Krill",
+    desc: "Euphausiacea — swarming shrimp-like crustaceans that feed much of the ocean.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",

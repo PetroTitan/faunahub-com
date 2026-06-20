@@ -71,6 +71,31 @@ const groups = [
     label: "Centipede",
     desc: "Chilopoda — fast, venomous, many-legged predators (one leg pair per segment).",
   },
+  {
+    href: "/animals/millipede",
+    label: "Millipede",
+    desc: "Diplopoda — slow, harmless litter recyclers (two leg pairs per segment).",
+  },
+  {
+    href: "/animals/moth",
+    label: "Moth",
+    desc: "Lepidoptera — mostly night-flying insects that outnumber butterflies.",
+  },
+  {
+    href: "/animals/grasshopper",
+    label: "Grasshopper",
+    desc: "Caelifera — plant-eating insects with powerful jumping legs.",
+  },
+  {
+    href: "/animals/snail",
+    label: "Snail",
+    desc: "Shelled gastropod molluscs that glide on a muscular foot.",
+  },
+  {
+    href: "/animals/slug",
+    label: "Slug",
+    desc: "Shell-less gastropod molluscs; close relatives of snails.",
+  },
 ];
 
 export default function InsectsPage() {
