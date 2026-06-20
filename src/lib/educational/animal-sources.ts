@@ -1165,6 +1165,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_NOAA_FISHERIES,
     SRC_IUCN,
   ],
+  // Fish batch (2026-06-20)
+  cod: [
+    SRC_NOAA_FISHERIES,
+    SRC_WORMS,
+    SRC_IUCN,
+  ],
+  mackerel: [
+    SRC_NOAA_FISHERIES,
+    SRC_WORMS,
+    SRC_IUCN,
+  ],
+  piranha: [
+    adw("Pygocentrus_nattereri", "Pygocentrus nattereri (red-bellied piranha)"),
+    brit("piranha", "Piranha"),
+    SRC_IUCN,
+  ],
+  parrotfish: [
+    SRC_WORMS,
+    brit("parrotfish", "Parrotfish"),
+    SRC_IUCN,
+  ],
+  seadragon: [
+    SRC_WORMS,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  mudskipper: [
+    SRC_WORMS,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
 };
 
 /**

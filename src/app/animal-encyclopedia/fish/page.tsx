@@ -19,6 +19,7 @@ const freshwater = [
   { href: "/animals/koi", label: "Koi", desc: "Ornamental varieties of the common carp, kept in ponds." },
   { href: "/animals/carp", label: "Carp", desc: "Cyprinus carpio — a widespread, often introduced freshwater fish." },
   { href: "/animals/catfish", label: "Catfish", desc: "Order Siluriformes — barbel-bearing fish, using the channel catfish." },
+  { href: "/animals/piranha", label: "Piranha", desc: "Sharp-toothed South American fish, far less ferocious than its reputation." },
 ];
 
 const marine = [
@@ -33,6 +34,11 @@ const marine = [
   { href: "/animals/grouper", label: "Grouper", desc: "Serranidae — large suction-feeding reef ambush predators." },
   { href: "/animals/moray-eel", label: "Moray Eel", desc: "Muraenidae — reef eels with a hidden second set of jaws." },
   { href: "/animals/lionfish", label: "Lionfish", desc: "Pterois — venomous-spined reef fish; invasive in the Atlantic." },
+  { href: "/animals/cod", label: "Cod", desc: "Gadus morhua — a cold-water bottom fish of huge fishery importance." },
+  { href: "/animals/mackerel", label: "Mackerel", desc: "Scombridae — fast, streamlined schooling fish related to tuna." },
+  { href: "/animals/parrotfish", label: "Parrotfish", desc: "Scaridae — beaked reef grazers that help produce white sand." },
+  { href: "/animals/seadragon", label: "Leafy Seadragon", desc: "Phycodurus eques — a seahorse relative disguised as drifting seaweed." },
+  { href: "/animals/mudskipper", label: "Mudskipper", desc: "Amphibious gobies that walk on their fins and breathe air." },
 ];
 
 export default function FishEncyclopediaPage() {
