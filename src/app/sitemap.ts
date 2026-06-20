@@ -239,6 +239,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "centipede",
     "cuttlefish",
     "nudibranch",
+    // Invertebrates batch 3 (2026-06-20)
+    "snail",
+    "slug",
+    "millipede",
+    "moth",
+    "grasshopper",
+    "krill",
   ];
 
   const compareSlugs = [
