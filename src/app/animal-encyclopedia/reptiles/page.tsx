@@ -31,6 +31,8 @@ const reptiles = [
   { href: "/animals/tuatara", label: "Tuatara", desc: "Sphenodon punctatus — sole survivor of an ancient reptile order." },
   { href: "/animals/boa", label: "Boa Constrictor", desc: "Boa constrictor — large non-venomous constrictor of the Americas." },
   { href: "/animals/gharial", label: "Gharial", desc: "Gavialis gangeticus — critically endangered, thin-snouted fish-eating crocodilian." },
+  { href: "/animals/mamba", label: "Mamba", desc: "Genus Dendroaspis — fast, alert African snakes; black mamba as a reference." },
+  { href: "/animals/skink", label: "Skink", desc: "Family Scincidae — smooth-scaled lizards; blue-tongued skink as a reference." },
 ];
 
 const amphibians = [

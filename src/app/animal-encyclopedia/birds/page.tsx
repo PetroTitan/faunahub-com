@@ -68,6 +68,8 @@ const birds = [
   { href: "/animals/quetzal", label: "Resplendent Quetzal", desc: "Pharomachrus mocinno — dazzling cloud-forest bird of Central America." },
   { href: "/animals/hoopoe", label: "Hoopoe", desc: "Upupa epops — unmistakable crested bird with a long curved bill." },
   { href: "/animals/sunbird", label: "Sunbird", desc: "Family Nectariniidae — iridescent Old World nectar-feeders." },
+  { href: "/animals/swift", label: "Swift", desc: "Family Apodidae — supremely aerial birds that can stay airborne for months." },
+  { href: "/animals/secretary-bird", label: "Secretarybird", desc: "Sagittarius serpentarius — a raptor that hunts snakes on foot." },
 ];
 
 export default function EncyclopediaBirdsPage() {

@@ -1258,6 +1258,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_ADW,
     SRC_IUCN,
   ],
+  // Cross-class batch (2026-06-20)
+  shrew: [
+    adw("Sorex_araneus", "Sorex araneus (common shrew)"),
+    brit("shrew", "Shrew"),
+    SRC_IUCN,
+  ],
+  binturong: [
+    adw("Arctictis_binturong", "Arctictis binturong (binturong)"),
+    brit("binturong", "Binturong"),
+    SRC_IUCN,
+  ],
+  swift: [
+    brit("swift-bird", "Swift"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  "secretary-bird": [
+    brit("secretary-bird", "Secretary bird"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  mamba: [
+    adw("Dendroaspis_polylepis", "Dendroaspis polylepis (black mamba)"),
+    brit("black-mamba", "Black mamba"),
+    SRC_IUCN,
+  ],
+  skink: [
+    brit("skink", "Skink"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
 };
 
 /**

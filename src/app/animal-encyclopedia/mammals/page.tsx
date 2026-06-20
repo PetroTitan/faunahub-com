@@ -78,6 +78,8 @@ const mammals = [
   { href: "/animals/stoat", label: "Stoat (Ermine)", desc: "Mustela erminea — bold little mustelid that turns white in winter." },
   { href: "/animals/civet", label: "Civet", desc: "Family Viverridae — cat-like nocturnal omnivores of Africa and Asia." },
   { href: "/animals/genet", label: "Genet", desc: "Genus Genetta — slender, spotted viverrids; agile climbers." },
+  { href: "/animals/binturong", label: "Binturong", desc: "Arctictis binturong — shaggy \"bearcat\" with a prehensile tail." },
+  { href: "/animals/shrew", label: "Shrew", desc: "Family Soricidae — tiny insectivores with a non-stop metabolism." },
 ];
 
 export default function MammalsPage() {
