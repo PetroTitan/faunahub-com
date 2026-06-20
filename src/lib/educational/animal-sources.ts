@@ -1196,6 +1196,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_ADW,
     SRC_IUCN,
   ],
+  // Mammals + birds batch (2026-06-20)
+  walrus: [
+    adw("Odobenus_rosmarus", "Odobenus rosmarus (walrus)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  mole: [
+    adw("Talpa_europaea", "Talpa europaea (European mole)"),
+    brit("mole", "Mole"),
+    SRC_IUCN,
+  ],
+  "pine-marten": [
+    adw("Martes_martes", "Martes martes (European pine marten)"),
+    brit("marten", "Marten"),
+    SRC_IUCN,
+  ],
+  albatross: [
+    brit("albatross", "Albatross"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  seagull: [
+    brit("gull", "Gull"),
+    SRC_AUDUBON,
+    SRC_IUCN,
+  ],
+  roadrunner: [
+    SRC_CORNELL_BIRDS,
+    SRC_AUDUBON,
+    SRC_IUCN,
+  ],
 };
 
 /**

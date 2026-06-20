@@ -227,6 +227,11 @@ const links = [
     desc: "Euphausiacea — swarming shrimp-like crustaceans that feed much of the ocean.",
   },
   {
+    href: "/animals/walrus",
+    label: "Walrus",
+    desc: "Odobenus rosmarus — a huge, tusked Arctic pinniped that dives for clams.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",

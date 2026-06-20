@@ -62,6 +62,9 @@ const birds = [
   { href: "/animals/kookaburra", label: "Kookaburra", desc: "Genus Dacelo — large Australasian kingfishers with a laughing call." },
   { href: "/animals/hornbill", label: "Hornbill", desc: "Family Bucerotidae — big-billed tropical birds; great hornbill as a reference." },
   { href: "/animals/bee-eater", label: "Bee-eater", desc: "Family Meropidae — vivid birds that catch insects in flight." },
+  { href: "/animals/albatross", label: "Albatross", desc: "Family Diomedeidae — ocean wanderers with the largest wingspans." },
+  { href: "/animals/seagull", label: "Seagull (Gull)", desc: "Family Laridae — adaptable, intelligent coastal birds." },
+  { href: "/animals/roadrunner", label: "Roadrunner", desc: "Geococcyx californianus — a fast-running desert cuckoo." },
 ];
 
 export default function EncyclopediaBirdsPage() {

@@ -73,6 +73,8 @@ const mammals = [
   { href: "/animals/mongoose", label: "Mongoose", desc: "Family Herpestidae — agile carnivores of Africa and Asia." },
   { href: "/animals/skunk", label: "Skunk", desc: "Family Mephitidae — known for its defensive spray." },
   { href: "/animals/weasel", label: "Weasel", desc: "Genus Mustela — small, slender carnivores." },
+  { href: "/animals/pine-marten", label: "Pine Marten", desc: "Martes martes — agile, tree-climbing woodland mustelid." },
+  { href: "/animals/mole", label: "Mole", desc: "Family Talpidae — burrowing insectivores with spade-like paws." },
 ];
 
 export default function MammalsPage() {
