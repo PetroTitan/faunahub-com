@@ -292,6 +292,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "nightjar",
     "lyrebird",
     "turaco",
+    // Mammals + birds batch 4 (2026-06-20)
+    "aye-aye",
+    "sifaka",
+    "tarsier",
+    "slow-loris",
+    "springhare",
+    "shoebill",
+    "frogmouth",
+    "potoo",
+    "hoatzin",
+    "jacana",
   ];
 
   const compareSlugs = [
