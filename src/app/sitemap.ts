@@ -260,6 +260,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "albatross",
     "seagull",
     "roadrunner",
+    // Mammals + birds batch 2 (2026-06-20)
+    "civet",
+    "genet",
+    "stoat",
+    "quetzal",
+    "hoopoe",
+    "sunbird",
   ];
 
   const compareSlugs = [
