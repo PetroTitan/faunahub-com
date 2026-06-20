@@ -85,6 +85,11 @@ const birds = [
   { href: "/animals/kagu", label: "Kagu", desc: "Rhynochetos jubatus — New Caledonia's near-flightless 'ghost' bird." },
   { href: "/animals/motmot", label: "Motmot", desc: "Family Momotidae — colourful birds with racket-tipped tails." },
   { href: "/animals/tropicbird", label: "Tropicbird", desc: "Family Phaethontidae — ocean seabirds with long tail streamers." },
+  { href: "/animals/frigatebird", label: "Frigatebird", desc: "Family Fregatidae — soaring sea pirates with an inflatable red pouch." },
+  { href: "/animals/hamerkop", label: "Hamerkop", desc: "Scopus umbretta — an African bird that builds giant domed nests." },
+  { href: "/animals/cock-of-the-rock", label: "Cock-of-the-Rock", desc: "Genus Rupicola — brilliant South American birds that display at leks." },
+  { href: "/animals/bowerbird", label: "Bowerbird", desc: "Family Ptilonorhynchidae — males build & decorate elaborate bowers." },
+  { href: "/animals/umbrellabird", label: "Umbrellabird", desc: "Genus Cephalopterus — black cotingas with a crest and throat wattle." },
 ];
 
 export default function EncyclopediaBirdsPage() {

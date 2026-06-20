@@ -101,6 +101,11 @@ const mammals = [
   { href: "/animals/tamarin", label: "Tamarin", desc: "Including the golden lion tamarin, a conservation icon." },
   { href: "/animals/indri", label: "Indri", desc: "Indri indri — the largest living lemur, famed for its songs." },
   { href: "/animals/galago", label: "Galago (Bushbaby)", desc: "Family Galagidae — wide-eyed, leaping nocturnal African primates." },
+  { href: "/animals/proboscis-monkey", label: "Proboscis Monkey", desc: "Nasalis larvatus — Borneo's big-nosed, swimming leaf monkey." },
+  { href: "/animals/langur", label: "Langur", desc: "Asian leaf monkeys (Colobinae); the gray langur as a reference." },
+  { href: "/animals/douc", label: "Douc", desc: "Genus Pygathrix — vividly coloured 'costumed' leaf monkeys of Indochina." },
+  { href: "/animals/uakari", label: "Uakari", desc: "Genus Cacajao — short-tailed Amazon monkeys with bright red faces." },
+  { href: "/animals/saki-monkey", label: "Saki Monkey", desc: "Genus Pithecia — shaggy 'flying monkeys' of South America." },
 ];
 
 export default function MammalsPage() {

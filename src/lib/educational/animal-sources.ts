@@ -1473,6 +1473,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_ADW,
     SRC_IUCN,
   ],
+  // Mammals + birds batch 6 (2026-06-20)
+  "proboscis-monkey": [
+    adw("Nasalis_larvatus", "Nasalis larvatus (proboscis monkey)"),
+    brit("proboscis-monkey", "Proboscis monkey"),
+    SRC_IUCN,
+  ],
+  langur: [
+    adw("Semnopithecus_entellus", "Semnopithecus entellus (northern plains gray langur)"),
+    brit("langur", "Langur"),
+    SRC_IUCN,
+  ],
+  douc: [
+    adw("Pygathrix_nemaeus", "Pygathrix nemaeus (red-shanked douc)"),
+    brit("douc", "Douc"),
+    SRC_IUCN,
+  ],
+  uakari: [
+    adw("Cacajao_calvus", "Cacajao calvus (bald uakari)"),
+    brit("uakari", "Uakari"),
+    SRC_IUCN,
+  ],
+  "saki-monkey": [
+    adw("Pithecia_pithecia", "Pithecia pithecia (white-faced saki)"),
+    brit("saki", "Saki"),
+    SRC_IUCN,
+  ],
+  hamerkop: [
+    brit("hamerkop", "Hamerkop"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  "cock-of-the-rock": [
+    brit("cock-of-the-rock", "Cock-of-the-rock"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  bowerbird: [
+    brit("bowerbird", "Bowerbird"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  frigatebird: [
+    brit("frigate-bird", "Frigate bird"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  umbrellabird: [
+    brit("umbrellabird", "Umbrellabird"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
 };
 
 /**
