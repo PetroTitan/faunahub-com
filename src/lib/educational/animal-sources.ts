@@ -1320,6 +1320,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("bilby", "Bilby"),
     SRC_IUCN,
   ],
+  // Mammals + birds batch 3 (2026-06-20)
+  tenrec: [
+    adw("Hemicentetes_semispinosus", "Hemicentetes semispinosus (lowland streaked tenrec)"),
+    brit("tenrec", "Tenrec"),
+    SRC_IUCN,
+  ],
+  bandicoot: [
+    adw("Perameles_nasuta", "Perameles nasuta (long-nosed bandicoot)"),
+    brit("bandicoot", "Bandicoot"),
+    SRC_IUCN,
+  ],
+  "sugar-glider": [
+    adw("Petaurus_breviceps", "Petaurus breviceps (sugar glider)"),
+    brit("sugar-glider", "Sugar glider"),
+    SRC_IUCN,
+  ],
+  quokka: [
+    adw("Setonix_brachyurus", "Setonix brachyurus (quokka)"),
+    brit("quokka", "Quokka"),
+    SRC_IUCN,
+  ],
+  colugo: [
+    adw("Galeopterus_variegatus", "Galeopterus variegatus (Sunda colugo)"),
+    brit("colugo", "Colugo"),
+    SRC_IUCN,
+  ],
+  weaver: [
+    brit("weaver", "Weaver"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  oxpecker: [
+    brit("oxpecker", "Oxpecker"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  nightjar: [
+    brit("nightjar", "Nightjar"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  lyrebird: [
+    brit("lyrebird", "Lyrebird"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  turaco: [
+    brit("turaco", "Turaco"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
 };
 
 /**

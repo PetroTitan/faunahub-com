@@ -86,6 +86,11 @@ const mammals = [
   { href: "/animals/bilby", label: "Bilby", desc: "Macrotis lagotis — a long-eared, burrowing desert marsupial." },
   { href: "/animals/fossa", label: "Fossa", desc: "Cryptoprocta ferox — Madagascar's largest carnivore." },
   { href: "/animals/mole-rat", label: "Naked Mole-Rat", desc: "Heterocephalus glaber — an underground, eusocial rodent." },
+  { href: "/animals/quokka", label: "Quokka", desc: "Setonix brachyurus — the 'smiling' small wallaby of Rottnest Island." },
+  { href: "/animals/sugar-glider", label: "Sugar Glider", desc: "Petaurus breviceps — a small gliding marsupial." },
+  { href: "/animals/bandicoot", label: "Bandicoot", desc: "Order Peramelemorphia — pointy-snouted, digging marsupials." },
+  { href: "/animals/tenrec", label: "Tenrec", desc: "Family Tenrecidae — Madagascar's hedgehog- and shrew-like mammals." },
+  { href: "/animals/colugo", label: "Colugo", desc: "Order Dermoptera — the 'flying lemur', the best gliding mammal." },
 ];
 
 export default function MammalsPage() {

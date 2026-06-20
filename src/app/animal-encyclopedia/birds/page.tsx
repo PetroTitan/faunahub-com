@@ -70,6 +70,11 @@ const birds = [
   { href: "/animals/sunbird", label: "Sunbird", desc: "Family Nectariniidae — iridescent Old World nectar-feeders." },
   { href: "/animals/swift", label: "Swift", desc: "Family Apodidae — supremely aerial birds that can stay airborne for months." },
   { href: "/animals/secretary-bird", label: "Secretarybird", desc: "Sagittarius serpentarius — a raptor that hunts snakes on foot." },
+  { href: "/animals/weaver", label: "Weaver", desc: "Family Ploceidae — Old World birds that weave elaborate knotted nests." },
+  { href: "/animals/oxpecker", label: "Oxpecker", desc: "Genus Buphagus — African birds that ride on large mammals." },
+  { href: "/animals/nightjar", label: "Nightjar", desc: "Family Caprimulgidae — camouflaged nocturnal insect-catchers." },
+  { href: "/animals/lyrebird", label: "Lyrebird", desc: "Menura novaehollandiae — an Australian master of vocal mimicry." },
+  { href: "/animals/turaco", label: "Turaco", desc: "Family Musophagidae — colourful African birds with unique pigments." },
 ];
 
 export default function EncyclopediaBirdsPage() {
