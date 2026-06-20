@@ -303,6 +303,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "potoo",
     "hoatzin",
     "jacana",
+    // Mammals + birds batch 5 (2026-06-20)
+    "marmoset",
+    "tamarin",
+    "galago",
+    "indri",
+    "mandrill",
+    "motmot",
+    "sunbittern",
+    "kagu",
+    "jabiru",
+    "tropicbird",
   ];
 
   const compareSlugs = [
