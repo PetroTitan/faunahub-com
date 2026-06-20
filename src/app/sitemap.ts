@@ -274,6 +274,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "secretary-bird",
     "mamba",
     "skink",
+    // Unusual mammals batch (2026-06-20)
+    "tasmanian-devil",
+    "fossa",
+    "numbat",
+    "mole-rat",
+    "quoll",
+    "bilby",
   ];
 
   const compareSlugs = [
