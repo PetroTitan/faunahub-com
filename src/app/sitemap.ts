@@ -314,6 +314,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "kagu",
     "jabiru",
     "tropicbird",
+    // Mammals + birds batch 6 (2026-06-20)
+    "proboscis-monkey",
+    "langur",
+    "douc",
+    "uakari",
+    "saki-monkey",
+    "hamerkop",
+    "cock-of-the-rock",
+    "bowerbird",
+    "frigatebird",
+    "umbrellabird",
   ];
 
   const compareSlugs = [
