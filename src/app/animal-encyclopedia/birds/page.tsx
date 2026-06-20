@@ -80,6 +80,11 @@ const birds = [
   { href: "/animals/potoo", label: "Potoo", desc: "Family Nyctibiidae — neotropical 'tree-stump' camouflage masters." },
   { href: "/animals/hoatzin", label: "Hoatzin", desc: "Opisthocomus hoazin — the leaf-fermenting Amazonian 'stinkbird'." },
   { href: "/animals/jacana", label: "Jacana", desc: "Family Jacanidae — long-toed 'lily-trotters' with role-reversed parenting." },
+  { href: "/animals/jabiru", label: "Jabiru", desc: "Jabiru mycteria — a giant stork of Neotropical wetlands." },
+  { href: "/animals/sunbittern", label: "Sunbittern", desc: "Eurypyga helias — flashes 'sunburst' eyespots on its wings." },
+  { href: "/animals/kagu", label: "Kagu", desc: "Rhynochetos jubatus — New Caledonia's near-flightless 'ghost' bird." },
+  { href: "/animals/motmot", label: "Motmot", desc: "Family Momotidae — colourful birds with racket-tipped tails." },
+  { href: "/animals/tropicbird", label: "Tropicbird", desc: "Family Phaethontidae — ocean seabirds with long tail streamers." },
 ];
 
 export default function EncyclopediaBirdsPage() {

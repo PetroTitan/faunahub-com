@@ -96,6 +96,11 @@ const mammals = [
   { href: "/animals/tarsier", label: "Tarsier", desc: "Family Tarsiidae — tiny, huge-eyed carnivorous primates of SE Asia." },
   { href: "/animals/slow-loris", label: "Slow Loris", desc: "Genus Nycticebus — slow, big-eyed, venomous nocturnal primates." },
   { href: "/animals/springhare", label: "Springhare", desc: "Pedetes capensis — a hopping, kangaroo-like African rodent." },
+  { href: "/animals/mandrill", label: "Mandrill", desc: "Mandrillus sphinx — the world's largest monkey, with a vivid face." },
+  { href: "/animals/marmoset", label: "Marmoset", desc: "Family Callitrichidae — tiny gum-feeding New World monkeys." },
+  { href: "/animals/tamarin", label: "Tamarin", desc: "Including the golden lion tamarin, a conservation icon." },
+  { href: "/animals/indri", label: "Indri", desc: "Indri indri — the largest living lemur, famed for its songs." },
+  { href: "/animals/galago", label: "Galago (Bushbaby)", desc: "Family Galagidae — wide-eyed, leaping nocturnal African primates." },
 ];
 
 export default function MammalsPage() {

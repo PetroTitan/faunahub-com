@@ -1422,6 +1422,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_ADW,
     SRC_IUCN,
   ],
+  // Mammals + birds batch 5 (2026-06-20)
+  marmoset: [
+    adw("Callithrix_jacchus", "Callithrix jacchus (common marmoset)"),
+    brit("marmoset", "Marmoset"),
+    SRC_IUCN,
+  ],
+  tamarin: [
+    adw("Leontopithecus_rosalia", "Leontopithecus rosalia (golden lion tamarin)"),
+    brit("tamarin", "Tamarin"),
+    SRC_IUCN,
+  ],
+  galago: [
+    adw("Galago_moholi", "Galago moholi (Mohol bushbaby)"),
+    brit("galago", "Galago"),
+    SRC_IUCN,
+  ],
+  indri: [
+    adw("Indri_indri", "Indri indri (indri)"),
+    brit("indri", "Indri"),
+    SRC_IUCN,
+  ],
+  mandrill: [
+    adw("Mandrillus_sphinx", "Mandrillus sphinx (mandrill)"),
+    brit("mandrill", "Mandrill"),
+    SRC_IUCN,
+  ],
+  motmot: [
+    brit("motmot", "Motmot"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  sunbittern: [
+    brit("sunbittern", "Sunbittern"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  kagu: [
+    brit("kagu", "Kagu"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  jabiru: [
+    brit("jabiru", "Jabiru"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  tropicbird: [
+    brit("tropicbird", "Tropicbird"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
 };
 
 /**
