@@ -267,6 +267,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "quetzal",
     "hoopoe",
     "sunbird",
+    // Cross-class batch (2026-06-20)
+    "shrew",
+    "binturong",
+    "swift",
+    "secretary-bird",
+    "mamba",
+    "skink",
   ];
 
   const compareSlugs = [
