@@ -253,6 +253,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "parrotfish",
     "seadragon",
     "mudskipper",
+    // Mammals + birds batch (2026-06-20)
+    "walrus",
+    "mole",
+    "pine-marten",
+    "albatross",
+    "seagull",
+    "roadrunner",
   ];
 
   const compareSlugs = [
