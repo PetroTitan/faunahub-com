@@ -246,6 +246,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "moth",
     "grasshopper",
     "krill",
+    // Fish batch (2026-06-20)
+    "cod",
+    "mackerel",
+    "piranha",
+    "parrotfish",
+    "seadragon",
+    "mudskipper",
   ];
 
   const compareSlugs = [
