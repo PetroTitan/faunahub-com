@@ -325,6 +325,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "bowerbird",
     "frigatebird",
     "umbrellabird",
+    // Mammals + birds batch 7 (2026-06-21)
+    "colobus",
+    "macaque",
+    "howler-monkey",
+    "spider-monkey",
+    "tamandua",
+    "hornero",
+    "screamer",
+    "trumpeter",
+    "seriema",
+    "guan",
   ];
 
   const compareSlugs = [
