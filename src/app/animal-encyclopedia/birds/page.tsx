@@ -95,6 +95,11 @@ const birds = [
   { href: "/animals/screamer", label: "Screamer", desc: "Family Anhimidae — loud South American wetland relatives of waterfowl." },
   { href: "/animals/trumpeter", label: "Trumpeter", desc: "Genus Psophia — social Amazon ground birds with cooperative breeding." },
   { href: "/animals/guan", label: "Guan", desc: "Family Cracidae — large arboreal Neotropical fruit-eating game birds." },
+  { href: "/animals/curassow", label: "Curassow", desc: "Family Cracidae — big crested forest birds; the great curassow as a reference." },
+  { href: "/animals/chachalaca", label: "Chachalaca", desc: "Genus Ortalis — noisy, adaptable smallest cracids." },
+  { href: "/animals/tinamou", label: "Tinamou", desc: "Family Tinamidae — ancient ground birds, flying kin of the ratites." },
+  { href: "/animals/limpkin", label: "Limpkin", desc: "Aramus guarauna — a snail-eating wader with an eerie wail." },
+  { href: "/animals/sungrebe", label: "Sungrebe", desc: "Heliornis fulica — a finfoot whose male carries chicks under his wings." },
 ];
 
 export default function EncyclopediaBirdsPage() {

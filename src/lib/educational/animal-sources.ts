@@ -1575,6 +1575,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_ADW,
     SRC_IUCN,
   ],
+  // Mammals + birds batch 8 (2026-06-21)
+  baboon: [
+    adw("Papio_anubis", "Papio anubis (olive baboon)"),
+    brit("baboon", "Baboon"),
+    SRC_IUCN,
+  ],
+  guenon: [
+    adw("Cercopithecus_neglectus", "Cercopithecus neglectus (De Brazza's monkey)"),
+    brit("guenon", "Guenon"),
+    SRC_IUCN,
+  ],
+  "titi-monkey": [
+    adw("Callicebus_cupreus", "Callicebus/Plecturocebus cupreus (coppery titi)"),
+    brit("titi", "Titi"),
+    SRC_IUCN,
+  ],
+  "woolly-monkey": [
+    adw("Lagothrix_lagotricha", "Lagothrix lagothricha (woolly monkey)"),
+    brit("woolly-monkey", "Woolly monkey"),
+    SRC_IUCN,
+  ],
+  muriqui: [
+    adw("Brachyteles_arachnoides", "Brachyteles arachnoides (southern muriqui)"),
+    brit("muriqui", "Muriqui"),
+    SRC_IUCN,
+  ],
+  tinamou: [
+    brit("tinamou", "Tinamou"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  limpkin: [
+    brit("limpkin", "Limpkin"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  curassow: [
+    brit("curassow", "Curassow"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  chachalaca: [
+    brit("chachalaca", "Chachalaca"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  sungrebe: [
+    brit("sungrebe", "Sungrebe"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
 };
 
 /**

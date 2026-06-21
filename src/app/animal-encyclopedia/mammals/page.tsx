@@ -111,6 +111,11 @@ const mammals = [
   { href: "/animals/howler-monkey", label: "Howler Monkey", desc: "Genus Alouatta — among the loudest land animals." },
   { href: "/animals/spider-monkey", label: "Spider Monkey", desc: "Genus Ateles — long-limbed, prehensile-tailed canopy acrobats." },
   { href: "/animals/tamandua", label: "Tamandua", desc: "Genus Tamandua — tree-climbing 'lesser anteaters' of the Americas." },
+  { href: "/animals/baboon", label: "Baboon", desc: "Genus Papio — large ground-dwelling monkeys with complex societies." },
+  { href: "/animals/guenon", label: "Guenon", desc: "Genus Cercopithecus — colourful African forest monkeys." },
+  { href: "/animals/woolly-monkey", label: "Woolly Monkey", desc: "Genus Lagothrix — thickset, woolly Amazon monkeys with a gripping tail." },
+  { href: "/animals/muriqui", label: "Muriqui", desc: "Genus Brachyteles — the peaceful 'woolly spider monkey', the Americas' largest monkey." },
+  { href: "/animals/titi-monkey", label: "Titi Monkey", desc: "Small South American monkeys famous for pair bonds and tail-twining." },
 ];
 
 export default function MammalsPage() {
