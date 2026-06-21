@@ -1830,6 +1830,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("ctenophore", "Ctenophore (comb jelly)"),
     SRC_IUCN,
   ],
+  // Cross-class balance batch 5 (2026-06-21)
+  "thorny-devil": [
+    adw("Moloch_horridus", "Moloch horridus (thorny devil)"),
+    brit("thorny-devil", "Thorny devil"),
+    SRC_IUCN,
+  ],
+  "flying-snake": [
+    adw("Chrysopelea_ornata", "Chrysopelea ornata (golden tree / flying snake)"),
+    brit("flying-snake", "Flying snake"),
+    SRC_IUCN,
+  ],
+  mantella: [
+    SRC_AMPHIBIAWEB,
+    brit("mantella", "Mantella"),
+    SRC_IUCN,
+  ],
+  "midwife-toad": [
+    adw("Alytes_obstetricans", "Alytes obstetricans (common midwife toad)"),
+    SRC_AMPHIBIAWEB,
+    SRC_IUCN,
+  ],
+  "spadefoot-toad": [
+    SRC_AMPHIBIAWEB,
+    brit("spadefoot-toad", "Spadefoot toad"),
+    SRC_IUCN,
+  ],
+  hagfish: [
+    SRC_NOAA_FISHERIES,
+    brit("hagfish", "Hagfish"),
+    SRC_IUCN,
+  ],
+  "flying-fish": [
+    SRC_WORMS,
+    brit("flying-fish", "Flying fish"),
+    SRC_IUCN,
+  ],
+  cockroach: [
+    brit("cockroach", "Cockroach"),
+    SRC_ADW,
+    SRC_XERCES,
+  ],
+  crayfish: [
+    brit("crayfish", "Crayfish"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  "velvet-worm": [
+    brit("velvet-worm", "Velvet worm (Onychophora)"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
 };
 
 /**

@@ -126,6 +126,21 @@ const groups = [
     label: "Tardigrade (Water Bear)",
     desc: "Phylum Tardigrada — microscopic animals that survive almost anything, even space.",
   },
+  {
+    href: "/animals/cockroach",
+    label: "Cockroach",
+    desc: "Order Blattodea — ancient, hardy insects; mostly wild recyclers, a few are pests.",
+  },
+  {
+    href: "/animals/crayfish",
+    label: "Crayfish",
+    desc: "Lobster-like freshwater crustaceans; recyclers, and invasive where introduced.",
+  },
+  {
+    href: "/animals/velvet-worm",
+    label: "Velvet Worm",
+    desc: "Phylum Onychophora — ancient soft-bodied predators that shoot sticky slime.",
+  },
 ];
 
 export default function InsectsPage() {

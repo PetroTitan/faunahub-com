@@ -51,6 +51,8 @@ const marine = [
   { href: "/animals/lamprey", label: "Lamprey", desc: "Ancient jawless fish with a round, toothed sucker mouth; some parasitic." },
   { href: "/animals/remora", label: "Remora", desc: "'Sharksuckers' that hitch rides on sharks, rays, turtles, and whales." },
   { href: "/animals/oarfish", label: "Oarfish", desc: "Regalecus glesne — the longest bony fish; a likely source of sea-serpent tales." },
+  { href: "/animals/hagfish", label: "Hagfish", desc: "Jawless deep-sea fish famous for producing huge amounts of defensive slime." },
+  { href: "/animals/flying-fish", label: "Flying Fish", desc: "Family Exocoetidae — ocean fish that glide above the waves to escape predators." },
 ];
 
 export default function FishEncyclopediaPage() {

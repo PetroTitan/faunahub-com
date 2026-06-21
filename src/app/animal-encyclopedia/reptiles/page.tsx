@@ -42,6 +42,8 @@ const reptiles = [
   { href: "/animals/krait", label: "Krait", desc: "Genus Bungarus — highly venomous, mostly nocturnal Asian snakes." },
   { href: "/animals/tokay-gecko", label: "Tokay Gecko", desc: "Gekko gecko — a large, loud gecko with sticky toe pads and a firm bite." },
   { href: "/animals/sea-snake", label: "Sea Snake", desc: "Venomous marine snakes with paddle tails; the banded sea krait as a reference." },
+  { href: "/animals/thorny-devil", label: "Thorny Devil", desc: "Moloch horridus — a spiky, ant-eating Australian desert lizard." },
+  { href: "/animals/flying-snake", label: "Flying Snake", desc: "Genus Chrysopelea — Asian tree snakes that glide between trees." },
 ];
 
 const amphibians = [
@@ -62,6 +64,9 @@ const amphibians = [
   { href: "/animals/goliath-frog", label: "Goliath Frog", desc: "Conraua goliath — the world's largest frog, which builds its own nest pools." },
   { href: "/animals/surinam-toad", label: "Surinam Toad", desc: "Pipa pipa — a flat aquatic frog whose young develop in pockets on its back." },
   { href: "/animals/clawed-frog", label: "African Clawed Frog", desc: "Xenopus laevis — a famous lab frog, and invasive where released." },
+  { href: "/animals/mantella", label: "Mantella", desc: "Genus Mantella — tiny, brilliantly coloured toxic frogs of Madagascar." },
+  { href: "/animals/midwife-toad", label: "Midwife Toad", desc: "Genus Alytes — the male carries the eggs wrapped around his legs." },
+  { href: "/animals/spadefoot-toad", label: "Spadefoot Toad", desc: "Burrowing toads that dig with spade-like feet and wait out droughts." },
 ];
 
 export default function EncyclopediaReptilesPage() {
