@@ -90,6 +90,11 @@ const birds = [
   { href: "/animals/cock-of-the-rock", label: "Cock-of-the-Rock", desc: "Genus Rupicola — brilliant South American birds that display at leks." },
   { href: "/animals/bowerbird", label: "Bowerbird", desc: "Family Ptilonorhynchidae — males build & decorate elaborate bowers." },
   { href: "/animals/umbrellabird", label: "Umbrellabird", desc: "Genus Cephalopterus — black cotingas with a crest and throat wattle." },
+  { href: "/animals/hornero", label: "Hornero", desc: "Genus Furnarius — South American birds that build domed mud 'oven' nests." },
+  { href: "/animals/seriema", label: "Seriema", desc: "Family Cariamidae — snake-hunting grassland birds; kin of the 'terror birds'." },
+  { href: "/animals/screamer", label: "Screamer", desc: "Family Anhimidae — loud South American wetland relatives of waterfowl." },
+  { href: "/animals/trumpeter", label: "Trumpeter", desc: "Genus Psophia — social Amazon ground birds with cooperative breeding." },
+  { href: "/animals/guan", label: "Guan", desc: "Family Cracidae — large arboreal Neotropical fruit-eating game birds." },
 ];
 
 export default function EncyclopediaBirdsPage() {

@@ -106,6 +106,11 @@ const mammals = [
   { href: "/animals/douc", label: "Douc", desc: "Genus Pygathrix — vividly coloured 'costumed' leaf monkeys of Indochina." },
   { href: "/animals/uakari", label: "Uakari", desc: "Genus Cacajao — short-tailed Amazon monkeys with bright red faces." },
   { href: "/animals/saki-monkey", label: "Saki Monkey", desc: "Genus Pithecia — shaggy 'flying monkeys' of South America." },
+  { href: "/animals/macaque", label: "Macaque", desc: "Genus Macaca — adaptable monkeys; the Japanese 'snow monkey' as a reference." },
+  { href: "/animals/colobus", label: "Colobus Monkey", desc: "Striking black-and-white African leaf monkeys with a reduced thumb." },
+  { href: "/animals/howler-monkey", label: "Howler Monkey", desc: "Genus Alouatta — among the loudest land animals." },
+  { href: "/animals/spider-monkey", label: "Spider Monkey", desc: "Genus Ateles — long-limbed, prehensile-tailed canopy acrobats." },
+  { href: "/animals/tamandua", label: "Tamandua", desc: "Genus Tamandua — tree-climbing 'lesser anteaters' of the Americas." },
 ];
 
 export default function MammalsPage() {

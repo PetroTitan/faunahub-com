@@ -1524,6 +1524,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_ADW,
     SRC_IUCN,
   ],
+  // Mammals + birds batch 7 (2026-06-21)
+  colobus: [
+    adw("Colobus_guereza", "Colobus guereza (mantled guereza)"),
+    brit("colobus", "Colobus"),
+    SRC_IUCN,
+  ],
+  macaque: [
+    adw("Macaca_fuscata", "Macaca fuscata (Japanese macaque)"),
+    brit("macaque", "Macaque"),
+    SRC_IUCN,
+  ],
+  "howler-monkey": [
+    adw("Alouatta_palliata", "Alouatta palliata (mantled howler)"),
+    brit("howler-monkey", "Howler monkey"),
+    SRC_IUCN,
+  ],
+  "spider-monkey": [
+    adw("Ateles_geoffroyi", "Ateles geoffroyi (Geoffroy's spider monkey)"),
+    brit("spider-monkey", "Spider monkey"),
+    SRC_IUCN,
+  ],
+  tamandua: [
+    adw("Tamandua_tetradactyla", "Tamandua tetradactyla (southern tamandua)"),
+    brit("tamandua", "Tamandua"),
+    SRC_IUCN,
+  ],
+  hornero: [
+    brit("hornero", "Hornero"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  screamer: [
+    brit("screamer", "Screamer"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  trumpeter: [
+    brit("trumpeter-bird", "Trumpeter"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  seriema: [
+    brit("seriema", "Seriema"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  guan: [
+    brit("guan", "Guan"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
 };
 
 /**
