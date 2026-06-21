@@ -232,6 +232,16 @@ const links = [
     desc: "Odobenus rosmarus — a huge, tusked Arctic pinniped that dives for clams.",
   },
   {
+    href: "/animals/mantis-shrimp",
+    label: "Mantis Shrimp",
+    desc: "Order Stomatopoda — reef crustaceans with a super-fast strike and complex eyes.",
+  },
+  {
+    href: "/animals/horseshoe-crab",
+    label: "Horseshoe Crab",
+    desc: "Family Limulidae — ancient 'living fossil' arthropods with medically vital blue blood.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",

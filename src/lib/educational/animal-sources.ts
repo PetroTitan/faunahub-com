@@ -1677,6 +1677,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_ADW,
     SRC_XERCES,
   ],
+  // Cross-class balance batch 2 (2026-06-21)
+  basilisk: [
+    adw("Basiliscus_plumifrons", "Basiliscus plumifrons (green basilisk)"),
+    brit("basilisk", "Basilisk (lizard)"),
+    SRC_IUCN,
+  ],
+  chuckwalla: [
+    adw("Sauromalus_ater", "Sauromalus ater (common chuckwalla)"),
+    brit("chuckwalla", "Chuckwalla"),
+    SRC_IUCN,
+  ],
+  "tiger-salamander": [
+    adw("Ambystoma_tigrinum", "Ambystoma tigrinum (tiger salamander)"),
+    SRC_AMPHIBIAWEB,
+    SRC_IUCN,
+  ],
+  olm: [
+    SRC_AMPHIBIAWEB,
+    brit("olm", "Olm"),
+    SRC_IUCN,
+  ],
+  sturgeon: [
+    SRC_NOAA_FISHERIES,
+    brit("sturgeon", "Sturgeon"),
+    SRC_IUCN,
+  ],
+  "electric-eel": [
+    adw("Electrophorus_electricus", "Electrophorus electricus (electric eel)"),
+    brit("electric-eel", "Electric eel"),
+    SRC_IUCN,
+  ],
+  archerfish: [
+    adw("Toxotes_jaculatrix", "Toxotes jaculatrix (banded archerfish)"),
+    brit("archerfish", "Archerfish"),
+    SRC_IUCN,
+  ],
+  "mantis-shrimp": [
+    SRC_WORMS,
+    brit("mantis-shrimp", "Mantis shrimp"),
+    SRC_IUCN,
+  ],
+  "horseshoe-crab": [
+    SRC_WORMS,
+    brit("horseshoe-crab", "Horseshoe crab"),
+    SRC_IUCN,
+  ],
+  "stick-insect": [
+    brit("stick-insect", "Stick insect"),
+    SRC_ADW,
+    SRC_XERCES,
+  ],
 };
 
 /**

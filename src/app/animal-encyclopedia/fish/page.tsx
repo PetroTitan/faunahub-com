@@ -20,6 +20,9 @@ const freshwater = [
   { href: "/animals/carp", label: "Carp", desc: "Cyprinus carpio — a widespread, often introduced freshwater fish." },
   { href: "/animals/catfish", label: "Catfish", desc: "Order Siluriformes — barbel-bearing fish, using the channel catfish." },
   { href: "/animals/piranha", label: "Piranha", desc: "Sharp-toothed South American fish, far less ferocious than its reputation." },
+  { href: "/animals/sturgeon", label: "Sturgeon", desc: "Family Acipenseridae — armored 'living fossil' fish; many are threatened." },
+  { href: "/animals/electric-eel", label: "Electric Eel", desc: "Electrophorus electricus — an Amazon knifefish that shocks its prey." },
+  { href: "/animals/archerfish", label: "Archerfish", desc: "Family Toxotidae — shoots down insects with precise jets of water." },
 ];
 
 const marine = [

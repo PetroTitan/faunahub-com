@@ -36,6 +36,8 @@ const reptiles = [
   { href: "/animals/viper", label: "Viper", desc: "Family Viperidae — venomous snakes with long hinged fangs; Gaboon viper as a reference." },
   { href: "/animals/tegu", label: "Tegu", desc: "Large South American lizards; the partly warm-bodied Argentine tegu." },
   { href: "/animals/anole", label: "Anole", desc: "Genus Anolis — small American lizards with a colourful throat dewlap." },
+  { href: "/animals/basilisk", label: "Basilisk", desc: "Genus Basiliscus — the 'Jesus lizard' that runs across water." },
+  { href: "/animals/chuckwalla", label: "Chuckwalla", desc: "Genus Sauromalus — desert lizards that wedge into rocks and inflate." },
 ];
 
 const amphibians = [
@@ -50,6 +52,8 @@ const amphibians = [
   { href: "/animals/bullfrog", label: "American Bullfrog", desc: "Lithobates catesbeianus — large, deep-voiced frog; invasive where introduced." },
   { href: "/animals/hellbender", label: "Hellbender", desc: "Cryptobranchus alleganiensis — North America's largest salamander." },
   { href: "/animals/glass-frog", label: "Glass Frog", desc: "Family Centrolenidae — tree frogs with see-through undersides." },
+  { href: "/animals/tiger-salamander", label: "Tiger Salamander", desc: "Ambystoma tigrinum — a large burrowing salamander; axolotl relative." },
+  { href: "/animals/olm", label: "Olm", desc: "Proteus anguinus — a blind, long-lived European cave salamander." },
 ];
 
 export default function EncyclopediaReptilesPage() {

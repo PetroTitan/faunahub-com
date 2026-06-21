@@ -106,6 +106,11 @@ const groups = [
     label: "Cricket",
     desc: "Family Gryllidae — chirping insects that sing by rubbing their wings.",
   },
+  {
+    href: "/animals/stick-insect",
+    label: "Stick Insect",
+    desc: "Order Phasmatodea — masters of camouflage that mimic twigs and leaves.",
+  },
 ];
 
 export default function InsectsPage() {
