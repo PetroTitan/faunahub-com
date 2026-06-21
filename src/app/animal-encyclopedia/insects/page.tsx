@@ -141,6 +141,11 @@ const groups = [
     label: "Velvet Worm",
     desc: "Phylum Onychophora — ancient soft-bodied predators that shoot sticky slime.",
   },
+  {
+    href: "/animals/mayfly",
+    label: "Mayfly",
+    desc: "Order Ephemeroptera — short-lived adults; nymphs indicate clean fresh water.",
+  },
 ];
 
 export default function InsectsPage() {

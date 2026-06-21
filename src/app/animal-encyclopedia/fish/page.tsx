@@ -24,6 +24,9 @@ const freshwater = [
   { href: "/animals/electric-eel", label: "Electric Eel", desc: "Electrophorus electricus — an Amazon knifefish that shocks its prey." },
   { href: "/animals/archerfish", label: "Archerfish", desc: "Family Toxotidae — shoots down insects with precise jets of water." },
   { href: "/animals/lungfish", label: "Lungfish", desc: "Subclass Dipnoi — air-breathing 'living fossil' fish; some survive drought in mud." },
+  { href: "/animals/gar", label: "Gar", desc: "Family Lepisosteidae — armor-scaled 'living fossil' predators; the giant alligator gar." },
+  { href: "/animals/paddlefish", label: "Paddlefish", desc: "Polyodon spathula — a plankton-filtering river fish with a sensory paddle snout." },
+  { href: "/animals/snakehead", label: "Snakehead", desc: "Family Channidae — air-breathing predators; prized food, but invasive abroad." },
 ];
 
 const marine = [

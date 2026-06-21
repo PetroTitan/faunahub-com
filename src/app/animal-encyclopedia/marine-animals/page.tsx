@@ -257,6 +257,16 @@ const links = [
     desc: "Phylum Ctenophora — shimmering, non-stinging ocean drifters that swim with rows of combs.",
   },
   {
+    href: "/animals/coconut-crab",
+    label: "Coconut Crab",
+    desc: "Birgus latro — the largest land arthropod, a tree-climbing island hermit-crab relative.",
+  },
+  {
+    href: "/animals/sea-squirt",
+    label: "Sea Squirt",
+    desc: "Class Ascidiacea — sac-like filter feeders and surprising close kin of vertebrates.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",

@@ -44,6 +44,8 @@ const reptiles = [
   { href: "/animals/sea-snake", label: "Sea Snake", desc: "Venomous marine snakes with paddle tails; the banded sea krait as a reference." },
   { href: "/animals/thorny-devil", label: "Thorny Devil", desc: "Moloch horridus — a spiky, ant-eating Australian desert lizard." },
   { href: "/animals/flying-snake", label: "Flying Snake", desc: "Genus Chrysopelea — Asian tree snakes that glide between trees." },
+  { href: "/animals/caiman-lizard", label: "Caiman Lizard", desc: "Dracaena guianensis — a semi-aquatic Amazon lizard that crushes snails." },
+  { href: "/animals/agama", label: "Agama", desc: "Genus Agama — African rock lizards whose dominant males flush red-and-blue." },
 ];
 
 const amphibians = [
@@ -67,6 +69,8 @@ const amphibians = [
   { href: "/animals/mantella", label: "Mantella", desc: "Genus Mantella — tiny, brilliantly coloured toxic frogs of Madagascar." },
   { href: "/animals/midwife-toad", label: "Midwife Toad", desc: "Genus Alytes — the male carries the eggs wrapped around his legs." },
   { href: "/animals/spadefoot-toad", label: "Spadefoot Toad", desc: "Burrowing toads that dig with spade-like feet and wait out droughts." },
+  { href: "/animals/tomato-frog", label: "Tomato Frog", desc: "Dyscophus antongilii — a vivid red Madagascan frog with a sticky defence." },
+  { href: "/animals/marbled-newt", label: "Marbled Newt", desc: "Triturus marmoratus — a striking green-and-black European newt." },
 ];
 
 export default function EncyclopediaReptilesPage() {

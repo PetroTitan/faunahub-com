@@ -1881,6 +1881,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_ADW,
     SRC_IUCN,
   ],
+  // Cross-class balance batch 6 (2026-06-21)
+  "caiman-lizard": [
+    adw("Dracaena_guianensis", "Dracaena guianensis (caiman lizard)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  agama: [
+    adw("Agama_agama", "Agama agama (red-headed rock agama)"),
+    brit("agama", "Agama"),
+    SRC_IUCN,
+  ],
+  "tomato-frog": [
+    adw("Dyscophus_antongilii", "Dyscophus antongilii (tomato frog)"),
+    SRC_AMPHIBIAWEB,
+    SRC_IUCN,
+  ],
+  "marbled-newt": [
+    adw("Triturus_marmoratus", "Triturus marmoratus (marbled newt)"),
+    SRC_AMPHIBIAWEB,
+    SRC_IUCN,
+  ],
+  gar: [
+    brit("gar", "Gar"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  paddlefish: [
+    brit("paddlefish", "Paddlefish"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  snakehead: [
+    brit("snakehead", "Snakehead"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "coconut-crab": [
+    SRC_WORMS,
+    brit("coconut-crab", "Coconut crab"),
+    SRC_IUCN,
+  ],
+  "sea-squirt": [
+    SRC_WORMS,
+    brit("tunicate", "Tunicate (sea squirt)"),
+    SRC_IUCN,
+  ],
+  mayfly: [
+    brit("mayfly", "Mayfly"),
+    SRC_ADW,
+    SRC_XERCES,
+  ],
 };
 
 /**
