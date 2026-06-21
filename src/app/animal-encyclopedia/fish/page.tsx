@@ -23,6 +23,7 @@ const freshwater = [
   { href: "/animals/sturgeon", label: "Sturgeon", desc: "Family Acipenseridae — armored 'living fossil' fish; many are threatened." },
   { href: "/animals/electric-eel", label: "Electric Eel", desc: "Electrophorus electricus — an Amazon knifefish that shocks its prey." },
   { href: "/animals/archerfish", label: "Archerfish", desc: "Family Toxotidae — shoots down insects with precise jets of water." },
+  { href: "/animals/lungfish", label: "Lungfish", desc: "Subclass Dipnoi — air-breathing 'living fossil' fish; some survive drought in mud." },
 ];
 
 const marine = [
@@ -45,6 +46,8 @@ const marine = [
   { href: "/animals/mola", label: "Ocean Sunfish (Mola)", desc: "Mola mola — the heaviest bony fish, a disc-shaped surface basker." },
   { href: "/animals/wrasse", label: "Wrasse", desc: "Family Labridae — colourful reef fish; cleaners and the giant humphead wrasse." },
   { href: "/animals/triggerfish", label: "Triggerfish", desc: "Family Balistidae — bold reef fish with a locking dorsal spine." },
+  { href: "/animals/flounder", label: "Flounder", desc: "Flatfish that lie on the seabed with both eyes on one side." },
+  { href: "/animals/stonefish", label: "Stonefish", desc: "Genus Synanceia — camouflaged reef fish; the most venomous fish in the world." },
 ];
 
 export default function FishEncyclopediaPage() {

@@ -38,6 +38,8 @@ const reptiles = [
   { href: "/animals/anole", label: "Anole", desc: "Genus Anolis — small American lizards with a colourful throat dewlap." },
   { href: "/animals/basilisk", label: "Basilisk", desc: "Genus Basiliscus — the 'Jesus lizard' that runs across water." },
   { href: "/animals/chuckwalla", label: "Chuckwalla", desc: "Genus Sauromalus — desert lizards that wedge into rocks and inflate." },
+  { href: "/animals/frilled-lizard", label: "Frilled Lizard", desc: "Chlamydosaurus kingii — flares a huge neck frill and runs on two legs." },
+  { href: "/animals/krait", label: "Krait", desc: "Genus Bungarus — highly venomous, mostly nocturnal Asian snakes." },
 ];
 
 const amphibians = [
@@ -54,6 +56,8 @@ const amphibians = [
   { href: "/animals/glass-frog", label: "Glass Frog", desc: "Family Centrolenidae — tree frogs with see-through undersides." },
   { href: "/animals/tiger-salamander", label: "Tiger Salamander", desc: "Ambystoma tigrinum — a large burrowing salamander; axolotl relative." },
   { href: "/animals/olm", label: "Olm", desc: "Proteus anguinus — a blind, long-lived European cave salamander." },
+  { href: "/animals/mudpuppy", label: "Mudpuppy", desc: "Necturus maculosus — an aquatic salamander with bushy red gills." },
+  { href: "/animals/goliath-frog", label: "Goliath Frog", desc: "Conraua goliath — the world's largest frog, which builds its own nest pools." },
 ];
 
 export default function EncyclopediaReptilesPage() {

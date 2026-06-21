@@ -242,6 +242,16 @@ const links = [
     desc: "Family Limulidae — ancient 'living fossil' arthropods with medically vital blue blood.",
   },
   {
+    href: "/animals/hermit-crab",
+    label: "Hermit Crab",
+    desc: "Superfamily Paguroidea — soft-bellied crustaceans that live in borrowed snail shells.",
+  },
+  {
+    href: "/animals/sea-cucumber",
+    label: "Sea Cucumber",
+    desc: "Class Holothuroidea — soft seabed echinoderms and important ocean-floor recyclers.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",

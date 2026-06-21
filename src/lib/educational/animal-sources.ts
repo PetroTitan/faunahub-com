@@ -1728,6 +1728,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_ADW,
     SRC_XERCES,
   ],
+  // Cross-class balance batch 3 (2026-06-21)
+  "frilled-lizard": [
+    adw("Chlamydosaurus_kingii", "Chlamydosaurus kingii (frilled lizard)"),
+    brit("frilled-lizard", "Frilled lizard"),
+    SRC_IUCN,
+  ],
+  krait: [
+    adw("Bungarus_fasciatus", "Bungarus fasciatus (banded krait)"),
+    brit("krait", "Krait"),
+    SRC_IUCN,
+  ],
+  mudpuppy: [
+    adw("Necturus_maculosus", "Necturus maculosus (mudpuppy)"),
+    SRC_AMPHIBIAWEB,
+    SRC_IUCN,
+  ],
+  "goliath-frog": [
+    SRC_AMPHIBIAWEB,
+    brit("goliath-frog", "Goliath frog"),
+    SRC_IUCN,
+  ],
+  lungfish: [
+    brit("lungfish", "Lungfish"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  flounder: [
+    SRC_NOAA_FISHERIES,
+    brit("flounder", "Flounder"),
+    SRC_IUCN,
+  ],
+  stonefish: [
+    SRC_WORMS,
+    brit("stonefish", "Stonefish"),
+    SRC_IUCN,
+  ],
+  wasp: [
+    brit("wasp", "Wasp"),
+    SRC_ADW,
+    SRC_XERCES,
+  ],
+  "hermit-crab": [
+    SRC_WORMS,
+    brit("hermit-crab", "Hermit crab"),
+    SRC_IUCN,
+  ],
+  "sea-cucumber": [
+    SRC_WORMS,
+    brit("sea-cucumber", "Sea cucumber"),
+    SRC_IUCN,
+  ],
 };
 
 /**

@@ -111,6 +111,11 @@ const groups = [
     label: "Stick Insect",
     desc: "Order Phasmatodea — masters of camouflage that mimic twigs and leaves.",
   },
+  {
+    href: "/animals/wasp",
+    label: "Wasp",
+    desc: "Order Hymenoptera — feared for their sting, but vital pest controllers and pollinators.",
+  },
 ];
 
 export default function InsectsPage() {
