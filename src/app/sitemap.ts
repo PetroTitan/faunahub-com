@@ -402,6 +402,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "cockroach",
     "crayfish",
     "velvet-worm",
+    // Cross-class balance batch 6 (2026-06-21)
+    "caiman-lizard",
+    "agama",
+    "tomato-frog",
+    "marbled-newt",
+    "gar",
+    "paddlefish",
+    "snakehead",
+    "coconut-crab",
+    "sea-squirt",
+    "mayfly",
   ];
 
   const compareSlugs = [
