@@ -380,6 +380,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "wasp",
     "hermit-crab",
     "sea-cucumber",
+    // Cross-class balance batch 4 (2026-06-21)
+    "tokay-gecko",
+    "sea-snake",
+    "surinam-toad",
+    "clawed-frog",
+    "lamprey",
+    "remora",
+    "oarfish",
+    "termite",
+    "tardigrade",
+    "comb-jelly",
   ];
 
   const compareSlugs = [
