@@ -369,6 +369,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "mantis-shrimp",
     "horseshoe-crab",
     "stick-insect",
+    // Cross-class balance batch 3 (2026-06-21)
+    "frilled-lizard",
+    "krait",
+    "mudpuppy",
+    "goliath-frog",
+    "lungfish",
+    "flounder",
+    "stonefish",
+    "wasp",
+    "hermit-crab",
+    "sea-cucumber",
   ];
 
   const compareSlugs = [
