@@ -1626,6 +1626,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_ADW,
     SRC_IUCN,
   ],
+  // Cross-class balance batch (2026-06-21)
+  viper: [
+    adw("Bitis_gabonica", "Bitis gabonica (Gaboon viper)"),
+    brit("viper", "Viper"),
+    SRC_IUCN,
+  ],
+  tegu: [
+    adw("Tupinambis_merianae", "Salvator / Tupinambis merianae (Argentine tegu)"),
+    brit("tegu", "Tegu"),
+    SRC_IUCN,
+  ],
+  anole: [
+    adw("Anolis_carolinensis", "Anolis carolinensis (green anole)"),
+    brit("anole", "Anole"),
+    SRC_IUCN,
+  ],
+  hellbender: [
+    adw("Cryptobranchus_alleganiensis", "Cryptobranchus alleganiensis (hellbender)"),
+    SRC_AMPHIBIAWEB,
+    SRC_IUCN,
+  ],
+  "glass-frog": [
+    SRC_AMPHIBIAWEB,
+    brit("glass-frog", "Glass frog"),
+    SRC_IUCN,
+  ],
+  mola: [
+    SRC_NOAA_FISHERIES,
+    SRC_WORMS,
+    SRC_IUCN,
+  ],
+  wrasse: [
+    SRC_WORMS,
+    brit("wrasse", "Wrasse"),
+    SRC_IUCN,
+  ],
+  triggerfish: [
+    SRC_WORMS,
+    brit("triggerfish", "Triggerfish"),
+    SRC_IUCN,
+  ],
+  cicada: [
+    brit("cicada", "Cicada"),
+    SRC_ADW,
+    SRC_XERCES,
+  ],
+  cricket: [
+    brit("cricket-insect", "Cricket"),
+    SRC_ADW,
+    SRC_XERCES,
+  ],
 };
 
 /**

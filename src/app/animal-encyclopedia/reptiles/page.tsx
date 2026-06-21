@@ -33,6 +33,9 @@ const reptiles = [
   { href: "/animals/gharial", label: "Gharial", desc: "Gavialis gangeticus — critically endangered, thin-snouted fish-eating crocodilian." },
   { href: "/animals/mamba", label: "Mamba", desc: "Genus Dendroaspis — fast, alert African snakes; black mamba as a reference." },
   { href: "/animals/skink", label: "Skink", desc: "Family Scincidae — smooth-scaled lizards; blue-tongued skink as a reference." },
+  { href: "/animals/viper", label: "Viper", desc: "Family Viperidae — venomous snakes with long hinged fangs; Gaboon viper as a reference." },
+  { href: "/animals/tegu", label: "Tegu", desc: "Large South American lizards; the partly warm-bodied Argentine tegu." },
+  { href: "/animals/anole", label: "Anole", desc: "Genus Anolis — small American lizards with a colourful throat dewlap." },
 ];
 
 const amphibians = [
@@ -45,6 +48,8 @@ const amphibians = [
   { href: "/animals/fire-salamander", label: "Fire Salamander", desc: "Salamandra salamandra — striking black-and-yellow European amphibian." },
   { href: "/animals/axolotl", label: "Axolotl", desc: "Ambystoma mexicanum — neotenic salamander famous for regeneration." },
   { href: "/animals/bullfrog", label: "American Bullfrog", desc: "Lithobates catesbeianus — large, deep-voiced frog; invasive where introduced." },
+  { href: "/animals/hellbender", label: "Hellbender", desc: "Cryptobranchus alleganiensis — North America's largest salamander." },
+  { href: "/animals/glass-frog", label: "Glass Frog", desc: "Family Centrolenidae — tree frogs with see-through undersides." },
 ];
 
 export default function EncyclopediaReptilesPage() {

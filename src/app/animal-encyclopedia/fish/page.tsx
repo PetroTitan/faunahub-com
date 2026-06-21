@@ -39,6 +39,9 @@ const marine = [
   { href: "/animals/parrotfish", label: "Parrotfish", desc: "Scaridae — beaked reef grazers that help produce white sand." },
   { href: "/animals/seadragon", label: "Leafy Seadragon", desc: "Phycodurus eques — a seahorse relative disguised as drifting seaweed." },
   { href: "/animals/mudskipper", label: "Mudskipper", desc: "Amphibious gobies that walk on their fins and breathe air." },
+  { href: "/animals/mola", label: "Ocean Sunfish (Mola)", desc: "Mola mola — the heaviest bony fish, a disc-shaped surface basker." },
+  { href: "/animals/wrasse", label: "Wrasse", desc: "Family Labridae — colourful reef fish; cleaners and the giant humphead wrasse." },
+  { href: "/animals/triggerfish", label: "Triggerfish", desc: "Family Balistidae — bold reef fish with a locking dorsal spine." },
 ];
 
 export default function FishEncyclopediaPage() {

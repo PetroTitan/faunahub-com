@@ -96,6 +96,16 @@ const groups = [
     label: "Slug",
     desc: "Shell-less gastropod molluscs; close relatives of snails.",
   },
+  {
+    href: "/animals/cicada",
+    label: "Cicada",
+    desc: "Family Cicadidae — loud summer singers whose nymphs live underground for years.",
+  },
+  {
+    href: "/animals/cricket",
+    label: "Cricket",
+    desc: "Family Gryllidae — chirping insects that sing by rubbing their wings.",
+  },
 ];
 
 export default function InsectsPage() {
