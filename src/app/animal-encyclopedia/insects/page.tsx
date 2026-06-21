@@ -116,6 +116,16 @@ const groups = [
     label: "Wasp",
     desc: "Order Hymenoptera — feared for their sting, but vital pest controllers and pollinators.",
   },
+  {
+    href: "/animals/termite",
+    label: "Termite",
+    desc: "Order Isoptera — social wood-recyclers and mound-builders (actually a kind of cockroach).",
+  },
+  {
+    href: "/animals/tardigrade",
+    label: "Tardigrade (Water Bear)",
+    desc: "Phylum Tardigrada — microscopic animals that survive almost anything, even space.",
+  },
 ];
 
 export default function InsectsPage() {

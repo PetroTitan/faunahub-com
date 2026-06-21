@@ -1779,6 +1779,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("sea-cucumber", "Sea cucumber"),
     SRC_IUCN,
   ],
+  // Cross-class balance batch 4 (2026-06-21)
+  "tokay-gecko": [
+    adw("Gekko_gecko", "Gekko gecko (tokay gecko)"),
+    brit("gecko", "Gecko"),
+    SRC_IUCN,
+  ],
+  "sea-snake": [
+    adw("Laticauda_colubrina", "Laticauda colubrina (banded sea krait)"),
+    brit("sea-snake", "Sea snake"),
+    SRC_IUCN,
+  ],
+  "surinam-toad": [
+    adw("Pipa_pipa", "Pipa pipa (Surinam toad)"),
+    SRC_AMPHIBIAWEB,
+    SRC_IUCN,
+  ],
+  "clawed-frog": [
+    adw("Xenopus_laevis", "Xenopus laevis (African clawed frog)"),
+    SRC_AMPHIBIAWEB,
+    SRC_IUCN,
+  ],
+  lamprey: [
+    SRC_NOAA_FISHERIES,
+    brit("lamprey", "Lamprey"),
+    SRC_IUCN,
+  ],
+  remora: [
+    SRC_WORMS,
+    brit("remora", "Remora"),
+    SRC_IUCN,
+  ],
+  oarfish: [
+    SRC_WORMS,
+    brit("oarfish", "Oarfish"),
+    SRC_IUCN,
+  ],
+  termite: [
+    brit("termite", "Termite"),
+    SRC_ADW,
+    SRC_XERCES,
+  ],
+  tardigrade: [
+    brit("tardigrade", "Tardigrade"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  "comb-jelly": [
+    SRC_WORMS,
+    brit("ctenophore", "Ctenophore (comb jelly)"),
+    SRC_IUCN,
+  ],
 };
 
 /**

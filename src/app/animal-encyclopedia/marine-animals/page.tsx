@@ -252,6 +252,11 @@ const links = [
     desc: "Class Holothuroidea — soft seabed echinoderms and important ocean-floor recyclers.",
   },
   {
+    href: "/animals/comb-jelly",
+    label: "Comb Jelly",
+    desc: "Phylum Ctenophora — shimmering, non-stinging ocean drifters that swim with rows of combs.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",

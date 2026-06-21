@@ -48,6 +48,9 @@ const marine = [
   { href: "/animals/triggerfish", label: "Triggerfish", desc: "Family Balistidae — bold reef fish with a locking dorsal spine." },
   { href: "/animals/flounder", label: "Flounder", desc: "Flatfish that lie on the seabed with both eyes on one side." },
   { href: "/animals/stonefish", label: "Stonefish", desc: "Genus Synanceia — camouflaged reef fish; the most venomous fish in the world." },
+  { href: "/animals/lamprey", label: "Lamprey", desc: "Ancient jawless fish with a round, toothed sucker mouth; some parasitic." },
+  { href: "/animals/remora", label: "Remora", desc: "'Sharksuckers' that hitch rides on sharks, rays, turtles, and whales." },
+  { href: "/animals/oarfish", label: "Oarfish", desc: "Regalecus glesne — the longest bony fish; a likely source of sea-serpent tales." },
 ];
 
 export default function FishEncyclopediaPage() {
