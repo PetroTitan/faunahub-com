@@ -358,6 +358,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "triggerfish",
     "cicada",
     "cricket",
+    // Cross-class balance batch 2 (2026-06-21)
+    "basilisk",
+    "chuckwalla",
+    "tiger-salamander",
+    "olm",
+    "sturgeon",
+    "electric-eel",
+    "archerfish",
+    "mantis-shrimp",
+    "horseshoe-crab",
+    "stick-insect",
   ];
 
   const compareSlugs = [
