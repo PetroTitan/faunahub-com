@@ -347,6 +347,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "curassow",
     "chachalaca",
     "sungrebe",
+    // Cross-class balance batch (2026-06-21): reptiles/amphibians/fish/insects
+    "viper",
+    "tegu",
+    "anole",
+    "hellbender",
+    "glass-frog",
+    "mola",
+    "wrasse",
+    "triggerfish",
+    "cicada",
+    "cricket",
   ];
 
   const compareSlugs = [
