@@ -391,6 +391,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "termite",
     "tardigrade",
     "comb-jelly",
+    // Cross-class balance batch 5 (2026-06-21)
+    "thorny-devil",
+    "flying-snake",
+    "mantella",
+    "midwife-toad",
+    "spadefoot-toad",
+    "hagfish",
+    "flying-fish",
+    "cockroach",
+    "crayfish",
+    "velvet-worm",
   ];
 
   const compareSlugs = [
