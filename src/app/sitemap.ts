@@ -336,6 +336,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "trumpeter",
     "seriema",
     "guan",
+    // Mammals + birds batch 8 (2026-06-21)
+    "baboon",
+    "guenon",
+    "titi-monkey",
+    "woolly-monkey",
+    "muriqui",
+    "tinamou",
+    "limpkin",
+    "curassow",
+    "chachalaca",
+    "sungrebe",
   ];
 
   const compareSlugs = [
