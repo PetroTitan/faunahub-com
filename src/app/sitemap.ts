@@ -479,6 +479,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "weevil",
     "salp",
     "amphipod",
+    // Mixed user-requested batch (2026-06-22)
+    "jaguarundi",
+    "sand-cat",
+    "oncilla",
+    "paca",
+    "babirusa",
+    "tody",
+    "puffbird",
+    "barbet",
+    "drongo",
+    "legless-lizard",
+    "whiptail",
+    "amphiuma",
+    "siren",
+    "wolffish",
+    "dragonet",
+    "thrips",
+    "earwig",
+    "ribbon-worm",
   ];
 
   const compareSlugs = [
