@@ -156,6 +156,16 @@ const groups = [
     label: "Lacewing",
     desc: "Order Neuroptera — lacy-winged insects whose 'aphid lion' larvae devour garden pests.",
   },
+  {
+    href: "/animals/aphid",
+    label: "Aphid",
+    desc: "Family Aphididae — tiny sap-suckers that clone themselves and are 'farmed' by ants for honeydew.",
+  },
+  {
+    href: "/animals/antlion",
+    label: "Antlion",
+    desc: "Family Myrmeleontidae — larvae ('doodlebugs') dig conical sand traps to catch ants.",
+  },
 ];
 
 export default function InsectsPage() {

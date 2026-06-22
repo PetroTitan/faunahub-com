@@ -272,6 +272,11 @@ const links = [
     desc: "Genus Uca — mudflat and mangrove crabs whose males wave one enormous claw to court.",
   },
   {
+    href: "/animals/sea-spider",
+    label: "Sea Spider",
+    desc: "Class Pycnogonida — bizarre marine arthropods, almost all legs, that digest through their limbs.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",

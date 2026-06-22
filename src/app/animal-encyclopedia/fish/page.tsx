@@ -59,6 +59,9 @@ const marine = [
   { href: "/animals/flying-fish", label: "Flying Fish", desc: "Family Exocoetidae — ocean fish that glide above the waves to escape predators." },
   { href: "/animals/butterflyfish", label: "Butterflyfish", desc: "Family Chaetodontidae — vivid, disc-shaped reef fish; many feed on living coral." },
   { href: "/animals/frogfish", label: "Frogfish", desc: "Family Antennariidae — camouflaged anglerfish that 'walk' and fish with a built-in lure." },
+  { href: "/animals/goby", label: "Goby", desc: "Family Gobiidae — tiny bottom fish with a suction-disc fin; famous for the goby–shrimp partnership." },
+  { href: "/animals/damselfish", label: "Damselfish", desc: "Family Pomacentridae — bold little reef fish (clownfish among them); some farm algae." },
+  { href: "/animals/boxfish", label: "Boxfish", desc: "Family Ostraciidae — rigid, armoured box-shaped reef fish that can release a toxin when stressed." },
 ];
 
 export default function FishEncyclopediaPage() {

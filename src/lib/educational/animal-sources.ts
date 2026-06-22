@@ -2085,6 +2085,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_CORNELL_BIRDS,
     SRC_IUCN,
   ],
+  // Cross-class balance batch 8 (2026-06-22)
+  "worm-lizard": [
+    SRC_ADW,
+    brit("amphisbaenian", "Amphisbaenian (worm lizard)"),
+    SRC_IUCN,
+  ],
+  "girdled-lizard": [
+    adw("Cordylus_cataphractus", "Cordylus cataphractus (armadillo girdled lizard)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  "spring-peeper": [
+    adw("Pseudacris_crucifer", "Pseudacris crucifer (spring peeper)"),
+    SRC_AMPHIBIAWEB,
+    SRC_IUCN,
+  ],
+  "painted-frog": [
+    adw("Discoglossus_pictus", "Discoglossus pictus (painted frog)"),
+    SRC_AMPHIBIAWEB,
+    SRC_IUCN,
+  ],
+  goby: [
+    brit("goby", "Goby"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  damselfish: [
+    brit("damselfish", "Damselfish"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  boxfish: [
+    brit("boxfish", "Boxfish (trunkfish)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  aphid: [
+    SRC_ADW,
+    brit("aphid", "Aphid"),
+    SRC_XERCES,
+  ],
+  antlion: [
+    SRC_ADW,
+    brit("antlion", "Antlion"),
+    SRC_XERCES,
+  ],
+  "sea-spider": [
+    SRC_WORMS,
+    brit("sea-spider", "Sea spider (Pycnogonida)"),
+    SRC_ADW,
+  ],
 };
 
 /**
