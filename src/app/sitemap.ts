@@ -424,6 +424,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "cotinga",
     "manakin",
     "bird-of-paradise",
+    // Cross-class balance batch 7 (2026-06-22)
+    "horned-lizard",
+    "glass-lizard",
+    "reed-frog",
+    "fire-bellied-toad",
+    "bichir",
+    "butterflyfish",
+    "frogfish",
+    "woodlouse",
+    "lacewing",
+    "fiddler-crab",
   ];
 
   const compareSlugs = [
