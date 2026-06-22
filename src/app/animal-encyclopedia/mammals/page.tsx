@@ -121,6 +121,11 @@ const mammals = [
   { href: "/animals/coati", label: "Coati", desc: "Long-snouted, ring-tailed raccoon relatives that roam in sociable bands." },
   { href: "/animals/caracal", label: "Caracal", desc: "Caracal caracal — a tufted-eared wild cat that leaps to catch birds in flight." },
   { href: "/animals/fennec-fox", label: "Fennec Fox", desc: "Vulpes zerda — the world's smallest fox, a big-eared Sahara specialist." },
+  { href: "/animals/serval", label: "Serval", desc: "Leptailurus serval — long-legged African cat that locates prey by sound and pounces high." },
+  { href: "/animals/margay", label: "Margay", desc: "Leopardus wiedii — a small spotted cat with rotating ankles that climbs head-first." },
+  { href: "/animals/olingo", label: "Olingo", desc: "Genus Bassaricyon — the kinkajou's slender cousin, but without a grasping tail." },
+  { href: "/animals/douroucouli", label: "Douroucouli (Night Monkey)", desc: "Genus Aotus — the only nocturnal monkeys; big-eyed, with devoted fathers." },
+  { href: "/animals/clouded-leopard", label: "Clouded Leopard", desc: "Neofelis nebulosa — a tree-climbing Asian cat with the longest canines for its size." },
 ];
 
 export default function MammalsPage() {

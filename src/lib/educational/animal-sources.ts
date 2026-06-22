@@ -2034,6 +2034,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("fiddler-crab", "Fiddler crab"),
     SRC_IUCN,
   ],
+  // Mammals & birds batch 2 (2026-06-22)
+  serval: [
+    adw("Leptailurus_serval", "Leptailurus serval (serval)"),
+    brit("serval", "Serval"),
+    SRC_IUCN,
+  ],
+  margay: [
+    adw("Leopardus_wiedii", "Leopardus wiedii (margay)"),
+    brit("margay", "Margay"),
+    SRC_IUCN,
+  ],
+  olingo: [
+    adw("Bassaricyon_gabbii", "Bassaricyon gabbii (olingo)"),
+    brit("olingo", "Olingo"),
+    SRC_IUCN,
+  ],
+  douroucouli: [
+    adw("Aotus_trivirgatus", "Aotus trivirgatus (night monkey)"),
+    brit("night-monkey", "Night monkey (douroucouli)"),
+    SRC_IUCN,
+  ],
+  "clouded-leopard": [
+    adw("Neofelis_nebulosa", "Neofelis nebulosa (clouded leopard)"),
+    brit("clouded-leopard", "Clouded leopard"),
+    SRC_IUCN,
+  ],
+  "fairy-wren": [
+    brit("fairy-wren", "Fairy-wren"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  bellbird: [
+    brit("bellbird", "Bellbird"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "boat-billed-heron": [
+    brit("boat-billed-heron", "Boat-billed heron"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  antpitta: [
+    SRC_CORNELL_BIRDS,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  roller: [
+    brit("roller", "Roller"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
 };
 
 /**

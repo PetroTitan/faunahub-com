@@ -105,6 +105,11 @@ const birds = [
   { href: "/animals/cotinga", label: "Cotinga", desc: "Family Cotingidae — dazzlingly coloured Neotropical birds with bizarre displays." },
   { href: "/animals/manakin", label: "Manakin", desc: "Family Pipridae — tiny tropical birds whose males 'dance' to court females." },
   { href: "/animals/bird-of-paradise", label: "Bird-of-Paradise", desc: "Family Paradisaeidae — New Guinea's ornately plumed courtship dancers." },
+  { href: "/animals/fairy-wren", label: "Fairy-wren", desc: "Genus Malurus — tiny Australian songbirds with brilliant blue males and cooperative families." },
+  { href: "/animals/bellbird", label: "Bellbird", desc: "Genus Procnias — wattled cotinga relatives with some of the loudest calls on Earth." },
+  { href: "/animals/boat-billed-heron", label: "Boat-billed Heron", desc: "Cochlearius cochlearius — a big-eyed night heron with a broad, scoop-like bill." },
+  { href: "/animals/antpitta", label: "Antpitta", desc: "Family Grallariidae — round, long-legged forest-floor birds, more often heard than seen." },
+  { href: "/animals/roller", label: "Roller", desc: "Family Coraciidae — jewel-coloured birds named for the males' tumbling courtship flight." },
 ];
 
 export default function EncyclopediaBirdsPage() {
