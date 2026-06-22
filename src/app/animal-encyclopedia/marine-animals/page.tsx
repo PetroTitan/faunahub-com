@@ -267,6 +267,11 @@ const links = [
     desc: "Class Ascidiacea — sac-like filter feeders and surprising close kin of vertebrates.",
   },
   {
+    href: "/animals/fiddler-crab",
+    label: "Fiddler Crab",
+    desc: "Genus Uca — mudflat and mangrove crabs whose males wave one enormous claw to court.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",

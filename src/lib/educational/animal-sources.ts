@@ -1983,6 +1983,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_CORNELL_BIRDS,
     SRC_IUCN,
   ],
+  // Cross-class balance batch 7 (2026-06-22)
+  "horned-lizard": [
+    adw("Phrynosoma_cornutum", "Phrynosoma cornutum (Texas horned lizard)"),
+    brit("horned-lizard", "Horned lizard"),
+    SRC_IUCN,
+  ],
+  "glass-lizard": [
+    adw("Pseudopus_apodus", "Pseudopus apodus (European glass lizard)"),
+    brit("glass-lizard", "Glass lizard"),
+    SRC_IUCN,
+  ],
+  "reed-frog": [
+    SRC_AMPHIBIAWEB,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  "fire-bellied-toad": [
+    adw("Bombina_orientalis", "Bombina orientalis (oriental fire-bellied toad)"),
+    SRC_AMPHIBIAWEB,
+    SRC_IUCN,
+  ],
+  bichir: [
+    brit("bichir", "Bichir"),
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  butterflyfish: [
+    SRC_NOAA_FISHERIES,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  frogfish: [
+    SRC_NOAA_FISHERIES,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  woodlouse: [
+    SRC_ADW,
+    brit("isopod", "Isopod (woodlice)"),
+    SRC_IUCN,
+  ],
+  lacewing: [
+    SRC_ADW,
+    brit("lacewing", "Lacewing"),
+    SRC_XERCES,
+  ],
+  "fiddler-crab": [
+    SRC_WORMS,
+    brit("fiddler-crab", "Fiddler crab"),
+    SRC_IUCN,
+  ],
 };
 
 /**

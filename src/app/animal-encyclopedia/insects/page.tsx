@@ -146,6 +146,16 @@ const groups = [
     label: "Mayfly",
     desc: "Order Ephemeroptera — short-lived adults; nymphs indicate clean fresh water.",
   },
+  {
+    href: "/animals/woodlouse",
+    label: "Woodlouse",
+    desc: "Suborder Oniscidea — the only crustaceans fully adapted to land; harmless soil recyclers.",
+  },
+  {
+    href: "/animals/lacewing",
+    label: "Lacewing",
+    desc: "Order Neuroptera — lacy-winged insects whose 'aphid lion' larvae devour garden pests.",
+  },
 ];
 
 export default function InsectsPage() {

@@ -27,6 +27,7 @@ const freshwater = [
   { href: "/animals/gar", label: "Gar", desc: "Family Lepisosteidae — armor-scaled 'living fossil' predators; the giant alligator gar." },
   { href: "/animals/paddlefish", label: "Paddlefish", desc: "Polyodon spathula — a plankton-filtering river fish with a sensory paddle snout." },
   { href: "/animals/snakehead", label: "Snakehead", desc: "Family Channidae — air-breathing predators; prized food, but invasive abroad." },
+  { href: "/animals/bichir", label: "Bichir", desc: "Genus Polypterus — ancient African fish with dorsal finlets and true air-breathing lungs." },
 ];
 
 const marine = [
@@ -56,6 +57,8 @@ const marine = [
   { href: "/animals/oarfish", label: "Oarfish", desc: "Regalecus glesne — the longest bony fish; a likely source of sea-serpent tales." },
   { href: "/animals/hagfish", label: "Hagfish", desc: "Jawless deep-sea fish famous for producing huge amounts of defensive slime." },
   { href: "/animals/flying-fish", label: "Flying Fish", desc: "Family Exocoetidae — ocean fish that glide above the waves to escape predators." },
+  { href: "/animals/butterflyfish", label: "Butterflyfish", desc: "Family Chaetodontidae — vivid, disc-shaped reef fish; many feed on living coral." },
+  { href: "/animals/frogfish", label: "Frogfish", desc: "Family Antennariidae — camouflaged anglerfish that 'walk' and fish with a built-in lure." },
 ];
 
 export default function FishEncyclopediaPage() {

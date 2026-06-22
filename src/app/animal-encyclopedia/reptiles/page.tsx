@@ -46,6 +46,8 @@ const reptiles = [
   { href: "/animals/flying-snake", label: "Flying Snake", desc: "Genus Chrysopelea — Asian tree snakes that glide between trees." },
   { href: "/animals/caiman-lizard", label: "Caiman Lizard", desc: "Dracaena guianensis — a semi-aquatic Amazon lizard that crushes snails." },
   { href: "/animals/agama", label: "Agama", desc: "Genus Agama — African rock lizards whose dominant males flush red-and-blue." },
+  { href: "/animals/horned-lizard", label: "Horned Lizard", desc: "Genus Phrynosoma — spiny desert 'horned toads'; some squirt blood from their eyes." },
+  { href: "/animals/glass-lizard", label: "Glass Lizard", desc: "Legless lizards that look like snakes but blink and shed a brittle tail." },
 ];
 
 const amphibians = [
@@ -71,6 +73,8 @@ const amphibians = [
   { href: "/animals/spadefoot-toad", label: "Spadefoot Toad", desc: "Burrowing toads that dig with spade-like feet and wait out droughts." },
   { href: "/animals/tomato-frog", label: "Tomato Frog", desc: "Dyscophus antongilii — a vivid red Madagascan frog with a sticky defence." },
   { href: "/animals/marbled-newt", label: "Marbled Newt", desc: "Triturus marmoratus — a striking green-and-black European newt." },
+  { href: "/animals/reed-frog", label: "Reed Frog", desc: "Genus Hyperolius — small, brilliantly coloured African frogs of the reeds." },
+  { href: "/animals/fire-bellied-toad", label: "Fire-Bellied Toad", desc: "Genus Bombina — flashes a warning red-and-black belly when threatened." },
 ];
 
 export default function EncyclopediaReptilesPage() {
