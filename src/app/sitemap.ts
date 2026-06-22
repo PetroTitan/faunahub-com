@@ -468,6 +468,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "broadbill",
     "pitta",
     "honeyguide",
+    // Cross-class balance batch 9 (2026-06-22)
+    "alligator-lizard",
+    "wall-lizard",
+    "wood-frog",
+    "red-backed-salamander",
+    "blenny",
+    "batfish",
+    "hawkfish",
+    "weevil",
+    "salp",
+    "amphipod",
   ];
 
   const compareSlugs = [
