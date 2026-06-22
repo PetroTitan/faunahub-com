@@ -413,6 +413,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "coconut-crab",
     "sea-squirt",
     "mayfly",
+    // Mammals & birds batch (2026-06-21)
+    "gelada",
+    "kinkajou",
+    "coati",
+    "caracal",
+    "fennec-fox",
+    "kakapo",
+    "kea",
+    "cotinga",
+    "manakin",
+    "bird-of-paradise",
   ];
 
   const compareSlugs = [
