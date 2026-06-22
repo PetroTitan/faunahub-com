@@ -2187,6 +2187,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_CORNELL_BIRDS,
     SRC_IUCN,
   ],
+  // Cross-class balance batch 9 (2026-06-22)
+  "alligator-lizard": [
+    adw("Elgaria_multicarinata", "Elgaria multicarinata (southern alligator lizard)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  "wall-lizard": [
+    adw("Podarcis_muralis", "Podarcis muralis (common wall lizard)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  "wood-frog": [
+    adw("Lithobates_sylvaticus", "Lithobates sylvaticus (wood frog)"),
+    SRC_AMPHIBIAWEB,
+    SRC_IUCN,
+  ],
+  "red-backed-salamander": [
+    adw("Plethodon_cinereus", "Plethodon cinereus (eastern red-backed salamander)"),
+    SRC_AMPHIBIAWEB,
+    SRC_IUCN,
+  ],
+  blenny: [
+    brit("blenny", "Blenny"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  batfish: [
+    SRC_NOAA_FISHERIES,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  hawkfish: [
+    SRC_NOAA_FISHERIES,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  weevil: [
+    SRC_ADW,
+    brit("weevil", "Weevil"),
+    SRC_XERCES,
+  ],
+  salp: [
+    SRC_WORMS,
+    brit("salp", "Salp"),
+    SRC_ADW,
+  ],
+  amphipod: [
+    SRC_WORMS,
+    brit("amphipod", "Amphipod"),
+    SRC_ADW,
+  ],
 };
 
 /**

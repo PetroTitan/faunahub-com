@@ -166,6 +166,11 @@ const groups = [
     label: "Antlion",
     desc: "Family Myrmeleontidae — larvae ('doodlebugs') dig conical sand traps to catch ants.",
   },
+  {
+    href: "/animals/weevil",
+    label: "Weevil",
+    desc: "Family Curculionidae — long-snouted beetles; one of the largest animal families, with notable crop pests.",
+  },
 ];
 
 export default function InsectsPage() {

@@ -62,6 +62,9 @@ const marine = [
   { href: "/animals/goby", label: "Goby", desc: "Family Gobiidae — tiny bottom fish with a suction-disc fin; famous for the goby–shrimp partnership." },
   { href: "/animals/damselfish", label: "Damselfish", desc: "Family Pomacentridae — bold little reef fish (clownfish among them); some farm algae." },
   { href: "/animals/boxfish", label: "Boxfish", desc: "Family Ostraciidae — rigid, armoured box-shaped reef fish that can release a toxin when stressed." },
+  { href: "/animals/blenny", label: "Blenny", desc: "Family Blenniidae — big-eyed little reef fish; one species mimics the cleaner wrasse to steal bites." },
+  { href: "/animals/batfish", label: "Batfish (Spadefish)", desc: "Genus Platax — tall, disc-shaped reef fish whose juveniles mimic drifting leaves." },
+  { href: "/animals/hawkfish", label: "Hawkfish", desc: "Family Cirrhitidae — reef fish that perch on coral and pounce on prey like a hawk." },
 ];
 
 export default function FishEncyclopediaPage() {

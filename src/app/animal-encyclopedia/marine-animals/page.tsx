@@ -277,6 +277,16 @@ const links = [
     desc: "Class Pycnogonida — bizarre marine arthropods, almost all legs, that digest through their limbs.",
   },
   {
+    href: "/animals/salp",
+    label: "Salp",
+    desc: "Class Thaliacea — jet-propelled gelatinous drifters that form living chains; tunicate kin of vertebrates.",
+  },
+  {
+    href: "/animals/amphipod",
+    label: "Amphipod",
+    desc: "Order Amphipoda — tiny sideways-flattened crustaceans (sandhoppers, scuds) vital to aquatic food webs.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",

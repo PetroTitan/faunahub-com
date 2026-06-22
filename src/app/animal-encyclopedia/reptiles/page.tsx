@@ -50,6 +50,8 @@ const reptiles = [
   { href: "/animals/glass-lizard", label: "Glass Lizard", desc: "Legless lizards that look like snakes but blink and shed a brittle tail." },
   { href: "/animals/worm-lizard", label: "Worm Lizard", desc: "Amphisbaenia — ringed, burrowing reptiles that resemble earthworms (not worms or snakes)." },
   { href: "/animals/girdled-lizard", label: "Girdled Lizard", desc: "Family Cordylidae — armoured African lizards; the armadillo species bites its tail into a ring." },
+  { href: "/animals/alligator-lizard", label: "Alligator Lizard", desc: "Genus Elgaria — armoured North American lizards with a soft expandable fold along each side." },
+  { href: "/animals/wall-lizard", label: "Wall Lizard", desc: "Genus Podarcis — agile, sun-loving European lizards of walls, rocks, and ruins." },
 ];
 
 const amphibians = [
@@ -79,6 +81,8 @@ const amphibians = [
   { href: "/animals/fire-bellied-toad", label: "Fire-Bellied Toad", desc: "Genus Bombina — flashes a warning red-and-black belly when threatened." },
   { href: "/animals/spring-peeper", label: "Spring Peeper", desc: "Pseudacris crucifer — a tiny North American tree frog whose chorus heralds spring." },
   { href: "/animals/painted-frog", label: "Painted Frog", desc: "Genus Discoglossus — mottled Mediterranean frogs of an ancient, disc-tongued lineage." },
+  { href: "/animals/wood-frog", label: "Wood Frog", desc: "Lithobates sylvaticus — a masked frog that freezes solid each winter and thaws back to life." },
+  { href: "/animals/red-backed-salamander", label: "Red-backed Salamander", desc: "Plethodon cinereus — an abundant lungless salamander that breathes through its skin." },
 ];
 
 export default function EncyclopediaReptilesPage() {
