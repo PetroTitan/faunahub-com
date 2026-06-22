@@ -287,6 +287,11 @@ const links = [
     desc: "Order Amphipoda — tiny sideways-flattened crustaceans (sandhoppers, scuds) vital to aquatic food webs.",
   },
   {
+    href: "/animals/ribbon-worm",
+    label: "Ribbon Worm",
+    desc: "Phylum Nemertea — soft marine worms that fire out a hunting proboscis; the bootlace worm may be Earth's longest animal.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",

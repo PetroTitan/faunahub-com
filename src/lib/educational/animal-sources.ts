@@ -2238,6 +2238,97 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("amphipod", "Amphipod"),
     SRC_ADW,
   ],
+  // Mixed user-requested batch (2026-06-22)
+  jaguarundi: [
+    adw("Herpailurus_yagouaroundi", "Herpailurus yagouaroundi (jaguarundi)"),
+    brit("jaguarundi", "Jaguarundi"),
+    SRC_IUCN,
+  ],
+  "sand-cat": [
+    adw("Felis_margarita", "Felis margarita (sand cat)"),
+    brit("sand-cat", "Sand cat"),
+    SRC_IUCN,
+  ],
+  oncilla: [
+    adw("Leopardus_tigrinus", "Leopardus tigrinus (oncilla)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  paca: [
+    adw("Cuniculus_paca", "Cuniculus paca (lowland paca)"),
+    brit("paca", "Paca"),
+    SRC_IUCN,
+  ],
+  babirusa: [
+    adw("Babyrousa_babyrussa", "Babyrousa babyrussa (babirusa)"),
+    brit("babirusa", "Babirusa"),
+    SRC_IUCN,
+  ],
+  tody: [
+    brit("tody", "Tody"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  puffbird: [
+    brit("puffbird", "Puffbird"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  barbet: [
+    brit("barbet", "Barbet"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  drongo: [
+    brit("drongo", "Drongo"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "legless-lizard": [
+    adw("Anniella_pulchra", "Anniella pulchra (California legless lizard)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  whiptail: [
+    SRC_ADW,
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  amphiuma: [
+    adw("Amphiuma_means", "Amphiuma means (two-toed amphiuma)"),
+    SRC_AMPHIBIAWEB,
+    SRC_IUCN,
+  ],
+  siren: [
+    SRC_AMPHIBIAWEB,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
+  wolffish: [
+    brit("wolffish", "Wolffish"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  dragonet: [
+    brit("dragonet", "Dragonet"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  thrips: [
+    SRC_ADW,
+    brit("thrips", "Thrips"),
+    SRC_XERCES,
+  ],
+  earwig: [
+    SRC_ADW,
+    brit("earwig", "Earwig"),
+    SRC_XERCES,
+  ],
+  "ribbon-worm": [
+    SRC_WORMS,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
 };
 
 /**

@@ -65,6 +65,8 @@ const marine = [
   { href: "/animals/blenny", label: "Blenny", desc: "Family Blenniidae — big-eyed little reef fish; one species mimics the cleaner wrasse to steal bites." },
   { href: "/animals/batfish", label: "Batfish (Spadefish)", desc: "Genus Platax — tall, disc-shaped reef fish whose juveniles mimic drifting leaves." },
   { href: "/animals/hawkfish", label: "Hawkfish", desc: "Family Cirrhitidae — reef fish that perch on coral and pounce on prey like a hawk." },
+  { href: "/animals/wolffish", label: "Wolffish", desc: "Genus Anarhichas — fanged, shellfish-crushing cold-water fish with natural antifreeze in their blood." },
+  { href: "/animals/dragonet", label: "Dragonet", desc: "Family Callionymidae — small seabed reef fish; includes the dazzling, true-blue mandarinfish." },
 ];
 
 export default function FishEncyclopediaPage() {

@@ -52,6 +52,8 @@ const reptiles = [
   { href: "/animals/girdled-lizard", label: "Girdled Lizard", desc: "Family Cordylidae — armoured African lizards; the armadillo species bites its tail into a ring." },
   { href: "/animals/alligator-lizard", label: "Alligator Lizard", desc: "Genus Elgaria — armoured North American lizards with a soft expandable fold along each side." },
   { href: "/animals/wall-lizard", label: "Wall Lizard", desc: "Genus Podarcis — agile, sun-loving European lizards of walls, rocks, and ruins." },
+  { href: "/animals/legless-lizard", label: "Legless Lizard", desc: "Snake-like burrowing lizards (e.g. Anniella) that 'swim' through sand — leglessness evolved many times." },
+  { href: "/animals/whiptail", label: "Whiptail Lizard", desc: "Genus Aspidoscelis — fast striped racers; several species are all-female and reproduce by cloning." },
 ];
 
 const amphibians = [
@@ -83,6 +85,8 @@ const amphibians = [
   { href: "/animals/painted-frog", label: "Painted Frog", desc: "Genus Discoglossus — mottled Mediterranean frogs of an ancient, disc-tongued lineage." },
   { href: "/animals/wood-frog", label: "Wood Frog", desc: "Lithobates sylvaticus — a masked frog that freezes solid each winter and thaws back to life." },
   { href: "/animals/red-backed-salamander", label: "Red-backed Salamander", desc: "Plethodon cinereus — an abundant lungless salamander that breathes through its skin." },
+  { href: "/animals/amphiuma", label: "Amphiuma", desc: "Genus Amphiuma — eel-like aquatic salamanders with tiny useless legs; among N. America's longest amphibians." },
+  { href: "/animals/siren", label: "Siren", desc: "Family Sirenidae — eel-like salamanders that keep gills for life and have only front legs." },
 ];
 
 export default function EncyclopediaReptilesPage() {

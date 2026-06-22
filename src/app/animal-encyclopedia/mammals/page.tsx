@@ -131,6 +131,11 @@ const mammals = [
   { href: "/animals/peccary", label: "Peccary", desc: "Family Tayassuidae — pig-like New World herd mammals (not true pigs) with a musky back gland." },
   { href: "/animals/agouti", label: "Agouti", desc: "Genus Dasyprocta — long-legged rainforest rodents that plant the forest by burying seeds." },
   { href: "/animals/aardwolf", label: "Aardwolf", desc: "Proteles cristata — a small hyena-family insectivore that eats almost only termites." },
+  { href: "/animals/jaguarundi", label: "Jaguarundi", desc: "Herpailurus yagouaroundi — a weasel-shaped American wild cat; a close relative of the puma." },
+  { href: "/animals/sand-cat", label: "Sand Cat", desc: "Felis margarita — the only true desert cat, able to live with almost no drinking water." },
+  { href: "/animals/oncilla", label: "Oncilla", desc: "Leopardus tigrinus — one of the smallest American cats; a little-known, vulnerable forest hunter." },
+  { href: "/animals/paca", label: "Paca", desc: "Cuniculus paca — a large spotted rainforest rodent with sound-amplifying cheekbones." },
+  { href: "/animals/babirusa", label: "Babirusa", desc: "Genus Babyrousa — the 'pig-deer' whose upper tusks curl up through the snout." },
 ];
 
 export default function MammalsPage() {

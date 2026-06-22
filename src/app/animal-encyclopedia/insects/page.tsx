@@ -171,6 +171,16 @@ const groups = [
     label: "Weevil",
     desc: "Family Curculionidae — long-snouted beetles; one of the largest animal families, with notable crop pests.",
   },
+  {
+    href: "/animals/thrips",
+    label: "Thrips",
+    desc: "Order Thysanoptera — minuscule fringe-winged insects; pollinators and pests ('thrips' is singular too).",
+  },
+  {
+    href: "/animals/earwig",
+    label: "Earwig",
+    desc: "Order Dermaptera — pincer-tailed insects that guard their young; the ear-burrowing tale is a myth.",
+  },
 ];
 
 export default function InsectsPage() {

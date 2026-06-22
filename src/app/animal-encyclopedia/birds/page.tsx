@@ -115,6 +115,10 @@ const birds = [
   { href: "/animals/broadbill", label: "Broadbill", desc: "Family Eurylaimidae — plump, bright Old World forest birds with wide bills and hanging nests." },
   { href: "/animals/pitta", label: "Pitta", desc: "Family Pittidae — dazzling 'jewel-thrushes' that hop, shy and elusive, on the forest floor." },
   { href: "/animals/honeyguide", label: "Honeyguide", desc: "Family Indicatoridae — African birds that lead people to bees' nests; brood parasites too." },
+  { href: "/animals/tody", label: "Tody", desc: "Family Todidae — tiny emerald-and-red Caribbean jewel-birds that dig nest tunnels in banks." },
+  { href: "/animals/puffbird", label: "Puffbird", desc: "Family Bucconidae — stocky, big-headed Neotropical sit-and-wait hunters; relatives of jacamars." },
+  { href: "/animals/barbet", label: "Barbet", desc: "Chunky, colourful bristle-faced birds — relatives of toucans that chisel nest holes." },
+  { href: "/animals/drongo", label: "Drongo", desc: "Family Dicruridae — bold black fork-tailed birds; clever mimics that fake alarm calls to steal food." },
 ];
 
 export default function EncyclopediaBirdsPage() {
