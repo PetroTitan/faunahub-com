@@ -435,6 +435,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "woodlouse",
     "lacewing",
     "fiddler-crab",
+    // Mammals & birds batch 2 (2026-06-22)
+    "serval",
+    "margay",
+    "olingo",
+    "douroucouli",
+    "clouded-leopard",
+    "fairy-wren",
+    "bellbird",
+    "boat-billed-heron",
+    "antpitta",
+    "roller",
   ];
 
   const compareSlugs = [
