@@ -457,6 +457,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "aphid",
     "antlion",
     "sea-spider",
+    // Mammals & birds batch 3 (2026-06-22)
+    "ocelot",
+    "fishing-cat",
+    "peccary",
+    "agouti",
+    "aardwolf",
+    "trogon",
+    "jacamar",
+    "broadbill",
+    "pitta",
+    "honeyguide",
   ];
 
   const compareSlugs = [
