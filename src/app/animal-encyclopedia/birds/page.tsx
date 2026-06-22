@@ -110,6 +110,11 @@ const birds = [
   { href: "/animals/boat-billed-heron", label: "Boat-billed Heron", desc: "Cochlearius cochlearius — a big-eyed night heron with a broad, scoop-like bill." },
   { href: "/animals/antpitta", label: "Antpitta", desc: "Family Grallariidae — round, long-legged forest-floor birds, more often heard than seen." },
   { href: "/animals/roller", label: "Roller", desc: "Family Coraciidae — jewel-coloured birds named for the males' tumbling courtship flight." },
+  { href: "/animals/trogon", label: "Trogon", desc: "Family Trogonidae — iridescent forest birds (quetzals among them) with unique feet." },
+  { href: "/animals/jacamar", label: "Jacamar", desc: "Family Galbulidae — glittering Neotropical birds that hawk butterflies on the wing." },
+  { href: "/animals/broadbill", label: "Broadbill", desc: "Family Eurylaimidae — plump, bright Old World forest birds with wide bills and hanging nests." },
+  { href: "/animals/pitta", label: "Pitta", desc: "Family Pittidae — dazzling 'jewel-thrushes' that hop, shy and elusive, on the forest floor." },
+  { href: "/animals/honeyguide", label: "Honeyguide", desc: "Family Indicatoridae — African birds that lead people to bees' nests; brood parasites too." },
 ];
 
 export default function EncyclopediaBirdsPage() {

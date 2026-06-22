@@ -126,6 +126,11 @@ const mammals = [
   { href: "/animals/olingo", label: "Olingo", desc: "Genus Bassaricyon — the kinkajou's slender cousin, but without a grasping tail." },
   { href: "/animals/douroucouli", label: "Douroucouli (Night Monkey)", desc: "Genus Aotus — the only nocturnal monkeys; big-eyed, with devoted fathers." },
   { href: "/animals/clouded-leopard", label: "Clouded Leopard", desc: "Neofelis nebulosa — a tree-climbing Asian cat with the longest canines for its size." },
+  { href: "/animals/ocelot", label: "Ocelot", desc: "Leopardus pardalis — a chain-rosetted American wild cat once devastated by the fur trade." },
+  { href: "/animals/fishing-cat", label: "Fishing Cat", desc: "Prionailurus viverrinus — an Asian wetland cat that swims and dives for fish." },
+  { href: "/animals/peccary", label: "Peccary", desc: "Family Tayassuidae — pig-like New World herd mammals (not true pigs) with a musky back gland." },
+  { href: "/animals/agouti", label: "Agouti", desc: "Genus Dasyprocta — long-legged rainforest rodents that plant the forest by burying seeds." },
+  { href: "/animals/aardwolf", label: "Aardwolf", desc: "Proteles cristata — a small hyena-family insectivore that eats almost only termites." },
 ];
 
 export default function MammalsPage() {

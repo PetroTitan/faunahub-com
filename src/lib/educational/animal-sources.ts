@@ -2136,6 +2136,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("sea-spider", "Sea spider (Pycnogonida)"),
     SRC_ADW,
   ],
+  // Mammals & birds batch 3 (2026-06-22)
+  ocelot: [
+    adw("Leopardus_pardalis", "Leopardus pardalis (ocelot)"),
+    brit("ocelot", "Ocelot"),
+    SRC_IUCN,
+  ],
+  "fishing-cat": [
+    adw("Prionailurus_viverrinus", "Prionailurus viverrinus (fishing cat)"),
+    brit("fishing-cat", "Fishing cat"),
+    SRC_IUCN,
+  ],
+  peccary: [
+    adw("Dicotyles_tajacu", "Dicotyles tajacu (collared peccary)"),
+    brit("peccary", "Peccary"),
+    SRC_IUCN,
+  ],
+  agouti: [
+    adw("Dasyprocta_punctata", "Dasyprocta punctata (Central American agouti)"),
+    brit("agouti", "Agouti"),
+    SRC_IUCN,
+  ],
+  aardwolf: [
+    adw("Proteles_cristata", "Proteles cristata (aardwolf)"),
+    brit("aardwolf", "Aardwolf"),
+    SRC_IUCN,
+  ],
+  trogon: [
+    brit("trogon", "Trogon"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  jacamar: [
+    brit("jacamar", "Jacamar"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  broadbill: [
+    brit("broadbill", "Broadbill"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  pitta: [
+    brit("pitta", "Pitta"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  honeyguide: [
+    brit("honey-guide", "Honeyguide"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
 };
 
 /**
