@@ -446,6 +446,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "boat-billed-heron",
     "antpitta",
     "roller",
+    // Cross-class balance batch 8 (2026-06-22)
+    "worm-lizard",
+    "girdled-lizard",
+    "spring-peeper",
+    "painted-frog",
+    "goby",
+    "damselfish",
+    "boxfish",
+    "aphid",
+    "antlion",
+    "sea-spider",
   ];
 
   const compareSlugs = [
