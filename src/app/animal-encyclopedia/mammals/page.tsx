@@ -116,6 +116,11 @@ const mammals = [
   { href: "/animals/woolly-monkey", label: "Woolly Monkey", desc: "Genus Lagothrix — thickset, woolly Amazon monkeys with a gripping tail." },
   { href: "/animals/muriqui", label: "Muriqui", desc: "Genus Brachyteles — the peaceful 'woolly spider monkey', the Americas' largest monkey." },
   { href: "/animals/titi-monkey", label: "Titi Monkey", desc: "Small South American monkeys famous for pair bonds and tail-twining." },
+  { href: "/animals/gelada", label: "Gelada", desc: "Theropithecus gelada — Ethiopia's grass-grazing 'bleeding-heart' monkey." },
+  { href: "/animals/kinkajou", label: "Kinkajou", desc: "Potos flavus — a golden, prehensile-tailed rainforest 'honey bear'." },
+  { href: "/animals/coati", label: "Coati", desc: "Long-snouted, ring-tailed raccoon relatives that roam in sociable bands." },
+  { href: "/animals/caracal", label: "Caracal", desc: "Caracal caracal — a tufted-eared wild cat that leaps to catch birds in flight." },
+  { href: "/animals/fennec-fox", label: "Fennec Fox", desc: "Vulpes zerda — the world's smallest fox, a big-eared Sahara specialist." },
 ];
 
 export default function MammalsPage() {

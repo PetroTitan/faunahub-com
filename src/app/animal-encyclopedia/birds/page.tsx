@@ -100,6 +100,11 @@ const birds = [
   { href: "/animals/tinamou", label: "Tinamou", desc: "Family Tinamidae — ancient ground birds, flying kin of the ratites." },
   { href: "/animals/limpkin", label: "Limpkin", desc: "Aramus guarauna — a snail-eating wader with an eerie wail." },
   { href: "/animals/sungrebe", label: "Sungrebe", desc: "Heliornis fulica — a finfoot whose male carries chicks under his wings." },
+  { href: "/animals/kakapo", label: "Kakapo", desc: "Strigops habroptilus — the world's heaviest, flightless, critically endangered parrot." },
+  { href: "/animals/kea", label: "Kea", desc: "Nestor notabilis — the world's only alpine parrot, famously clever and mischievous." },
+  { href: "/animals/cotinga", label: "Cotinga", desc: "Family Cotingidae — dazzlingly coloured Neotropical birds with bizarre displays." },
+  { href: "/animals/manakin", label: "Manakin", desc: "Family Pipridae — tiny tropical birds whose males 'dance' to court females." },
+  { href: "/animals/bird-of-paradise", label: "Bird-of-Paradise", desc: "Family Paradisaeidae — New Guinea's ornately plumed courtship dancers." },
 ];
 
 export default function EncyclopediaBirdsPage() {

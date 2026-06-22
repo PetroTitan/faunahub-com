@@ -1932,6 +1932,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_ADW,
     SRC_XERCES,
   ],
+  // Mammals & birds batch (2026-06-21)
+  gelada: [
+    adw("Theropithecus_gelada", "Theropithecus gelada (gelada)"),
+    brit("gelada", "Gelada"),
+    SRC_IUCN,
+  ],
+  kinkajou: [
+    adw("Potos_flavus", "Potos flavus (kinkajou)"),
+    brit("kinkajou", "Kinkajou"),
+    SRC_IUCN,
+  ],
+  coati: [
+    adw("Nasua_narica", "Nasua narica (white-nosed coati)"),
+    brit("coati", "Coati"),
+    SRC_IUCN,
+  ],
+  caracal: [
+    adw("Caracal_caracal", "Caracal caracal (caracal)"),
+    brit("caracal", "Caracal"),
+    SRC_IUCN,
+  ],
+  "fennec-fox": [
+    adw("Vulpes_zerda", "Vulpes zerda (fennec fox)"),
+    brit("fennec-fox", "Fennec fox"),
+    SRC_IUCN,
+  ],
+  kakapo: [
+    brit("kakapo", "Kakapo"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  kea: [
+    brit("kea", "Kea"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  cotinga: [
+    brit("cotinga", "Cotinga"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  manakin: [
+    brit("manakin", "Manakin"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "bird-of-paradise": [
+    brit("bird-of-paradise", "Bird of paradise"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
 };
 
 /**
