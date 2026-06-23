@@ -47,7 +47,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Inia_geoffrensis")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "west-indian-manatee",
@@ -319,7 +319,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Hexaprotodon_liberiensis")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "common-hippopotamus",
@@ -757,7 +757,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [birdlife("asian-crested-ibis-nipponia-nippon")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "black-faced-spoonbill",

@@ -252,7 +252,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Deforestation",
       "Roads and vehicle collisions",
       "Hunting",
-    ], sourceUrls: [adw("Tapirus_indicus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [adw("Tapirus_indicus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "pere-davids-deer", commonName: "Père David's Deer", scientificName: "Elaphurus davidianus", taxonGroup: "mammals", redListCategory: "EW",
     populationTrend: "increasing",
     rangeSummary:

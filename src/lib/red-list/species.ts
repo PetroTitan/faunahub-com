@@ -622,7 +622,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Manis_javanica")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
     notes:
       "Pangolins are widely reported among the most trafficked wild mammals.",
   }),
@@ -769,7 +769,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [birdlife("great-green-macaw-ara-ambiguus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "whooping-crane",
@@ -826,7 +826,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [birdlife("bali-myna-leucopsar-rothschildi")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "white-rumped-vulture",

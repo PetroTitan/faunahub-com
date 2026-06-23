@@ -63,7 +63,7 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Macaca_silenus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "golden-snub-nosed-monkey",
@@ -160,7 +160,7 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     sourceUrls: [fws("gaur-bos-gaurus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "banteng",
@@ -236,7 +236,7 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Saguinus_oedipus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "northern-muriqui",
@@ -311,7 +311,7 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Tremarctos_ornatus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
     notes: "South America's only bear species; also called the spectacled bear.",
   }),
   rec({
@@ -540,7 +540,7 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     sourceUrls: [birdlife("grey-crowned-crane-balearica-regulorum")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "hooded-grebe",
