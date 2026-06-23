@@ -61,9 +61,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Pongo pygmaeus",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "The island of Borneo, shared by Indonesia and Malaysia.",
+    primaryThreats: [
+      "Deforestation for agriculture and palm oil",
+      "Habitat fragmentation",
+      "Killing and illegal capture",
+    ],
     sourceUrls: [adw("Pongo_pygmaeus"), szoo("orangutan")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -205,9 +213,16 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Leontopithecus rosalia",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "stable",
+    rangeSummary:
+      "Remnant Atlantic Forest in the state of Rio de Janeiro, Brazil.",
+    primaryThreats: [
+      "Loss and fragmentation of Atlantic Forest",
+      "Small, isolated populations",
+    ],
     sourceUrls: [adw("Leontopithecus_rosalia"), szoo("golden-lion-tamarin")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes:
       "A long-running reintroduction programme in Brazil's Atlantic Forest is often cited as a conservation success story.",
@@ -306,9 +321,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Rhinoceros sondaicus",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "stable",
+    rangeSummary:
+      "Survives in a single wild population in Ujung Kulon National Park, Java, Indonesia.",
+    primaryThreats: [
+      "An extremely small, single population vulnerable to disease and disaster",
+      "Historical poaching for horn",
+      "Loss of habitat and competition from invasive plants",
+    ],
     sourceUrls: [adw("Rhinoceros_sondaicus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -317,9 +340,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Diceros bicornis",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "increasing",
+    rangeSummary:
+      "Found in fragmented populations across eastern and southern Africa, including Namibia, South Africa, Kenya, and Zimbabwe.",
+    primaryThreats: [
+      "Poaching for horn",
+      "Habitat loss and fragmentation",
+      "Small, isolated populations",
+    ],
     sourceUrls: [adw("Diceros_bicornis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -368,9 +399,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Elephas maximus",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Scattered across South and Southeast Asia, from India and Sri Lanka to Thailand, Indonesia, and southern China.",
+    primaryThreats: [
+      "Habitat loss and fragmentation",
+      "Human-elephant conflict",
+      "Poaching and illegal capture",
+    ],
     sourceUrls: [adw("Elephas_maximus"), szoo("asian-elephant")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -460,9 +499,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Enhydra lutris",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "increasing",
+    rangeSummary:
+      "Coastal North Pacific, from California through Alaska to the Russian Far East and northern Japan.",
+    primaryThreats: [
+      "Oil spills",
+      "Historical fur hunting (now recovering)",
+      "Entanglement and prey-related pressures",
+    ],
     sourceUrls: [adw("Enhydra_lutris")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -509,9 +556,16 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Manis javanica",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Forests of Southeast Asia, including Indonesia, Malaysia, Thailand, and Vietnam.",
+    primaryThreats: [
+      "Poaching and trafficking for scales and meat",
+      "Habitat loss",
+    ],
     sourceUrls: [adw("Manis_javanica")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes:
       "Pangolins are widely reported among the most trafficked wild mammals.",
@@ -601,9 +655,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Cyanopsitta spixii",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "unknown",
+    rangeSummary:
+      "Native to a small area of north-eastern Brazil; reintroduction from captive-bred birds is under way.",
+    primaryThreats: [
+      "Past trapping for the cage-bird trade",
+      "Loss of its specialised dry-forest habitat",
+      "Tiny founder population",
+    ],
     sourceUrls: [adw("Cyanopsitta_spixii")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes:
       "Considered Critically Endangered (long regarded as extinct in the wild); subject of an ongoing reintroduction effort in Brazil.",
@@ -614,9 +676,16 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Anodorhynchus hyacinthinus",
     taxonGroup: "birds",
     redListCategory: "VU",
+    populationTrend: "stable",
+    rangeSummary:
+      "Central and eastern South America, especially the Pantanal wetlands of Brazil.",
+    primaryThreats: [
+      "Past trapping for the pet trade",
+      "Habitat loss and conversion",
+    ],
     sourceUrls: [adw("Anodorhynchus_hyacinthinus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -636,9 +705,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Grus americana",
     taxonGroup: "birds",
     redListCategory: "EN",
+    populationTrend: "increasing",
+    rangeSummary:
+      "North America; the main wild flock migrates between Canada and the Texas Gulf coast, with additional reintroduced flocks.",
+    primaryThreats: [
+      "A very small population",
+      "Habitat loss along migration routes",
+      "Collisions and disturbance",
+    ],
     sourceUrls: [adw("Grus_americana"), szoo("whooping-crane")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -704,9 +781,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Harpia harpyja",
     taxonGroup: "birds",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Lowland tropical rainforest from southern Mexico through Central America to northern Argentina.",
+    primaryThreats: [
+      "Deforestation",
+      "Shooting",
+      "A naturally low reproductive rate",
+    ],
     sourceUrls: [adw("Harpia_harpyja")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -715,9 +800,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Spheniscus demersus",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Breeds on the coasts and islands of South Africa and Namibia.",
+    primaryThreats: [
+      "Shortage of prey fish (sardines and anchovies)",
+      "Oil spills",
+      "Historical egg and guano collection",
+    ],
     sourceUrls: [adw("Spheniscus_demersus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes:
       "Reported as up-listed to Critically Endangered in 2024 amid steep colony declines; confirm the current category on the live IUCN entry.",
@@ -825,9 +918,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Lepidochelys kempii",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "CR",
+    populationTrend: "unknown",
+    rangeSummary:
+      "Mainly the Gulf of Mexico and the western Atlantic, nesting principally on the coast of Mexico.",
+    primaryThreats: [
+      "Bycatch in fishing gear",
+      "Past egg collection",
+      "Coastal development and pollution",
+    ],
     sourceUrls: [noaa("kemps-ridley-turtle"), adw("Lepidochelys_kempii")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -899,9 +1000,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Alligator sinensis",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "The lower Yangtze River region of eastern China.",
+    primaryThreats: [
+      "Loss of wetland habitat to agriculture",
+      "A tiny wild range",
+      "Past persecution",
+    ],
     sourceUrls: [adw("Alligator_sinensis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -910,9 +1019,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Astrochelys yniphora",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "A small area of north-western Madagascar.",
+    primaryThreats: [
+      "Poaching for the illegal pet trade",
+      "Habitat fires",
+      "A tiny range",
+    ],
     sourceUrls: [adw("Astrochelys_yniphora")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -965,9 +1082,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Andrias davidianus",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Mountain streams and rivers of central, southern, and eastern China.",
+    primaryThreats: [
+      "Collection for food and farming",
+      "Habitat loss and degradation",
+      "Pollution",
+    ],
     sourceUrls: [adw("Andrias_davidianus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes: "One of the largest living amphibians.",
   }),
@@ -977,9 +1102,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Atelopus zeteki",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Streams and forests of central Panama.",
+    primaryThreats: [
+      "The amphibian fungal disease chytridiomycosis",
+      "Habitat loss",
+      "Past collection",
+    ],
     sourceUrls: [amphibiaweb("Atelopus", "zeteki")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes:
       "Amphibian declines have been widely linked to the chytrid fungus alongside habitat loss.",
@@ -1090,9 +1223,16 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Sphyrna lewini",
     taxonGroup: "fish",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Warm coastal and offshore waters worldwide.",
+    primaryThreats: [
+      "Overfishing, including for the shark-fin trade",
+      "Bycatch",
+    ],
     sourceUrls: [noaa("scalloped-hammerhead-shark"), adw("Sphyrna_lewini")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -1134,9 +1274,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Mobula birostris",
     taxonGroup: "fish",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Tropical and subtropical oceans worldwide, mostly in the open sea.",
+    primaryThreats: [
+      "Targeted fishing for gill plates",
+      "Bycatch",
+      "A very low reproductive rate",
+    ],
     sourceUrls: [noaa("giant-manta-ray"), adw("Manta_birostris")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -1156,9 +1304,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Pristis pristis",
     taxonGroup: "fish",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Historically widespread in warm coastal waters and rivers; now greatly reduced.",
+    primaryThreats: [
+      "Entanglement in fishing nets (its saw is easily caught)",
+      "Habitat loss",
+      "Past targeted fishing",
+    ],
     sourceUrls: [noaa("largetooth-sawfish")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -1178,9 +1334,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Anguilla anguilla",
     taxonGroup: "fish",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Born in the Atlantic's Sargasso Sea; lives in fresh and coastal waters across Europe and North Africa.",
+    primaryThreats: [
+      "Barriers to migration (dams and weirs)",
+      "Overfishing of young eels",
+      "Disease and changing ocean conditions",
+    ],
     sourceUrls: [adw("Anguilla_anguilla")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -1189,9 +1353,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Huso huso",
     taxonGroup: "fish",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "The Caspian and Black Sea basins and their large rivers.",
+    primaryThreats: [
+      "Overfishing for caviar",
+      "Poaching",
+      "Dams blocking spawning migrations",
+    ],
     sourceUrls: [adw("Huso_huso")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes: "Source of beluga caviar; heavily affected by overfishing.",
   }),
@@ -1305,9 +1477,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Haliotis sorenseni",
     taxonGroup: "invertebrates",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Rocky seabeds off southern California, USA, and Baja California, Mexico.",
+    primaryThreats: [
+      "Past overfishing",
+      "Very low numbers limiting reproduction",
+      "Disease",
+    ],
     sourceUrls: [noaa("white-abalone")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -1316,9 +1496,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Bombus affinis",
     taxonGroup: "invertebrates",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Eastern and midwestern North America, in a much-reduced range.",
+    primaryThreats: [
+      "Disease spread from managed bees",
+      "Pesticides",
+      "Habitat loss",
+    ],
     sourceUrls: [fws("rusty-patched-bumble-bee-bombus-affinis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -1350,12 +1538,20 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Danaus plexippus plexippus",
     taxonGroup: "invertebrates",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "North America, with famous long-distance migrations to overwintering sites in Mexico and coastal California.",
+    primaryThreats: [
+      "Loss of milkweed and breeding habitat",
+      "Loss and degradation of overwintering forest",
+      "Pesticides and climate extremes",
+    ],
     sourceUrls: [
       fws("monarch-butterfly-danaus-plexippus"),
       adw("Danaus_plexippus"),
     ],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes:
       "The 2022 Endangered listing applies to the migratory monarch subspecies. The wider species was assessed separately; confirm the relevant entry on the live IUCN list.",

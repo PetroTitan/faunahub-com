@@ -273,9 +273,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Crocodylus acutus",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "VU",
+    populationTrend: "stable",
+    rangeSummary:
+      "Coastal areas from southern Florida through Central America and the Caribbean to northern South America.",
+    primaryThreats: [
+      "Habitat loss and coastal development",
+      "Historical hunting for skins",
+      "Human-wildlife conflict",
+    ],
     sourceUrls: [adw("Crocodylus_acutus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -409,9 +417,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Phyllobates terribilis",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "A small area of rainforest on the Pacific coast of Colombia.",
+    primaryThreats: [
+      "Deforestation",
+      "Habitat degradation",
+      "A very small range",
+    ],
     sourceUrls: [amphibiaweb("Phyllobates", "terribilis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
