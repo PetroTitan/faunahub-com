@@ -100,7 +100,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Hunting",
       "Habitat loss",
       "Capture for trade",
-    ], sourceUrls: [adw("Pygathrix_nemaeus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [adw("Pygathrix_nemaeus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "verreauxs-sifaka", commonName: "Verreaux's Sifaka", scientificName: "Propithecus verreauxi", taxonGroup: "mammals", redListCategory: "CR",
     populationTrend: "decreasing",
     rangeSummary:
@@ -109,7 +109,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Deforestation and slash-and-burn agriculture",
       "Hunting in places",
       "Drought",
-    ], sourceUrls: [adw("Propithecus_verreauxi")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [adw("Propithecus_verreauxi")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "greater-bamboo-lemur", commonName: "Greater Bamboo Lemur", scientificName: "Prolemur simus", taxonGroup: "mammals", redListCategory: "CR",
     populationTrend: "decreasing",
     rangeSummary:
@@ -225,7 +225,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Past overhunting",
       "Drought and habitat loss",
       "Small reintroduced population",
-    ], sourceUrls: [adw("Oryx_dammah")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned", notes: "Formerly Extinct in the Wild; reassessed Endangered in 2023 following reintroduction in Chad." }),
+    ], sourceUrls: [adw("Oryx_dammah")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image", notes: "Formerly Extinct in the Wild; reassessed Endangered in 2023 following reintroduction in Chad." }),
   rec({ slug: "dama-gazelle", commonName: "Dama Gazelle", scientificName: "Nanger dama", taxonGroup: "mammals", redListCategory: "CR",
     populationTrend: "decreasing",
     rangeSummary:
@@ -373,7 +373,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Trapping for the pet trade",
       "Habitat loss",
       "Fragmentation",
-    ], sourceUrls: [birdlife("military-macaw-ara-militaris")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [birdlife("military-macaw-ara-militaris")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "golden-parakeet", commonName: "Golden Parakeet", scientificName: "Guaruba guarouba", taxonGroup: "birds", redListCategory: "VU",
     populationTrend: "decreasing",
     rangeSummary:
@@ -407,7 +407,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Changes in prey (krill and fish) availability",
       "Ocean change",
       "Disturbance",
-    ], sourceUrls: [birdlife("macaroni-penguin-eudyptes-chrysolophus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [birdlife("macaroni-penguin-eudyptes-chrysolophus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "erect-crested-penguin", commonName: "Erect-crested Penguin", scientificName: "Eudyptes sclateri", taxonGroup: "birds", redListCategory: "EN",
     populationTrend: "decreasing",
     rangeSummary:
@@ -497,7 +497,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Introduced predators (dogs, cats, rats, pigs)",
       "Habitat loss",
       "A small range",
-    ], sourceUrls: [birdlife("kagu-rhynochetos-jubatus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [birdlife("kagu-rhynochetos-jubatus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "junin-grebe", commonName: "Junín Grebe", scientificName: "Podiceps taczanowskii", taxonGroup: "birds", redListCategory: "CR",
     populationTrend: "decreasing",
     rangeSummary:

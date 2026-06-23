@@ -410,7 +410,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Rhinoceros_unicornis")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
     notes:
       "Also called the Indian rhinoceros; recovery in India and Nepal is often cited as a conservation success.",
   }),
