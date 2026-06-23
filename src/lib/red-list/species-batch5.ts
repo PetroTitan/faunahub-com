@@ -73,7 +73,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Capture for the illegal pet trade",
       "Habitat loss and overgrazing",
       "Conflict with people",
-    ], sourceUrls: [adw("Macaca_sylvanus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [adw("Macaca_sylvanus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "geoffroys-spider-monkey", commonName: "Geoffroy's Spider Monkey", scientificName: "Ateles geoffroyi", taxonGroup: "mammals", redListCategory: "EN",
     populationTrend: "decreasing",
     rangeSummary:
@@ -216,7 +216,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Habitat loss",
       "Heat-stress die-offs",
       "Conflict and persecution",
-    ], sourceUrls: [adw("Pteropus_poliocephalus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [adw("Pteropus_poliocephalus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "scimitar-horned-oryx", commonName: "Scimitar-horned Oryx", scientificName: "Oryx dammah", taxonGroup: "mammals", redListCategory: "EN",
     populationTrend: "increasing",
     rangeSummary:
@@ -243,7 +243,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Habitat loss to agriculture",
       "Hunting",
       "A fragmented range",
-    ], sourceUrls: [adw("Tapirus_pinchaque")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [adw("Tapirus_pinchaque")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "malayan-tapir", commonName: "Malayan Tapir", scientificName: "Tapirus indicus", taxonGroup: "mammals", redListCategory: "EN",
     populationTrend: "decreasing",
     rangeSummary:
