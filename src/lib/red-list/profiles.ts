@@ -3125,4 +3125,589 @@ export const RED_LIST_PROFILES: Record<string, RedListProfileContent> = {
     ],
     relatedAnimal: { label: "Coral profile", href: "/animals/coral" },
   },
+  "tapanuli-orangutan": {
+    summary: [
+      "The Tapanuli orangutan, described as a separate species only in 2017, is the rarest of the great apes. It is assessed as Critically Endangered.",
+      "It survives in a single isolated forest block with a very small population.",
+    ],
+    whyItMatters:
+      "The most recently described and rarest great ape, the Tapanuli orangutan is a flagship for protecting one small, irreplaceable Sumatran forest.",
+    faq: [
+      {
+        question: "When was the Tapanuli orangutan recognised?",
+        answer:
+          "It was described as a distinct species in 2017, making it the most recently named great ape — and immediately one of the rarest, with a very small population.",
+      },
+      {
+        question: "Why is the Tapanuli orangutan Critically Endangered?",
+        answer:
+          "Published assessments cite habitat loss and fragmentation, a planned hydroelectric project in its range, and killing or capture. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Orangutan profile", href: "/animals/orangutan" },
+  },
+  "sei-whale": {
+    summary: [
+      "The sei whale is a large, fast baleen whale of the open ocean. It is assessed as Endangered.",
+      "It feeds by both skimming and gulping plankton and small fish near the surface.",
+    ],
+    whyItMatters:
+      "A swift ocean giant heavily hunted during industrial whaling, the sei whale is a species slowly recovering under protection.",
+    faq: [
+      {
+        question: "How fast is the sei whale?",
+        answer:
+          "It is among the fastest of the great whales, capable of sustained high-speed swimming — one reason it was hunted later than slower species, once faster whaling ships existed.",
+      },
+      {
+        question: "Why is the sei whale Endangered?",
+        answer:
+          "Published assessments cite the heavy toll of 20th-century commercial whaling, with ongoing threats from ship strikes and entanglement. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Whale profile", href: "/animals/whale" },
+  },
+  "hectors-dolphin": {
+    summary: [
+      "Hector's dolphin is one of the smallest and rarest marine dolphins, found only around New Zealand. It is assessed as Endangered.",
+      "It has a distinctive rounded dorsal fin and lives close to shore.",
+    ],
+    whyItMatters:
+      "A tiny coastal dolphin found nowhere else, Hector's dolphin is a flagship for making New Zealand's inshore fisheries dolphin-safe.",
+    faq: [
+      {
+        question: "How do you recognise Hector's dolphin?",
+        answer:
+          "It is very small, with a distinctive rounded, almost Mickey-Mouse-ear-shaped dorsal fin, and lives in shallow coastal waters around New Zealand.",
+      },
+      {
+        question: "Why is Hector's dolphin Endangered?",
+        answer:
+          "Published assessments cite entanglement in fishing nets above all, plus a small, fragmented population, disease, and disturbance. The Maui subspecies is even more imperilled. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Dolphin profile", href: "/animals/dolphin" },
+  },
+  "banteng": {
+    summary: [
+      "The banteng is a wild cattle species of Southeast Asia, ancestor of domestic Bali cattle. It is assessed as Endangered.",
+      "Bulls are dark with white 'stockings'; cows are reddish-brown.",
+    ],
+    whyItMatters:
+      "A wild bovine that has been domesticated in part of its range, the banteng is both an agricultural ancestor and a flagship for Southeast Asian forest conservation.",
+    faq: [
+      {
+        question: "How is the banteng related to domestic cattle?",
+        answer:
+          "It is the wild ancestor of the domesticated Bali cattle of Southeast Asia, and can interbreed with domestic cattle — which is also one of the threats to wild banteng.",
+      },
+      {
+        question: "Why is the banteng Endangered?",
+        answer:
+          "Published assessments cite hunting and poaching, habitat loss, and hybridisation with domestic cattle. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "giant-armadillo": {
+    summary: [
+      "The giant armadillo is by far the largest armadillo, a powerful digger with enormous claws. It is assessed as Vulnerable.",
+      "It excavates large burrows that many other animals also use.",
+    ],
+    whyItMatters:
+      "As an 'ecosystem engineer' whose burrows shelter dozens of other species, the giant armadillo plays an outsized role in South American ecosystems.",
+    faq: [
+      {
+        question: "Why is the giant armadillo called an ecosystem engineer?",
+        answer:
+          "Its large burrows are used by many other animals for shelter, temperature regulation, and foraging, so a single giant armadillo benefits a whole community of species.",
+      },
+      {
+        question: "Why is the giant armadillo Vulnerable?",
+        answer:
+          "Published assessments cite hunting, habitat loss, and its naturally low density and slow reproduction, which make recovery difficult. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Armadillo profile", href: "/animals/armadillo" },
+  },
+  "greater-bamboo-lemur": {
+    summary: [
+      "The greater bamboo lemur is a specialist that feeds largely on a single type of bamboo, including parts that are rich in cyanide. It is assessed as Critically Endangered.",
+      "It was once thought extinct before being rediscovered.",
+    ],
+    whyItMatters:
+      "An extreme dietary specialist found only in Madagascar, the greater bamboo lemur is a flagship for the island's threatened bamboo forests.",
+    faq: [
+      {
+        question: "How can the greater bamboo lemur eat toxic bamboo?",
+        answer:
+          "It feeds heavily on giant bamboo, including parts that contain cyanide in amounts that would be dangerous to many animals; how it copes with this toxin is still studied.",
+      },
+      {
+        question: "Why is the greater bamboo lemur Critically Endangered?",
+        answer:
+          "Published assessments cite the loss of its bamboo forest, slash-and-burn agriculture, and hunting. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Lemur profile", href: "/animals/lemur" },
+  },
+  "pygmy-slow-loris": {
+    summary: [
+      "The pygmy slow loris is a small, slow-moving nocturnal primate with a toxic bite — rare among mammals. It is assessed as Endangered.",
+      "It moves deliberately through the trees and feeds on insects, sap, and fruit.",
+    ],
+    whyItMatters:
+      "A venomous, slow-moving primate heavily targeted by the wildlife trade, the pygmy slow loris is a flagship against the illegal pet and medicine trade in Southeast Asia.",
+    faq: [
+      {
+        question: "Is it true that slow lorises are venomous?",
+        answer:
+          "Yes. Slow lorises are among the very few venomous mammals: they produce a toxin from glands on the arm that, combined with saliva, can deliver a venomous bite.",
+      },
+      {
+        question: "Why is the pygmy slow loris Endangered?",
+        answer:
+          "Published assessments cite capture for the pet and traditional-medicine trade and habitat loss. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Slow loris profile", href: "/animals/slow-loris" },
+  },
+  "dama-gazelle": {
+    summary: [
+      "The dama gazelle is the largest gazelle and one of the most endangered, a tall, long-necked antelope of the Sahara. It is assessed as Critically Endangered.",
+      "Only small remnant groups survive in the wild.",
+    ],
+    whyItMatters:
+      "The largest gazelle and now barely clinging on in the wild, the dama gazelle is a stark indicator of how heavily Saharan wildlife has been hunted.",
+    faq: [
+      {
+        question: "What makes the dama gazelle distinctive?",
+        answer:
+          "It is the largest gazelle, with long legs and neck and a mostly white body with a reddish-brown back and neck, suited to the open Sahara and Sahel.",
+      },
+      {
+        question: "Why is the dama gazelle Critically Endangered?",
+        answer:
+          "Published assessments cite uncontrolled hunting, habitat loss and drought, and a tiny fragmented population. See the IUCN Red List.",
+      },
+    ],
+  },
+  "wild-bactrian-camel": {
+    summary: [
+      "The wild Bactrian camel is the rare wild relative of the domestic two-humped camel, surviving in remote deserts. It is assessed as Critically Endangered.",
+      "It can drink salty water that other large mammals cannot tolerate.",
+    ],
+    whyItMatters:
+      "A genuinely wild camel of some of the harshest deserts on Earth, the wild Bactrian camel is a flagship for protecting Central Asia's remote arid wilderness.",
+    faq: [
+      {
+        question: "How is the wild Bactrian camel different from domestic camels?",
+        answer:
+          "It is a separate, genuinely wild population (not feral), generally slimmer with smaller humps, and remarkably it can drink salty water that would harm most mammals.",
+      },
+      {
+        question: "Why is the wild Bactrian camel Critically Endangered?",
+        answer:
+          "Published assessments cite hunting, competition with livestock and hybridisation with domestic camels, and scarce water and habitat loss. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Camel profile", href: "/animals/camel" },
+  },
+  "blue-throated-macaw": {
+    summary: [
+      "The blue-throated macaw is a rare blue-and-yellow macaw found only in a small part of Bolivia. It is assessed as Critically Endangered.",
+      "It nests in palm cavities and depends on specific palm habitats.",
+    ],
+    whyItMatters:
+      "A Bolivian endemic reduced to a tiny wild population, the blue-throated macaw is a flagship for protecting the palm savannas of the Bolivian lowlands.",
+    faq: [
+      {
+        question: "How is the blue-throated macaw told apart from the blue-and-yellow macaw?",
+        answer:
+          "It is similar but has a blue (rather than green-and-black) throat and face markings, and a much smaller, restricted range in Bolivia.",
+      },
+      {
+        question: "Why is the blue-throated macaw Critically Endangered?",
+        answer:
+          "Published assessments cite past heavy trapping for the pet trade, loss of nesting palms, and its very small range. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Parrot profile", href: "/animals/parrot" },
+  },
+  "military-macaw": {
+    summary: [
+      "The military macaw is a large green macaw with a red forehead, named for its uniform-like colouring. It is assessed as Vulnerable.",
+      "It lives in scattered populations across a wide but patchy range.",
+    ],
+    whyItMatters:
+      "A widespread but patchily distributed macaw, the military macaw is a flagship for connecting and protecting the dry and humid forests it depends on.",
+    faq: [
+      {
+        question: "Why is it called the military macaw?",
+        answer:
+          "Its mostly green plumage with a red forehead was likened to a military uniform, giving the bird its name.",
+      },
+      {
+        question: "Why is the military macaw Vulnerable?",
+        answer:
+          "Published assessments cite trapping for the pet trade, habitat loss, and fragmentation across its scattered range. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Parrot profile", href: "/animals/parrot" },
+  },
+  "swift-parrot": {
+    summary: [
+      "The swift parrot is a fast-flying migratory parrot that breeds in Tasmania and winters on mainland Australia. It is assessed as Critically Endangered.",
+      "It depends on flowering eucalypts and tree hollows for nesting.",
+    ],
+    whyItMatters:
+      "A migratory parrot squeezed between logging and introduced predators, the swift parrot is a flagship for Australia's threatened temperate woodlands.",
+    faq: [
+      {
+        question: "What threatens swift parrots while they nest?",
+        answer:
+          "On parts of Tasmania, introduced sugar gliders prey on nesting females and chicks in tree hollows, a major and unusual threat alongside the loss of nesting and feeding trees.",
+      },
+      {
+        question: "Why is the swift parrot Critically Endangered?",
+        answer:
+          "Published assessments cite loss of breeding and foraging habitat, predation by introduced sugar gliders, and a small population. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Parrot profile", href: "/animals/parrot" },
+  },
+  "night-parrot": {
+    summary: [
+      "The night parrot is an elusive, ground-dwelling nocturnal parrot of the Australian outback, once feared extinct for decades. It is assessed as Endangered.",
+      "It shelters in dense spinifex grass and is almost never seen.",
+    ],
+    whyItMatters:
+      "One of the world's most mysterious birds, rediscovered after decades, the night parrot is a flagship for arid-zone conservation and predator and fire management.",
+    faq: [
+      {
+        question: "Why was the night parrot thought extinct?",
+        answer:
+          "It is nocturnal, ground-dwelling, and lives in remote, hard-to-survey country, so for much of the 20th century there were almost no confirmed sightings — until photographic proof emerged in recent years.",
+      },
+      {
+        question: "Why is the night parrot Endangered?",
+        answer:
+          "Published assessments cite introduced cats and foxes, altered fire regimes, and its extremely small, scattered population. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Parrot profile", href: "/animals/parrot" },
+  },
+  "hooded-vulture": {
+    summary: [
+      "The hooded vulture is a small, widespread African vulture often seen near settlements. It is assessed as Critically Endangered after steep declines.",
+      "It is a scavenger that helps clean up waste and carcasses.",
+    ],
+    whyItMatters:
+      "A familiar African scavenger now in crisis, the hooded vulture is part of the continent-wide collapse of vultures and the loss of their sanitation role.",
+    faq: [
+      {
+        question: "Why are hooded vultures often seen near people?",
+        answer:
+          "Unlike some larger vultures, the hooded vulture frequently scavenges around towns, markets, and abattoirs, helping clean up scraps and waste.",
+      },
+      {
+        question: "Why is the hooded vulture Critically Endangered?",
+        answer:
+          "Published assessments cite poisoning, killing for belief-based use and bushmeat, and habitat change, which have driven steep declines. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Vulture profile", href: "/animals/vulture" },
+  },
+  "martial-eagle": {
+    summary: [
+      "The martial eagle is the largest eagle in Africa, a powerful predator of open country. It is assessed as Endangered.",
+      "It hunts prey as large as small antelopes, gamebirds, and monitor lizards.",
+    ],
+    whyItMatters:
+      "As Africa's largest eagle and a wide-ranging apex predator, the martial eagle is an indicator of the health of large, open landscapes.",
+    faq: [
+      {
+        question: "How powerful is the martial eagle?",
+        answer:
+          "It is Africa's largest eagle and strong enough to take prey such as small antelopes, large gamebirds, and monitor lizards, hunting over vast territories.",
+      },
+      {
+        question: "Why is the martial eagle Endangered?",
+        answer:
+          "Published assessments cite persecution by farmers (who may see it as a threat to livestock), collisions and electrocution on power infrastructure, and prey and habitat loss. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Eagle profile", href: "/animals/eagle" },
+  },
+  "grey-crowned-crane": {
+    summary: [
+      "The grey-crowned crane is a striking grey crane with a golden crown of feathers, the national bird of Uganda. It is assessed as Endangered.",
+      "It performs elaborate dancing displays.",
+    ],
+    whyItMatters:
+      "A flagship of African wetlands and a national symbol, the grey-crowned crane is an indicator of the health of the marshes and grasslands it depends on.",
+    faq: [
+      {
+        question: "What is the grey-crowned crane's crown?",
+        answer:
+          "It has a spray of stiff golden feathers on its head, giving it a distinctive 'crown' — a feature that also makes it popular, and sadly targeted, in the captive-bird trade.",
+      },
+      {
+        question: "Why is the grey-crowned crane Endangered?",
+        answer:
+          "Published assessments cite the loss and drainage of wetlands, capture for the live-bird trade, and disturbance. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "short-tailed-albatross": {
+    summary: [
+      "The short-tailed albatross is a large North Pacific albatross once hunted nearly to extinction for its feathers. It is assessed as Vulnerable, recovering from a tiny remnant.",
+      "Most of the population breeds on a single volcanic island.",
+    ],
+    whyItMatters:
+      "Rebuilt from near-extinction, the short-tailed albatross is a recovery success still at risk because so much of it nests on one volcanic island.",
+    faq: [
+      {
+        question: "How close did the short-tailed albatross come to extinction?",
+        answer:
+          "It was hunted in huge numbers for its feathers and was thought possibly extinct in the mid-20th century before a small breeding group was found and protected.",
+      },
+      {
+        question: "Why is the short-tailed albatross still Vulnerable?",
+        answer:
+          "Published assessments cite its recovery from a tiny remnant, the volcanic risk at its main colony, and threats such as longline bycatch and plastic. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Albatross profile", href: "/animals/albatross" },
+  },
+  "macaroni-penguin": {
+    summary: [
+      "The macaroni penguin is a crested penguin with showy yellow head plumes, one of the most numerous penguins yet still declining. It is assessed as Vulnerable.",
+      "It breeds in enormous colonies on sub-Antarctic islands.",
+    ],
+    whyItMatters:
+      "Despite huge numbers, the macaroni penguin's decline signals shifts in the Southern Ocean's krill-based food web.",
+    faq: [
+      {
+        question: "Why is it called the macaroni penguin?",
+        answer:
+          "Its flamboyant yellow-orange head crest reminded early observers of the elaborate 'macaroni' fashion of the 18th century, giving the penguin its name.",
+      },
+      {
+        question: "Why is the macaroni penguin Vulnerable?",
+        answer:
+          "Published assessments cite changes in the availability of its prey (krill and small fish), ocean change, and disturbance, which have driven declines despite large total numbers. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Penguin profile", href: "/animals/penguin" },
+  },
+  "jamaican-iguana": {
+    summary: [
+      "The Jamaican iguana is a large lizard once believed extinct, rediscovered in 1990. It is assessed as Critically Endangered.",
+      "It survives in a single dry-forest area and is supported by a head-start breeding programme.",
+    ],
+    whyItMatters:
+      "A 'Lazarus' reptile brought back from presumed extinction, the Jamaican iguana is a flagship for Caribbean island conservation and predator control.",
+    faq: [
+      {
+        question: "Was the Jamaican iguana really rediscovered?",
+        answer:
+          "Yes. It was thought extinct for much of the 20th century until a small population was found in the Hellshire Hills in 1990, prompting an intensive recovery programme.",
+      },
+      {
+        question: "Why is the Jamaican iguana Critically Endangered?",
+        answer:
+          "Published assessments cite introduced predators such as mongooses, habitat loss, and its tiny range, even as careful management helps numbers recover. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Iguana profile", href: "/animals/iguana" },
+  },
+  "philippine-crocodile": {
+    summary: [
+      "The Philippine crocodile is a small freshwater crocodile found only in the Philippines. It is assessed as Critically Endangered.",
+      "It is one of the most threatened crocodilians, with very few left in the wild.",
+    ],
+    whyItMatters:
+      "A small freshwater crocodile found nowhere else, the Philippine crocodile is a flagship for changing attitudes toward crocodilians and protecting Philippine wetlands.",
+    faq: [
+      {
+        question: "Is the Philippine crocodile dangerous to people?",
+        answer:
+          "It is a relatively small freshwater crocodile and far less dangerous than the large saltwater crocodile; community-based conservation has worked to reduce fear and killing.",
+      },
+      {
+        question: "Why is the Philippine crocodile Critically Endangered?",
+        answer:
+          "Published assessments cite past killing and persecution, habitat loss, entanglement in fishing gear, and a very small population. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Crocodile profile", href: "/animals/crocodile" },
+  },
+  "yangtze-giant-softshell-turtle": {
+    summary: [
+      "The Yangtze giant softshell turtle is one of the largest freshwater turtles and may be the rarest turtle in the world, with only a few known individuals. It is assessed as Critically Endangered.",
+      "It has a soft, leathery shell and a pig-like snout.",
+    ],
+    whyItMatters:
+      "Possibly the rarest turtle on Earth, the Yangtze giant softshell turtle is a sobering symbol of how close a species can come to vanishing.",
+    faq: [
+      {
+        question: "Why is the Yangtze giant softshell turtle so rare?",
+        answer:
+          "Only a tiny number of individuals are known to survive, and efforts to breed them have repeatedly failed, leaving the species on the very edge of extinction.",
+      },
+      {
+        question: "Why is it Critically Endangered?",
+        answer:
+          "Published assessments cite its extremely small known population, past hunting and habitat loss, and failed reproduction. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Turtle profile", href: "/animals/turtle" },
+  },
+  "southern-corroboree-frog": {
+    summary: [
+      "The southern corroboree frog is a tiny, brilliant yellow-and-black alpine frog of Australia. It is assessed as Critically Endangered.",
+      "Its striking pattern warns of toxins it makes itself, rather than obtaining from food.",
+    ],
+    whyItMatters:
+      "A jewel-like alpine frog devastated by amphibian disease, the southern corroboree frog is one of Australia's most urgent amphibian recovery efforts.",
+    faq: [
+      {
+        question: "What is special about the corroboree frog's toxin?",
+        answer:
+          "Unlike poison frogs that get toxins from their diet, the corroboree frog can produce its own toxic alkaloid — unusual among frogs — advertised by its bold yellow-and-black stripes.",
+      },
+      {
+        question: "Why is the southern corroboree frog Critically Endangered?",
+        answer:
+          "Published assessments cite the amphibian fungal disease chytridiomycosis, habitat change and drought, and a tiny range. It depends heavily on captive breeding. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Frog profile", href: "/animals/frog" },
+  },
+  "lehmanns-poison-frog": {
+    summary: [
+      "Lehmann's poison frog is a small, boldly banded poison frog found only in a tiny area of Colombia. It is assessed as Critically Endangered.",
+      "Its bright red, orange, or yellow bands warn of toxins in its skin.",
+    ],
+    whyItMatters:
+      "A vividly coloured poison frog with one of the smallest ranges of any amphibian, Lehmann's poison frog is a flagship against habitat loss and the illegal pet trade.",
+    faq: [
+      {
+        question: "Why is Lehmann's poison frog so brightly coloured?",
+        answer:
+          "Its bold bands of red, orange, or yellow on black are aposematic — a warning that its skin carries toxins, deterring predators.",
+      },
+      {
+        question: "Why is Lehmann's poison frog Critically Endangered?",
+        answer:
+          "Published assessments cite habitat loss, collection for the illegal pet trade, and an extremely small range. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Poison dart frog profile", href: "/animals/poison-dart-frog" },
+  },
+  "reef-manta-ray": {
+    summary: [
+      "The reef manta ray is a large, gentle filter-feeding ray of tropical reefs, smaller than the giant manta. It is assessed as Vulnerable.",
+      "It visits 'cleaning stations' where small fish remove parasites.",
+    ],
+    whyItMatters:
+      "A charismatic reef giant and a major draw for marine tourism, the reef manta ray is a flagship for protecting reefs and curbing fisheries that target rays.",
+    faq: [
+      {
+        question: "What are cleaning stations?",
+        answer:
+          "These are spots on the reef where small cleaner fish gather; manta rays visit them to have parasites and dead skin removed, and the same individuals return repeatedly.",
+      },
+      {
+        question: "Why is the reef manta ray Vulnerable?",
+        answer:
+          "Published assessments cite fishing for their gill plates, bycatch, and a very low reproductive rate that makes recovery slow. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Ray profile", href: "/animals/ray" },
+  },
+  "american-eel": {
+    summary: [
+      "The American eel is a snake-like fish with a remarkable life cycle spanning the open Atlantic and North America's rivers. It is assessed as Endangered.",
+      "Like the European eel, it spawns in the Sargasso Sea and grows in continental waters.",
+    ],
+    whyItMatters:
+      "A once-abundant migratory fish now in decline, the American eel links the health of the open ocean, rivers, and fisheries across eastern North America.",
+    faq: [
+      {
+        question: "Where is the American eel born?",
+        answer:
+          "It is thought to spawn in the Sargasso Sea; tiny larvae drift to North America, where eels grow for years in rivers and estuaries before returning to the ocean to breed.",
+      },
+      {
+        question: "Why is the American eel Endangered?",
+        answer:
+          "Published assessments cite barriers such as dams, overfishing of young eels, habitat loss, and changing ocean conditions. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Eel profile", href: "/animals/eel" },
+  },
+  "knysna-seahorse": {
+    summary: [
+      "The Knysna seahorse is one of the most range-restricted seahorses in the world, found in just a few South African estuaries. It is assessed as Endangered.",
+      "It clings to estuary plants with its prehensile tail.",
+    ],
+    whyItMatters:
+      "A seahorse confined to a handful of estuaries, the Knysna seahorse is a flagship for protecting fragile estuarine habitats.",
+    faq: [
+      {
+        question: "Why is the Knysna seahorse so vulnerable?",
+        answer:
+          "It lives in only a few South African estuaries, so pollution, development, or degradation of even one estuary can threaten a large share of the entire species.",
+      },
+      {
+        question: "Why is the Knysna seahorse Endangered?",
+        answer:
+          "Published assessments cite estuary degradation and pollution, development and disturbance, and its very small range. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Seahorse profile", href: "/animals/seahorse" },
+  },
+  "bumphead-parrotfish": {
+    summary: [
+      "The bumphead parrotfish is the largest parrotfish, a massive reef fish with a bulbous forehead. It is assessed as Vulnerable.",
+      "It bites off chunks of coral and helps produce reef sand.",
+    ],
+    whyItMatters:
+      "A huge reef grazer that shapes coral reefs and produces sand, the bumphead parrotfish is a flagship for reef health and sustainable reef fishing.",
+    faq: [
+      {
+        question: "Why is the bumphead parrotfish important to reefs?",
+        answer:
+          "It eats coral and algae in large amounts, controlling algae and grinding up coral into fine sand — a single big fish can produce a lot of the white sand found on reef beaches.",
+      },
+      {
+        question: "Why is the bumphead parrotfish Vulnerable?",
+        answer:
+          "Published assessments cite overfishing — it is easy to catch in numbers, especially by night spearfishing while it sleeps — and reef degradation. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Parrotfish profile", href: "/animals/parrotfish" },
+  },
+  "black-abalone": {
+    summary: [
+      "The black abalone is a marine snail of the eastern Pacific rocky intertidal. It is assessed as Critically Endangered.",
+      "A disease called withering syndrome has caused mass die-offs.",
+    ],
+    whyItMatters:
+      "A once-common shoreline snail devastated by disease and overfishing, the black abalone is a flagship for marine invertebrate conservation along the Pacific coast.",
+    faq: [
+      {
+        question: "What is withering syndrome?",
+        answer:
+          "It is a fatal bacterial disease that causes the abalone's foot to shrivel so it can no longer cling to rock; it has caused mass die-offs of black abalone along the coast.",
+      },
+      {
+        question: "Why is the black abalone Critically Endangered?",
+        answer:
+          "Published assessments cite withering syndrome, past overfishing, and slow recovery. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Snail profile", href: "/animals/snail" },
+  },
 };

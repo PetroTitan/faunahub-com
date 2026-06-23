@@ -145,9 +145,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Balaenoptera borealis",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "increasing",
+    rangeSummary:
+      "Found in oceans worldwide, mostly in deep offshore waters.",
+    primaryThreats: [
+      "Past commercial whaling",
+      "Ship strikes",
+      "Entanglement",
+    ],
     sourceUrls: [noaa("sei-whale"), adw("Balaenoptera_borealis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -461,9 +469,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Necrosyrtes monachus",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Sub-Saharan Africa.",
+    primaryThreats: [
+      "Poisoning",
+      "Killing for belief-based use and bushmeat",
+      "Habitat change",
+    ],
     sourceUrls: [birdlife("hooded-vulture-necrosyrtes-monachus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -548,9 +564,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Ara glaucogularis",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "stable",
+    rangeSummary:
+      "A small area of seasonally flooded savanna in northern Bolivia.",
+    primaryThreats: [
+      "Past trapping for the pet trade",
+      "Loss of nesting palms",
+      "A very small range",
+    ],
     sourceUrls: [birdlife("blue-throated-macaw-ara-glaucogularis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -596,9 +620,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Lathamus discolor",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Breeds in Tasmania and migrates to mainland south-eastern Australia.",
+    primaryThreats: [
+      "Loss of breeding and foraging trees",
+      "Predation by introduced sugar gliders",
+      "A small population",
+    ],
     sourceUrls: [birdlife("swift-parrot-lathamus-discolor")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -758,9 +790,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Polemaetus bellicosus",
     taxonGroup: "birds",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Open habitats across sub-Saharan Africa.",
+    primaryThreats: [
+      "Persecution by farmers",
+      "Collisions and electrocution",
+      "Prey and habitat loss",
+    ],
     sourceUrls: [birdlife("martial-eagle-polemaetus-bellicosus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({

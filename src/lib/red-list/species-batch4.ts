@@ -104,9 +104,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Camelus ferus",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Remote deserts of north-western China and Mongolia, including the Gobi.",
+    primaryThreats: [
+      "Hunting",
+      "Competition with livestock and hybridisation",
+      "Scarce water and habitat loss",
+    ],
     sourceUrls: [adw("Camelus_bactrianus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes:
       "The wild Bactrian camel (Camelus ferus) is the threatened wild form; the linked reference covers Bactrian camels broadly.",
@@ -136,9 +144,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Bos javanicus",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Forests of Southeast Asia, with populations on Java, Borneo, and the mainland.",
+    primaryThreats: [
+      "Hunting and poaching",
+      "Habitat loss",
+      "Hybridisation with domestic cattle",
+    ],
     sourceUrls: [adw("Bos_javanicus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -258,9 +274,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Priodontes maximus",
     taxonGroup: "mammals",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Forests and grasslands of South America, east of the Andes.",
+    primaryThreats: [
+      "Hunting",
+      "Habitat loss",
+      "A naturally low density and slow reproduction",
+    ],
     sourceUrls: [adw("Priodontes_maximus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
 
@@ -395,9 +419,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Balearica regulorum",
     taxonGroup: "birds",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Wetlands and grasslands of eastern and southern Africa.",
+    primaryThreats: [
+      "Loss and drainage of wetlands",
+      "Capture for the live-bird trade",
+      "Disturbance",
+    ],
     sourceUrls: [birdlife("grey-crowned-crane-balearica-regulorum")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -417,9 +449,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Pezoporus occidentalis",
     taxonGroup: "birds",
     redListCategory: "EN",
+    populationTrend: "stable",
+    rangeSummary:
+      "Remote arid interior of Australia.",
+    primaryThreats: [
+      "Introduced cats and foxes",
+      "Changed fire regimes",
+      "An extremely small, scattered population",
+    ],
     sourceUrls: [birdlife("night-parrot-pezoporus-occidentalis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({

@@ -80,9 +80,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Pongo tapanuliensis",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "A small area of forest in the Batang Toru region of northern Sumatra, Indonesia.",
+    primaryThreats: [
+      "Habitat loss and fragmentation",
+      "A planned hydroelectric development in its range",
+      "Killing and capture",
+    ],
     sourceUrls: [szoo("orangutan")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes:
       "Described in 2017; one of the most range-restricted great apes, in the Batang Toru ecosystem of Sumatra.",
@@ -1499,9 +1507,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Mobula alfredi",
     taxonGroup: "fish",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Tropical and subtropical coastal and reef waters of the Indo-Pacific and beyond.",
+    primaryThreats: [
+      "Fishing for gill plates",
+      "Bycatch",
+      "A very low reproductive rate",
+    ],
     sourceUrls: [adw("Manta_alfredi")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({

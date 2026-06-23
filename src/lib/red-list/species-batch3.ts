@@ -183,9 +183,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Anguilla rostrata",
     taxonGroup: "fish",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Born in the Atlantic's Sargasso Sea; lives in fresh and coastal waters of eastern North America.",
+    primaryThreats: [
+      "Barriers such as dams",
+      "Overfishing of young eels",
+      "Habitat loss and changing ocean conditions",
+    ],
     sourceUrls: [fishbase("Anguilla-rostrata")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -243,9 +251,16 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Bolbometopon muricatum",
     taxonGroup: "fish",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Coral reefs of the Indo-Pacific.",
+    primaryThreats: [
+      "Overfishing, especially night spearfishing",
+      "Reef degradation",
+    ],
     sourceUrls: [fishbase("Bolbometopon-muricatum")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -254,9 +269,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Hippocampus capensis",
     taxonGroup: "fish",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "A few estuaries on the south coast of South Africa.",
+    primaryThreats: [
+      "Estuary degradation and pollution",
+      "Development and disturbance",
+      "A tiny range",
+    ],
     sourceUrls: [fishbase("Hippocampus-capensis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -366,9 +389,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Crocodylus mindorensis",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Freshwater wetlands of the Philippines.",
+    primaryThreats: [
+      "Past killing and persecution",
+      "Habitat loss",
+      "Entanglement and a tiny population",
+    ],
     sourceUrls: [adw("Crocodylus_mindorensis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -479,9 +510,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Cyclura collei",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "CR",
+    populationTrend: "increasing",
+    rangeSummary:
+      "The Hellshire Hills of Jamaica.",
+    primaryThreats: [
+      "Introduced predators (mongooses, cats, dogs, pigs)",
+      "Habitat loss",
+      "A tiny range",
+    ],
     sourceUrls: [reptiledb("Cyclura", "collei")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes: "Once thought extinct; rediscovered in 1990.",
   }),
@@ -531,9 +570,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Oophaga lehmanni",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "A very small area of forest in western Colombia.",
+    primaryThreats: [
+      "Habitat loss",
+      "Collection for the illegal pet trade",
+      "A tiny range",
+    ],
     sourceUrls: [amphibiaweb("Oophaga", "lehmanni")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -542,9 +589,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Pseudophryne corroboree",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "A small alpine area of south-eastern Australia.",
+    primaryThreats: [
+      "The amphibian fungal disease chytridiomycosis",
+      "Habitat change and drought",
+      "A tiny range",
+    ],
     sourceUrls: [amphibiaweb("Pseudophryne", "corroboree")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({

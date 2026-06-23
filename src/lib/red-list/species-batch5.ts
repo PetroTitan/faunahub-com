@@ -70,8 +70,23 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Hunting in places",
       "Drought",
     ], sourceUrls: [adw("Propithecus_verreauxi")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
-  rec({ slug: "greater-bamboo-lemur", commonName: "Greater Bamboo Lemur", scientificName: "Prolemur simus", taxonGroup: "mammals", redListCategory: "CR", sourceUrls: [adw("Prolemur_simus")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
-  rec({ slug: "pygmy-slow-loris", commonName: "Pygmy Slow Loris", scientificName: "Xanthonycticebus pygmaeus", taxonGroup: "mammals", redListCategory: "EN", sourceUrls: [adw("Nycticebus_pygmaeus")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned", notes: "Recently moved to the genus Xanthonycticebus; the linked reference uses the former Nycticebus name." }),
+  rec({ slug: "greater-bamboo-lemur", commonName: "Greater Bamboo Lemur", scientificName: "Prolemur simus", taxonGroup: "mammals", redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Rainforests of south-eastern Madagascar.",
+    primaryThreats: [
+      "Loss of bamboo forest",
+      "Slash-and-burn agriculture",
+      "Hunting",
+    ], sourceUrls: [adw("Prolemur_simus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+  rec({ slug: "pygmy-slow-loris", commonName: "Pygmy Slow Loris", scientificName: "Xanthonycticebus pygmaeus", taxonGroup: "mammals", redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Forests of Vietnam, Laos, Cambodia, and southern China.",
+    primaryThreats: [
+      "Capture for the pet and traditional-medicine trade",
+      "Habitat loss",
+    ], sourceUrls: [adw("Nycticebus_pygmaeus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned", notes: "Recently moved to the genus Xanthonycticebus; the linked reference uses the former Nycticebus name." }),
   rec({ slug: "tonkin-snub-nosed-monkey", commonName: "Tonkin Snub-nosed Monkey", scientificName: "Rhinopithecus avunculus", taxonGroup: "mammals", redListCategory: "CR", sourceUrls: [adw("Rhinopithecus_avunculus")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
   rec({ slug: "black-footed-cat", commonName: "Black-footed Cat", scientificName: "Felis nigripes", taxonGroup: "mammals", redListCategory: "VU", sourceUrls: [adw("Felis_nigripes")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
   rec({ slug: "flat-headed-cat", commonName: "Flat-headed Cat", scientificName: "Prionailurus planiceps", taxonGroup: "mammals", redListCategory: "EN", sourceUrls: [adw("Prionailurus_planiceps")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
@@ -86,7 +101,15 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Fragmentation",
     ], sourceUrls: [adw("Cryptoprocta_ferox")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned", notes: "Madagascar's largest carnivore." }),
   rec({ slug: "north-pacific-right-whale", commonName: "North Pacific Right Whale", scientificName: "Eubalaena japonica", taxonGroup: "mammals", redListCategory: "EN", sourceUrls: [noaa("north-pacific-right-whale")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
-  rec({ slug: "hectors-dolphin", commonName: "Hector's Dolphin", scientificName: "Cephalorhynchus hectori", taxonGroup: "mammals", redListCategory: "EN", sourceUrls: [adw("Cephalorhynchus_hectori")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned", notes: "The Maui dolphin sub-population is assessed at even higher risk." }),
+  rec({ slug: "hectors-dolphin", commonName: "Hector's Dolphin", scientificName: "Cephalorhynchus hectori", taxonGroup: "mammals", redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Coastal waters of New Zealand.",
+    primaryThreats: [
+      "Entanglement in fishing nets",
+      "A small, fragmented population",
+      "Disease and disturbance",
+    ], sourceUrls: [adw("Cephalorhynchus_hectori")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned", notes: "The Maui dolphin sub-population is assessed at even higher risk." }),
   rec({ slug: "franciscana", commonName: "Franciscana", scientificName: "Pontoporia blainvillei", taxonGroup: "mammals", redListCategory: "VU", sourceUrls: [adw("Pontoporia_blainvillei")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
   rec({ slug: "indus-river-dolphin", commonName: "Indus River Dolphin", scientificName: "Platanista minor", taxonGroup: "mammals", redListCategory: "EN",
     populationTrend: "increasing",
@@ -107,7 +130,15 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Drought and habitat loss",
       "Small reintroduced population",
     ], sourceUrls: [adw("Oryx_dammah")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned", notes: "Formerly Extinct in the Wild; reassessed Endangered in 2023 following reintroduction in Chad." }),
-  rec({ slug: "dama-gazelle", commonName: "Dama Gazelle", scientificName: "Nanger dama", taxonGroup: "mammals", redListCategory: "CR", sourceUrls: [adw("Nanger_dama")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
+  rec({ slug: "dama-gazelle", commonName: "Dama Gazelle", scientificName: "Nanger dama", taxonGroup: "mammals", redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "The Sahara and Sahel of North Africa, now in tiny remnant populations.",
+    primaryThreats: [
+      "Uncontrolled hunting",
+      "Habitat loss and drought",
+      "A tiny, fragmented population",
+    ], sourceUrls: [adw("Nanger_dama")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
   rec({ slug: "mountain-tapir", commonName: "Mountain Tapir", scientificName: "Tapirus pinchaque", taxonGroup: "mammals", redListCategory: "EN", sourceUrls: [adw("Tapirus_pinchaque")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
   rec({ slug: "malayan-tapir", commonName: "Malayan Tapir", scientificName: "Tapirus indicus", taxonGroup: "mammals", redListCategory: "EN",
     populationTrend: "decreasing",
@@ -142,7 +173,15 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
   rec({ slug: "spanish-imperial-eagle", commonName: "Spanish Imperial Eagle", scientificName: "Aquila adalberti", taxonGroup: "birds", redListCategory: "VU", sourceUrls: [birdlife("spanish-imperial-eagle-aquila-adalberti")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
   rec({ slug: "eastern-imperial-eagle", commonName: "Eastern Imperial Eagle", scientificName: "Aquila heliaca", taxonGroup: "birds", redListCategory: "VU", sourceUrls: [birdlife("eastern-imperial-eagle-aquila-heliaca")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
   rec({ slug: "red-fronted-macaw", commonName: "Red-fronted Macaw", scientificName: "Ara rubrogenys", taxonGroup: "birds", redListCategory: "CR", sourceUrls: [birdlife("red-fronted-macaw-ara-rubrogenys")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
-  rec({ slug: "military-macaw", commonName: "Military Macaw", scientificName: "Ara militaris", taxonGroup: "birds", redListCategory: "VU", sourceUrls: [birdlife("military-macaw-ara-militaris")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
+  rec({ slug: "military-macaw", commonName: "Military Macaw", scientificName: "Ara militaris", taxonGroup: "birds", redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Scattered forests from Mexico through Central America to South America.",
+    primaryThreats: [
+      "Trapping for the pet trade",
+      "Habitat loss",
+      "Fragmentation",
+    ], sourceUrls: [birdlife("military-macaw-ara-militaris")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
   rec({ slug: "golden-parakeet", commonName: "Golden Parakeet", scientificName: "Guaruba guarouba", taxonGroup: "birds", redListCategory: "VU", sourceUrls: [birdlife("golden-parakeet-guaruba-guarouba")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
   rec({ slug: "philippine-cockatoo", commonName: "Philippine Cockatoo", scientificName: "Cacatua haematuropygia", taxonGroup: "birds", redListCategory: "CR",
     populationTrend: "decreasing",
@@ -153,12 +192,28 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Habitat loss including mangroves",
     ], sourceUrls: [birdlife("philippine-cockatoo-cacatua-haematuropygia")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
   rec({ slug: "northern-rockhopper-penguin", commonName: "Northern Rockhopper Penguin", scientificName: "Eudyptes moseleyi", taxonGroup: "birds", redListCategory: "EN", sourceUrls: [birdlife("northern-rockhopper-penguin-eudyptes-moseleyi")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
-  rec({ slug: "macaroni-penguin", commonName: "Macaroni Penguin", scientificName: "Eudyptes chrysolophus", taxonGroup: "birds", redListCategory: "VU", sourceUrls: [birdlife("macaroni-penguin-eudyptes-chrysolophus")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
+  rec({ slug: "macaroni-penguin", commonName: "Macaroni Penguin", scientificName: "Eudyptes chrysolophus", taxonGroup: "birds", redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Sub-Antarctic islands and the Antarctic Peninsula.",
+    primaryThreats: [
+      "Changes in prey (krill and fish) availability",
+      "Ocean change",
+      "Disturbance",
+    ], sourceUrls: [birdlife("macaroni-penguin-eudyptes-chrysolophus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
   rec({ slug: "erect-crested-penguin", commonName: "Erect-crested Penguin", scientificName: "Eudyptes sclateri", taxonGroup: "birds", redListCategory: "EN", sourceUrls: [birdlife("erect-crested-penguin-eudyptes-sclateri")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
   rec({ slug: "fiordland-penguin", commonName: "Fiordland Penguin", scientificName: "Eudyptes pachyrhynchus", taxonGroup: "birds", redListCategory: "VU", sourceUrls: [birdlife("fiordland-penguin-eudyptes-pachyrhynchus")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
   rec({ slug: "tristan-albatross", commonName: "Tristan Albatross", scientificName: "Diomedea dabbenena", taxonGroup: "birds", redListCategory: "CR", sourceUrls: [birdlife("tristan-albatross-diomedea-dabbenena")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
   rec({ slug: "waved-albatross", commonName: "Waved Albatross", scientificName: "Phoebastria irrorata", taxonGroup: "birds", redListCategory: "CR", sourceUrls: [birdlife("waved-albatross-phoebastria-irrorata")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
-  rec({ slug: "short-tailed-albatross", commonName: "Short-tailed Albatross", scientificName: "Phoebastria albatrus", taxonGroup: "birds", redListCategory: "VU", sourceUrls: [birdlife("short-tailed-albatross-phoebastria-albatrus")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
+  rec({ slug: "short-tailed-albatross", commonName: "Short-tailed Albatross", scientificName: "Phoebastria albatrus", taxonGroup: "birds", redListCategory: "VU",
+    populationTrend: "increasing",
+    rangeSummary:
+      "The North Pacific, breeding on a few islands off Japan.",
+    primaryThreats: [
+      "Past feather hunting (now recovering)",
+      "Volcanic risk at key colony",
+      "Longline bycatch and plastic",
+    ], sourceUrls: [birdlife("short-tailed-albatross-phoebastria-albatrus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
   rec({ slug: "giant-ibis", commonName: "Giant Ibis", scientificName: "Thaumatibis gigantea", taxonGroup: "birds", redListCategory: "CR", sourceUrls: [birdlife("giant-ibis-thaumatibis-gigantea")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
   rec({ slug: "northern-bald-ibis", commonName: "Northern Bald Ibis", scientificName: "Geronticus eremita", taxonGroup: "birds", redListCategory: "EN", sourceUrls: [birdlife("northern-bald-ibis-geronticus-eremita")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
   rec({ slug: "bengal-florican", commonName: "Bengal Florican", scientificName: "Houbaropsis bengalensis", taxonGroup: "birds", redListCategory: "CR", sourceUrls: [birdlife("bengal-florican-houbaropsis-bengalensis")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
@@ -186,7 +241,15 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Fishing-net entanglement",
       "Egg collection",
     ], sourceUrls: [reptiledb("Tomistoma", "schlegelii")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
-  rec({ slug: "yangtze-giant-softshell-turtle", commonName: "Yangtze Giant Softshell Turtle", scientificName: "Rafetus swinhoei", taxonGroup: "reptiles-amphibians", redListCategory: "CR", sourceUrls: [reptiledb("Rafetus", "swinhoei")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned", notes: "Among the rarest turtles on Earth." }),
+  rec({ slug: "yangtze-giant-softshell-turtle", commonName: "Yangtze Giant Softshell Turtle", scientificName: "Rafetus swinhoei", taxonGroup: "reptiles-amphibians", redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "The Yangtze and Red River regions of China and Vietnam.",
+    primaryThreats: [
+      "An extremely small number of known individuals",
+      "Past hunting and habitat loss",
+      "Failed reproduction",
+    ], sourceUrls: [reptiledb("Rafetus", "swinhoei")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned", notes: "Among the rarest turtles on Earth." }),
   rec({ slug: "burmese-roofed-turtle", commonName: "Burmese Roofed Turtle", scientificName: "Batagur trivittata", taxonGroup: "reptiles-amphibians", redListCategory: "CR", sourceUrls: [reptiledb("Batagur", "trivittata")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
   rec({ slug: "central-american-river-turtle", commonName: "Central American River Turtle", scientificName: "Dermatemys mawii", taxonGroup: "reptiles-amphibians", redListCategory: "CR", sourceUrls: [reptiledb("Dermatemys", "mawii")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
   rec({ slug: "bog-turtle", commonName: "Bog Turtle", scientificName: "Glyptemys muhlenbergii", taxonGroup: "reptiles-amphibians", redListCategory: "CR", sourceUrls: [reptiledb("Glyptemys", "muhlenbergii")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
@@ -237,5 +300,13 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
   // ===========================================================================
   // INVERTEBRATES
   // ===========================================================================
-  rec({ slug: "black-abalone", commonName: "Black Abalone", scientificName: "Haliotis cracherodii", taxonGroup: "invertebrates", redListCategory: "CR", sourceUrls: [noaa("black-abalone")], dataConfidence: "source-review-pending", profileStatus: "index-only", imageStatus: "not-planned" }),
+  rec({ slug: "black-abalone", commonName: "Black Abalone", scientificName: "Haliotis cracherodii", taxonGroup: "invertebrates", redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Rocky shores of California, USA, and Baja California, Mexico.",
+    primaryThreats: [
+      "A fatal disease (withering syndrome)",
+      "Past overfishing",
+      "Slow recovery",
+    ], sourceUrls: [noaa("black-abalone")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
 ];
