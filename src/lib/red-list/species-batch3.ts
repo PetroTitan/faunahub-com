@@ -697,7 +697,7 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     sourceUrls: [amphibiaweb("Phyllobates", "terribilis")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "lehmanns-poison-frog",

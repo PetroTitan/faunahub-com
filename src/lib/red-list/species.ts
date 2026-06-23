@@ -188,7 +188,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Indri_indri")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "black-and-white-ruffed-lemur",
@@ -226,7 +226,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Daubentonia_madagascariensis")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "proboscis-monkey",
@@ -1260,7 +1260,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Andrias_davidianus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
     notes: "One of the largest living amphibians.",
   }),
   rec({
@@ -1280,7 +1280,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [amphibiaweb("Atelopus", "zeteki")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
     notes:
       "Amphibian declines have been widely linked to the chytrid fungus alongside habitat loss.",
   }),

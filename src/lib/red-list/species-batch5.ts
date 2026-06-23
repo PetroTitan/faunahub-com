@@ -64,7 +64,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Hunting for bushmeat",
       "Habitat loss",
       "Fragmentation",
-    ], sourceUrls: [adw("Mandrillus_sphinx")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [adw("Mandrillus_sphinx")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "barbary-macaque", commonName: "Barbary Macaque", scientificName: "Macaca sylvanus", taxonGroup: "mammals", redListCategory: "EN",
     populationTrend: "decreasing",
     rangeSummary:

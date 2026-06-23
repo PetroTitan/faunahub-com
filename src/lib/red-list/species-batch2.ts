@@ -104,7 +104,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Dugong_dugon")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
     notes:
       "Globally Vulnerable, but several regional sub-populations are assessed at higher risk.",
   }),
@@ -125,7 +125,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [noaa("blue-whale"), adw("Balaenoptera_musculus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
     notes: "The largest animal known to have lived.",
   }),
   rec({
@@ -221,7 +221,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [fws("red-wolf-canis-rufus"), adw("Canis_rufus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "ethiopian-wolf",
@@ -434,7 +434,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Myrmecophaga_tridactyla")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
 
   // --- Birds (BirdLife International DataZone) ---
@@ -568,7 +568,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [birdlife("grey-parrot-psittacus-erithacus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
     notes: "Heavily affected by the cage-bird trade.",
   }),
   rec({
