@@ -6624,4 +6624,189 @@ export const RED_LIST_PROFILES: Record<string, RedListProfileContent> = {
     ],
     relatedAnimal: { label: "Rhinoceros profile", href: "/animals/rhinoceros" },
   },
+  "asiatic-lion": {
+    summary: [
+      "The Asiatic lion is a lion subspecies that survives only in and around the Gir Forest of India. It is assessed as Endangered, having recovered from a few dozen animals.",
+      "It is slightly smaller than African lions and males have shorter manes.",
+    ],
+    whyItMatters:
+      "The last lions of Asia, brought back from near-extinction in a single Indian forest, are a flagship for Indian wildlife and a cautionary tale about populations confined to one place.",
+    faq: [
+      {
+        question: "How is the Asiatic lion different from the African lion?",
+        answer:
+          "It is a subspecies, generally a little smaller, with a fold of skin along the belly and males with somewhat shorter manes. It survives only in India, whereas other lions live in Africa.",
+      },
+      {
+        question: "Why is the Asiatic lion Endangered?",
+        answer:
+          "Published assessments cite its single concentrated population (vulnerable to disease and inbreeding) and conflict and habitat pressure, even though numbers have recovered from a historic low. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Lion profile", href: "/animals/lion" },
+  },
+  "mountain-gorilla": {
+    summary: [
+      "The mountain gorilla is a subspecies of the eastern gorilla living in high African forests. It is assessed as Endangered — and is one of the few great apes whose numbers have been rising.",
+      "It has longer, thicker fur than other gorillas, suited to cold mountain conditions.",
+    ],
+    whyItMatters:
+      "A rare conservation bright spot among great apes, the mountain gorilla shows how tourism revenue, anti-poaching, and health care can rebuild a population.",
+    faq: [
+      {
+        question: "Why is the mountain gorilla's recovery notable?",
+        answer:
+          "Through intensive protection, gorilla-focused tourism, and veterinary care, mountain gorilla numbers have increased — one of the few great-ape populations to grow, leading to an improved Red List status.",
+      },
+      {
+        question: "How is it different from other gorillas?",
+        answer:
+          "It is a subspecies of the eastern gorilla, with longer, thicker fur for its cold, high-altitude home in the Virungas and Bwindi. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Gorilla profile", href: "/animals/gorilla" },
+  },
+  "african-wild-ass": {
+    summary: [
+      "The African wild ass is the wild ancestor of the domestic donkey and one of the rarest wild equids. It is assessed as Critically Endangered.",
+      "It is superbly adapted to harsh desert, with grey coats and striped legs.",
+    ],
+    whyItMatters:
+      "The wild forebear of the donkey, the African wild ass is both an agricultural ancestor and a flagship for the embattled wildlife of the Horn of Africa.",
+    faq: [
+      {
+        question: "Is the African wild ass the ancestor of the donkey?",
+        answer:
+          "Yes. The domestic donkey is descended from the African wild ass, making the wild species a living link to the origins of one of humanity's most important working animals.",
+      },
+      {
+        question: "Why is the African wild ass Critically Endangered?",
+        answer:
+          "Published assessments cite hunting, competition with livestock for scarce water, and interbreeding with domestic donkeys. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "mountain-zebra": {
+    summary: [
+      "The mountain zebra is a zebra of rugged southern African uplands, with a distinctive dewlap and a grid-like pattern on its rump. It is assessed as Vulnerable.",
+      "It nearly disappeared but has recovered in protected areas.",
+    ],
+    whyItMatters:
+      "A sure-footed mountain specialist recovered through protected areas, the mountain zebra is a flagship for conserving southern Africa's rugged uplands.",
+    faq: [
+      {
+        question: "How is the mountain zebra different from other zebras?",
+        answer:
+          "It is adapted to steep, rocky terrain, has a small flap of skin (a dewlap) on its throat, and shows a distinctive grid-like stripe pattern on the rump.",
+      },
+      {
+        question: "Why is the mountain zebra Vulnerable?",
+        answer:
+          "Published assessments cite past hunting and habitat loss and fragmentation into small populations, though protected areas have helped it recover. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Zebra profile", href: "/animals/zebra" },
+  },
+  "kouprey": {
+    summary: [
+      "The kouprey is a wild forest ox of Southeast Asia, the national animal of Cambodia. It is assessed as Critically Endangered and may already be extinct.",
+      "It has not been reliably recorded for decades, and no one knows if any survive.",
+    ],
+    whyItMatters:
+      "A wild ox that may already be gone, the kouprey is a symbol of how war, hunting, and neglect can erase a large mammal almost unnoticed.",
+    faq: [
+      {
+        question: "Is the kouprey still alive?",
+        answer:
+          "It is unknown. The kouprey has not been reliably confirmed for decades, and some fear it is already extinct, though it remains formally assessed as Critically Endangered. See the IUCN Red List.",
+      },
+      {
+        question: "Why did the kouprey decline so badly?",
+        answer:
+          "Published accounts cite hunting, the impact of prolonged war and unrest across Indochina, and habitat loss, which left it extremely rare or possibly gone.",
+      },
+    ],
+  },
+  "carolina-parakeet": {
+    summary: [
+      "The Carolina parakeet was the only parrot native to the eastern United States, a green bird with a yellow-and-orange head. It is assessed as Extinct.",
+      "The last captive bird died in 1918, in the same Cincinnati Zoo aviary that had held the last passenger pigeon.",
+    ],
+    whyItMatters:
+      "North America's only native parrot, driven to extinction by hunting and habitat loss, the Carolina parakeet is a reminder that even widespread, colourful birds can vanish.",
+    faq: [
+      {
+        question: "Did parrots really live wild in the eastern USA?",
+        answer:
+          "Yes. The Carolina parakeet was a native North American parrot ranging across the eastern and central United States, the only parrot species native to that region.",
+      },
+      {
+        question: "Why did the Carolina parakeet go extinct?",
+        answer:
+          "Published accounts cite hunting (it was killed as a crop pest and for its feathers), habitat loss, and capture for the cage-bird trade. The last known bird died in 1918.",
+      },
+    ],
+    relatedAnimal: { label: "Parrot profile", href: "/animals/parrot" },
+  },
+  "pyrenean-ibex": {
+    summary: [
+      "The Pyrenean ibex (bucardo) was a wild mountain goat of the Pyrenees. It is assessed as Extinct; the last individual died in 2000.",
+      "It is famous as the subject of the first attempt to 'de-extinct' an animal by cloning.",
+    ],
+    whyItMatters:
+      "The Pyrenean ibex marks both a modern extinction and a scientific milestone — the first (briefly successful) attempt to clone an extinct animal back into existence.",
+    faq: [
+      {
+        question: "What is special about the Pyrenean ibex and cloning?",
+        answer:
+          "After it went extinct in 2000, scientists used preserved cells to create a clone in 2003; the cloned kid lived only minutes, but it was the first time an extinct animal had been briefly brought back.",
+      },
+      {
+        question: "Why did the Pyrenean ibex go extinct?",
+        answer:
+          "Published accounts cite hunting and competition with livestock, which reduced it to a tiny final population. The last individual died in 2000.",
+      },
+    ],
+    relatedAnimal: { label: "Goat profile", href: "/animals/goat" },
+  },
+  "steller-sea-cow": {
+    summary: [
+      "Steller's sea cow was an enormous, slow plant-eating marine mammal of the North Pacific, a giant relative of the dugong and manatees. It is assessed as Extinct.",
+      "Discovered by Europeans in 1741, it was hunted out within about 27 years.",
+    ],
+    whyItMatters:
+      "A giant marine grazer wiped out within a few decades of its discovery, Steller's sea cow is one of the fastest human-caused extinctions of a large animal on record.",
+    faq: [
+      {
+        question: "How big was Steller's sea cow?",
+        answer:
+          "It was huge — far larger than today's manatees and dugongs, reaching several metres long and many tonnes, grazing kelp in cold northern seas.",
+      },
+      {
+        question: "How quickly did it go extinct?",
+        answer:
+          "Published accounts say it was hunted to extinction within roughly 27 years of being described by Europeans in 1741 — an extraordinarily rapid loss of a large animal.",
+      },
+    ],
+  },
+  "bramble-cay-melomys": {
+    summary: [
+      "The Bramble Cay melomys was a small rodent that lived only on one tiny, low-lying island in the Torres Strait. It is assessed as Extinct.",
+      "It is widely described as the first mammal driven to extinction largely by human-caused climate change.",
+    ],
+    whyItMatters:
+      "A small rodent lost as rising seas repeatedly flooded its sliver of an island, the Bramble Cay melomys is widely cited as the first mammal extinction attributed mainly to climate change.",
+    faq: [
+      {
+        question: "Why is the Bramble Cay melomys significant?",
+        answer:
+          "It is widely described as the first mammal driven to extinction largely by human-caused climate change, after rising seas and storm surges repeatedly flooded its tiny, low island and destroyed its food and shelter.",
+      },
+      {
+        question: "Where did it live?",
+        answer:
+          "Only on Bramble Cay, a small, very low-lying coral cay in the Torres Strait — a single island just a few metres above sea level, which left the species acutely exposed. It is assessed as Extinct.",
+      },
+    ],
+  },
 };
