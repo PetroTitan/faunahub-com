@@ -7017,4 +7017,193 @@ export const RED_LIST_PROFILES: Record<string, RedListProfileContent> = {
     ],
     relatedAnimal: { label: "Sturgeon profile", href: "/animals/sturgeon" },
   },
+  "asian-small-clawed-otter": {
+    summary: [
+      "The Asian small-clawed otter is the smallest otter in the world, a highly social animal of Asian wetlands. It is assessed as Vulnerable.",
+      "It uses its dextrous, barely-clawed paws to feel for and handle prey such as crabs and molluscs.",
+    ],
+    whyItMatters:
+      "A charismatic, social wetland predator, the Asian small-clawed otter is a flagship for South and Southeast Asia's threatened freshwater habitats.",
+    faq: [
+      {
+        question: "What makes the Asian small-clawed otter unusual?",
+        answer:
+          "It is the smallest otter species and has reduced claws and very dextrous front paws, which it uses to feel for and manipulate prey like crabs and shellfish, rather than relying on its mouth alone.",
+      },
+      {
+        question: "Why is the Asian small-clawed otter Vulnerable?",
+        answer:
+          "Published assessments cite habitat loss and wetland drainage, pollution, and capture for the pet trade. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Otter profile", href: "/animals/otter" },
+  },
+  "sunda-slow-loris": {
+    summary: [
+      "The Sunda slow loris is a small, slow-moving nocturnal primate with huge eyes and a toxic bite — one of the few venomous mammals. It is assessed as Endangered.",
+      "It moves deliberately through the trees and is heavily targeted by the wildlife trade.",
+    ],
+    whyItMatters:
+      "A venomous, slow-climbing primate devastated by the pet trade, the Sunda slow loris is a flagship against wildlife trafficking in Southeast Asia.",
+    faq: [
+      {
+        question: "Are slow lorises really venomous?",
+        answer:
+          "Yes. Slow lorises are among the very few venomous mammals: they produce a toxin from a gland on the arm that, combined with saliva, can deliver a venomous bite. They should never be handled.",
+      },
+      {
+        question: "Why is the Sunda slow loris Endangered?",
+        answer:
+          "Published assessments cite heavy capture for the pet and traditional-medicine trade, plus habitat loss. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Slow loris profile", href: "/animals/slow-loris" },
+  },
+  "northern-white-cheeked-gibbon": {
+    summary: [
+      "The northern white-cheeked gibbon is a tree-swinging ape in which males are black with white cheeks and females are golden. It is assessed as Critically Endangered.",
+      "Pairs and families sing loud, complex duets through the canopy.",
+    ],
+    whyItMatters:
+      "A canopy ape of Indochina whose duets ring through the forest, the northern white-cheeked gibbon is a flagship for the region's vanishing rainforests.",
+    faq: [
+      {
+        question: "Why do male and female white-cheeked gibbons look different?",
+        answer:
+          "Adult males are black with bold white cheek patches, while females are golden-buff — a striking colour difference between the sexes seen across the crested gibbons (Nomascus).",
+      },
+      {
+        question: "Why is the northern white-cheeked gibbon Critically Endangered?",
+        answer:
+          "Published assessments cite deforestation, hunting, and capture for the pet trade. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Gibbon profile", href: "/animals/gibbon" },
+  },
+  "grey-shanked-douc": {
+    summary: [
+      "The grey-shanked douc is a colourful leaf-eating monkey found only in central Vietnam, with grey limbs and an orange-flecked face. It is assessed as Critically Endangered.",
+      "It is one of the rarest and most striking of the doucs.",
+    ],
+    whyItMatters:
+      "A vividly marked, leaf-eating monkey with a tiny range, the grey-shanked douc is a flagship for protecting central Vietnam's forests.",
+    faq: [
+      {
+        question: "How is the grey-shanked douc different from the red-shanked douc?",
+        answer:
+          "Both are colourful 'costumed' monkeys, but the grey-shanked douc has grey rather than maroon-red lower legs and is restricted to a small area of central Vietnam.",
+      },
+      {
+        question: "Why is the grey-shanked douc Critically Endangered?",
+        answer:
+          "Published assessments cite hunting, habitat loss, and capture for trade within its very small range. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Douc profile", href: "/animals/douc" },
+  },
+  "yangtze-finless-porpoise": {
+    summary: [
+      "The Yangtze finless porpoise is a small, smiling-faced freshwater porpoise and the last cetacean left in the Yangtze after the baiji's disappearance. It is assessed as Critically Endangered.",
+      "It has no dorsal fin, just a low ridge along its back.",
+    ],
+    whyItMatters:
+      "The Yangtze's last surviving cetacean, the finless porpoise is a flagship for the great river's recovery — and a warning given the fate of the baiji.",
+    faq: [
+      {
+        question: "How is it related to the baiji?",
+        answer:
+          "Both lived in the Yangtze, but they are different animals: the baiji was a river dolphin (now likely extinct), while the finless porpoise is a porpoise that still survives there — though it is now Critically Endangered.",
+      },
+      {
+        question: "Why is the Yangtze finless porpoise Critically Endangered?",
+        answer:
+          "Published assessments cite bycatch in fishing gear, heavy river traffic and dams, and pollution and declining prey. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Dolphin profile", href: "/animals/dolphin" },
+  },
+  "rhinoceros-hornbill": {
+    summary: [
+      "The rhinoceros hornbill is a large rainforest hornbill with a striking upturned casque on its bill. It is assessed as Vulnerable.",
+      "Females seal themselves into tree-hole nests, fed by the male through a narrow slit.",
+    ],
+    whyItMatters:
+      "A spectacular fruit-eating hornbill that disperses rainforest seeds, the rhinoceros hornbill is a flagship for Southeast Asia's threatened forests.",
+    faq: [
+      {
+        question: "What is the rhinoceros hornbill's casque for?",
+        answer:
+          "The large, upturned casque on top of its bill is thought to play a role in display and amplifying calls; it is mostly hollow and light, unlike the solid casque of the helmeted hornbill.",
+      },
+      {
+        question: "Why is the rhinoceros hornbill Vulnerable?",
+        answer:
+          "Published assessments cite deforestation, hunting, and the loss of the large old trees it needs for nesting. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Hornbill profile", href: "/animals/hornbill" },
+  },
+  "javan-hawk-eagle": {
+    summary: [
+      "The Javan hawk-eagle is a crested forest eagle found only on Java. It is assessed as Endangered, and is often linked to Indonesia's mythical national emblem, the Garuda.",
+      "It hunts birds, reptiles, and mammals in the rainforest canopy.",
+    ],
+    whyItMatters:
+      "A crested forest raptor found only on Java and tied to national symbolism, the Javan hawk-eagle is a flagship for the island's remaining forests.",
+    faq: [
+      {
+        question: "Is the Javan hawk-eagle linked to the Garuda?",
+        answer:
+          "It is widely associated with the Garuda, the mythical bird that is Indonesia's national emblem, which has helped make it a conservation symbol.",
+      },
+      {
+        question: "Why is the Javan hawk-eagle Endangered?",
+        answer:
+          "Published assessments cite deforestation, capture for the bird trade, and a small, fragmented population on Java. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Eagle profile", href: "/animals/eagle" },
+  },
+  "king-cobra": {
+    summary: [
+      "The king cobra is the longest venomous snake in the world and the only snake known to build a nest for its eggs. It is assessed as Vulnerable.",
+      "It feeds largely on other snakes. It is highly venomous; this page is educational and people should never approach or handle one.",
+    ],
+    whyItMatters:
+      "A top snake-eating predator and the world's longest venomous snake, the king cobra is a flagship for Asian forests — and a reminder to respect wildlife from a safe distance.",
+    faq: [
+      {
+        question: "Is the king cobra dangerous?",
+        answer:
+          "Yes. It is highly venomous and can deliver a large amount of venom. It is generally shy and avoids people, but it should never be approached, cornered, or handled. This page is educational and is not first-aid or medical guidance — seek professional help for any snakebite.",
+      },
+      {
+        question: "What is special about the king cobra?",
+        answer:
+          "It is the world's longest venomous snake, it preys mainly on other snakes (its name Ophiophagus means 'snake-eater'), and the female is the only snake known to build a nest of leaves for her eggs and guard them. See the IUCN Red List for its status.",
+      },
+    ],
+    relatedAnimal: { label: "Cobra profile", href: "/animals/cobra" },
+  },
+  "south-andean-huemul": {
+    summary: [
+      "The south Andean huemul is a stocky deer of the southern Andes and a national symbol of Chile, appearing on its coat of arms. It is assessed as Endangered.",
+      "It is adapted to steep, cold mountain terrain.",
+    ],
+    whyItMatters:
+      "A mountain deer and national emblem reduced to scattered populations, the huemul is a flagship for conserving the southern Andes.",
+    faq: [
+      {
+        question: "Why is the huemul important to Chile?",
+        answer:
+          "It appears on Chile's national coat of arms alongside the Andean condor, making it a powerful national symbol — and a focus of conservation attention.",
+      },
+      {
+        question: "Why is the south Andean huemul Endangered?",
+        answer:
+          "Published assessments cite habitat loss and competition with livestock, disease, and the legacy of hunting, which left a small, fragmented population. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Deer profile", href: "/animals/deer" },
+  },
 };

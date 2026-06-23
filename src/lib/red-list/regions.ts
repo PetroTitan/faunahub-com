@@ -182,6 +182,7 @@ export const REGION_SPECIES: Record<RedListRegion, string[]> = {
     "migratory-monarch-butterfly",
   ],
   "south-america": [
+    "south-andean-huemul",
     "galapagos-pink-land-iguana",
     "short-tailed-chinchilla",
     "andean-cat",
@@ -300,6 +301,14 @@ export const REGION_SPECIES: Record<RedListRegion, string[]> = {
     "coelacanth",
   ],
   asia: [
+    "king-cobra",
+    "javan-hawk-eagle",
+    "rhinoceros-hornbill",
+    "yangtze-finless-porpoise",
+    "grey-shanked-douc",
+    "northern-white-cheeked-gibbon",
+    "sunda-slow-loris",
+    "asian-small-clawed-otter",
     "sloth-bear",
     "asiatic-black-bear",
     "kouprey",
