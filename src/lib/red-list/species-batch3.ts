@@ -103,9 +103,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Lamna nasus",
     taxonGroup: "fish",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Cold and temperate waters of the North Atlantic and Southern Hemisphere.",
+    primaryThreats: [
+      "Overfishing for meat and fins",
+      "Bycatch",
+      "A low reproductive rate",
+    ],
     sourceUrls: [fishbase("Lamna-nasus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -174,9 +182,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Squatina squatina",
     taxonGroup: "fish",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Coastal waters of the eastern Atlantic and Mediterranean, much reduced.",
+    primaryThreats: [
+      "Bycatch in trawls and nets",
+      "Habitat disturbance",
+      "Slow reproduction",
+    ],
     sourceUrls: [fishbase("Squatina-squatina")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -497,9 +513,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Testudo kleinmanni",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Deserts of North Africa and the Middle East, around the eastern Mediterranean.",
+    primaryThreats: [
+      "Collection for the pet trade",
+      "Habitat loss to agriculture",
+      "A tiny remaining range",
+    ],
     sourceUrls: [reptiledb("Testudo", "kleinmanni")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -527,9 +551,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Brachylophus vitiensis",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "A few islands of Fiji in the South Pacific.",
+    primaryThreats: [
+      "Habitat loss and fires",
+      "Introduced predators and goats",
+      "A tiny range",
+    ],
     sourceUrls: [reptiledb("Brachylophus", "vitiensis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({

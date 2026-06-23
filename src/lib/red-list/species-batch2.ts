@@ -319,9 +319,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Hippopotamus amphibius",
     taxonGroup: "mammals",
     redListCategory: "VU",
+    populationTrend: "stable",
+    rangeSummary:
+      "Rivers, lakes, and wetlands across sub-Saharan Africa.",
+    primaryThreats: [
+      "Poaching for meat and ivory teeth",
+      "Habitat loss and water diversion",
+      "Conflict with people",
+    ],
     sourceUrls: [adw("Hippopotamus_amphibius")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -447,9 +455,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Grus paradisea",
     taxonGroup: "birds",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Grasslands and farmland of southern Africa, mainly South Africa.",
+    primaryThreats: [
+      "Poisoning (deliberate and accidental)",
+      "Collisions with power lines",
+      "Habitat change",
+    ],
     sourceUrls: [birdlife("blue-crane-anthropoides-paradiseus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -817,9 +833,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Haliaeetus vociferoides",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Coasts and wetlands of western Madagascar.",
+    primaryThreats: [
+      "Habitat loss and disturbance",
+      "Competition for fish and nest sites",
+      "A tiny population",
+    ],
     sourceUrls: [birdlife("madagascar-fish-eagle-haliaeetus-vociferoides")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
 ];

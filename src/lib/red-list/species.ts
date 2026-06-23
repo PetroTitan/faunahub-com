@@ -196,9 +196,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Varecia variegata",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Rainforests of eastern Madagascar.",
+    primaryThreats: [
+      "Deforestation and slash-and-burn agriculture",
+      "Hunting",
+      "Fragmentation",
+    ],
     sourceUrls: [adw("Varecia_variegata")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -1603,9 +1611,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Acipenser sinensis",
     taxonGroup: "fish",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "The Yangtze River and adjacent seas of China.",
+    primaryThreats: [
+      "Dams blocking spawning migrations",
+      "Pollution and habitat loss",
+      "Past overfishing",
+    ],
     sourceUrls: [fishbase("Acipenser-sinensis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -1719,9 +1735,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Orbicella annularis",
     taxonGroup: "invertebrates",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Caribbean and western Atlantic reefs.",
+    primaryThreats: [
+      "Warming-driven bleaching",
+      "Coral disease",
+      "Pollution and reef degradation",
+    ],
     sourceUrls: [noaa("boulder-star-coral")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({

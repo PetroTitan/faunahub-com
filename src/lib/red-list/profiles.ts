@@ -4293,4 +4293,586 @@ export const RED_LIST_PROFILES: Record<string, RedListProfileContent> = {
     ],
     relatedAnimal: { label: "Bee profile", href: "/animals/bee" },
   },
+  "black-and-white-ruffed-lemur": {
+    summary: [
+      "The black-and-white ruffed lemur is a large, boldly patterned lemur with a loud, raucous call. It is assessed as Critically Endangered.",
+      "It is one of the most important pollinators among primates, feeding on nectar from large flowers.",
+    ],
+    whyItMatters:
+      "As a fruit- and nectar-feeder that pollinates and disperses seeds, the black-and-white ruffed lemur is a flagship for Madagascar's eastern rainforests.",
+    faq: [
+      {
+        question: "How does a lemur act as a pollinator?",
+        answer:
+          "The black-and-white ruffed lemur feeds on nectar from large flowers (such as the traveller's palm), carrying pollen on its face and fur between blooms — an unusual pollinating role for a primate.",
+      },
+      {
+        question: "Why is it Critically Endangered?",
+        answer:
+          "Published assessments cite deforestation, slash-and-burn agriculture, hunting, and fragmentation across eastern Madagascar. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Lemur profile", href: "/animals/lemur" },
+  },
+  "common-hippopotamus": {
+    summary: [
+      "The common hippopotamus is a massive, mostly aquatic mammal that spends its days in water and grazes on land at night. It is assessed as Vulnerable.",
+      "Despite a placid look, it is among Africa's most dangerous large animals.",
+    ],
+    whyItMatters:
+      "As a huge grazer that moves nutrients between land and water, the hippo shapes African river ecosystems, and its decline reflects pressure on those waterways.",
+    faq: [
+      {
+        question: "Why do hippos spend so much time in water?",
+        answer:
+          "Their skin loses moisture quickly and is sensitive to sun, so they rest in water by day to stay cool and protected, emerging at night to graze on land.",
+      },
+      {
+        question: "Why is the common hippopotamus Vulnerable?",
+        answer:
+          "Published assessments cite poaching for meat and the ivory of their teeth, habitat loss and water diversion, and conflict with people. See the IUCN Red List. Hippos are dangerous and should never be approached.",
+      },
+    ],
+    relatedAnimal: { label: "Hippopotamus profile", href: "/animals/hippopotamus" },
+  },
+  "fishing-cat": {
+    summary: [
+      "The fishing cat is a stocky, water-loving wild cat that hunts fish and other aquatic prey. It is assessed as Vulnerable.",
+      "It dives and swims readily and has partly webbed feet.",
+    ],
+    whyItMatters:
+      "A wetland specialist that hunts in and around water, the fishing cat is a flagship for protecting the marshes and mangroves of South and Southeast Asia.",
+    faq: [
+      {
+        question: "Do fishing cats really catch fish?",
+        answer:
+          "Yes. The fishing cat hunts fish and other aquatic prey, will wade and swim, and may scoop fish from the water or dive after them — unusual behaviour for a cat.",
+      },
+      {
+        question: "Why is the fishing cat Vulnerable?",
+        answer:
+          "Published assessments cite the destruction and drainage of wetlands, persecution and hunting, and pollution and reduced fish stocks. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Fishing cat profile", href: "/animals/fishing-cat" },
+  },
+  "lar-gibbon": {
+    summary: [
+      "The lar (white-handed) gibbon is a small, agile ape that swings rapidly through the forest canopy. It is assessed as Endangered.",
+      "It is known for loud morning songs and lifelong pair bonds.",
+    ],
+    whyItMatters:
+      "A fast-moving canopy ape that disperses seeds, the lar gibbon is a flagship for Southeast Asian rainforest conservation.",
+    faq: [
+      {
+        question: "How does the lar gibbon move through the forest?",
+        answer:
+          "It travels by brachiation — swinging hand-over-hand beneath branches — with great speed and agility, rarely coming to the ground.",
+      },
+      {
+        question: "Why is the lar gibbon Endangered?",
+        answer:
+          "Published assessments cite deforestation, capture for the pet trade, and hunting. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Gibbon profile", href: "/animals/gibbon" },
+  },
+  "european-mink": {
+    summary: [
+      "The European mink is a small semi-aquatic mustelid of riverbanks and wetlands. It is assessed as Critically Endangered.",
+      "It has declined dramatically and now survives only in scattered pockets.",
+    ],
+    whyItMatters:
+      "A riverside hunter squeezed by an introduced competitor, the European mink is a flagship for Europe's freshwater wildlife.",
+    faq: [
+      {
+        question: "What is pushing the European mink toward extinction?",
+        answer:
+          "Published assessments highlight competition (and other pressures) from the introduced American mink, along with habitat loss, pollution, and a small, fragmented population.",
+      },
+      {
+        question: "How is it different from the American mink?",
+        answer:
+          "It is a separate species, generally smaller, and native to Europe; the larger American mink, introduced via fur farming, has spread and contributed to the European mink's decline. See the IUCN Red List.",
+      },
+    ],
+  },
+  "geoffroys-spider-monkey": {
+    summary: [
+      "Geoffroy's spider monkey is a long-limbed, prehensile-tailed monkey that swings through the rainforest canopy. It is assessed as Endangered.",
+      "It uses its tail like a fifth limb and disperses many forest seeds.",
+    ],
+    whyItMatters:
+      "As a large, agile seed disperser, Geoffroy's spider monkey helps regenerate Central American forests and is a flagship for their protection.",
+    faq: [
+      {
+        question: "Why is it called a spider monkey?",
+        answer:
+          "Its very long, slender limbs and prehensile tail give it a spider-like look as it spreads across branches; the tail can grip like an extra hand.",
+      },
+      {
+        question: "Why is Geoffroy's spider monkey Endangered?",
+        answer:
+          "Published assessments cite deforestation, hunting, and habitat fragmentation. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Spider monkey profile", href: "/animals/spider-monkey" },
+  },
+  "grey-headed-flying-fox": {
+    summary: [
+      "The grey-headed flying fox is a large fruit bat of eastern Australia, with a wingspan of around a metre. It is assessed as Vulnerable.",
+      "It pollinates and disperses seeds over long distances as it feeds on nectar and fruit at night.",
+    ],
+    whyItMatters:
+      "A large fruit bat that pollinates and spreads the seeds of native trees, the grey-headed flying fox is a keystone for Australian forests despite often being seen as a nuisance.",
+    faq: [
+      {
+        question: "Are flying foxes dangerous to have around?",
+        answer:
+          "They are important pollinators and seed dispersers, not predators; like all wild animals they should not be handled, but their ecological role is highly beneficial.",
+      },
+      {
+        question: "Why is the grey-headed flying fox Vulnerable?",
+        answer:
+          "Published assessments cite habitat loss, mass die-offs during extreme heat, and conflict and persecution where colonies meet people. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Bat profile", href: "/animals/bat" },
+  },
+  "pere-davids-deer": {
+    summary: [
+      "Pere David's deer is a large wetland deer that was saved from total extinction only by captive herds, having been lost in the wild. It is assessed as Extinct in the Wild.",
+      "Chinese herds have been re-established from animals kept in Europe.",
+    ],
+    whyItMatters:
+      "A deer that survived solely in captivity and is now being returned to China, Pere David's deer is a remarkable example of a species rescued from oblivion.",
+    faq: [
+      {
+        question: "How did Pere David's deer avoid extinction?",
+        answer:
+          "After disappearing in the wild, the species survived only because animals had been kept in parks abroad (notably in England); descendants were later sent back to China to re-establish herds.",
+      },
+      {
+        question: "What does 'Extinct in the Wild' mean for this deer?",
+        answer:
+          "It means it survives only in captivity or managed/reintroduced populations rather than as a self-sustaining wild population. Reintroduction efforts continue. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Deer profile", href: "/animals/deer" },
+  },
+  "blue-crane": {
+    summary: [
+      "The blue crane is a pale blue-grey crane with elegant trailing wing feathers, the national bird of South Africa. It is assessed as Vulnerable.",
+      "It is strongly tied to grasslands and farmland.",
+    ],
+    whyItMatters:
+      "A national symbol and grassland specialist, the blue crane is a flagship for conserving South Africa's grasslands and reducing power-line and poisoning hazards.",
+    faq: [
+      {
+        question: "What does the blue crane look like?",
+        answer:
+          "It is a graceful pale blue-grey crane with long, trailing inner wing feathers that look like a sweeping tail, and it stands about a metre tall.",
+      },
+      {
+        question: "Why is the blue crane Vulnerable?",
+        answer:
+          "Published assessments cite poisoning, collisions with power lines, and habitat change across its grassland and farmland range. See the IUCN Red List.",
+      },
+    ],
+  },
+  "madagascar-fish-eagle": {
+    summary: [
+      "The Madagascar fish eagle is one of the rarest birds of prey in the world, found only in Madagascar. It is assessed as Critically Endangered.",
+      "It hunts fish along rivers, lakes, and coasts.",
+    ],
+    whyItMatters:
+      "A top fish-eating raptor found nowhere else, the Madagascar fish eagle is a flagship for the island's threatened wetlands and coasts.",
+    faq: [
+      {
+        question: "How rare is the Madagascar fish eagle?",
+        answer:
+          "It is among the rarest raptors in the world, with only a small number of breeding pairs left, all in western Madagascar.",
+      },
+      {
+        question: "Why is it Critically Endangered?",
+        answer:
+          "Published assessments cite habitat loss and disturbance, competition with people for fish and nest sites, and a very small population. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Eagle profile", href: "/animals/eagle" },
+  },
+  "christmas-frigatebird": {
+    summary: [
+      "The Christmas frigatebird is a large seabird that breeds only on Christmas Island. It is assessed as Critically Endangered.",
+      "Males inflate a bright red throat pouch in courtship, like other frigatebirds.",
+    ],
+    whyItMatters:
+      "A seabird that nests on a single small island, the Christmas frigatebird is a flagship for island and ocean conservation in the Indian Ocean.",
+    faq: [
+      {
+        question: "Why does the Christmas frigatebird breed in only one place?",
+        answer:
+          "It nests only on Christmas Island, so the entire breeding population is concentrated in one small area, making it highly vulnerable to local threats.",
+      },
+      {
+        question: "Why is it Critically Endangered?",
+        answer:
+          "Published assessments cite its tiny breeding range, past habitat disturbance, and pressures such as pollution and introduced species. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Frigatebird profile", href: "/animals/frigatebird" },
+  },
+  "northern-royal-albatross": {
+    summary: [
+      "The northern royal albatross is one of the largest albatrosses, with a wingspan around three metres. It is assessed as Endangered.",
+      "Most breed on remote islands, with a famous accessible colony on mainland New Zealand.",
+    ],
+    whyItMatters:
+      "A giant ocean wanderer threatened mainly by fishing, the northern royal albatross is a flagship for seabird-safe fisheries in the Southern Ocean.",
+    faq: [
+      {
+        question: "Where can people see northern royal albatrosses?",
+        answer:
+          "Most nest on remote islands, but a well-known, accessible breeding colony exists on the mainland at Taiaroa Head near Dunedin, New Zealand.",
+      },
+      {
+        question: "Why is the northern royal albatross Endangered?",
+        answer:
+          "Published assessments cite longline fishing bycatch, storms and disturbance at colonies, and plastic and pollution. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Albatross profile", href: "/animals/albatross" },
+  },
+  "white-naped-crane": {
+    summary: [
+      "The white-naped crane is a large grey crane with a white nape and red face, breeding in north-east Asia. It is assessed as Vulnerable.",
+      "It depends on a network of wetlands across several countries.",
+    ],
+    whyItMatters:
+      "A migratory crane reliant on shared wetlands across borders, the white-naped crane is a flagship for international wetland cooperation in East Asia.",
+    faq: [
+      {
+        question: "Why are migratory cranes so dependent on cooperation between countries?",
+        answer:
+          "They breed, stop over, and winter in different countries, so protecting them requires safeguarding a chain of wetlands across international borders.",
+      },
+      {
+        question: "Why is the white-naped crane Vulnerable?",
+        answer:
+          "Published assessments cite the loss and drainage of wetlands, disturbance, and its reliance on a few key sites. See the IUCN Red List.",
+      },
+    ],
+  },
+  "red-headed-vulture": {
+    summary: [
+      "The red-headed vulture is a striking scavenger with a bare red head, once widespread in Asia. It is assessed as Critically Endangered after steep declines.",
+      "Like other Asian vultures it was hit hard by drug poisoning.",
+    ],
+    whyItMatters:
+      "Part of the South Asian vulture collapse, the red-headed vulture underscores how scavengers — and the clean-up they provide — can vanish quickly.",
+    faq: [
+      {
+        question: "Why have Asian vultures declined so sharply?",
+        answer:
+          "Published accounts point to poisoning, including the veterinary drug diclofenac in livestock carcasses, which devastated several Asian vulture species within a few years.",
+      },
+      {
+        question: "Why is the red-headed vulture Critically Endangered?",
+        answer:
+          "Published assessments cite poisoning, reduced food, and habitat change. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Vulture profile", href: "/animals/vulture" },
+  },
+  "northern-bald-ibis": {
+    summary: [
+      "The northern bald ibis is a dark, glossy ibis with a bald red head and a shaggy ruff. It is assessed as Endangered, recovering from a very low point.",
+      "Once widespread, it was reduced to small relict populations.",
+    ],
+    whyItMatters:
+      "A once-revered bird (known since ancient Egypt) brought back through conservation and reintroduction, the northern bald ibis is a flagship for recovery efforts across its range.",
+    faq: [
+      {
+        question: "Is the northern bald ibis an ancient species in human culture?",
+        answer:
+          "Yes. It appears in ancient Egyptian art and was historically widespread; its later collapse and ongoing recovery make it a notable conservation story.",
+      },
+      {
+        question: "Why is the northern bald ibis Endangered?",
+        answer:
+          "Published assessments cite past hunting and habitat loss, pesticides and disturbance, and a small population, though protection and reintroduction have helped numbers. See the IUCN Red List.",
+      },
+    ],
+  },
+  "egyptian-tortoise": {
+    summary: [
+      "The Egyptian tortoise is one of the smallest tortoises in the world, a pale desert species. It is assessed as Critically Endangered.",
+      "It has been almost wiped out across much of its former range.",
+    ],
+    whyItMatters:
+      "A tiny desert tortoise nearly lost to the pet trade and habitat loss, the Egyptian tortoise is a flagship for North African and Middle Eastern dryland conservation.",
+    faq: [
+      {
+        question: "How small is the Egyptian tortoise?",
+        answer:
+          "It is among the smallest tortoises in the world, with adults only around 10-13 cm long, and a pale shell that helps it cope with desert heat.",
+      },
+      {
+        question: "Why is the Egyptian tortoise Critically Endangered?",
+        answer:
+          "Published assessments cite collection for the pet trade, habitat loss to agriculture, and a tiny remaining range. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Tortoise profile", href: "/animals/tortoise" },
+  },
+  "fiji-crested-iguana": {
+    summary: [
+      "The Fiji crested iguana is a vivid green iguana with white bands, found only on a few Fijian islands. It is assessed as Critically Endangered.",
+      "It can change shade and has a low crest along its back.",
+    ],
+    whyItMatters:
+      "A brilliant island iguana found only in Fiji, the Fiji crested iguana is a flagship for South Pacific island conservation and predator control.",
+    faq: [
+      {
+        question: "How is the Fiji crested iguana recognised?",
+        answer:
+          "It is bright green with narrow white or pale bands and a row of small spiny crests along its back; it can darken its colour when stressed.",
+      },
+      {
+        question: "Why is the Fiji crested iguana Critically Endangered?",
+        answer:
+          "Published assessments cite habitat loss and fires, introduced predators and browsing goats, and its tiny island range. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Iguana profile", href: "/animals/iguana" },
+  },
+  "slender-snouted-crocodile": {
+    summary: [
+      "The slender-snouted crocodile is a fish-eating African crocodile with a very narrow snout. It is assessed as Critically Endangered.",
+      "Its slim jaws are suited to catching fish in forest rivers.",
+    ],
+    whyItMatters:
+      "A specialised fish-eating crocodile of African forest rivers, the slender-snouted crocodile is a flagship for protecting those waterways.",
+    faq: [
+      {
+        question: "Why does the slender-snouted crocodile have such a narrow snout?",
+        answer:
+          "Its slim, elongated jaws are adapted to swiftly catching fish in water, much like the gharial's, reducing resistance as it snaps sideways.",
+      },
+      {
+        question: "Why is the slender-snouted crocodile Critically Endangered?",
+        answer:
+          "Published assessments cite hunting and bycatch, habitat loss, and a declining population across West and Central Africa. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Crocodile profile", href: "/animals/crocodile" },
+  },
+  "darwins-frog": {
+    summary: [
+      "Darwin's frog is a small, leaf-mimicking frog famous for the male brooding tadpoles inside his vocal sac. It is assessed as Endangered.",
+      "It was first noted by Charles Darwin in Chile.",
+    ],
+    whyItMatters:
+      "A frog with one of the most extraordinary forms of parental care, Darwin's frog is a flagship for the temperate forests of southern South America and the amphibian crisis.",
+    faq: [
+      {
+        question: "How does Darwin's frog care for its young?",
+        answer:
+          "The male takes the developing eggs into his vocal sac, where the tadpoles grow and are eventually released as tiny froglets from his mouth — a remarkable form of parental care.",
+      },
+      {
+        question: "Why is Darwin's frog Endangered?",
+        answer:
+          "Published assessments cite the amphibian fungal disease chytridiomycosis, habitat loss, and fragmentation. A close relative may already be extinct. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Frog profile", href: "/animals/frog" },
+  },
+  "central-american-river-turtle": {
+    summary: [
+      "The Central American river turtle is a large, almost fully aquatic turtle that rarely leaves the water. It is assessed as Critically Endangered.",
+      "It is heavily hunted for its meat.",
+    ],
+    whyItMatters:
+      "A river turtle hunted to the brink for food, the Central American river turtle is a flagship for freshwater turtle conservation in the region.",
+    faq: [
+      {
+        question: "Why is the Central American river turtle so easy to overhunt?",
+        answer:
+          "It is highly aquatic and lives in predictable river and lake habitats, where it can be netted in numbers; demand for its meat has driven heavy harvest.",
+      },
+      {
+        question: "Why is it Critically Endangered?",
+        answer:
+          "Published assessments cite hunting for meat and eggs, habitat loss, and its vulnerability to netting. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Turtle profile", href: "/animals/turtle" },
+  },
+  "chinese-sturgeon": {
+    summary: [
+      "The Chinese sturgeon is a large, ancient migratory fish of the Yangtze. It is assessed as Critically Endangered.",
+      "Dams have blocked the long upstream journeys it needs to spawn.",
+    ],
+    whyItMatters:
+      "An ancient river giant whose migrations are cut off by dams, the Chinese sturgeon is a flagship for the embattled wildlife of the Yangtze.",
+    faq: [
+      {
+        question: "Why have dams hit the Chinese sturgeon so hard?",
+        answer:
+          "It must migrate far up the Yangtze to spawn; large dams block those routes, preventing natural reproduction, so the species now depends heavily on hatchery releases.",
+      },
+      {
+        question: "Why is the Chinese sturgeon Critically Endangered?",
+        answer:
+          "Published assessments cite dams blocking spawning migrations, pollution and habitat loss, and past overfishing. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Sturgeon profile", href: "/animals/sturgeon" },
+  },
+  "porbeagle": {
+    summary: [
+      "The porbeagle is a powerful, warm-bodied shark related to the great white and mako. It is assessed as Vulnerable.",
+      "Heavy fishing for its valued meat caused steep declines.",
+    ],
+    whyItMatters:
+      "A warm-bodied open-water shark depleted by fishing, the porbeagle is a case study in managing slow-reproducing sharks toward recovery.",
+    faq: [
+      {
+        question: "How is the porbeagle related to other sharks?",
+        answer:
+          "It belongs to the mackerel shark family alongside the great white and mako, and like them it is warm-bodied, which helps power its active swimming in cold seas.",
+      },
+      {
+        question: "Why is the porbeagle Vulnerable?",
+        answer:
+          "Published assessments cite overfishing for its valuable meat and fins, bycatch, and a low reproductive rate. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Shark profile", href: "/animals/shark" },
+  },
+  "angelshark": {
+    summary: [
+      "The angelshark is a flattened, ray-like shark that buries itself in sand to ambush prey. It is assessed as Critically Endangered.",
+      "Once widespread, it has vanished from much of its range.",
+    ],
+    whyItMatters:
+      "A flattened, bottom-dwelling shark wiped out across much of its range by trawling, the angelshark is a priority for coastal and seabed conservation.",
+    faq: [
+      {
+        question: "Is the angelshark a shark or a ray?",
+        answer:
+          "It is a true shark, but its flattened body and broad fins make it look ray-like; it lies buried in sand and ambushes prey that swims past.",
+      },
+      {
+        question: "Why is the angelshark Critically Endangered?",
+        answer:
+          "Published assessments cite bycatch in trawls and nets, habitat disturbance, and slow reproduction, which together erased it from much of its range. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Shark profile", href: "/animals/shark" },
+  },
+  "smooth-hammerhead": {
+    summary: [
+      "The smooth hammerhead is a large hammerhead shark with a smoothly curved head lacking a central notch. It is assessed as Vulnerable.",
+      "Like other hammerheads it is heavily targeted for its fins.",
+    ],
+    whyItMatters:
+      "A wide-ranging hammerhead pressured by the fin trade, the smooth hammerhead is part of the broader case for shark conservation.",
+    faq: [
+      {
+        question: "How is the smooth hammerhead told apart from other hammerheads?",
+        answer:
+          "Its head is broad and smoothly curved across the front, without the central notch seen in the scalloped hammerhead, and it tolerates cooler waters than some relatives.",
+      },
+      {
+        question: "Why is the smooth hammerhead Vulnerable?",
+        answer:
+          "Published assessments cite overfishing — including high demand for fins — and bycatch. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Hammerhead shark profile", href: "/animals/hammerhead-shark" },
+  },
+  "spiny-dogfish": {
+    summary: [
+      "The spiny dogfish is a small, schooling shark with sharp spines in front of its dorsal fins. It is assessed (globally) as Vulnerable.",
+      "It has one of the longest pregnancies of any vertebrate.",
+    ],
+    whyItMatters:
+      "A small, heavily fished shark with extraordinarily slow reproduction, the spiny dogfish shows how even abundant-seeming sharks can be overfished.",
+    faq: [
+      {
+        question: "What is remarkable about the spiny dogfish's reproduction?",
+        answer:
+          "It has one of the longest gestation periods of any vertebrate — well over a year and a half — which makes it very slow to recover from overfishing.",
+      },
+      {
+        question: "Why is the spiny dogfish Vulnerable?",
+        answer:
+          "Published assessments cite overfishing, its slow reproductive rate and long gestation, and bycatch. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Shark profile", href: "/animals/shark" },
+  },
+  "totoaba": {
+    summary: [
+      "The totoaba is a large fish found only in the Gulf of California, hunted illegally for its valuable swim bladder. It is assessed as Vulnerable.",
+      "The gillnets set for totoaba also drown the critically endangered vaquita.",
+    ],
+    whyItMatters:
+      "A large endemic fish whose illegal trade drives the vaquita toward extinction, the totoaba sits at the centre of one of the world's most urgent marine conservation crises.",
+    faq: [
+      {
+        question: "How is the totoaba linked to the vaquita?",
+        answer:
+          "Illegal gillnets set to catch totoaba for their high-value swim bladders also entangle and drown the vaquita, making the totoaba trade the main driver of the vaquita's collapse.",
+      },
+      {
+        question: "Why is the totoaba threatened?",
+        answer:
+          "Published assessments cite illegal fishing for its swim bladder, bycatch, and habitat change in the Gulf of California. See the IUCN Red List.",
+      },
+    ],
+  },
+  "giant-sea-bass": {
+    summary: [
+      "The giant sea bass is a huge reef fish of the eastern Pacific that can exceed two metres. It is assessed as Critically Endangered, with signs of recovery under protection.",
+      "It is long-lived and slow to mature.",
+    ],
+    whyItMatters:
+      "A giant, long-lived reef predator hammered by historical fishing, the giant sea bass is a flagship for kelp-forest and reef recovery off California.",
+    faq: [
+      {
+        question: "How big does the giant sea bass get?",
+        answer:
+          "It is one of the largest bony fishes of its region, able to exceed two metres in length and well over a hundred kilograms, living for many decades.",
+      },
+      {
+        question: "Why is the giant sea bass Critically Endangered?",
+        answer:
+          "Published assessments cite past severe overfishing, slow maturation, and bycatch, though fishing limits have allowed some recovery. See the IUCN Red List.",
+      },
+    ],
+  },
+  "boulder-star-coral": {
+    summary: [
+      "Boulder star coral is a major reef-building coral that forms large mounds on Caribbean reefs. It is assessed as Endangered.",
+      "Like all corals it is a colony of tiny animals living with symbiotic algae.",
+    ],
+    whyItMatters:
+      "A key Caribbean reef-builder hit hard by bleaching and disease, boulder star coral is central to the wider reef crisis and to coral-restoration efforts.",
+    faq: [
+      {
+        question: "Is boulder star coral one animal or many?",
+        answer:
+          "It is a colony of many tiny coral polyps building a shared stony skeleton, hosting symbiotic algae that provide much of its colour and energy.",
+      },
+      {
+        question: "Why is boulder star coral Endangered?",
+        answer:
+          "Published assessments cite warming-driven bleaching, coral disease, and pollution and reef degradation. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Coral profile", href: "/animals/coral" },
+  },
 };

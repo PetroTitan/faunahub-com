@@ -33,9 +33,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Prionailurus viverrinus",
     taxonGroup: "mammals",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Wetlands of South and Southeast Asia.",
+    primaryThreats: [
+      "Destruction and drainage of wetlands",
+      "Persecution and hunting",
+      "Pollution and reduced fish",
+    ],
     sourceUrls: [adw("Prionailurus_viverrinus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -101,9 +109,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Hylobates lar",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Forests of Southeast Asia, including Thailand, Malaysia, and Sumatra.",
+    primaryThreats: [
+      "Deforestation",
+      "Capture for the pet trade",
+      "Hunting",
+    ],
     sourceUrls: [adw("Hylobates_lar")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -318,9 +334,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Mustela lutreola",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Fragmented populations in parts of Europe, much reduced from its former range.",
+    primaryThreats: [
+      "Competition from the introduced American mink",
+      "Habitat loss",
+      "Pollution and a small population",
+    ],
     sourceUrls: [adw("Mustela_lutreola")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -499,9 +523,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Fregata andrewsi",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Breeds only on Christmas Island in the Indian Ocean.",
+    primaryThreats: [
+      "A tiny breeding range",
+      "Past habitat disturbance",
+      "Pollution and introduced species",
+    ],
     sourceUrls: [birdlife("christmas-island-frigatebird-fregata-andrewsi")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -510,9 +542,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Diomedea sanfordi",
     taxonGroup: "birds",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Breeds on islands off New Zealand and forages across the Southern Ocean.",
+    primaryThreats: [
+      "Longline fishing bycatch",
+      "Storms and disturbance at colonies",
+      "Plastic and pollution",
+    ],
     sourceUrls: [birdlife("northern-royal-albatross-diomedea-sanfordi")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
 
@@ -563,9 +603,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Stereolepis gigas",
     taxonGroup: "fish",
     redListCategory: "CR",
+    populationTrend: "increasing",
+    rangeSummary:
+      "The eastern Pacific off California, USA, and Mexico.",
+    primaryThreats: [
+      "Past severe overfishing",
+      "Slow maturation",
+      "Bycatch",
+    ],
     sourceUrls: [fishbase("Stereolepis-gigas")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
