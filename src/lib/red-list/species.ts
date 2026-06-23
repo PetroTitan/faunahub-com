@@ -730,7 +730,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Cyanopsitta_spixii")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
     notes:
       "Considered Critically Endangered (long regarded as extinct in the wild); subject of an ongoing reintroduction effort in Brazil.",
   }),
@@ -788,7 +788,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Grus_americana"), szoo("whooping-crane")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "siberian-crane",
@@ -1081,7 +1081,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [noaa("kemps-ridley-turtle"), adw("Lepidochelys_kempii")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "green-turtle",
@@ -1171,7 +1171,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Alligator_sinensis")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "ploughshare-tortoise",
@@ -1190,7 +1190,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Astrochelys_yniphora")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "radiated-tortoise",
@@ -1440,7 +1440,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [noaa("scalloped-hammerhead-shark"), adw("Sphyrna_lewini")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "great-hammerhead",
@@ -1515,7 +1515,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [noaa("giant-manta-ray"), adw("Manta_birostris")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "reef-manta-ray",
@@ -1591,7 +1591,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Anguilla_anguilla")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "beluga-sturgeon",
@@ -1610,7 +1610,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Huso_huso")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
     notes: "Source of beluga caviar; heavily affected by overfishing.",
   }),
   rec({
@@ -1861,7 +1861,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     ],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
     notes:
       "The 2022 Endangered listing applies to the migratory monarch subspecies. The wider species was assessed separately; confirm the relevant entry on the live IUCN list.",
   }),
