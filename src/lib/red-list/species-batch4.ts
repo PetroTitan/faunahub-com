@@ -371,7 +371,7 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Cricetus_cricetus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
     notes: "Up-listed to Critically Endangered in 2020 after steep declines across Europe.",
   }),
   rec({
@@ -616,7 +616,7 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     sourceUrls: [birdlife("northern-royal-albatross-diomedea-sanfordi")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
 
   // --- Reptiles & Amphibians ---

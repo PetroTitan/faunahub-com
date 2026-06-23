@@ -126,7 +126,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
     primaryThreats: [
       "Capture for the pet and traditional-medicine trade",
       "Habitat loss",
-    ], sourceUrls: [adw("Nycticebus_pygmaeus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned", notes: "Recently moved to the genus Xanthonycticebus; the linked reference uses the former Nycticebus name." }),
+    ], sourceUrls: [adw("Nycticebus_pygmaeus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image", notes: "Recently moved to the genus Xanthonycticebus; the linked reference uses the former Nycticebus name." }),
   rec({ slug: "tonkin-snub-nosed-monkey", commonName: "Tonkin Snub-nosed Monkey", scientificName: "Rhinopithecus avunculus", taxonGroup: "mammals", redListCategory: "CR",
     populationTrend: "decreasing",
     rangeSummary:
@@ -319,7 +319,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Poisoning, including veterinary drugs in carcasses",
       "Reduced food",
       "Habitat change",
-    ], sourceUrls: [birdlife("red-headed-vulture-sarcogyps-calvus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [birdlife("red-headed-vulture-sarcogyps-calvus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "slender-billed-vulture", commonName: "Slender-billed Vulture", scientificName: "Gyps tenuirostris", taxonGroup: "birds", redListCategory: "CR",
     populationTrend: "stable",
     rangeSummary:
@@ -355,7 +355,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Electrocution on power lines",
       "Poisoning",
       "Habitat loss and persecution",
-    ], sourceUrls: [birdlife("eastern-imperial-eagle-aquila-heliaca")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [birdlife("eastern-imperial-eagle-aquila-heliaca")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "red-fronted-macaw", commonName: "Red-fronted Macaw", scientificName: "Ara rubrogenys", taxonGroup: "birds", redListCategory: "CR",
     populationTrend: "decreasing",
     rangeSummary:
@@ -519,7 +519,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Habitat loss including peat-swamp drainage",
       "Fishing-net entanglement",
       "Egg collection",
-    ], sourceUrls: [reptiledb("Tomistoma", "schlegelii")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [reptiledb("Tomistoma", "schlegelii")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "yangtze-giant-softshell-turtle", commonName: "Yangtze Giant Softshell Turtle", scientificName: "Rafetus swinhoei", taxonGroup: "reptiles-amphibians", redListCategory: "CR",
     populationTrend: "decreasing",
     rangeSummary:
@@ -636,7 +636,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "The amphibian fungal disease chytridiomycosis",
       "Habitat loss",
       "Fragmentation",
-    ], sourceUrls: [amphibiaweb("Rhinoderma", "darwinii")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [amphibiaweb("Rhinoderma", "darwinii")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "lake-oku-clawed-frog", commonName: "Lake Oku Clawed Frog", scientificName: "Xenopus longipes", taxonGroup: "reptiles-amphibians", redListCategory: "CR",
     populationTrend: "decreasing",
     rangeSummary:

@@ -331,7 +331,7 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     sourceUrls: [fishbase("Pterapogon-kauderni")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "bumphead-parrotfish",
@@ -656,7 +656,7 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     sourceUrls: [reptiledb("Cyclura", "collei")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
     notes: "Once thought extinct; rediscovered in 1990.",
   }),
 
@@ -793,7 +793,7 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     sourceUrls: [amphibiaweb("Nasikabatrachus", "sahyadrensis")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "table-mountain-ghost-frog",
