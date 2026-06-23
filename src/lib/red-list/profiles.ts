@@ -2043,4 +2043,502 @@ export const RED_LIST_PROFILES: Record<string, RedListProfileContent> = {
     ],
     relatedAnimal: { label: "Beetle profile", href: "/animals/beetle" },
   },
+  "lion-tailed-macaque": {
+    summary: [
+      "The lion-tailed macaque is a striking monkey with a silver-grey mane and a tufted, lion-like tail, found only in India's Western Ghats. It is assessed as Endangered.",
+      "It is shy, lives high in the forest canopy, and avoids open ground.",
+    ],
+    whyItMatters:
+      "A canopy specialist of one of the world's biodiversity hotspots, the lion-tailed macaque is a flagship for the threatened rainforests of the Western Ghats.",
+    faq: [
+      {
+        question: "What makes the lion-tailed macaque distinctive?",
+        answer:
+          "Its silver-grey mane framing a black face and its tufted, lion-like tail set it apart from other macaques. It is also unusually shy and canopy-dwelling.",
+      },
+      {
+        question: "Why is the lion-tailed macaque Endangered?",
+        answer:
+          "Published assessments cite the fragmentation of its rainforest habitat, roads and disturbance, and small isolated populations. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Macaque profile", href: "/animals/macaque" },
+  },
+  "siamang": {
+    summary: [
+      "The siamang is the largest of the gibbons, a black, tree-swinging ape with a throat sac that amplifies its booming calls. It is assessed as Endangered.",
+      "Pairs sing loud duets that carry far through the forest.",
+    ],
+    whyItMatters:
+      "As an agile fruit-eater that swings through the canopy and disperses seeds, the siamang is a flagship for Southeast Asia's threatened rainforests.",
+    faq: [
+      {
+        question: "What is the siamang's throat sac for?",
+        answer:
+          "Its large, inflatable throat sac resonates and amplifies its calls, helping the booming duets of a pair carry over long distances through dense forest.",
+      },
+      {
+        question: "Why is the siamang Endangered?",
+        answer:
+          "Published assessments cite deforestation, capture for the pet trade, and habitat fragmentation across Sumatra and the Malay Peninsula. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Gibbon profile", href: "/animals/gibbon" },
+  },
+  "gaur": {
+    summary: [
+      "The gaur is the largest wild cattle species in the world, a massive, powerfully built bovine of Asian forests. It is assessed as Vulnerable.",
+      "Despite its size it is generally shy and lives in herds.",
+    ],
+    whyItMatters:
+      "As the largest wild bovine and a major grazer-browser, the gaur shapes Asian forest and grassland ecosystems and is an important prey species for big cats.",
+    faq: [
+      {
+        question: "How big is the gaur?",
+        answer:
+          "It is the largest of the wild cattle, with big bulls standing very tall at the shoulder and weighing over a tonne — more massive than the wild buffalo or bison in body build.",
+      },
+      {
+        question: "Why is the gaur Vulnerable?",
+        answer:
+          "Published assessments cite hunting and poaching, habitat loss, and diseases caught from domestic cattle. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "mandrill": {
+    summary: [
+      "The mandrill is the largest monkey in the world, famous for the vivid red and blue colouring on the faces of adult males. It is assessed as Vulnerable.",
+      "It travels in very large groups on the forest floor.",
+    ],
+    whyItMatters:
+      "As a large, seed-dispersing forest primate that forms some of the biggest primate groups known, the mandrill is a flagship for central African rainforest conservation.",
+    faq: [
+      {
+        question: "Why are male mandrills so colourful?",
+        answer:
+          "Dominant males develop bright red and blue facial and rump colouring, which signals status and health; the more dominant the male, the more vivid the colours tend to be.",
+      },
+      {
+        question: "Why is the mandrill Vulnerable?",
+        answer:
+          "Published assessments cite hunting for bushmeat, habitat loss, and fragmentation across west-central Africa. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Mandrill profile", href: "/animals/mandrill" },
+  },
+  "cotton-top-tamarin": {
+    summary: [
+      "The cotton-top tamarin is a tiny monkey with a shock of white hair on its head, found only in Colombia. It is assessed as Critically Endangered.",
+      "It lives in small family groups and is one of the smallest primates.",
+    ],
+    whyItMatters:
+      "A tiny, charismatic primate with a very small range, the cotton-top tamarin is a flagship for protecting the dwindling tropical forests of north-western Colombia.",
+    faq: [
+      {
+        question: "How did the cotton-top tamarin get its name?",
+        answer:
+          "From the long, flowing crest of white hair on its head, which resembles a tuft of cotton — a striking feature on a monkey that weighs only a few hundred grams.",
+      },
+      {
+        question: "Why is the cotton-top tamarin Critically Endangered?",
+        answer:
+          "Published assessments cite deforestation within its small Colombian range and a history of capture. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Tamarin profile", href: "/animals/tamarin" },
+  },
+  "scimitar-horned-oryx": {
+    summary: [
+      "The scimitar-horned oryx is a desert antelope with long, curved horns that was once declared Extinct in the Wild. It is now assessed as Endangered following reintroduction.",
+      "It is superbly adapted to heat and can go long periods without water.",
+    ],
+    whyItMatters:
+      "Brought back from Extinct in the Wild through captive breeding and reintroduction, the scimitar-horned oryx is a landmark example of a species being returned to its desert home.",
+    faq: [
+      {
+        question: "Was the scimitar-horned oryx really extinct in the wild?",
+        answer:
+          "Yes. It was considered Extinct in the Wild for years, surviving only in captivity, before reintroduction programmes returned it to Chad — leading to an improved Red List status.",
+      },
+      {
+        question: "Why is it still Endangered?",
+        answer:
+          "Published assessments cite its history of overhunting, ongoing drought and habitat pressures, and the small size of the reintroduced population. See the IUCN Red List.",
+      },
+    ],
+  },
+  "malayan-tapir": {
+    summary: [
+      "The Malayan tapir is the largest tapir and the only Old World species, with a bold black-and-white pattern. It is assessed as Endangered.",
+      "Its striking two-tone coat is camouflage that breaks up its outline at night.",
+    ],
+    whyItMatters:
+      "As a large browser that disperses seeds, the Malayan tapir helps regenerate Southeast Asian forests and is a flagship for their conservation.",
+    faq: [
+      {
+        question: "Why is the Malayan tapir black and white?",
+        answer:
+          "The bold pattern is thought to be disruptive camouflage: in moonlight it breaks up the animal's shape, helping it avoid predators such as tigers.",
+      },
+      {
+        question: "Why is the Malayan tapir Endangered?",
+        answer:
+          "Published assessments cite deforestation, road collisions, and hunting across the Malay Peninsula and Sumatra. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Tapir profile", href: "/animals/tapir" },
+  },
+  "ganges-river-dolphin": {
+    summary: [
+      "The Ganges river dolphin is a freshwater dolphin that is effectively blind and navigates entirely by echolocation. It is assessed as Endangered.",
+      "It is the national aquatic animal of India.",
+    ],
+    whyItMatters:
+      "As a top predator of South Asia's great rivers, the Ganges river dolphin is a sensitive indicator of river health and a flagship for freshwater conservation.",
+    faq: [
+      {
+        question: "Is the Ganges river dolphin really blind?",
+        answer:
+          "Its eyes lack a lens and it cannot form images, so it relies almost entirely on echolocation to navigate and hunt in murky river water.",
+      },
+      {
+        question: "Why is the Ganges river dolphin Endangered?",
+        answer:
+          "Published assessments cite dams and barrages that fragment rivers, bycatch in fishing nets, pollution, and reduced water flow. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Dolphin profile", href: "/animals/dolphin" },
+  },
+  "verreauxs-sifaka": {
+    summary: [
+      "Verreaux's sifaka is a lemur famous for 'dancing' sideways across open ground on its hind legs. It is assessed as Critically Endangered.",
+      "In the trees it leaps powerfully between trunks in an upright posture.",
+    ],
+    whyItMatters:
+      "An iconic leaping lemur found only in Madagascar, Verreaux's sifaka is a flagship for the island's threatened dry forests and spiny thickets.",
+    faq: [
+      {
+        question: "Why does Verreaux's sifaka 'dance'?",
+        answer:
+          "Its body is built for vertical leaping between tree trunks, so on the ground it cannot walk on all fours easily; instead it springs sideways on its hind legs in a bounding 'dance'.",
+      },
+      {
+        question: "Why is Verreaux's sifaka Critically Endangered?",
+        answer:
+          "Published assessments cite deforestation, slash-and-burn agriculture, hunting in places, and drought across southern Madagascar. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Sifaka profile", href: "/animals/sifaka" },
+  },
+  "lears-macaw": {
+    summary: [
+      "Lear's macaw is a deep-blue parrot of Brazil's caatinga, once on the edge of extinction. It is assessed as Endangered, having recovered with protection.",
+      "It depends heavily on the nuts of licuri palms for food.",
+    ],
+    whyItMatters:
+      "A blue macaw brought back from the brink, Lear's macaw is both a conservation success in progress and a flagship for Brazil's distinctive dry caatinga habitat.",
+    faq: [
+      {
+        question: "What does Lear's macaw eat?",
+        answer:
+          "It relies heavily on the nuts of the licuri palm, so protecting these palms is central to the species' survival, alongside curbing trapping.",
+      },
+      {
+        question: "Why is Lear's macaw Endangered?",
+        answer:
+          "Published assessments cite past trapping for the pet trade, habitat loss, and its very small range, though protection has helped numbers recover. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Parrot profile", href: "/animals/parrot" },
+  },
+  "yellow-crested-cockatoo": {
+    summary: [
+      "The yellow-crested cockatoo is a white cockatoo with a bright yellow crest, found on islands of Indonesia and Timor-Leste. It is assessed as Critically Endangered.",
+      "Heavy trapping for the pet trade has caused steep declines.",
+    ],
+    whyItMatters:
+      "A dazzling island parrot devastated by the cage-bird trade, the yellow-crested cockatoo is a flagship for tackling the songbird and parrot trade in Southeast Asia.",
+    faq: [
+      {
+        question: "Why is the yellow-crested cockatoo Critically Endangered?",
+        answer:
+          "Published assessments cite intense trapping for the cage-bird trade together with habitat loss across its island range. See the IUCN Red List for the current assessment.",
+      },
+      {
+        question: "How is it different from other white cockatoos?",
+        answer:
+          "It is smaller than the better-known sulphur-crested cockatoo and has a distinctive yellow (or orange, in one subspecies) crest.",
+      },
+    ],
+    relatedAnimal: { label: "Parrot profile", href: "/animals/parrot" },
+  },
+  "orange-bellied-parrot": {
+    summary: [
+      "The orange-bellied parrot is a small grass parrot that migrates across the sea between Tasmania and mainland Australia. It is assessed as Critically Endangered.",
+      "It is one of the few parrots in the world that migrates, and one of the rarest.",
+    ],
+    whyItMatters:
+      "One of the world's rarest and only migratory parrots, the orange-bellied parrot is a high-stakes Australian recovery effort reliant on captive breeding.",
+    faq: [
+      {
+        question: "What is unusual about the orange-bellied parrot?",
+        answer:
+          "It is one of the very few migratory parrot species, crossing Bass Strait between its Tasmanian breeding grounds and mainland wintering areas.",
+      },
+      {
+        question: "Why is the orange-bellied parrot Critically Endangered?",
+        answer:
+          "Published assessments cite its extremely small population, loss of coastal habitat, and predation and competition. It depends heavily on captive breeding. See the IUCN Red List.",
+      },
+    ],
+  },
+  "regent-honeyeater": {
+    summary: [
+      "The regent honeyeater is a striking black-and-yellow songbird of south-eastern Australia. It is assessed as Critically Endangered.",
+      "It feeds on nectar from flowering eucalypts and was once far more common.",
+    ],
+    whyItMatters:
+      "A nectar-feeding bird whose decline has become so severe that young males are reportedly losing their song culture, the regent honeyeater is a stark symbol of Australia's woodland bird crisis.",
+    faq: [
+      {
+        question: "Why are regent honeyeaters 'forgetting' their songs?",
+        answer:
+          "As the population has crashed, some young males reportedly grow up with too few adults to learn the species' song from, and may mimic other birds instead — a sign of how far numbers have fallen.",
+      },
+      {
+        question: "Why is the regent honeyeater Critically Endangered?",
+        answer:
+          "Published assessments cite the loss of its woodland habitat and a small, scattered population. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "crested-ibis": {
+    summary: [
+      "The crested ibis is a white wading bird with a red face and a wispy crest, once thought nearly extinct. It is assessed as Endangered, recovering from a handful of birds.",
+      "Its recovery began from just a few individuals rediscovered in China in 1981.",
+    ],
+    whyItMatters:
+      "Rebuilt from a tiny remnant flock, the crested ibis is a celebrated East Asian recovery story and a flagship for wetland and farmland conservation.",
+    faq: [
+      {
+        question: "How close did the crested ibis come to extinction?",
+        answer:
+          "It was feared extinct until just a handful of wild birds were rediscovered in central China in 1981; careful protection and breeding have since rebuilt the population.",
+      },
+      {
+        question: "Why is the crested ibis still Endangered?",
+        answer:
+          "Published assessments cite its recovery from a very small founder population, past habitat loss and hunting, and pressures such as pesticides. See the IUCN Red List.",
+      },
+    ],
+  },
+  "steller-sea-eagle": {
+    summary: [
+      "Steller's sea eagle is one of the heaviest eagles in the world, a massive raptor with a huge orange bill. It is assessed as Vulnerable.",
+      "It feeds largely on fish, especially salmon, along northern coasts.",
+    ],
+    whyItMatters:
+      "A giant coastal eagle dependent on healthy rivers and fish runs, Steller's sea eagle is a flagship for conserving the coasts and salmon of north-east Asia.",
+    faq: [
+      {
+        question: "How big is Steller's sea eagle?",
+        answer:
+          "It is among the heaviest eagles in the world, with a massive deep-orange bill and a broad wingspan, built for hauling large fish from cold northern waters.",
+      },
+      {
+        question: "Why is Steller's sea eagle Vulnerable?",
+        answer:
+          "Published assessments cite habitat alteration along rivers and coasts, lead poisoning from carcasses, and overfishing of its prey. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Eagle profile", href: "/animals/eagle" },
+  },
+  "white-rumped-vulture": {
+    summary: [
+      "The white-rumped vulture was once one of the most abundant large birds of prey in the world. It is now assessed as Critically Endangered after a catastrophic crash.",
+      "Its numbers fell by an estimated huge percentage within a few years.",
+    ],
+    whyItMatters:
+      "The collapse of the white-rumped vulture — driven by a veterinary drug — is one of the fastest declines of any bird and a stark lesson in unintended chemical impacts on wildlife.",
+    faq: [
+      {
+        question: "What caused the white-rumped vulture's collapse?",
+        answer:
+          "Published accounts point above all to the veterinary anti-inflammatory drug diclofenac, which poisoned vultures that fed on the carcasses of treated livestock, causing a catastrophic decline across South Asia.",
+      },
+      {
+        question: "Why are vultures so important?",
+        answer:
+          "As scavengers, vultures rapidly clean up carcasses and limit the spread of disease; their loss has had knock-on effects for sanitation and other scavengers. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Vulture profile", href: "/animals/vulture" },
+  },
+  "olm": {
+    summary: [
+      "The olm is a blind, cave-dwelling salamander that lives its whole life underground in the waters of European karst caves. It is assessed as Vulnerable.",
+      "Pale and eyeless, it can live for many decades and survive long periods without food.",
+    ],
+    whyItMatters:
+      "A remarkable cave specialist sometimes called a 'baby dragon', the olm is an indicator of the health of fragile underground water systems.",
+    faq: [
+      {
+        question: "Why is the olm blind and pale?",
+        answer:
+          "Living in total darkness underground, it has lost functional eyes and skin pigment, while developing acute senses of smell and electroreception to find prey.",
+      },
+      {
+        question: "Why is the olm Vulnerable?",
+        answer:
+          "Published assessments cite water pollution that seeps into its aquifers, disturbance of cave systems, and its naturally restricted habitat. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Olm profile", href: "/animals/olm" },
+  },
+  "grand-cayman-blue-iguana": {
+    summary: [
+      "The Grand Cayman blue iguana is a large, strikingly blue-grey lizard found only on Grand Cayman. It is assessed as Endangered, recovering from near-extinction.",
+      "It was reduced to a handful of animals before an intensive breeding programme.",
+    ],
+    whyItMatters:
+      "Rescued from the very edge of extinction by a captive-breeding and release programme, the blue iguana is a celebrated island-reptile recovery story.",
+    faq: [
+      {
+        question: "How endangered was the blue iguana?",
+        answer:
+          "It was reduced to a tiny number of animals in the wild before a dedicated breeding-and-release programme began returning iguanas to protected areas on Grand Cayman.",
+      },
+      {
+        question: "Why is the Grand Cayman blue iguana still Endangered?",
+        answer:
+          "Published assessments cite its history of habitat loss and introduced predators, road deaths, and a small island range, even as numbers recover. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Iguana profile", href: "/animals/iguana" },
+  },
+  "golden-mantella": {
+    summary: [
+      "The golden mantella is a tiny, brilliant orange frog found only in Madagascar. It is assessed as Critically Endangered.",
+      "Its bright colour warns of toxins in its skin, like the unrelated poison frogs of the Americas.",
+    ],
+    whyItMatters:
+      "A jewel-like amphibian with a tiny range, the golden mantella is a flagship for Madagascar's threatened wetlands and a focus of captive-breeding insurance programmes.",
+    faq: [
+      {
+        question: "Is the golden mantella related to poison dart frogs?",
+        answer:
+          "No — it is a Madagascan frog, not a relative of the American poison frogs, but it has evolved similar bright warning colours and skin toxins (an example of convergence).",
+      },
+      {
+        question: "Why is the golden mantella Critically Endangered?",
+        answer:
+          "Published assessments cite the loss and degradation of its specialised breeding wetlands within a very small range. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Mantella profile", href: "/animals/mantella" },
+  },
+  "mountain-chicken-frog": {
+    summary: [
+      "The mountain chicken is one of the world's largest frogs, named because its meat was once eaten like chicken. It is assessed as Critically Endangered.",
+      "Disease has devastated its last island populations.",
+    ],
+    whyItMatters:
+      "A giant island frog brought to the brink chiefly by amphibian disease, the mountain chicken is an emblem of the global amphibian crisis and of island-species fragility.",
+    faq: [
+      {
+        question: "Why is it called the mountain chicken?",
+        answer:
+          "Because the large frog was traditionally hunted for its meat, which was said to taste like chicken — a practice that, along with disease, contributed to its decline.",
+      },
+      {
+        question: "Why is the mountain chicken Critically Endangered?",
+        answer:
+          "Published assessments cite the amphibian fungal disease chytridiomycosis above all, along with past hunting and volcanic and habitat impacts. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Frog profile", href: "/animals/frog" },
+  },
+  "smalltooth-sawfish": {
+    summary: [
+      "The smalltooth sawfish is a large ray with a long, tooth-studded snout, related to the largetooth sawfish. It is assessed as Critically Endangered.",
+      "Its saw is lined with sensory organs but also makes it highly prone to entanglement.",
+    ],
+    whyItMatters:
+      "Vanished from much of its former range, the smalltooth sawfish is among the most threatened of all sharks and rays and a priority for coastal and estuary conservation.",
+    faq: [
+      {
+        question: "What is the sawfish's saw used for?",
+        answer:
+          "The toothed snout is packed with sensory organs to detect prey and is used to slash and pin fish; unfortunately it also tangles easily in fishing nets.",
+      },
+      {
+        question: "Why is the smalltooth sawfish Critically Endangered?",
+        answer:
+          "Published assessments cite entanglement in fishing gear, habitat loss, and past targeted fishing, which erased it from much of its range. See the IUCN Red List.",
+      },
+    ],
+  },
+  "humphead-wrasse": {
+    summary: [
+      "The humphead (Napoleon) wrasse is one of the largest reef fish, with thick lips and a prominent forehead bump in adults. It is assessed as Endangered.",
+      "It can change sex and lives a long time, so it recovers slowly.",
+    ],
+    whyItMatters:
+      "A huge, long-lived reef fish prized in the luxury seafood trade, the humphead wrasse is a flagship for sustainable reef-fish management in the Indo-Pacific.",
+    faq: [
+      {
+        question: "Why is the humphead wrasse so vulnerable to fishing?",
+        answer:
+          "It grows large, matures late, lives a long time, and can change sex, so heavy fishing — especially for the luxury live-reef-fish trade — removes big breeders faster than they can be replaced.",
+      },
+      {
+        question: "Why is the humphead wrasse Endangered?",
+        answer:
+          "Published assessments cite overfishing for the live-reef-food-fish trade, destructive fishing methods, and its slow reproduction. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Wrasse profile", href: "/animals/wrasse" },
+  },
+  "mekong-giant-catfish": {
+    summary: [
+      "The Mekong giant catfish is one of the largest freshwater fish in the world, a huge, scaleless catfish of the Mekong. It is assessed as Critically Endangered.",
+      "It migrates long distances along the river and has become extremely rare.",
+    ],
+    whyItMatters:
+      "A giant of one of the world's great rivers, the Mekong giant catfish is a flagship for keeping the Mekong connected and healthy for migratory fish and the people who depend on them.",
+    faq: [
+      {
+        question: "How big is the Mekong giant catfish?",
+        answer:
+          "It is among the largest freshwater fish on Earth, historically reaching around three metres and several hundred kilograms — though such giants are now extremely rare.",
+      },
+      {
+        question: "Why is the Mekong giant catfish Critically Endangered?",
+        answer:
+          "Published assessments cite dams that block its long migrations, overfishing, and habitat change and reduced river flow. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Catfish profile", href: "/animals/catfish" },
+  },
+  "lord-howe-stick-insect": {
+    summary: [
+      "The Lord Howe stick insect, or 'tree lobster', is a large, heavy-bodied stick insect once thought extinct for decades. It is assessed as Critically Endangered.",
+      "It was rediscovered surviving on a single sea stack, Ball's Pyramid, and is now bred in captivity.",
+    ],
+    whyItMatters:
+      "Famously rediscovered after being declared extinct, the Lord Howe stick insect is an icon of invertebrate conservation and of the damage introduced rats can do to island life.",
+    faq: [
+      {
+        question: "Why was the Lord Howe stick insect thought extinct?",
+        answer:
+          "Introduced rats wiped it out on Lord Howe Island, and for decades it was presumed extinct — until a tiny population was found surviving on the nearby sea stack Ball's Pyramid.",
+      },
+      {
+        question: "Why is it Critically Endangered?",
+        answer:
+          "Published assessments cite its tiny natural range and the small size of the surviving population, with introduced rats the original cause of its collapse. Captive breeding now supports it. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Stick insect profile", href: "/animals/stick-insect" },
+  },
 };

@@ -25,7 +25,7 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Neofelis_nebulosa")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "fishing-cat",
@@ -44,9 +44,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Macaca silenus",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Rainforests of the Western Ghats in southern India.",
+    primaryThreats: [
+      "Fragmentation of rainforest",
+      "Roads and human disturbance",
+      "Small, isolated populations",
+    ],
     sourceUrls: [adw("Macaca_silenus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -66,9 +74,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Symphalangus syndactylus",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Rainforests of Sumatra and the Malay Peninsula.",
+    primaryThreats: [
+      "Deforestation",
+      "Capture for the pet trade",
+      "Habitat fragmentation",
+    ],
     sourceUrls: [adw("Symphalangus_syndactylus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -101,9 +117,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Bos gaurus",
     taxonGroup: "mammals",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Forests and grasslands of South and Southeast Asia.",
+    primaryThreats: [
+      "Hunting and poaching",
+      "Habitat loss",
+      "Diseases from domestic cattle",
+    ],
     sourceUrls: [fws("gaur-bos-gaurus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -147,9 +171,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Saguinus oedipus",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "A small area of tropical forest in north-western Colombia.",
+    primaryThreats: [
+      "Deforestation",
+      "Past capture for the pet trade and research",
+      "A very small range",
+    ],
     sourceUrls: [adw("Saguinus_oedipus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({

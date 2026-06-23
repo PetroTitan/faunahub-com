@@ -17,9 +17,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Platanista gangetica",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "The Ganges, Brahmaputra, and associated river systems of South Asia.",
+    primaryThreats: [
+      "Dams and barrages fragmenting rivers",
+      "Bycatch in fishing nets",
+      "Pollution and reduced water flow",
+    ],
     sourceUrls: [adw("Platanista_gangetica")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -505,9 +513,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Anodorhynchus leari",
     taxonGroup: "birds",
     redListCategory: "EN",
+    populationTrend: "increasing",
+    rangeSummary:
+      "A small area of dry scrubland (caatinga) in north-eastern Brazil.",
+    primaryThreats: [
+      "Past trapping for the pet trade",
+      "Habitat loss",
+      "A very small range",
+    ],
     sourceUrls: [birdlife("lears-macaw-anodorhynchus-leari")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -527,9 +543,16 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Cacatua sulphurea",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Islands of Indonesia and Timor-Leste.",
+    primaryThreats: [
+      "Trapping for the cage-bird trade",
+      "Habitat loss",
+    ],
     sourceUrls: [birdlife("yellow-crested-cockatoo-cacatua-sulphurea")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -568,9 +591,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Neophema chrysogaster",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Breeds in south-western Tasmania and migrates to coastal south-eastern Australia.",
+    primaryThreats: [
+      "A tiny population",
+      "Loss of coastal habitat",
+      "Predation and competition",
+    ],
     sourceUrls: [birdlife("orange-bellied-parrot-neophema-chrysogaster")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -635,9 +666,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Nipponia nippon",
     taxonGroup: "birds",
     redListCategory: "EN",
+    populationTrend: "increasing",
+    rangeSummary:
+      "East Asia; the wild population is centred in central China, with reintroductions elsewhere.",
+    primaryThreats: [
+      "Past habitat loss and hunting",
+      "A small founder population",
+      "Pesticides reducing food",
+    ],
     sourceUrls: [birdlife("asian-crested-ibis-nipponia-nippon")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({

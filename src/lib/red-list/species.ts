@@ -72,7 +72,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Pongo_pygmaeus"), szoo("orangutan")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "tapanuli-orangutan",
@@ -116,7 +116,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Gorilla_beringei")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
     notes:
       "Includes the mountain gorilla, whose closely monitored sub-population has shown localised recovery.",
   }),
@@ -247,7 +247,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Leontopithecus_rosalia"), szoo("golden-lion-tamarin")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
     notes:
       "A long-running reintroduction programme in Brazil's Atlantic Forest is often cited as a conservation success story.",
   }),
@@ -375,7 +375,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Diceros_bicornis")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "greater-one-horned-rhinoceros",
@@ -434,7 +434,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Elephas_maximus"), szoo("asian-elephant")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "giant-panda",
@@ -534,7 +534,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Enhydra_lutris")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "african-wild-dog",
@@ -611,7 +611,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Sarcophilus_harrisii")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
 
   // ===========================================================================
@@ -718,7 +718,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Anodorhynchus_hyacinthinus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "great-green-macaw",
@@ -794,9 +794,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Gyps bengalensis",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "South and Southeast Asia.",
+    primaryThreats: [
+      "Poisoning by the veterinary drug diclofenac in livestock carcasses",
+      "Reduced food",
+      "Habitat change",
+    ],
     sourceUrls: [adw("Gyps_bengalensis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes:
       "South Asian vulture declines have been widely linked to the veterinary drug diclofenac.",
@@ -826,9 +834,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Haliaeetus pelagicus",
     taxonGroup: "birds",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Coasts of north-eastern Asia, especially the Russian Far East, wintering around Japan and Korea.",
+    primaryThreats: [
+      "Habitat alteration along rivers and coasts",
+      "Lead poisoning from carcasses",
+      "Overfishing of prey",
+    ],
     sourceUrls: [adw("Haliaeetus_pelagicus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -848,7 +864,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Harpia_harpyja")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "african-penguin",
@@ -867,7 +883,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Spheniscus_demersus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
     notes:
       "Reported as up-listed to Critically Endangered in 2024 amid steep colony declines; confirm the current category on the live IUCN entry.",
   }),
@@ -888,7 +904,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Spheniscus_mendiculus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "yellow-eyed-penguin",
@@ -964,9 +980,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Anthochaera phrygia",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "South-eastern Australia.",
+    primaryThreats: [
+      "Loss of woodland habitat",
+      "A small, scattered population",
+      "Loss of song culture as numbers fall",
+    ],
     sourceUrls: [birdlife("regent-honeyeater-anthochaera-phrygia")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
 
@@ -1229,9 +1253,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Leptodactylus fallax",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "The Caribbean islands of Dominica and Montserrat.",
+    primaryThreats: [
+      "The amphibian fungal disease chytridiomycosis",
+      "Past hunting for food",
+      "Volcanic activity and habitat loss",
+    ],
     sourceUrls: [amphibiaweb("Leptodactylus", "fallax")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -1253,9 +1285,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Proteus anguinus",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Underground waters of the Dinaric karst in south-eastern Europe.",
+    primaryThreats: [
+      "Water pollution reaching aquifers",
+      "Disturbance of cave systems",
+      "Its restricted, fragile habitat",
+    ],
     sourceUrls: [adw("Proteus_anguinus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes: "A cave-dwelling, aquatic salamander of the Western Balkans.",
   }),
@@ -1449,9 +1489,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Pristis pectinata",
     taxonGroup: "fish",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Warm coastal and estuarine waters, much reduced from a once-wide range.",
+    primaryThreats: [
+      "Entanglement in fishing nets (its saw snags easily)",
+      "Habitat loss",
+      "Past targeted fishing",
+    ],
     sourceUrls: [noaa("smalltooth-sawfish"), adw("Pristis_pectinata")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -1510,9 +1558,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Cheilinus undulatus",
     taxonGroup: "fish",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Coral reefs of the Indo-Pacific.",
+    primaryThreats: [
+      "Overfishing for the live-reef-food-fish trade",
+      "Cyanide and destructive fishing",
+      "A slow reproductive rate",
+    ],
     sourceUrls: [fishbase("Cheilinus-undulatus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes: "Also called the Napoleon wrasse; a large, slow-growing reef fish.",
   }),
@@ -1722,9 +1778,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Dryococelus australis",
     taxonGroup: "invertebrates",
     redListCategory: "CR",
+    populationTrend: "stable",
+    rangeSummary:
+      "Lord Howe Island group in the Tasman Sea, between Australia and New Zealand.",
+    primaryThreats: [
+      "Introduced rats (which wiped it out on the main island)",
+      "A tiny natural range",
+      "Vulnerability of a small population",
+    ],
     sourceUrls: ["https://zoo.org.au/melbourne/animals/lord-howe-island-stick-insect/"],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes:
       "Rediscovered on Ball's Pyramid after being thought extinct; subject of a captive-breeding programme.",
