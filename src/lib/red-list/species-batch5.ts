@@ -82,7 +82,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Deforestation",
       "Hunting",
       "Fragmentation",
-    ], sourceUrls: [adw("Ateles_geoffroyi")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [adw("Ateles_geoffroyi")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "brown-spider-monkey", commonName: "Brown Spider Monkey", scientificName: "Ateles hybridus", taxonGroup: "mammals", redListCategory: "CR",
     populationTrend: "decreasing",
     rangeSummary:
@@ -283,7 +283,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Loss of wetlands",
       "Concentration at few wintering sites",
       "Disturbance and disease risk",
-    ], sourceUrls: [birdlife("hooded-crane-grus-monacha")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [birdlife("hooded-crane-grus-monacha")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "white-naped-crane", commonName: "White-naped Crane", scientificName: "Antigone vipio", taxonGroup: "birds", redListCategory: "VU",
     populationTrend: "decreasing",
     rangeSummary:
@@ -364,7 +364,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Trapping for the pet trade",
       "Persecution as a crop pest",
       "A very small range",
-    ], sourceUrls: [birdlife("red-fronted-macaw-ara-rubrogenys")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [birdlife("red-fronted-macaw-ara-rubrogenys")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "military-macaw", commonName: "Military Macaw", scientificName: "Ara militaris", taxonGroup: "birds", redListCategory: "VU",
     populationTrend: "decreasing",
     rangeSummary:
@@ -425,7 +425,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Introduced predators",
       "Disturbance",
       "Ocean change",
-    ], sourceUrls: [birdlife("fiordland-penguin-eudyptes-pachyrhynchus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [birdlife("fiordland-penguin-eudyptes-pachyrhynchus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "tristan-albatross", commonName: "Tristan Albatross", scientificName: "Diomedea dabbenena", taxonGroup: "birds", redListCategory: "CR",
     populationTrend: "decreasing",
     rangeSummary:
@@ -470,7 +470,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Past hunting and habitat loss",
       "Pesticides and disturbance",
       "A small population",
-    ], sourceUrls: [birdlife("northern-bald-ibis-geronticus-eremita")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [birdlife("northern-bald-ibis-geronticus-eremita")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "bengal-florican", commonName: "Bengal Florican", scientificName: "Houbaropsis bengalensis", taxonGroup: "birds", redListCategory: "CR",
     populationTrend: "decreasing",
     rangeSummary:
