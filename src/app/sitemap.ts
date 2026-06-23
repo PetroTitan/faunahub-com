@@ -509,6 +509,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "sandgrouse",
     "mousebird",
     "courser",
+    // Cross-class batch (kodkod … lancelet)
+    "kodkod",
+    "flat-headed-cat",
+    "bush-dog",
+    "zorilla",
+    "takin",
+    "dik-dik",
+    "go-away-bird",
+    "coucal",
+    "pratincole",
+    "button-quail",
+    "painted-snipe",
+    "plated-lizard",
+    "sandfish",
+    "chorus-frog",
+    "rain-frog",
+    "weeverfish",
+    "lanternfish",
+    "leafhopper",
+    "lancelet",
   ];
 
   const compareSlugs = [
