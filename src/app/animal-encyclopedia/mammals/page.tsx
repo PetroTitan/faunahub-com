@@ -136,6 +136,11 @@ const mammals = [
   { href: "/animals/oncilla", label: "Oncilla", desc: "Leopardus tigrinus — one of the smallest American cats; a little-known, vulnerable forest hunter." },
   { href: "/animals/paca", label: "Paca", desc: "Cuniculus paca — a large spotted rainforest rodent with sound-amplifying cheekbones." },
   { href: "/animals/babirusa", label: "Babirusa", desc: "Genus Babyrousa — the 'pig-deer' whose upper tusks curl up through the snout." },
+  { href: "/animals/dhole", label: "Dhole", desc: "Cuon alpinus — the whistling Asiatic wild dog; an endangered, highly cooperative pack hunter." },
+  { href: "/animals/maned-wolf", label: "Maned Wolf", desc: "Chrysocyon brachyurus — a long-legged South American 'fox on stilts' that eats lots of fruit." },
+  { href: "/animals/saiga", label: "Saiga", desc: "Saiga tatarica — an Ice Age steppe antelope with a bulbous, trunk-like nose; recovering from near-extinction." },
+  { href: "/animals/markhor", label: "Markhor", desc: "Capra falconeri — the largest wild goat, with magnificent corkscrew horns; Pakistan's national animal." },
+  { href: "/animals/gerenuk", label: "Gerenuk", desc: "Litocranius walleri — the long-necked 'giraffe gazelle' that stands on its hind legs to browse." },
 ];
 
 export default function MammalsPage() {

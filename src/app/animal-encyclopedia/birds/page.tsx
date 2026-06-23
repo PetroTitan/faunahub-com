@@ -119,6 +119,11 @@ const birds = [
   { href: "/animals/puffbird", label: "Puffbird", desc: "Family Bucconidae — stocky, big-headed Neotropical sit-and-wait hunters; relatives of jacamars." },
   { href: "/animals/barbet", label: "Barbet", desc: "Chunky, colourful bristle-faced birds — relatives of toucans that chisel nest holes." },
   { href: "/animals/drongo", label: "Drongo", desc: "Family Dicruridae — bold black fork-tailed birds; clever mimics that fake alarm calls to steal food." },
+  { href: "/animals/bustard", label: "Bustard", desc: "Family Otididae — stately ground birds of open plains; among the heaviest flying birds, with grand male displays." },
+  { href: "/animals/thick-knee", label: "Thick-knee (Stone-curlew)", desc: "Family Burhinidae — big-eyed, cryptic, mostly nocturnal ground birds with eerie wailing calls." },
+  { href: "/animals/sandgrouse", label: "Sandgrouse", desc: "Family Pteroclidae — desert birds whose males carry water to their chicks in special belly feathers." },
+  { href: "/animals/mousebird", label: "Mousebird", desc: "Order Coliiformes — crested African birds that clamber mouse-like and huddle to sunbathe; Africa's only endemic bird order." },
+  { href: "/animals/courser", label: "Courser", desc: "Family Glareolidae — long-legged dryland birds that run swiftly across open ground instead of wading." },
 ];
 
 export default function EncyclopediaBirdsPage() {

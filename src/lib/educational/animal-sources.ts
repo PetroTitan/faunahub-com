@@ -2329,6 +2329,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_ADW,
     SRC_IUCN,
   ],
+  // Mammals & birds batch 4 (2026-06-22)
+  dhole: [
+    adw("Cuon_alpinus", "Cuon alpinus (dhole)"),
+    brit("dhole", "Dhole"),
+    SRC_IUCN,
+  ],
+  "maned-wolf": [
+    adw("Chrysocyon_brachyurus", "Chrysocyon brachyurus (maned wolf)"),
+    brit("maned-wolf", "Maned wolf"),
+    SRC_IUCN,
+  ],
+  saiga: [
+    adw("Saiga_tatarica", "Saiga tatarica (saiga antelope)"),
+    brit("saiga", "Saiga"),
+    SRC_IUCN,
+  ],
+  markhor: [
+    adw("Capra_falconeri", "Capra falconeri (markhor)"),
+    brit("markhor", "Markhor"),
+    SRC_IUCN,
+  ],
+  gerenuk: [
+    adw("Litocranius_walleri", "Litocranius walleri (gerenuk)"),
+    brit("gerenuk", "Gerenuk"),
+    SRC_IUCN,
+  ],
+  bustard: [
+    brit("bustard", "Bustard"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "thick-knee": [
+    brit("thick-knee", "Thick-knee (stone-curlew)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  sandgrouse: [
+    brit("sandgrouse", "Sandgrouse"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  mousebird: [
+    brit("mousebird", "Mousebird"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  courser: [
+    SRC_CORNELL_BIRDS,
+    SRC_ADW,
+    SRC_IUCN,
+  ],
 };
 
 /**
