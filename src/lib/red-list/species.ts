@@ -866,7 +866,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Neophron_percnopterus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "steller-sea-eagle",
@@ -982,7 +982,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Fratercula_arctica")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "shoebill",
@@ -1020,7 +1020,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Sagittarius_serpentarius")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "regent-honeyeater",
@@ -1133,7 +1133,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [noaa("loggerhead-turtle"), adw("Caretta_caretta")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "gharial",
@@ -1208,7 +1208,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Astrochelys_radiata")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "komodo-dragon",

@@ -446,7 +446,7 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     sourceUrls: [noaa("olive-ridley-turtle"), adw("Lepidochelys_olivacea")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "american-crocodile",
@@ -598,7 +598,7 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Amblyrhynchus_cristatus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "fiji-crested-iguana",

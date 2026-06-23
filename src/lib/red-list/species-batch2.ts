@@ -395,7 +395,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Equus_grevyi")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "saola",
@@ -455,7 +455,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [birdlife("red-crowned-crane-grus-japonensis")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "blue-crane",
@@ -644,7 +644,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [birdlife("kea-nestor-notabilis")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "swift-parrot",
@@ -795,7 +795,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [birdlife("wandering-albatross-diomedea-exulans")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "humboldt-penguin",

@@ -44,7 +44,7 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Prionailurus_viverrinus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "lion-tailed-macaque",
