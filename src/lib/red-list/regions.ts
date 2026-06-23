@@ -98,6 +98,7 @@ export const REGION_ORDER: RedListRegion[] = [
  */
 export const REGION_SPECIES: Record<RedListRegion, string[]> = {
   europe: [
+    "great-auk",
     "barbary-macaque",
     "spanish-imperial-eagle",
     "eastern-imperial-eagle",
@@ -119,6 +120,8 @@ export const REGION_SPECIES: Record<RedListRegion, string[]> = {
     "polar-bear",
   ],
   "north-america": [
+    "golden-toad",
+    "passenger-pigeon",
     "geoffroys-spider-monkey",
     "military-macaw",
     "central-american-river-turtle",
@@ -218,6 +221,11 @@ export const REGION_SPECIES: Record<RedListRegion, string[]> = {
     "lemur-leaf-frog",
   ],
   africa: [
+    "western-black-rhinoceros",
+    "quagga",
+    "giant-ground-pangolin",
+    "aldabra-giant-tortoise",
+    "hirola",
     "dodo",
     "temmincks-pangolin",
     "cross-river-gorilla",
@@ -281,6 +289,8 @@ export const REGION_SPECIES: Record<RedListRegion, string[]> = {
     "coelacanth",
   ],
   asia: [
+    "asiatic-cheetah",
+    "philippine-pangolin",
     "baiji",
     "sumatran-elephant",
     "sumatran-tiger",

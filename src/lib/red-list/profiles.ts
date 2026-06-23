@@ -6416,4 +6416,212 @@ export const RED_LIST_PROFILES: Record<string, RedListProfileContent> = {
     ],
     relatedAnimal: { label: "Tasmanian devil profile", href: "/animals/tasmanian-devil" },
   },
+  "hirola": {
+    summary: [
+      "The hirola is a slender, sandy-coloured antelope of East Africa, the only living member of its genus. It is assessed as Critically Endangered.",
+      "Pale 'spectacle' markings around its eyes give it the nickname 'four-eyed antelope'.",
+    ],
+    whyItMatters:
+      "The sole survivor of an ancient antelope lineage, the hirola is a flagship for the threatened grasslands of the Kenya-Somalia border.",
+    faq: [
+      {
+        question: "Why is the hirola called the 'four-eyed antelope'?",
+        answer:
+          "Pale markings and prominent preorbital scent glands below each eye create the impression of a second pair of eyes, giving rise to the nickname.",
+      },
+      {
+        question: "Why is the hirola Critically Endangered?",
+        answer:
+          "Published assessments cite habitat loss and degradation, drought, and disease and predation acting on a very small population. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "aldabra-giant-tortoise": {
+    summary: [
+      "The Aldabra giant tortoise is one of the largest tortoises in the world and survives in large numbers on a single Indian Ocean atoll. It is assessed as Vulnerable.",
+      "It is a long-lived grazer that shapes its island's vegetation.",
+    ],
+    whyItMatters:
+      "One of only two surviving giant tortoise lineages on Earth, the Aldabra giant tortoise is a flagship for island conservation and a grazing 'ecosystem engineer'.",
+    faq: [
+      {
+        question: "How is the Aldabra giant tortoise different from the Galápagos giant tortoise?",
+        answer:
+          "They are unrelated giant tortoises on opposite sides of the world: Aldabra in the Indian Ocean, Galápagos in the Pacific. Both reached great size on isolated islands, an example of island gigantism.",
+      },
+      {
+        question: "Why is the Aldabra giant tortoise Vulnerable despite large numbers?",
+        answer:
+          "Almost the whole wild population lives on one atoll, so it is highly exposed to disasters and sea-level rise. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Tortoise profile", href: "/animals/tortoise" },
+  },
+  "giant-ground-pangolin": {
+    summary: [
+      "The giant ground pangolin is the largest of all pangolins, a scale-covered, ant- and termite-eating mammal of Africa. It is assessed as Endangered.",
+      "Like all pangolins it rolls into an armoured ball when threatened and is heavily trafficked.",
+    ],
+    whyItMatters:
+      "The biggest pangolin and, like its relatives, a major target of trafficking, the giant ground pangolin is a flagship against the illegal wildlife trade.",
+    faq: [
+      {
+        question: "How big is the giant ground pangolin?",
+        answer:
+          "It is the largest pangolin species, substantially bigger than the others, though still a shy, slow-moving insect-eater.",
+      },
+      {
+        question: "Why is the giant ground pangolin Endangered?",
+        answer:
+          "Published assessments cite poaching and trafficking for scales and meat, alongside habitat loss. Pangolins are among the most trafficked wild mammals. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Pangolin profile", href: "/animals/pangolin" },
+  },
+  "philippine-pangolin": {
+    summary: [
+      "The Philippine pangolin is a scale-covered ant-eater found only in the Palawan area of the Philippines. It is assessed as Critically Endangered.",
+      "It is heavily targeted by traffickers despite its small, island-restricted range.",
+    ],
+    whyItMatters:
+      "An island-endemic pangolin pushed to the brink by trafficking, the Philippine pangolin is a flagship for Philippine wildlife protection.",
+    faq: [
+      {
+        question: "Where is the Philippine pangolin found?",
+        answer:
+          "Only in the Palawan region of the Philippines, giving it a small, island-restricted range that makes trafficking pressure especially damaging.",
+      },
+      {
+        question: "Why is the Philippine pangolin Critically Endangered?",
+        answer:
+          "Published assessments cite poaching and trafficking, habitat loss, and its restricted range. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Pangolin profile", href: "/animals/pangolin" },
+  },
+  "asiatic-cheetah": {
+    summary: [
+      "The Asiatic cheetah is a critically endangered cheetah subspecies that survives only in Iran, with only a few dozen thought to remain. It is assessed as Critically Endangered.",
+      "It once ranged across South-West and Central Asia but is now confined to Iranian deserts.",
+    ],
+    whyItMatters:
+      "The last cheetahs of Asia, reduced to a tiny Iranian population, are a flagship for arid-land conservation and a stark measure of the species' retreat.",
+    faq: [
+      {
+        question: "How many Asiatic cheetahs are left?",
+        answer:
+          "Only a few dozen are thought to survive, all in Iran, making it one of the most endangered big cats in the world.",
+      },
+      {
+        question: "How is the Asiatic cheetah different from African cheetahs?",
+        answer:
+          "It is a distinct subspecies that historically ranged across Asia; today it clings on only in Iran, while cheetahs elsewhere live in Africa. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Cheetah profile", href: "/animals/cheetah" },
+  },
+  "quagga": {
+    summary: [
+      "The quagga was a southern African zebra, striped only on the front half of its body, that was hunted to extinction in the 19th century. It is assessed as Extinct.",
+      "The last known quagga died in an Amsterdam zoo in 1883.",
+    ],
+    whyItMatters:
+      "Hunted out within a human lifetime, the quagga is a classic case of extinction by overhunting — and the inspiration for a selective-breeding project to recreate its look.",
+    faq: [
+      {
+        question: "What did the quagga look like?",
+        answer:
+          "It was a zebra with bold stripes on its head and neck that faded into a plain brown rear, unlike the fully striped plains zebra. It is now considered a subspecies/population of the plains zebra.",
+      },
+      {
+        question: "Is the quagga being brought back?",
+        answer:
+          "A South African project selectively breeds plains zebras for quagga-like reduced striping, but this recreates the appearance rather than reviving the exact extinct animal. The quagga itself is assessed as Extinct.",
+      },
+    ],
+    relatedAnimal: { label: "Zebra profile", href: "/animals/zebra" },
+  },
+  "great-auk": {
+    summary: [
+      "The great auk was a large, flightless North Atlantic seabird that looked and lived much like a penguin. It is assessed as Extinct, with the last birds killed in 1844.",
+      "It was hunted relentlessly for its meat, eggs, down, and oil.",
+    ],
+    whyItMatters:
+      "A flightless seabird hunted to extinction, the great auk is a powerful early lesson in how relentless exploitation can erase even an abundant species.",
+    faq: [
+      {
+        question: "Was the great auk a penguin?",
+        answer:
+          "No, but it strongly resembled one and even shared the name origin: it was a large, flightless, black-and-white North Atlantic seabird, an example of unrelated animals evolving similar forms.",
+      },
+      {
+        question: "When and why did the great auk go extinct?",
+        answer:
+          "Published accounts cite relentless hunting for meat, eggs, down, and oil — and intensified collecting as it grew rare — with the last known birds killed in 1844.",
+      },
+    ],
+  },
+  "passenger-pigeon": {
+    summary: [
+      "The passenger pigeon was once possibly the most abundant bird on Earth, flying over North America in flocks of billions. It is assessed as Extinct.",
+      "The last individual, named Martha, died at the Cincinnati Zoo in 1914.",
+    ],
+    whyItMatters:
+      "From billions to none in decades, the passenger pigeon is the defining example of how even the most abundant species can be driven extinct by people.",
+    faq: [
+      {
+        question: "How abundant was the passenger pigeon?",
+        answer:
+          "It is thought to have been one of the most numerous birds ever, with flocks of hundreds of millions to billions darkening the sky for hours as they passed.",
+      },
+      {
+        question: "How did such an abundant bird go extinct?",
+        answer:
+          "Published accounts cite mass commercial hunting and the destruction of its forest habitat; its survival may also have depended on huge flocks, so once numbers fell it collapsed. The last bird died in 1914.",
+      },
+    ],
+    relatedAnimal: { label: "Pigeon profile", href: "/animals/pigeon" },
+  },
+  "golden-toad": {
+    summary: [
+      "The golden toad was a tiny, brilliant orange toad of Costa Rica's Monteverde cloud forest. It is assessed as Extinct, last seen in 1989.",
+      "Its sudden disappearance became a symbol of the global amphibian crisis.",
+    ],
+    whyItMatters:
+      "Vanishing within a few years from a protected cloud forest, the golden toad is an emblem of the amphibian extinction crisis and of climate and disease pressures on wildlife.",
+    faq: [
+      {
+        question: "Why is the golden toad so famous?",
+        answer:
+          "Its sudden disappearance from a seemingly protected cloud forest in the late 1980s became one of the first high-profile signs of a worldwide collapse of amphibian populations.",
+      },
+      {
+        question: "What caused the golden toad's extinction?",
+        answer:
+          "Published accounts point to climate-linked drying of its breeding pools and disease, acting on a species with an extremely small range. It was last seen in 1989 and is assessed as Extinct.",
+      },
+    ],
+    relatedAnimal: { label: "Toad profile", href: "/animals/toad" },
+  },
+  "western-black-rhinoceros": {
+    summary: [
+      "The western black rhinoceros was a subspecies of the black rhino found in west-central Africa. It was declared Extinct, with no confirmed sightings after the early 2000s.",
+      "Relentless poaching for horn wiped out the last animals.",
+    ],
+    whyItMatters:
+      "Declared extinct in 2011, the western black rhinoceros is a recent, stark reminder that poaching can erase even large, iconic animals within living memory.",
+    faq: [
+      {
+        question: "When was the western black rhinoceros declared extinct?",
+        answer:
+          "It was declared Extinct in 2011 after surveys failed to find any survivors; it had not been reliably recorded since the early 2000s.",
+      },
+      {
+        question: "What caused its extinction?",
+        answer:
+          "Published accounts cite relentless poaching for rhino horn and the failure of protection across its range. The black rhinoceros as a whole survives and is the subject of intensive conservation. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Rhinoceros profile", href: "/animals/rhinoceros" },
+  },
 };
