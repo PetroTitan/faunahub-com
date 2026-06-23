@@ -172,10 +172,18 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Lynx pardinus",
     taxonGroup: "mammals",
     redListCategory: "VU",
+    populationTrend: "increasing",
+    rangeSummary:
+      "Found in Mediterranean scrubland and woodland in parts of Spain and Portugal, on the Iberian Peninsula.",
+    primaryThreats: [
+      "Past collapse of its main prey, the European rabbit",
+      "Habitat loss and fragmentation",
+      "Road collisions",
+    ],
     sourceUrls: [adw("Lynx_pardinus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
-    imageStatus: "not-planned",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
+    imageStatus: "has-image",
     notes:
       "Reported as down-listed from Endangered to Vulnerable in 2024 after sustained recovery; confirm the current category on the live IUCN entry.",
   }),
@@ -237,10 +245,18 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Addax nasomaculatus",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "A desert antelope of the Sahara, now reduced to tiny remnant numbers in the wild, mainly in Niger and Chad.",
+    primaryThreats: [
+      "Uncontrolled hunting",
+      "Disturbance from oil exploration",
+      "Drought and habitat degradation",
+    ],
     sourceUrls: [adw("Addax_nasomaculatus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
-    imageStatus: "not-planned",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "grevys-zebra",

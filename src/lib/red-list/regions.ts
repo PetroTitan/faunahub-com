@@ -314,6 +314,7 @@ export const REGION_SPECIES: Record<RedListRegion, string[]> = {
     "tapanuli-orangutan",
     "proboscis-monkey",
     "tiger",
+    "amur-leopard",
     "snow-leopard",
     "lion",
     "leopard",

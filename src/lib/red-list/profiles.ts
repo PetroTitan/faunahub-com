@@ -379,4 +379,128 @@ export const RED_LIST_PROFILES: Record<string, RedListProfileContent> = {
       { question: "Why is the shoebill Vulnerable?", answer: "Published assessments cite wetland degradation and drainage, disturbance and nest destruction, and capture for the bird trade." },
     ],
   },
+  "amur-leopard": {
+    summary: [
+      "The Amur leopard is a rare northern subspecies of the leopard that lives in the cold temperate forests of the Russian Far East and adjacent north-east China. It is assessed as Critically Endangered on the IUCN Red List.",
+      "Adapted to snowy winters, it grows a thick, pale coat with widely spaced rosettes — a striking contrast to leopards of the tropics.",
+    ],
+    whyItMatters:
+      "As the top cat of its forests, the Amur leopard helps keep deer and other prey populations in balance, and its recovery is a high-profile test of cross-border conservation.",
+    faq: [
+      {
+        question: "How many Amur leopards are left?",
+        answer:
+          "It remains one of the rarest big cats, but coordinated protection across Russia and China has reportedly lifted numbers from a few dozen to over a hundred. For the current assessment, see the IUCN Red List.",
+      },
+      {
+        question: "Is the Amur leopard a separate species?",
+        answer:
+          "No. It is a subspecies of the leopard (Panthera pardus orientalis), adapted to a far colder climate than most leopards, with a thicker coat and paler colouring.",
+      },
+    ],
+    relatedAnimal: { label: "Leopard profile", href: "/animals/leopard" },
+  },
+  "iberian-lynx": {
+    summary: [
+      "The Iberian lynx is a medium-sized, heavily spotted cat of Spain and Portugal, with bold ear tufts and a ruff of facial fur. After teetering on the edge of extinction, it is now assessed as Vulnerable — a rare conservation success story.",
+      "It is a specialist hunter that depends heavily on a single prey animal, the European rabbit.",
+    ],
+    whyItMatters:
+      "The Iberian lynx is one of the clearest examples that intensive, sustained conservation — captive breeding, habitat restoration, and prey recovery — can pull a species back from the brink.",
+    faq: [
+      {
+        question: "Why did the Iberian lynx nearly go extinct?",
+        answer:
+          "Published assessments point to crashes in its main prey (the European rabbit, hit by disease), along with habitat loss, fragmentation, and deaths on roads. At its low point only a few hundred remained.",
+      },
+      {
+        question: "Is the Iberian lynx recovering?",
+        answer:
+          "Yes. It was reportedly down-listed from Endangered to Vulnerable in 2024 after years of recovery. Confirm the current category on the live IUCN Red List entry.",
+      },
+    ],
+    relatedAnimal: { label: "Lynx profile", href: "/animals/lynx" },
+  },
+  "philippine-eagle": {
+    summary: [
+      "The Philippine eagle is one of the largest and most powerful eagles in the world, endemic to old-growth rainforest in the Philippines. It is assessed as Critically Endangered on the IUCN Red List.",
+      "A forest apex predator, it hunts animals as large as flying lemurs, monkeys, and other birds, and pairs raise a single chick over a long period.",
+    ],
+    whyItMatters:
+      "As the national bird of the Philippines and a top forest predator, it is a flagship for protecting the country's remaining old-growth rainforest.",
+    faq: [
+      {
+        question: "Why is the Philippine eagle Critically Endangered?",
+        answer:
+          "Published assessments cite the loss of old-growth forest to logging and agriculture, hunting and shooting, and a naturally very low reproductive rate. See the IUCN Red List for the current assessment.",
+      },
+      {
+        question: "How big is the Philippine eagle?",
+        answer:
+          "It is among the largest eagles on Earth by length and wing surface, with a tall shaggy crest and a massive bill. Each breeding pair needs a large territory of intact forest.",
+      },
+    ],
+    relatedAnimal: { label: "Eagle profile", href: "/animals/eagle" },
+  },
+  addax: {
+    summary: [
+      "The addax is a pale desert antelope of the Sahara, with long, gently spiralled horns and wide hooves suited to soft sand. It is assessed as Critically Endangered, and is now extremely rare in the wild.",
+      "Superbly adapted to extreme desert, it can survive long periods without drinking, drawing moisture from its food.",
+    ],
+    whyItMatters:
+      "The addax is one of the most desert-adapted large mammals alive, and its near-disappearance is a stark indicator of how heavily the Sahara's wildlife has been hunted.",
+    faq: [
+      {
+        question: "Why is the addax Critically Endangered?",
+        answer:
+          "Published assessments cite uncontrolled hunting, disturbance from oil exploration, and drought and habitat degradation. Only a tiny wild population is thought to remain, though it is also kept in captivity. See the IUCN Red List.",
+      },
+      {
+        question: "How does the addax survive in the desert?",
+        answer:
+          "It can go for long periods without drinking, getting most of its water from the desert plants it eats, and its splayed hooves help it walk on loose sand.",
+      },
+    ],
+  },
+  vaquita: {
+    summary: [
+      "The vaquita is a tiny porpoise found only in the northern Gulf of California in Mexico — the smallest range of any marine mammal. It is assessed as Critically Endangered and is widely reported to be the most endangered marine mammal in the world.",
+      "It is rarely seen, with distinctive dark rings around the eyes and dark lip patches.",
+    ],
+    whyItMatters:
+      "The vaquita's plight shows how a single, indirect pressure — drowning in fishing nets set for other species — can drive an animal to the edge of extinction.",
+    faq: [
+      {
+        question: "Why is the vaquita so endangered?",
+        answer:
+          "Published assessments point to drowning as accidental bycatch in illegal gillnets, especially those set for the totoaba fish. Because the population is now extremely small, every loss matters. See the IUCN Red List.",
+      },
+      {
+        question: "Where do vaquitas live?",
+        answer:
+          "Only in the shallow, murky waters of the northern Gulf of California (Sea of Cortez), Mexico. They are found nowhere else on Earth.",
+      },
+    ],
+  },
+  "sumatran-rhinoceros": {
+    summary: [
+      "The Sumatran rhinoceros is the smallest living rhino and the only Asian rhino with two horns. Notably hairy, it is a relative of the extinct woolly rhinoceros. It is assessed as Critically Endangered.",
+      "It survives only in small, scattered rainforest populations, which makes finding mates very difficult.",
+    ],
+    whyItMatters:
+      "As a browsing forest rhino, it helps shape rainforest vegetation, and its survival now depends on bringing isolated animals together to breed.",
+    faq: [
+      {
+        question: "Why is the Sumatran rhinoceros Critically Endangered?",
+        answer:
+          "Published assessments cite very small, fragmented populations with few breeding opportunities, a history of poaching for horn, and habitat loss. See the IUCN Red List for the current assessment.",
+      },
+      {
+        question: "What makes the Sumatran rhino unusual?",
+        answer:
+          "It is the smallest rhino, has two horns, and is covered in coarse hair — features that link it to the Ice Age woolly rhinoceros.",
+      },
+    ],
+    relatedAnimal: { label: "Rhinoceros profile", href: "/animals/rhinoceros" },
+  },
 };

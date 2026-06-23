@@ -287,10 +287,18 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Dicerorhinus sumatrensis",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Survives only in small, scattered rainforest populations on Sumatra and Borneo, Indonesia.",
+    primaryThreats: [
+      "Very small, fragmented populations with few breeding opportunities",
+      "Historical poaching for horn",
+      "Habitat loss and isolation",
+    ],
     sourceUrls: [adw("Dicerorhinus_sumatrensis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
-    imageStatus: "not-planned",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "javan-rhinoceros",
@@ -411,12 +419,40 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Phocoena sinus",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Endemic to the northern Gulf of California (Sea of Cortez), Mexico — the smallest range of any porpoise.",
+    primaryThreats: [
+      "Drowning as bycatch in illegal gillnets (especially those set for the totoaba fish)",
+      "An extremely small remaining population",
+    ],
     sourceUrls: [adw("Phocoena_sinus"), noaa("vaquita")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
-    imageStatus: "not-planned",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
+    imageStatus: "has-image",
     notes:
-      "A porpoise endemic to the northern Gulf of California; widely reported as one of the world's most threatened marine mammals.",
+      "A porpoise endemic to the northern Gulf of California; widely reported as the world's most endangered marine mammal.",
+  }),
+  rec({
+    slug: "amur-leopard",
+    commonName: "Amur Leopard",
+    scientificName: "Panthera pardus orientalis",
+    taxonGroup: "mammals",
+    redListCategory: "CR",
+    populationTrend: "increasing",
+    rangeSummary:
+      "A leopard subspecies of the temperate forests of the Russian Far East and adjacent north-east China.",
+    primaryThreats: [
+      "Poaching of leopards and of the prey they depend on",
+      "Habitat loss from logging and fires",
+      "A very small population with low genetic diversity",
+    ],
+    sourceUrls: [adw("Panthera_pardus")],
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
+    imageStatus: "has-image",
+    notes:
+      "The Amur leopard is a northern subspecies of the leopard (Panthera pardus); cross-border protection has reportedly lifted its numbers from a few dozen to over a hundred.",
   }),
   rec({
     slug: "sea-otter",
@@ -525,10 +561,18 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Pithecophaga jefferyi",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Endemic to old-growth rainforest on four Philippine islands: Luzon, Samar, Leyte, and Mindanao.",
+    primaryThreats: [
+      "Deforestation and loss of old-growth forest",
+      "Hunting and shooting",
+      "A very low reproductive rate",
+    ],
     sourceUrls: [adw("Pithecophaga_jefferyi")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
-    imageStatus: "not-planned",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "kakapo",
