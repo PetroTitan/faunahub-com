@@ -2541,4 +2541,588 @@ export const RED_LIST_PROFILES: Record<string, RedListProfileContent> = {
     ],
     relatedAnimal: { label: "Stick insect profile", href: "/animals/stick-insect" },
   },
+  "greater-one-horned-rhinoceros": {
+    summary: [
+      "The greater one-horned rhinoceros (Indian rhino) is a massive, single-horned rhino with armour-like skin folds. It is assessed as Vulnerable, having recovered strongly from near-extinction.",
+      "Most live in a small number of well-guarded reserves.",
+    ],
+    whyItMatters:
+      "A conservation success rebuilt through strict protection, the greater one-horned rhino is a flagship for India and Nepal's floodplain grasslands.",
+    faq: [
+      {
+        question: "Why does the Indian rhino look armoured?",
+        answer:
+          "Its thick skin falls into deep folds that look like riveted plates of armour, a distinctive feature of this single-horned Asian rhino.",
+      },
+      {
+        question: "Why is it only Vulnerable now?",
+        answer:
+          "Strict protection helped numbers recover from a few hundred to several thousand, improving its status — though it remains threatened by poaching and habitat loss. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Rhinoceros profile", href: "/animals/rhinoceros" },
+  },
+  "african-forest-elephant": {
+    summary: [
+      "The African forest elephant is a smaller, straighter-tusked elephant of Africa's rainforests, now recognised as a separate species. It is assessed as Critically Endangered.",
+      "It plays a vital role spreading the seeds of forest trees.",
+    ],
+    whyItMatters:
+      "As a 'forest gardener' that disperses the seeds of many rainforest trees, the African forest elephant is crucial to the health and carbon storage of central African forests.",
+    faq: [
+      {
+        question: "How is the forest elephant different from the savanna elephant?",
+        answer:
+          "It is smaller, with straighter, downward-pointing tusks and rounder ears, and lives in dense rainforest. It is now treated as a separate species from the African savanna elephant.",
+      },
+      {
+        question: "Why is the African forest elephant Critically Endangered?",
+        answer:
+          "Published assessments cite heavy poaching for ivory, habitat loss, and very slow reproduction. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Elephant profile", href: "/animals/elephant" },
+  },
+  "indus-river-dolphin": {
+    summary: [
+      "The Indus river dolphin is a freshwater dolphin that is essentially blind and navigates by echolocation. It is assessed as Endangered.",
+      "It is restricted largely to the lower Indus, fragmented by irrigation barrages.",
+    ],
+    whyItMatters:
+      "A blind river dolphin surviving in a heavily engineered river, the Indus river dolphin is a flagship for balancing irrigation with freshwater wildlife.",
+    faq: [
+      {
+        question: "Why is the Indus river dolphin nearly blind?",
+        answer:
+          "Like its Ganges relative, it lives in murky river water and relies on echolocation rather than sight, with eyes that cannot form clear images.",
+      },
+      {
+        question: "Why is the Indus river dolphin Endangered?",
+        answer:
+          "Published assessments cite barrages that fragment the river, bycatch, reduced water flow, and pollution. Targeted protection has helped some numbers recover. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Dolphin profile", href: "/animals/dolphin" },
+  },
+  "chinese-pangolin": {
+    summary: [
+      "The Chinese pangolin is a scale-covered, ant-eating mammal of Asia. It is assessed as Critically Endangered.",
+      "Like other pangolins it rolls into a ball when threatened and is heavily trafficked.",
+    ],
+    whyItMatters:
+      "Among the most trafficked mammals on Earth, the Chinese pangolin is a frontline species in the global fight against the illegal wildlife trade.",
+    faq: [
+      {
+        question: "Why are Chinese pangolins so threatened?",
+        answer:
+          "They are hunted intensely for their keratin scales (used in some traditional medicines) and their meat, making them among the most trafficked mammals, on top of habitat loss.",
+      },
+      {
+        question: "What do pangolins eat?",
+        answer:
+          "Ants and termites, which they lap up with a long, sticky tongue after tearing open nests with strong claws. See the IUCN Red List for the species' status.",
+      },
+    ],
+    relatedAnimal: { label: "Pangolin profile", href: "/animals/pangolin" },
+  },
+  "numbat": {
+    summary: [
+      "The numbat is a small, striped marsupial that feeds almost entirely on termites. It is assessed as Endangered.",
+      "Unusually for a marsupial, it is active by day, tracking termites as they move near the surface.",
+    ],
+    whyItMatters:
+      "A termite specialist and emblem of Western Australia, the numbat is a flagship for controlling introduced predators and restoring Australian woodlands.",
+    faq: [
+      {
+        question: "What does the numbat eat?",
+        answer:
+          "Almost exclusively termites — it can eat many thousands a day, licking them up with a long tongue, and does not need to dig deep because it follows termites near the surface.",
+      },
+      {
+        question: "Why is the numbat Endangered?",
+        answer:
+          "Published assessments cite predation by introduced foxes and cats, habitat loss and fragmentation, and a small population. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Numbat profile", href: "/animals/numbat" },
+  },
+  "drill": {
+    summary: [
+      "The drill is a stocky forest monkey closely related to the mandrill, with a dark face and colourful rump. It is assessed as Endangered.",
+      "It lives in large groups on the forest floor of west-central Africa.",
+    ],
+    whyItMatters:
+      "One of Africa's most threatened primates with a small range, the drill is a flagship for protecting the forests of the Nigeria-Cameroon border region.",
+    faq: [
+      {
+        question: "How is the drill related to the mandrill?",
+        answer:
+          "They are close relatives in the same genus, both large, ground-dwelling forest monkeys; the drill has a black face, while the mandrill has the famous red-and-blue face.",
+      },
+      {
+        question: "Why is the drill Endangered?",
+        answer:
+          "Published assessments cite hunting for bushmeat, habitat loss, and fragmentation across its small range. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "barbary-macaque": {
+    summary: [
+      "The Barbary macaque is the only macaque in Africa and the only wild monkey in Europe (on Gibraltar). It is assessed as Endangered.",
+      "It lives in cedar and oak forests and, unusually for a macaque, has only a stub of a tail.",
+    ],
+    whyItMatters:
+      "The only African macaque and Europe's only wild primate, the Barbary macaque is a flagship for North African mountain forests and against the primate pet trade.",
+    faq: [
+      {
+        question: "Why are there monkeys on Gibraltar?",
+        answer:
+          "A population of Barbary macaques lives on Gibraltar, the only wild monkeys in Europe; they are descended from animals from North Africa and are now a famous local attraction.",
+      },
+      {
+        question: "Why is the Barbary macaque Endangered?",
+        answer:
+          "Published assessments cite capture for the illegal pet trade, habitat loss and overgrazing, and conflict with people. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Macaque profile", href: "/animals/macaque" },
+  },
+  "red-shanked-douc": {
+    summary: [
+      "The red-shanked douc is one of the most colourful primates, a leaf-eating monkey with maroon 'stockings' and a golden face. It is assessed as Critically Endangered.",
+      "It lives high in the forest canopy and rarely comes to the ground.",
+    ],
+    whyItMatters:
+      "A spectacularly coloured leaf-eater of Indochina, the red-shanked douc is a flagship for Southeast Asian forest conservation.",
+    faq: [
+      {
+        question: "Why is the red-shanked douc so colourful?",
+        answer:
+          "Adults have maroon-red lower legs, white forearms, a golden-orange face, and grey body — among the most vividly patterned of all monkeys, earning doucs the nickname 'costumed apes'.",
+      },
+      {
+        question: "Why is the red-shanked douc Critically Endangered?",
+        answer:
+          "Published assessments cite hunting, habitat loss, and capture for trade across Vietnam, Laos, and Cambodia. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Douc profile", href: "/animals/douc" },
+  },
+  "fossa": {
+    summary: [
+      "The fossa is Madagascar's largest carnivore, a slender, cat-like predator related to the mongoose family. It is assessed as Vulnerable.",
+      "It is the main predator of lemurs and is an agile climber.",
+    ],
+    whyItMatters:
+      "As the top predator of Madagascar's forests, the fossa shapes lemur populations and is a flagship for the island's threatened ecosystems.",
+    faq: [
+      {
+        question: "Is the fossa a cat?",
+        answer:
+          "No. Although it looks and hunts like a cat, the fossa belongs to a Madagascar-specific carnivore family related to mongooses — a striking case of an animal evolving cat-like traits independently.",
+      },
+      {
+        question: "Why is the fossa Vulnerable?",
+        answer:
+          "Published assessments cite deforestation, persecution by people protecting livestock, and habitat fragmentation. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Fossa profile", href: "/animals/fossa" },
+  },
+  "hawaiian-monk-seal": {
+    summary: [
+      "The Hawaiian monk seal is one of the world's most endangered seals, found only around Hawaii. It is assessed as Endangered.",
+      "It is one of the few seals adapted to warm tropical waters.",
+    ],
+    whyItMatters:
+      "A tropical seal found nowhere else, the Hawaiian monk seal is a flagship for protecting Hawaii's marine ecosystems and tackling ocean plastic.",
+    faq: [
+      {
+        question: "Why is the Hawaiian monk seal unusual among seals?",
+        answer:
+          "Most seals live in cold waters, but the Hawaiian monk seal is adapted to warm tropical seas and is found only around the Hawaiian Islands.",
+      },
+      {
+        question: "Why is it Endangered?",
+        answer:
+          "Published assessments cite entanglement in marine debris, food shortages for young seals, disease, and human disturbance, though careful management has helped numbers. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Seal profile", href: "/animals/seal" },
+  },
+  "great-green-macaw": {
+    summary: [
+      "The great green macaw is a large, mostly green macaw of Central and South American forests. It is assessed as Critically Endangered.",
+      "It depends closely on certain large trees for nesting and food.",
+    ],
+    whyItMatters:
+      "A large rainforest parrot tied to specific trees, the great green macaw is a flagship for protecting and connecting the forests of Central America.",
+    faq: [
+      {
+        question: "Why does the great green macaw depend on particular trees?",
+        answer:
+          "It relies heavily on certain large trees (such as the almendro) for nesting cavities and food, so losing those trees directly threatens the macaw.",
+      },
+      {
+        question: "Why is the great green macaw Critically Endangered?",
+        answer:
+          "Published assessments cite deforestation, trapping for the pet trade, and loss of key nesting trees. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Parrot profile", href: "/animals/parrot" },
+  },
+  "philippine-cockatoo": {
+    summary: [
+      "The Philippine cockatoo (red-vented cockatoo) is a white cockatoo found only in the Philippines. It is assessed as Critically Endangered.",
+      "It has been devastated by trapping for the pet trade.",
+    ],
+    whyItMatters:
+      "An island cockatoo pushed to the brink by the cage-bird trade, the Philippine cockatoo is a flagship for Philippine forest and mangrove conservation.",
+    faq: [
+      {
+        question: "Why is the Philippine cockatoo Critically Endangered?",
+        answer:
+          "Published assessments cite intense trapping for the cage-bird trade and habitat loss, including the loss of mangroves it uses. See the IUCN Red List.",
+      },
+      {
+        question: "How is it recognised?",
+        answer:
+          "It is a medium-sized white cockatoo with reddish feathers under the tail (hence 'red-vented'), found only in the Philippines.",
+      },
+    ],
+    relatedAnimal: { label: "Parrot profile", href: "/animals/parrot" },
+  },
+  "yellow-eyed-penguin": {
+    summary: [
+      "The yellow-eyed penguin (hoiho) is a rare New Zealand penguin with a band of yellow around its eyes. It is assessed as Endangered.",
+      "Unlike many penguins it nests in dispersed, hidden sites rather than dense colonies.",
+    ],
+    whyItMatters:
+      "One of the world's rarest penguins and a New Zealand icon, the yellow-eyed penguin is a flagship for coastal forest restoration and predator control.",
+    faq: [
+      {
+        question: "What is unusual about how the yellow-eyed penguin nests?",
+        answer:
+          "Rather than packing into dense colonies, it nests in dispersed, sheltered sites in coastal vegetation, often out of sight of other nests.",
+      },
+      {
+        question: "Why is the yellow-eyed penguin Endangered?",
+        answer:
+          "Published assessments cite disease and food shortages, introduced predators, habitat disturbance, and bycatch. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Penguin profile", href: "/animals/penguin" },
+  },
+  "humboldt-penguin": {
+    summary: [
+      "The Humboldt penguin is a medium-sized penguin of the cold Humboldt Current off South America. It is assessed as Vulnerable.",
+      "It depends on the rich fish populations the current supports.",
+    ],
+    whyItMatters:
+      "A penguin tied to one of the world's most productive currents, the Humboldt penguin is a barometer for the health of the Peru-Chile marine ecosystem.",
+    faq: [
+      {
+        question: "Why does the Humboldt penguin live in such a warm region?",
+        answer:
+          "The cold, nutrient-rich Humboldt Current flows up the coasts of Peru and Chile, supporting huge fish populations that allow penguins to thrive despite the warm latitude.",
+      },
+      {
+        question: "Why is the Humboldt penguin Vulnerable?",
+        answer:
+          "Published assessments cite overfishing of its prey, ocean changes such as El Niño, and disturbance and bycatch. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Penguin profile", href: "/animals/penguin" },
+  },
+  "white-backed-vulture": {
+    summary: [
+      "The white-backed vulture is the most widespread vulture in Africa, yet has suffered a dramatic collapse. It is assessed as Critically Endangered.",
+      "Large numbers can die at once when carcasses are poisoned.",
+    ],
+    whyItMatters:
+      "As Africa's most common vulture in steep decline, the white-backed vulture is central to the continent's vulture crisis and the loss of nature's clean-up crew.",
+    faq: [
+      {
+        question: "Why do so many vultures die from poisoning?",
+        answer:
+          "Vultures feed together in large numbers on carcasses, so a single poisoned carcass — set deliberately or to hide poaching — can kill dozens or hundreds at once.",
+      },
+      {
+        question: "Why is the white-backed vulture Critically Endangered?",
+        answer:
+          "Published assessments cite poisoning, killing linked to poaching, and loss of food and habitat, which have caused a steep, rapid decline. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Vulture profile", href: "/animals/vulture" },
+  },
+  "sarus-crane": {
+    summary: [
+      "The sarus crane is the tallest flying bird in the world, a grey crane with a red head and neck. It is assessed as Vulnerable.",
+      "It often nests in and around farmland and is famous for lifelong pair bonds.",
+    ],
+    whyItMatters:
+      "The world's tallest flying bird and a symbol of fidelity, the sarus crane is a flagship for conserving wetlands within farmed landscapes.",
+    faq: [
+      {
+        question: "How tall is the sarus crane?",
+        answer:
+          "It is the tallest flying bird in the world, standing up to around 1.8 metres — taller than many people — with a striking red head and upper neck.",
+      },
+      {
+        question: "Why is the sarus crane Vulnerable?",
+        answer:
+          "Published assessments cite wetland loss and drainage, collisions and poisoning, and agricultural change. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "black-faced-spoonbill": {
+    summary: [
+      "The black-faced spoonbill is a rare wading bird with a black face and a spoon-shaped bill. It is assessed as Endangered.",
+      "It sweeps its bill side to side through shallow water to catch prey.",
+    ],
+    whyItMatters:
+      "A coastal specialist of East Asia's vanishing tidal flats, the black-faced spoonbill is a flagship for the threatened wetlands of the Yellow Sea region.",
+    faq: [
+      {
+        question: "How does a spoonbill feed?",
+        answer:
+          "It sweeps its flattened, spoon-tipped bill from side to side through shallow water, snapping it shut when it touches small fish or invertebrates.",
+      },
+      {
+        question: "Why is the black-faced spoonbill Endangered?",
+        answer:
+          "Published assessments cite the loss of coastal wetlands and tidal flats, pollution, and disturbance, though coordinated protection has helped numbers rise. See the IUCN Red List.",
+      },
+    ],
+  },
+  "kagu": {
+    summary: [
+      "The kagu is a near-flightless, ghost-grey bird found only in New Caledonia, with a shaggy crest. It is assessed as Endangered.",
+      "It is the sole survivor of an ancient bird lineage and nests on the ground.",
+    ],
+    whyItMatters:
+      "An ancient, near-flightless island bird with no close relatives, the kagu is a flagship for New Caledonia's unique forests and the danger introduced predators pose.",
+    faq: [
+      {
+        question: "Why is the kagu so vulnerable to introduced predators?",
+        answer:
+          "It is near-flightless and nests on the ground, so dogs, cats, rats, and pigs can easily take eggs, chicks, and adults — a common fate for island birds that evolved without such predators.",
+      },
+      {
+        question: "Why is the kagu Endangered?",
+        answer:
+          "Published assessments cite introduced predators, habitat loss, and its small island range. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Kagu profile", href: "/animals/kagu" },
+  },
+  "galapagos-land-iguana": {
+    summary: [
+      "The Galápagos land iguana is a large yellowish iguana found only on the Galápagos Islands. It is assessed as Vulnerable.",
+      "It eats cactus pads and other plants and basks on volcanic rock.",
+    ],
+    whyItMatters:
+      "A Galápagos endemic that helped inspire ideas about island evolution, the land iguana is a flagship for the archipelago's restoration and predator control.",
+    faq: [
+      {
+        question: "What does the Galápagos land iguana eat?",
+        answer:
+          "Mostly plants, including the pads and fruit of prickly-pear cactus, which also provide much of the water it needs in the dry islands.",
+      },
+      {
+        question: "Why is the Galápagos land iguana Vulnerable?",
+        answer:
+          "Published assessments cite introduced predators and grazers and past habitat damage within a restricted island range, though restoration has helped. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Iguana profile", href: "/animals/iguana" },
+  },
+  "siamese-crocodile": {
+    summary: [
+      "The Siamese crocodile is a small freshwater crocodile of Southeast Asia, nearly extinct in the wild. It is assessed as Critically Endangered.",
+      "Many more live on farms than in the wild.",
+    ],
+    whyItMatters:
+      "A freshwater crocodile that survives mainly on farms, the Siamese crocodile is a focus for wetland protection and careful reintroduction of pure wild stock.",
+    faq: [
+      {
+        question: "Why are there more Siamese crocodiles on farms than in the wild?",
+        answer:
+          "The species was heavily collected for crocodile farming, and wild populations collapsed, so farmed animals now greatly outnumber the few left in the wild.",
+      },
+      {
+        question: "Why is the Siamese crocodile Critically Endangered?",
+        answer:
+          "Published assessments cite past collection, habitat loss, hybridisation concerns, and a very small wild population. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Crocodile profile", href: "/animals/crocodile" },
+  },
+  "tomistoma": {
+    summary: [
+      "The tomistoma, or false gharial, is a slender-snouted crocodilian of Southeast Asian swamps. It is assessed as Vulnerable.",
+      "Its very narrow snout suits catching fish, like the true gharial it resembles.",
+    ],
+    whyItMatters:
+      "A specialised freshwater crocodilian of vanishing peat swamps, the tomistoma is a flagship for Southeast Asia's threatened wetland forests.",
+    faq: [
+      {
+        question: "Is the tomistoma a true gharial?",
+        answer:
+          "No. It is called the 'false gharial' because its long, slender snout resembles the gharial's, but it is a separate species; its exact relationships have long been debated.",
+      },
+      {
+        question: "Why is the tomistoma Vulnerable?",
+        answer:
+          "Published assessments cite habitat loss (especially drainage of peat swamps), entanglement in fishing nets, and egg collection. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Gharial profile", href: "/animals/gharial" },
+  },
+  "lemur-leaf-frog": {
+    summary: [
+      "The lemur leaf frog is a small, slender tree frog that is green by day and turns brown at night. It is assessed as Critically Endangered.",
+      "It clings to vegetation with a slow, deliberate, lemur-like climb.",
+    ],
+    whyItMatters:
+      "A delicate Central American tree frog hit hard by amphibian disease, the lemur leaf frog is part of the wider amphibian extinction crisis and captive 'ark' efforts.",
+    faq: [
+      {
+        question: "Why does the lemur leaf frog change colour?",
+        answer:
+          "It is bright green and active-looking by day and turns reddish-brown at night, a colour change linked to camouflage and its daily rhythm.",
+      },
+      {
+        question: "Why is the lemur leaf frog Critically Endangered?",
+        answer:
+          "Published assessments cite the amphibian fungal disease chytridiomycosis and habitat loss, which have caused steep declines. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Tree frog profile", href: "/animals/tree-frog" },
+  },
+  "archeys-frog": {
+    summary: [
+      "Archey's frog is a tiny, ancient New Zealand frog that has changed little over a very long evolutionary history. It is assessed as Critically Endangered.",
+      "It has no free tadpole stage — young develop on the male's back.",
+    ],
+    whyItMatters:
+      "One of the most evolutionarily distinct amphibians alive, Archey's frog is a living link to deep frog history and a flagship for New Zealand's native frogs.",
+    faq: [
+      {
+        question: "What makes Archey's frog special?",
+        answer:
+          "It belongs to an ancient lineage of New Zealand frogs that has changed little over a very long time, and it skips the free-swimming tadpole stage — froglets develop on the male's back.",
+      },
+      {
+        question: "Why is Archey's frog Critically Endangered?",
+        answer:
+          "Published assessments cite the amphibian fungal disease chytridiomycosis, introduced predators, and its tiny range. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Frog profile", href: "/animals/frog" },
+  },
+  "nassau-grouper": {
+    summary: [
+      "The Nassau grouper is a large Caribbean reef fish once central to local fisheries. It is assessed as Critically Endangered.",
+      "It gathers in large spawning aggregations that are easily overfished.",
+    ],
+    whyItMatters:
+      "A reef predator whose predictable spawning gatherings make it acutely vulnerable, the Nassau grouper is a flagship for protecting fish spawning sites.",
+    faq: [
+      {
+        question: "Why are spawning aggregations so risky for the Nassau grouper?",
+        answer:
+          "The fish gather in large, predictable numbers at the same places and times to spawn, which makes them extremely easy to catch in bulk — quickly depleting breeding adults.",
+      },
+      {
+        question: "Why is the Nassau grouper Critically Endangered?",
+        answer:
+          "Published assessments cite overfishing, especially at spawning aggregations, and habitat loss. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Grouper profile", href: "/animals/grouper" },
+  },
+  "southern-bluefin-tuna": {
+    summary: [
+      "The southern bluefin tuna is a large, fast, warm-bodied ocean fish prized for sushi and sashimi. It is assessed as Endangered.",
+      "Heavy fishing drove a severe decline, with cautious signs of recovery under quotas.",
+    ],
+    whyItMatters:
+      "A high-value ocean predator hammered by fishing, the southern bluefin tuna is a key test of whether international quota management can rebuild a depleted fishery.",
+    faq: [
+      {
+        question: "Why is southern bluefin tuna so heavily fished?",
+        answer:
+          "It is highly valued for sushi and sashimi, which drove intense fishing and a severe population decline; international quotas now aim to rebuild the stock.",
+      },
+      {
+        question: "Why is the southern bluefin tuna Endangered?",
+        answer:
+          "Published assessments cite past severe overfishing, continued fishing pressure, and slow maturation that makes recovery gradual. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Tuna profile", href: "/animals/tuna" },
+  },
+  "banggai-cardinalfish": {
+    summary: [
+      "The Banggai cardinalfish is a striking black-and-silver reef fish with a very small natural range. It is assessed as Endangered.",
+      "Males brood the eggs and young in their mouths.",
+    ],
+    whyItMatters:
+      "A beautiful reef fish heavily collected for aquariums from a tiny range, the Banggai cardinalfish is a flagship for sustainable aquarium-trade practices.",
+    faq: [
+      {
+        question: "How do Banggai cardinalfish raise their young?",
+        answer:
+          "Males are mouthbrooders: they hold the eggs and then the tiny young in their mouths until the juveniles are ready to fend for themselves.",
+      },
+      {
+        question: "Why is the Banggai cardinalfish Endangered?",
+        answer:
+          "Published assessments cite heavy collection for the aquarium trade from a very small natural range, plus habitat damage. See the IUCN Red List.",
+      },
+    ],
+  },
+  "giant-freshwater-stingray": {
+    summary: [
+      "The giant freshwater stingray is one of the largest freshwater fish in the world, a huge ray with a long venomous tail spine. It is assessed as Endangered.",
+      "It lives buried on the beds of large rivers.",
+    ],
+    whyItMatters:
+      "A river giant that is rarely seen, the giant freshwater stingray is a flagship for the health of Southeast Asia's great rivers and their megafauna.",
+    faq: [
+      {
+        question: "How big is the giant freshwater stingray?",
+        answer:
+          "It is among the largest freshwater fish on Earth, with a body disc that can be around two metres across and a total length, including the tail, that is much greater.",
+      },
+      {
+        question: "Why is the giant freshwater stingray Endangered?",
+        answer:
+          "Published assessments cite overfishing and bycatch, habitat degradation, and dams and pollution in its river systems. See the IUCN Red List. Its tail bears a venomous spine, so it should never be handled.",
+      },
+    ],
+    relatedAnimal: { label: "Ray profile", href: "/animals/ray" },
+  },
+  "pillar-coral": {
+    summary: [
+      "Pillar coral is a distinctive coral that grows in tall, finger-like columns on Caribbean reefs. It is assessed as Vulnerable, and has declined sharply with disease.",
+      "Like all corals it is a colony of tiny animals living with symbiotic algae.",
+    ],
+    whyItMatters:
+      "A distinctive reef-building coral hit hard by disease and warming, pillar coral is part of the wider Caribbean reef crisis and a focus of coral-restoration work.",
+    faq: [
+      {
+        question: "Why is pillar coral easy to recognise?",
+        answer:
+          "It grows in tall, rounded, finger-like pillars rising from the reef, unlike the branching or boulder shapes of many other corals.",
+      },
+      {
+        question: "Why is pillar coral Vulnerable?",
+        answer:
+          "Published assessments cite warming-driven bleaching, coral disease (which has spread rapidly in the Caribbean), and pollution and reef degradation. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Coral profile", href: "/animals/coral" },
+  },
 };

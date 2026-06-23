@@ -383,9 +383,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Rhinoceros unicornis",
     taxonGroup: "mammals",
     redListCategory: "VU",
+    populationTrend: "increasing",
+    rangeSummary:
+      "Floodplain grasslands and forests of northern India and Nepal.",
+    primaryThreats: [
+      "Poaching for horn",
+      "Habitat loss to agriculture",
+      "Concentration in few protected areas",
+    ],
     sourceUrls: [adw("Rhinoceros_unicornis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes:
       "Also called the Indian rhinoceros; recovery in India and Nepal is often cited as a conservation success.",
@@ -396,9 +404,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Loxodonta cyclotis",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Rainforests of central and West Africa.",
+    primaryThreats: [
+      "Poaching for ivory",
+      "Habitat loss and fragmentation",
+      "Slow reproduction",
+    ],
     sourceUrls: [adw("Loxodonta_cyclotis"), adw("Loxodonta_africana")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes:
       "Recognised as a separate species from the African bush elephant in the 2021 IUCN assessment.",
@@ -726,9 +742,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Ara ambiguus",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Forests from Central America to north-western South America.",
+    primaryThreats: [
+      "Deforestation",
+      "Trapping for the pet trade",
+      "Loss of key nesting trees",
+    ],
     sourceUrls: [birdlife("great-green-macaw-ara-ambiguus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -912,9 +936,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Megadyptes antipodes",
     taxonGroup: "birds",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Coasts of southern New Zealand and nearby sub-Antarctic islands.",
+    primaryThreats: [
+      "Disease and food shortages",
+      "Introduced predators",
+      "Habitat disturbance and bycatch",
+    ],
     sourceUrls: [adw("Megadyptes_antipodes")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -1242,9 +1274,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Agalychnis lemur",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Forests of Central America, including Costa Rica and Panama.",
+    primaryThreats: [
+      "The amphibian fungal disease chytridiomycosis",
+      "Habitat loss",
+      "A declining range",
+    ],
     sourceUrls: [amphibiaweb("Agalychnis", "lemur")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({

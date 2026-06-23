@@ -175,9 +175,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Neomonachus schauinslandi",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "increasing",
+    rangeSummary:
+      "The Hawaiian Islands, mainly the remote north-western chain.",
+    primaryThreats: [
+      "Entanglement in marine debris",
+      "Food limitation for young seals",
+      "Disease and human disturbance",
+    ],
     sourceUrls: [noaa("hawaiian-monk-seal")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -464,9 +472,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Gyps africanus",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Savannas across sub-Saharan Africa.",
+    primaryThreats: [
+      "Poisoning of carcasses",
+      "Killing linked to poaching",
+      "Loss of food and habitat",
+    ],
     sourceUrls: [birdlife("white-backed-vulture-gyps-africanus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -685,9 +701,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Platalea minor",
     taxonGroup: "birds",
     redListCategory: "EN",
+    populationTrend: "increasing",
+    rangeSummary:
+      "Coastal East Asia, breeding on islands off the Korean Peninsula and wintering farther south.",
+    primaryThreats: [
+      "Loss of coastal wetlands and tidal flats",
+      "Pollution",
+      "Disturbance",
+    ],
     sourceUrls: [birdlife("black-faced-spoonbill-platalea-minor")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -715,9 +739,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Spheniscus humboldti",
     taxonGroup: "birds",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Coasts of Peru and Chile, along the cold Humboldt Current.",
+    primaryThreats: [
+      "Overfishing of prey",
+      "Ocean changes such as El Niño",
+      "Disturbance and bycatch",
+    ],
     sourceUrls: [birdlife("humboldt-penguin-spheniscus-humboldti")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({

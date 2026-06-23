@@ -16,9 +16,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Thunnus maccoyii",
     taxonGroup: "fish",
     redListCategory: "EN",
+    populationTrend: "increasing",
+    rangeSummary:
+      "The temperate and cold open waters of the southern oceans.",
+    primaryThreats: [
+      "Past severe overfishing",
+      "Continued fishing pressure",
+      "Slow maturation",
+    ],
     sourceUrls: [fishbase("Thunnus-maccoyii")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -38,9 +46,16 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Epinephelus striatus",
     taxonGroup: "fish",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Coral reefs of the western Atlantic and Caribbean.",
+    primaryThreats: [
+      "Overfishing, especially at spawning aggregations",
+      "Habitat loss",
+    ],
     sourceUrls: [noaa("nassau-grouper"), fishbase("Epinephelus-striatus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -209,9 +224,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Pterapogon kauderni",
     taxonGroup: "fish",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "A small area around the Banggai Islands of Indonesia.",
+    primaryThreats: [
+      "Collection for the aquarium trade",
+      "A tiny range",
+      "Habitat damage",
+    ],
     sourceUrls: [fishbase("Pterapogon-kauderni")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -253,9 +276,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Urogymnus polylepis",
     taxonGroup: "fish",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Large rivers and estuaries of Southeast Asia.",
+    primaryThreats: [
+      "Overfishing and bycatch",
+      "Habitat degradation",
+      "Dams and pollution",
+    ],
     sourceUrls: [fishbase("Urogymnus-polylepis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -357,9 +388,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Crocodylus siamensis",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Freshwater wetlands of Southeast Asia.",
+    primaryThreats: [
+      "Past collection for crocodile farms",
+      "Habitat loss",
+      "Hybridisation and a tiny wild population",
+    ],
     sourceUrls: [reptiledb("Crocodylus", "siamensis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({

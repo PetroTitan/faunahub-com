@@ -147,9 +147,16 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Manis pentadactyla",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Southern China, the Himalayan foothills, and parts of Southeast Asia.",
+    primaryThreats: [
+      "Poaching and trafficking for scales and meat",
+      "Habitat loss",
+    ],
     sourceUrls: [adw("Manis_pentadactyla")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -300,9 +307,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Myrmecobius fasciatus",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Remnant woodlands of south-western Australia.",
+    primaryThreats: [
+      "Introduced foxes and cats",
+      "Habitat loss and fragmentation",
+      "A small population",
+    ],
     sourceUrls: [adw("Myrmecobius_fasciatus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -437,9 +452,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Conolophus subcristatus",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "VU",
+    populationTrend: "stable",
+    rangeSummary:
+      "Several islands of the Galápagos.",
+    primaryThreats: [
+      "Introduced predators and grazers",
+      "Past habitat damage",
+      "Restricted island range",
+    ],
     sourceUrls: [adw("Conolophus_subcristatus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -485,9 +508,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Dendrogyra cylindrus",
     taxonGroup: "invertebrates",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Caribbean and western Atlantic reefs.",
+    primaryThreats: [
+      "Warming-driven bleaching",
+      "Coral disease",
+      "Pollution and reef degradation",
+    ],
     sourceUrls: [noaa("pillar-coral")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes:
       "Caribbean reef coral severely affected by stony coral tissue loss disease; confirm the current category on the live IUCN entry.",
