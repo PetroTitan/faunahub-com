@@ -1855,9 +1855,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Orbicella faveolata",
     taxonGroup: "invertebrates",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Caribbean and western Atlantic reefs.",
+    primaryThreats: [
+      "Warming-driven bleaching",
+      "Coral disease",
+      "Pollution and reef degradation",
+    ],
     sourceUrls: [noaa("mountainous-star-coral")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({

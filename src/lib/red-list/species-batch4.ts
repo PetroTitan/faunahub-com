@@ -263,9 +263,16 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Bradypus torquatus",
     taxonGroup: "mammals",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Remnant Atlantic Forest of south-eastern Brazil.",
+    primaryThreats: [
+      "Loss and fragmentation of Atlantic Forest",
+      "Small, isolated populations",
+    ],
     sourceUrls: [adw("Bradypus_torquatus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -353,9 +360,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Cricetus cricetus",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Farmland and grassland across parts of Europe and western Asia.",
+    primaryThreats: [
+      "Intensive agriculture",
+      "Loss of habitat and food",
+      "A collapsing reproductive rate",
+    ],
     sourceUrls: [adw("Cricetus_cricetus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes: "Up-listed to Critically Endangered in 2020 after steep declines across Europe.",
   }),
@@ -365,9 +380,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Marmota vancouverensis",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "increasing",
+    rangeSummary:
+      "Mountains of Vancouver Island, Canada.",
+    primaryThreats: [
+      "A tiny population",
+      "Predation",
+      "Habitat change and past logging effects",
+    ],
     sourceUrls: [adw("Marmota_vancouverensis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
 
@@ -409,9 +432,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Lasiorhinus krefftii",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "increasing",
+    rangeSummary:
+      "A tiny area of Queensland, Australia.",
+    primaryThreats: [
+      "An extremely small range",
+      "Predation and competition",
+      "Vulnerability to disasters",
+    ],
     sourceUrls: [adw("Lasiorhinus_krefftii")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -420,9 +451,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Gymnobelideus leadbeateri",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Mountain ash forests of Victoria, Australia.",
+    primaryThreats: [
+      "Loss of old-growth forest with nesting hollows",
+      "Bushfires",
+      "Logging",
+    ],
     sourceUrls: [adw("Gymnobelideus_leadbeateri")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -431,9 +470,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Dendrolagus matschiei",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Mountain rainforests of the Huon Peninsula, Papua New Guinea.",
+    primaryThreats: [
+      "Hunting",
+      "Habitat loss",
+      "A small, restricted range",
+    ],
     sourceUrls: [adw("Dendrolagus_matschiei")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
 

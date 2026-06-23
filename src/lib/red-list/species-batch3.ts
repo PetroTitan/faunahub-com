@@ -35,9 +35,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Thunnus obesus",
     taxonGroup: "fish",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Tropical and subtropical open oceans worldwide.",
+    primaryThreats: [
+      "Overfishing",
+      "Catch of juveniles around fish-aggregating devices",
+      "High fishing pressure",
+    ],
     sourceUrls: [fishbase("Thunnus-obesus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -160,9 +168,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Pristis clavata",
     taxonGroup: "fish",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Coastal and estuarine waters of the Indo-West Pacific, much reduced.",
+    primaryThreats: [
+      "Entanglement in fishing nets",
+      "Habitat loss",
+      "Past fishing",
+    ],
     sourceUrls: [fishbase("Pristis-clavata")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({

@@ -4875,4 +4875,586 @@ export const RED_LIST_PROFILES: Record<string, RedListProfileContent> = {
     ],
     relatedAnimal: { label: "Coral profile", href: "/animals/coral" },
   },
+  "amazonian-manatee": {
+    summary: [
+      "The Amazonian manatee is the only manatee that lives entirely in fresh water, found in the rivers of the Amazon basin. It is assessed as Vulnerable.",
+      "It is a slow, plant-eating mammal that grazes on aquatic vegetation.",
+    ],
+    whyItMatters:
+      "As the only fully freshwater manatee, the Amazonian manatee helps keep river vegetation in check and is a flagship for Amazon freshwater conservation.",
+    faq: [
+      {
+        question: "What makes the Amazonian manatee unique?",
+        answer:
+          "It is the only manatee species that lives entirely in fresh water, never entering the sea, and is found only in the Amazon basin.",
+      },
+      {
+        question: "Why is the Amazonian manatee Vulnerable?",
+        answer:
+          "Published assessments cite hunting for meat, bycatch and habitat change, and pollution. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "maned-three-toed-sloth": {
+    summary: [
+      "The maned three-toed sloth is a leaf-eating sloth named for the dark mane of hair around its neck and shoulders. It is assessed as Vulnerable.",
+      "It is found only in Brazil's threatened Atlantic Forest.",
+    ],
+    whyItMatters:
+      "A slow, leaf-eating sloth restricted to the Atlantic Forest, the maned sloth is a flagship for one of the world's most fragmented biodiversity hotspots.",
+    faq: [
+      {
+        question: "Why is it called the maned sloth?",
+        answer:
+          "Adults, especially males, have a distinctive mane of long dark hair around the neck and shoulders, unlike other three-toed sloths.",
+      },
+      {
+        question: "Why is the maned three-toed sloth Vulnerable?",
+        answer:
+          "Published assessments cite the loss and fragmentation of the Atlantic Forest and small, isolated populations. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Sloth profile", href: "/animals/sloth" },
+  },
+  "european-hamster": {
+    summary: [
+      "The European (common) hamster is a large, boldly coloured wild hamster of farmland, once so common it was treated as a pest. It is now assessed as Critically Endangered.",
+      "Its numbers have crashed dramatically in just a few decades.",
+    ],
+    whyItMatters:
+      "A once-abundant farmland animal now on the edge of extinction, the European hamster is a striking warning about the impact of intensive agriculture on common wildlife.",
+    faq: [
+      {
+        question: "How can a former pest become Critically Endangered?",
+        answer:
+          "Intensive modern agriculture has removed the food and cover the European hamster needs and is linked to a steep drop in how many young it raises, causing a rapid collapse across its range.",
+      },
+      {
+        question: "Why is the European hamster Critically Endangered?",
+        answer:
+          "Published assessments cite intensive agriculture, loss of habitat and food, and a collapsing reproductive rate. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Hamster profile", href: "/animals/hamster" },
+  },
+  "vancouver-island-marmot": {
+    summary: [
+      "The Vancouver Island marmot is one of the rarest mammals in the world, found only on Vancouver Island. It is assessed as Endangered.",
+      "It was reduced to a handful of animals before captive breeding and release.",
+    ],
+    whyItMatters:
+      "A Canadian endemic rescued from the brink by captive breeding, the Vancouver Island marmot is a landmark recovery effort for a mountain mammal.",
+    faq: [
+      {
+        question: "How rare is the Vancouver Island marmot?",
+        answer:
+          "It is among the rarest mammals on Earth; the wild population fell to only a few dozen animals before an intensive captive-breeding and release programme began rebuilding it.",
+      },
+      {
+        question: "Why is the Vancouver Island marmot Endangered?",
+        answer:
+          "Published assessments cite its tiny population, predation, and habitat change including the effects of past logging. See the IUCN Red List.",
+      },
+    ],
+  },
+  "northern-hairy-nosed-wombat": {
+    summary: [
+      "The northern hairy-nosed wombat is one of the rarest large mammals in the world, a burrowing marsupial of Queensland. It is assessed as Critically Endangered.",
+      "Almost the entire species lives in one small protected area.",
+    ],
+    whyItMatters:
+      "A burrowing marsupial reduced to a single core site, the northern hairy-nosed wombat is a flagship for intensive recovery of Australia's rarest mammals.",
+    faq: [
+      {
+        question: "How rare is the northern hairy-nosed wombat?",
+        answer:
+          "It is among the rarest large mammals on Earth; for years almost the entire population lived in one small reserve, making the species extremely vulnerable.",
+      },
+      {
+        question: "Why is it Critically Endangered?",
+        answer:
+          "Published assessments cite its extremely small range, predation and competition, and vulnerability to any local disaster. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Wombat profile", href: "/animals/wombat" },
+  },
+  "leadbeaters-possum": {
+    summary: [
+      "Leadbeater's possum is a small, fast-moving marsupial and a faunal emblem of the Australian state of Victoria. It is assessed as Critically Endangered.",
+      "It depends on old trees with hollows for nesting.",
+    ],
+    whyItMatters:
+      "Tied to old-growth mountain ash forest, Leadbeater's possum is a flagship for protecting Australia's tall wet forests from logging and fire.",
+    faq: [
+      {
+        question: "Why does Leadbeater's possum need old forests?",
+        answer:
+          "It nests in hollows that form only in very old, large trees, so the loss of old-growth forest to logging and fire directly removes its homes.",
+      },
+      {
+        question: "Why is Leadbeater's possum Critically Endangered?",
+        answer:
+          "Published assessments cite the loss of hollow-bearing old-growth forest, bushfires, and logging. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "matschies-tree-kangaroo": {
+    summary: [
+      "Matschie's tree-kangaroo is a stocky, reddish tree-dwelling kangaroo found only on the Huon Peninsula of Papua New Guinea. It is assessed as Endangered.",
+      "Unlike ground kangaroos, it climbs and lives in the forest canopy.",
+    ],
+    whyItMatters:
+      "A canopy-dwelling kangaroo found only in New Guinea, Matschie's tree-kangaroo is a flagship for the island's threatened mountain rainforests.",
+    faq: [
+      {
+        question: "How does a kangaroo live in trees?",
+        answer:
+          "Tree-kangaroos have shorter legs, strong forelimbs, and long tails for balance, letting them climb and move through the forest canopy rather than hopping across open ground.",
+      },
+      {
+        question: "Why is Matschie's tree-kangaroo Endangered?",
+        answer:
+          "Published assessments cite hunting, habitat loss, and a small, restricted range. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Kangaroo profile", href: "/animals/kangaroo" },
+  },
+  "western-hoolock-gibbon": {
+    summary: [
+      "The western hoolock gibbon is a small ape with striking white brows, the only ape native to India. It is assessed as Endangered.",
+      "Pairs sing loud duets and swing through the canopy.",
+    ],
+    whyItMatters:
+      "The only ape found in India and a fast-moving seed disperser, the western hoolock gibbon is a flagship for north-east India's threatened forests.",
+    faq: [
+      {
+        question: "What is distinctive about hoolock gibbons?",
+        answer:
+          "They have prominent white brow markings, and males and females differ in colour; like other gibbons they sing loud duets and swing rapidly through the trees.",
+      },
+      {
+        question: "Why is the western hoolock gibbon Endangered?",
+        answer:
+          "Published assessments cite deforestation and fragmentation, hunting, and capture. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Gibbon profile", href: "/animals/gibbon" },
+  },
+  "brown-spider-monkey": {
+    summary: [
+      "The brown spider monkey is a long-limbed, prehensile-tailed monkey and one of the most endangered primates in the Americas. It is assessed as Critically Endangered.",
+      "Some individuals have unusual pale blue eyes.",
+    ],
+    whyItMatters:
+      "A large, agile seed disperser of northern South American forests, the brown spider monkey is a flagship for protecting those fast-disappearing habitats.",
+    faq: [
+      {
+        question: "What is unusual about the brown spider monkey?",
+        answer:
+          "Besides the long limbs and gripping tail typical of spider monkeys, some individuals have striking pale blue eyes, which is rare among monkeys.",
+      },
+      {
+        question: "Why is the brown spider monkey Critically Endangered?",
+        answer:
+          "Published assessments cite deforestation, hunting, and capture for the pet trade. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Spider monkey profile", href: "/animals/spider-monkey" },
+  },
+  "north-pacific-right-whale": {
+    summary: [
+      "The North Pacific right whale is one of the rarest large whales, especially its eastern population. It is assessed as Endangered.",
+      "Illegal whaling in the 20th century devastated already-reduced numbers.",
+    ],
+    whyItMatters:
+      "Among the rarest of all great whales, the North Pacific right whale is a sobering example of how slowly heavily depleted whale populations recover.",
+    faq: [
+      {
+        question: "Why is the eastern North Pacific right whale so rare?",
+        answer:
+          "Heavy historical whaling, including illegal catches in the 20th century, reduced an already small population to a tiny number, and recovery has been extremely slow.",
+      },
+      {
+        question: "Why is the North Pacific right whale Endangered?",
+        answer:
+          "Published assessments cite the legacy of whaling, ship strikes, and entanglement. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Whale profile", href: "/animals/whale" },
+  },
+  "hooded-crane": {
+    summary: [
+      "The hooded crane is a small, dark crane with a white head and neck, breeding in north-east Asia. It is assessed as Vulnerable.",
+      "Most of the world population winters at a few sites in Japan.",
+    ],
+    whyItMatters:
+      "A crane that crowds into a handful of wintering wetlands, the hooded crane is a flagship for spreading and protecting wintering habitat in East Asia.",
+    faq: [
+      {
+        question: "Why is concentrating at few sites risky for the hooded crane?",
+        answer:
+          "A large share of the world population winters at just a few sites, so disease or habitat loss at one location could affect much of the species at once.",
+      },
+      {
+        question: "Why is the hooded crane Vulnerable?",
+        answer:
+          "Published assessments cite the loss of wetlands, dependence on few wintering sites, and disturbance and disease risk. See the IUCN Red List.",
+      },
+    ],
+  },
+  "wattled-crane": {
+    summary: [
+      "The wattled crane is the largest crane in Africa, named for the fleshy wattles hanging from its throat. It is assessed as Vulnerable.",
+      "It depends closely on large, healthy wetlands.",
+    ],
+    whyItMatters:
+      "A wetland specialist and Africa's largest crane, the wattled crane is a flagship for conserving the continent's great floodplains and marshes.",
+    faq: [
+      {
+        question: "What are the wattled crane's wattles?",
+        answer:
+          "They are two feathered, fleshy flaps that hang from the upper throat, giving the bird its name and a distinctive appearance among cranes.",
+      },
+      {
+        question: "Why is the wattled crane Vulnerable?",
+        answer:
+          "Published assessments cite the loss and alteration of wetlands, dams and changed water flow, and disturbance. See the IUCN Red List.",
+      },
+    ],
+  },
+  "eastern-imperial-eagle": {
+    summary: [
+      "The eastern imperial eagle is a large eagle of open steppe and farmland. It is assessed as Vulnerable.",
+      "It often nests in lone trees in otherwise open landscapes.",
+    ],
+    whyItMatters:
+      "A steppe eagle threatened mainly by power lines and poison, the eastern imperial eagle is a flagship for safe infrastructure and grassland conservation across Eurasia.",
+    faq: [
+      {
+        question: "Why are power lines dangerous to large eagles?",
+        answer:
+          "Big eagles that perch on poles in open country can be electrocuted by poorly designed power infrastructure, a leading cause of death for several eagle species.",
+      },
+      {
+        question: "Why is the eastern imperial eagle Vulnerable?",
+        answer:
+          "Published assessments cite electrocution on power lines, poisoning, and habitat loss and persecution. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Eagle profile", href: "/animals/eagle" },
+  },
+  "erect-crested-penguin": {
+    summary: [
+      "The erect-crested penguin is a crested penguin with upright yellow brow plumes, breeding only on a couple of remote sub-Antarctic islands. It is assessed as Endangered.",
+      "Its breeding biology is little known because its colonies are so remote.",
+    ],
+    whyItMatters:
+      "A crested penguin confined to a few remote islands, the erect-crested penguin is a barometer for the southern ocean's productivity.",
+    faq: [
+      {
+        question: "What is distinctive about the erect-crested penguin?",
+        answer:
+          "Its yellow head crests stand upright rather than drooping, unlike those of related crested penguins — a feature reflected in its name.",
+      },
+      {
+        question: "Why is the erect-crested penguin Endangered?",
+        answer:
+          "Published assessments cite ocean change affecting food supply, its tiny breeding range, and disturbance. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Penguin profile", href: "/animals/penguin" },
+  },
+  "fiordland-penguin": {
+    summary: [
+      "The Fiordland penguin (tawaki) is a crested penguin that, unusually, nests in dense coastal rainforest. It is assessed as Vulnerable.",
+      "It comes ashore through temperate rainforest rather than on open beaches.",
+    ],
+    whyItMatters:
+      "A rare forest-nesting penguin found only in New Zealand, the Fiordland penguin is a flagship for protecting its coastal rainforest and surrounding seas.",
+    faq: [
+      {
+        question: "Why is it unusual for a penguin to nest in rainforest?",
+        answer:
+          "Most penguins nest on open ground or rock, but the Fiordland penguin breeds in dense, dripping temperate rainforest along New Zealand's south-west coast.",
+      },
+      {
+        question: "Why is the Fiordland penguin Vulnerable?",
+        answer:
+          "Published assessments cite introduced predators, disturbance, and ocean change. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Penguin profile", href: "/animals/penguin" },
+  },
+  "waved-albatross": {
+    summary: [
+      "The waved albatross is the only tropical albatross, breeding almost entirely on one Galapagos island. It is assessed as Critically Endangered.",
+      "It performs an elaborate, clattering courtship dance.",
+    ],
+    whyItMatters:
+      "The only albatross of the tropics, breeding on a single island, the waved albatross is a flagship for Galapagos and eastern Pacific marine conservation.",
+    faq: [
+      {
+        question: "Why is the waved albatross unusual among albatrosses?",
+        answer:
+          "It is essentially the only albatross that breeds in the tropics, with almost the entire population nesting on Espanola Island in the Galapagos.",
+      },
+      {
+        question: "Why is the waved albatross Critically Endangered?",
+        answer:
+          "Published assessments cite longline fishing bycatch, reliance on a single main breeding site, and disturbance and disease. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Albatross profile", href: "/animals/albatross" },
+  },
+  "forest-owlet": {
+    summary: [
+      "The forest owlet is a small, day-active owl of central India that was feared extinct for over a century before its rediscovery in 1997. It is assessed as Endangered.",
+      "It hunts lizards and other small prey, often in daylight.",
+    ],
+    whyItMatters:
+      "A small owl famously rediscovered after being lost to science for decades, the forest owlet is a flagship for India's dry forests.",
+    faq: [
+      {
+        question: "Why was the forest owlet thought extinct?",
+        answer:
+          "After very few historical records, it went unseen for over a hundred years and was feared extinct until it was rediscovered in central India in 1997.",
+      },
+      {
+        question: "Why is the forest owlet Endangered?",
+        answer:
+          "Published assessments cite habitat loss and degradation, a small fragmented range, and disturbance. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Owl profile", href: "/animals/owl" },
+  },
+  "burmese-roofed-turtle": {
+    summary: [
+      "The Burmese roofed turtle is a large river turtle that was brought back from the very edge of extinction by captive breeding. It is assessed as Critically Endangered.",
+      "Males develop bright colours in the breeding season.",
+    ],
+    whyItMatters:
+      "A river turtle rescued from near-total loss through breeding programmes, the Burmese roofed turtle is a flagship for Myanmar's river conservation.",
+    faq: [
+      {
+        question: "How close did the Burmese roofed turtle come to extinction?",
+        answer:
+          "It was nearly lost, with only a handful of wild animals known, before captive breeding dramatically increased numbers in protected facilities.",
+      },
+      {
+        question: "Why is it Critically Endangered?",
+        answer:
+          "Published assessments cite past egg collection and hunting, habitat change, and a tiny wild population, even as captive breeding helps. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Turtle profile", href: "/animals/turtle" },
+  },
+  "bog-turtle": {
+    summary: [
+      "The bog turtle is the smallest turtle in North America, with an orange blotch on each side of its head. It is assessed as Critically Endangered.",
+      "It lives in small, spring-fed wetlands and bogs.",
+    ],
+    whyItMatters:
+      "A tiny wetland turtle dependent on vanishing bogs and fens, the bog turtle is a flagship for protecting small freshwater wetlands in the eastern US.",
+    faq: [
+      {
+        question: "How small is the bog turtle?",
+        answer:
+          "It is the smallest turtle in North America, only around 8-11 cm long, with a distinctive orange patch on each side of the head.",
+      },
+      {
+        question: "Why is the bog turtle Critically Endangered?",
+        answer:
+          "Published assessments cite the loss and drainage of its wetland habitat, collection for the pet trade, and invasive plants choking its bogs. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Turtle profile", href: "/animals/turtle" },
+  },
+  "spider-tortoise": {
+    summary: [
+      "The spider tortoise is a small Madagascan tortoise named for the spider-web-like yellow lines on its shell. It is assessed as Critically Endangered.",
+      "It lives in the unique spiny forest of the south-west.",
+    ],
+    whyItMatters:
+      "A small, intricately patterned tortoise of Madagascar's spiny forest, the spider tortoise is a flagship for that distinctive, threatened habitat.",
+    faq: [
+      {
+        question: "Why is it called the spider tortoise?",
+        answer:
+          "Its shell carries fine yellow lines radiating in a web-like, spider's-web pattern on each plate, giving the tortoise its name.",
+      },
+      {
+        question: "Why is the spider tortoise Critically Endangered?",
+        answer:
+          "Published assessments cite habitat loss to agriculture and charcoal production, collection for food and the pet trade, and a shrinking range. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Tortoise profile", href: "/animals/tortoise" },
+  },
+  "aruba-island-rattlesnake": {
+    summary: [
+      "The Aruba island rattlesnake is a rare rattlesnake found only on the small island of Aruba. It is assessed as Critically Endangered.",
+      "It is one of the most range-restricted rattlesnakes in the world.",
+    ],
+    whyItMatters:
+      "A rattlesnake confined to a single small island, the Aruba island rattlesnake is a flagship for conserving Aruba's remaining dry wilderness.",
+    faq: [
+      {
+        question: "Why is the Aruba island rattlesnake so threatened?",
+        answer:
+          "It lives only on the small island of Aruba, so habitat loss to development on such a limited area puts the entire species at risk.",
+      },
+      {
+        question: "Why is it Critically Endangered?",
+        answer:
+          "Published assessments cite habitat loss to development, its tiny range, and persecution and road deaths. As a venomous snake it should never be handled. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Rattlesnake profile", href: "/animals/rattlesnake" },
+  },
+  "dusky-gopher-frog": {
+    summary: [
+      "The dusky gopher frog is one of the most endangered amphibians in North America, surviving around a few ponds in Mississippi. It is assessed as Critically Endangered.",
+      "It shelters in burrows and breeds in seasonal ponds.",
+    ],
+    whyItMatters:
+      "A frog reduced to a handful of ponds, the dusky gopher frog is a flagship for restoring the longleaf pine ecosystem of the US Southeast.",
+    faq: [
+      {
+        question: "Why is the dusky gopher frog so rare?",
+        answer:
+          "It survives around only a few seasonal breeding ponds in Mississippi, having lost almost all of its historic longleaf pine habitat — leaving a tiny, vulnerable population.",
+      },
+      {
+        question: "Why is the dusky gopher frog Critically Endangered?",
+        answer:
+          "Published assessments cite the loss of its breeding ponds and pine habitat, a tiny population, and disease. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Frog profile", href: "/animals/frog" },
+  },
+  "mountain-yellow-legged-frog": {
+    summary: [
+      "The mountain yellow-legged frog lives in high mountain lakes and streams of California. It is assessed as Endangered.",
+      "It has declined sharply as introduced fish and disease spread through its habitat.",
+    ],
+    whyItMatters:
+      "A high-mountain frog squeezed by introduced fish and amphibian disease, the mountain yellow-legged frog is a flagship for restoring fishless alpine waters.",
+    faq: [
+      {
+        question: "How did introduced fish harm this frog?",
+        answer:
+          "Trout were stocked into naturally fishless mountain lakes for angling, and they eat the frog's tadpoles, wiping out populations in many lakes.",
+      },
+      {
+        question: "Why is the mountain yellow-legged frog Endangered?",
+        answer:
+          "Published assessments cite introduced trout, the amphibian fungal disease chytridiomycosis, and habitat change. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Frog profile", href: "/animals/frog" },
+  },
+  "bigeye-tuna": {
+    summary: [
+      "The bigeye tuna is a large, deep-diving tuna prized for sashimi. It is assessed as Vulnerable.",
+      "It can dive to cooler, deeper water than many other tunas to find food.",
+    ],
+    whyItMatters:
+      "A valuable, deep-diving ocean predator under heavy fishing pressure, the bigeye tuna is a key test of sustainable management for high-seas fisheries.",
+    faq: [
+      {
+        question: "What is special about the bigeye tuna?",
+        answer:
+          "It can dive deeper and tolerate cooler water than many tunas, following prey into the ocean's twilight zone, and its large eyes suit these dim depths.",
+      },
+      {
+        question: "Why is the bigeye tuna Vulnerable?",
+        answer:
+          "Published assessments cite overfishing, including catches of juveniles around fish-aggregating devices, and high overall fishing pressure. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Tuna profile", href: "/animals/tuna" },
+  },
+  "dwarf-sawfish": {
+    summary: [
+      "The dwarf sawfish is the smallest sawfish, a ray with a tooth-studded snout. It is assessed as Endangered.",
+      "Like other sawfishes, its saw snags easily in fishing gear.",
+    ],
+    whyItMatters:
+      "One of the threatened sawfishes, the dwarf sawfish is a priority for protecting tropical coasts and estuaries from destructive fishing.",
+    faq: [
+      {
+        question: "How is the dwarf sawfish different from other sawfishes?",
+        answer:
+          "It is the smallest of the sawfishes, though still a sizeable ray, and shares the long, tooth-edged snout that makes all sawfishes prone to entanglement.",
+      },
+      {
+        question: "Why is the dwarf sawfish Endangered?",
+        answer:
+          "Published assessments cite entanglement in fishing nets, habitat loss, and past fishing. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "silky-shark": {
+    summary: [
+      "The silky shark is a sleek, abundant open-ocean shark named for its smooth-feeling skin. It is assessed as Vulnerable.",
+      "It is among the most heavily traded sharks for fins.",
+    ],
+    whyItMatters:
+      "One of the most common sharks in the global fin trade, the silky shark is a flagship for managing high-seas shark fisheries.",
+    faq: [
+      {
+        question: "Why is it called the silky shark?",
+        answer:
+          "Its name comes from the smooth, silky texture of its skin, produced by fine dermal denticles, compared with the rougher skin of some other sharks.",
+      },
+      {
+        question: "Why is the silky shark Vulnerable?",
+        answer:
+          "Published assessments cite overfishing and the fin trade and bycatch, especially around fish-aggregating devices used in tuna fisheries. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Shark profile", href: "/animals/shark" },
+  },
+  "kaluga": {
+    summary: [
+      "The kaluga is one of the largest freshwater fish in the world, a giant sturgeon of the Amur River. It is assessed as Critically Endangered.",
+      "It is hunted for its valuable caviar.",
+    ],
+    whyItMatters:
+      "A giant, ancient river fish driven down by the caviar trade, the kaluga is a flagship for conserving the Amur River and its megafauna.",
+    faq: [
+      {
+        question: "How big is the kaluga?",
+        answer:
+          "It is among the largest freshwater fish on Earth, historically reaching several metres and very large weights, and can live for decades.",
+      },
+      {
+        question: "Why is the kaluga Critically Endangered?",
+        answer:
+          "Published assessments cite overfishing and poaching for caviar, dams and habitat change, and slow maturation. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Sturgeon profile", href: "/animals/sturgeon" },
+  },
+  "mountainous-star-coral": {
+    summary: [
+      "Mountainous star coral is a major reef-building coral that forms large, mounded colonies on Caribbean reefs. It is assessed as Endangered.",
+      "Like all corals it is a colony of tiny animals with symbiotic algae.",
+    ],
+    whyItMatters:
+      "A key Caribbean reef-builder threatened by bleaching and disease, mountainous star coral is part of the wider reef crisis and a focus of restoration.",
+    faq: [
+      {
+        question: "What role does mountainous star coral play on reefs?",
+        answer:
+          "Its large mounded colonies help build the solid structure of Caribbean reefs, providing habitat for many other species, so its loss reshapes whole reefs.",
+      },
+      {
+        question: "Why is mountainous star coral Endangered?",
+        answer:
+          "Published assessments cite warming-driven bleaching, coral disease, and pollution and reef degradation. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Coral profile", href: "/animals/coral" },
+  },
 };

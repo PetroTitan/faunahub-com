@@ -74,9 +74,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Trichechus inunguis",
     taxonGroup: "mammals",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "The Amazon River basin of South America.",
+    primaryThreats: [
+      "Hunting for meat",
+      "Bycatch and habitat change",
+      "Pollution and reduced water quality",
+    ],
     sourceUrls: [adw("Trichechus_inunguis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
