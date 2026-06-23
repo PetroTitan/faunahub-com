@@ -510,9 +510,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Acrocephalus paludicola",
     taxonGroup: "birds",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Breeds in fen mires of central and eastern Europe and winters in West Africa.",
+    primaryThreats: [
+      "Loss and drainage of fen wetlands",
+      "Habitat change on migration and wintering grounds",
+      "A fragmented population",
+    ],
     sourceUrls: [birdlife("aquatic-warbler-acrocephalus-paludicola")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -540,9 +548,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Podiceps gallardoi",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Remote lakes of Patagonia in Argentina.",
+    primaryThreats: [
+      "Introduced predators (mink and gulls)",
+      "Climate and habitat change at its lakes",
+      "A small population",
+    ],
     sourceUrls: [birdlife("hooded-grebe-podiceps-gallardoi")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -669,9 +685,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Acipenser brevirostrum",
     taxonGroup: "fish",
     redListCategory: "VU",
+    populationTrend: "stable",
+    rangeSummary:
+      "Rivers and estuaries along the Atlantic coast of North America.",
+    primaryThreats: [
+      "Dams blocking migration",
+      "Pollution and habitat change",
+      "Past overfishing and bycatch",
+    ],
     sourceUrls: [noaa("shortnose-sturgeon"), fishbase("Acipenser-brevirostrum")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
 

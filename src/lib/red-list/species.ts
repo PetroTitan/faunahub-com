@@ -1328,9 +1328,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Nectophrynoides asperginis",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "EW",
+    populationTrend: "unknown",
+    rangeSummary:
+      "Native to the spray zone of the Kihansi Gorge in Tanzania; survives through captive breeding and reintroduction.",
+    primaryThreats: [
+      "Loss of its spray-zone microhabitat after a dam reduced waterfall mist",
+      "The amphibian fungal disease chytridiomycosis",
+      "An extremely tiny natural range",
+    ],
     sourceUrls: [amphibiaweb("Nectophrynoides", "asperginis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes:
       "Listed Extinct in the Wild; subject of a captive-breeding and reintroduction programme in Tanzania.",
@@ -1724,9 +1732,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Orbicella franksi",
     taxonGroup: "invertebrates",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Caribbean and western Atlantic reefs.",
+    primaryThreats: [
+      "Warming-driven bleaching",
+      "Coral disease",
+      "Pollution and reef degradation",
+    ],
     sourceUrls: [noaa("lobed-star-coral")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -1895,9 +1911,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Mycetophyllia ferox",
     taxonGroup: "invertebrates",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Caribbean and western Atlantic reefs.",
+    primaryThreats: [
+      "Coral disease",
+      "Warming-driven bleaching",
+      "Pollution and reef degradation",
+    ],
     sourceUrls: [noaa("rough-cactus-coral")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
 ];

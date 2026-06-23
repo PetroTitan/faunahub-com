@@ -5457,4 +5457,754 @@ export const RED_LIST_PROFILES: Record<string, RedListProfileContent> = {
     ],
     relatedAnimal: { label: "Coral profile", href: "/animals/coral" },
   },
+  "kihansi-spray-toad": {
+    summary: [
+      "The Kihansi spray toad is a tiny toad that lived only in the mist of a single Tanzanian waterfall. It is assessed as Extinct in the Wild.",
+      "It was saved by captive colonies and has been the subject of reintroduction efforts.",
+    ],
+    whyItMatters:
+      "A toad from one waterfall's spray zone, the Kihansi spray toad shows how a single dam can erase a microhabitat — and how captive breeding can keep a species alive.",
+    faq: [
+      {
+        question: "Why did the Kihansi spray toad disappear from the wild?",
+        answer:
+          "It depended on the constant mist of the Kihansi waterfall; a dam upstream reduced that spray, and amphibian disease struck, leading to its loss in the wild. Captive colonies preserved the species.",
+      },
+      {
+        question: "What does 'Extinct in the Wild' mean here?",
+        answer:
+          "It means the toad survives only in captivity (and via reintroduction efforts) rather than as a self-sustaining wild population. See the IUCN Red List for the current status.",
+      },
+    ],
+    relatedAnimal: { label: "Toad profile", href: "/animals/toad" },
+  },
+  "wyoming-toad": {
+    summary: [
+      "The Wyoming toad is one of North America's most endangered amphibians, assessed as Extinct in the Wild.",
+      "It survives through captive breeding, with toads released back into protected wetlands.",
+    ],
+    whyItMatters:
+      "A toad that vanished in the wild and persists through intensive captive breeding, the Wyoming toad is a flagship for North American amphibian recovery.",
+    faq: [
+      {
+        question: "Why is the Wyoming toad Extinct in the Wild?",
+        answer:
+          "Published accounts cite the amphibian fungal disease chytridiomycosis along with past habitat change and pesticides; the wild population collapsed and the species now depends on captive breeding and reintroduction.",
+      },
+      {
+        question: "Is the Wyoming toad being returned to the wild?",
+        answer:
+          "Yes — captive-bred toads are released into protected wetlands, though establishing self-sustaining wild populations remains difficult. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Toad profile", href: "/animals/toad" },
+  },
+  "round-island-keel-scaled-boa": {
+    summary: [
+      "The Round Island keel-scaled boa is a small snake found only on Round Island near Mauritius. It is assessed as Endangered, recovering after island restoration.",
+      "A related boa from the same island is already extinct.",
+    ],
+    whyItMatters:
+      "A small-island boa recovering after invasive grazers were removed, this species is a flagship for island habitat restoration in the Indian Ocean.",
+    faq: [
+      {
+        question: "How did removing goats and rabbits help the boa?",
+        answer:
+          "Introduced goats and rabbits had stripped Round Island's vegetation; once they were removed and the habitat recovered, the boa and other native species were able to rebound.",
+      },
+      {
+        question: "Why is the Round Island keel-scaled boa Endangered?",
+        answer:
+          "Published assessments cite its tiny island range and the legacy of habitat damage, even as numbers recover after restoration. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Boa profile", href: "/animals/boa" },
+  },
+  "houston-toad": {
+    summary: [
+      "The Houston toad is a rare toad of sandy pine and oak woodlands in Texas. It is assessed as Endangered.",
+      "It depends on specific soils for burrowing and on seasonal ponds for breeding.",
+    ],
+    whyItMatters:
+      "A Texas endemic dependent on a vanishing woodland-and-pond habitat, the Houston toad is a flagship for conserving the region's sandy uplands.",
+    faq: [
+      {
+        question: "Why is the Houston toad so particular about habitat?",
+        answer:
+          "It needs loose sandy soils to burrow into and nearby seasonal ponds to breed, a specific combination that has been lost or fragmented across much of its range.",
+      },
+      {
+        question: "Why is the Houston toad Endangered?",
+        answer:
+          "Published assessments cite habitat loss and fragmentation, drought and altered fire regimes, and a tiny fragmented population. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Toad profile", href: "/animals/toad" },
+  },
+  "yosemite-toad": {
+    summary: [
+      "The Yosemite toad is a high-mountain toad of the Sierra Nevada, where males are strikingly different in colour from females. It is assessed as Endangered.",
+      "It breeds in shallow snowmelt pools in alpine meadows.",
+    ],
+    whyItMatters:
+      "A high-elevation toad sensitive to disease and a changing climate, the Yosemite toad is an indicator of the health of Sierra Nevada meadows.",
+    faq: [
+      {
+        question: "What is unusual about the Yosemite toad's appearance?",
+        answer:
+          "Males and females look strikingly different: males are often plain yellow-green, while females and young have bold dark blotches — a marked difference for a toad.",
+      },
+      {
+        question: "Why is the Yosemite toad Endangered?",
+        answer:
+          "Published assessments cite disease, habitat change and drought, and the legacy of grazing and pesticide drift. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Toad profile", href: "/animals/toad" },
+  },
+  "lake-oku-clawed-frog": {
+    summary: [
+      "The Lake Oku clawed frog is a fully aquatic frog found only in one crater lake in Cameroon. It is assessed as Critically Endangered.",
+      "It is unusual among its relatives for having extra sets of chromosomes.",
+    ],
+    whyItMatters:
+      "A clawed frog confined to a single mountain lake, the Lake Oku clawed frog is a flagship for protecting isolated montane freshwater habitats.",
+    faq: [
+      {
+        question: "Why is the Lake Oku clawed frog so vulnerable?",
+        answer:
+          "Its entire world is one small crater lake, so any change there — introduced fish, pollution, or disease — could threaten the whole species at once.",
+      },
+      {
+        question: "Why is it Critically Endangered?",
+        answer:
+          "Published assessments cite its single-lake range, introduced fish and disturbance, and disease risk. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "African clawed frog profile", href: "/animals/clawed-frog" },
+  },
+  "variable-harlequin-frog": {
+    summary: [
+      "The variable harlequin frog is a brightly coloured toad (a harlequin toad) of Central America. It is assessed as Critically Endangered.",
+      "Its vivid colours, which vary between populations, warn of skin toxins.",
+    ],
+    whyItMatters:
+      "A jewel-coloured harlequin toad hit hard by amphibian disease, the variable harlequin frog is emblematic of the Central American amphibian crisis.",
+    faq: [
+      {
+        question: "Why is it called the variable harlequin frog?",
+        answer:
+          "Its bright warning colours vary widely between populations — different combinations of black with orange, red, yellow, or green — hence 'variable'.",
+      },
+      {
+        question: "Why is the variable harlequin frog Critically Endangered?",
+        answer:
+          "Published assessments cite the amphibian fungal disease chytridiomycosis above all, along with habitat loss and climate change. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Frog profile", href: "/animals/frog" },
+  },
+  "northern-corroboree-frog": {
+    summary: [
+      "The northern corroboree frog is a tiny black-and-yellow alpine frog of Australia, closely related to the southern corroboree frog. It is assessed as Critically Endangered.",
+      "Like its relative, it makes its own skin toxin.",
+    ],
+    whyItMatters:
+      "A striped alpine frog devastated by amphibian disease, the northern corroboree frog is an urgent focus of Australian captive-breeding programmes.",
+    faq: [
+      {
+        question: "How is it different from the southern corroboree frog?",
+        answer:
+          "They are closely related and both boldly striped in yellow and black, but they are separate species occupying different parts of the Australian alps.",
+      },
+      {
+        question: "Why is the northern corroboree frog Critically Endangered?",
+        answer:
+          "Published assessments cite the amphibian fungal disease chytridiomycosis, habitat change and drought, and a tiny range. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Frog profile", href: "/animals/frog" },
+  },
+  "morelets-tree-frog": {
+    summary: [
+      "Morelet's tree frog is a striking tree frog with bold eyes and smooth green skin. It is assessed as Critically Endangered.",
+      "It breeds in pools and ponds in Central American forests.",
+    ],
+    whyItMatters:
+      "A handsome Central American tree frog hit by disease and habitat loss, Morelet's tree frog is part of the wider amphibian extinction crisis.",
+    faq: [
+      {
+        question: "What does Morelet's tree frog look like?",
+        answer:
+          "It is a smooth-skinned green tree frog with large, dark-rimmed eyes and pale underparts, found in the forests of Mexico and northern Central America.",
+      },
+      {
+        question: "Why is Morelet's tree frog Critically Endangered?",
+        answer:
+          "Published assessments cite the amphibian fungal disease chytridiomycosis, habitat loss, and past collection. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Tree frog profile", href: "/animals/tree-frog" },
+  },
+  "lobed-star-coral": {
+    summary: [
+      "Lobed star coral is a reef-building coral that forms domed and plate-like colonies on Caribbean reefs. It is assessed as Vulnerable.",
+      "Like all corals it is a colony of tiny animals with symbiotic algae.",
+    ],
+    whyItMatters:
+      "A Caribbean reef-builder under pressure from bleaching and disease, lobed star coral is part of the wider reef crisis and a focus for restoration.",
+    faq: [
+      {
+        question: "Is lobed star coral a single creature?",
+        answer:
+          "No — it is a colony of many tiny coral polyps building a shared stony skeleton, hosting symbiotic algae that supply much of its colour and energy.",
+      },
+      {
+        question: "Why is lobed star coral Vulnerable?",
+        answer:
+          "Published assessments cite warming-driven bleaching, coral disease, and pollution and reef degradation. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Coral profile", href: "/animals/coral" },
+  },
+  "rough-cactus-coral": {
+    summary: [
+      "Rough cactus coral is a reef coral with meandering, ridged surfaces, found on Caribbean reefs. It is assessed as Vulnerable.",
+      "It has been hit hard by coral diseases spreading across the region.",
+    ],
+    whyItMatters:
+      "A distinctive Caribbean coral vulnerable to fast-spreading disease, rough cactus coral is part of the broader reef-conservation challenge.",
+    faq: [
+      {
+        question: "Why is it called rough cactus coral?",
+        answer:
+          "Its colony surface is covered in meandering ridges and valleys with a rough texture, giving it a cactus-like appearance compared with smoother corals.",
+      },
+      {
+        question: "Why is rough cactus coral Vulnerable?",
+        answer:
+          "Published assessments cite coral disease, warming-driven bleaching, and pollution and reef degradation. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Coral profile", href: "/animals/coral" },
+  },
+  "bowmouth-guitarfish": {
+    summary: [
+      "The bowmouth guitarfish is a striking, ridge-backed ray that looks part-shark, part-ray. It is assessed as Critically Endangered.",
+      "Its large fins are highly valued in the fin trade.",
+    ],
+    whyItMatters:
+      "A shark-like ray prized for its fins, the bowmouth guitarfish is among the most threatened of all sharks and rays and a priority for coastal conservation.",
+    faq: [
+      {
+        question: "Is the bowmouth guitarfish a shark or a ray?",
+        answer:
+          "It is a ray, but with a shark-like body and tall fins it looks like a cross between the two — sometimes called a 'shark ray'. Its fins are highly valued, driving overfishing.",
+      },
+      {
+        question: "Why is the bowmouth guitarfish Critically Endangered?",
+        answer:
+          "Published assessments cite overfishing for fins and meat, bycatch, and habitat loss. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Ray profile", href: "/animals/ray" },
+  },
+  "russian-sturgeon": {
+    summary: [
+      "The Russian sturgeon is a large, long-lived fish of the Caspian and Black Sea region, a major source of caviar. It is assessed as Critically Endangered.",
+      "It migrates up rivers to spawn and matures slowly.",
+    ],
+    whyItMatters:
+      "An ancient, slow-maturing fish hammered by the caviar trade and dammed rivers, the Russian sturgeon is a flagship for sturgeon conservation.",
+    faq: [
+      {
+        question: "Why is the Russian sturgeon so valued?",
+        answer:
+          "It is a key source of caviar, which drives both legal fishing and poaching; combined with its slow maturation, this has caused severe declines.",
+      },
+      {
+        question: "Why is the Russian sturgeon Critically Endangered?",
+        answer:
+          "Published assessments cite overfishing for caviar, poaching, and dams blocking the river migrations it needs to spawn. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Sturgeon profile", href: "/animals/sturgeon" },
+  },
+  "sterlet": {
+    summary: [
+      "The sterlet is a small sturgeon of Eurasian rivers, valued for its meat and caviar. It is assessed as Vulnerable.",
+      "Unlike many sturgeons it can complete its life cycle within rivers.",
+    ],
+    whyItMatters:
+      "A river-dwelling sturgeon and a long-exploited fishery species, the sterlet is a flagship for the health of Eurasia's great rivers.",
+    faq: [
+      {
+        question: "How is the sterlet different from other sturgeons?",
+        answer:
+          "It is smaller than most sturgeons and is largely a freshwater fish that can live and breed within rivers rather than migrating from the sea.",
+      },
+      {
+        question: "Why is the sterlet Vulnerable?",
+        answer:
+          "Published assessments cite overfishing, dams and habitat change, and pollution. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Sturgeon profile", href: "/animals/sturgeon" },
+  },
+  "indonesian-coelacanth": {
+    summary: [
+      "The Indonesian coelacanth is a 'living fossil' fish, the second coelacanth species, discovered off Indonesia in the late 1990s. It is assessed as Vulnerable.",
+      "Like the African coelacanth it has fleshy, limb-like fins.",
+    ],
+    whyItMatters:
+      "A second living coelacanth, a window onto deep evolutionary history, the Indonesian coelacanth is a scientific treasure with a tiny, vulnerable population.",
+    faq: [
+      {
+        question: "How many coelacanth species are there?",
+        answer:
+          "Two: the well-known African coelacanth and the Indonesian coelacanth, the latter discovered off Sulawesi in the late 1990s — both 'living fossils' from a lineage once thought long extinct.",
+      },
+      {
+        question: "Why is the Indonesian coelacanth Vulnerable?",
+        answer:
+          "Published assessments cite accidental capture in deep fishing gear and a very small, slow-breeding population. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Coelacanth profile", href: "/animals/coelacanth" },
+  },
+  "chinese-paddlefish": {
+    summary: [
+      "The Chinese paddlefish was one of the largest freshwater fish in the world, a giant of the Yangtze with a long paddle-shaped snout. It has been declared Extinct.",
+      "It has not been reliably recorded for many years and is now considered lost.",
+    ],
+    whyItMatters:
+      "A giant Yangtze fish now declared extinct, the Chinese paddlefish is a stark reminder of how dams and overfishing can erase even the largest river animals.",
+    faq: [
+      {
+        question: "Is the Chinese paddlefish really extinct?",
+        answer:
+          "Yes — it has been declared extinct, with no reliable records for many years. It is a sobering example of the loss of a giant freshwater fish.",
+      },
+      {
+        question: "What caused the Chinese paddlefish's extinction?",
+        answer:
+          "Published accounts cite overfishing, dams that blocked its spawning migrations, and habitat loss along the Yangtze. See the IUCN Red List for the assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Paddlefish profile", href: "/animals/paddlefish" },
+  },
+  "shortnose-sturgeon": {
+    summary: [
+      "The shortnose sturgeon is a small sturgeon of eastern North American rivers and estuaries. It is assessed as Vulnerable.",
+      "It moves between fresh and brackish water and matures slowly.",
+    ],
+    whyItMatters:
+      "A river-and-estuary sturgeon affected by dams and pollution, the shortnose sturgeon is a flagship for restoring connected, clean coastal rivers.",
+    faq: [
+      {
+        question: "Where does the shortnose sturgeon live?",
+        answer:
+          "In rivers and estuaries along the Atlantic coast of North America, moving between fresh and brackish water rather than ranging far out to sea.",
+      },
+      {
+        question: "Why is the shortnose sturgeon Vulnerable?",
+        answer:
+          "Published assessments cite dams blocking migration, pollution and habitat change, and past overfishing and bycatch. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Sturgeon profile", href: "/animals/sturgeon" },
+  },
+  "dusky-shark": {
+    summary: [
+      "The dusky shark is a large, wide-ranging coastal shark. It is assessed as Endangered.",
+      "It is one of the slowest-reproducing sharks, maturing very late.",
+    ],
+    whyItMatters:
+      "A large coastal shark with exceptionally slow reproduction, the dusky shark is highly sensitive to fishing and a focus for shark management.",
+    faq: [
+      {
+        question: "Why is the dusky shark so slow to recover from fishing?",
+        answer:
+          "It matures very late and produces few young over a long lifespan, so populations rebuild extremely slowly once reduced — making overfishing especially damaging.",
+      },
+      {
+        question: "Why is the dusky shark Endangered?",
+        answer:
+          "Published assessments cite overfishing and the fin trade, bycatch, and its very slow reproductive rate. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Shark profile", href: "/animals/shark" },
+  },
+  "tope-shark": {
+    summary: [
+      "The tope (school shark) is a slim, migratory coastal shark. It is assessed as Critically Endangered.",
+      "It undertakes long migrations and has long been targeted by fisheries.",
+    ],
+    whyItMatters:
+      "A migratory coastal shark heavily fished across its range, the tope is a flagship for coordinated international shark management.",
+    faq: [
+      {
+        question: "Why is the tope shark also called the school shark?",
+        answer:
+          "It often travels and feeds in groups ('schools') and undertakes long coastal migrations, which historically made it easy to catch in numbers.",
+      },
+      {
+        question: "Why is the tope shark Critically Endangered?",
+        answer:
+          "Published assessments cite overfishing for meat, fins, and liver oil, bycatch, and slow reproduction. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Shark profile", href: "/animals/shark" },
+  },
+  "ganges-shark": {
+    summary: [
+      "The Ganges shark is a rare river shark of the Indian subcontinent, adapted to murky fresh and coastal waters. It is assessed as Critically Endangered.",
+      "It is genuinely a freshwater-associated shark, unlike the bull shark it is sometimes confused with.",
+    ],
+    whyItMatters:
+      "A true river shark that is poorly known and rarely seen, the Ganges shark is a flagship for South Asian river conservation.",
+    faq: [
+      {
+        question: "Is the Ganges shark the shark behind river-attack stories?",
+        answer:
+          "Many such stories actually involve the wider-ranging bull shark. The Ganges shark is a separate, genuinely river-associated species that is rare and poorly known.",
+      },
+      {
+        question: "Why is the Ganges shark Critically Endangered?",
+        answer:
+          "Published assessments cite overfishing and bycatch, habitat degradation and pollution, and a small, poorly known population. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Shark profile", href: "/animals/shark" },
+  },
+  "speartooth-shark": {
+    summary: [
+      "The speartooth shark is a rare river shark of northern Australia and New Guinea, with young that live in tidal rivers. It is assessed as Endangered.",
+      "It has distinctive spear-shaped lower teeth.",
+    ],
+    whyItMatters:
+      "A little-known river shark whose young depend on tidal rivers, the speartooth shark is a flagship for tropical river and estuary conservation.",
+    faq: [
+      {
+        question: "Where do young speartooth sharks live?",
+        answer:
+          "Juveniles live in tidal stretches of rivers and estuaries in northern Australia and New Guinea, making these waterways crucial nurseries for the species.",
+      },
+      {
+        question: "Why is the speartooth shark Endangered?",
+        answer:
+          "Published assessments cite bycatch in fisheries, habitat change, and a small, restricted population. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Shark profile", href: "/animals/shark" },
+  },
+  "maugean-skate": {
+    summary: [
+      "The Maugean skate is a rare skate found only in a couple of brackish harbours in Tasmania. It is assessed as Critically Endangered.",
+      "It is a relict species confined to a very small area.",
+    ],
+    whyItMatters:
+      "A relict ray confined to a few harbours, the Maugean skate is a flagship for managing the water quality of small, enclosed coastal ecosystems.",
+    faq: [
+      {
+        question: "Why is the Maugean skate so vulnerable?",
+        answer:
+          "It lives only in a couple of small Tasmanian harbours, so changes there — especially falling oxygen levels in the water — threaten essentially the whole species.",
+      },
+      {
+        question: "Why is the Maugean skate Critically Endangered?",
+        answer:
+          "Published assessments cite declining oxygen in its harbour habitat, its tiny range, and environmental change linked to human activity. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Ray profile", href: "/animals/ray" },
+  },
+  "chinese-bahaba": {
+    summary: [
+      "The Chinese bahaba is a large coastal fish hunted intensely for its extremely valuable swim bladder. It is assessed as Critically Endangered.",
+      "Its swim bladder is among the most expensive fish products in the world.",
+    ],
+    whyItMatters:
+      "A large coastal fish driven down by the extraordinary value of its swim bladder, the Chinese bahaba is a stark example of luxury-driven overfishing.",
+    faq: [
+      {
+        question: "Why is the Chinese bahaba so heavily fished?",
+        answer:
+          "Its swim bladder is extraordinarily valuable in some markets, which has driven intense targeted fishing despite the species' collapse.",
+      },
+      {
+        question: "Why is the Chinese bahaba Critically Endangered?",
+        answer:
+          "Published assessments cite overfishing for its swim bladder, habitat loss, and a collapsing population. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "adriatic-sturgeon": {
+    summary: [
+      "The Adriatic sturgeon is a sturgeon native to rivers of the Adriatic basin. It is assessed as Critically Endangered.",
+      "It now depends heavily on restocking from captive-bred fish.",
+    ],
+    whyItMatters:
+      "A regional sturgeon surviving largely through restocking, the Adriatic sturgeon is a flagship for restoring connected, healthy rivers in southern Europe.",
+    faq: [
+      {
+        question: "Why does the Adriatic sturgeon depend on restocking?",
+        answer:
+          "Dams and past overfishing left very few wild-spawning fish, so populations are maintained largely by releasing captive-bred sturgeon into rivers such as the Po.",
+      },
+      {
+        question: "Why is the Adriatic sturgeon Critically Endangered?",
+        answer:
+          "Published assessments cite dams blocking migration, past overfishing, and habitat change. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Sturgeon profile", href: "/animals/sturgeon" },
+  },
+  "sakhalin-sturgeon": {
+    summary: [
+      "The Sakhalin sturgeon is a rare sturgeon of the north-western Pacific, spawning in only a small number of rivers. It is assessed as Critically Endangered.",
+      "Very few mature fish are thought to remain.",
+    ],
+    whyItMatters:
+      "A rare Pacific sturgeon clinging to a few rivers, the Sakhalin sturgeon is a flagship for protecting spawning rivers in the Russian Far East.",
+    faq: [
+      {
+        question: "Why is the Sakhalin sturgeon so rare?",
+        answer:
+          "It spawns in only a small number of rivers, and overfishing and habitat change have left very few mature fish, concentrating the species' survival in a tiny area.",
+      },
+      {
+        question: "Why is the Sakhalin sturgeon Critically Endangered?",
+        answer:
+          "Published assessments cite overfishing and poaching, dams and habitat change, and a tiny spawning population. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Sturgeon profile", href: "/animals/sturgeon" },
+  },
+  "ship-sturgeon": {
+    summary: [
+      "The ship sturgeon is a migratory sturgeon of the Caspian and Black Sea basins. It is assessed as Critically Endangered.",
+      "Like other sturgeons it is long-lived, slow to mature, and prized for caviar.",
+    ],
+    whyItMatters:
+      "Another caviar-bearing sturgeon devastated by fishing and dams, the ship sturgeon is part of the wider collapse of Eurasian sturgeons.",
+    faq: [
+      {
+        question: "Why are so many sturgeons Critically Endangered?",
+        answer:
+          "Sturgeons are long-lived, slow to mature, prized for caviar, and dependent on long river migrations to spawn — a combination that makes them extremely vulnerable to fishing and dams.",
+      },
+      {
+        question: "Why is the ship sturgeon Critically Endangered?",
+        answer:
+          "Published assessments cite overfishing for caviar, dams blocking migration, and pollution and habitat change. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Sturgeon profile", href: "/animals/sturgeon" },
+  },
+  "murray-cod": {
+    summary: [
+      "The Murray cod is one of Australia's largest freshwater fish and an iconic river predator. It is assessed as Vulnerable.",
+      "Despite the name it is not a true cod but a large native perch-like fish.",
+    ],
+    whyItMatters:
+      "A giant native predator of Australia's largest river system, the Murray cod is a flagship for restoring the health and flow of the Murray-Darling.",
+    faq: [
+      {
+        question: "Is the Murray cod a true cod?",
+        answer:
+          "No. Despite its name it is not related to the marine cods; it is a large Australian freshwater fish in a different family, named 'cod' by early settlers.",
+      },
+      {
+        question: "Why is the Murray cod Vulnerable?",
+        answer:
+          "Published assessments cite past overfishing, dams, weirs and altered river flow, and habitat degradation across the Murray-Darling system. See the IUCN Red List.",
+      },
+    ],
+  },
+  "spotted-handfish": {
+    summary: [
+      "The spotted handfish is an unusual fish that 'walks' on the seabed using hand-like fins. It is assessed as Critically Endangered.",
+      "It lays eggs around objects on the seabed and has a very small range in Tasmania.",
+    ],
+    whyItMatters:
+      "A walking fish confined to a couple of Tasmanian estuaries, the spotted handfish is a flagship for conserving fragile seabed habitats.",
+    faq: [
+      {
+        question: "How does the spotted handfish 'walk'?",
+        answer:
+          "Instead of swimming much, it uses its hand-shaped pectoral fins to clamber and 'walk' across the seabed, an unusual way of moving for a fish.",
+      },
+      {
+        question: "Why is the spotted handfish Critically Endangered?",
+        answer:
+          "Published assessments cite habitat disturbance and loss of spawning sites, an introduced seastar that disturbs its egg-laying, and its tiny range. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Anglerfish profile", href: "/animals/anglerfish" },
+  },
+  "aquatic-warbler": {
+    summary: [
+      "The aquatic warbler is a small, streaky songbird and one of the most threatened migratory songbirds in mainland Europe. It is assessed as Vulnerable.",
+      "It breeds only in specific open fen-mire wetlands.",
+    ],
+    whyItMatters:
+      "A wetland songbird dependent on vanishing fen mires, the aquatic warbler is a flagship for protecting Europe's lowland wetlands.",
+    faq: [
+      {
+        question: "Why is the aquatic warbler so dependent on fens?",
+        answer:
+          "It breeds only in particular open, wet fen-mire habitats, which have been widely drained for agriculture, leaving the warbler with few suitable sites.",
+      },
+      {
+        question: "Why is the aquatic warbler Vulnerable?",
+        answer:
+          "Published assessments cite the loss and drainage of fen wetlands, habitat change along its migration and wintering range, and a fragmented population. See the IUCN Red List.",
+      },
+    ],
+  },
+  "hooded-grebe": {
+    summary: [
+      "The hooded grebe is a rare waterbird discovered only in the 1970s, breeding on remote Patagonian lakes. It is assessed as Critically Endangered.",
+      "It performs an elaborate courtship dance.",
+    ],
+    whyItMatters:
+      "A recently discovered grebe already in crisis, the hooded grebe is a flagship for the fragile lake ecosystems of Patagonia.",
+    faq: [
+      {
+        question: "When was the hooded grebe discovered?",
+        answer:
+          "Remarkably, it was discovered by science only in the 1970s on remote lakes in Patagonia — yet within decades it had become Critically Endangered.",
+      },
+      {
+        question: "Why is the hooded grebe Critically Endangered?",
+        answer:
+          "Published assessments cite introduced predators such as mink and gulls, climate and habitat change at its breeding lakes, and a small population. See the IUCN Red List.",
+      },
+    ],
+  },
+  "slender-billed-vulture": {
+    summary: [
+      "The slender-billed vulture is an Asian scavenging vulture that suffered a catastrophic decline alongside other South Asian vultures. It is assessed as Critically Endangered.",
+      "It was hit hard by poisoning from a veterinary drug.",
+    ],
+    whyItMatters:
+      "Part of the South Asian vulture collapse, the slender-billed vulture underscores how a single drug devastated the continent's scavengers.",
+    faq: [
+      {
+        question: "What caused the slender-billed vulture's decline?",
+        answer:
+          "Published accounts point above all to the veterinary drug diclofenac in livestock carcasses, which poisoned several Asian vulture species and caused catastrophic declines.",
+      },
+      {
+        question: "Why is the slender-billed vulture Critically Endangered?",
+        answer:
+          "Published assessments cite poisoning, reduced food, and habitat change. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Vulture profile", href: "/animals/vulture" },
+  },
+  "tristan-albatross": {
+    summary: [
+      "The Tristan albatross is a great albatross that breeds almost entirely on one remote South Atlantic island. It is assessed as Critically Endangered.",
+      "Its chicks are attacked by introduced mice.",
+    ],
+    whyItMatters:
+      "A great albatross threatened by introduced mice and fishing, the Tristan albatross is a flagship for island restoration and seabird-safe fisheries.",
+    faq: [
+      {
+        question: "How can mice threaten a huge albatross?",
+        answer:
+          "Introduced house mice on Gough Island attack and kill albatross chicks, which have no defence against them — a major cause of breeding failure for the Tristan albatross.",
+      },
+      {
+        question: "Why is the Tristan albatross Critically Endangered?",
+        answer:
+          "Published assessments cite introduced mice attacking chicks, longline fishing bycatch, and reliance on a single main breeding island. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Albatross profile", href: "/animals/albatross" },
+  },
+  "junin-grebe": {
+    summary: [
+      "The Junin grebe is a flightless waterbird found only on Lake Junin high in the Peruvian Andes. It is assessed as Critically Endangered.",
+      "It cannot fly and lives entirely on one lake.",
+    ],
+    whyItMatters:
+      "A flightless grebe confined to a single Andean lake, the Junin grebe is a flagship for cleaning up and stabilising that lake's ecosystem.",
+    faq: [
+      {
+        question: "Why is the Junin grebe so vulnerable?",
+        answer:
+          "It is flightless and lives only on Lake Junin, so pollution or water-level changes at that one lake threaten the entire species, with no way for it to relocate.",
+      },
+      {
+        question: "Why is the Junin grebe Critically Endangered?",
+        answer:
+          "Published assessments cite pollution from mining, fluctuating water levels, and its single-lake range. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "pileated-gibbon": {
+    summary: [
+      "The pileated gibbon is a small ape in which males are black and females pale, both with a cap of crown hair. It is assessed as Endangered.",
+      "Pairs sing loud duets and swing through the canopy.",
+    ],
+    whyItMatters:
+      "A canopy ape of Indochina that disperses seeds, the pileated gibbon is a flagship for protecting Southeast Asian forests.",
+    faq: [
+      {
+        question: "Why do male and female pileated gibbons look so different?",
+        answer:
+          "Males are mostly black while females are pale buff, both with a distinct cap of crown hair — a marked colour difference between the sexes seen in several gibbons.",
+      },
+      {
+        question: "Why is the pileated gibbon Endangered?",
+        answer:
+          "Published assessments cite deforestation, hunting, and capture for the pet trade. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Gibbon profile", href: "/animals/gibbon" },
+  },
+  "tonkin-snub-nosed-monkey": {
+    summary: [
+      "The Tonkin snub-nosed monkey is one of the rarest primates in the world, with an upturned nose and pale face, found only in northern Vietnam. It is assessed as Critically Endangered.",
+      "It was rediscovered in the late 20th century after being feared lost.",
+    ],
+    whyItMatters:
+      "A snub-nosed monkey surviving in a tiny corner of Vietnam, the Tonkin snub-nosed monkey is a flagship for the country's most threatened forests.",
+    faq: [
+      {
+        question: "How rare is the Tonkin snub-nosed monkey?",
+        answer:
+          "It is among the rarest primates on Earth, with only a small number left in a restricted area of northern Vietnam, after being feared lost before its rediscovery.",
+      },
+      {
+        question: "Why is it Critically Endangered?",
+        answer:
+          "Published assessments cite hunting, habitat loss and fragmentation, and a tiny population. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "franciscana": {
+    summary: [
+      "The franciscana is a small dolphin with a very long, slender beak, living in coastal waters and estuaries of South America. It is assessed as Vulnerable.",
+      "It is one of the most bycatch-threatened small cetaceans.",
+    ],
+    whyItMatters:
+      "A long-beaked coastal dolphin highly prone to net entanglement, the franciscana is a flagship for reducing bycatch in South American fisheries.",
+    faq: [
+      {
+        question: "What is distinctive about the franciscana?",
+        answer:
+          "It has one of the longest, most slender beaks of any dolphin relative to its size, and lives in shallow coastal and estuarine waters rather than the open ocean.",
+      },
+      {
+        question: "Why is the franciscana Vulnerable?",
+        answer:
+          "Published assessments cite entanglement in fishing nets as the leading threat, along with habitat degradation and pollution. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Dolphin profile", href: "/animals/dolphin" },
+  },
 };
