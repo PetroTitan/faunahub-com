@@ -2238,6 +2238,559 @@ export const PET_NUTRITION_ARTICLES: PetNutritionArticle[] = [
     publishedTime: "2026-06-23",
     modifiedTime: "2026-06-23",
   },
+  {
+    slug: "how-to-store-pet-food",
+    path: "/pet-nutrition/how-to-store-pet-food",
+    title: "How to Store Pet Food Safely (Dry, Wet & Open Cans)",
+    description:
+      "An educational guide to storing pet food so it stays fresh and safe: keeping dry food in its bag, sealing and refrigerating opened cans, avoiding spoilage and pests, and basic hygiene.",
+    pageHeading: "How to Store Pet Food Safely",
+    topicTag: "Storage",
+    tone: "planning",
+    directAnswer:
+      "Store dry pet food in its original bag (for the batch code and freshness barrier), ideally inside a clean, sealed container, in a cool, dry place. Reseal opened wet food, refrigerate it, and use it within a couple of days. Good storage protects both freshness and your pet's health, and keeps the packaging information you would need if there were ever a recall. This page gives general guidance, not a substitute for label instructions.",
+    sections: [
+      {
+        heading: "Dry food storage",
+        bullets: [
+          "Keep dry food in its original bag — it holds the batch/lot code, best-by date, and a freshness barrier.",
+          "If you use a storage bin, place the whole bag inside it rather than tipping food in loose, and keep it clean.",
+          "Store somewhere cool and dry; heat and humidity speed up spoilage and can encourage mould.",
+          "Roll down and clip the bag (or seal the container) after each use to limit air, moisture, and pests.",
+          "Note the best-by date and use food within a reasonable time after opening.",
+        ],
+      },
+      {
+        heading: "Wet food and open cans",
+        intro:
+          "Once opened, wet food behaves like any perishable food.",
+        bullets: [
+          "Cover and refrigerate opened cans or pouches, and use them within roughly one to two days (follow the label).",
+          "Don't leave wet food sitting out for long periods, especially in warm conditions.",
+          "Wash food bowls and serving utensils regularly to limit bacteria.",
+          "Throw away food that smells off, looks mouldy, or is past date.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Storage checklist",
+      bullets: [
+        "Keep dry food in its original bag, sealed, in a cool dry spot.",
+        "Note the best-by date and batch code (useful in a recall).",
+        "Refrigerate opened wet food and use it within a day or two.",
+        "Clean bowls, scoops, and storage bins regularly.",
+        "Discard any food that is spoiled, mouldy, or out of date.",
+      ],
+    },
+    whatNotToAssume: {
+      heading: "What not to assume",
+      bullets: [
+        "Do not assume dry food never spoils — fats can go rancid and moisture can bring mould.",
+        "Do not tip food loose into a bin and discard the bag; you lose the batch code and date.",
+        "Do not leave opened wet food unrefrigerated for long.",
+        "Do not ignore label storage instructions, which can vary by product.",
+      ],
+    },
+    whenToContactVet: GENERIC_WHEN_TO_ASK,
+    faqs: [
+      {
+        question: "Should I keep dry food in the bag or a container?",
+        answer:
+          "Both: the best approach is to keep the food in its original bag and place that bag inside a clean, sealed container. The bag carries the batch code and best-by date and provides a freshness barrier, while the container adds protection from air, moisture, and pests.",
+      },
+      {
+        question: "How long does opened wet pet food last?",
+        answer:
+          "Treat it like perishable food: cover and refrigerate opened cans or pouches and use them within about one to two days, following the label. Discard anything left out for long periods or that smells off.",
+      },
+      {
+        question: "Why keep the original bag and its batch code?",
+        answer:
+          "If a product is ever recalled, the batch/lot code and best-by date on the original packaging let you check whether your food is affected. Tipping food into an unlabelled bin throws that information away.",
+      },
+    ],
+    sources: [SRC_FDA_SAFE_HANDLING, SRC_FDA_PETFOOD, SRC_AAFCO_LABELS],
+    related: [
+      {
+        title: "Keep planning",
+        links: [
+          { label: "Pet food label basics", href: "/pet-nutrition/pet-food-label-basics" },
+          { label: "Raw diets for pets — cautions", href: "/pet-nutrition/raw-diets-for-pets-cautions" },
+          { label: "Pet nutrition hub", href: "/pet-nutrition" },
+        ],
+      },
+      {
+        title: "Related",
+        links: [
+          { label: "Pet safety & emergencies", href: "/pet-safety" },
+          { label: "Vet care hub", href: "/vet-care" },
+        ],
+      },
+    ],
+    publishedTime: "2026-06-23",
+    modifiedTime: "2026-06-23",
+  },
+  {
+    slug: "cost-of-feeding-a-dog-or-cat",
+    path: "/pet-nutrition/cost-of-feeding-a-dog-or-cat",
+    title: "The Cost of Feeding a Dog or Cat: What Drives the Price",
+    description:
+      "An educational, brand-neutral look at what makes feeding a dog or cat cost more or less — pet size, life stage, food type, and treats — and how to budget and compare cost per day rather than per bag.",
+    pageHeading: "The Cost of Feeding a Dog or Cat",
+    topicTag: "Cost",
+    tone: "planning",
+    directAnswer:
+      "Feeding cost depends mostly on your pet's size and energy needs, the food's calorie density and type (dry, wet, fresh), and how many treats you add. A small cat costs far less to feed than a large dog. The most useful comparison is cost per day (calories your pet actually needs), not price per bag. This page explains the variables so you can budget — it does not name brands or prices.",
+    sections: [
+      {
+        heading: "What drives feeding cost",
+        bullets: [
+          "Body size and energy needs: a large, active dog eats far more than a small cat.",
+          "Food type: wet and fresh foods usually cost more per calorie than dry; raw and prescription diets add cost.",
+          "Calorie density: a more concentrated food means smaller portions, so price per bag can mislead.",
+          "Life stage and health: growth, pregnancy, or therapeutic diets can change needs and cost.",
+          "Treats and extras, which add up and should fit within the daily total.",
+        ],
+      },
+      {
+        heading: "How to compare and budget sensibly",
+        intro:
+          "A cheaper bag is not always cheaper to feed.",
+        bullets: [
+          "Work out cost per day from the calories your pet actually needs, not the bag price.",
+          "Use the feeding guide and your vet's input to estimate the daily amount.",
+          "Factor in treats, dental chews, and any supplements.",
+          "Remember that a complete-and-balanced food fed correctly is the goal, within your budget.",
+          "Our Pet Cost Calculator can help you map out ongoing costs.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Budgeting checklist",
+      bullets: [
+        "Estimate your pet's daily food amount from the label and vet guidance.",
+        "Calculate cost per day, not just price per bag.",
+        "Include treats and extras in the total.",
+        "Account for life-stage or health-related diet changes.",
+        "Revisit the budget as your pet grows or ages.",
+      ],
+    },
+    whatNotToAssume: {
+      heading: "What not to assume",
+      bullets: [
+        "Do not assume the cheapest bag is the cheapest to feed — calorie density matters.",
+        "Do not assume the most expensive food is automatically best for your pet.",
+        "Do not forget treats and extras when budgeting.",
+        "Do not cut portions to save money without veterinary guidance.",
+      ],
+    },
+    whenToContactVet: GENERIC_WHEN_TO_ASK,
+    faqs: [
+      {
+        question: "Why is cost per day better than price per bag?",
+        answer:
+          "Because foods differ in calorie density: a pricier, more concentrated food may need smaller portions, making it cheaper to feed per day than a cheaper but less concentrated food. Comparing cost per day reflects what you actually spend feeding your pet.",
+      },
+      {
+        question: "Is feeding a cat cheaper than feeding a dog?",
+        answer:
+          "Usually yes, mainly because cats are much smaller and need fewer calories than most dogs. A large, active dog is typically the most expensive to feed, while a small cat is among the least.",
+      },
+      {
+        question: "Does FaunaHub recommend budget brands?",
+        answer:
+          "No. FaunaHub does not rank or recommend brands and carries no affiliate food links. We explain the factors behind cost so you can budget and choose with your veterinarian.",
+      },
+    ],
+    sources: [SRC_AVMA_PETCARE, SRC_ASPCA_DOG_NUTRITION, SRC_WSAVA_NUTRITION],
+    related: [
+      {
+        title: "Plan and compare",
+        links: [
+          { label: "How to choose dog food", href: "/pet-nutrition/how-to-choose-dog-food" },
+          { label: "How to choose cat food", href: "/pet-nutrition/how-to-choose-cat-food" },
+          { label: "Pet treats and portion control", href: "/pet-nutrition/pet-treats-and-portion-control" },
+        ],
+      },
+      {
+        title: "Tools",
+        links: [
+          { label: "Pet Cost Calculator", href: "/tools/pet-cost-calculator" },
+          { label: "Pet nutrition hub", href: "/pet-nutrition" },
+        ],
+      },
+    ],
+    publishedTime: "2026-06-23",
+    modifiedTime: "2026-06-23",
+  },
+  {
+    slug: "understanding-guaranteed-analysis",
+    path: "/pet-nutrition/understanding-guaranteed-analysis",
+    title: "Understanding the Guaranteed Analysis on Pet Food",
+    description:
+      "An educational guide to the guaranteed analysis panel on pet food: what minimum protein and fat and maximum fibre and moisture mean, why wet and dry foods can't be compared directly, and the dry-matter idea.",
+    pageHeading: "Understanding the Guaranteed Analysis",
+    topicTag: "Labels",
+    tone: "labels",
+    directAnswer:
+      "The guaranteed analysis lists minimum protein and fat and maximum fibre and moisture in a food. It is useful, but it shows guaranteed limits rather than exact amounts, and the high moisture in wet food means you can't compare a can to a kibble directly without thinking in 'dry matter'. Alongside the complete-and-balanced statement, it helps you understand a food — this page explains how to read it.",
+    sections: [
+      {
+        heading: "What the four basic figures mean",
+        bullets: [
+          "Crude protein (minimum): the guaranteed least amount of protein, by analysis.",
+          "Crude fat (minimum): the guaranteed least amount of fat.",
+          "Crude fibre (maximum): the guaranteed most fibre.",
+          "Moisture (maximum): the guaranteed most water — very low in dry food, high in wet food.",
+          "'Crude' refers to the test method, not the quality of the nutrient.",
+        ],
+      },
+      {
+        heading: "Why you can't compare wet and dry directly",
+        intro:
+          "Moisture is the catch. A canned food can look 'low protein' simply because it is mostly water.",
+        bullets: [
+          "Wet foods are high in moisture, which dilutes the percentage figures.",
+          "To compare fairly, nutritionists convert to a 'dry-matter basis' (removing the water mathematically).",
+          "As a simpler check, compare foods of the same type (dry to dry, wet to wet).",
+          "The guaranteed analysis shows limits, not exact values — the complete-and-balanced statement tells you it meets a nutrient profile.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Reading-the-panel checklist",
+      bullets: [
+        "Find crude protein and fat (minimums) and fibre and moisture (maximums).",
+        "Note the moisture level before comparing foods.",
+        "Compare like with like — dry to dry, wet to wet.",
+        "Pair the panel with the complete-and-balanced (adequacy) statement.",
+        "Ask your veterinarian if a specific nutrient level matters for your pet.",
+      ],
+    },
+    whatNotToAssume: {
+      heading: "What not to assume",
+      bullets: [
+        "Do not compare a wet food's percentages directly with a dry food's.",
+        "Do not assume 'crude' means low quality — it is just the test method.",
+        "Do not treat the guaranteed minimums/maximums as exact amounts.",
+        "Do not rely on the panel alone; the adequacy statement signals complete nutrition.",
+      ],
+    },
+    whenToContactVet: GENERIC_WHEN_TO_ASK,
+    faqs: [
+      {
+        question: "What does 'crude protein' mean?",
+        answer:
+          "'Crude' refers to the laboratory method used to estimate protein, not to the protein's quality. 'Crude protein (minimum)' is the guaranteed least amount of protein in the food by that analysis.",
+      },
+      {
+        question: "Why does canned food look lower in protein than kibble?",
+        answer:
+          "Because canned food contains a lot of water, which dilutes the percentages. To compare fairly you convert to a 'dry-matter basis' (removing the moisture mathematically), or simply compare wet foods with other wet foods and dry with dry.",
+      },
+      {
+        question: "Is the guaranteed analysis enough to judge a food?",
+        answer:
+          "It is helpful but not the whole picture. Read it together with the nutritional-adequacy (complete and balanced) statement, which indicates the food is formulated to meet a recognised nutrient profile for a life stage.",
+      },
+    ],
+    sources: [SRC_AAFCO_LABELS, SRC_FDA_PETFOOD, SRC_WSAVA_NUTRITION],
+    related: [
+      {
+        title: "Label reading",
+        links: [
+          { label: "Pet food label basics", href: "/pet-nutrition/pet-food-label-basics" },
+          { label: "Understanding ingredient lists", href: "/pet-nutrition/understanding-pet-food-ingredient-lists" },
+          { label: "Grain-free pet food explained", href: "/pet-nutrition/grain-free-pet-food-explained" },
+        ],
+      },
+      {
+        title: "Related",
+        links: [
+          { label: "How to choose dog food", href: "/pet-nutrition/how-to-choose-dog-food" },
+          { label: "How to choose cat food", href: "/pet-nutrition/how-to-choose-cat-food" },
+        ],
+      },
+    ],
+    publishedTime: "2026-06-23",
+    modifiedTime: "2026-06-23",
+  },
+  {
+    slug: "what-to-feed-a-hamster",
+    path: "/pet-nutrition/what-to-feed-a-hamster",
+    title: "What to Feed a Hamster: A Simple Diet Guide",
+    description:
+      "An educational guide to feeding pet hamsters: a complete hamster mix or pellet as the base, small amounts of safe fresh vegetables, constant fresh water, and foods to avoid — plus why hamsters hoard food.",
+    pageHeading: "What to Feed a Hamster",
+    topicTag: "Small pets",
+    tone: "planning",
+    directAnswer:
+      "Feed a hamster a complete commercial hamster food (a formulated mix or pellet) as the staple, plus small amounts of suitable fresh vegetables and the occasional treat, with clean water always available. Avoid sugary, salty, or citrus foods and anything known to be unsafe. Hamsters naturally hoard food in their cheek pouches and bedding, so check stashes for spoilage. This is general guidance — your vet can advise for your hamster.",
+    sections: [
+      {
+        heading: "The basics of a hamster's diet",
+        bullets: [
+          "A complete hamster mix or pellet designed for hamsters as the main food.",
+          "Small amounts of safe fresh vegetables and herbs, introduced gradually.",
+          "Occasional small treats only — not a major part of the diet.",
+          "Constant access to clean, fresh water (a bottle or shallow dish).",
+          "A measured daily portion; hamsters are small and easily overfed.",
+        ],
+      },
+      {
+        heading: "Foods to avoid and the hoarding habit",
+        intro:
+          "Hamsters stuff food into their cheek pouches and hide it — a normal behaviour to plan around.",
+        bullets: [
+          "Avoid sugary, salty, fatty, and citrus foods, and anything known to be toxic.",
+          "Avoid sudden diet changes, which can upset digestion.",
+          "Because hamsters hoard food in their bedding, check and remove perishable stashes so they don't spoil.",
+          "Provide safe things to gnaw, as their teeth grow continuously.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Hamster feeding checklist",
+      bullets: [
+        "Offer a complete hamster mix or pellet as the staple.",
+        "Add only small amounts of safe fresh vegetables.",
+        "Keep fresh water available at all times.",
+        "Check bedding for hoarded perishable food and remove it.",
+        "Keep treats minimal and avoid unsafe foods.",
+      ],
+    },
+    whatNotToAssume: {
+      heading: "What not to assume",
+      bullets: [
+        "Do not assume hamsters can eat sugary or citrus 'treat' foods safely.",
+        "Do not overfeed — hamsters are tiny and prone to obesity.",
+        "Do not ignore hoarded food; perishable stashes can rot in the bedding.",
+        "Do not change the diet abruptly.",
+      ],
+    },
+    whenToContactVet: GENERIC_WHEN_TO_ASK,
+    faqs: [
+      {
+        question: "What should make up most of a hamster's diet?",
+        answer:
+          "A complete commercial hamster food — a formulated mix or pellet made for hamsters — should be the staple, with only small amounts of safe fresh vegetables and occasional treats alongside constant fresh water.",
+      },
+      {
+        question: "Why does my hamster hide its food?",
+        answer:
+          "Hoarding is natural: hamsters carry food in their cheek pouches and stash it in their bedding for later. It is normal, but you should check the stashes and remove any perishable food before it spoils.",
+      },
+      {
+        question: "What foods should hamsters avoid?",
+        answer:
+          "Avoid sugary, salty, fatty, and citrus foods, and anything known to be toxic to small pets. When unsure whether a food is safe, leave it out and ask your veterinarian.",
+      },
+    ],
+    sources: [SRC_MERCK_NUTRITION, SRC_AVMA_PETCARE],
+    related: [
+      {
+        title: "Small pet care",
+        links: [
+          { label: "What to feed a rabbit", href: "/pet-nutrition/what-to-feed-a-rabbit" },
+          { label: "What to feed guinea pigs", href: "/pet-nutrition/what-to-feed-guinea-pigs" },
+          { label: "Small pets hub", href: "/small-pets" },
+        ],
+      },
+      {
+        title: "Related",
+        links: [
+          { label: "Hamster profile", href: "/animals/hamster" },
+          { label: "Vet care hub", href: "/vet-care" },
+        ],
+      },
+    ],
+    publishedTime: "2026-06-23",
+    modifiedTime: "2026-06-23",
+  },
+  {
+    slug: "betta-fish-feeding-basics",
+    path: "/pet-nutrition/betta-fish-feeding-basics",
+    title: "Betta Fish Feeding Basics: How Much and What",
+    description:
+      "An educational guide to feeding betta fish: a betta-specific food as the staple, very small portions once or twice a day, why overfeeding fouls the water, and the value of variety.",
+    pageHeading: "Betta Fish Feeding Basics",
+    topicTag: "Fish",
+    tone: "planning",
+    directAnswer:
+      "Bettas are largely carnivorous and do best on a food formulated for bettas as the staple, fed in very small amounts once or twice a day — only what they eat in a couple of minutes. Overfeeding is the most common mistake: leftover food fouls the water and harms the fish. This is general guidance — an aquatics-experienced or fish veterinarian can advise for your setup.",
+    sections: [
+      {
+        heading: "What and how much to feed",
+        bullets: [
+          "Use a betta-specific pellet or food as the staple; bettas are meat-eaters and need a protein-rich diet.",
+          "Feed tiny portions once or twice daily — only what is eaten in a minute or two.",
+          "Offer occasional variety (such as suitable frozen or freeze-dried foods) for interest.",
+          "Remove any uneaten food so it doesn't decay in the tank.",
+          "Some keepers include an occasional fast day for healthy adult bettas — ask a specialist.",
+        ],
+      },
+      {
+        heading: "Why overfeeding is the big risk",
+        intro:
+          "As with all aquarium fish, feeding and water quality are tightly linked.",
+        bullets: [
+          "A betta's stomach is tiny — roughly the size of its eye — so it needs very little.",
+          "Leftover food and extra waste raise harmful compounds (like ammonia) in the water.",
+          "Poor water quality is a leading cause of illness in pet fish.",
+          "When in doubt, feed slightly less rather than more.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Betta feeding checklist",
+      bullets: [
+        "Choose a betta-specific food as the staple.",
+        "Feed tiny amounts once or twice a day.",
+        "Offer only what is eaten in a minute or two.",
+        "Remove leftover food and keep up water maintenance.",
+        "Ask an aquatics-experienced vet if a betta stops eating or seems unwell.",
+      ],
+    },
+    whatNotToAssume: {
+      heading: "What not to assume",
+      bullets: [
+        "Do not assume a betta needs a large meal — its stomach is tiny.",
+        "Do not rely only on generic flakes; a betta-specific food suits its carnivorous diet.",
+        "Do not let uneaten food sit in the tank.",
+        "Do not ignore water quality — it matters as much as the food.",
+      ],
+    },
+    whenToContactVet: GENERIC_WHEN_TO_ASK,
+    faqs: [
+      {
+        question: "How much should I feed a betta fish?",
+        answer:
+          "Very little: a small amount of betta food once or twice a day, only what the fish eats in a minute or two. A betta's stomach is roughly the size of its eye, so it is easy to overfeed.",
+      },
+      {
+        question: "Why is overfeeding a betta harmful?",
+        answer:
+          "Uneaten food and extra waste break down and raise harmful compounds in the water, and poor water quality is a leading cause of illness in pet fish. Feeding small amounts and removing leftovers protects the water.",
+      },
+      {
+        question: "Can bettas eat ordinary tropical flakes?",
+        answer:
+          "Bettas are largely carnivorous and generally do best on a betta-specific food rather than generic plant-heavy flakes. Variety with suitable frozen or freeze-dried foods can help; an aquatics specialist can advise.",
+      },
+    ],
+    sources: [SRC_MERCK_NUTRITION, SRC_AVMA_PETCARE],
+    related: [
+      {
+        title: "Fish & aquarium care",
+        links: [
+          { label: "Goldfish feeding basics", href: "/pet-nutrition/goldfish-feeding-basics" },
+          { label: "Aquarium care hub", href: "/aquarium-care" },
+          { label: "Pet nutrition hub", href: "/pet-nutrition" },
+        ],
+      },
+      {
+        title: "Related",
+        links: [
+          { label: "Betta fish profile", href: "/animals/betta-fish" },
+          { label: "Vet care hub", href: "/vet-care" },
+        ],
+      },
+    ],
+    publishedTime: "2026-06-23",
+    modifiedTime: "2026-06-23",
+  },
+  {
+    slug: "koi-feeding-basics",
+    path: "/pet-nutrition/koi-feeding-basics",
+    title: "Koi Feeding Basics: Seasons, Amounts & Water Quality",
+    description:
+      "An educational guide to feeding koi: a complete koi food in small amounts, feeding to the water temperature (and stopping when cold), and why overfeeding harms pond water quality.",
+    pageHeading: "Koi Feeding Basics",
+    topicTag: "Fish",
+    tone: "planning",
+    directAnswer:
+      "Feed koi a complete koi food in small amounts, only what they finish in a few minutes, and adjust with the seasons: koi eat well in warm water but their digestion slows in the cold, so feeding is reduced and then stopped as the water gets cold. Overfeeding fouls pond water, which is one of the biggest risks to koi health. This is general guidance — a pond or fish specialist can advise for your pond.",
+    sections: [
+      {
+        heading: "What and how much to feed",
+        bullets: [
+          "Use a complete koi or pond-fish food as the staple.",
+          "Feed small amounts, only what the koi finish in a few minutes.",
+          "Remove or net off uneaten food so it doesn't decay in the pond.",
+          "Offer variety as appropriate, but keep portions modest.",
+          "More food is not better — water quality suffers quickly with excess.",
+        ],
+      },
+      {
+        heading: "Feeding by the seasons (water temperature)",
+        intro:
+          "Koi are pond fish whose appetite and digestion track the water temperature.",
+        bullets: [
+          "In warm water, koi are active and eat readily.",
+          "As water cools, their metabolism and digestion slow, so feeding is reduced.",
+          "When the water is cold, koi are typically not fed at all, because they cannot digest food properly.",
+          "Use a pond thermometer and follow guidance for your climate, or ask a koi/pond specialist.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Koi feeding checklist",
+      bullets: [
+        "Use a complete koi or pond-fish food as the staple.",
+        "Feed small amounts the fish finish within a few minutes.",
+        "Adjust feeding to water temperature; reduce and stop as it gets cold.",
+        "Remove uneaten food and maintain pond water quality.",
+        "Ask a pond/fish specialist if koi seem unwell or stop eating.",
+      ],
+    },
+    whatNotToAssume: {
+      heading: "What not to assume",
+      bullets: [
+        "Do not feed koi normally in cold water — their digestion slows or stops.",
+        "Do not overfeed; excess food rapidly degrades pond water.",
+        "Do not assume koi need feeding every day year-round.",
+        "Do not ignore pond water quality, which is central to koi health.",
+      ],
+    },
+    whenToContactVet: GENERIC_WHEN_TO_ASK,
+    faqs: [
+      {
+        question: "Why do I stop feeding koi in cold weather?",
+        answer:
+          "Koi are cold-blooded pond fish; as the water cools their metabolism and digestion slow down, and in cold water they cannot properly digest food. Feeding is reduced as it cools and typically stopped when the water is cold, to avoid undigested food harming the fish and the water.",
+      },
+      {
+        question: "How much should I feed koi?",
+        answer:
+          "Small amounts of a complete koi food, only what they finish in a few minutes, and adjusted to the season. Overfeeding is a common mistake that quickly fouls pond water.",
+      },
+      {
+        question: "Why does overfeeding koi matter so much?",
+        answer:
+          "Leftover food and extra waste degrade pond water quality, and poor water quality is a leading cause of illness in pond fish. Feeding modestly and removing leftovers helps keep the water healthy.",
+      },
+    ],
+    sources: [SRC_MERCK_NUTRITION, SRC_AVMA_PETCARE],
+    related: [
+      {
+        title: "Fish & aquarium care",
+        links: [
+          { label: "Goldfish feeding basics", href: "/pet-nutrition/goldfish-feeding-basics" },
+          { label: "Betta fish feeding basics", href: "/pet-nutrition/betta-fish-feeding-basics" },
+          { label: "Aquarium care hub", href: "/aquarium-care" },
+        ],
+      },
+      {
+        title: "Related",
+        links: [
+          { label: "Koi profile", href: "/animals/koi" },
+          { label: "Pet nutrition hub", href: "/pet-nutrition" },
+        ],
+      },
+    ],
+    publishedTime: "2026-06-23",
+    modifiedTime: "2026-06-23",
+  },
 ];
 
 export function getPetNutritionArticleBySlug(

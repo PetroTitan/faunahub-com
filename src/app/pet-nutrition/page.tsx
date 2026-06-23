@@ -56,6 +56,9 @@ const THEMES: ThemeSection[] = [
       "how-to-choose-cat-food",
       "grain-free-pet-food-explained",
       "understanding-pet-food-ingredient-lists",
+      "understanding-guaranteed-analysis",
+      "how-to-store-pet-food",
+      "cost-of-feeding-a-dog-or-cat",
     ],
   },
   {
@@ -116,6 +119,9 @@ const THEMES: ThemeSection[] = [
       "what-to-feed-a-rabbit",
       "what-to-feed-guinea-pigs",
       "goldfish-feeding-basics",
+      "what-to-feed-a-hamster",
+      "betta-fish-feeding-basics",
+      "koi-feeding-basics",
     ],
     extraLinks: [
       {
