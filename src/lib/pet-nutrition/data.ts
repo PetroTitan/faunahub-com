@@ -1582,6 +1582,662 @@ export const PET_NUTRITION_ARTICLES: PetNutritionArticle[] = [
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
+  {
+    slug: "how-to-choose-dog-food",
+    path: "/pet-nutrition/how-to-choose-dog-food",
+    title: "How to Choose Dog Food: A Practical Buyer's Guide",
+    description:
+      "An educational, brand-neutral guide to choosing dog food: what the AAFCO nutritional-adequacy statement means, how to match food to life stage, and which label details actually matter.",
+    pageHeading: "How to Choose Dog Food",
+    topicTag: "Choosing food",
+    tone: "planning",
+    directAnswer:
+      "There is no single best dog food for every dog. The most useful starting signal on any product is the nutritional-adequacy statement (often referencing AAFCO), which tells you the food is formulated to be complete and balanced for a life stage. From there, match the food to your dog's life stage, size, and any veterinary guidance. This page explains how to compare options — it does not rank or recommend brands.",
+    sections: [
+      {
+        heading: "What actually matters when choosing",
+        bullets: [
+          "Complete and balanced: look for a nutritional-adequacy statement (often citing AAFCO) for the right life stage.",
+          "Life stage: puppy/growth, adult maintenance, or all life stages — and large-breed puppy formulas where relevant.",
+          "Calorie density and feeding guide, so you can feed a sensible amount.",
+          "Your dog's individual needs: size, activity, body condition, and any health history.",
+          "Manufacturer transparency: who formulates the food and whether they employ qualified nutritionists and quality controls.",
+        ],
+      },
+      {
+        heading: "How to compare two products fairly",
+        intro:
+          "Marketing words on the front of the bag (premium, natural, holistic) are not defined nutritional standards. Compare the parts that are.",
+        bullets: [
+          "Check both have a complete-and-balanced statement for your dog's life stage.",
+          "Compare calories per cup or per gram, not just price per bag.",
+          "Read the guaranteed analysis and ingredient list, remembering ingredients are listed by weight before cooking.",
+          "Consider your dog's response over weeks — coat, stool, energy, body condition — with veterinary input.",
+          "Ask your veterinarian if a specific life-stage or therapeutic food suits your dog.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Choosing checklist",
+      bullets: [
+        "Confirm a nutritional-adequacy (complete and balanced) statement for the correct life stage.",
+        "Match the food to your dog's life stage, size, and activity.",
+        "Compare calories and feeding guides, not just front-of-bag claims.",
+        "Introduce any new food gradually over several days.",
+        "Review the choice with your veterinarian, especially for puppies, seniors, or health conditions.",
+      ],
+    },
+    whatNotToAssume: {
+      heading: "What not to assume",
+      bullets: [
+        "Do not assume a higher price or 'premium' wording means better nutrition.",
+        "Do not assume grain-free is healthier — most dogs do not need it (see our grain-free explainer).",
+        "Do not assume the first ingredient tells the whole story; ingredient order is by pre-cooking weight.",
+        "Do not switch foods abruptly, which can upset digestion.",
+      ],
+    },
+    whenToContactVet: GENERIC_WHEN_TO_ASK,
+    faqs: [
+      {
+        question: "What is the single most useful thing to look for?",
+        answer:
+          "The nutritional-adequacy statement (often referencing AAFCO). It indicates the food is formulated to be complete and balanced for a stated life stage, which matters far more than front-of-bag marketing words.",
+      },
+      {
+        question: "Do you recommend specific dog food brands?",
+        answer:
+          "No. FaunaHub does not rank or recommend brands and carries no affiliate food links. We explain how to read labels and compare options so you can decide with your veterinarian.",
+      },
+      {
+        question: "Is expensive dog food always better?",
+        answer:
+          "Not necessarily. Price reflects many things besides nutrition. A complete-and-balanced food appropriate to your dog's life stage, fed in the right amount, matters more than cost alone.",
+      },
+    ],
+    sources: [SRC_AVMA_SELECTING_FOOD, SRC_WSAVA_NUTRITION, SRC_AAFCO_LABELS],
+    related: [
+      {
+        title: "Keep comparing",
+        links: [
+          { label: "Pet food label basics", href: "/pet-nutrition/pet-food-label-basics" },
+          { label: "Understanding ingredient lists", href: "/pet-nutrition/understanding-pet-food-ingredient-lists" },
+          { label: "Grain-free pet food explained", href: "/pet-nutrition/grain-free-pet-food-explained" },
+        ],
+      },
+      {
+        title: "Related",
+        links: [
+          { label: "How much should I feed my dog?", href: "/pet-nutrition/how-much-should-i-feed-my-dog" },
+          { label: "Dog food safety", href: "/dogs/food" },
+          { label: "Pet Cost Calculator", href: "/tools/pet-cost-calculator" },
+        ],
+      },
+    ],
+    publishedTime: "2026-06-23",
+    modifiedTime: "2026-06-23",
+  },
+  {
+    slug: "how-to-choose-cat-food",
+    path: "/pet-nutrition/how-to-choose-cat-food",
+    title: "How to Choose Cat Food: A Practical Buyer's Guide",
+    description:
+      "A brand-neutral, educational guide to choosing cat food: why cats are obligate carnivores, what the AAFCO complete-and-balanced statement means, and how to match food to your cat's life stage.",
+    pageHeading: "How to Choose Cat Food",
+    topicTag: "Choosing food",
+    tone: "planning",
+    directAnswer:
+      "Cats are obligate carnivores with specific needs — including taurine, an amino acid they must get from their diet. The most useful starting signal on a product is its nutritional-adequacy statement (often citing AAFCO) confirming it is complete and balanced for a life stage. From there, match the food to your cat's life stage and individual needs with veterinary input. This page explains how to compare options — it does not rank brands.",
+    sections: [
+      {
+        heading: "Why cat food is not just smaller dog food",
+        bullets: [
+          "Cats are obligate carnivores and need a meat-based, protein-rich diet.",
+          "They require certain nutrients from animal sources, such as taurine, that complete cat foods are formulated to supply.",
+          "Cat foods are formulated specifically for cats — dog food is not a substitute.",
+          "Many cats benefit from some wet food for moisture, as cats can have a naturally low thirst drive.",
+        ],
+      },
+      {
+        heading: "What to check on the label",
+        intro:
+          "Front-of-bag words like 'premium' or 'gourmet' are marketing, not nutritional standards. Focus on the parts that are defined.",
+        bullets: [
+          "A nutritional-adequacy statement (often referencing AAFCO) for the right life stage — kitten/growth, adult, or all life stages.",
+          "Whether it suits your cat's life stage and any veterinary recommendations.",
+          "Calorie content and the feeding guide, so you can portion sensibly.",
+          "Wet, dry, or a mix — based on your cat's preferences, hydration, and your vet's advice.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Choosing checklist",
+      bullets: [
+        "Confirm a complete-and-balanced statement for your cat's life stage.",
+        "Choose food formulated for cats, not dogs.",
+        "Decide on wet, dry, or a mix with hydration in mind.",
+        "Introduce any new food gradually over several days.",
+        "Confirm the choice with your veterinarian, especially for kittens, seniors, or health conditions.",
+      ],
+    },
+    whatNotToAssume: {
+      heading: "What not to assume",
+      bullets: [
+        "Do not feed cats dog food — it lacks nutrients cats specifically need.",
+        "Do not assume grain-free is healthier for cats; most do not need it.",
+        "Do not assume a vegetarian or vegan diet suits a cat without veterinary supervision — cats are obligate carnivores.",
+        "Do not switch foods abruptly.",
+      ],
+    },
+    whenToContactVet: GENERIC_WHEN_TO_ASK,
+    faqs: [
+      {
+        question: "What makes cats different from dogs nutritionally?",
+        answer:
+          "Cats are obligate carnivores and depend on nutrients found in animal tissue, such as taurine, which complete cat foods are formulated to provide. This is why cat food is formulated specifically for cats and dog food is not a substitute.",
+      },
+      {
+        question: "Wet food, dry food, or both?",
+        answer:
+          "There is no universal answer. Many cats do well on a mix, and wet food adds moisture, which can help cats that drink little. Preferences, dental factors, weight, and health all matter — discuss the balance with your veterinarian. See our wet vs dry guide for cats.",
+      },
+      {
+        question: "Do you recommend specific cat food brands?",
+        answer:
+          "No. FaunaHub does not rank or recommend brands and carries no affiliate food links. We explain how to read labels so you can choose with your veterinarian.",
+      },
+    ],
+    sources: [SRC_AVMA_SELECTING_FOOD, SRC_ASPCA_CAT_NUTRITION, SRC_CORNELL_FELINE],
+    related: [
+      {
+        title: "Keep comparing",
+        links: [
+          { label: "Wet vs dry food for cats", href: "/pet-nutrition/wet-vs-dry-food-for-cats" },
+          { label: "Pet food label basics", href: "/pet-nutrition/pet-food-label-basics" },
+          { label: "Understanding ingredient lists", href: "/pet-nutrition/understanding-pet-food-ingredient-lists" },
+        ],
+      },
+      {
+        title: "Related",
+        links: [
+          { label: "How much should I feed my cat?", href: "/pet-nutrition/how-much-should-i-feed-my-cat" },
+          { label: "Cat food safety", href: "/cats/food" },
+          { label: "Cat health hub", href: "/cats/health" },
+        ],
+      },
+    ],
+    publishedTime: "2026-06-23",
+    modifiedTime: "2026-06-23",
+  },
+  {
+    slug: "grain-free-pet-food-explained",
+    path: "/pet-nutrition/grain-free-pet-food-explained",
+    title: "Grain-Free Pet Food, Explained (Without the Hype)",
+    description:
+      "A balanced, evidence-aware look at grain-free dog and cat food: what 'grain-free' really means, whether most pets need it, true grain allergies, and the FDA's ongoing diet-and-heart investigation.",
+    pageHeading: "Grain-Free Pet Food, Explained",
+    topicTag: "Food types",
+    tone: "food-types",
+    directAnswer:
+      "Grain-free does not automatically mean healthier. Most dogs and cats digest grains well, and true grain allergies are uncommon — food allergies are more often to specific proteins. Grain-free can be a reasonable choice for some pets, but it is not inherently superior. Note too that the U.S. FDA has investigated a possible association between certain grain-free diets and a heart condition (dilated cardiomyopathy) in dogs; a cause has not been established. Discuss any specialized diet with your veterinarian.",
+    sections: [
+      {
+        heading: "What 'grain-free' actually means",
+        bullets: [
+          "It means the food contains no grains (such as wheat, corn, or rice); the carbohydrates come from other sources like potatoes, peas, or legumes.",
+          "It is a recipe choice, not a quality or health certification.",
+          "Grain-free is not the same as low-carbohydrate — many grain-free foods still contain plenty of carbohydrate.",
+        ],
+      },
+      {
+        heading: "Do most pets need it?",
+        intro:
+          "For the average healthy dog or cat, there is no established need to avoid grains.",
+        bullets: [
+          "True grain allergies are uncommon; most diagnosed food allergies are to specific protein sources, not grains.",
+          "Food intolerances and allergies are best diagnosed by a veterinarian, often with a controlled elimination diet — not by guesswork.",
+          "Whether grain-free or grain-inclusive, the key is a complete-and-balanced food appropriate to the life stage.",
+        ],
+      },
+      {
+        heading: "The FDA diet-and-heart investigation",
+        intro:
+          "This is an area of active research, presented here neutrally.",
+        bullets: [
+          "The U.S. FDA has investigated reports of dilated cardiomyopathy (DCM, a heart-muscle disease) in dogs, including some eating certain grain-free or legume-rich diets.",
+          "A direct cause-and-effect link has not been established, and the science is ongoing.",
+          "Because of this uncertainty, dietary choices — especially for breeds or individuals at risk — are worth discussing with your veterinarian.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "If you are weighing grain-free",
+      bullets: [
+        "Confirm the food is complete and balanced for the life stage, grain-free or not.",
+        "Do not assume grain-free treats a problem your pet does not have.",
+        "If you suspect a food allergy, ask your vet about a proper diagnosis rather than self-selecting a diet.",
+        "Raise any heart-health concerns or breed risks with your veterinarian.",
+        "Change diets gradually and watch your pet's response over time.",
+      ],
+    },
+    whatNotToAssume: {
+      heading: "What not to assume",
+      bullets: [
+        "Do not assume grain-free is automatically healthier or higher quality.",
+        "Do not assume your pet has a grain allergy without veterinary diagnosis.",
+        "Do not assume grain-free means low-carb.",
+        "Do not make heart-health or allergy decisions from marketing — involve your veterinarian.",
+      ],
+    },
+    whenToContactVet: GENERIC_WHEN_TO_ASK,
+    faqs: [
+      {
+        question: "Is grain-free food better for my pet?",
+        answer:
+          "Not inherently. Most dogs and cats handle grains well, and grain-free is a recipe choice rather than a quality standard. What matters most is a complete-and-balanced food suited to your pet's life stage and needs.",
+      },
+      {
+        question: "My pet seems itchy — is it a grain allergy?",
+        answer:
+          "Possibly, but grain allergies are uncommon; most food allergies involve specific proteins. Itching has many causes. A veterinarian can diagnose food allergies properly, often with an elimination diet, rather than guessing at grains.",
+      },
+      {
+        question: "Should I worry about grain-free food and heart disease?",
+        answer:
+          "The FDA has investigated a possible association between some grain-free diets and dilated cardiomyopathy in dogs, but a cause has not been established and research continues. If you have concerns, especially for at-risk breeds, discuss your pet's diet with your veterinarian.",
+      },
+    ],
+    sources: [SRC_FDA_PETFOOD, SRC_WSAVA_NUTRITION, SRC_AVMA_SELECTING_FOOD],
+    related: [
+      {
+        title: "Keep reading",
+        links: [
+          { label: "How to choose dog food", href: "/pet-nutrition/how-to-choose-dog-food" },
+          { label: "How to choose cat food", href: "/pet-nutrition/how-to-choose-cat-food" },
+          { label: "Understanding ingredient lists", href: "/pet-nutrition/understanding-pet-food-ingredient-lists" },
+        ],
+      },
+      {
+        title: "Related",
+        links: [
+          { label: "Pet food label basics", href: "/pet-nutrition/pet-food-label-basics" },
+          { label: "Vet care hub", href: "/vet-care" },
+        ],
+      },
+    ],
+    publishedTime: "2026-06-23",
+    modifiedTime: "2026-06-23",
+  },
+  {
+    slug: "understanding-pet-food-ingredient-lists",
+    path: "/pet-nutrition/understanding-pet-food-ingredient-lists",
+    title: "Understanding Pet Food Ingredient Lists",
+    description:
+      "How to read a pet food ingredient list without being misled: ingredient order by weight, what 'by-products' and 'meal' really mean, ingredient splitting, and why the adequacy statement matters most.",
+    pageHeading: "Understanding Pet Food Ingredient Lists",
+    topicTag: "Labels",
+    tone: "labels",
+    directAnswer:
+      "Ingredient lists are useful but easy to misread. Ingredients are listed by weight before cooking, so a watery fresh meat can rank above concentrated ingredients despite contributing less once moisture is removed. Common terms like 'by-products' and 'meal' are not inherently bad. The clearest signal that a food is nutritionally sound is still the complete-and-balanced (adequacy) statement — not the marketing around the ingredient list. This page explains how to read the list sensibly.",
+    sections: [
+      {
+        heading: "How the ordering works",
+        bullets: [
+          "Ingredients are listed in descending order by weight, measured before cooking.",
+          "Fresh meats are heavy because of their water content, so they often appear high even though much of that weight cooks off.",
+          "A concentrated ingredient like a meat 'meal' (water already removed) can deliver more actual nutrient despite ranking lower.",
+          "Because of this, the first ingredient alone does not tell you the whole nutritional story.",
+        ],
+      },
+      {
+        heading: "Terms that are often misunderstood",
+        intro:
+          "Several common terms are marketed as red flags but are not inherently problematic.",
+        bullets: [
+          "By-products: regulated animal parts beyond muscle meat (such as organs), which can be nutritious — not automatically low quality.",
+          "Meal (e.g., chicken meal): a concentrated, rendered protein with water removed; a normal, useful ingredient.",
+          "Ingredient splitting: a single component listed as several sub-types can shift its apparent position in the list.",
+          "Named vs generic: 'chicken' is more specific than 'poultry' or 'meat', which some buyers prefer for transparency.",
+        ],
+      },
+      {
+        heading: "Where the real signal is",
+        bullets: [
+          "The nutritional-adequacy statement (often citing AAFCO) tells you the food is formulated to be complete and balanced for a life stage.",
+          "The guaranteed analysis lists minimum/maximum levels of key nutrients (protein, fat, fibre, moisture).",
+          "Together these matter more than the marketing language around the ingredient list.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Reading-the-list checklist",
+      bullets: [
+        "Remember ingredient order is by pre-cooking weight, not by nutritional value.",
+        "Do not dismiss by-products or meals automatically.",
+        "Look for the complete-and-balanced statement for the right life stage.",
+        "Skim the guaranteed analysis for protein, fat, fibre, and moisture.",
+        "Take questions about a specific food to your veterinarian.",
+      ],
+    },
+    whatNotToAssume: {
+      heading: "What not to assume",
+      bullets: [
+        "Do not assume the first-listed ingredient proves overall quality.",
+        "Do not assume 'by-product' or 'meal' means bad — both can be nutritious.",
+        "Do not assume a long or 'natural-sounding' ingredient list equals better nutrition.",
+        "Do not rely on the ingredient list alone; the adequacy statement is the key nutritional signal.",
+      ],
+    },
+    whenToContactVet: GENERIC_WHEN_TO_ASK,
+    faqs: [
+      {
+        question: "Why is meat listed first but the food still seems low in protein?",
+        answer:
+          "Because ingredients are ranked by weight before cooking, and fresh meat is mostly water. Once that moisture cooks off, its real contribution can be smaller than a concentrated ingredient listed lower down, such as a meat meal. Check the guaranteed analysis and adequacy statement for the fuller picture.",
+      },
+      {
+        question: "Are by-products bad for pets?",
+        answer:
+          "Not inherently. By-products are regulated animal parts beyond muscle meat, such as organs, which can be nutritious. The term is often marketed as negative, but it does not by itself indicate poor quality.",
+      },
+      {
+        question: "What should I trust more than the ingredient list?",
+        answer:
+          "The nutritional-adequacy (complete and balanced) statement for the correct life stage, alongside the guaranteed analysis. These tell you the food is formulated to meet recognised nutrient standards, which matters more than ingredient marketing.",
+      },
+    ],
+    sources: [SRC_AAFCO_LABELS, SRC_FDA_PETFOOD, SRC_WSAVA_NUTRITION],
+    related: [
+      {
+        title: "Keep reading",
+        links: [
+          { label: "Pet food label basics", href: "/pet-nutrition/pet-food-label-basics" },
+          { label: "How to choose dog food", href: "/pet-nutrition/how-to-choose-dog-food" },
+          { label: "How to choose cat food", href: "/pet-nutrition/how-to-choose-cat-food" },
+        ],
+      },
+      {
+        title: "Related",
+        links: [
+          { label: "Grain-free pet food explained", href: "/pet-nutrition/grain-free-pet-food-explained" },
+          { label: "Pet nutrition hub", href: "/pet-nutrition" },
+        ],
+      },
+    ],
+    publishedTime: "2026-06-23",
+    modifiedTime: "2026-06-23",
+  },
+  {
+    slug: "what-to-feed-a-rabbit",
+    path: "/pet-nutrition/what-to-feed-a-rabbit",
+    title: "What to Feed a Rabbit: A Hay-First Diet Guide",
+    description:
+      "An educational guide to feeding pet rabbits: why unlimited grass hay is the foundation, the role of leafy greens and limited pellets, foods to avoid, and why a rabbit that stops eating is an emergency.",
+    pageHeading: "What to Feed a Rabbit",
+    topicTag: "Small pets",
+    tone: "planning",
+    directAnswer:
+      "Rabbits are herbivores whose diet should be built on unlimited grass hay (such as timothy), which makes up the bulk of what they eat. Add a daily portion of suitable leafy greens, a small measured amount of plain pellets, and constant fresh water. Avoid sugary treats and selective 'muesli' mixes. Introduce any change gradually, and treat a rabbit that stops eating or passing droppings as an emergency. This is general guidance — your veterinarian can tailor it.",
+    sections: [
+      {
+        heading: "What a rabbit's diet is built on",
+        bullets: [
+          "Grass hay, available at all times — it should be the largest part of the diet and is vital for digestion and dental wear.",
+          "Fresh leafy greens daily, introduced gradually and varied within safe options.",
+          "A small, measured amount of plain (uniform) pellets — not the main food.",
+          "Constant access to clean, fresh water.",
+        ],
+      },
+      {
+        heading: "Foods to limit or avoid",
+        intro:
+          "Many rabbit health problems trace back to too little hay and too many of the wrong extras.",
+        bullets: [
+          "Muesli-style mixes that let rabbits pick out sugary bits and leave the rest (selective feeding).",
+          "Sugary or starchy treats, including many commercial 'rabbit treats' and excess fruit.",
+          "Sudden diet changes, which can upset the sensitive gut.",
+          "Foods that are toxic or unsuitable — check before offering anything new.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Rabbit feeding checklist",
+      bullets: [
+        "Keep grass hay available at all times.",
+        "Offer a daily portion of suitable leafy greens, introduced gradually.",
+        "Give only a small, measured amount of plain pellets.",
+        "Provide constant fresh water.",
+        "Monitor eating and droppings daily, and contact a vet promptly if either stops.",
+      ],
+    },
+    whatNotToAssume: {
+      heading: "What not to assume",
+      bullets: [
+        "Do not make pellets or muesli the main food — hay comes first.",
+        "Do not assume all greens or garden plants are safe; check each one.",
+        "Do not change the diet suddenly.",
+        "Do not wait and see if a rabbit stops eating — it can deteriorate quickly.",
+      ],
+    },
+    whenToContactVet: GENERIC_WHEN_TO_ASK,
+    faqs: [
+      {
+        question: "What should make up most of a rabbit's diet?",
+        answer:
+          "Grass hay, available at all times. It provides the fibre rabbits need for healthy digestion and helps wear down their continuously growing teeth. Greens, a little pellet food, and water complete the diet.",
+      },
+      {
+        question: "Why is a rabbit that stops eating an emergency?",
+        answer:
+          "A rabbit's digestive system needs to keep moving. When a rabbit stops eating or passing droppings, it can become seriously unwell quickly. Contact a veterinarian promptly rather than waiting. This page is educational and not a substitute for veterinary care.",
+      },
+      {
+        question: "Are muesli-style rabbit mixes a good idea?",
+        answer:
+          "They are generally discouraged because rabbits tend to pick out the sugary, starchy pieces and leave the fibrous parts, leading to an unbalanced diet. A hay-first diet with plain pellets is widely preferred.",
+      },
+    ],
+    sources: [SRC_MERCK_NUTRITION, SRC_AVMA_PETCARE],
+    related: [
+      {
+        title: "Small pet care",
+        links: [
+          { label: "What to feed guinea pigs", href: "/pet-nutrition/what-to-feed-guinea-pigs" },
+          { label: "Small pets hub", href: "/small-pets" },
+          { label: "Pet nutrition hub", href: "/pet-nutrition" },
+        ],
+      },
+      {
+        title: "Related",
+        links: [
+          { label: "Vet care hub", href: "/vet-care" },
+          { label: "Rabbit profile", href: "/animals/rabbit" },
+        ],
+      },
+    ],
+    publishedTime: "2026-06-23",
+    modifiedTime: "2026-06-23",
+  },
+  {
+    slug: "what-to-feed-guinea-pigs",
+    path: "/pet-nutrition/what-to-feed-guinea-pigs",
+    title: "What to Feed Guinea Pigs: Hay, Greens, and Vitamin C",
+    description:
+      "An educational guide to feeding guinea pigs: why unlimited grass hay is the base, why they need a daily source of vitamin C (which they cannot make themselves), and which foods to limit.",
+    pageHeading: "What to Feed Guinea Pigs",
+    topicTag: "Small pets",
+    tone: "planning",
+    directAnswer:
+      "Guinea pigs are herbivores whose diet should be based on unlimited grass hay, plus daily fresh leafy greens, a measured amount of guinea-pig pellets, and constant fresh water. Crucially, guinea pigs cannot make their own vitamin C and must get it from their diet every day, or they can develop deficiency. This is general guidance — your veterinarian can confirm what suits your guinea pig.",
+    sections: [
+      {
+        heading: "The foundation: hay, greens, and water",
+        bullets: [
+          "Grass hay, available at all times — the bulk of the diet, essential for digestion and dental wear.",
+          "Fresh leafy greens daily, which also help supply vitamin C.",
+          "A measured amount of plain guinea-pig pellets (formulated for guinea pigs).",
+          "Constant access to clean, fresh water.",
+        ],
+      },
+      {
+        heading: "The vitamin C requirement",
+        intro:
+          "This is the single biggest way guinea pig feeding differs from rabbits.",
+        bullets: [
+          "Unlike most animals, guinea pigs cannot synthesise vitamin C and need a daily dietary source.",
+          "Suitable fresh vegetables and guinea-pig pellets help provide it; your vet can advise on supplementation if needed.",
+          "Too little vitamin C over time can lead to deficiency (sometimes called scurvy) — a reason to keep the diet consistent.",
+          "Use food formulated for guinea pigs, not rabbit food, which is not designed for their vitamin C needs.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Guinea pig feeding checklist",
+      bullets: [
+        "Keep grass hay available at all times.",
+        "Offer daily leafy greens that help supply vitamin C.",
+        "Provide a measured amount of guinea-pig-specific pellets.",
+        "Ensure constant fresh water.",
+        "Ask your vet about vitamin C and any signs of deficiency.",
+      ],
+    },
+    whatNotToAssume: {
+      heading: "What not to assume",
+      bullets: [
+        "Do not feed rabbit food to guinea pigs — it is not formulated for their vitamin C needs.",
+        "Do not rely on pellets alone; hay and fresh greens matter.",
+        "Do not assume vitamin C stores last — they need it daily.",
+        "Do not change the diet abruptly.",
+      ],
+    },
+    whenToContactVet: GENERIC_WHEN_TO_ASK,
+    faqs: [
+      {
+        question: "Why do guinea pigs need vitamin C in their food?",
+        answer:
+          "Unlike most animals, guinea pigs cannot make their own vitamin C, so they must get it from their diet every day. Suitable fresh greens and guinea-pig pellets help provide it; a veterinarian can advise on supplementation.",
+      },
+      {
+        question: "Can guinea pigs eat rabbit food?",
+        answer:
+          "It is not recommended. Rabbit pellets are not formulated for a guinea pig's vitamin C requirement and differ nutritionally. Use food made specifically for guinea pigs.",
+      },
+      {
+        question: "What is the base of a guinea pig's diet?",
+        answer:
+          "Unlimited grass hay, supplemented with daily leafy greens, a measured amount of guinea-pig pellets, and fresh water. Hay supports digestion and helps wear down their continuously growing teeth.",
+      },
+    ],
+    sources: [SRC_MERCK_NUTRITION, SRC_AVMA_PETCARE],
+    related: [
+      {
+        title: "Small pet care",
+        links: [
+          { label: "What to feed a rabbit", href: "/pet-nutrition/what-to-feed-a-rabbit" },
+          { label: "Small pets hub", href: "/small-pets" },
+          { label: "Pet nutrition hub", href: "/pet-nutrition" },
+        ],
+      },
+      {
+        title: "Related",
+        links: [
+          { label: "Vet care hub", href: "/vet-care" },
+          { label: "Guinea pig profile", href: "/animals/guinea-pig" },
+        ],
+      },
+    ],
+    publishedTime: "2026-06-23",
+    modifiedTime: "2026-06-23",
+  },
+  {
+    slug: "goldfish-feeding-basics",
+    path: "/pet-nutrition/goldfish-feeding-basics",
+    title: "Goldfish Feeding Basics: How Much and How Often",
+    description:
+      "An educational guide to feeding goldfish: choosing an appropriate complete fish food, feeding small amounts, why overfeeding is the most common mistake, and how uneaten food harms water quality.",
+    pageHeading: "Goldfish Feeding Basics",
+    topicTag: "Fish",
+    tone: "planning",
+    directAnswer:
+      "Feed goldfish a small amount of an appropriate complete fish food once or twice a day — only as much as they finish in a minute or two. Overfeeding is the most common mistake: uneaten food breaks down and fouls the water, which is one of the biggest risks to a goldfish's health. This is general guidance — an aquatics-experienced or fish veterinarian can advise for your setup.",
+    sections: [
+      {
+        heading: "How much and how often",
+        bullets: [
+          "Use a complete food made for goldfish or coldwater fish as the staple.",
+          "Feed small portions once or twice daily, offering only what they eat in about a minute or two.",
+          "Remove uneaten food so it does not decay in the tank.",
+          "Some keepers include an occasional fast day for healthy adult fish — ask an aquatics specialist about your situation.",
+        ],
+      },
+      {
+        heading: "Why overfeeding is the big risk",
+        intro:
+          "With fish, feeding and water quality are tightly linked.",
+        bullets: [
+          "Leftover food and extra waste raise harmful compounds (like ammonia) in the water.",
+          "Poor water quality is a leading cause of illness in pet fish.",
+          "A varied, appropriate diet and good tank maintenance matter more than large meals.",
+          "When in doubt, feed slightly less rather than more.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Goldfish feeding checklist",
+      bullets: [
+        "Choose a complete goldfish or coldwater-fish food as the staple.",
+        "Feed small amounts once or twice a day.",
+        "Offer only what is eaten within a minute or two.",
+        "Remove leftover food and keep up water maintenance.",
+        "Ask an aquatics-experienced vet if a fish stops eating or seems unwell.",
+      ],
+    },
+    whatNotToAssume: {
+      heading: "What not to assume",
+      bullets: [
+        "Do not assume a fish that 'always looks hungry' needs more food.",
+        "Do not let uneaten food sit in the tank.",
+        "Do not rely on feeding alone — water quality is just as important.",
+        "Do not feed large meals; small and consistent is safer.",
+      ],
+    },
+    whenToContactVet: GENERIC_WHEN_TO_ASK,
+    faqs: [
+      {
+        question: "How much should I feed a goldfish?",
+        answer:
+          "A small amount once or twice a day — only what the fish finish in about a minute or two. It is safer to slightly underfeed than to overfeed, because leftover food fouls the water.",
+      },
+      {
+        question: "Why is overfeeding goldfish such a problem?",
+        answer:
+          "Uneaten food and extra waste break down and raise harmful compounds in the water, and poor water quality is a leading cause of illness in pet fish. Feeding modest amounts and removing leftovers protects water quality.",
+      },
+      {
+        question: "What kind of food should goldfish eat?",
+        answer:
+          "A complete food formulated for goldfish or coldwater fish as the staple, sometimes with suitable variety. An aquatics-experienced veterinarian or specialist can advise on a diet for your particular setup.",
+      },
+    ],
+    sources: [SRC_MERCK_NUTRITION, SRC_AVMA_PETCARE],
+    related: [
+      {
+        title: "Fish & aquarium care",
+        links: [
+          { label: "Aquarium care hub", href: "/aquarium-care" },
+          { label: "Pet nutrition hub", href: "/pet-nutrition" },
+        ],
+      },
+      {
+        title: "Related",
+        links: [
+          { label: "Goldfish profile", href: "/animals/goldfish" },
+          { label: "Vet care hub", href: "/vet-care" },
+        ],
+      },
+    ],
+    publishedTime: "2026-06-23",
+    modifiedTime: "2026-06-23",
+  },
 ];
 
 export function getPetNutritionArticleBySlug(

@@ -47,6 +47,18 @@ const THEMES: ThemeSection[] = [
     ],
   },
   {
+    id: "choosing-food",
+    title: "Choosing & Understanding Pet Food",
+    intro:
+      "High-interest buyer questions, answered without brand rankings or affiliate links — how to read what matters on the label and compare options with your veterinarian.",
+    slugs: [
+      "how-to-choose-dog-food",
+      "how-to-choose-cat-food",
+      "grain-free-pet-food-explained",
+      "understanding-pet-food-ingredient-lists",
+    ],
+  },
+  {
     id: "feeding-guides",
     title: "Dog and Cat Feeding Guides",
     intro:
@@ -94,6 +106,29 @@ const THEMES: ThemeSection[] = [
     intro:
       "The small daily things add up. Keep treats modest and within the daily total, and keep fresh water available while noticing meaningful changes in drinking.",
     slugs: ["pet-treats-and-portion-control", "how-much-water-should-pets-drink"],
+  },
+  {
+    id: "small-pets-fish",
+    title: "Small Pets & Fish Feeding",
+    intro:
+      "Companion species beyond cats and dogs have their own needs: hay-first diets for small herbivores, the guinea pig vitamin C requirement, and careful feeding for fish.",
+    slugs: [
+      "what-to-feed-a-rabbit",
+      "what-to-feed-guinea-pigs",
+      "goldfish-feeding-basics",
+    ],
+    extraLinks: [
+      {
+        label: "Small pets hub",
+        href: "/small-pets",
+        description: "Care for rabbits, guinea pigs, and other small companions.",
+      },
+      {
+        label: "Aquarium & fish care",
+        href: "/aquarium-care",
+        description: "Setting up and maintaining a healthy aquarium.",
+      },
+    ],
   },
 ];
 
