@@ -292,6 +292,11 @@ const links = [
     desc: "Phylum Nemertea — soft marine worms that fire out a hunting proboscis; the bootlace worm may be Earth's longest animal.",
   },
   {
+    href: "/animals/lancelet",
+    label: "Lancelet",
+    desc: "Genus Branchiostoma — a small, fish-shaped marine chordate (not a fish or vertebrate) that hints at vertebrate origins.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",

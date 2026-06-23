@@ -67,6 +67,8 @@ const marine = [
   { href: "/animals/hawkfish", label: "Hawkfish", desc: "Family Cirrhitidae — reef fish that perch on coral and pounce on prey like a hawk." },
   { href: "/animals/wolffish", label: "Wolffish", desc: "Genus Anarhichas — fanged, shellfish-crushing cold-water fish with natural antifreeze in their blood." },
   { href: "/animals/dragonet", label: "Dragonet", desc: "Family Callionymidae — small seabed reef fish; includes the dazzling, true-blue mandarinfish." },
+  { href: "/animals/weeverfish", label: "Weeverfish", desc: "Family Trachinidae — sand-burying coastal fish with venomous spines; among the most venomous fish in European seas." },
+  { href: "/animals/lanternfish", label: "Lanternfish", desc: "Family Myctophidae — glowing deep-sea fish that may be among the most abundant vertebrates on Earth." },
 ];
 
 export default function FishEncyclopediaPage() {

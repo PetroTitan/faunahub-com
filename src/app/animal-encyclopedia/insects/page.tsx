@@ -181,6 +181,11 @@ const groups = [
     label: "Earwig",
     desc: "Order Dermaptera — pincer-tailed insects that guard their young; the ear-burrowing tale is a myth.",
   },
+  {
+    href: "/animals/leafhopper",
+    label: "Leafhopper",
+    desc: "Family Cicadellidae — small sap-sucking jumpers that coat themselves in water-repelling brochosomes; many are crop pests.",
+  },
 ];
 
 export default function InsectsPage() {

@@ -141,6 +141,12 @@ const mammals = [
   { href: "/animals/saiga", label: "Saiga", desc: "Saiga tatarica — an Ice Age steppe antelope with a bulbous, trunk-like nose; recovering from near-extinction." },
   { href: "/animals/markhor", label: "Markhor", desc: "Capra falconeri — the largest wild goat, with magnificent corkscrew horns; Pakistan's national animal." },
   { href: "/animals/gerenuk", label: "Gerenuk", desc: "Litocranius walleri — the long-necked 'giraffe gazelle' that stands on its hind legs to browse." },
+  { href: "/animals/kodkod", label: "Kodkod", desc: "Leopardus guigna — the smallest wild cat in the Americas; dark (melanistic) individuals are common." },
+  { href: "/animals/flat-headed-cat", label: "Flat-headed Cat", desc: "Prionailurus planiceps — an endangered Southeast Asian wetland cat that hunts fish and frogs." },
+  { href: "/animals/bush-dog", label: "Bush Dog", desc: "Speothos venaticus — a short-legged, otter-like South American canid that hunts in packs near water." },
+  { href: "/animals/zorilla", label: "Zorilla", desc: "Ictonyx striatus — an African striped polecat that looks and smells like a skunk, but is a true mustelid." },
+  { href: "/animals/takin", label: "Takin", desc: "Budorcas taxicolor — a massive Himalayan goat-antelope with a moose-like nose; Bhutan's national animal." },
+  { href: "/animals/dik-dik", label: "Dik-dik", desc: "Genus Madoqua — a tiny African antelope with a cooling snout that lives in monogamous pairs." },
 ];
 
 export default function MammalsPage() {

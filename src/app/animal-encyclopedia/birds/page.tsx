@@ -124,6 +124,11 @@ const birds = [
   { href: "/animals/sandgrouse", label: "Sandgrouse", desc: "Family Pteroclidae — desert birds whose males carry water to their chicks in special belly feathers." },
   { href: "/animals/mousebird", label: "Mousebird", desc: "Order Coliiformes — crested African birds that clamber mouse-like and huddle to sunbathe; Africa's only endemic bird order." },
   { href: "/animals/courser", label: "Courser", desc: "Family Glareolidae — long-legged dryland birds that run swiftly across open ground instead of wading." },
+  { href: "/animals/go-away-bird", label: "Go-away-bird", desc: "Genus Corythaixoides — grey crested African turacos named for the loud 'g'way' alarm call that warns other animals." },
+  { href: "/animals/coucal", label: "Coucal", desc: "Genus Centropus — large ground cuckoos that, unlike many cuckoos, build their own nests and raise their own young." },
+  { href: "/animals/pratincole", label: "Pratincole", desc: "Genus Glareola — waders that hawk insects on the wing like giant swallows; relatives of the running coursers." },
+  { href: "/animals/button-quail", label: "Button-quail", desc: "Genus Turnix — quail-like ground birds (not true quails) with reversed sex roles; females court and males incubate." },
+  { href: "/animals/painted-snipe", label: "Greater Painted-snipe", desc: "Rostratula benghalensis — a wetland wader where the brighter female courts the males that raise the brood." },
 ];
 
 export default function EncyclopediaBirdsPage() {

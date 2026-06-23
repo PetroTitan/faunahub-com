@@ -54,6 +54,8 @@ const reptiles = [
   { href: "/animals/wall-lizard", label: "Wall Lizard", desc: "Genus Podarcis — agile, sun-loving European lizards of walls, rocks, and ruins." },
   { href: "/animals/legless-lizard", label: "Legless Lizard", desc: "Snake-like burrowing lizards (e.g. Anniella) that 'swim' through sand — leglessness evolved many times." },
   { href: "/animals/whiptail", label: "Whiptail Lizard", desc: "Genus Aspidoscelis — fast striped racers; several species are all-female and reproduce by cloning." },
+  { href: "/animals/plated-lizard", label: "Plated Lizard", desc: "Genus Gerrhosaurus — armoured African lizards with bony, plate-like scales and a flexible flank fold." },
+  { href: "/animals/sandfish", label: "Sandfish", desc: "Scincus scincus — a desert skink (a lizard, not a fish) that 'swims' through loose sand." },
 ];
 
 const amphibians = [
@@ -87,6 +89,8 @@ const amphibians = [
   { href: "/animals/red-backed-salamander", label: "Red-backed Salamander", desc: "Plethodon cinereus — an abundant lungless salamander that breathes through its skin." },
   { href: "/animals/amphiuma", label: "Amphiuma", desc: "Genus Amphiuma — eel-like aquatic salamanders with tiny useless legs; among N. America's longest amphibians." },
   { href: "/animals/siren", label: "Siren", desc: "Family Sirenidae — eel-like salamanders that keep gills for life and have only front legs." },
+  { href: "/animals/chorus-frog", label: "Chorus Frog", desc: "Genus Pseudacris — small striped North American frogs whose spring choruses include the spring peeper." },
+  { href: "/animals/rain-frog", label: "Rain Frog", desc: "Genus Breviceps — round African burrowing frogs that squeak, can't really swim, and hatch straight into froglets." },
 ];
 
 export default function EncyclopediaReptilesPage() {
