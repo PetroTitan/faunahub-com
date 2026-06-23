@@ -59,6 +59,9 @@ const THEMES: ThemeSection[] = [
       "understanding-guaranteed-analysis",
       "how-to-store-pet-food",
       "cost-of-feeding-a-dog-or-cat",
+      "dog-food-vs-cat-food-whats-the-difference",
+      "pet-food-marketing-claims-explained",
+      "pet-food-recalls-what-to-know",
     ],
   },
   {
@@ -108,7 +111,7 @@ const THEMES: ThemeSection[] = [
     title: "Treats, Water, and Portion Awareness",
     intro:
       "The small daily things add up. Keep treats modest and within the daily total, and keep fresh water available while noticing meaningful changes in drinking.",
-    slugs: ["pet-treats-and-portion-control", "how-much-water-should-pets-drink"],
+    slugs: ["pet-treats-and-portion-control", "how-much-water-should-pets-drink", "managing-your-pets-weight"],
   },
   {
     id: "small-pets-fish",
@@ -122,6 +125,8 @@ const THEMES: ThemeSection[] = [
       "what-to-feed-a-hamster",
       "betta-fish-feeding-basics",
       "koi-feeding-basics",
+      "guppy-feeding-basics",
+      "tropical-fish-feeding-basics",
     ],
     extraLinks: [
       {

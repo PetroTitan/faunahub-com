@@ -2791,6 +2791,554 @@ export const PET_NUTRITION_ARTICLES: PetNutritionArticle[] = [
     publishedTime: "2026-06-23",
     modifiedTime: "2026-06-23",
   },
+  {
+    slug: "dog-food-vs-cat-food-whats-the-difference",
+    path: "/pet-nutrition/dog-food-vs-cat-food-whats-the-difference",
+    title: "Dog Food vs Cat Food: What's the Difference?",
+    description:
+      "An educational guide to why dog food and cat food are not interchangeable: cats are obligate carnivores needing nutrients like taurine, while dogs are more omnivorous — and why feeding the wrong one matters.",
+    pageHeading: "Dog Food vs Cat Food: What's the Difference?",
+    topicTag: "Choosing food",
+    tone: "planning",
+    directAnswer:
+      "Dog food and cat food are formulated for different animals and are not interchangeable. Cats are obligate carnivores that need certain nutrients from animal sources — notably taurine, plus higher protein and specific vitamins — while dogs are more omnivorous and have broader diets. Feeding cat food to a dog (or, more riskily, dog food to a cat) over time can cause nutritional problems. This page explains the differences; your veterinarian can advise for your pet.",
+    sections: [
+      {
+        heading: "Why the two foods differ",
+        bullets: [
+          "Cats are obligate carnivores: they require nutrients found in animal tissue, such as taurine, and generally need more protein.",
+          "Cat foods are formulated to supply those cat-specific needs; dog foods are not.",
+          "Dogs are more omnivorous and tolerate a broader range of ingredients.",
+          "Cat food tends to be richer and more calorie-dense, which can be unsuitable for dogs long-term.",
+        ],
+      },
+      {
+        heading: "What this means in practice",
+        intro:
+          "An occasional stolen mouthful is usually not an emergency, but the two foods should not be swapped as the regular diet.",
+        bullets: [
+          "Feed cats a complete cat food and dogs a complete dog food.",
+          "Don't rely on dog food for a cat — it lacks taurine and other cat essentials and can cause serious deficiency over time.",
+          "In multi-pet homes, feed pets separately so each eats its own food.",
+          "Ask your veterinarian if your pet regularly eats the wrong food or shows any signs of illness.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Multi-pet feeding checklist",
+      bullets: [
+        "Buy a complete-and-balanced food made for the right species.",
+        "Feed dogs and cats their own food, ideally in separate places.",
+        "Stop pets from routinely raiding each other's bowls.",
+        "Watch for weight changes in homes where pets share access.",
+        "Raise persistent food-stealing or any illness with your vet.",
+      ],
+    },
+    whatNotToAssume: {
+      heading: "What not to assume",
+      bullets: [
+        "Do not assume cat food and dog food are interchangeable — they are formulated differently.",
+        "Do not feed a cat dog food as its regular diet; cats need taurine and other animal-source nutrients.",
+        "Do not assume 'all pet food is basically the same'.",
+        "Do not ignore a pet that habitually eats the wrong food.",
+      ],
+    },
+    whenToContactVet: GENERIC_WHEN_TO_ASK,
+    faqs: [
+      {
+        question: "Is it bad if my dog eats some cat food?",
+        answer:
+          "An occasional small amount is usually not an emergency, though cat food is richer and not formulated for dogs. The bigger concern is the reverse — a cat eating dog food regularly — because dog food lacks nutrients cats specifically need. Persistent swapping is worth discussing with your vet.",
+      },
+      {
+        question: "Why can't cats just eat dog food?",
+        answer:
+          "Cats are obligate carnivores and need nutrients such as taurine that are present in cat food but not guaranteed in dog food. Over time, a cat fed dog food can develop serious deficiencies. Cats should eat food formulated for cats.",
+      },
+      {
+        question: "What is taurine and why do cats need it?",
+        answer:
+          "Taurine is an amino acid cats must get from their diet (from animal-source ingredients). A shortage can cause serious heart and eye problems, which is one reason cat food is formulated specifically for cats.",
+      },
+    ],
+    sources: [SRC_AVMA_SELECTING_FOOD, SRC_ASPCA_CAT_NUTRITION, SRC_CORNELL_FELINE],
+    related: [
+      {
+        title: "Choosing food",
+        links: [
+          { label: "How to choose dog food", href: "/pet-nutrition/how-to-choose-dog-food" },
+          { label: "How to choose cat food", href: "/pet-nutrition/how-to-choose-cat-food" },
+          { label: "Pet food label basics", href: "/pet-nutrition/pet-food-label-basics" },
+        ],
+      },
+      {
+        title: "Related",
+        links: [
+          { label: "Dog food safety", href: "/dogs/food" },
+          { label: "Cat food safety", href: "/cats/food" },
+        ],
+      },
+    ],
+    publishedTime: "2026-06-23",
+    modifiedTime: "2026-06-23",
+  },
+  {
+    slug: "pet-food-marketing-claims-explained",
+    path: "/pet-nutrition/pet-food-marketing-claims-explained",
+    title: "Pet Food Marketing Claims, Explained ('Natural', 'Premium' & More)",
+    description:
+      "An educational guide to common pet food marketing words — natural, premium, holistic, human-grade, gourmet — what (if anything) they are defined to mean, and why the nutritional-adequacy statement matters more.",
+    pageHeading: "Pet Food Marketing Claims, Explained",
+    topicTag: "Labels",
+    tone: "labels",
+    directAnswer:
+      "Many front-of-bag words on pet food — 'premium', 'holistic', 'gourmet', and often 'natural' — are marketing terms with little or no fixed regulatory definition, so they don't reliably tell you about quality or nutrition. A few terms are defined and meaningful in some regions. The most useful signal remains the nutritional-adequacy (complete and balanced) statement, not the marketing. This page explains how to read the claims sensibly.",
+    sections: [
+      {
+        heading: "Words that are mostly marketing",
+        bullets: [
+          "'Premium', 'super-premium', 'gourmet', and 'holistic' generally have no fixed regulatory definition for pet food.",
+          "These words don't guarantee better ingredients or nutrition — they're branding.",
+          "A higher price or fancier wording does not equal better nutrition.",
+        ],
+      },
+      {
+        heading: "Words that may be defined — and what to trust instead",
+        intro:
+          "Some terms carry more meaning, but rules vary by country.",
+        bullets: [
+          "'Natural' and 'human-grade' can have specific definitions in some regions, with conditions a product must meet — but interpretations vary.",
+          "Ingredient and 'made with' claims follow labelling rules about how much of an ingredient must be present.",
+          "Whatever the front-of-bag wording, check the nutritional-adequacy statement for the life stage and the guaranteed analysis.",
+          "When marketing and substance seem to disagree, trust the defined label elements over the slogans.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Reading-the-claims checklist",
+      bullets: [
+        "Treat 'premium', 'holistic', and 'gourmet' as marketing, not quality guarantees.",
+        "Check whether a defined term (like 'natural') actually applies in your region.",
+        "Look for the complete-and-balanced statement for the right life stage.",
+        "Skim the guaranteed analysis and ingredient list.",
+        "Ask your vet if a specific claim matters for your pet.",
+      ],
+    },
+    whatNotToAssume: {
+      heading: "What not to assume",
+      bullets: [
+        "Do not assume 'premium' or 'holistic' is a defined quality standard — usually it isn't.",
+        "Do not assume marketing words reveal the nutrition inside.",
+        "Do not pay only for slogans; the adequacy statement matters more.",
+        "Do not treat 'natural' as a universal guarantee — definitions vary by region.",
+      ],
+    },
+    whenToContactVet: GENERIC_WHEN_TO_ASK,
+    faqs: [
+      {
+        question: "Does 'premium' or 'holistic' pet food mean better quality?",
+        answer:
+          "Not reliably. Words like 'premium', 'super-premium', 'holistic', and 'gourmet' generally have no fixed regulatory definition for pet food, so they don't guarantee better ingredients or nutrition. They are marketing terms.",
+      },
+      {
+        question: "Is 'natural' pet food a meaningful label?",
+        answer:
+          "It can be, depending on where you live — 'natural' has specific definitions in some regions with conditions a product must meet — but interpretations vary and it isn't a guarantee of overall quality. Read it alongside the adequacy statement.",
+      },
+      {
+        question: "What should I trust more than marketing words?",
+        answer:
+          "The nutritional-adequacy (complete and balanced) statement for the correct life stage, plus the guaranteed analysis and ingredient list. These defined label elements tell you more than front-of-bag slogans.",
+      },
+    ],
+    sources: [SRC_AAFCO_LABELS, SRC_FDA_PETFOOD, SRC_WSAVA_NUTRITION],
+    related: [
+      {
+        title: "Label reading",
+        links: [
+          { label: "Pet food label basics", href: "/pet-nutrition/pet-food-label-basics" },
+          { label: "Understanding the guaranteed analysis", href: "/pet-nutrition/understanding-guaranteed-analysis" },
+          { label: "Understanding ingredient lists", href: "/pet-nutrition/understanding-pet-food-ingredient-lists" },
+        ],
+      },
+      {
+        title: "Related",
+        links: [
+          { label: "Grain-free pet food explained", href: "/pet-nutrition/grain-free-pet-food-explained" },
+          { label: "How to choose dog food", href: "/pet-nutrition/how-to-choose-dog-food" },
+        ],
+      },
+    ],
+    publishedTime: "2026-06-23",
+    modifiedTime: "2026-06-23",
+  },
+  {
+    slug: "managing-your-pets-weight",
+    path: "/pet-nutrition/managing-your-pets-weight",
+    title: "Managing Your Pet's Weight: Body Condition Basics",
+    description:
+      "An educational, cautious overview of pet weight: why overweight is a common welfare problem, what body condition scoring is, and why any weight-loss plan should be guided by your veterinarian.",
+    pageHeading: "Managing Your Pet's Weight",
+    topicTag: "Weight",
+    tone: "planning",
+    directAnswer:
+      "Many pet dogs and cats carry excess weight, which is linked to health problems and a shorter, less comfortable life. The first step is recognising body condition — how your pet looks and feels (ribs, waist, tummy tuck) — rather than fixating on the scale alone. Any actual weight-loss plan, including how much to feed, should be set with your veterinarian, since crash dieting can be dangerous (especially for cats). This page is educational and not a treatment plan.",
+    sections: [
+      {
+        heading: "Why weight matters and how to assess it",
+        bullets: [
+          "Excess weight is associated with joint problems, reduced mobility, and other health issues in pets.",
+          "Body condition scoring looks at whether you can feel the ribs, see a waist from above, and see a tummy tuck from the side.",
+          "Body condition is often more useful day to day than a single weight number.",
+          "Weigh-ins at the vet help track trends over time.",
+        ],
+      },
+      {
+        heading: "Working toward a healthy weight — safely",
+        intro:
+          "Weight change should be gradual and veterinary-guided.",
+        bullets: [
+          "Measure meals and account for treats within the daily total.",
+          "Ask your veterinarian to confirm a target body condition and a safe rate of change.",
+          "Never crash-diet a pet; rapid weight loss can be dangerous, and in cats it can cause a serious liver problem.",
+          "Increase activity appropriately for the pet's age and health.",
+          "Rule out medical causes with your vet, since some weight changes are due to illness.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Weight-awareness checklist",
+      bullets: [
+        "Check body condition: feel for ribs, look for a waist and tummy tuck.",
+        "Measure food and count treats in the daily total.",
+        "Track weight trends with your veterinarian.",
+        "Agree any weight-loss plan and its pace with your vet.",
+        "Avoid crash diets, especially in cats.",
+      ],
+    },
+    whatNotToAssume: {
+      heading: "What not to assume",
+      bullets: [
+        "Do not assume a 'cuddly' pet is at a healthy weight; many are overweight.",
+        "Do not crash-diet a pet — rapid loss can be dangerous, especially for cats.",
+        "Do not start a weight-loss plan without veterinary guidance.",
+        "Do not assume weight change is only about food; illness can be involved.",
+      ],
+    },
+    whenToContactVet: GENERIC_WHEN_TO_ASK,
+    faqs: [
+      {
+        question: "How can I tell if my pet is overweight?",
+        answer:
+          "Use body condition rather than the scale alone: you should be able to feel the ribs without pressing hard, see a waist when looking from above, and see a tummy tuck from the side. If these are hard to find, your pet may be carrying extra weight — your vet can confirm.",
+      },
+      {
+        question: "Why shouldn't I just cut my pet's food sharply?",
+        answer:
+          "Rapid weight loss can be dangerous. In cats especially, crash dieting can trigger a serious liver condition (hepatic lipidosis). Weight loss should be gradual and planned with your veterinarian.",
+      },
+      {
+        question: "Could weight change be a sign of illness?",
+        answer:
+          "Yes. Both weight gain and loss can have medical causes. If your pet's weight changes without an obvious reason, or alongside other symptoms, consult your veterinarian rather than only adjusting food.",
+      },
+    ],
+    sources: [SRC_AVMA_HEALTHY_WEIGHT, SRC_AVMA_OBESITY, SRC_WSAVA_NUTRITION],
+    related: [
+      {
+        title: "Portions & planning",
+        links: [
+          { label: "How much should I feed my dog?", href: "/pet-nutrition/how-much-should-i-feed-my-dog" },
+          { label: "How much should I feed my cat?", href: "/pet-nutrition/how-much-should-i-feed-my-cat" },
+          { label: "Pet treats and portion control", href: "/pet-nutrition/pet-treats-and-portion-control" },
+        ],
+      },
+      {
+        title: "Related",
+        links: [
+          { label: "Dog health hub", href: "/dogs/health" },
+          { label: "Cat health hub", href: "/cats/health" },
+          { label: "Vet care hub", href: "/vet-care" },
+        ],
+      },
+    ],
+    publishedTime: "2026-06-23",
+    modifiedTime: "2026-06-23",
+  },
+  {
+    slug: "pet-food-recalls-what-to-know",
+    path: "/pet-nutrition/pet-food-recalls-what-to-know",
+    title: "Pet Food Recalls: What to Know and How to Check",
+    description:
+      "An educational guide to pet food recalls: why they happen, how to keep the batch information you'd need, how to check whether your food is affected, and what to do if it is.",
+    pageHeading: "Pet Food Recalls: What to Know",
+    topicTag: "Safety",
+    tone: "planning",
+    directAnswer:
+      "Pet foods are sometimes recalled — for example over contamination or a nutrient problem. You can prepare by keeping the original packaging (which holds the batch/lot code and best-by date) so you can check whether your specific food is affected. If a food you use is recalled, stop feeding it and follow the official recall guidance. This page explains how recalls work; always follow instructions from the manufacturer and food-safety authorities.",
+    sections: [
+      {
+        heading: "Why recalls happen and how to be ready",
+        bullets: [
+          "Recalls can be issued for reasons such as possible contamination or a nutritional imbalance in a batch.",
+          "They often apply to specific lots/batches and date codes, not every bag of a brand.",
+          "Keep the original packaging (or note the batch/lot code and best-by date) so you can check your product.",
+          "Official food-safety authorities and manufacturers publish recall notices.",
+        ],
+      },
+      {
+        heading: "If a food you use is recalled",
+        intro:
+          "Act on the official notice rather than guesswork.",
+        bullets: [
+          "Stop feeding the affected product and check the lot code against the recall notice.",
+          "Follow the manufacturer's and authorities' instructions (return, dispose, refund).",
+          "Switch foods gradually if you can, to avoid digestive upset.",
+          "Watch your pet for any signs of illness and contact your veterinarian if you are concerned.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Recall-readiness checklist",
+      bullets: [
+        "Keep the original bag/can or record the batch/lot code and best-by date.",
+        "Know where to find official recall notices for your region.",
+        "If recalled, stop feeding and follow the official guidance.",
+        "Transition to a new food gradually where possible.",
+        "Contact your vet if your pet shows any signs of illness.",
+      ],
+    },
+    whatNotToAssume: {
+      heading: "What not to assume",
+      bullets: [
+        "Do not assume a recall affects every bag of a brand — it's often specific lots.",
+        "Do not discard packaging immediately; the batch code lets you check recalls.",
+        "Do not keep feeding a recalled product 'to finish the bag'.",
+        "Do not rely on rumour; use official recall notices.",
+      ],
+    },
+    whenToContactVet: GENERIC_WHEN_TO_ASK,
+    faqs: [
+      {
+        question: "How do I check if my pet food is recalled?",
+        answer:
+          "Compare the batch/lot code and best-by date on your packaging against the official recall notice from the manufacturer or your region's food-safety authority. Recalls usually name specific lots and dates, so keeping the packaging is key.",
+      },
+      {
+        question: "What should I do if my pet's food is recalled?",
+        answer:
+          "Stop feeding the affected product, follow the official instructions (such as returning or disposing of it), switch foods gradually if you can, and watch your pet for any signs of illness — contacting your veterinarian if you are concerned.",
+      },
+      {
+        question: "Why should I keep the original pet food packaging?",
+        answer:
+          "Because the batch/lot code and best-by date on it are exactly what you need to check whether your food is part of a recall. Tipping food into an unlabelled bin throws that information away.",
+      },
+    ],
+    sources: [SRC_FDA_PETFOOD, SRC_FDA_SAFE_HANDLING, SRC_AAFCO_LABELS],
+    related: [
+      {
+        title: "Food safety",
+        links: [
+          { label: "How to store pet food safely", href: "/pet-nutrition/how-to-store-pet-food" },
+          { label: "Pet food label basics", href: "/pet-nutrition/pet-food-label-basics" },
+          { label: "Pet nutrition hub", href: "/pet-nutrition" },
+        ],
+      },
+      {
+        title: "Related",
+        links: [
+          { label: "Pet safety & emergencies", href: "/pet-safety" },
+          { label: "Vet care hub", href: "/vet-care" },
+        ],
+      },
+    ],
+    publishedTime: "2026-06-23",
+    modifiedTime: "2026-06-23",
+  },
+  {
+    slug: "guppy-feeding-basics",
+    path: "/pet-nutrition/guppy-feeding-basics",
+    title: "Guppy Feeding Basics: Small, Frequent, and Varied",
+    description:
+      "An educational guide to feeding guppies: a quality flake or micro-pellet as the staple, tiny amounts once or twice a day, the value of variety, and why overfeeding fouls the tank.",
+    pageHeading: "Guppy Feeding Basics",
+    topicTag: "Fish",
+    tone: "planning",
+    directAnswer:
+      "Guppies are small, omnivorous tropical fish that do well on a quality flake or micro-pellet as the staple, fed in tiny amounts once or twice a day — only what they finish in a minute or so. Some variety (suitable small frozen or freeze-dried foods, and a little plant matter) helps. As with all aquarium fish, overfeeding fouls the water, which is the main risk. This is general guidance — an aquatics specialist can advise for your tank.",
+    sections: [
+      {
+        heading: "What and how much to feed",
+        bullets: [
+          "Use a quality tropical flake or micro-pellet sized for small fish as the staple.",
+          "Feed tiny amounts once or twice a day — only what is eaten in about a minute.",
+          "Add variety with suitable small frozen or freeze-dried foods and a little plant-based food.",
+          "Remove uneaten food so it doesn't decay.",
+          "Fry (baby guppies) need smaller, more frequent feeds of appropriate foods.",
+        ],
+      },
+      {
+        heading: "Why small portions matter",
+        intro:
+          "Guppies are tiny, and the tank's water quality depends on not overfeeding.",
+        bullets: [
+          "A guppy's stomach is very small, so it needs only a little at a time.",
+          "Leftover food and waste raise harmful compounds in the water.",
+          "Poor water quality is a leading cause of illness in aquarium fish.",
+          "When unsure, feed slightly less rather than more.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Guppy feeding checklist",
+      bullets: [
+        "Choose a quality small-fish flake or micro-pellet as the staple.",
+        "Feed tiny amounts once or twice a day.",
+        "Offer occasional suitable variety.",
+        "Remove leftovers and maintain water quality.",
+        "Feed fry smaller, more frequent meals of appropriate food.",
+      ],
+    },
+    whatNotToAssume: {
+      heading: "What not to assume",
+      bullets: [
+        "Do not overfeed — guppies are tiny and need very little.",
+        "Do not rely on a single food type; some variety helps.",
+        "Do not let uneaten food sit in the tank.",
+        "Do not neglect water quality, which matters as much as the food.",
+      ],
+    },
+    whenToContactVet: GENERIC_WHEN_TO_ASK,
+    faqs: [
+      {
+        question: "How often should I feed guppies?",
+        answer:
+          "Small amounts once or twice a day, only what they finish in about a minute. Guppies are tiny and easily overfed, and leftover food fouls the water.",
+      },
+      {
+        question: "What do guppies eat?",
+        answer:
+          "They are omnivores. A quality tropical flake or micro-pellet works as the staple, with some variety from suitable small frozen or freeze-dried foods and a little plant matter.",
+      },
+      {
+        question: "Do baby guppies (fry) eat the same food?",
+        answer:
+          "Fry need smaller particle sizes and more frequent feeding with appropriate foods. An aquatics specialist or shop can advise on suitable fry foods.",
+      },
+    ],
+    sources: [SRC_MERCK_NUTRITION, SRC_AVMA_PETCARE],
+    related: [
+      {
+        title: "Fish & aquarium care",
+        links: [
+          { label: "Tropical fish feeding basics", href: "/pet-nutrition/tropical-fish-feeding-basics" },
+          { label: "Betta fish feeding basics", href: "/pet-nutrition/betta-fish-feeding-basics" },
+          { label: "Aquarium care hub", href: "/aquarium-care" },
+        ],
+      },
+      {
+        title: "Related",
+        links: [
+          { label: "Guppy profile", href: "/animals/guppy" },
+          { label: "Pet nutrition hub", href: "/pet-nutrition" },
+        ],
+      },
+    ],
+    publishedTime: "2026-06-23",
+    modifiedTime: "2026-06-23",
+  },
+  {
+    slug: "tropical-fish-feeding-basics",
+    path: "/pet-nutrition/tropical-fish-feeding-basics",
+    title: "Tropical Aquarium Fish Feeding Basics",
+    description:
+      "An educational overview of feeding a community tropical aquarium: matching food to where fish feed and what they eat, small frequent portions, variety, and protecting water quality by not overfeeding.",
+    pageHeading: "Tropical Aquarium Fish Feeding Basics",
+    topicTag: "Fish",
+    tone: "planning",
+    directAnswer:
+      "In a community tropical tank, feed a quality staple food suited to your fish, in small amounts once or twice a day — only what they finish in a couple of minutes. Match food to where fish feed (floating flakes for surface feeders, sinking pellets or wafers for bottom feeders) and to whether they are more carnivorous or herbivorous, and offer some variety. Overfeeding is the most common mistake and harms water quality. This is general guidance — an aquatics specialist can tailor it to your fish.",
+    sections: [
+      {
+        heading: "Matching food to your fish",
+        bullets: [
+          "Surface feeders take floating flakes; mid-water fish take slow-sinking foods; bottom feeders need sinking pellets or wafers.",
+          "Some fish are more carnivorous, others more herbivorous — choose foods accordingly (including algae-based foods for grazers).",
+          "Offer variety across suitable flakes, pellets, and appropriate frozen or freeze-dried foods.",
+          "Make sure shy or bottom-dwelling fish actually get food, not just the fastest eaters.",
+        ],
+      },
+      {
+        heading: "How much, how often, and water quality",
+        intro:
+          "Feeding and water quality are tightly linked in any aquarium.",
+        bullets: [
+          "Feed small amounts once or twice a day — only what is eaten in a couple of minutes.",
+          "Remove uneaten food so it doesn't decay and foul the water.",
+          "Overfeeding raises harmful compounds (like ammonia) and is a leading cause of fish illness.",
+          "When in doubt, feed slightly less, and keep up regular tank maintenance.",
+        ],
+      },
+    ],
+    checklist: {
+      heading: "Community-tank feeding checklist",
+      bullets: [
+        "Choose staple foods that suit your fish and where they feed.",
+        "Feed small amounts once or twice a day.",
+        "Offer variety and ensure all fish get a share.",
+        "Remove leftovers and keep up water changes/maintenance.",
+        "Ask an aquatics specialist about species with special needs.",
+      ],
+    },
+    whatNotToAssume: {
+      heading: "What not to assume",
+      bullets: [
+        "Do not assume one food suits every fish in a community tank.",
+        "Do not forget bottom feeders and shy fish at feeding time.",
+        "Do not overfeed — it is the most common cause of poor water quality.",
+        "Do not let uneaten food accumulate.",
+      ],
+    },
+    whenToContactVet: GENERIC_WHEN_TO_ASK,
+    faqs: [
+      {
+        question: "How do I feed fish that stay at the bottom?",
+        answer:
+          "Use sinking pellets or wafers designed for bottom feeders, and feed at a time you can check the food actually reaches them. Floating flakes alone may be eaten by surface fish before bottom dwellers get any.",
+      },
+      {
+        question: "How much should I feed a community tank?",
+        answer:
+          "Small amounts once or twice a day — only what the fish finish in a couple of minutes. Remove leftovers. Overfeeding is the most common mistake and quickly degrades water quality.",
+      },
+      {
+        question: "Do all tropical fish eat the same thing?",
+        answer:
+          "No. Some are more carnivorous and others more herbivorous, and they feed at different levels of the tank. Choose foods to match, offer variety, and make sure every fish gets its share.",
+      },
+    ],
+    sources: [SRC_MERCK_NUTRITION, SRC_AVMA_PETCARE],
+    related: [
+      {
+        title: "Fish & aquarium care",
+        links: [
+          { label: "Guppy feeding basics", href: "/pet-nutrition/guppy-feeding-basics" },
+          { label: "Goldfish feeding basics", href: "/pet-nutrition/goldfish-feeding-basics" },
+          { label: "Betta fish feeding basics", href: "/pet-nutrition/betta-fish-feeding-basics" },
+        ],
+      },
+      {
+        title: "Related",
+        links: [
+          { label: "Aquarium care hub", href: "/aquarium-care" },
+          { label: "Pet nutrition hub", href: "/pet-nutrition" },
+        ],
+      },
+    ],
+    publishedTime: "2026-06-23",
+    modifiedTime: "2026-06-23",
+  },
 ];
 
 export function getPetNutritionArticleBySlug(
