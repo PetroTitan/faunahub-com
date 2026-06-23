@@ -498,6 +498,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "thrips",
     "earwig",
     "ribbon-worm",
+    // Mammals & birds batch 4 (2026-06-22)
+    "dhole",
+    "maned-wolf",
+    "saiga",
+    "markhor",
+    "gerenuk",
+    "bustard",
+    "thick-knee",
+    "sandgrouse",
+    "mousebird",
+    "courser",
   ];
 
   const compareSlugs = [
