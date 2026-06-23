@@ -292,7 +292,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Loss and drainage of wetlands",
       "Disturbance",
       "Dependence on a few key sites",
-    ], sourceUrls: [birdlife("white-naped-crane-grus-vipio")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [birdlife("white-naped-crane-grus-vipio")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "sarus-crane", commonName: "Sarus Crane", scientificName: "Antigone antigone", taxonGroup: "birds", redListCategory: "VU",
     populationTrend: "decreasing",
     rangeSummary:
@@ -381,7 +381,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
     primaryThreats: [
       "Trapping for the pet trade",
       "Deforestation",
-    ], sourceUrls: [birdlife("golden-parakeet-guaruba-guarouba")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [birdlife("golden-parakeet-guaruba-guarouba")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "philippine-cockatoo", commonName: "Philippine Cockatoo", scientificName: "Cacatua haematuropygia", taxonGroup: "birds", redListCategory: "CR",
     populationTrend: "decreasing",
     rangeSummary:
@@ -452,7 +452,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Past feather hunting (now recovering)",
       "Volcanic risk at key colony",
       "Longline bycatch and plastic",
-    ], sourceUrls: [birdlife("short-tailed-albatross-phoebastria-albatrus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [birdlife("short-tailed-albatross-phoebastria-albatrus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "giant-ibis", commonName: "Giant Ibis", scientificName: "Thaumatibis gigantea", taxonGroup: "birds", redListCategory: "CR",
     populationTrend: "decreasing",
     rangeSummary:

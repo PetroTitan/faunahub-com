@@ -207,7 +207,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Varecia_variegata")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "aye-aye",

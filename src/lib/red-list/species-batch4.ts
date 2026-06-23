@@ -481,7 +481,7 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Dendrolagus_matschiei")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
 
   // --- Birds (BirdLife) ---

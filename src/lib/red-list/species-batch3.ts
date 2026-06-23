@@ -312,7 +312,7 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     sourceUrls: [fishbase("Pangasianodon-gigas")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "banggai-cardinalfish",
@@ -541,7 +541,7 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     sourceUrls: [reptiledb("Crocodylus", "siamensis")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "geometric-tortoise",

@@ -474,7 +474,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [birdlife("blue-crane-anthropoides-paradiseus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "indian-vulture",
@@ -625,7 +625,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [birdlife("yellow-crested-cockatoo-cacatua-sulphurea")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "kea",
@@ -663,7 +663,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [birdlife("swift-parrot-lathamus-discolor")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "orange-bellied-parrot",
@@ -738,7 +738,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [birdlife("spoon-billed-sandpiper-calidris-pygmaea")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "crested-ibis",
