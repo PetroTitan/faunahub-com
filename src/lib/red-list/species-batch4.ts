@@ -63,9 +63,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Rhinopithecus roxellana",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Cold mountain forests of central and south-western China.",
+    primaryThreats: [
+      "Habitat loss and fragmentation",
+      "Past hunting",
+      "Small, isolated populations",
+    ],
     sourceUrls: [adw("Rhinopithecus_roxellana")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -181,9 +189,16 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Manis crassicaudata",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "South Asia, including India, Pakistan, Nepal, Sri Lanka, and Bangladesh.",
+    primaryThreats: [
+      "Poaching and trafficking for scales and meat",
+      "Habitat loss",
+    ],
     sourceUrls: [adw("Manis_crassicaudata")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
 
@@ -213,9 +228,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Brachyteles hypoxanthus",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Remnant Atlantic Forest of south-eastern Brazil.",
+    primaryThreats: [
+      "Loss and fragmentation of Atlantic Forest",
+      "Small, isolated populations",
+      "Past hunting",
+    ],
     sourceUrls: [adw("Brachyteles_hypoxanthus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -397,9 +420,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Falco cherrug",
     taxonGroup: "birds",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Open country from eastern Europe and the Middle East across Central Asia.",
+    primaryThreats: [
+      "Capture for falconry",
+      "Electrocution on power lines",
+      "Habitat change and reduced prey",
+    ],
     sourceUrls: [birdlife("saker-falcon-falco-cherrug")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -511,9 +542,17 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     scientificName: "Ambystoma californiense",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Grasslands and oak woodlands of California, USA.",
+    primaryThreats: [
+      "Loss of breeding pools and habitat",
+      "Hybridisation with introduced salamanders",
+      "Roads and development",
+    ],
     sourceUrls: [amphibiaweb("Ambystoma", "californiense")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
 

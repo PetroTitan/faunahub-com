@@ -458,9 +458,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Gyps indicus",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "stable",
+    rangeSummary:
+      "South Asia, including India and Pakistan.",
+    primaryThreats: [
+      "Poisoning by the veterinary drug diclofenac in livestock carcasses",
+      "Reduced food",
+      "Habitat change",
+    ],
     sourceUrls: [birdlife("indian-vulture-gyps-indicus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({

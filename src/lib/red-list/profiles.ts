@@ -3710,4 +3710,587 @@ export const RED_LIST_PROFILES: Record<string, RedListProfileContent> = {
     ],
     relatedAnimal: { label: "Snail profile", href: "/animals/snail" },
   },
+  "golden-snub-nosed-monkey": {
+    summary: [
+      "The golden snub-nosed monkey is a striking primate with golden-orange fur and an upturned nose, adapted to cold Chinese mountains. It is assessed as Endangered.",
+      "It lives in large troops and eats lichen through harsh winters.",
+    ],
+    whyItMatters:
+      "A cold-adapted, lichen-eating primate of China's mountain forests, the golden snub-nosed monkey is a flagship for protecting those high-altitude habitats.",
+    faq: [
+      {
+        question: "How does the golden snub-nosed monkey survive cold winters?",
+        answer:
+          "It is one of the few primates living in seasonally snowy mountains, with thick fur and a diet that includes lichen, which is available when other food is scarce.",
+      },
+      {
+        question: "Why is it Endangered?",
+        answer:
+          "Published assessments cite habitat loss and fragmentation, past hunting, and small isolated populations. See the IUCN Red List.",
+      },
+    ],
+  },
+  "indian-pangolin": {
+    summary: [
+      "The Indian pangolin is a large, scale-covered, ant-eating mammal of South Asia. It is assessed as Endangered.",
+      "It rolls into an armoured ball when threatened, but this is no defence against hunters.",
+    ],
+    whyItMatters:
+      "Heavily targeted by the illegal wildlife trade, the Indian pangolin is part of the global pangolin crisis and a flagship against trafficking.",
+    faq: [
+      {
+        question: "Why are Indian pangolins poached?",
+        answer:
+          "They are hunted for their keratin scales (used in some traditional medicines) and meat, which has made pangolins among the most trafficked mammals worldwide.",
+      },
+      {
+        question: "Why is the Indian pangolin Endangered?",
+        answer:
+          "Published assessments cite poaching and trafficking together with habitat loss across South Asia. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Pangolin profile", href: "/animals/pangolin" },
+  },
+  "northern-muriqui": {
+    summary: [
+      "The northern muriqui is one of the largest monkeys in the Americas and among the rarest primates, known for its unusually peaceful, egalitarian society. It is assessed as Critically Endangered.",
+      "It is also called the woolly spider monkey.",
+    ],
+    whyItMatters:
+      "A peaceful, seed-dispersing ape-like monkey found only in Brazil's Atlantic Forest, the northern muriqui is a flagship for one of the world's most threatened forests.",
+    faq: [
+      {
+        question: "Why is the northern muriqui famous among primates?",
+        answer:
+          "It is known for its remarkably peaceful, cooperative social life, with little aggression between males — unusual among monkeys and of great interest to researchers.",
+      },
+      {
+        question: "Why is the northern muriqui Critically Endangered?",
+        answer:
+          "Published assessments cite the loss and fragmentation of the Atlantic Forest, small isolated populations, and past hunting. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Muriqui profile", href: "/animals/muriqui" },
+  },
+  "hainan-gibbon": {
+    summary: [
+      "The Hainan gibbon is the rarest ape — and one of the rarest mammals — in the world, with only a few dozen individuals. It is assessed as Critically Endangered.",
+      "It survives in a single patch of forest on Hainan Island.",
+    ],
+    whyItMatters:
+      "The world's rarest ape, surviving in one forest, the Hainan gibbon is a stark example of how close a primate can come to extinction.",
+    faq: [
+      {
+        question: "How rare is the Hainan gibbon?",
+        answer:
+          "It is the rarest ape on Earth, with only a few dozen individuals left, all in a single forest reserve on Hainan Island in China.",
+      },
+      {
+        question: "Why is the Hainan gibbon Critically Endangered?",
+        answer:
+          "Published assessments cite its extremely small population confined to one location, a history of habitat loss, and vulnerability to any local disaster. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Gibbon profile", href: "/animals/gibbon" },
+  },
+  "black-footed-cat": {
+    summary: [
+      "The black-footed cat is one of the smallest wild cats in the world and a remarkably effective hunter. It is assessed as Vulnerable.",
+      "Despite its tiny size, it hunts intensively through the night.",
+    ],
+    whyItMatters:
+      "A tiny but ferociously effective hunter of African drylands, the black-footed cat is a flagship for conserving southern Africa's grassland and scrub.",
+    faq: [
+      {
+        question: "How small is the black-footed cat?",
+        answer:
+          "It is among the smallest of all wild cats, weighing only one to two kilograms, yet it is an intense and successful nocturnal hunter of small prey.",
+      },
+      {
+        question: "Why is the black-footed cat Vulnerable?",
+        answer:
+          "Published assessments cite habitat degradation, indirect poisoning and persecution, and loss of prey. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "flat-headed-cat": {
+    summary: [
+      "The flat-headed cat is a small, wetland-dwelling wild cat with a long, low head, adapted for catching fish and frogs. It is assessed as Endangered.",
+      "It has partly webbed feet and is one of the most water-loving cats.",
+    ],
+    whyItMatters:
+      "A specialised fishing cat tied to vanishing lowland wetlands, the flat-headed cat is a flagship for Southeast Asia's freshwater habitats.",
+    faq: [
+      {
+        question: "Why is the flat-headed cat suited to water?",
+        answer:
+          "It has a long, flat head, partly webbed feet, and teeth adapted for slippery prey, and it hunts fish, frogs, and crustaceans in and beside wetlands.",
+      },
+      {
+        question: "Why is the flat-headed cat Endangered?",
+        answer:
+          "Published assessments cite the destruction of lowland wetlands, water pollution, and reduced fish stocks. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Flat-headed cat profile", href: "/animals/flat-headed-cat" },
+  },
+  "darwins-fox": {
+    summary: [
+      "Darwin's fox is a small, dark fox found only in Chile, first noted by Charles Darwin. It is assessed as Endangered.",
+      "It is a forest specialist with a very limited range.",
+    ],
+    whyItMatters:
+      "A rare forest fox named for Darwin and found only in Chile, Darwin's fox is a flagship for the country's threatened temperate forests.",
+    faq: [
+      {
+        question: "Why is it called Darwin's fox?",
+        answer:
+          "Charles Darwin collected a specimen of this small dark fox on Chiloe Island during the voyage of the Beagle, and it was later recognised as a distinct species named in his honour.",
+      },
+      {
+        question: "Why is Darwin's fox Endangered?",
+        answer:
+          "Published assessments cite its small, fragmented population, disease and attacks from domestic dogs, and habitat loss. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Fox profile", href: "/animals/fox" },
+  },
+  "mountain-tapir": {
+    summary: [
+      "The mountain tapir is the smallest tapir and the only one adapted to high mountains, with a thick woolly coat. It is assessed as Endangered.",
+      "It lives in cold Andean cloud forest and paramo.",
+    ],
+    whyItMatters:
+      "A high-altitude seed disperser of the Andes, the mountain tapir is a flagship for conserving cloud forest and paramo watersheds.",
+    faq: [
+      {
+        question: "How is the mountain tapir adapted to the cold?",
+        answer:
+          "Unlike its lowland relatives, it has a thick, woolly coat that lets it live in cold high-Andean cloud forest and paramo grassland.",
+      },
+      {
+        question: "Why is the mountain tapir Endangered?",
+        answer:
+          "Published assessments cite habitat loss to agriculture, hunting, and a fragmented range. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Tapir profile", href: "/animals/tapir" },
+  },
+  "greater-bilby": {
+    summary: [
+      "The greater bilby is a long-eared, burrowing marsupial of the Australian deserts. It is assessed as Vulnerable.",
+      "It digs extensive burrows and has become an Australian symbol, including an 'Easter Bilby'.",
+    ],
+    whyItMatters:
+      "A burrowing marsupial that aerates soil and shelters other species, the bilby is a flagship for Australia's arid-zone conservation and predator control.",
+    faq: [
+      {
+        question: "What is the 'Easter Bilby'?",
+        answer:
+          "To raise awareness of this native species and discourage introduced rabbits, Australia promotes the bilby as an Easter symbol in place of the Easter bunny.",
+      },
+      {
+        question: "Why is the greater bilby Vulnerable?",
+        answer:
+          "Published assessments cite introduced foxes and cats, competition from rabbits and livestock, and habitat change, which have shrunk its range. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Bilby profile", href: "/animals/bilby" },
+  },
+  "red-fronted-macaw": {
+    summary: [
+      "The red-fronted macaw is a medium-sized green macaw with red on the forehead and shoulders, found only in Bolivia. It is assessed as Critically Endangered.",
+      "It lives in arid valleys and nests on cliffs.",
+    ],
+    whyItMatters:
+      "A cliff-nesting macaw with a tiny Bolivian range, the red-fronted macaw is a flagship for protecting inter-Andean dry valley habitats.",
+    faq: [
+      {
+        question: "Where does the red-fronted macaw nest?",
+        answer:
+          "Unusually for a macaw, it nests in holes and ledges on cliffs in Bolivia's dry inter-Andean valleys, rather than in tree cavities.",
+      },
+      {
+        question: "Why is the red-fronted macaw Critically Endangered?",
+        answer:
+          "Published assessments cite trapping for the pet trade, persecution as a crop pest, and its very small range. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Parrot profile", href: "/animals/parrot" },
+  },
+  "golden-parakeet": {
+    summary: [
+      "The golden parakeet (golden conure) is a brilliant yellow parrot of the Brazilian Amazon. It is assessed as Vulnerable.",
+      "It is unusually social, with helpers assisting at the nest.",
+    ],
+    whyItMatters:
+      "A vivid yellow Amazon parrot prized in the pet trade, the golden parakeet is a flagship for protecting lowland Brazilian rainforest.",
+    faq: [
+      {
+        question: "What is unusual about golden parakeet breeding?",
+        answer:
+          "It often breeds cooperatively, with several birds helping to defend the nest and care for the young, which is unusual among parrots.",
+      },
+      {
+        question: "Why is the golden parakeet Vulnerable?",
+        answer:
+          "Published assessments cite trapping for the pet trade and deforestation across its Amazon range. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Parrot profile", href: "/animals/parrot" },
+  },
+  "indian-vulture": {
+    summary: [
+      "The Indian vulture suffered one of the fastest declines of any bird after poisoning by a veterinary drug. It is assessed as Critically Endangered.",
+      "It is a large scavenging vulture of South Asia.",
+    ],
+    whyItMatters:
+      "Part of the catastrophic South Asian vulture collapse, the Indian vulture shows how a single veterinary drug can devastate wildlife and the sanitation vultures provide.",
+    faq: [
+      {
+        question: "What caused the Indian vulture's collapse?",
+        answer:
+          "Published accounts point above all to the veterinary anti-inflammatory drug diclofenac, which poisoned vultures feeding on the carcasses of treated livestock, causing a catastrophic decline.",
+      },
+      {
+        question: "Why are vultures so important?",
+        answer:
+          "As scavengers they rapidly remove carcasses and limit disease; their loss in South Asia had serious knock-on effects for sanitation and other scavengers. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Vulture profile", href: "/animals/vulture" },
+  },
+  "cape-vulture": {
+    summary: [
+      "The Cape vulture is a large scavenging vulture of southern Africa that breeds on cliffs in colonies. It is assessed as Vulnerable.",
+      "It feeds on the carcasses of large animals.",
+    ],
+    whyItMatters:
+      "A cliff-nesting scavenger of southern Africa, the Cape vulture is part of the continent's vulture crisis and a flagship for safe power infrastructure and poison-free landscapes.",
+    faq: [
+      {
+        question: "Where do Cape vultures nest?",
+        answer:
+          "They breed colonially on cliff ledges in southern Africa, returning to traditional sites year after year.",
+      },
+      {
+        question: "Why is the Cape vulture Vulnerable?",
+        answer:
+          "Published assessments cite poisoning, collisions and electrocution on power lines, and reduced food and disturbance. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Vulture profile", href: "/animals/vulture" },
+  },
+  "saker-falcon": {
+    summary: [
+      "The saker falcon is a large, powerful falcon of open steppe and desert. It is assessed as Endangered.",
+      "It is highly prized in falconry, which drives heavy capture from the wild.",
+    ],
+    whyItMatters:
+      "A steppe falcon caught up in the falconry trade, the saker falcon is a flagship for Central Asian grasslands and for making power infrastructure safe for raptors.",
+    faq: [
+      {
+        question: "Why is the saker falcon captured?",
+        answer:
+          "It is highly valued in falconry, especially in parts of the Middle East, and wild birds are trapped to supply that demand — a major pressure on the species.",
+      },
+      {
+        question: "Why is the saker falcon Endangered?",
+        answer:
+          "Published assessments cite capture for falconry, electrocution on power lines, and habitat change and reduced prey. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Falcon profile", href: "/animals/falcon" },
+  },
+  "spanish-imperial-eagle": {
+    summary: [
+      "The Spanish imperial eagle is a large eagle found only on the Iberian Peninsula. It is assessed as Vulnerable, recovering from a very low point.",
+      "It depends heavily on rabbits as prey.",
+    ],
+    whyItMatters:
+      "An Iberian endemic eagle recovering through dedicated protection, the Spanish imperial eagle is a flagship for Mediterranean ecosystems and safe power lines.",
+    faq: [
+      {
+        question: "What does the Spanish imperial eagle depend on for food?",
+        answer:
+          "It relies heavily on the European rabbit, so crashes in rabbit numbers (from disease) have historically hit the eagle hard.",
+      },
+      {
+        question: "Why is the Spanish imperial eagle still Vulnerable?",
+        answer:
+          "Published assessments cite electrocution on power lines, poisoning, and past prey loss, even as targeted protection has helped numbers recover. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Eagle profile", href: "/animals/eagle" },
+  },
+  "giant-ibis": {
+    summary: [
+      "The giant ibis is the largest ibis in the world and the national bird of Cambodia. It is assessed as Critically Endangered.",
+      "It is a shy bird of remote lowland forests and seasonal wetlands.",
+    ],
+    whyItMatters:
+      "A huge, shy ibis reduced to a tiny population, the giant ibis is a flagship for protecting the remaining lowland forests and wetlands of northern Cambodia.",
+    faq: [
+      {
+        question: "How big is the giant ibis?",
+        answer:
+          "It is the largest of the ibises, a tall, heavy-bodied bird far bigger than the familiar ibises of city parks and wetlands elsewhere.",
+      },
+      {
+        question: "Why is the giant ibis Critically Endangered?",
+        answer:
+          "Published assessments cite habitat loss and drainage, hunting and disturbance, and a very small population. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "northern-rockhopper-penguin": {
+    summary: [
+      "The northern rockhopper penguin is a small crested penguin with spiky yellow head plumes, found on a few remote islands. It is assessed as Endangered.",
+      "Much of the world population breeds on the Tristan da Cunha group.",
+    ],
+    whyItMatters:
+      "A crested penguin concentrated on a handful of remote islands, the northern rockhopper is a barometer for the South Atlantic and Indian Ocean ecosystems.",
+    faq: [
+      {
+        question: "Why is the northern rockhopper penguin so dependent on a few islands?",
+        answer:
+          "A large share of the entire world population breeds on the remote Tristan da Cunha island group, so problems there affect much of the species at once.",
+      },
+      {
+        question: "Why is the northern rockhopper penguin Endangered?",
+        answer:
+          "Published assessments cite changes in food supply, ocean change, and past exploitation and disturbance. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Penguin profile", href: "/animals/penguin" },
+  },
+  "bengal-florican": {
+    summary: [
+      "The Bengal florican is a rare grassland bustard famous for the male's spectacular leaping courtship display. It is assessed as Critically Endangered.",
+      "It depends on increasingly scarce natural grasslands.",
+    ],
+    whyItMatters:
+      "A grassland bustard on the edge of extinction, the Bengal florican is a flagship for protecting the threatened grasslands of South and Southeast Asia.",
+    faq: [
+      {
+        question: "What is the Bengal florican's courtship display?",
+        answer:
+          "Males leap into the air above the grass in a bouncing, fluttering display to attract females, one of the most striking courtship performances among grassland birds.",
+      },
+      {
+        question: "Why is the Bengal florican Critically Endangered?",
+        answer:
+          "Published assessments cite the loss and conversion of grassland, disturbance and collisions, and a very small population. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Bustard profile", href: "/animals/bustard" },
+  },
+  "cuban-crocodile": {
+    summary: [
+      "The Cuban crocodile is a small, agile, brightly patterned crocodile found only in Cuba. It is assessed as Critically Endangered.",
+      "It is one of the most terrestrial and behaviourally distinctive crocodiles.",
+    ],
+    whyItMatters:
+      "A small, charismatic crocodile confined to a couple of Cuban swamps, the Cuban crocodile is a flagship for Caribbean wetland conservation.",
+    faq: [
+      {
+        question: "What makes the Cuban crocodile unusual?",
+        answer:
+          "It is relatively small but agile and alert, can move well on land, and has bold colouring and behaviour that set it apart from larger, more sluggish crocodiles.",
+      },
+      {
+        question: "Why is the Cuban crocodile Critically Endangered?",
+        answer:
+          "Published assessments cite its very small range, hybridisation with American crocodiles, and past hunting. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Crocodile profile", href: "/animals/crocodile" },
+  },
+  "geometric-tortoise": {
+    summary: [
+      "The geometric tortoise is a small, intricately patterned tortoise found only in a small part of South Africa. It is assessed as Critically Endangered.",
+      "Its shell bears striking yellow star-like markings.",
+    ],
+    whyItMatters:
+      "A jewel-patterned tortoise confined to threatened fynbos, the geometric tortoise is a flagship for one of the world's most biodiverse but shrinking habitats.",
+    faq: [
+      {
+        question: "Why is it called the geometric tortoise?",
+        answer:
+          "Its shell carries bold yellow lines radiating in star-like, geometric patterns on a dark background, making it one of the most distinctively marked tortoises.",
+      },
+      {
+        question: "Why is the geometric tortoise Critically Endangered?",
+        answer:
+          "Published assessments cite the loss of its lowland fynbos habitat, fires, and a tiny fragmented range. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Tortoise profile", href: "/animals/tortoise" },
+  },
+  "chinese-crocodile-lizard": {
+    summary: [
+      "The Chinese crocodile lizard is a semi-aquatic lizard with crocodile-like ridges along its tail. It is assessed as Endangered.",
+      "It rests on branches over water and drops in to escape danger.",
+    ],
+    whyItMatters:
+      "A 'living fossil' semi-aquatic lizard, the Chinese crocodile lizard is a flagship for protecting clean forest streams in southern China and Vietnam.",
+    faq: [
+      {
+        question: "Why is it called a crocodile lizard?",
+        answer:
+          "Two raised ridges of enlarged, bony scales run along its tail, resembling the armoured tail of a crocodile, though it is a true lizard.",
+      },
+      {
+        question: "Why is the Chinese crocodile lizard Endangered?",
+        answer:
+          "Published assessments cite collection for the pet trade, habitat loss, and pollution of its stream habitats. See the IUCN Red List.",
+      },
+    ],
+  },
+  "table-mountain-ghost-frog": {
+    summary: [
+      "The Table Mountain ghost frog is found only on and around Table Mountain in South Africa, one of the smallest ranges of any frog. It is assessed as Critically Endangered.",
+      "Its tadpoles cling to rocks in fast streams with sucker-like mouths.",
+    ],
+    whyItMatters:
+      "A frog confined to the streams of a single iconic mountain, the Table Mountain ghost frog is a flagship for protecting fragile mountain watercourses.",
+    faq: [
+      {
+        question: "How do ghost frog tadpoles survive fast streams?",
+        answer:
+          "Their tadpoles have large sucker-like mouths that let them cling to rocks in fast-flowing water, where they graze without being swept away.",
+      },
+      {
+        question: "Why is the Table Mountain ghost frog Critically Endangered?",
+        answer:
+          "Published assessments cite altered stream flow and dams, fires and erosion, and an extremely small range on Table Mountain. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Frog profile", href: "/animals/frog" },
+  },
+  "california-tiger-salamander": {
+    summary: [
+      "The California tiger salamander is a stocky black-and-yellow salamander that breeds in seasonal pools. It is assessed (in parts of its range) as Vulnerable to Endangered.",
+      "It spends much of the year underground in burrows.",
+    ],
+    whyItMatters:
+      "A burrow-dwelling salamander dependent on vanishing seasonal wetlands, the California tiger salamander is a flagship for protecting California's grasslands and vernal pools.",
+    faq: [
+      {
+        question: "Where does the California tiger salamander spend most of its life?",
+        answer:
+          "Underground, often in burrows dug by ground squirrels and other animals, emerging mainly in the rainy season to breed in temporary pools.",
+      },
+      {
+        question: "Why is the California tiger salamander threatened?",
+        answer:
+          "Published assessments cite the loss of breeding pools and habitat, hybridisation with introduced salamanders, and roads and development. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Salamander profile", href: "/animals/salamander" },
+  },
+  "green-sawfish": {
+    summary: [
+      "The green sawfish is one of the largest sawfishes, a ray with a long tooth-studded snout. It is assessed as Critically Endangered.",
+      "Its saw snags easily in nets, making it highly vulnerable to fishing.",
+    ],
+    whyItMatters:
+      "Vanished from much of its former range, the green sawfish is among the most threatened of all sharks and rays and a priority for coastal conservation.",
+    faq: [
+      {
+        question: "Why are sawfishes so vulnerable to fishing?",
+        answer:
+          "Their long, toothed snouts tangle very easily in fishing nets and lines, so even fishing aimed at other species frequently kills sawfishes.",
+      },
+      {
+        question: "Why is the green sawfish Critically Endangered?",
+        answer:
+          "Published assessments cite entanglement in fishing gear, habitat loss, and past targeted fishing, which erased it from much of its range. See the IUCN Red List.",
+      },
+    ],
+  },
+  "sand-tiger-shark": {
+    summary: [
+      "The sand tiger shark is a large coastal shark with a fearsome, snaggle-toothed look but a generally placid nature. It is assessed as Critically Endangered.",
+      "It has one of the lowest reproductive rates of any shark.",
+    ],
+    whyItMatters:
+      "A slow-breeding coastal shark popular in aquariums, the sand tiger shark is a flagship for shark conservation and the dangers of overfishing low-reproduction species.",
+    faq: [
+      {
+        question: "Is the sand tiger shark dangerous despite its teeth?",
+        answer:
+          "Its protruding teeth look ferocious, but it is generally a slow, placid shark not considered a significant threat to people; its teeth are suited to gripping fish.",
+      },
+      {
+        question: "Why is the sand tiger shark Critically Endangered?",
+        answer:
+          "Published assessments cite overfishing and bycatch, an extremely low reproductive rate (often only a couple of pups per litter), and past culling. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Shark profile", href: "/animals/shark" },
+  },
+  "atlantic-goliath-grouper": {
+    summary: [
+      "The Atlantic goliath grouper is a massive reef fish that can exceed two metres and several hundred kilograms. It is assessed as Vulnerable, recovering under fishing bans.",
+      "Juveniles depend on mangrove nurseries.",
+    ],
+    whyItMatters:
+      "A giant reef predator hammered by spearfishing and now slowly recovering under protection, the goliath grouper is a flagship for reef and mangrove conservation.",
+    faq: [
+      {
+        question: "How big is the Atlantic goliath grouper?",
+        answer:
+          "It is one of the largest groupers, able to exceed two metres in length and several hundred kilograms — large enough to swallow sizable prey whole.",
+      },
+      {
+        question: "Why is it Vulnerable rather than worse now?",
+        answer:
+          "Published assessments note that fishing bans have helped numbers recover from severe overfishing, though it remains threatened by mangrove loss and its slow maturation. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Grouper profile", href: "/animals/grouper" },
+  },
+  "japanese-eel": {
+    summary: [
+      "The Japanese eel is a migratory fish central to East Asian cuisine, with a life cycle spanning the open Pacific and Asia's rivers. It is assessed as Endangered.",
+      "Wild populations have declined sharply.",
+    ],
+    whyItMatters:
+      "A culturally and commercially important eel now in decline, the Japanese eel links the health of the open ocean, rivers, and fisheries across East Asia.",
+    faq: [
+      {
+        question: "Where does the Japanese eel breed?",
+        answer:
+          "It spawns far out in the western Pacific near the Mariana Islands; the tiny larvae drift to East Asia, grow in rivers and coasts, then return to the ocean to breed.",
+      },
+      {
+        question: "Why is the Japanese eel Endangered?",
+        answer:
+          "Published assessments cite overfishing of young eels, barriers such as dams, and habitat loss and ocean change. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Eel profile", href: "/animals/eel" },
+  },
+  "franklins-bumble-bee": {
+    summary: [
+      "Franklin's bumble bee had one of the smallest ranges of any bumblebee and has not been reliably seen in years. It is assessed as Critically Endangered (and feared possibly extinct).",
+      "It was a distinctive black-and-yellow bumblebee of the US West Coast.",
+    ],
+    whyItMatters:
+      "Possibly already lost, Franklin's bumble bee is a stark warning about pollinator declines and the speed with which an insect can vanish.",
+    faq: [
+      {
+        question: "Has Franklin's bumble bee gone extinct?",
+        answer:
+          "It has not been reliably recorded for many years and is feared possibly extinct, though it is still formally listed; surveys continue in the hope of rediscovery.",
+      },
+      {
+        question: "Why did Franklin's bumble bee decline?",
+        answer:
+          "Published assessments point to disease spread from managed bees, pesticides, and habitat loss, compounded by its naturally tiny range. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Bee profile", href: "/animals/bee" },
+  },
 };
