@@ -6809,4 +6809,212 @@ export const RED_LIST_PROFILES: Record<string, RedListProfileContent> = {
       },
     ],
   },
+  "asiatic-black-bear": {
+    summary: [
+      "The Asiatic black bear, or moon bear, is a forest bear with a pale crescent on its chest. It is assessed as Vulnerable.",
+      "It is a good climber and largely vegetarian, though omnivorous.",
+    ],
+    whyItMatters:
+      "A wide-ranging forest bear under heavy pressure from the trade in bear parts, the Asiatic black bear is a flagship against wildlife trafficking and bile farming.",
+    faq: [
+      {
+        question: "Why is the Asiatic black bear called the moon bear?",
+        answer:
+          "Because of the pale, crescent-moon-shaped patch of fur on its chest, which stands out against its black coat.",
+      },
+      {
+        question: "Why is the Asiatic black bear Vulnerable?",
+        answer:
+          "Published assessments cite poaching for bile, paws, and other parts, habitat loss, and capture for bile farms. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Bear profile", href: "/animals/bear" },
+  },
+  "sloth-bear": {
+    summary: [
+      "The sloth bear is a shaggy, insect-eating bear of South Asia with a long muzzle and pale chest mark. It is assessed as Vulnerable.",
+      "It noisily sucks up ants and termites through a gap in its front teeth.",
+    ],
+    whyItMatters:
+      "A specialised insect-eating bear of the Indian subcontinent, the sloth bear is a flagship for South Asian forests and for reducing dangerous human-bear conflict.",
+    faq: [
+      {
+        question: "How does the sloth bear eat insects?",
+        answer:
+          "It has a long, mobile snout and a gap in its front teeth, letting it noisily suck up ants and termites from their nests — its lips can close off its nostrils to keep insects out.",
+      },
+      {
+        question: "Why is the sloth bear Vulnerable?",
+        answer:
+          "Published assessments cite habitat loss and fragmentation, conflict with people, and poaching (and a history of capture as 'dancing bears'). See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Bear profile", href: "/animals/bear" },
+  },
+  "andean-cat": {
+    summary: [
+      "The Andean cat is a small, ashy-grey wild cat of the high Andes, one of the least-known and most threatened cats in the Americas. It is assessed as Endangered.",
+      "It has a thick coat and long banded tail suited to cold, rocky heights.",
+    ],
+    whyItMatters:
+      "An elusive high-mountain cat tied to rocky Andean slopes and their prey, the Andean cat is a flagship for conserving South America's high-altitude ecosystems.",
+    faq: [
+      {
+        question: "How rare is the Andean cat?",
+        answer:
+          "It is one of the rarest and least-studied cats in the Americas, living at low densities across remote high-altitude terrain, which makes it hard to see and to count.",
+      },
+      {
+        question: "Why is the Andean cat Endangered?",
+        answer:
+          "Published assessments cite its sparse, fragmented population, hunting and persecution, and loss of prey and habitat. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "white-bellied-pangolin": {
+    summary: [
+      "The white-bellied (tree) pangolin is a small, climbing, scale-covered ant-eater of African forests. It is assessed as Endangered.",
+      "It is among the most heavily trafficked of the African pangolins.",
+    ],
+    whyItMatters:
+      "A tree-climbing African pangolin and a major target of trafficking, the white-bellied pangolin is a flagship against the illegal wildlife trade.",
+    faq: [
+      {
+        question: "How is the white-bellied pangolin different from ground pangolins?",
+        answer:
+          "It is smaller and more arboreal, climbing trees with a prehensile tail, whereas ground pangolins forage mainly on the earth. All pangolins are scale-covered insect-eaters.",
+      },
+      {
+        question: "Why is the white-bellied pangolin Endangered?",
+        answer:
+          "Published assessments cite heavy poaching and trafficking for scales and meat, plus habitat loss. Pangolins are among the most trafficked wild mammals. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Pangolin profile", href: "/animals/pangolin" },
+  },
+  "short-tailed-chinchilla": {
+    summary: [
+      "The short-tailed chinchilla is a high-Andean rodent prized for its remarkably dense, soft fur, and the wild ancestor (with its relative) of the pet chinchilla. It is assessed as Critically Endangered.",
+      "Wild populations were devastated by the historical fur trade.",
+    ],
+    whyItMatters:
+      "The wild forebear of the familiar pet chinchilla, the short-tailed chinchilla shows how the fur trade can drive a wild animal to the edge even as its domesticated form thrives.",
+    faq: [
+      {
+        question: "Is this the same as a pet chinchilla?",
+        answer:
+          "Pet chinchillas descend from wild chinchillas, but the wild short-tailed chinchilla is a distinct, critically endangered animal in the high Andes — very different in status from the common pet form.",
+      },
+      {
+        question: "Why is the short-tailed chinchilla Critically Endangered?",
+        answer:
+          "Published assessments cite the legacy of intense hunting for its exceptionally soft fur, a tiny fragmented population, and habitat degradation. See the IUCN Red List.",
+      },
+    ],
+  },
+  "pygmy-three-toed-sloth": {
+    summary: [
+      "The pygmy three-toed sloth is a dwarf sloth found only on one small island off Panama. It is assessed as Critically Endangered.",
+      "It is smaller than mainland sloths, an example of island dwarfism, and lives among the island's mangroves.",
+    ],
+    whyItMatters:
+      "A dwarf sloth marooned on a single island, the pygmy three-toed sloth is a flagship for the fragility of island endemics with nowhere else to go.",
+    faq: [
+      {
+        question: "Why is the pygmy three-toed sloth so small?",
+        answer:
+          "It lives only on a small island and is smaller than its mainland relatives — an example of 'island dwarfism', where isolated populations evolve smaller body sizes.",
+      },
+      {
+        question: "Why is it Critically Endangered?",
+        answer:
+          "Published assessments cite its extremely tiny range on a single island, habitat disturbance, and a very small population. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Sloth profile", href: "/animals/sloth" },
+  },
+  "hawaiian-crow": {
+    summary: [
+      "The Hawaiian crow, or 'alala, is a forest crow found only in Hawaii. It is assessed as Extinct in the Wild, surviving in captive breeding with reintroduction efforts.",
+      "It is one of the few birds known to use tools to extract food.",
+    ],
+    whyItMatters:
+      "A clever, tool-using island crow that vanished from the wild, the 'alala is a flagship for Hawaiian forest restoration and captive-breeding recovery.",
+    faq: [
+      {
+        question: "Does the Hawaiian crow use tools?",
+        answer:
+          "Yes. The 'alala is one of the few birds documented using tools, manipulating sticks to extract food from crevices — a trait shared with only a handful of other birds.",
+      },
+      {
+        question: "What does 'Extinct in the Wild' mean for the 'alala?",
+        answer:
+          "It means the species survives only in captivity (and via reintroduction attempts) rather than as a self-sustaining wild population. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Crow profile", href: "/animals/crow" },
+  },
+  "guam-kingfisher": {
+    summary: [
+      "The Guam kingfisher, or sihek, is a cinnamon-and-blue kingfisher found only on Guam. It is assessed as Extinct in the Wild after the introduced brown tree snake wiped out the wild birds.",
+      "It has been kept alive in captivity, with reintroduction recently begun on a snake-free island.",
+    ],
+    whyItMatters:
+      "A casualty of the brown tree snake's invasion of Guam, the sihek is a stark lesson in invasive-species impacts — and a hopeful reintroduction story.",
+    faq: [
+      {
+        question: "What wiped out the Guam kingfisher in the wild?",
+        answer:
+          "The introduced brown tree snake, which arrived on Guam after the Second World War and devastated the island's native birds, including the Guam kingfisher.",
+      },
+      {
+        question: "Is the Guam kingfisher being brought back?",
+        answer:
+          "It survived only in captivity for decades; reintroduction has recently begun on a predator-free island, though it remains Extinct in the Wild. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Kingfisher profile", href: "/animals/kingfisher" },
+  },
+  "galapagos-pink-land-iguana": {
+    summary: [
+      "The Galápagos pink land iguana is a rare pink-and-dark iguana found only on one volcano in the Galápagos. It is assessed as Critically Endangered.",
+      "It was only confirmed as a distinct species in 2009.",
+    ],
+    whyItMatters:
+      "A recently recognised iguana confined to a single volcano, the pink land iguana is a flagship for the Galápagos and a reminder that new species are still being found in peril.",
+    faq: [
+      {
+        question: "When was the pink land iguana discovered?",
+        answer:
+          "Park rangers noted pink iguanas decades earlier, but it was only confirmed as a distinct species in 2009 — and immediately recognised as Critically Endangered.",
+      },
+      {
+        question: "Why is the Galápagos pink land iguana Critically Endangered?",
+        answer:
+          "Published assessments cite its single tiny population on the slopes of one volcano, introduced predators, and limited reproduction. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Iguana profile", href: "/animals/iguana" },
+  },
+  "european-sturgeon": {
+    summary: [
+      "The European sturgeon (Atlantic sturgeon) is a large, ancient migratory fish once widespread across Europe. It is assessed as Critically Endangered, reduced to a small remnant.",
+      "It depends on restocking from captive breeding to survive.",
+    ],
+    whyItMatters:
+      "A once-widespread European river giant now clinging on in a single basin, the European sturgeon is a flagship for restoring connected, clean European rivers.",
+    faq: [
+      {
+        question: "Why did the European sturgeon collapse across Europe?",
+        answer:
+          "Published assessments cite dams blocking the long river migrations it needs to spawn, past overfishing for caviar, and pollution and habitat loss, which reduced it to a small remnant population.",
+      },
+      {
+        question: "Is the European sturgeon being helped?",
+        answer:
+          "Yes — it depends heavily on restocking from captive breeding, alongside efforts to restore river access and water quality. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Sturgeon profile", href: "/animals/sturgeon" },
+  },
 };

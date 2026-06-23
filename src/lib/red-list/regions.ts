@@ -98,6 +98,7 @@ export const REGION_ORDER: RedListRegion[] = [
  */
 export const REGION_SPECIES: Record<RedListRegion, string[]> = {
   europe: [
+    "european-sturgeon",
     "pyrenean-ibex",
     "great-auk",
     "barbary-macaque",
@@ -121,6 +122,7 @@ export const REGION_SPECIES: Record<RedListRegion, string[]> = {
     "polar-bear",
   ],
   "north-america": [
+    "pygmy-three-toed-sloth",
     "carolina-parakeet",
     "golden-toad",
     "passenger-pigeon",
@@ -180,6 +182,9 @@ export const REGION_SPECIES: Record<RedListRegion, string[]> = {
     "migratory-monarch-butterfly",
   ],
   "south-america": [
+    "galapagos-pink-land-iguana",
+    "short-tailed-chinchilla",
+    "andean-cat",
     "galapagos-giant-tortoise",
     "geoffroys-spider-monkey",
     "brown-spider-monkey",
@@ -223,6 +228,7 @@ export const REGION_SPECIES: Record<RedListRegion, string[]> = {
     "lemur-leaf-frog",
   ],
   africa: [
+    "white-bellied-pangolin",
     "mountain-zebra",
     "african-wild-ass",
     "mountain-gorilla",
@@ -294,6 +300,8 @@ export const REGION_SPECIES: Record<RedListRegion, string[]> = {
     "coelacanth",
   ],
   asia: [
+    "sloth-bear",
+    "asiatic-black-bear",
     "kouprey",
     "asiatic-lion",
     "asiatic-cheetah",
@@ -406,6 +414,8 @@ export const REGION_SPECIES: Record<RedListRegion, string[]> = {
     "humphead-wrasse",
   ],
   oceania: [
+    "guam-kingfisher",
+    "hawaiian-crow",
     "bramble-cay-melomys",
     "thylacine",
     "takahe",
