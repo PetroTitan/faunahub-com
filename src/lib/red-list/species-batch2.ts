@@ -28,9 +28,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Inia geoffrensis",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "The Amazon and Orinoco river systems of South America.",
+    primaryThreats: [
+      "Use as fishing bait",
+      "Entanglement and dams",
+      "Pollution including mercury",
+    ],
     sourceUrls: [adw("Inia_geoffrensis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -39,9 +47,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Trichechus manatus",
     taxonGroup: "mammals",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Coastal and river waters of the southeastern United States, the Caribbean, and parts of Central and South America.",
+    primaryThreats: [
+      "Boat strikes",
+      "Habitat loss and cold stress",
+      "Entanglement",
+    ],
     sourceUrls: [adw("Trichechus_manatus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -61,9 +77,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Dugong dugon",
     taxonGroup: "mammals",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Warm coastal waters of the Indian and western Pacific Oceans.",
+    primaryThreats: [
+      "Loss of seagrass meadows",
+      "Entanglement and bycatch",
+      "Boat strikes and hunting",
+    ],
     sourceUrls: [adw("Dugong_dugon")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes:
       "Globally Vulnerable, but several regional sub-populations are assessed at higher risk.",
@@ -94,9 +118,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Balaenoptera physalus",
     taxonGroup: "mammals",
     redListCategory: "VU",
+    populationTrend: "increasing",
+    rangeSummary:
+      "Found in oceans worldwide, mainly in deep offshore waters.",
+    primaryThreats: [
+      "Past commercial whaling (now recovering)",
+      "Ship strikes",
+      "Entanglement and noise",
+    ],
     sourceUrls: [noaa("fin-whale"), adw("Balaenoptera_physalus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -244,9 +276,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Choeropsis liberiensis",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Forests and wetlands of West Africa, mainly Liberia.",
+    primaryThreats: [
+      "Deforestation and habitat loss",
+      "Hunting",
+      "A small, fragmented population",
+    ],
     sourceUrls: [adw("Hexaprotodon_liberiensis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -266,9 +306,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Mustela nigripes",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "increasing",
+    rangeSummary:
+      "Grasslands of central North America, in reintroduced populations.",
+    primaryThreats: [
+      "Loss of prairie dogs (its main prey)",
+      "Disease (plague and distemper)",
+      "Habitat loss",
+    ],
     sourceUrls: [fws("black-footed-ferret-mustela-nigripes"), adw("Mustela_nigripes")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -296,9 +344,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Equus grevyi",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "stable",
+    rangeSummary:
+      "Dry grasslands and scrub of Kenya and Ethiopia.",
+    primaryThreats: [
+      "Competition with livestock for water and grazing",
+      "Habitat loss",
+      "Hunting",
+    ],
     sourceUrls: [adw("Equus_grevyi")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -327,9 +383,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Myrmecophaga tridactyla",
     taxonGroup: "mammals",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Grasslands and forests from Central America to South America.",
+    primaryThreats: [
+      "Habitat loss and fires",
+      "Road deaths",
+      "Hunting",
+    ],
     sourceUrls: [adw("Myrmecophaga_tridactyla")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
 
@@ -340,9 +404,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Grus japonensis",
     taxonGroup: "birds",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Wetlands of East Asia, including parts of China, Japan, Korea, and Russia.",
+    primaryThreats: [
+      "Loss and drainage of wetlands",
+      "Disturbance",
+      "A small population",
+    ],
     sourceUrls: [birdlife("red-crowned-crane-grus-japonensis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -466,9 +538,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Nestor notabilis",
     taxonGroup: "birds",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Mountains of the South Island of New Zealand.",
+    primaryThreats: [
+      "Introduced predators",
+      "Conflict with people and past culling",
+      "Lead poisoning from buildings",
+    ],
     sourceUrls: [birdlife("kea-nestor-notabilis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -517,9 +597,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Ardeotis nigriceps",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Dry grasslands of India and Pakistan.",
+    primaryThreats: [
+      "Collisions with power lines",
+      "Habitat loss to farming and development",
+      "A tiny population",
+    ],
     sourceUrls: [birdlife("great-indian-bustard-ardeotis-nigriceps")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -569,9 +657,17 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     scientificName: "Diomedea exulans",
     taxonGroup: "birds",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "The Southern Ocean, breeding on remote sub-Antarctic islands.",
+    primaryThreats: [
+      "Drowning on longline fishing hooks",
+      "Plastic pollution",
+      "Invasive predators at colonies",
+    ],
     sourceUrls: [birdlife("wandering-albatross-diomedea-exulans")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({

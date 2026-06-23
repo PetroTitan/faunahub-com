@@ -61,9 +61,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Cetorhinus maximus",
     taxonGroup: "fish",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Temperate coastal and open waters worldwide.",
+    primaryThreats: [
+      "Past targeted fishing",
+      "Bycatch and disturbance",
+      "A very slow reproductive rate",
+    ],
     sourceUrls: [fishbase("Cetorhinus-maximus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -262,9 +270,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Lepidochelys olivacea",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Tropical waters of the Pacific, Indian, and Atlantic Oceans.",
+    primaryThreats: [
+      "Bycatch",
+      "Egg collection and coastal development",
+      "Pollution",
+    ],
     sourceUrls: [noaa("olive-ridley-turtle"), adw("Lepidochelys_olivacea")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -292,9 +308,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Crocodylus intermedius",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "CR",
+    populationTrend: "stable",
+    rangeSummary:
+      "The Orinoco River basin of Colombia and Venezuela.",
+    primaryThreats: [
+      "Past hunting for skins",
+      "Egg and habitat loss",
+      "A very small population",
+    ],
     sourceUrls: [reptiledb("Crocodylus", "intermedius")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -358,9 +382,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Amblyrhynchus cristatus",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "VU",
+    populationTrend: "stable",
+    rangeSummary:
+      "The coasts of the Galápagos Islands.",
+    primaryThreats: [
+      "Introduced predators (cats, dogs, rats)",
+      "Oil spills and pollution",
+      "Ocean changes such as El Niño",
+    ],
     sourceUrls: [adw("Amblyrhynchus_cristatus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -406,9 +438,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Andrias japonicus",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Cool rivers and streams of Japan.",
+    primaryThreats: [
+      "Habitat alteration (dams and river works)",
+      "Hybridisation with introduced salamanders",
+      "Pollution",
+    ],
     sourceUrls: [amphibiaweb("Andrias", "japonicus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -481,9 +521,17 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     scientificName: "Nasikabatrachus sahyadrensis",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "The Western Ghats of India.",
+    primaryThreats: [
+      "Habitat loss to agriculture",
+      "Dams and land-use change",
+      "Collection of tadpoles in places",
+    ],
     sourceUrls: [amphibiaweb("Nasikabatrachus", "sahyadrensis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({

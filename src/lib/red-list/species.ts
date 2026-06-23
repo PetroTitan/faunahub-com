@@ -105,9 +105,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Gorilla beringei",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Mountain and lowland forests of the eastern Democratic Republic of the Congo, Rwanda, and Uganda.",
+    primaryThreats: [
+      "Poaching",
+      "Civil unrest and habitat loss",
+      "Disease",
+    ],
     sourceUrls: [adw("Gorilla_beringei")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes:
       "Includes the mountain gorilla, whose closely monitored sub-population has shown localised recovery.",
@@ -161,9 +169,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Indri indri",
     taxonGroup: "mammals",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Rainforests of eastern Madagascar.",
+    primaryThreats: [
+      "Deforestation and slash-and-burn agriculture",
+      "Hunting",
+      "Habitat fragmentation",
+    ],
     sourceUrls: [adw("Indri_indri")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -183,9 +199,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Daubentonia madagascariensis",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Forests across Madagascar.",
+    primaryThreats: [
+      "Habitat loss",
+      "Killing due to local superstition",
+      "Fragmentation",
+    ],
     sourceUrls: [adw("Daubentonia_madagascariensis")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -576,9 +600,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Sarcophilus harrisii",
     taxonGroup: "mammals",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "The Australian island of Tasmania.",
+    primaryThreats: [
+      "A contagious facial-tumour disease (DFTD)",
+      "Road deaths",
+      "Past persecution",
+    ],
     sourceUrls: [adw("Sarcophilus_harrisii")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
 
@@ -724,9 +756,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Leucogeranus leucogeranus",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Breeds in Arctic Russia and migrates to wintering grounds, chiefly in China.",
+    primaryThreats: [
+      "Loss of wetland stopover and wintering sites",
+      "Dams altering rivers",
+      "Disturbance",
+    ],
     sourceUrls: [adw("Grus_leucogeranus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -735,9 +775,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Leucopsar rothschildi",
     taxonGroup: "birds",
     redListCategory: "CR",
+    populationTrend: "stable",
+    rangeSummary:
+      "The island of Bali, Indonesia.",
+    primaryThreats: [
+      "Trapping for the cage-bird trade",
+      "A tiny range",
+      "Habitat loss",
+    ],
     sourceUrls: [birdlife("bali-myna-leucopsar-rothschildi")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -759,9 +807,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Neophron percnopterus",
     taxonGroup: "birds",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Southern Europe, Africa, the Middle East, and South Asia.",
+    primaryThreats: [
+      "Poisoning",
+      "Veterinary drugs in carcasses",
+      "Electrocution and habitat change",
+    ],
     sourceUrls: [adw("Neophron_percnopterus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -821,9 +877,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Spheniscus mendiculus",
     taxonGroup: "birds",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "The Galápagos Islands, on the equator.",
+    primaryThreats: [
+      "Ocean changes that reduce food (such as El Niño)",
+      "Introduced predators and disease",
+      "Bycatch",
+    ],
     sourceUrls: [adw("Spheniscus_mendiculus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -843,9 +907,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Fratercula arctica",
     taxonGroup: "birds",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Coasts and islands of the North Atlantic, breeding from North America to Europe.",
+    primaryThreats: [
+      "Shortage of small prey fish",
+      "Changing ocean conditions",
+      "Invasive predators at colonies",
+    ],
     sourceUrls: [adw("Fratercula_arctica")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -873,9 +945,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Sagittarius serpentarius",
     taxonGroup: "birds",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Grasslands and savannas across sub-Saharan Africa.",
+    primaryThreats: [
+      "Loss and degradation of grassland",
+      "Disturbance",
+      "Collisions and poisoning",
+    ],
     sourceUrls: [adw("Sagittarius_serpentarius")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -970,9 +1050,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Caretta caretta",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "VU",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Temperate and tropical oceans worldwide, nesting on many continents' coasts.",
+    primaryThreats: [
+      "Bycatch in fishing gear",
+      "Loss of nesting beaches",
+      "Pollution and climate effects",
+    ],
     sourceUrls: [noaa("loggerhead-turtle"), adw("Caretta_caretta")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -1038,9 +1126,16 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Astrochelys radiata",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Dry southern Madagascar.",
+    primaryThreats: [
+      "Poaching for food and the pet trade",
+      "Habitat loss",
+    ],
     sourceUrls: [adw("Astrochelys_radiata")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -1170,9 +1265,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Telmatobius culeus",
     taxonGroup: "reptiles-amphibians",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Lake Titicaca, on the border of Peru and Bolivia.",
+    primaryThreats: [
+      "Harvesting for food and drinks",
+      "Pollution",
+      "Introduced trout and disease",
+    ],
     sourceUrls: [adw("Telmatobius_culeus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
 
@@ -1241,9 +1344,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Sphyrna mokarran",
     taxonGroup: "fish",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Warm coastal and offshore waters worldwide.",
+    primaryThreats: [
+      "Overfishing, including for fins",
+      "Bycatch",
+      "A low reproductive rate",
+    ],
     sourceUrls: [adw("Sphyrna_mokarran")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -1252,9 +1363,16 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Carcharhinus longimanus",
     taxonGroup: "fish",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Open tropical and subtropical oceans worldwide.",
+    primaryThreats: [
+      "Overfishing and the fin trade",
+      "Bycatch",
+    ],
     sourceUrls: [noaa("oceanic-whitetip-shark"), adw("Carcharhinus_longimanus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -1263,9 +1381,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Isurus oxyrinchus",
     taxonGroup: "fish",
     redListCategory: "EN",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Temperate and tropical oceans worldwide.",
+    primaryThreats: [
+      "Overfishing (targeted and bycatch)",
+      "Demand for meat and fins",
+      "A low reproductive rate",
+    ],
     sourceUrls: [noaa("shortfin-mako-shark"), adw("Isurus_oxyrinchus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -1396,9 +1522,16 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Latimeria chalumnae",
     taxonGroup: "fish",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Deep waters off eastern Africa, including around the Comoros.",
+    primaryThreats: [
+      "Accidental capture by deep-set fishing gear",
+      "A very small, slow-breeding population",
+    ],
     sourceUrls: [adw("Latimeria_chalumnae")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
     notes:
       "A deep-water 'living fossil' lineage once thought extinct until rediscovery in 1938.",
@@ -1444,9 +1577,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Acropora palmata",
     taxonGroup: "invertebrates",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Shallow Caribbean reefs.",
+    primaryThreats: [
+      "Warming-driven bleaching",
+      "Coral disease",
+      "Storms and pollution",
+    ],
     sourceUrls: [noaa("elkhorn-coral")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({
@@ -1527,9 +1668,17 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     scientificName: "Nicrophorus americanus",
     taxonGroup: "invertebrates",
     redListCategory: "CR",
+    populationTrend: "decreasing",
+    rangeSummary:
+      "Scattered sites in North America, much reduced from its former range.",
+    primaryThreats: [
+      "Habitat loss and fragmentation",
+      "Loss of suitable carcasses for breeding",
+      "Light pollution and other pressures",
+    ],
     sourceUrls: [fws("american-burying-beetle-nicrophorus-americanus")],
-    dataConfidence: "source-review-pending",
-    profileStatus: "index-only",
+    dataConfidence: "partial",
+    profileStatus: "detailed-profile",
     imageStatus: "not-planned",
   }),
   rec({

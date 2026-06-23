@@ -1233,4 +1233,814 @@ export const RED_LIST_PROFILES: Record<string, RedListProfileContent> = {
       },
     ],
   },
+  "eastern-gorilla": {
+    summary: [
+      "The eastern gorilla is the largest living primate, including the famous mountain gorilla subspecies. It is assessed as Critically Endangered.",
+      "It lives in close-knit family groups led by a dominant silverback male.",
+    ],
+    whyItMatters:
+      "As a large, plant-eating ape that shapes its forest, the eastern gorilla is a flagship for protecting central Africa's threatened mountain and lowland forests.",
+    faq: [
+      {
+        question: "What is the difference between eastern and western gorillas?",
+        answer:
+          "They are two separate species. The eastern gorilla (which includes mountain gorillas) lives in eastern central Africa, while the western gorilla lives farther west. Both are threatened.",
+      },
+      {
+        question: "Why is the eastern gorilla Critically Endangered?",
+        answer:
+          "Published assessments cite poaching, habitat loss, civil unrest across its range, and disease. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Gorilla profile", href: "/animals/gorilla" },
+  },
+  "indri": {
+    summary: [
+      "The indri is the largest living lemur, famous for its loud, haunting songs that carry through Madagascar's forests. It is assessed as Critically Endangered.",
+      "It is a leaf-eating, tree-dwelling primate that lives in small family groups and does not survive well in captivity.",
+    ],
+    whyItMatters:
+      "As a large leaf-eater found only in Madagascar, the indri is both an evolutionary treasure and a flagship for the island's vanishing eastern rainforests.",
+    faq: [
+      {
+        question: "Why is the indri famous for singing?",
+        answer:
+          "Indri families produce loud, wailing songs that carry for long distances through the forest, used to mark territory and keep groups in contact — among the most striking voices of any primate.",
+      },
+      {
+        question: "Why is the indri Critically Endangered?",
+        answer:
+          "Published assessments cite deforestation, hunting, and habitat fragmentation across its small range in eastern Madagascar. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Indri profile", href: "/animals/indri" },
+  },
+  "aye-aye": {
+    summary: [
+      "The aye-aye is a bizarre nocturnal lemur with rodent-like teeth and a long, thin middle finger for extracting grubs from wood. It is assessed as Endangered.",
+      "It taps on branches to find hollow tunnels left by insect larvae, then gnaws in and hooks them out.",
+    ],
+    whyItMatters:
+      "A one-of-a-kind primate that fills the ecological role of a woodpecker, the aye-aye is an irreplaceable branch of Madagascar's unique fauna.",
+    faq: [
+      {
+        question: "What is the aye-aye's strange finger for?",
+        answer:
+          "Its elongated, thin middle finger is used for 'percussive foraging': it taps wood to locate grubs in hollow tunnels, gnaws an opening, then hooks the larvae out — a niche elsewhere filled by woodpeckers.",
+      },
+      {
+        question: "Why is the aye-aye Endangered?",
+        answer:
+          "Published assessments cite habitat loss and fragmentation, plus killing driven by local superstition that treats the animal as an ill omen. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Aye-aye profile", href: "/animals/aye-aye" },
+  },
+  "tasmanian-devil": {
+    summary: [
+      "The Tasmanian devil is the largest living carnivorous marsupial, known for its powerful bite and loud screeches. It is assessed as Endangered.",
+      "Its populations have been devastated by a rare contagious cancer.",
+    ],
+    whyItMatters:
+      "As Tasmania's top marsupial predator and scavenger, the devil's fight against a transmissible cancer is a globally important conservation and disease-research story.",
+    faq: [
+      {
+        question: "What is devil facial tumour disease?",
+        answer:
+          "It is a rare contagious cancer spread when devils bite one another, causing fatal facial tumours. It has caused steep population declines and is central to the species' Endangered status.",
+      },
+      {
+        question: "Why is the Tasmanian devil Endangered?",
+        answer:
+          "Published assessments cite the facial-tumour disease above all, along with road deaths and historical persecution. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Tasmanian devil profile", href: "/animals/tasmanian-devil" },
+  },
+  "dugong": {
+    summary: [
+      "The dugong is a large, slow-moving marine mammal that grazes on seagrass, a relative of the manatees. It is assessed as Vulnerable.",
+      "It is the only fully marine mammal that feeds almost exclusively on plants.",
+    ],
+    whyItMatters:
+      "As a seagrass grazer, the dugong helps keep these underwater meadows healthy, and its decline signals the loss of vital coastal seagrass habitat.",
+    faq: [
+      {
+        question: "What does a dugong eat?",
+        answer:
+          "Almost entirely seagrass. The dugong is the only strictly marine mammal that is essentially a plant-eater, grazing seagrass meadows like an underwater cow.",
+      },
+      {
+        question: "Why is the dugong Vulnerable?",
+        answer:
+          "Published assessments cite loss of seagrass meadows, entanglement and bycatch in fishing gear, boat strikes, and hunting in places. See the IUCN Red List.",
+      },
+    ],
+  },
+  "west-indian-manatee": {
+    summary: [
+      "The West Indian manatee is a large, gentle, plant-eating marine mammal, including the well-known Florida manatee. It is assessed as Vulnerable.",
+      "It grazes water plants in warm shallow coasts and rivers and must avoid cold water.",
+    ],
+    whyItMatters:
+      "A slow-moving coastal grazer, the manatee is a flagship for protecting warm-water refuges and reducing boat collisions in busy waterways.",
+    faq: [
+      {
+        question: "Why are manatees often injured by boats?",
+        answer:
+          "Manatees are slow, surface-feeding animals in busy coastal waterways, which makes collisions with boats a leading cause of injury and death — many bear propeller scars.",
+      },
+      {
+        question: "Why is the West Indian manatee Vulnerable?",
+        answer:
+          "Published assessments cite boat strikes, habitat loss, cold stress when warm-water refuges fail, and entanglement. See the IUCN Red List.",
+      },
+    ],
+  },
+  "amazon-river-dolphin": {
+    summary: [
+      "The Amazon river dolphin, or boto, is a freshwater dolphin famous for its pink colouring and flexible neck. It is assessed as Endangered.",
+      "It navigates flooded forests and murky rivers using echolocation.",
+    ],
+    whyItMatters:
+      "As a top predator of Amazon waterways and a creature of local legend, the boto is an indicator of the health of South America's great river systems.",
+    faq: [
+      {
+        question: "Why is the Amazon river dolphin pink?",
+        answer:
+          "Many adults, especially males, develop a pink hue; the exact reasons are debated and may relate to age, skin, and behaviour. Younger animals are greyer.",
+      },
+      {
+        question: "Why is the boto Endangered?",
+        answer:
+          "Published assessments cite killing for use as fishing bait, entanglement, dams fragmenting rivers, and pollution such as mercury from mining. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Dolphin profile", href: "/animals/dolphin" },
+  },
+  "fin-whale": {
+    summary: [
+      "The fin whale is the second-largest animal on Earth after the blue whale, a fast-swimming baleen whale. It is assessed as Vulnerable.",
+      "It feeds on small fish and krill, lunging through prey swarms.",
+    ],
+    whyItMatters:
+      "A giant of the open ocean recovering from industrial whaling, the fin whale is both a conservation success in progress and still at risk from shipping.",
+    faq: [
+      {
+        question: "How big is the fin whale?",
+        answer:
+          "It is the second-largest animal alive, after the blue whale, reaching around 20-plus metres — and is known for its speed, earning it the nickname 'greyhound of the sea'.",
+      },
+      {
+        question: "Why is the fin whale Vulnerable?",
+        answer:
+          "Industrial whaling greatly reduced its numbers; though now recovering, it still faces ship strikes, entanglement, and ocean noise. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Whale profile", href: "/animals/whale" },
+  },
+  "pygmy-hippopotamus": {
+    summary: [
+      "The pygmy hippopotamus is a small, secretive forest relative of the common hippo. It is assessed as Endangered.",
+      "Far smaller and more solitary than the common hippo, it spends more time on land in dense forest.",
+    ],
+    whyItMatters:
+      "A rare and elusive forest species, the pygmy hippo is a flagship for protecting the threatened Upper Guinean forests of West Africa.",
+    faq: [
+      {
+        question: "How is the pygmy hippo different from the common hippo?",
+        answer:
+          "It is much smaller, more solitary, and lives in dense forests and swamps rather than open rivers, spending comparatively more time on land.",
+      },
+      {
+        question: "Why is the pygmy hippopotamus Endangered?",
+        answer:
+          "Published assessments cite deforestation, hunting, and a small, fragmented population in West Africa. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Hippopotamus profile", href: "/animals/hippopotamus" },
+  },
+  "black-footed-ferret": {
+    summary: [
+      "The black-footed ferret is North America's only native ferret and one of its most endangered mammals. It is assessed as Endangered.",
+      "Once thought extinct, it was rescued through captive breeding and reintroduced to the prairies.",
+    ],
+    whyItMatters:
+      "Tightly tied to prairie dogs and prairie habitat, the black-footed ferret is a landmark recovery story and a symbol of North American grassland conservation.",
+    faq: [
+      {
+        question: "Why does the black-footed ferret depend on prairie dogs?",
+        answer:
+          "Prairie dogs are its main prey, and it shelters in their burrows. When prairie dog colonies decline, ferrets lose both food and homes.",
+      },
+      {
+        question: "Why is the black-footed ferret Endangered?",
+        answer:
+          "Published assessments cite the loss of prairie dogs, disease such as plague and distemper, and habitat loss. It survives through captive breeding and reintroduction. See the IUCN Red List.",
+      },
+    ],
+  },
+  "grevys-zebra": {
+    summary: [
+      "Grevy's zebra is the largest wild equid and the most threatened of the zebras, with narrow stripes and large rounded ears. It is assessed as Endangered.",
+      "It lives in arid country and can survive several days without water.",
+    ],
+    whyItMatters:
+      "As the most endangered zebra and a large grazer of East African drylands, Grevy's zebra is a flagship for arid-rangeland conservation shared with pastoral communities.",
+    faq: [
+      {
+        question: "How is Grevy's zebra different from other zebras?",
+        answer:
+          "It is the largest zebra, with narrower stripes, a white belly, and big rounded ears, and it has a more arid range and looser social structure than the plains zebra.",
+      },
+      {
+        question: "Why is Grevy's zebra Endangered?",
+        answer:
+          "Published assessments cite competition with livestock for scarce water and grazing, habitat loss, and hunting. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Zebra profile", href: "/animals/zebra" },
+  },
+  "giant-anteater": {
+    summary: [
+      "The giant anteater is a large, bushy-tailed mammal that feeds on ants and termites using a long sticky tongue. It is assessed as Vulnerable.",
+      "It has no teeth and laps up tens of thousands of insects a day.",
+    ],
+    whyItMatters:
+      "By controlling ant and termite numbers, the giant anteater plays a useful role in its ecosystems, and it is a flagship for South American grassland and savanna conservation.",
+    faq: [
+      {
+        question: "How does the giant anteater eat without teeth?",
+        answer:
+          "It has no teeth at all. It uses powerful claws to open insect nests and a long, sticky tongue to lap up ants and termites — many thousands per day.",
+      },
+      {
+        question: "Why is the giant anteater Vulnerable?",
+        answer:
+          "Published assessments cite habitat loss and fires, road collisions, and hunting. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "clouded-leopard": {
+    summary: [
+      "The clouded leopard is a secretive, medium-sized wild cat with large cloud-shaped markings and exceptional climbing skills. It is assessed as Vulnerable.",
+      "It has the longest canine teeth relative to skull size of any living cat.",
+    ],
+    whyItMatters:
+      "An elusive forest predator, the clouded leopard is a flagship for protecting the dwindling forests of South and Southeast Asia.",
+    faq: [
+      {
+        question: "What makes the clouded leopard such a good climber?",
+        answer:
+          "It has flexible ankles, a long tail for balance, and a strong grip, letting it climb down trunks head-first and even hang from branches — unusual agility among cats.",
+      },
+      {
+        question: "Why is the clouded leopard Vulnerable?",
+        answer:
+          "Published assessments cite deforestation, poaching for its skin and other parts, and loss of prey. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Clouded leopard profile", href: "/animals/clouded-leopard" },
+  },
+  "andean-bear": {
+    summary: [
+      "The Andean bear (spectacled bear) is South America's only bear, named for the pale markings around its eyes. It is assessed as Vulnerable.",
+      "It is mostly vegetarian and an excellent climber of the Andes' forests.",
+    ],
+    whyItMatters:
+      "As the only bear in South America and a disperser of seeds in Andean forests, the Andean bear is a flagship for conserving the tropical Andes.",
+    faq: [
+      {
+        question: "Why is it called the spectacled bear?",
+        answer:
+          "Many individuals have pale cream markings around the eyes and on the muzzle that can resemble eyeglasses, though the pattern varies between bears.",
+      },
+      {
+        question: "Why is the Andean bear Vulnerable?",
+        answer:
+          "Published assessments cite habitat loss and fragmentation in the Andes, conflict with farmers, and hunting. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Bear profile", href: "/animals/bear" },
+  },
+  "galapagos-penguin": {
+    summary: [
+      "The Galápagos penguin is the only penguin found north of the equator and the rarest penguin species. It is assessed as Endangered.",
+      "It depends on cool, food-rich currents around the islands.",
+    ],
+    whyItMatters:
+      "Living at the very edge of where penguins can survive, the Galápagos penguin is acutely sensitive to ocean change and a barometer for the islands' marine ecosystem.",
+    faq: [
+      {
+        question: "How can a penguin live on the equator?",
+        answer:
+          "Cool, nutrient-rich currents (such as the Humboldt and Cromwell currents) bring cold, fish-filled water to the Galápagos, allowing penguins to survive on the equator.",
+      },
+      {
+        question: "Why is the Galápagos penguin Endangered?",
+        answer:
+          "Published assessments cite ocean changes such as El Niño that cut food supply, introduced predators and disease, and bycatch. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Penguin profile", href: "/animals/penguin" },
+  },
+  "atlantic-puffin": {
+    summary: [
+      "The Atlantic puffin is a small, colourful-billed seabird that nests in burrows on North Atlantic coasts. It is assessed as Vulnerable.",
+      "It carries several small fish at once crosswise in its bright bill.",
+    ],
+    whyItMatters:
+      "A much-loved seabird that depends on small forage fish, the puffin is a visible indicator of the changing North Atlantic and its fisheries.",
+    faq: [
+      {
+        question: "How does a puffin carry so many fish at once?",
+        answer:
+          "Backward-pointing spines on its tongue and palate let a puffin hold several small fish crosswise in its bill while still catching more — sometimes a dozen or more at a time.",
+      },
+      {
+        question: "Why is the Atlantic puffin Vulnerable?",
+        answer:
+          "Published assessments cite shortages of the small fish it feeds on, changing ocean conditions, and invasive predators at some colonies. See the IUCN Red List.",
+      },
+    ],
+  },
+  "secretarybird": {
+    summary: [
+      "The secretarybird is a tall, long-legged bird of prey that hunts on foot, famous for stamping on snakes and other prey. It is assessed as Endangered.",
+      "It strides across open grassland rather than hunting mainly from the air.",
+    ],
+    whyItMatters:
+      "A unique ground-hunting raptor, the secretarybird is both an icon of African grasslands and an indicator of their decline.",
+    faq: [
+      {
+        question: "How does the secretarybird hunt?",
+        answer:
+          "It walks across grassland and kills prey — including snakes, insects, and small animals — with powerful, rapid stamps of its long legs, an unusual technique among birds of prey.",
+      },
+      {
+        question: "Why is the secretarybird Endangered?",
+        answer:
+          "Published assessments cite the loss and degradation of grassland habitat, disturbance, and threats such as collisions and poisoning. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Secretary bird profile", href: "/animals/secretary-bird" },
+  },
+  "red-crowned-crane": {
+    summary: [
+      "The red-crowned crane is one of the rarest and most revered cranes, with a patch of bare red skin on its crown. It is assessed as Vulnerable.",
+      "It is a deep cultural symbol of luck and longevity in East Asia.",
+    ],
+    whyItMatters:
+      "A wetland specialist and a powerful cultural symbol in East Asia, the red-crowned crane is a flagship for conserving the region's threatened marshes.",
+    faq: [
+      {
+        question: "Why is the red-crowned crane culturally important?",
+        answer:
+          "In East Asian cultures it is a long-standing symbol of luck, fidelity, and long life, appearing widely in art and folklore — which has helped drive conservation interest.",
+      },
+      {
+        question: "Why is the red-crowned crane Vulnerable?",
+        answer:
+          "Published assessments cite the loss and drainage of wetlands, disturbance, and its small population. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "kea": {
+    summary: [
+      "The kea is a large alpine parrot of New Zealand, famous for its intelligence and bold curiosity. It is assessed as Endangered.",
+      "It is one of the few parrots adapted to cold mountain environments.",
+    ],
+    whyItMatters:
+      "A highly intelligent alpine parrot found only in New Zealand, the kea is both a research subject for animal cognition and a flagship for the country's mountain wildlife.",
+    faq: [
+      {
+        question: "Why is the kea considered so intelligent?",
+        answer:
+          "Keas are renowned for problem-solving, tool-related behaviour, play, and mischief — investigating (and often dismantling) human objects — making them a focus of animal-cognition research.",
+      },
+      {
+        question: "Why is the kea Endangered?",
+        answer:
+          "Published assessments cite introduced predators, conflict with people (including past culling), and hazards such as lead poisoning from old buildings. See the IUCN Red List.",
+      },
+    ],
+  },
+  "great-indian-bustard": {
+    summary: [
+      "The great Indian bustard is one of the heaviest flying birds and among the most endangered birds in the world. It is assessed as Critically Endangered.",
+      "It is a tall, ground-dwelling bird of open grasslands, now reduced to very few individuals.",
+    ],
+    whyItMatters:
+      "A grassland giant on the edge of extinction, the great Indian bustard is a flagship for India's neglected grassland habitats and for making power infrastructure wildlife-safe.",
+    faq: [
+      {
+        question: "Why are power lines such a threat to the great Indian bustard?",
+        answer:
+          "As a large, heavy bird with limited frontal vision in flight, it is highly prone to colliding with overhead power lines that cross its open grassland habitat.",
+      },
+      {
+        question: "Why is the great Indian bustard Critically Endangered?",
+        answer:
+          "Published assessments cite power-line collisions, habitat loss to agriculture and development, and a very small remaining population. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Bustard profile", href: "/animals/bustard" },
+  },
+  "wandering-albatross": {
+    summary: [
+      "The wandering albatross has the largest wingspan of any living bird and roams vast distances over the Southern Ocean. It is assessed as Vulnerable.",
+      "It can glide for hours and travel thousands of kilometres on a single foraging trip.",
+    ],
+    whyItMatters:
+      "A long-lived ocean wanderer, the wandering albatross is a powerful symbol of the threat that longline fishing poses to the world's seabirds.",
+    faq: [
+      {
+        question: "How big is the wandering albatross's wingspan?",
+        answer:
+          "It has the largest wingspan of any living bird — commonly over three metres — letting it glide enormous distances across the Southern Ocean with little effort.",
+      },
+      {
+        question: "Why is the wandering albatross Vulnerable?",
+        answer:
+          "Published assessments cite drowning on longline fishing hooks above all, along with plastic pollution and invasive predators at breeding colonies. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Albatross profile", href: "/animals/albatross" },
+  },
+  "egyptian-vulture": {
+    summary: [
+      "The Egyptian vulture is a small, white scavenging vulture known for using stones as tools to crack eggs. It is assessed as Endangered.",
+      "It is one of the few birds that uses tools in the wild.",
+    ],
+    whyItMatters:
+      "As scavengers, vultures clean up carcasses and limit disease, so the Egyptian vulture's decline — part of a wider vulture crisis — has real consequences for ecosystems and people.",
+    faq: [
+      {
+        question: "Does the Egyptian vulture really use tools?",
+        answer:
+          "Yes. It is well known for picking up stones and throwing them at large eggs, such as ostrich eggs, to crack them open — a rare example of tool use in birds.",
+      },
+      {
+        question: "Why is the Egyptian vulture Endangered?",
+        answer:
+          "Published assessments cite poisoning, harmful veterinary drugs in livestock carcasses, electrocution on power infrastructure, and habitat change. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Vulture profile", href: "/animals/vulture" },
+  },
+  "bali-myna": {
+    summary: [
+      "The Bali myna is a striking white starling with blue eye-skin, found only on Bali. It is assessed as Critically Endangered.",
+      "Prized as a cage bird, it was driven to the brink and survives largely through captive breeding and release.",
+    ],
+    whyItMatters:
+      "A dazzling island endemic devastated by the songbird trade, the Bali myna is a flagship for Indonesia's cage-bird crisis and for captive-breeding recovery.",
+    faq: [
+      {
+        question: "Why is the Bali myna so threatened?",
+        answer:
+          "Its beauty made it highly sought after for the cage-bird trade, and trapping drove the wild population to extremely low numbers within a very small range.",
+      },
+      {
+        question: "Is the Bali myna recovering?",
+        answer:
+          "Captive breeding and reintroduction have helped maintain and supplement the wild population, but it remains Critically Endangered. See the IUCN Red List for the current assessment.",
+      },
+    ],
+  },
+  "siberian-crane": {
+    summary: [
+      "The Siberian crane is a large white crane that undertakes one of the longest migrations of any crane. It is assessed as Critically Endangered.",
+      "The main population depends on a single key wintering wetland in China.",
+    ],
+    whyItMatters:
+      "Reliant on a chain of wetlands across a vast migration, the Siberian crane is a flagship for international cooperation on wetland conservation.",
+    faq: [
+      {
+        question: "Why is the Siberian crane so vulnerable on migration?",
+        answer:
+          "It depends on a network of wetland stopover sites and, for the main population, largely on a single wintering wetland — so the loss of even one key site is devastating.",
+      },
+      {
+        question: "Why is the Siberian crane Critically Endangered?",
+        answer:
+          "Published assessments cite loss of wetland stopover and wintering habitat, dams altering river systems, and disturbance. See the IUCN Red List.",
+      },
+    ],
+  },
+  "loggerhead-turtle": {
+    summary: [
+      "The loggerhead is a large sea turtle with a powerful head and jaws for crushing hard-shelled prey. It is assessed as Vulnerable.",
+      "It undertakes long ocean migrations between feeding and nesting areas.",
+    ],
+    whyItMatters:
+      "A wide-ranging ocean traveller, the loggerhead links the health of beaches and open seas across whole ocean basins.",
+    faq: [
+      {
+        question: "Why does the loggerhead have such a big head?",
+        answer:
+          "Its large head houses powerful jaws used to crush hard-shelled prey such as crabs, conchs, and other invertebrates.",
+      },
+      {
+        question: "Why is the loggerhead turtle Vulnerable?",
+        answer:
+          "Published assessments cite bycatch in fishing gear, loss and disturbance of nesting beaches, pollution, and climate effects on nests. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Sea turtle profile", href: "/animals/sea-turtle" },
+  },
+  "olive-ridley-turtle": {
+    summary: [
+      "The olive ridley is a small sea turtle famous, like its relative the Kemp's ridley, for synchronised mass-nesting 'arribadas'. It is assessed as Vulnerable.",
+      "It is one of the most abundant sea turtles, yet still threatened.",
+    ],
+    whyItMatters:
+      "Despite being relatively numerous, the olive ridley's reliance on a few mass-nesting beaches makes it a focus for nesting-site protection and turtle-safe fishing.",
+    faq: [
+      {
+        question: "What is special about olive ridley nesting?",
+        answer:
+          "Like the Kemp's ridley, olive ridleys can nest in huge synchronised events called arribadas, when thousands of females come ashore together — spectacular but vulnerable to disturbance.",
+      },
+      {
+        question: "Why is the olive ridley Vulnerable?",
+        answer:
+          "Published assessments cite bycatch in fishing gear, egg collection, coastal development, and pollution. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Sea turtle profile", href: "/animals/sea-turtle" },
+  },
+  "radiated-tortoise": {
+    summary: [
+      "The radiated tortoise is a strikingly patterned tortoise from Madagascar, with bright star-like markings on its high-domed shell. It is assessed as Critically Endangered.",
+      "Its beauty and rarity have made it a heavy target for traffickers.",
+    ],
+    whyItMatters:
+      "One of the most beautiful and trafficked tortoises in the world, the radiated tortoise is a flagship against the illegal pet and bushmeat trade in Madagascar.",
+    faq: [
+      {
+        question: "What makes the radiated tortoise so distinctive?",
+        answer:
+          "Its high-domed shell carries vivid yellow lines radiating from the centre of each plate, creating a star-like pattern that is highly prized — and a magnet for poachers.",
+      },
+      {
+        question: "Why is the radiated tortoise Critically Endangered?",
+        answer:
+          "Published assessments cite heavy poaching for food and the pet trade, together with habitat loss in southern Madagascar. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Tortoise profile", href: "/animals/tortoise" },
+  },
+  "japanese-giant-salamander": {
+    summary: [
+      "The Japanese giant salamander is one of the largest amphibians in the world, a fully aquatic river-dweller. It is assessed as Vulnerable.",
+      "It can live for decades and breathes largely through its wrinkled skin.",
+    ],
+    whyItMatters:
+      "A giant 'living fossil' amphibian, the Japanese giant salamander is an indicator of clean, well-connected rivers and a cultural icon in Japan.",
+    faq: [
+      {
+        question: "How big is the Japanese giant salamander?",
+        answer:
+          "It is among the largest living amphibians, able to exceed a metre in length, and can live for many decades in cool, flowing rivers.",
+      },
+      {
+        question: "Why is it Vulnerable?",
+        answer:
+          "Published assessments cite river alteration such as dams and concrete works, hybridisation with introduced Chinese giant salamanders, and pollution. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Salamander profile", href: "/animals/salamander" },
+  },
+  "galapagos-marine-iguana": {
+    summary: [
+      "The marine iguana is the only lizard in the world that forages in the sea, found solely in the Galápagos. It is assessed as Vulnerable.",
+      "It dives to graze on algae and sneezes out excess salt.",
+    ],
+    whyItMatters:
+      "A unique sea-foraging lizard found nowhere else, the marine iguana is an emblem of the Galápagos and of evolution's capacity to adapt animals to new niches.",
+    faq: [
+      {
+        question: "How does a lizard feed in the sea?",
+        answer:
+          "The marine iguana dives and clings to rocks to graze on marine algae, then basks to rewarm; it expels the extra salt it swallows by 'sneezing' it out through special glands.",
+      },
+      {
+        question: "Why is the marine iguana Vulnerable?",
+        answer:
+          "Published assessments cite introduced predators such as cats and rats, oil spills and pollution, and ocean changes such as El Niño that reduce its algae food. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Iguana profile", href: "/animals/iguana" },
+  },
+  "orinoco-crocodile": {
+    summary: [
+      "The Orinoco crocodile is one of the largest predators in the Americas and among the most endangered crocodilians. It is assessed as Critically Endangered.",
+      "Heavy hunting for its hide in the 20th century left only small populations.",
+    ],
+    whyItMatters:
+      "A top river predator reduced to a fraction of its former numbers, the Orinoco crocodile is a focus for crocodilian recovery and river conservation in northern South America.",
+    faq: [
+      {
+        question: "How big is the Orinoco crocodile?",
+        answer:
+          "It is one of the largest living crocodilians and a top predator of the Orinoco basin, with large males reaching several metres in length.",
+      },
+      {
+        question: "Why is the Orinoco crocodile Critically Endangered?",
+        answer:
+          "Published assessments cite intensive past hunting for its skin, egg and habitat loss, and a very small remaining population. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Crocodile profile", href: "/animals/crocodile" },
+  },
+  "purple-frog": {
+    summary: [
+      "The purple frog is a bloated, burrowing frog with a pointed snout that spends almost its whole life underground. It is assessed as Endangered.",
+      "It surfaces only briefly to breed during the monsoon and represents an ancient, distinct lineage.",
+    ],
+    whyItMatters:
+      "A 'living fossil' frog of the Western Ghats, the purple frog highlights the unique, ancient amphibian life of one of the world's biodiversity hotspots.",
+    faq: [
+      {
+        question: "Why is the purple frog so unusual?",
+        answer:
+          "It is a stout, burrowing frog that lives almost entirely underground, emerging only briefly to breed. It belongs to an ancient lineage with few living relatives, making it evolutionarily special.",
+      },
+      {
+        question: "Why is the purple frog Endangered?",
+        answer:
+          "Published assessments cite habitat loss to agriculture, dams and land-use change in the Western Ghats, and local collection. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Frog profile", href: "/animals/frog" },
+  },
+  "titicaca-water-frog": {
+    summary: [
+      "The Titicaca water frog is a fully aquatic frog famous for its baggy, folded skin, an adaptation to the high-altitude lake. It is assessed as Endangered.",
+      "The loose skin increases surface area to absorb oxygen from the cold water.",
+    ],
+    whyItMatters:
+      "An extreme high-altitude specialist found in a single lake, the Titicaca water frog is an indicator of the health of one of the world's highest large lakes.",
+    faq: [
+      {
+        question: "Why does the Titicaca water frog have such saggy skin?",
+        answer:
+          "Its loose, folded skin greatly increases surface area, helping it absorb enough oxygen directly from the cold, high-altitude lake water where it lives almost entirely underwater.",
+      },
+      {
+        question: "Why is it Endangered?",
+        answer:
+          "Published assessments cite harvesting for food and 'frog juice' drinks, pollution of the lake, and pressures from introduced trout and disease. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Frog profile", href: "/animals/frog" },
+  },
+  "great-hammerhead": {
+    summary: [
+      "The great hammerhead is the largest of the hammerhead sharks, with a broad, straight-edged head. It is assessed as Critically Endangered.",
+      "It is a powerful predator that favours rays as prey.",
+    ],
+    whyItMatters:
+      "As a large apex predator that is highly valued for its fins and slow to reproduce, the great hammerhead is a priority for shark conservation.",
+    faq: [
+      {
+        question: "What does the great hammerhead eat?",
+        answer:
+          "It is a strong predator that particularly favours stingrays, pinning them with its broad head, along with other fish and invertebrates.",
+      },
+      {
+        question: "Why is the great hammerhead Critically Endangered?",
+        answer:
+          "Published assessments cite overfishing (including for fins), bycatch, and a low reproductive rate that makes recovery slow. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Hammerhead shark profile", href: "/animals/hammerhead-shark" },
+  },
+  "oceanic-whitetip-shark": {
+    summary: [
+      "The oceanic whitetip is a wide-ranging open-ocean shark with distinctive rounded, white-tipped fins. It is assessed as Critically Endangered.",
+      "Once among the most abundant large open-ocean predators, it has declined steeply.",
+    ],
+    whyItMatters:
+      "A formerly abundant high-seas predator now in steep decline, the oceanic whitetip is a stark example of how fishing has transformed open-ocean ecosystems.",
+    faq: [
+      {
+        question: "How do you recognise an oceanic whitetip shark?",
+        answer:
+          "By its long, rounded pectoral and dorsal fins with mottled white tips, and its open-ocean lifestyle far from coasts.",
+      },
+      {
+        question: "Why is the oceanic whitetip Critically Endangered?",
+        answer:
+          "Published assessments cite overfishing — including high demand for its large fins — and bycatch, which have caused dramatic declines. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Shark profile", href: "/animals/shark" },
+  },
+  "shortfin-mako": {
+    summary: [
+      "The shortfin mako is the fastest shark in the world, a sleek, powerful open-ocean predator. It is assessed as Endangered.",
+      "It is warm-bodied, which helps power its high-speed bursts.",
+    ],
+    whyItMatters:
+      "As the fastest shark and a heavily fished apex predator, the shortfin mako is a high-profile case for sustainable management of high-seas sharks.",
+    faq: [
+      {
+        question: "How fast is the shortfin mako?",
+        answer:
+          "It is widely regarded as the fastest shark, capable of remarkable bursts of speed, helped by its streamlined shape and warm-bodied physiology.",
+      },
+      {
+        question: "Why is the shortfin mako Endangered?",
+        answer:
+          "Published assessments cite overfishing, both targeted and as bycatch, demand for meat and fins, and a slow reproductive rate. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Shark profile", href: "/animals/shark" },
+  },
+  "coelacanth": {
+    summary: [
+      "The coelacanth is a 'living fossil' fish once thought extinct for millions of years until rediscovered in 1938. The African species is assessed as Critically Endangered.",
+      "It has fleshy, limb-like fins and belongs to a lineage close to the ancestors of land vertebrates.",
+    ],
+    whyItMatters:
+      "A famous living link to deep evolutionary history, the coelacanth is a scientific treasure whose tiny, slow-breeding population leaves it acutely vulnerable.",
+    faq: [
+      {
+        question: "Why is the coelacanth called a 'living fossil'?",
+        answer:
+          "Its lineage was known only from fossils and thought to have died out tens of millions of years ago — until a living coelacanth was caught off South Africa in 1938, astonishing scientists.",
+      },
+      {
+        question: "Why is the coelacanth Critically Endangered?",
+        answer:
+          "Published assessments cite accidental capture in deep-set fishing gear and a very small, slow-reproducing population. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Coelacanth profile", href: "/animals/coelacanth" },
+  },
+  "basking-shark": {
+    summary: [
+      "The basking shark is the second-largest fish in the world, a gentle filter-feeder that strains plankton with its huge open mouth. It is assessed as Endangered.",
+      "Despite its enormous size, it is harmless to people.",
+    ],
+    whyItMatters:
+      "A giant, slow-reproducing filter-feeder, the basking shark is a flagship for protecting plankton-rich seas and recovering from historical overfishing.",
+    faq: [
+      {
+        question: "What does the basking shark eat?",
+        answer:
+          "Plankton. It swims slowly with its huge mouth open, filtering tiny organisms from the water through its gill rakers — it is harmless to humans despite its size.",
+      },
+      {
+        question: "Why is the basking shark Endangered?",
+        answer:
+          "Published assessments cite past targeted fishing, bycatch and disturbance, and a very slow reproductive rate that makes recovery slow. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Shark profile", href: "/animals/shark" },
+  },
+  "elkhorn-coral": {
+    summary: [
+      "Elkhorn coral is a large, branching coral that built much of the structure of shallow Caribbean reefs. It is assessed as Critically Endangered.",
+      "Like other corals, it is a colony of tiny animals living with symbiotic algae.",
+    ],
+    whyItMatters:
+      "A former reef-building powerhouse of the Caribbean, elkhorn coral's collapse reshapes reefs and the coastlines they protect, making it a flagship for reef recovery.",
+    faq: [
+      {
+        question: "Is elkhorn coral a plant or an animal?",
+        answer:
+          "An animal — a colony of tiny coral polyps related to sea anemones, hosting symbiotic algae that give the coral much of its colour and energy.",
+      },
+      {
+        question: "Why is elkhorn coral Critically Endangered?",
+        answer:
+          "Published assessments cite warming-driven bleaching, coral disease, and damage from storms and pollution, which have caused dramatic declines on Caribbean reefs. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Elkhorn coral profile", href: "/animals/elkhorn-coral" },
+  },
+  "american-burying-beetle": {
+    summary: [
+      "The American burying beetle is a large, striking carrion beetle that buries small animal carcasses to feed its young. It is assessed (regionally) as Critically Endangered and has vanished from most of its former range.",
+      "Both parents care for the larvae on the buried carcass — unusual among insects.",
+    ],
+    whyItMatters:
+      "A once-widespread recycler of carrion that now survives in scattered pockets, the American burying beetle is a reminder that even common insects can collapse across a continent.",
+    faq: [
+      {
+        question: "What does the American burying beetle do with carcasses?",
+        answer:
+          "A pair locates a small carcass, buries it, and raises their larvae on it, with both parents feeding the young — a rare level of parental care for an insect.",
+      },
+      {
+        question: "Why has the American burying beetle declined?",
+        answer:
+          "Published assessments cite habitat loss and fragmentation, fewer suitable carcasses, and other pressures such as light pollution, which have erased it from most of its former range. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Beetle profile", href: "/animals/beetle" },
+  },
 };
