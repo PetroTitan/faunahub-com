@@ -145,7 +145,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [noaa("fin-whale"), adw("Balaenoptera_physalus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "sei-whale",
@@ -183,7 +183,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [noaa("north-atlantic-right-whale"), adw("Eubalaena_glacialis")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "hawaiian-monk-seal",
@@ -338,7 +338,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Hippopotamus_amphibius")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "black-footed-ferret",
@@ -588,7 +588,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [birdlife("lears-macaw-anodorhynchus-leari")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "blue-throated-macaw",

@@ -144,7 +144,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Habitat degradation",
       "Indirect poisoning and persecution",
       "Loss of prey",
-    ], sourceUrls: [adw("Felis_nigripes")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [adw("Felis_nigripes")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "flat-headed-cat", commonName: "Flat-headed Cat", scientificName: "Prionailurus planiceps", taxonGroup: "mammals", redListCategory: "EN",
     populationTrend: "decreasing",
     rangeSummary:
@@ -171,7 +171,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Deforestation",
       "Persecution as a livestock predator",
       "Fragmentation",
-    ], sourceUrls: [adw("Cryptoprocta_ferox")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned", notes: "Madagascar's largest carnivore." }),
+    ], sourceUrls: [adw("Cryptoprocta_ferox")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image", notes: "Madagascar's largest carnivore." }),
   rec({ slug: "north-pacific-right-whale", commonName: "North Pacific Right Whale", scientificName: "Eubalaena japonica", taxonGroup: "mammals", redListCategory: "EN",
     populationTrend: "stable",
     rangeSummary:
@@ -270,7 +270,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Introduced foxes and cats",
       "Competition from rabbits and livestock",
       "Habitat change",
-    ], sourceUrls: [adw("Macrotis_lagotis")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [adw("Macrotis_lagotis")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
 
   // ===========================================================================
   // BIRDS (BirdLife International DataZone)
@@ -346,7 +346,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Electrocution on power lines",
       "Poisoning",
       "Past loss of its rabbit prey",
-    ], sourceUrls: [birdlife("spanish-imperial-eagle-aquila-adalberti")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [birdlife("spanish-imperial-eagle-aquila-adalberti")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "eastern-imperial-eagle", commonName: "Eastern Imperial Eagle", scientificName: "Aquila heliaca", taxonGroup: "birds", redListCategory: "VU",
     populationTrend: "decreasing",
     rangeSummary:

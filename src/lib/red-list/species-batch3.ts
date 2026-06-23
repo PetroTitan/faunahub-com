@@ -83,7 +83,7 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     sourceUrls: [fishbase("Epinephelus-itajara")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
     notes: "Down-listed from Critically Endangered to Vulnerable in 2018.",
   }),
   rec({
@@ -141,7 +141,7 @@ export const RED_LIST_SPECIES_BATCH3: readonly RedListSpeciesRecord[] = [
     sourceUrls: [fishbase("Carcharias-taurus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "green-sawfish",

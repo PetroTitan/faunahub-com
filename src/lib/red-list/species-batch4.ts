@@ -120,7 +120,7 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Hylobates_lar")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "wild-bactrian-camel",
@@ -412,7 +412,7 @@ export const RED_LIST_SPECIES_BATCH4: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Myrmecobius_fasciatus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "koala",
