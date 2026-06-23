@@ -807,7 +807,7 @@ const PHASE1_SPECIES: readonly RedListSpeciesRecord[] = [
     sourceUrls: [adw("Grus_leucogeranus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "bali-myna",

@@ -531,7 +531,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [birdlife("white-backed-vulture-gyps-africanus")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "andean-condor",
@@ -607,7 +607,7 @@ export const RED_LIST_SPECIES_BATCH2: readonly RedListSpeciesRecord[] = [
     sourceUrls: [birdlife("blue-throated-macaw-ara-glaucogularis")],
     dataConfidence: "partial",
     profileStatus: "detailed-profile",
-    imageStatus: "not-planned",
+    imageStatus: "has-image",
   }),
   rec({
     slug: "yellow-crested-cockatoo",

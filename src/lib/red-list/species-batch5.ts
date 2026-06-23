@@ -55,7 +55,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Hunting for bushmeat",
       "Habitat loss",
       "Fragmentation",
-    ], sourceUrls: [adw("Mandrillus_leucophaeus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [adw("Mandrillus_leucophaeus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "mandrill", commonName: "Mandrill", scientificName: "Mandrillus sphinx", taxonGroup: "mammals", redListCategory: "VU",
     populationTrend: "decreasing",
     rangeSummary:
@@ -189,7 +189,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Entanglement in fishing nets",
       "A small, fragmented population",
       "Disease and disturbance",
-    ], sourceUrls: [adw("Cephalorhynchus_hectori")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned", notes: "The Maui dolphin sub-population is assessed at even higher risk." }),
+    ], sourceUrls: [adw("Cephalorhynchus_hectori")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image", notes: "The Maui dolphin sub-population is assessed at even higher risk." }),
   rec({ slug: "franciscana", commonName: "Franciscana", scientificName: "Pontoporia blainvillei", taxonGroup: "mammals", redListCategory: "VU",
     populationTrend: "decreasing",
     rangeSummary:
@@ -234,7 +234,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Uncontrolled hunting",
       "Habitat loss and drought",
       "A tiny, fragmented population",
-    ], sourceUrls: [adw("Nanger_dama")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [adw("Nanger_dama")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "mountain-tapir", commonName: "Mountain Tapir", scientificName: "Tapirus pinchaque", taxonGroup: "mammals", redListCategory: "EN",
     populationTrend: "decreasing",
     rangeSummary:
@@ -310,7 +310,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Loss and alteration of wetlands",
       "Dams and changed water flow",
       "Disturbance",
-    ], sourceUrls: [birdlife("wattled-crane-bugeranus-carunculatus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [birdlife("wattled-crane-bugeranus-carunculatus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "red-headed-vulture", commonName: "Red-headed Vulture", scientificName: "Sarcogyps calvus", taxonGroup: "birds", redListCategory: "CR",
     populationTrend: "stable",
     rangeSummary:
@@ -398,7 +398,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Changes in food supply",
       "Ocean change",
       "Past exploitation and disturbance",
-    ], sourceUrls: [birdlife("northern-rockhopper-penguin-eudyptes-moseleyi")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [birdlife("northern-rockhopper-penguin-eudyptes-moseleyi")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "macaroni-penguin", commonName: "Macaroni Penguin", scientificName: "Eudyptes chrysolophus", taxonGroup: "birds", redListCategory: "VU",
     populationTrend: "decreasing",
     rangeSummary:
@@ -443,7 +443,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Longline fishing bycatch",
       "A single main breeding site",
       "Disturbance and disease",
-    ], sourceUrls: [birdlife("waved-albatross-phoebastria-irrorata")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [birdlife("waved-albatross-phoebastria-irrorata")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "short-tailed-albatross", commonName: "Short-tailed Albatross", scientificName: "Phoebastria albatrus", taxonGroup: "birds", redListCategory: "VU",
     populationTrend: "increasing",
     rangeSummary:
