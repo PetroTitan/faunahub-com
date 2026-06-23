@@ -6207,4 +6207,213 @@ export const RED_LIST_PROFILES: Record<string, RedListProfileContent> = {
     ],
     relatedAnimal: { label: "Dolphin profile", href: "/animals/dolphin" },
   },
+  "przewalskis-horse": {
+    summary: [
+      "Przewalski's horse is the only truly wild horse never to have been fully domesticated, a stocky, dun-coloured horse of the Central Asian steppe. It is assessed as Endangered.",
+      "It was once Extinct in the Wild and has been brought back through captive breeding and reintroduction to Mongolia.",
+    ],
+    whyItMatters:
+      "The last wild horse and a flagship of the Mongolian steppe, Przewalski's horse is a landmark example of a species returned to the wild from captivity.",
+    faq: [
+      {
+        question: "Is Przewalski's horse just a feral domestic horse?",
+        answer:
+          "No. Unlike mustangs or brumbies (feral domestic horses), Przewalski's horse is a distinct wild horse that was never fully domesticated, and it even has a different chromosome count from the domestic horse.",
+      },
+      {
+        question: "How was Przewalski's horse saved?",
+        answer:
+          "It died out in the wild in the 20th century, surviving only in zoos; descendants of those animals have since been reintroduced to Mongolia, lifting it from Extinct in the Wild to Endangered. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Horse profile", href: "/animals/horse" },
+  },
+  "galapagos-giant-tortoise": {
+    summary: [
+      "The Galápagos giant tortoise is among the largest tortoises in the world and can live well over a century. The complex of forms is generally assessed as Vulnerable, with some island populations more imperilled.",
+      "Different islands evolved distinct shell shapes, which helped inspire ideas about evolution.",
+    ],
+    whyItMatters:
+      "An icon of the Galápagos and of evolutionary science, the giant tortoise is a flagship for island restoration and the removal of introduced species.",
+    faq: [
+      {
+        question: "How long do Galápagos giant tortoises live?",
+        answer:
+          "They are among the longest-lived land animals, frequently living over 100 years, and some captive individuals have reached well beyond that.",
+      },
+      {
+        question: "Why are Galápagos tortoises important to science?",
+        answer:
+          "The way shell shape and size vary between islands helped inform early ideas about how species adapt to local conditions — a cornerstone of evolutionary thinking. See the IUCN Red List for conservation status.",
+      },
+    ],
+    relatedAnimal: { label: "Tortoise profile", href: "/animals/tortoise" },
+  },
+  "sumatran-tiger": {
+    summary: [
+      "The Sumatran tiger is the smallest living tiger subspecies and the only one surviving in the Indonesian islands. It is assessed as Critically Endangered.",
+      "It lives in dwindling rainforest and is darker and more closely striped than mainland tigers.",
+    ],
+    whyItMatters:
+      "The last of Indonesia's island tigers, the Sumatran tiger is a flagship for protecting Sumatra's rapidly shrinking rainforests.",
+    faq: [
+      {
+        question: "How is the Sumatran tiger different from other tigers?",
+        answer:
+          "It is the smallest tiger subspecies, with darker fur and narrower, more closely set stripes — adaptations to its dense island rainforest. The Bali and Javan tigers, also island tigers, are already extinct.",
+      },
+      {
+        question: "Why is the Sumatran tiger Critically Endangered?",
+        answer:
+          "Published assessments cite poaching for skins and body parts, deforestation including for palm oil, and conflict with people. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Tiger profile", href: "/animals/tiger" },
+  },
+  "sumatran-elephant": {
+    summary: [
+      "The Sumatran elephant is a subspecies of the Asian elephant found only on Sumatra. It is assessed as Critically Endangered.",
+      "It has lost much of its lowland forest home to rapid land conversion.",
+    ],
+    whyItMatters:
+      "A forest elephant that disperses seeds across Sumatra, the Sumatran elephant is a flagship for keeping the island's lowland forests intact and connected.",
+    faq: [
+      {
+        question: "How is the Sumatran elephant different from other Asian elephants?",
+        answer:
+          "It is a subspecies of the Asian elephant, generally smaller and restricted to the island of Sumatra, where it has suffered especially severe habitat loss.",
+      },
+      {
+        question: "Why is the Sumatran elephant Critically Endangered?",
+        answer:
+          "Published assessments cite the loss of lowland forest to plantations, conflict with people, and habitat fragmentation. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Elephant profile", href: "/animals/elephant" },
+  },
+  "cross-river-gorilla": {
+    summary: [
+      "The Cross River gorilla is the rarest gorilla, a subspecies of the western gorilla found only on the Nigeria-Cameroon border. It is assessed as Critically Endangered.",
+      "Only a few hundred are thought to remain, in scattered groups.",
+    ],
+    whyItMatters:
+      "The most threatened of all gorillas, the Cross River gorilla is a flagship for protecting and connecting the forests of the Nigeria-Cameroon highlands.",
+    faq: [
+      {
+        question: "How many Cross River gorillas are left?",
+        answer:
+          "Only a few hundred are thought to survive, scattered across forested hills on the Nigeria-Cameroon border, making it the rarest of the gorilla subspecies.",
+      },
+      {
+        question: "Why is the Cross River gorilla Critically Endangered?",
+        answer:
+          "Published assessments cite poaching, habitat loss and fragmentation, and its very small population. See the IUCN Red List for the current assessment.",
+      },
+    ],
+    relatedAnimal: { label: "Gorilla profile", href: "/animals/gorilla" },
+  },
+  "temmincks-pangolin": {
+    summary: [
+      "Temminck's pangolin (the ground pangolin) is a scale-covered, ant- and termite-eating mammal of African savannas. It is assessed as Vulnerable.",
+      "Like all pangolins it rolls into an armoured ball when threatened and is heavily trafficked.",
+    ],
+    whyItMatters:
+      "An African pangolin caught up in the global trafficking crisis, Temminck's pangolin is a flagship against the illegal wildlife trade.",
+    faq: [
+      {
+        question: "Why are pangolins so heavily trafficked?",
+        answer:
+          "They are hunted for their keratin scales (used in some traditional medicines) and for meat, which has made pangolins among the most trafficked wild mammals on Earth.",
+      },
+      {
+        question: "Why is Temminck's pangolin Vulnerable?",
+        answer:
+          "Published assessments cite poaching and trafficking, electrocution on electric fences, and habitat loss. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Pangolin profile", href: "/animals/pangolin" },
+  },
+  "takahe": {
+    summary: [
+      "The takahe is a large, flightless, brilliantly blue-green rail of New Zealand. It is assessed as Endangered.",
+      "It was thought extinct for decades before being rediscovered in 1948.",
+    ],
+    whyItMatters:
+      "A flightless bird brought back from presumed extinction, the takahe is a celebrated New Zealand recovery story and a flagship for predator control.",
+    faq: [
+      {
+        question: "Was the takahe really thought extinct?",
+        answer:
+          "Yes. It was believed extinct for around 50 years until a population was famously rediscovered in a remote South Island valley in 1948, prompting intensive conservation.",
+      },
+      {
+        question: "Why is the takahe Endangered?",
+        answer:
+          "Published assessments cite introduced predators such as stoats, competition with introduced deer for food, and its small population, though careful management has helped numbers grow. See the IUCN Red List.",
+      },
+    ],
+  },
+  "baiji": {
+    summary: [
+      "The baiji, or Yangtze river dolphin, was a pale freshwater dolphin of China's Yangtze River. It is assessed as Critically Endangered (Possibly Extinct).",
+      "It has not been reliably recorded since the early 2000s, and a major survey in 2006 failed to find any.",
+    ],
+    whyItMatters:
+      "Likely the first dolphin driven to extinction by people, the baiji is a stark warning about the toll of fishing, dams, and pollution on great rivers.",
+    faq: [
+      {
+        question: "Is the baiji extinct?",
+        answer:
+          "It is assessed as Critically Endangered (Possibly Extinct). It has not been reliably confirmed since the early 2000s, and a dedicated 2006 survey found none, leading many scientists to consider it functionally extinct.",
+      },
+      {
+        question: "What happened to the baiji?",
+        answer:
+          "Published accounts cite drowning as bycatch in fishing gear, the impact of dams and intense river traffic, and pollution along the heavily developed Yangtze. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Dolphin profile", href: "/animals/dolphin" },
+  },
+  "dodo": {
+    summary: [
+      "The dodo was a large, flightless pigeon-relative of Mauritius that was driven to extinction in the late 17th century, within decades of human arrival. It is assessed as Extinct.",
+      "It has become the world's best-known symbol of human-caused extinction.",
+    ],
+    whyItMatters:
+      "The dodo is the defining emblem of extinction caused by people — a reminder of how quickly island species can vanish once humans and their animals arrive.",
+    faq: [
+      {
+        question: "What was the dodo related to?",
+        answer:
+          "Despite its bulky look, the dodo was a member of the pigeon and dove family; its closest living relatives are pigeons. It had become large and flightless on a predator-free island.",
+      },
+      {
+        question: "Why did the dodo go extinct?",
+        answer:
+          "Published accounts cite hunting by arriving sailors, introduced animals (pigs, rats, monkeys) eating its eggs and chicks, and habitat loss. It was gone within roughly a century of humans reaching Mauritius.",
+      },
+    ],
+    relatedAnimal: { label: "Pigeon profile", href: "/animals/pigeon" },
+  },
+  "thylacine": {
+    summary: [
+      "The thylacine, or Tasmanian tiger, was a striped, dog-like marsupial carnivore of Tasmania. It is assessed as Extinct, with the last known individual dying in 1936.",
+      "Despite its dog-like look, it was a marsupial that carried young in a pouch.",
+    ],
+    whyItMatters:
+      "A marsupial predator hunted to extinction within living memory, the thylacine is a powerful symbol of preventable species loss.",
+    faq: [
+      {
+        question: "Was the thylacine a tiger or a dog?",
+        answer:
+          "Neither. It was a carnivorous marsupial whose striped back earned it the name 'Tasmanian tiger' and whose shape recalled a dog — an example of unrelated animals evolving similar forms. It carried young in a pouch.",
+      },
+      {
+        question: "When did the thylacine go extinct?",
+        answer:
+          "The last known thylacine died in a Hobart zoo in 1936, after decades of hunting, bounties, habitat loss, and disease. It is assessed as Extinct. See the IUCN Red List.",
+      },
+    ],
+    relatedAnimal: { label: "Tasmanian devil profile", href: "/animals/tasmanian-devil" },
+  },
 };

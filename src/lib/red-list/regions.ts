@@ -175,6 +175,7 @@ export const REGION_SPECIES: Record<RedListRegion, string[]> = {
     "migratory-monarch-butterfly",
   ],
   "south-america": [
+    "galapagos-giant-tortoise",
     "geoffroys-spider-monkey",
     "brown-spider-monkey",
     "darwins-fox",
@@ -217,6 +218,9 @@ export const REGION_SPECIES: Record<RedListRegion, string[]> = {
     "lemur-leaf-frog",
   ],
   africa: [
+    "dodo",
+    "temmincks-pangolin",
+    "cross-river-gorilla",
     "drill",
     "mandrill",
     "barbary-macaque",
@@ -277,6 +281,10 @@ export const REGION_SPECIES: Record<RedListRegion, string[]> = {
     "coelacanth",
   ],
   asia: [
+    "baiji",
+    "sumatran-elephant",
+    "sumatran-tiger",
+    "przewalskis-horse",
     "hainan-gibbon",
     "western-hoolock-gibbon",
     "pileated-gibbon",
@@ -381,6 +389,8 @@ export const REGION_SPECIES: Record<RedListRegion, string[]> = {
     "humphead-wrasse",
   ],
   oceania: [
+    "thylacine",
+    "takahe",
     "grey-headed-flying-fox",
     "greater-bilby",
     "hectors-dolphin",
