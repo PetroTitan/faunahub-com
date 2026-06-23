@@ -2380,6 +2380,101 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_ADW,
     SRC_IUCN,
   ],
+  kodkod: [
+    adw("Leopardus_guigna", "Leopardus guigna (kodkod / guiña)"),
+    SRC_IUCN,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  "flat-headed-cat": [
+    adw("Prionailurus_planiceps", "Prionailurus planiceps (flat-headed cat)"),
+    SRC_IUCN,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  "bush-dog": [
+    adw("Speothos_venaticus", "Speothos venaticus (bush dog)"),
+    brit("bush-dog", "Bush dog (Speothos venaticus)"),
+    SRC_IUCN,
+  ],
+  zorilla: [
+    adw("Ictonyx_striatus", "Ictonyx striatus (zorilla / striped polecat)"),
+    SRC_IUCN,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  takin: [
+    adw("Budorcas_taxicolor", "Budorcas taxicolor (takin)"),
+    brit("takin", "Takin (Budorcas taxicolor)"),
+    SRC_IUCN,
+  ],
+  "dik-dik": [
+    adw("Madoqua_kirkii", "Madoqua kirkii (Kirk's dik-dik)"),
+    brit("dik-dik", "Dik-dik (Madoqua)"),
+    SRC_IUCN,
+  ],
+  "go-away-bird": [
+    SRC_CORNELL_BIRDS,
+    brit("go-away-bird", "Go-away-bird (Corythaixoides)"),
+    SRC_IUCN,
+  ],
+  coucal: [
+    SRC_CORNELL_BIRDS,
+    brit("coucal", "Coucal (Centropus)"),
+    SRC_IUCN,
+  ],
+  pratincole: [
+    SRC_CORNELL_BIRDS,
+    brit("pratincole", "Pratincole (Glareola)"),
+    SRC_IUCN,
+  ],
+  "button-quail": [
+    SRC_CORNELL_BIRDS,
+    brit("buttonquail", "Buttonquail (Turnix)"),
+    SRC_IUCN,
+  ],
+  "painted-snipe": [
+    SRC_CORNELL_BIRDS,
+    brit("painted-snipe", "Painted-snipe (Rostratula)"),
+    SRC_IUCN,
+  ],
+  "plated-lizard": [
+    SRC_ADW,
+    brit("plated-lizard", "Plated lizard (Gerrhosaurus)"),
+    SRC_IUCN,
+  ],
+  sandfish: [
+    adw("Scincus_scincus", "Scincus scincus (sandfish skink)"),
+    brit("sandfish", "Sandfish (Scincus scincus)"),
+    SRC_IUCN,
+  ],
+  "chorus-frog": [
+    SRC_AMPHIBIAWEB,
+    brit("chorus-frog", "Chorus frog (Pseudacris)"),
+    SRC_IUCN,
+  ],
+  "rain-frog": [
+    SRC_AMPHIBIAWEB,
+    adw("Breviceps_gibbosus", "Breviceps gibbosus (Cape rain frog)"),
+    SRC_IUCN,
+  ],
+  weeverfish: [
+    SRC_ADW,
+    brit("weever", "Weever (Trachinidae)"),
+    SRC_IUCN,
+  ],
+  lanternfish: [
+    SRC_NOAA_FISHERIES,
+    brit("lanternfish", "Lanternfish (Myctophidae)"),
+    SRC_IUCN,
+  ],
+  leafhopper: [
+    SRC_XERCES,
+    brit("leafhopper", "Leafhopper (Cicadellidae)"),
+    SRC_ADW,
+  ],
+  lancelet: [
+    SRC_WORMS,
+    brit("lancelet", "Lancelet (amphioxus, Branchiostoma)"),
+    SRC_ADW,
+  ],
 };
 
 /**
