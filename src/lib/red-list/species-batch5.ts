@@ -261,7 +261,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Historical loss of wild habitat",
       "Past near-total loss",
       "Dependence on managed populations",
-    ], sourceUrls: [adw("Elaphurus_davidianus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned", notes: "Listed Extinct in the Wild; survives in managed and reintroduced herds in China." }),
+    ], sourceUrls: [adw("Elaphurus_davidianus")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image", notes: "Listed Extinct in the Wild; survives in managed and reintroduced herds in China." }),
   rec({ slug: "greater-bilby", commonName: "Greater Bilby", scientificName: "Macrotis lagotis", taxonGroup: "mammals", redListCategory: "VU",
     populationTrend: "decreasing",
     rangeSummary:
@@ -301,7 +301,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Loss and drainage of wetlands",
       "Collisions and poisoning",
       "Agricultural change",
-    ], sourceUrls: [birdlife("sarus-crane-grus-antigone")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [birdlife("sarus-crane-grus-antigone")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "wattled-crane", commonName: "Wattled Crane", scientificName: "Bugeranus carunculatus", taxonGroup: "birds", redListCategory: "VU",
     populationTrend: "decreasing",
     rangeSummary:
@@ -337,7 +337,7 @@ export const RED_LIST_SPECIES_BATCH5: readonly RedListSpeciesRecord[] = [
       "Poisoning",
       "Collisions and electrocution on power lines",
       "Reduced food and disturbance",
-    ], sourceUrls: [birdlife("cape-vulture-gyps-coprotheres")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "not-planned" }),
+    ], sourceUrls: [birdlife("cape-vulture-gyps-coprotheres")], dataConfidence: "partial", profileStatus: "detailed-profile", imageStatus: "has-image" }),
   rec({ slug: "spanish-imperial-eagle", commonName: "Spanish Imperial Eagle", scientificName: "Aquila adalberti", taxonGroup: "birds", redListCategory: "VU",
     populationTrend: "increasing",
     rangeSummary:
