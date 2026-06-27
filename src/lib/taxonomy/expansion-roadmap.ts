@@ -11,15 +11,15 @@ export const FUTURE_BATCHES: readonly FutureBatch[] = [
     slug: "deep-sea-species",
     title: "Deep-Sea Species Expansion",
     purpose:
-      "Add dedicated profiles for deep-sea animals so the ocean depth pages can link real profiles, not just zone science.",
+      "Delivered: dedicated, source-backed profiles for deep-sea animals — vampire squid, gulper eel, barreleye, yeti crab, snailfish, hatchetfish, black dragonfish, glass sponge, deep-sea coral, and the hydrothermal-vent tube worm — now link from the ocean depth pages.",
     priority: "high",
-    exampleSpecies: ["vampire-squid","gulper-eel","barreleye","yeti-crab","snailfish","lanternfish","hatchetfish","viperfish"],
+    exampleSpecies: ["vampire-squid","gulper-eel","barreleye-fish","yeti-crab","snailfish","hatchetfish","black-dragonfish","glass-sponge"],
     requiredSourceTypes: ["NOAA Ocean Exploration","MBARI","WoRMS","peer-reviewed deep-sea research"],
     imageDifficulty: "hard",
     riskNotes:
-      "Licensed images of deep-sea animals are scarce; many available images are research-cruise media with unclear licenses. Verify each license carefully.",
+      "Licensed images of deep-sea animals are scarce; images here were each license-verified (Public Domain / CC0 / CC BY / CC BY-SA) via Wikimedia Commons, favouring NOAA, Smithsonian, and museum sources.",
     shouldCreatePages: false,
-    status: "ready-for-research",
+    status: "complete",
   },
   {
     slug: "invertebrates-batch-1",

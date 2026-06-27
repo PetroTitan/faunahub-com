@@ -20,8 +20,8 @@ export const COVERAGE_GAPS: readonly CoverageGap[] = [
   },
   {
     heading: "Deep-sea coverage gaps",
-    body: "FaunaHub's ocean depth pages describe deep-sea life from authoritative sources, but the deeper zones do not yet have dedicated animal profiles.",
-    examples: ["anglerfish", "giant squid", "vampire squid", "dumbo octopus", "gulper eel", "barreleye"],
+    body: "FaunaHub's ocean depth pages now link a substantial set of dedicated deep-sea profiles, from anglerfish and vampire squid to vent and seafloor animals. Some well-known deep-sea fish remain to add.",
+    examples: ["viperfish", "fangtooth", "cookiecutter shark", "tripod fish", "deep-sea amphipod"],
   },
   {
     heading: "Regional fauna coverage gaps",

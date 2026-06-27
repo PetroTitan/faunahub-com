@@ -32,7 +32,7 @@ const FAQ = [
   {
     question: "Why do most featured animals appear in the sunlight zone?",
     answer:
-      "The sunlit surface holds most of the ocean's life and nearly all the animals FaunaHub currently profiles. The deeper zones are home to specialised deep-sea animals we do not yet profile; their pages describe that life from authoritative ocean-science sources.",
+      "The sunlit surface holds most of the ocean's life and the majority of the animals FaunaHub profiles. The deeper zones are home to specialised deep-sea animals — FaunaHub now profiles a growing set of them, from anglerfish and vampire squid to giant tube worms and glass sponges, each placed cautiously in the zone(s) it is documented to occur in.",
   },
   {
     question: "Does a depth zone equal an animal's exact range?",
@@ -102,8 +102,9 @@ export default function OceanHubPage() {
             <p>
               These pages are educational. Animals are shown in the zone(s) they
               are documented to occur in — many move between layers — and the
-              deep zones, which FaunaHub does not yet profile, are described from
-              authoritative ocean-science sources.
+              deep zones, from the midnight zone to the hadal trenches, are
+              described from authoritative ocean-science sources alongside the
+              deep-sea animals FaunaHub now profiles.
             </p>
           </section>
 

@@ -78,6 +78,34 @@ export const SRC_WORMS: SourceLink = {
   note: "Authoritative register of marine species names",
 };
 
+export const SRC_NOAA_OCEAN_EXPLORATION: SourceLink = {
+  label: "NOAA Ocean Exploration",
+  url: "https://oceanexplorer.noaa.gov/",
+  type: "government",
+  note: "U.S. government deep-ocean exploration and education resource",
+};
+
+export const SRC_SMITHSONIAN_OCEAN: SourceLink = {
+  label: "Smithsonian Ocean — National Museum of Natural History",
+  url: "https://ocean.si.edu/",
+  type: "reference",
+  note: "Smithsonian Institution educational ocean-science resource",
+};
+
+export const SRC_MBARI: SourceLink = {
+  label: "Monterey Bay Aquarium Research Institute (MBARI)",
+  url: "https://www.mbari.org/",
+  type: "university",
+  note: "Deep-sea research institute",
+};
+
+export const SRC_WHOI: SourceLink = {
+  label: "Woods Hole Oceanographic Institution (WHOI)",
+  url: "https://www.whoi.edu/",
+  type: "university",
+  note: "Ocean research and education institution",
+};
+
 /** Per-species ADW account helper. */
 function adw(species: string, label: string, note?: string): SourceLink {
   return {
@@ -2474,6 +2502,59 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_WORMS,
     brit("lancelet", "Lancelet (amphioxus, Branchiostoma)"),
     SRC_ADW,
+  ],
+  // Deep-Sea Species Expansion (2026-06-27): cautious, institution-backed sources.
+  "vampire-squid": [
+    SRC_MBARI,
+    SRC_SMITHSONIAN_OCEAN,
+    SRC_WORMS,
+    SRC_NOAA_OCEAN_EXPLORATION,
+  ],
+  "gulper-eel": [
+    SRC_NOAA_OCEAN_EXPLORATION,
+    SRC_SMITHSONIAN_OCEAN,
+    SRC_WORMS,
+  ],
+  "barreleye-fish": [
+    SRC_MBARI,
+    SRC_NOAA_OCEAN_EXPLORATION,
+    SRC_WORMS,
+  ],
+  "yeti-crab": [
+    SRC_NOAA_OCEAN_EXPLORATION,
+    SRC_WHOI,
+    SRC_WORMS,
+  ],
+  snailfish: [
+    SRC_NOAA_OCEAN_EXPLORATION,
+    SRC_SMITHSONIAN_OCEAN,
+    SRC_WORMS,
+  ],
+  hatchetfish: [
+    SRC_NOAA_OCEAN_EXPLORATION,
+    SRC_SMITHSONIAN_OCEAN,
+    SRC_WORMS,
+  ],
+  "black-dragonfish": [
+    SRC_MBARI,
+    SRC_NOAA_OCEAN_EXPLORATION,
+    SRC_WORMS,
+  ],
+  "deep-sea-coral": [
+    SRC_NOAA_OCEAN_EXPLORATION,
+    SRC_NOAA_FISHERIES,
+    SRC_SMITHSONIAN_OCEAN,
+    SRC_WHOI,
+  ],
+  "hydrothermal-vent-tubeworm": [
+    SRC_WHOI,
+    SRC_NOAA_OCEAN_EXPLORATION,
+    SRC_SMITHSONIAN_OCEAN,
+  ],
+  "glass-sponge": [
+    SRC_NOAA_OCEAN_EXPLORATION,
+    SRC_SMITHSONIAN_OCEAN,
+    SRC_WORMS,
   ],
 };
 

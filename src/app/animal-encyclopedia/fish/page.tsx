@@ -69,6 +69,12 @@ const marine = [
   { href: "/animals/dragonet", label: "Dragonet", desc: "Family Callionymidae — small seabed reef fish; includes the dazzling, true-blue mandarinfish." },
   { href: "/animals/weeverfish", label: "Weeverfish", desc: "Family Trachinidae — sand-burying coastal fish with venomous spines; among the most venomous fish in European seas." },
   { href: "/animals/lanternfish", label: "Lanternfish", desc: "Family Myctophidae — glowing deep-sea fish that may be among the most abundant vertebrates on Earth." },
+  // Deep-Sea Species Expansion (2026-06-27)
+  { href: "/animals/gulper-eel", label: "Gulper Eel", desc: "Eurypharynx pelecanoides — a deep-sea 'pelican eel' with an enormous, expandable mouth." },
+  { href: "/animals/barreleye-fish", label: "Barreleye Fish", desc: "Family Opisthoproctidae — deep-sea fish with tubular upward eyes; some have a transparent head." },
+  { href: "/animals/hatchetfish", label: "Hatchetfish", desc: "Family Sternoptychidae — silvery twilight-zone fish that hide their silhouette with belly photophores." },
+  { href: "/animals/black-dragonfish", label: "Black Dragonfish", desc: "Genus Idiacanthus — slender deep-sea predators with light organs and extreme male–female differences." },
+  { href: "/animals/snailfish", label: "Snailfish", desc: "Family Liparidae — soft, scaleless fish from tide pools to hadal trenches; some are the deepest-living fish known." },
 ];
 
 export default function FishEncyclopediaPage() {

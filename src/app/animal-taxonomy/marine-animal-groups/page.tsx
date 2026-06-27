@@ -37,16 +37,18 @@ export default function MarineAnimalGroupsPage() {
             >
               ocean fauna by depth
             </Link>{" "}
-            layer. Deep-sea groups are described from authoritative sources and
-            are a priority for future dedicated profiles.
+            layer. Deep-sea groups are described from authoritative sources, and
+            FaunaHub now publishes a substantial set of dedicated deep-sea
+            profiles — from anglerfish and vampire squid to giant tube worms,
+            yeti crabs, and glass sponges.
           </p>
         </>
       }
       faq={[
         {
-          question: "Why do deep-sea groups have no profiles yet?",
+          question: "Does FaunaHub profile deep-sea specialists?",
           answer:
-            "FaunaHub does not yet publish profiles for deep-sea specialists. The ocean depth pages describe their life from authoritative ocean-science sources, and a Deep-Sea Species batch is a high priority on the roadmap.",
+            "Yes. FaunaHub now publishes dedicated, source-backed profiles for deep-sea specialists — including anglerfish, gulper eel, barreleye, hatchetfish, black dragonfish, snailfish, yeti crab, hydrothermal-vent tube worm, glass sponge, and deep-sea coral. The ocean depth pages link these profiles and place each cautiously in the zone(s) it is documented to occur in.",
         },
         {
           question: "Do these groups overlap?",

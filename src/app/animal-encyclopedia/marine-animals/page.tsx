@@ -297,6 +297,31 @@ const links = [
     desc: "Genus Branchiostoma — a small, fish-shaped marine chordate (not a fish or vertebrate) that hints at vertebrate origins.",
   },
   {
+    href: "/animals/vampire-squid",
+    label: "Vampire Squid",
+    desc: "Vampyroteuthis infernalis — a small, gentle deep-sea cephalopod that feeds on sinking marine snow.",
+  },
+  {
+    href: "/animals/yeti-crab",
+    label: "Yeti Crab",
+    desc: "Genus Kiwa — a hairy deep-sea squat lobster that appears to farm bacteria at hydrothermal vents.",
+  },
+  {
+    href: "/animals/deep-sea-coral",
+    label: "Deep-Sea Coral",
+    desc: "Cold-water corals (Anthozoa) that build slow-growing reefs in cold, dark, deep water without sunlight.",
+  },
+  {
+    href: "/animals/hydrothermal-vent-tubeworm",
+    label: "Hydrothermal Vent Tubeworm",
+    desc: "Riftia pachyptila — a giant tube worm with no mouth or gut, fed by chemosynthetic bacteria.",
+  },
+  {
+    href: "/animals/glass-sponge",
+    label: "Glass Sponge",
+    desc: "Hexactinellida — deep-sea sponges with intricate silica-glass skeletons, including the Venus' flower basket.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",

@@ -97,6 +97,18 @@ const wildlifeProfiles = [
     desc: "Varanus komodoensis — the largest living lizard, native to Indonesia.",
     icon: "🦎",
   },
+  {
+    label: "Hydrothermal Vent Tubeworm",
+    href: "/animals/hydrothermal-vent-tubeworm",
+    desc: "Riftia pachyptila — a giant deep-sea worm fed by chemosynthetic bacteria, with no mouth or gut.",
+    icon: "🪱",
+  },
+  {
+    label: "Anglerfish",
+    href: "/animals/anglerfish",
+    desc: "Deep-sea predators that lure prey with a glowing, bacteria-powered light.",
+    icon: "🎣",
+  },
 ];
 
 const animalGroups = [

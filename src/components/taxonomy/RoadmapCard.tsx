@@ -47,7 +47,11 @@ export default function RoadmapCard({ batch }: { batch: FutureBatch }) {
           {DIFFICULTY_LABEL[batch.imageDifficulty]}
         </span>
         <span className="text-[#8A958E]">
-          {batch.shouldCreatePages ? "Pages: when ready" : "Pages: not yet"}
+          {batch.status === "complete"
+            ? "Pages: published"
+            : batch.shouldCreatePages
+              ? "Pages: when ready"
+              : "Pages: not yet"}
         </span>
       </div>
     </div>

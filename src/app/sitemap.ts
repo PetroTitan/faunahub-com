@@ -529,6 +529,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "lanternfish",
     "leafhopper",
     "lancelet",
+    // Deep-Sea Species Expansion (2026-06-27)
+    "vampire-squid",
+    "gulper-eel",
+    "barreleye-fish",
+    "yeti-crab",
+    "snailfish",
+    "hatchetfish",
+    "black-dragonfish",
+    "deep-sea-coral",
+    "hydrothermal-vent-tubeworm",
+    "glass-sponge",
   ];
 
   const compareSlugs = [
