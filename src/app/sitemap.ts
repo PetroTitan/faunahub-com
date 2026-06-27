@@ -547,6 +547,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "clam",
     "oyster",
     "mussel",
+    // Mollusks & Shellfish Batch (2026-06-27)
+    "abalone",
+    "scallop",
+    "sea-slug",
+    "cone-snail",
+    "limpet",
+    "whelk",
+    "chiton",
+    "cowrie",
+    "shipworm",
+    "blue-ringed-octopus",
+    "giant-clam",
   ];
 
   const compareSlugs = [

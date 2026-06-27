@@ -2587,6 +2587,63 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("clam", "Clam (bivalve mollusc)"),
     SRC_ADW,
   ],
+  // Mollusks & Shellfish Batch (2026-06-27): cautious, institution-backed sources.
+  abalone: [
+    SRC_WORMS,
+    brit("abalone", "Abalone (Haliotis)"),
+    SRC_IUCN,
+  ],
+  scallop: [
+    SRC_WORMS,
+    brit("scallop", "Scallop (Pectinidae)"),
+    SRC_NOAA_FISHERIES,
+  ],
+  "sea-slug": [
+    SRC_WORMS,
+    brit("sea-slug", "Sea slug"),
+    SRC_ADW,
+  ],
+  "cone-snail": [
+    SRC_WORMS,
+    brit("cone-snail", "Cone snail (Conus)"),
+    SRC_ADW,
+  ],
+  limpet: [
+    SRC_WORMS,
+    brit("limpet", "Limpet"),
+    SRC_ADW,
+  ],
+  whelk: [
+    SRC_WORMS,
+    brit("whelk", "Whelk"),
+    SRC_NOAA_FISHERIES,
+  ],
+  chiton: [
+    SRC_WORMS,
+    brit("chiton", "Chiton (Polyplacophora)"),
+    SRC_ADW,
+  ],
+  cowrie: [
+    SRC_WORMS,
+    brit("cowrie", "Cowrie (Cypraeidae)"),
+    SRC_ADW,
+  ],
+  shipworm: [
+    SRC_WORMS,
+    brit("shipworm", "Shipworm (Teredinidae)"),
+    SRC_SMITHSONIAN_OCEAN,
+  ],
+  "blue-ringed-octopus": [
+    SRC_WORMS,
+    brit("blue-ringed-octopus", "Blue-ringed octopus (Hapalochlaena)"),
+    SRC_ADW,
+  ],
+  "giant-clam": [
+    SRC_WORMS,
+    brit("giant-clam", "Giant clam (Tridacna)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
 };
 
 /**

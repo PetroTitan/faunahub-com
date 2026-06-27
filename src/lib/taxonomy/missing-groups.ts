@@ -16,7 +16,7 @@ export const COVERAGE_GAPS: readonly CoverageGap[] = [
   {
     heading: "Invertebrate coverage gaps",
     body: "Invertebrates make up the great majority of described animal species, so FaunaHub's coverage is representative and expanding, not complete. Recent batches strengthened arachnids, annelids, and molluscs, but many groups still have few or no profiles.",
-    examples: ["scallops & abalone", "harvestmen & pseudoscorpions", "ragworms & bristle worms", "sand dollars & brittle stars", "rotifers & water bears", "bryozoans"],
+    examples: ["harvestmen & pseudoscorpions", "ragworms & bristle worms", "sand dollars & brittle stars", "periwinkles & murex snails", "rotifers & water bears", "bryozoans"],
   },
   {
     heading: "Deep-sea coverage gaps",

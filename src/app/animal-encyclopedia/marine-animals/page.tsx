@@ -337,6 +337,61 @@ const links = [
     desc: "Burrowing bivalve molluscs such as the hard clam (quahog), drawing water through siphons to filter-feed.",
   },
   {
+    href: "/animals/scallop",
+    label: "Scallop",
+    desc: "Pectinidae — fan-shelled bivalves with rows of tiny eyes that can swim by clapping their valves.",
+  },
+  {
+    href: "/animals/giant-clam",
+    label: "Giant Clam",
+    desc: "Tridacna — the largest living bivalves, embedded in coral reefs and fed partly by symbiotic algae.",
+  },
+  {
+    href: "/animals/abalone",
+    label: "Abalone",
+    desc: "Haliotis — large grazing sea snails with ear-shaped, pearl-lined shells on rocky coasts.",
+  },
+  {
+    href: "/animals/cowrie",
+    label: "Cowrie",
+    desc: "Cypraeidae — sea snails with glossy, egg-shaped shells once used as shell money.",
+  },
+  {
+    href: "/animals/cone-snail",
+    label: "Cone Snail",
+    desc: "Conidae — predatory reef snails; some species have venom that is medically significant, and is studied in medicine.",
+  },
+  {
+    href: "/animals/sea-slug",
+    label: "Sea Slug",
+    desc: "An informal group of shell-less marine gastropods — sea hares, nudibranchs, and kin.",
+  },
+  {
+    href: "/animals/limpet",
+    label: "Limpet",
+    desc: "Cone-shelled gastropods that cling tightly to wave-battered rocks and graze algae.",
+  },
+  {
+    href: "/animals/whelk",
+    label: "Whelk",
+    desc: "Predatory and scavenging sea snails of sandy, muddy, and rocky coastal seabeds.",
+  },
+  {
+    href: "/animals/chiton",
+    label: "Chiton",
+    desc: "Polyplacophora — molluscs with eight overlapping shell plates that grip rocky shores.",
+  },
+  {
+    href: "/animals/blue-ringed-octopus",
+    label: "Blue-Ringed Octopus",
+    desc: "Hapalochlaena — small Indo-Pacific octopuses that flash blue warning rings; a medically significant venomous animal.",
+  },
+  {
+    href: "/animals/shipworm",
+    label: "Shipworm",
+    desc: "Teredinidae — wood-boring bivalve molluscs (not worms) famous for tunnelling into submerged timber.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",

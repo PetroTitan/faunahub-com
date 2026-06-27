@@ -338,6 +338,91 @@ export const OCEAN_RECORDS: readonly OceanZoneRecord[] = [
     depthNote: "Shown for the deepest zones, where specific hadal species occur; the family as a whole spans shallow to hadal.",
     habitatTags: ["deep-seafloor", "trench", "benthic"], isDeepSeaSpecialist: true,
   }),
+
+  // === Mollusks & Shellfish Batch (2026-06-27) ===
+  // Marine mollusks of shallow, sunlit coastal, reef, and rocky-shore habitats.
+  // These are not deep-sea animals; they are shown in the sunlight zone with
+  // cautious, coastal/reef framing.
+  oc({
+    animalSlug: "giant-clam", commonName: "Giant Clam",
+    zoneSlugs: ["sunlight-zone"], confidence: "verified",
+    note: "The largest living bivalves, embedded in shallow, sunlit coral reefs where symbiotic algae in the mantle photosynthesise.",
+    distributionNote: "Genus Tridacna, on Indo-Pacific coral reefs in warm, shallow water.",
+    depthNote: "A shallow, sunlit reef animal; not a deep-sea species.",
+    habitatTags: ["coral-reef", "shallow", "benthic"], isCoastalSpecies: true,
+  }),
+  oc({
+    animalSlug: "cone-snail", commonName: "Cone Snail",
+    zoneSlugs: ["sunlight-zone"], confidence: "broad-range",
+    note: "Predatory sea snails of warm, shallow reefs and sandy bottoms; some species have venom that is medically significant to people.",
+    distributionNote: "Family Conidae (Conus), mainly tropical and subtropical shallow seas.",
+    depthNote: "Commonly associated with shallow, sunlit reef and sand habitats.",
+    habitatTags: ["coral-reef", "sandy-bottom", "shallow"], isCoastalSpecies: true,
+  }),
+  oc({
+    animalSlug: "blue-ringed-octopus", commonName: "Blue-Ringed Octopus",
+    zoneSlugs: ["sunlight-zone"], confidence: "verified",
+    note: "Small octopuses of shallow Indo-Pacific waters, tide pools, and reefs; their warning blue rings flash when alarmed.",
+    distributionNote: "Genus Hapalochlaena, shallow Indo-Pacific coastal waters.",
+    depthNote: "A shallow, coastal/reef cephalopod, not a deep-sea species.",
+    habitatTags: ["coral-reef", "tide-pool", "shallow"], isCoastalSpecies: true,
+  }),
+  oc({
+    animalSlug: "abalone", commonName: "Abalone",
+    zoneSlugs: ["sunlight-zone"], confidence: "broad-range",
+    note: "Large grazing sea snails that cling to rocks and reefs in sunlit, algae-rich coastal waters, especially kelp.",
+    distributionNote: "Genus Haliotis, on rocky coasts and reefs in many temperate and tropical seas.",
+    depthNote: "A shallow, rocky-coast and kelp-zone grazer.",
+    habitatTags: ["rocky-shore", "kelp", "shallow"], isCoastalSpecies: true,
+  }),
+  oc({
+    animalSlug: "scallop", commonName: "Scallop",
+    zoneSlugs: ["sunlight-zone"], confidence: "broad-range",
+    note: "Filter-feeding bivalves of sandy and gravelly seabeds; many can swim by clapping their valves to escape predators.",
+    distributionNote: "Family Pectinidae, on shallow to moderately deep seabeds in many seas.",
+    depthNote: "Commonly associated with shallow, sunlit seabeds; some species range deeper.",
+    habitatTags: ["sandy-bottom", "shallow", "benthic"], isCoastalSpecies: true,
+  }),
+  oc({
+    animalSlug: "chiton", commonName: "Chiton",
+    zoneSlugs: ["sunlight-zone"], confidence: "broad-range",
+    note: "Eight-plated molluscs (Polyplacophora) that grip rocks on sunlit, wave-washed shores and shallow seas.",
+    distributionNote: "Class Polyplacophora, mostly intertidal and shallow rocky habitats worldwide.",
+    depthNote: "A shallow, rocky-shore animal; not a deep-sea species.",
+    habitatTags: ["rocky-shore", "intertidal", "shallow"], isCoastalSpecies: true,
+  }),
+  oc({
+    animalSlug: "sea-slug", commonName: "Sea Slug",
+    zoneSlugs: ["sunlight-zone"], confidence: "broad-range",
+    note: "An informal group of shell-less marine gastropods — sea hares, nudibranchs, and kin — of shallow seabeds, reefs, and seaweed.",
+    distributionNote: "Several gastropod lineages; mostly shallow coastal and reef waters worldwide.",
+    depthNote: "Commonly associated with shallow, sunlit seabeds and reefs.",
+    habitatTags: ["coral-reef", "seagrass", "shallow"], isCoastalSpecies: true,
+  }),
+  oc({
+    animalSlug: "limpet", commonName: "Limpet",
+    zoneSlugs: ["sunlight-zone"], confidence: "broad-range",
+    note: "Cone-shelled gastropods that cling tightly to rocks on sunlit, wave-battered shores and graze algae.",
+    distributionNote: "Several gastropod groups; rocky shores and shallow seas worldwide.",
+    depthNote: "A shallow, rocky-shore grazer.",
+    habitatTags: ["rocky-shore", "intertidal", "shallow"], isCoastalSpecies: true,
+  }),
+  oc({
+    animalSlug: "whelk", commonName: "Whelk",
+    zoneSlugs: ["sunlight-zone"], confidence: "broad-range",
+    note: "Predatory and scavenging sea snails of sandy, muddy, and rocky seabeds in cool and temperate coastal seas.",
+    distributionNote: "Mainly family Buccinidae and relatives, on shallow to moderately deep seabeds.",
+    depthNote: "Commonly associated with shallow, sunlit coastal seabeds.",
+    habitatTags: ["sandy-bottom", "rocky-shore", "shallow"], isCoastalSpecies: true,
+  }),
+  oc({
+    animalSlug: "cowrie", commonName: "Cowrie",
+    zoneSlugs: ["sunlight-zone"], confidence: "broad-range",
+    note: "Glossy-shelled sea snails of warm, shallow reefs and rocky shores, where the mantle polishes the shell.",
+    distributionNote: "Family Cypraeidae, mostly tropical and subtropical shallow seas.",
+    depthNote: "A shallow, sunlit reef and rocky-shore animal.",
+    habitatTags: ["coral-reef", "rocky-shore", "shallow"], isCoastalSpecies: true,
+  }),
 ];
 
 export function getOceanByZone(zone: OceanZoneSlug): OceanZoneRecord[] {
