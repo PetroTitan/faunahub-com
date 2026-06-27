@@ -213,6 +213,17 @@ const groups = [
     label: "Tsetse Fly",
     desc: "Genus Glossina — blood-feeding African flies; some can transmit the parasites that cause sleeping sickness and nagana.",
   },
+  // Regional Fauna: Asia Expansion (2026-06-27)
+  {
+    href: "/animals/asian-giant-hornet",
+    label: "Asian Giant Hornet",
+    desc: "Vespa mandarinia — the world's largest hornet, a social wasp of East and South Asia that preys on other insects.",
+  },
+  {
+    href: "/animals/silkworm",
+    label: "Silkworm",
+    desc: "Bombyx mori — the fully domesticated silk moth, reared for silk (sericulture) since ancient China.",
+  },
 ];
 
 export default function InsectsPage() {

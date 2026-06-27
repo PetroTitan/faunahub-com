@@ -570,6 +570,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "tilapia",
     "dung-beetle",
     "tsetse-fly",
+    // Regional Fauna: Asia Expansion (2026-06-27)
+    "snow-leopard",
+    "asian-black-bear",
+    "musk-deer",
+    "sarus-crane",
+    "mandarin-duck",
+    "king-cobra",
+    "reticulated-python",
+    "asian-giant-salamander",
+    "arowana",
+    "mahseer",
+    "mekong-giant-catfish",
+    "asian-giant-hornet",
+    "silkworm",
   ];
 
   const compareSlugs = [

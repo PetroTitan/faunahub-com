@@ -148,6 +148,9 @@ const mammals = [
   { href: "/animals/takin", label: "Takin", desc: "Budorcas taxicolor — a massive Himalayan goat-antelope with a moose-like nose; Bhutan's national animal." },
   { href: "/animals/dik-dik", label: "Dik-dik", desc: "Genus Madoqua — a tiny African antelope with a cooling snout that lives in monogamous pairs." },
   { href: "/animals/african-buffalo", label: "African Buffalo", desc: "Syncerus caffer — a large wild bovid of sub-Saharan savannas; bulls have a fused horn 'boss'." },
+  { href: "/animals/snow-leopard", label: "Snow Leopard", desc: "Panthera uncia — an elusive big cat of the high mountains of Central and South Asia; Vulnerable." },
+  { href: "/animals/asian-black-bear", label: "Asian Black Bear", desc: "Ursus thibetanus — the 'moon bear' of Asian forests, with a pale crescent on its chest." },
+  { href: "/animals/musk-deer", label: "Musk Deer", desc: "Genus Moschus — small Asian hoofed mammals (not true deer); males have tusk-like canines." },
 ];
 
 export default function MammalsPage() {

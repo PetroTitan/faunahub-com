@@ -2695,6 +2695,72 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("tsetse-fly", "Tsetse fly (Glossina)"),
     SRC_SMITHSONIAN_ZOO,
   ],
+  // Regional Fauna: Asia Expansion (2026-06-27): cautious, institution-backed sources.
+  "snow-leopard": [
+    adw("Panthera_uncia", "Panthera uncia (snow leopard)"),
+    brit("snow-leopard", "Snow leopard (Panthera uncia)"),
+    SRC_IUCN,
+  ],
+  "asian-black-bear": [
+    adw("Ursus_thibetanus", "Ursus thibetanus (Asian black bear)"),
+    brit("asiatic-black-bear", "Asian black bear (Ursus thibetanus)"),
+    SRC_IUCN,
+  ],
+  "musk-deer": [
+    adw("Moschus_moschiferus", "Moschus moschiferus (Siberian musk deer)"),
+    brit("musk-deer", "Musk deer (Moschus)"),
+    SRC_IUCN,
+  ],
+  "sarus-crane": [
+    adw("Antigone_antigone", "Antigone antigone (sarus crane)"),
+    brit("sarus-crane", "Sarus crane"),
+    SRC_IUCN,
+  ],
+  "mandarin-duck": [
+    adw("Aix_galericulata", "Aix galericulata (mandarin duck)"),
+    brit("mandarin-duck", "Mandarin duck"),
+    SRC_IUCN,
+  ],
+  "king-cobra": [
+    adw("Ophiophagus_hannah", "Ophiophagus hannah (king cobra)"),
+    brit("king-cobra", "King cobra"),
+    SRC_IUCN,
+  ],
+  "reticulated-python": [
+    adw("Malayopython_reticulatus", "Malayopython reticulatus (reticulated python)"),
+    brit("reticulated-python", "Reticulated python"),
+    SRC_IUCN,
+  ],
+  "asian-giant-salamander": [
+    adw("Andrias_japonicus", "Andrias japonicus (Japanese giant salamander)"),
+    brit("Chinese-giant-salamander", "Giant salamander (Andrias)"),
+    SRC_IUCN,
+  ],
+  arowana: [
+    adw("Scleropages_formosus", "Scleropages formosus (Asian arowana)"),
+    brit("arowana", "Arowana"),
+    SRC_IUCN,
+  ],
+  mahseer: [
+    adw("Tor_tor", "Tor (mahseer)"),
+    brit("mahseer", "Mahseer (Tor)"),
+    SRC_IUCN,
+  ],
+  "mekong-giant-catfish": [
+    adw("Pangasianodon_gigas", "Pangasianodon gigas (Mekong giant catfish)"),
+    brit("Mekong-giant-catfish", "Mekong giant catfish"),
+    SRC_IUCN,
+  ],
+  "asian-giant-hornet": [
+    SRC_ADW,
+    brit("Asian-giant-hornet", "Asian giant hornet (Vespa mandarinia)"),
+    SRC_SMITHSONIAN_ZOO,
+  ],
+  silkworm: [
+    SRC_ADW,
+    brit("silkworm", "Silkworm (Bombyx mori)"),
+    SRC_SMITHSONIAN_ZOO,
+  ],
 };
 
 /**

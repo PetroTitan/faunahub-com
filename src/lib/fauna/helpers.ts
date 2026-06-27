@@ -22,6 +22,11 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     // Africa expansion
     "african-buffalo", "wildebeest", "okapi", "aardvark", "mandrill", "gelada",
     "hippopotamus",
+    // Asia expansion
+    "snow-leopard", "asian-black-bear", "musk-deer", "clouded-leopard",
+    "sun-bear", "takin", "proboscis-monkey", "orangutan", "gibbon", "macaque",
+    "slow-loris", "binturong", "colugo", "tarsier", "douc", "langur", "saiga",
+    "rhinoceros", "camel",
   ]),
   birds: new Set([
     "eagle", "owl", "falcon", "hawk", "vulture", "penguin", "pelican",
@@ -29,6 +34,8 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     "sparrow", "crow", "raven", "pigeon", "swan", "stork", "duck", "goose",
     // Africa expansion
     "marabou-stork", "african-grey-parrot", "secretary-bird", "ostrich",
+    // Asia expansion
+    "sarus-crane", "mandarin-duck", "hornbill",
   ]),
   "reptiles-amphibians": new Set([
     "crocodile", "alligator", "caiman", "komodo-dragon", "monitor-lizard",
@@ -36,12 +43,16 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     "toad", "salamander", "newt",
     // Africa expansion
     "nile-crocodile", "rock-python", "puff-adder", "mamba", "clawed-frog",
+    // Asia expansion
+    "king-cobra", "reticulated-python", "asian-giant-salamander", "gharial",
   ]),
   invertebrates: new Set([
     "bee", "butterfly", "ant", "spider", "dragonfly", "ladybug",
     "praying-mantis",
     // Africa expansion
     "dung-beetle", "termite", "tsetse-fly",
+    // Asia expansion
+    "asian-giant-hornet", "silkworm", "horseshoe-crab",
   ]),
 };
 

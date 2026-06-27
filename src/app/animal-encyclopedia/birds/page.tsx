@@ -131,6 +131,8 @@ const birds = [
   { href: "/animals/painted-snipe", label: "Greater Painted-snipe", desc: "Rostratula benghalensis — a wetland wader where the brighter female courts the males that raise the brood." },
   { href: "/animals/marabou-stork", label: "Marabou Stork", desc: "Leptoptilos crumenifer — a huge bare-headed African scavenging stork of wetlands and savannas." },
   { href: "/animals/african-grey-parrot", label: "African Grey Parrot", desc: "Psittacus erithacus — a highly intelligent African forest parrot; Endangered, pressured by the pet trade." },
+  { href: "/animals/sarus-crane", label: "Sarus Crane", desc: "Antigone antigone — the tallest flying bird, a red-headed crane of Asian wetlands; Vulnerable." },
+  { href: "/animals/mandarin-duck", label: "Mandarin Duck", desc: "Aix galericulata — an ornately coloured East Asian perching duck that nests in tree cavities." },
 ];
 
 export default function EncyclopediaBirdsPage() {

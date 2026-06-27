@@ -30,6 +30,9 @@ const freshwater = [
   { href: "/animals/bichir", label: "Bichir", desc: "Genus Polypterus — ancient African fish with dorsal finlets and true air-breathing lungs." },
   { href: "/animals/nile-perch", label: "Nile Perch", desc: "Lates niloticus — a huge African freshwater predator; introduced and invasive in Lake Victoria." },
   { href: "/animals/tilapia", label: "Tilapia", desc: "Cichlids such as Oreochromis niloticus — African freshwater fish, widely farmed and mouthbrooding." },
+  { href: "/animals/arowana", label: "Asian Arowana", desc: "Scleropages formosus — a prized 'dragon fish' of Southeast Asian rivers; Endangered and CITES-protected." },
+  { href: "/animals/mahseer", label: "Mahseer", desc: "Genus Tor — large, powerful carp-family fish of fast South and Southeast Asian rivers." },
+  { href: "/animals/mekong-giant-catfish", label: "Mekong Giant Catfish", desc: "Pangasianodon gigas — one of the world's largest freshwater fish; Critically Endangered." },
 ];
 
 const marine = [

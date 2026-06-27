@@ -59,6 +59,8 @@ const reptiles = [
   { href: "/animals/nile-crocodile", label: "Nile Crocodile", desc: "Crocodylus niloticus — a large crocodilian of African rivers, lakes, and wetlands." },
   { href: "/animals/rock-python", label: "African Rock Python", desc: "Python sebae — Africa's largest snake, a powerful non-venomous constrictor." },
   { href: "/animals/puff-adder", label: "Puff Adder", desc: "Bitis arietans — a wide-ranging, well-camouflaged venomous African viper." },
+  { href: "/animals/king-cobra", label: "King Cobra", desc: "Ophiophagus hannah — the world's longest venomous snake, an Asian snake-eater; Vulnerable." },
+  { href: "/animals/reticulated-python", label: "Reticulated Python", desc: "Malayopython reticulatus — the world's longest snake, a non-venomous Asian constrictor." },
 ];
 
 const amphibians = [
@@ -94,6 +96,7 @@ const amphibians = [
   { href: "/animals/siren", label: "Siren", desc: "Family Sirenidae — eel-like salamanders that keep gills for life and have only front legs." },
   { href: "/animals/chorus-frog", label: "Chorus Frog", desc: "Genus Pseudacris — small striped North American frogs whose spring choruses include the spring peeper." },
   { href: "/animals/rain-frog", label: "Rain Frog", desc: "Genus Breviceps — round African burrowing frogs that squeak, can't really swim, and hatch straight into froglets." },
+  { href: "/animals/asian-giant-salamander", label: "Asian Giant Salamander", desc: "Genus Andrias — the largest living amphibians, fully aquatic salamanders of East Asian rivers." },
 ];
 
 export default function EncyclopediaReptilesPage() {
