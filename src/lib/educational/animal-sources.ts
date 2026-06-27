@@ -2556,6 +2556,37 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_SMITHSONIAN_OCEAN,
     SRC_WORMS,
   ],
+  // Invertebrates Expansion Batch 1 (2026-06-27): cautious, institution-backed sources.
+  tick: [
+    SRC_ADW,
+    brit("tick", "Tick (Ixodida)"),
+    SRC_SMITHSONIAN_ZOO,
+  ],
+  mite: [
+    SRC_ADW,
+    brit("mite", "Mite (Acari)"),
+    SRC_SMITHSONIAN_ZOO,
+  ],
+  leech: [
+    SRC_ADW,
+    brit("leech", "Leech (Hirudinea)"),
+    SRC_IUCN,
+  ],
+  mussel: [
+    SRC_WORMS,
+    brit("mussel", "Mussel (bivalve mollusc)"),
+    SRC_NOAA_FISHERIES,
+  ],
+  oyster: [
+    SRC_WORMS,
+    brit("oyster", "Oyster (bivalve mollusc)"),
+    SRC_NOAA_FISHERIES,
+  ],
+  clam: [
+    SRC_WORMS,
+    brit("clam", "Clam (bivalve mollusc)"),
+    SRC_ADW,
+  ],
 };
 
 /**

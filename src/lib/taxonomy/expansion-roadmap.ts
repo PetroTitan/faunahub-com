@@ -24,14 +24,14 @@ export const FUTURE_BATCHES: readonly FutureBatch[] = [
   {
     slug: "invertebrates-batch-1",
     title: "Invertebrates Expansion — Batch 1",
-    purpose: "Strengthen thin invertebrate coverage with well-known terrestrial and marine invertebrates.",
+    purpose: "Delivered: representative profiles across underrepresented invertebrate groups — arachnids (tick, mite), annelids (leech), and bivalve molluscs (clam, oyster, mussel) — joining the existing scorpion, tarantula, centipede, millipede, earthworm, sea cucumber, and sea urchin profiles.",
     priority: "high",
-    exampleSpecies: ["scorpion","tarantula","tick","mite","centipede","millipede","earthworm","leech","sea-cucumber","sea-urchin"],
+    exampleSpecies: ["tick","mite","leech","clam","oyster","mussel","scorpion","earthworm"],
     requiredSourceTypes: ["Animal Diversity Web","Catalogue of Life","WoRMS","museum/university zoology"],
     imageDifficulty: "moderate",
-    riskNotes: "Species identification matters; some groups need careful image verification.",
+    riskNotes: "Safety-sensitive groups (tick, mite, leech) drafted with calm, source-backed framing and no medical/first-aid instructions; images each license-verified (CC BY / CC BY-SA, named authors) via Wikimedia Commons.",
     shouldCreatePages: false,
-    status: "ready-for-research",
+    status: "complete",
   },
   {
     slug: "mollusks-shellfish",

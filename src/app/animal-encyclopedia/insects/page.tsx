@@ -186,6 +186,22 @@ const groups = [
     label: "Leafhopper",
     desc: "Family Cicadellidae — small sap-sucking jumpers that coat themselves in water-repelling brochosomes; many are crop pests.",
   },
+  // Invertebrates Expansion Batch 1 (2026-06-27) — arachnids & annelids (not insects, but kindred invertebrates)
+  {
+    href: "/animals/tick",
+    label: "Tick",
+    desc: "Order Ixodida — eight-legged arachnids (not insects) that feed on blood; some species can transmit disease, varying by species and region.",
+  },
+  {
+    href: "/animals/mite",
+    label: "Mite",
+    desc: "Subclass Acari — a vast, diverse arachnid group; the red velvet mite is a harmless soil predator.",
+  },
+  {
+    href: "/animals/leech",
+    label: "Leech",
+    desc: "Subclass Hirudinea — segmented worms (annelids) with suckers; the medicinal leech is the best-known species.",
+  },
 ];
 
 export default function InsectsPage() {

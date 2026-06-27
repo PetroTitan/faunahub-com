@@ -540,6 +540,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "deep-sea-coral",
     "hydrothermal-vent-tubeworm",
     "glass-sponge",
+    // Invertebrates Expansion Batch 1 (2026-06-27)
+    "tick",
+    "mite",
+    "leech",
+    "clam",
+    "oyster",
+    "mussel",
   ];
 
   const compareSlugs = [

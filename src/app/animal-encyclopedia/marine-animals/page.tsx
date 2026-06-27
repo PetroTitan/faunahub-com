@@ -322,6 +322,21 @@ const links = [
     desc: "Hexactinellida — deep-sea sponges with intricate silica-glass skeletons, including the Venus' flower basket.",
   },
   {
+    href: "/animals/mussel",
+    label: "Mussel",
+    desc: "Bivalve molluscs (e.g. Mytilus edulis) that anchor to rocks with byssal threads and filter-feed in coastal waters.",
+  },
+  {
+    href: "/animals/oyster",
+    label: "Oyster",
+    desc: "Reef-building bivalve molluscs that filter large volumes of water; oyster reefs are widely used in coastal restoration.",
+  },
+  {
+    href: "/animals/clam",
+    label: "Clam",
+    desc: "Burrowing bivalve molluscs such as the hard clam (quahog), drawing water through siphons to filter-feed.",
+  },
+  {
     href: "/animal-encyclopedia",
     label: "Animal Encyclopedia",
     desc: "Browse all animal categories including mammals, birds, reptiles, and insects.",
