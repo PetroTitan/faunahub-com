@@ -2644,6 +2644,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_NOAA_FISHERIES,
     SRC_IUCN,
   ],
+  // Regional Fauna: Africa Expansion (2026-06-27): cautious, institution-backed sources.
+  "african-buffalo": [
+    adw("Syncerus_caffer", "Syncerus caffer (African buffalo)"),
+    brit("african-buffalo", "African buffalo (Syncerus caffer)"),
+    SRC_IUCN,
+  ],
+  "marabou-stork": [
+    adw("Leptoptilos_crumeniferus", "Leptoptilos crumenifer (marabou stork)"),
+    brit("marabou-stork", "Marabou stork"),
+    SRC_IUCN,
+  ],
+  "african-grey-parrot": [
+    adw("Psittacus_erithacus", "Psittacus erithacus (African grey parrot)"),
+    brit("african-grey-parrot", "African grey parrot"),
+    SRC_IUCN,
+  ],
+  "nile-crocodile": [
+    adw("Crocodylus_niloticus", "Crocodylus niloticus (Nile crocodile)"),
+    brit("nile-crocodile", "Nile crocodile"),
+    SRC_IUCN,
+  ],
+  "rock-python": [
+    adw("Python_sebae", "Python sebae (African rock python)"),
+    brit("rock-python", "African rock python"),
+    SRC_IUCN,
+  ],
+  "puff-adder": [
+    adw("Bitis_arietans", "Bitis arietans (puff adder)"),
+    brit("puff-adder", "Puff adder"),
+    SRC_IUCN,
+  ],
+  "nile-perch": [
+    adw("Lates_niloticus", "Lates niloticus (Nile perch)"),
+    brit("nile-perch", "Nile perch"),
+    SRC_IUCN,
+  ],
+  tilapia: [
+    adw("Oreochromis_niloticus", "Oreochromis niloticus (Nile tilapia)"),
+    brit("tilapia", "Tilapia"),
+    SRC_IUCN,
+  ],
+  "dung-beetle": [
+    SRC_ADW,
+    brit("dung-beetle", "Dung beetle"),
+    SRC_XERCES,
+  ],
+  "tsetse-fly": [
+    SRC_ADW,
+    brit("tsetse-fly", "Tsetse fly (Glossina)"),
+    SRC_SMITHSONIAN_ZOO,
+  ],
 };
 
 /**

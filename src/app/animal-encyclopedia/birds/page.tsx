@@ -129,6 +129,8 @@ const birds = [
   { href: "/animals/pratincole", label: "Pratincole", desc: "Genus Glareola — waders that hawk insects on the wing like giant swallows; relatives of the running coursers." },
   { href: "/animals/button-quail", label: "Button-quail", desc: "Genus Turnix — quail-like ground birds (not true quails) with reversed sex roles; females court and males incubate." },
   { href: "/animals/painted-snipe", label: "Greater Painted-snipe", desc: "Rostratula benghalensis — a wetland wader where the brighter female courts the males that raise the brood." },
+  { href: "/animals/marabou-stork", label: "Marabou Stork", desc: "Leptoptilos crumenifer — a huge bare-headed African scavenging stork of wetlands and savannas." },
+  { href: "/animals/african-grey-parrot", label: "African Grey Parrot", desc: "Psittacus erithacus — a highly intelligent African forest parrot; Endangered, pressured by the pet trade." },
 ];
 
 export default function EncyclopediaBirdsPage() {

@@ -202,6 +202,17 @@ const groups = [
     label: "Leech",
     desc: "Subclass Hirudinea — segmented worms (annelids) with suckers; the medicinal leech is the best-known species.",
   },
+  // Regional Fauna: Africa Expansion (2026-06-27)
+  {
+    href: "/animals/dung-beetle",
+    label: "Dung Beetle",
+    desc: "Subfamily Scarabaeinae — beetles that recycle animal dung; 'rollers' shape and bury dung balls, vital to African savannas.",
+  },
+  {
+    href: "/animals/tsetse-fly",
+    label: "Tsetse Fly",
+    desc: "Genus Glossina — blood-feeding African flies; some can transmit the parasites that cause sleeping sickness and nagana.",
+  },
 ];
 
 export default function InsectsPage() {

@@ -559,6 +559,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "shipworm",
     "blue-ringed-octopus",
     "giant-clam",
+    // Regional Fauna: Africa Expansion (2026-06-27)
+    "african-buffalo",
+    "marabou-stork",
+    "african-grey-parrot",
+    "nile-crocodile",
+    "rock-python",
+    "puff-adder",
+    "nile-perch",
+    "tilapia",
+    "dung-beetle",
+    "tsetse-fly",
   ];
 
   const compareSlugs = [

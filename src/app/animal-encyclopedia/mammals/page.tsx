@@ -147,6 +147,7 @@ const mammals = [
   { href: "/animals/zorilla", label: "Zorilla", desc: "Ictonyx striatus — an African striped polecat that looks and smells like a skunk, but is a true mustelid." },
   { href: "/animals/takin", label: "Takin", desc: "Budorcas taxicolor — a massive Himalayan goat-antelope with a moose-like nose; Bhutan's national animal." },
   { href: "/animals/dik-dik", label: "Dik-dik", desc: "Genus Madoqua — a tiny African antelope with a cooling snout that lives in monogamous pairs." },
+  { href: "/animals/african-buffalo", label: "African Buffalo", desc: "Syncerus caffer — a large wild bovid of sub-Saharan savannas; bulls have a fused horn 'boss'." },
 ];
 
 export default function MammalsPage() {

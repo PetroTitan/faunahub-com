@@ -56,6 +56,9 @@ const reptiles = [
   { href: "/animals/whiptail", label: "Whiptail Lizard", desc: "Genus Aspidoscelis — fast striped racers; several species are all-female and reproduce by cloning." },
   { href: "/animals/plated-lizard", label: "Plated Lizard", desc: "Genus Gerrhosaurus — armoured African lizards with bony, plate-like scales and a flexible flank fold." },
   { href: "/animals/sandfish", label: "Sandfish", desc: "Scincus scincus — a desert skink (a lizard, not a fish) that 'swims' through loose sand." },
+  { href: "/animals/nile-crocodile", label: "Nile Crocodile", desc: "Crocodylus niloticus — a large crocodilian of African rivers, lakes, and wetlands." },
+  { href: "/animals/rock-python", label: "African Rock Python", desc: "Python sebae — Africa's largest snake, a powerful non-venomous constrictor." },
+  { href: "/animals/puff-adder", label: "Puff Adder", desc: "Bitis arietans — a wide-ranging, well-camouflaged venomous African viper." },
 ];
 
 const amphibians = [

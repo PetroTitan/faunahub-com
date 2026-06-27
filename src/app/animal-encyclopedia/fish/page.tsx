@@ -28,6 +28,8 @@ const freshwater = [
   { href: "/animals/paddlefish", label: "Paddlefish", desc: "Polyodon spathula — a plankton-filtering river fish with a sensory paddle snout." },
   { href: "/animals/snakehead", label: "Snakehead", desc: "Family Channidae — air-breathing predators; prized food, but invasive abroad." },
   { href: "/animals/bichir", label: "Bichir", desc: "Genus Polypterus — ancient African fish with dorsal finlets and true air-breathing lungs." },
+  { href: "/animals/nile-perch", label: "Nile Perch", desc: "Lates niloticus — a huge African freshwater predator; introduced and invasive in Lake Victoria." },
+  { href: "/animals/tilapia", label: "Tilapia", desc: "Cichlids such as Oreochromis niloticus — African freshwater fish, widely farmed and mouthbrooding." },
 ];
 
 const marine = [

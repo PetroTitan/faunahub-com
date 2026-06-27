@@ -19,20 +19,29 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     "panda", "tapir", "sloth", "armadillo", "porcupine", "wolf", "fox", "bear",
     "lynx", "deer", "moose", "raccoon", "otter", "beaver", "badger", "hedgehog",
     "bat", "kangaroo", "koala", "wombat", "platypus", "rabbit", "seal",
+    // Africa expansion
+    "african-buffalo", "wildebeest", "okapi", "aardvark", "mandrill", "gelada",
+    "hippopotamus",
   ]),
   birds: new Set([
     "eagle", "owl", "falcon", "hawk", "vulture", "penguin", "pelican",
     "flamingo", "peacock", "toucan", "hummingbird", "woodpecker", "robin",
     "sparrow", "crow", "raven", "pigeon", "swan", "stork", "duck", "goose",
+    // Africa expansion
+    "marabou-stork", "african-grey-parrot", "secretary-bird", "ostrich",
   ]),
   "reptiles-amphibians": new Set([
     "crocodile", "alligator", "caiman", "komodo-dragon", "monitor-lizard",
     "iguana", "chameleon", "gecko", "snake", "anaconda", "turtle", "frog",
     "toad", "salamander", "newt",
+    // Africa expansion
+    "nile-crocodile", "rock-python", "puff-adder", "mamba", "clawed-frog",
   ]),
   invertebrates: new Set([
     "bee", "butterfly", "ant", "spider", "dragonfly", "ladybug",
     "praying-mantis",
+    // Africa expansion
+    "dung-beetle", "termite", "tsetse-fly",
   ]),
 };
 
