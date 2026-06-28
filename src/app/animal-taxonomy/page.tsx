@@ -34,6 +34,7 @@ const SUB_PAGES = [
   { label: "Missing animals", href: "/animal-taxonomy/missing-animals" },
   { label: "Coverage roadmap", href: "/animal-taxonomy/coverage-roadmap" },
   { label: "Animal research sources", href: "/animal-research-sources" },
+  { label: "Animal domestication", href: "/animal-domestication" },
 ];
 
 const FAQ = [

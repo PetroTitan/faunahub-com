@@ -98,6 +98,7 @@ export default function AnimalResearchSourcesHub() {
     { label: "How FaunaHub uses sources", href: "/animal-research-sources/how-faunahub-uses-sources" },
     { label: "Editorial Policy", href: "/editorial-policy" },
     { label: "Animal Taxonomy", href: "/animal-taxonomy" },
+    { label: "Animal Domestication", href: "/animal-domestication" },
   ];
 
   return (

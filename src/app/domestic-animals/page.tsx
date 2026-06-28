@@ -271,6 +271,13 @@ export default function DomesticAnimalsPage() {
                   { label: "Fauna by Continent", href: "/fauna" },
                 ]}
               />
+              <RelatedLinks
+                title="History & sources"
+                links={[
+                  { label: "Animal Domestication", href: "/animal-domestication" },
+                  { label: "Animal Research Sources", href: "/animal-research-sources" },
+                ]}
+              />
             </aside>
           </div>
 

@@ -19,6 +19,7 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
     { label: "Fauna by Continent", href: "/fauna" },
     { label: "Animal Taxonomy", href: "/animal-taxonomy" },
     { label: "Domestic & Companion Animals", href: "/domestic-animals" },
+    { label: "Animal Domestication", href: "/animal-domestication" },
     { label: "Mammals", href: "/animal-encyclopedia/mammals" },
     { label: "Birds", href: "/animal-encyclopedia/birds" },
     { label: "Reptiles & Amphibians", href: "/animal-encyclopedia/reptiles" },
