@@ -63,6 +63,7 @@ export default function VeterinaryBoundariesPage() {
       related={[
         { label: "Animal Research Sources", href: "/animal-research-sources" },
         { label: "How FaunaHub uses sources", href: "/animal-research-sources/how-faunahub-uses-sources" },
+        { label: "Animal Food & Diet Safety", href: "/animal-food-and-diet" },
         { label: "Editorial Policy", href: "/editorial-policy" },
         { label: "Domestic & Companion Animals", href: "/domestic-animals" },
         { label: "Wildlife & Biodiversity", href: "/wildlife" },
