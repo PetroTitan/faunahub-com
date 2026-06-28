@@ -173,6 +173,12 @@ const mammals = [
   { href: "/animals/spectacled-bear", label: "Spectacled Bear", desc: "Tremarctos ornatus — the only bear native to South America; lives in Andean cloud forests. Vulnerable." },
   { href: "/animals/pink-river-dolphin", label: "Pink River Dolphin", desc: "Inia geoffrensis — a freshwater dolphin of the Amazon and Orinoco rivers; Endangered." },
   { href: "/animals/giant-otter", label: "Giant Otter", desc: "Pteronura brasiliensis — the largest otter, a social fish-eater of Amazon rivers and wetlands; Endangered." },
+  { href: "/animals/wallaby", label: "Wallaby", desc: "Family Macropodidae — small-to-medium hopping marsupials of Australia and New Guinea, generally smaller than kangaroos." },
+  { href: "/animals/dingo", label: "Dingo", desc: "A wild canid of parts of mainland Australia; its taxonomy and native/feral status are debated." },
+  { href: "/animals/cuscus", label: "Cuscus", desc: "Family Phalangeridae — slow, tree-dwelling marsupials of New Guinea, far northern Australia and nearby islands." },
+  { href: "/animals/dugong", label: "Dugong", desc: "Dugong dugon — a seagrass-grazing marine mammal (a sirenian) of Indo-Pacific coasts; Vulnerable." },
+  { href: "/animals/humpback-whale", label: "Humpback Whale", desc: "Megaptera novaeangliae — a large baleen whale known for breaching, song, and long ocean migrations." },
+  { href: "/animals/tree-kangaroo", label: "Tree Kangaroo", desc: "Genus Dendrolagus — tree-dwelling macropods of New Guinea and northeastern Australian rainforests." },
 ];
 
 export default function MammalsPage() {

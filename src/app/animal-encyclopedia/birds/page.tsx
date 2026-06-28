@@ -150,6 +150,10 @@ const birds = [
   { href: "/animals/rhea", label: "Rhea", desc: "Rhea americana and relatives — large flightless ratite birds of South American grasslands and pampas." },
   { href: "/animals/king-vulture", label: "King Vulture", desc: "Sarcoramphus papa — a striking New World vulture with a colourful bare head, of Neotropical forests." },
   { href: "/animals/scarlet-ibis", label: "Scarlet Ibis", desc: "Eudocimus ruber — a vivid scarlet wading bird of northern South American wetlands and mangroves." },
+  { href: "/animals/galah", label: "Galah", desc: "Eolophus roseicapilla — a common pink-and-grey cockatoo of open country across much of Australia." },
+  { href: "/animals/black-swan", label: "Black Swan", desc: "Cygnus atratus — a mostly black, red-billed waterbird native to wetlands of parts of Australia." },
+  { href: "/animals/wedge-tailed-eagle", label: "Wedge-tailed Eagle", desc: "Aquila audax — Australia's largest bird of prey, with a long, wedge-shaped tail." },
+  { href: "/animals/takahe", label: "Takahe", desc: "Porphyrio hochstetteri — a flightless blue-green rail endemic to New Zealand; Endangered, once thought extinct." },
 ];
 
 export default function EncyclopediaBirdsPage() {

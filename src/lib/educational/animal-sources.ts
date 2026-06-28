@@ -3064,6 +3064,107 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("centipede", "Centipede (Scolopendra gigantea and relatives)"),
     SRC_XERCES,
   ],
+  // === Regional Fauna: Oceania Expansion (2026-06-28) ===
+  wallaby: [
+    adw("Macropus_rufogriseus", "Macropus rufogriseus (red-necked wallaby)"),
+    brit("wallaby", "Wallaby (family Macropodidae)"),
+    SRC_IUCN,
+  ],
+  dingo: [
+    adw("Canis_lupus", "Canis lupus / dingo"),
+    brit("dingo", "Dingo (Canis)"),
+    SRC_IUCN,
+  ],
+  cuscus: [
+    adw("Phalanger_orientalis", "Phalanger orientalis (common cuscus)"),
+    brit("cuscus", "Cuscus (family Phalangeridae)"),
+    SRC_IUCN,
+  ],
+  dugong: [
+    adw("Dugong_dugon", "Dugong dugon (dugong)"),
+    brit("dugong", "Dugong (Dugong dugon)"),
+    SRC_IUCN,
+  ],
+  "humpback-whale": [
+    adw("Megaptera_novaeangliae", "Megaptera novaeangliae (humpback whale)"),
+    brit("humpback-whale", "Humpback whale (Megaptera novaeangliae)"),
+    SRC_IUCN,
+  ],
+  "tree-kangaroo": [
+    adw("Dendrolagus", "Dendrolagus (tree kangaroos)"),
+    brit("tree-kangaroo", "Tree kangaroo (genus Dendrolagus)"),
+    SRC_IUCN,
+  ],
+  galah: [
+    adw("Eolophus_roseicapilla", "Eolophus roseicapilla (galah)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "black-swan": [
+    adw("Cygnus_atratus", "Cygnus atratus (black swan)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "wedge-tailed-eagle": [
+    adw("Aquila_audax", "Aquila audax (wedge-tailed eagle)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  takahe: [
+    adw("Porphyrio_hochstetteri", "Porphyrio hochstetteri (takahe)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "saltwater-crocodile": [
+    adw("Crocodylus_porosus", "Crocodylus porosus (saltwater crocodile)"),
+    brit("saltwater-crocodile", "Saltwater crocodile (Crocodylus porosus)"),
+    SRC_IUCN,
+  ],
+  "blue-tongued-skink": [
+    adw("Tiliqua_scincoides", "Tiliqua scincoides (blue-tongued skink)"),
+    brit("blue-tongued-skink", "Blue-tongued skink (genus Tiliqua)"),
+    SRC_IUCN,
+  ],
+  "cane-toad": [
+    adw("Rhinella_marina", "Rhinella marina (cane toad)"),
+    brit("cane-toad", "Cane toad (Rhinella marina)"),
+    SRC_IUCN,
+  ],
+  "reef-manta-ray": [
+    adw("Mobula_alfredi", "Mobula alfredi (reef manta ray)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "leafy-seadragon": [
+    adw("Phycodurus_eques", "Phycodurus eques (leafy seadragon)"),
+    brit("leafy-seadragon", "Leafy seadragon (Phycodurus eques)"),
+    SRC_IUCN,
+  ],
+  "box-jellyfish": [
+    adw("Chironex_fleckeri", "Chironex fleckeri (box jellyfish)"),
+    brit("box-jellyfish", "Box jellyfish (class Cubozoa)"),
+    SRC_SMITHSONIAN_OCEAN,
+  ],
+  "crown-of-thorns-starfish": [
+    adw("Acanthaster_planci", "Acanthaster planci (crown-of-thorns starfish)"),
+    brit("crown-of-thorns-starfish", "Crown-of-thorns starfish (Acanthaster)"),
+    SRC_SMITHSONIAN_OCEAN,
+  ],
+  "funnel-web-spider": [
+    adw("Atrax_robustus", "Atrax robustus (Sydney funnel-web spider)"),
+    brit("funnel-web-spider", "Funnel-web spider (family Atracidae)"),
+    SRC_XERCES,
+  ],
+  "redback-spider": [
+    adw("Latrodectus_hasselti", "Latrodectus hasselti (redback spider)"),
+    brit("redback-spider", "Redback spider (Latrodectus hasselti)"),
+    SRC_XERCES,
+  ],
+  "giant-weta": [
+    adw("Deinacrida", "Deinacrida (giant weta)"),
+    brit("weta", "Weta (giant weta, genus Deinacrida)"),
+    SRC_XERCES,
+  ],
 };
 
 /**

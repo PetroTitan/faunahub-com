@@ -67,6 +67,8 @@ const reptiles = [
   { href: "/animals/snapping-turtle", label: "Snapping Turtle", desc: "Chelydra serpentina — a large, mostly aquatic freshwater turtle of central and eastern North America." },
   { href: "/animals/marine-iguana", label: "Marine Iguana", desc: "Amblyrhynchus cristatus — the only sea-foraging lizard, endemic to the Galápagos Islands. Vulnerable." },
   { href: "/animals/galapagos-tortoise", label: "Galapagos Tortoise", desc: "Chelonoidis — giant tortoises endemic to the Galápagos Islands; a species complex, several threatened." },
+  { href: "/animals/saltwater-crocodile", label: "Saltwater Crocodile", desc: "Crocodylus porosus — the largest living reptile, of estuaries and coasts across the Indo-Pacific and northern Australia." },
+  { href: "/animals/blue-tongued-skink", label: "Blue-tongued Skink", desc: "Genus Tiliqua — stout Australian and New Guinean lizards that flash a bright blue tongue when threatened." },
 ];
 
 const amphibians = [
@@ -104,6 +106,7 @@ const amphibians = [
   { href: "/animals/rain-frog", label: "Rain Frog", desc: "Genus Breviceps — round African burrowing frogs that squeak, can't really swim, and hatch straight into froglets." },
   { href: "/animals/asian-giant-salamander", label: "Asian Giant Salamander", desc: "Genus Andrias — the largest living amphibians, fully aquatic salamanders of East Asian rivers." },
   { href: "/animals/european-tree-frog", label: "European Tree Frog", desc: "Hyla arborea — a small, bright-green climbing frog with adhesive toe pads, found near water in parts of Europe." },
+  { href: "/animals/cane-toad", label: "Cane Toad", desc: "Rhinella marina — a large toad native to the Americas, introduced to Australia where it is an invasive species." },
 ];
 
 export default function EncyclopediaReptilesPage() {

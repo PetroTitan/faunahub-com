@@ -87,6 +87,8 @@ const marine = [
   { href: "/animals/hatchetfish", label: "Hatchetfish", desc: "Family Sternoptychidae — silvery twilight-zone fish that hide their silhouette with belly photophores." },
   { href: "/animals/black-dragonfish", label: "Black Dragonfish", desc: "Genus Idiacanthus — slender deep-sea predators with light organs and extreme male–female differences." },
   { href: "/animals/snailfish", label: "Snailfish", desc: "Family Liparidae — soft, scaleless fish from tide pools to hadal trenches; some are the deepest-living fish known." },
+  { href: "/animals/reef-manta-ray", label: "Reef Manta Ray", desc: "Mobula alfredi — a large filter-feeding ray of Indo-Pacific reefs and coasts, including Australian waters; Vulnerable." },
+  { href: "/animals/leafy-seadragon", label: "Leafy Seadragon", desc: "Phycodurus eques — a seahorse relative with leaf-like camouflage, found only along southern Australian coasts." },
 ];
 
 export default function FishEncyclopediaPage() {

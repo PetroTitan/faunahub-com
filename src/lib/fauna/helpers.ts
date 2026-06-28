@@ -39,6 +39,10 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     "giant-anteater", "vicuna", "guanaco", "llama", "spectacled-bear",
     "pink-river-dolphin", "giant-otter", "capybara", "maned-wolf", "ocelot",
     "howler-monkey", "spider-monkey", "coati", "agouti", "kinkajou", "peccary",
+    // Oceania expansion
+    "wallaby", "dingo", "cuscus", "dugong", "humpback-whale", "tree-kangaroo",
+    "quokka", "sugar-glider", "echidna", "tasmanian-devil", "numbat", "bilby",
+    "quoll", "bandicoot",
   ]),
   birds: new Set([
     "eagle", "owl", "falcon", "hawk", "vulture", "penguin", "pelican",
@@ -56,6 +60,9 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     // South America expansion
     "harpy-eagle", "andean-condor", "macaw", "rhea", "king-vulture",
     "scarlet-ibis", "hoatzin",
+    // Oceania expansion
+    "galah", "black-swan", "wedge-tailed-eagle", "takahe", "cassowary", "emu",
+    "kiwi", "kakapo", "kea", "lyrebird", "bird-of-paradise", "magpie",
   ]),
   "reptiles-amphibians": new Set([
     "crocodile", "alligator", "caiman", "komodo-dragon", "monitor-lizard",
@@ -73,6 +80,9 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     // South America expansion
     "marine-iguana", "galapagos-tortoise", "poison-dart-frog", "glass-frog",
     "boa",
+    // Oceania expansion
+    "saltwater-crocodile", "blue-tongued-skink", "cane-toad", "tuatara",
+    "frilled-lizard", "thorny-devil", "sea-turtle",
   ]),
   invertebrates: new Set([
     "bee", "butterfly", "ant", "spider", "dragonfly", "ladybug",
@@ -88,6 +98,9 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     // South America expansion
     "blue-morpho-butterfly", "leafcutter-ant", "goliath-birdeater",
     "amazonian-giant-centipede",
+    // Oceania expansion
+    "box-jellyfish", "crown-of-thorns-starfish", "funnel-web-spider",
+    "redback-spider", "giant-weta", "blue-ringed-octopus", "stick-insect",
   ]),
 };
 

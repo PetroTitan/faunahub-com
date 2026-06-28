@@ -262,6 +262,32 @@ const groups = [
     label: "Amazonian Giant Centipede",
     desc: "Scolopendra gigantea — one of the largest centipedes, a fast venomous predator of northern South America.",
   },
+  // Regional Fauna: Oceania Expansion (2026-06-28)
+  {
+    href: "/animals/box-jellyfish",
+    label: "Box Jellyfish",
+    desc: "Class Cubozoa — cube-bodied jellyfish of Indo-Pacific coasts; some species have medically significant venom.",
+  },
+  {
+    href: "/animals/crown-of-thorns-starfish",
+    label: "Crown-of-thorns Starfish",
+    desc: "Genus Acanthaster — a spiny, coral-eating sea star of Indo-Pacific reefs whose outbreaks can damage coral.",
+  },
+  {
+    href: "/animals/funnel-web-spider",
+    label: "Funnel-web Spider",
+    desc: "Family Atracidae — Australian burrowing spiders; some species have medically significant venom.",
+  },
+  {
+    href: "/animals/redback-spider",
+    label: "Redback Spider",
+    desc: "Latrodectus hasselti — a widespread Australian widow-relative; the female has a red back stripe.",
+  },
+  {
+    href: "/animals/giant-weta",
+    label: "Giant Weta",
+    desc: "Genus Deinacrida — very large flightless insects endemic to New Zealand; several species are threatened.",
+  },
 ];
 
 export default function InsectsPage() {

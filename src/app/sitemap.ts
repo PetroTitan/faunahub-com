@@ -647,6 +647,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "leafcutter-ant",
     "goliath-birdeater",
     "amazonian-giant-centipede",
+    // Regional Fauna: Oceania Expansion (2026-06-28)
+    "wallaby",
+    "dingo",
+    "cuscus",
+    "dugong",
+    "humpback-whale",
+    "tree-kangaroo",
+    "galah",
+    "black-swan",
+    "wedge-tailed-eagle",
+    "takahe",
+    "saltwater-crocodile",
+    "blue-tongued-skink",
+    "cane-toad",
+    "reef-manta-ray",
+    "leafy-seadragon",
+    "box-jellyfish",
+    "crown-of-thorns-starfish",
+    "funnel-web-spider",
+    "redback-spider",
+    "giant-weta",
   ];
 
   const compareSlugs = [
