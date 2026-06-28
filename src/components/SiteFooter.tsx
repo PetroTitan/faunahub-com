@@ -23,6 +23,7 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
     { label: "Animal Food & Diet", href: "/animal-food-and-diet" },
     { label: "Animal Lifespans", href: "/animal-lifespans" },
     { label: "Senses & Adaptations", href: "/animal-senses-and-adaptations" },
+    { label: "Intelligence & Behavior", href: "/animal-intelligence-and-behavior" },
     { label: "Mammals", href: "/animal-encyclopedia/mammals" },
     { label: "Birds", href: "/animal-encyclopedia/birds" },
     { label: "Reptiles & Amphibians", href: "/animal-encyclopedia/reptiles" },

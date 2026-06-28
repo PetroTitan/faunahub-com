@@ -572,6 +572,12 @@ export default function WildlifePage() {
                   "How animals see, hear, navigate, camouflage, and survive — vision, echolocation, bioluminescence, migration, and more.",
               },
               {
+                label: "Animal Intelligence & Behavior",
+                href: "/animal-intelligence-and-behavior",
+                description:
+                  "How animals learn, communicate, cooperate, and behave — source-cautious ethology, no IQ scores or ‘smartest animal’ rankings.",
+              },
+              {
                 label: "Reptiles & Amphibians",
                 href: "/animal-taxonomy/reptiles-amphibians",
                 description:

@@ -169,6 +169,7 @@ export default function AnimalSensesAndAdaptationsHub() {
           choose and read sources, and the{" "}
           <Link href="/animal-research-sources/how-faunahub-uses-sources">source workflow</Link> covers
           our checks. Related biology lives in{" "}
+          <Link href="/animal-intelligence-and-behavior">animal intelligence &amp; behavior</Link>,{" "}
           <Link href="/animal-lifespans">animal lifespans</Link>, the{" "}
           <Link href="/fauna/ocean">ocean fauna</Link> pages, and the{" "}
           <Link href="/wildlife/pollinators">pollinators</Link> guide.
