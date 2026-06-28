@@ -100,6 +100,7 @@ export default function AnimalResearchSourcesHub() {
     { label: "Animal Taxonomy", href: "/animal-taxonomy" },
     { label: "Animal Domestication", href: "/animal-domestication" },
     { label: "Animal Lifespans", href: "/animal-lifespans" },
+    { label: "Animal Senses & Adaptations", href: "/animal-senses-and-adaptations" },
   ];
 
   return (

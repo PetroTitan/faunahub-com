@@ -566,6 +566,12 @@ export default function WildlifePage() {
                   "Bees, butterflies, moths, flies, beetles, wasps, birds, and bats — pollination across animal groups.",
               },
               {
+                label: "Animal Senses & Adaptations",
+                href: "/animal-senses-and-adaptations",
+                description:
+                  "How animals see, hear, navigate, camouflage, and survive — vision, echolocation, bioluminescence, migration, and more.",
+              },
+              {
                 label: "Reptiles & Amphibians",
                 href: "/animal-taxonomy/reptiles-amphibians",
                 description:
