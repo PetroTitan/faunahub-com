@@ -71,6 +71,13 @@ export const SRC_AMPHIBIAWEB: SourceLink = {
   note: "Authoritative database of amphibian biology and conservation",
 };
 
+export const SRC_REPTILE_DATABASE: SourceLink = {
+  label: "The Reptile Database",
+  url: "https://reptile-database.reptarium.cz/",
+  type: "reference",
+  note: "Museum-backed taxonomic database of reptile species",
+};
+
 export const SRC_WORMS: SourceLink = {
   label: "WoRMS — World Register of Marine Species",
   url: "https://www.marinespecies.org/",
@@ -3257,6 +3264,39 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
   "pollen-wasp": [SRC_XERCES, SRC_BRITANNICA_ANIMALS, SRC_USDA_FOREST_POLLINATORS],
   "honeyeater": [SRC_CORNELL_BIRDS, SRC_BRITANNICA_ANIMALS, SRC_IUCN],
   "nectar-bat": [SRC_BRITANNICA_ANIMALS, SRC_IUCN, SRC_SMITHSONIAN_ZOO],
+
+  // Reptiles & Amphibians Expansion (2026-06-28)
+  "saw-scaled-viper": [
+    adw("Echis_carinatus", "Echis carinatus (saw-scaled viper)"),
+    SRC_REPTILE_DATABASE,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  "coral-snake": [SRC_BRITANNICA_ANIMALS, SRC_REPTILE_DATABASE, SRC_SMITHSONIAN_ZOO],
+  "garter-snake": [
+    adw("Thamnophis_sirtalis", "Thamnophis sirtalis (common garter snake)"),
+    SRC_REPTILE_DATABASE,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  "burmese-python": [SRC_BRITANNICA_ANIMALS, SRC_IUCN, SRC_REPTILE_DATABASE],
+  "green-iguana": [
+    adw("Iguana_iguana", "Iguana iguana (green iguana)"),
+    SRC_REPTILE_DATABASE,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  "leatherback-sea-turtle": [SRC_NOAA_FISHERIES, SRC_IUCN, SRC_BRITANNICA_ANIMALS],
+  "green-sea-turtle": [SRC_NOAA_FISHERIES, SRC_IUCN, SRC_BRITANNICA_ANIMALS],
+  "aldabra-giant-tortoise": [SRC_BRITANNICA_ANIMALS, SRC_IUCN, SRC_REPTILE_DATABASE],
+  "box-turtle": [
+    adw("Terrapene_carolina", "Terrapene carolina (eastern box turtle)"),
+    SRC_IUCN,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  "red-eyed-tree-frog": [
+    SRC_AMPHIBIAWEB,
+    adw("Agalychnis_callidryas", "Agalychnis callidryas (red-eyed tree frog)"),
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  "caecilian": [SRC_AMPHIBIAWEB, SRC_BRITANNICA_ANIMALS, SRC_SMITHSONIAN_ZOO],
 };
 
 /**

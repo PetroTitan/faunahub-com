@@ -566,6 +566,12 @@ export default function WildlifePage() {
                   "Bees, butterflies, moths, flies, beetles, wasps, birds, and bats — pollination across animal groups.",
               },
               {
+                label: "Reptiles & Amphibians",
+                href: "/animal-taxonomy/reptiles-amphibians",
+                description:
+                  "Snakes, lizards, turtles, crocodilians, and tuatara, plus frogs, salamanders, and caecilians.",
+              },
+              {
                 label: "Birdwatching",
                 href: "/birdwatching",
                 description: "Responsible, ethical wild bird observation.",

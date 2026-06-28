@@ -50,6 +50,7 @@ export default function VertebratesPage() {
         {
           title: "Related",
           links: [
+            { label: "Reptiles & amphibians", href: "/animal-taxonomy/reptiles-amphibians" },
             { label: "Invertebrates", href: "/animal-taxonomy/invertebrates" },
             { label: "Marine animal groups", href: "/animal-taxonomy/marine-animal-groups" },
             { label: "Animal Encyclopedia", href: "/animal-encyclopedia" },

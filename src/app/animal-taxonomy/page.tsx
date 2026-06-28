@@ -28,6 +28,7 @@ export const metadata: Metadata = buildMetadata({
 
 const SUB_PAGES = [
   { label: "Vertebrates", href: "/animal-taxonomy/vertebrates" },
+  { label: "Reptiles & amphibians", href: "/animal-taxonomy/reptiles-amphibians" },
   { label: "Invertebrates", href: "/animal-taxonomy/invertebrates" },
   { label: "Marine animal groups", href: "/animal-taxonomy/marine-animal-groups" },
   { label: "Missing animals", href: "/animal-taxonomy/missing-animals" },

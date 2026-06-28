@@ -694,6 +694,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "pollen-wasp",
     "honeyeater",
     "nectar-bat",
+    // Reptiles & Amphibians Expansion (2026-06-28)
+    "saw-scaled-viper",
+    "coral-snake",
+    "garter-snake",
+    "burmese-python",
+    "green-iguana",
+    "leatherback-sea-turtle",
+    "green-sea-turtle",
+    "aldabra-giant-tortoise",
+    "box-turtle",
+    "red-eyed-tree-frog",
+    "caecilian",
   ];
 
   const compareSlugs = [
@@ -750,6 +762,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/reptiles`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/wildlife`, lastModified: today, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE_URL}/wildlife/pollinators`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE_URL}/animal-taxonomy/reptiles-amphibians`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/animal-encyclopedia`, lastModified: today, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE_URL}/animal-encyclopedia/mammals`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/animal-encyclopedia/birds`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
