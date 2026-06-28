@@ -16,7 +16,11 @@ import {
 } from "@/lib/fauna/continents";
 import { getContinentByTaxon, getByContinent } from "@/lib/fauna/helpers";
 import { FROM_WATER_TO_LAND_UPDATED } from "@/lib/fauna/evolution";
-import type { FaunaContinentSlug, FaunaHabitatTag } from "@/lib/fauna/types";
+import type {
+  FaunaContinentRecord,
+  FaunaContinentSlug,
+  FaunaHabitatTag,
+} from "@/lib/fauna/types";
 
 export const dynamicParams = false;
 
@@ -43,12 +47,38 @@ const OVERVIEW: Record<FaunaContinentSlug, string> = {
     "Antarctica is Earth's coldest, driest continent. It has no native land mammals or reptiles; its only true terrestrial animals are tiny invertebrates such as mites, springtails, and a wingless midge. The animals most people picture here — penguins and seals — are coastal species tied to the surrounding Southern Ocean.",
 };
 
-const TAXON_SECTIONS: { key: "mammals" | "birds" | "reptiles-amphibians" | "invertebrates"; heading: string }[] = [
+const TAXON_SECTIONS: {
+  key: "mammals" | "birds" | "reptiles-amphibians" | "fish" | "invertebrates";
+  // Fish uses a habitat-conditional heading computed per continent (see fishHeading).
+  heading?: string;
+}[] = [
   { key: "mammals", heading: "Representative mammals" },
   { key: "birds", heading: "Representative birds" },
   { key: "reptiles-amphibians", heading: "Representative reptiles & amphibians" },
+  { key: "fish" },
   { key: "invertebrates", heading: "Notable invertebrates" },
 ];
+
+/**
+ * Habitat-conditional heading for the featured fish section. "Fish" is a broad
+ * vernacular grouping (not a single scientific class); the qualifier reflects
+ * where the continent's fish live, never asserting a taxonomic class or calling
+ * any non-fish (whale, seal, krill, octopus, jellyfish) a fish.
+ */
+function fishHeading(
+  records: readonly FaunaContinentRecord[],
+  continent: FaunaContinentSlug,
+): string {
+  if (continent === "antarctica") return "Featured Southern Ocean fish";
+  const habs = new Set<FaunaHabitatTag>(records.flatMap((r) => r.habitatTags));
+  const freshwater = habs.has("freshwater") || habs.has("wetland");
+  // Marine/reef fish carry the "coastal" habitat tag (there is no "marine"/"reef" tag).
+  const marine = habs.has("coastal");
+  if (freshwater && marine) return "Featured fish & aquatic life";
+  if (marine) return "Featured marine & reef fish";
+  if (freshwater) return "Featured freshwater fish";
+  return "Featured fish";
+}
 
 export async function generateMetadata({
   params,
@@ -192,18 +222,32 @@ export default async function ContinentPage({
             </aside>
           )}
 
-          {/* Taxon sections */}
+          {/* Taxon sections (the fish section is an additive ecological grouping) */}
           {TAXON_SECTIONS.map(({ key, heading }) => {
             const records = groups[key];
-            if (records.length === 0) return null;
+            // Only feature fish when at least two are recorded for the continent.
+            if (key === "fish" ? records.length < 2 : records.length === 0)
+              return null;
+            const sectionHeading =
+              key === "fish" ? fishHeading(records, continent) : heading;
             return (
               <section key={key} aria-labelledby={`${key}-heading`}>
                 <h2
                   id={`${key}-heading`}
-                  className="text-2xl font-bold text-[#17211B] mb-4"
+                  className={`text-2xl font-bold text-[#17211B] ${
+                    key === "fish" ? "mb-2" : "mb-4"
+                  }`}
                 >
-                  {heading}
+                  {sectionHeading}
                 </h2>
+                {key === "fish" && (
+                  <p className="text-sm text-[#5E6B63] leading-relaxed mb-4 max-w-3xl">
+                    A representative selection of fish recorded for {meta.label},
+                    grouped by where they live rather than as a single scientific
+                    class. Coverage is representative, not complete; each card links
+                    to a profile with source-backed range notes.
+                  </p>
+                )}
                 <AnimalDistributionList records={records} />
               </section>
             );

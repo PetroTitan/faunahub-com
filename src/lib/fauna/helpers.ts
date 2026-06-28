@@ -10,6 +10,7 @@ export type FaunaTaxon =
   | "mammals"
   | "birds"
   | "reptiles-amphibians"
+  | "fish"
   | "invertebrates";
 
 const TAXON: Record<FaunaTaxon, Set<string>> = {
@@ -89,6 +90,26 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     "saltwater-crocodile", "blue-tongued-skink", "cane-toad", "tuatara",
     "frilled-lizard", "thorny-devil", "sea-turtle",
   ]),
+  // Fish (a broad vernacular grouping, not a single scientific class). These
+  // were previously uncategorised ("other") and surfaced only via habitat
+  // sections + ItemList; the continent pages now feature them as cards under a
+  // habitat-conditional heading. No new records or species are introduced here.
+  fish: new Set([
+    // Africa
+    "nile-perch", "tilapia",
+    // Asia
+    "arowana", "mahseer", "mekong-giant-catfish", "catfish", "carp",
+    // Europe
+    "atlantic-salmon", "european-eel", "brown-trout",
+    // North America
+    "chinook-salmon", "alligator-gar", "lake-sturgeon", "salmon",
+    // South America
+    "arapaima", "piranha", "electric-eel",
+    // Oceania (marine / reef)
+    "reef-manta-ray", "leafy-seadragon", "clownfish",
+    // Antarctica (Southern Ocean)
+    "antarctic-toothfish", "icefish",
+  ]),
   invertebrates: new Set([
     "bee", "butterfly", "ant", "spider", "dragonfly", "ladybug",
     "praying-mantis",
@@ -161,7 +182,7 @@ export function getContinentByTaxon(
 ): Record<FaunaTaxon, FaunaContinentRecord[]> {
   const records = getByContinent(continent);
   const groups: Record<FaunaTaxon, FaunaContinentRecord[]> = {
-    mammals: [], birds: [], "reptiles-amphibians": [], invertebrates: [],
+    mammals: [], birds: [], "reptiles-amphibians": [], fish: [], invertebrates: [],
   };
   for (const r of records) {
     const t = taxonOf(r.animalSlug);
