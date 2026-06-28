@@ -163,6 +163,53 @@ export const SPECIES_INDEX: SpeciesBehaviorIndex[] = [
   { slug: "monarch-butterfly", commonName: "Monarch butterflies", animalSlug: "monarch-butterfly", displayGroup: "insects" },
 ];
 
+export interface BehaviorMethodGuide {
+  slug: string;
+  title: string;
+  /** Short hub/card blurb. */
+  blurb: string;
+  /** Pillar guide slugs this method relates to (must exist in BEHAVIOR_GUIDES). */
+  relatedPillarSlugs: string[];
+  /** Species profile slugs this method relates to (must exist in SPECIES_INDEX). */
+  relatedSpeciesSlugs: string[];
+  /** Source/methodology pages (must be real routes). */
+  relatedSourcePages: { label: string; href: string }[];
+}
+
+const SRC_HUB = { label: "Animal research sources", href: "/animal-research-sources" };
+const SRC_WORKFLOW = { label: "How FaunaHub uses sources", href: "/animal-research-sources/how-faunahub-uses-sources" };
+const SRC_VET = { label: "Animal-care & veterinary boundaries", href: "/animal-research-sources/animal-care-and-veterinary-boundaries" };
+
+/** 9 published research-method (source-literacy) guides under /methods/[slug]. */
+export const BEHAVIOR_METHODS: BehaviorMethodGuide[] = [
+  { slug: "how-animal-intelligence-is-studied", title: "How animal intelligence is studied", blurb: "Field observation, controlled tasks, and comparative cognition — and why one task never defines a whole mind.", relatedPillarSlugs: ["animal-intelligence", "problem-solving", "tool-use"], relatedSpeciesSlugs: ["crow", "octopus", "dolphin"], relatedSourcePages: [SRC_HUB, SRC_WORKFLOW] },
+  { slug: "why-animal-iq-rankings-mislead", title: "Why animal IQ rankings mislead", blurb: "Why ‘animal IQ’ and ‘smartest animal’ lists hide ecology and reward similarity to the testers.", relatedPillarSlugs: ["animal-intelligence", "problem-solving"], relatedSpeciesSlugs: ["crow", "octopus", "elephant"], relatedSourcePages: [SRC_HUB] },
+  { slug: "field-observation-vs-lab-study", title: "Field observation vs lab study", blurb: "The complementary strengths and limits of natural observation and controlled experiments.", relatedPillarSlugs: ["wild-vs-captive-behavior", "social-behavior"], relatedSpeciesSlugs: ["wolf", "meerkat"], relatedSourcePages: [SRC_WORKFLOW, SRC_HUB] },
+  { slug: "captive-bias-in-behavior-research", title: "Captive bias in behavior research", blurb: "Why captive and lab findings are valuable but context-limited, and may not describe wild behavior.", relatedPillarSlugs: ["wild-vs-captive-behavior", "domesticated-animal-behavior"], relatedSpeciesSlugs: ["dolphin", "octopus"], relatedSourcePages: [SRC_VET, SRC_HUB] },
+  { slug: "mirror-test-limitations", title: "Mirror test limitations", blurb: "What the mark test can and cannot show — and why passing or failing proves less than it seems.", relatedPillarSlugs: ["self-recognition", "animal-intelligence"], relatedSpeciesSlugs: ["dolphin", "elephant", "chimpanzee"], relatedSourcePages: [SRC_HUB] },
+  { slug: "tool-use-definitions", title: "Tool-use definitions", blurb: "What counts as tool use, the contested boundary cases, and why ‘technology’ is the wrong frame.", relatedPillarSlugs: ["tool-use", "problem-solving"], relatedSpeciesSlugs: ["chimpanzee", "crow", "orangutan"], relatedSourcePages: [SRC_HUB] },
+  { slug: "communication-vs-language", title: "Communication vs language", blurb: "How rich animal signalling differs from human language — bee dance, whale song, and bird song.", relatedPillarSlugs: ["animal-communication", "animal-culture"], relatedSpeciesSlugs: ["bee", "whale", "parrot"], relatedSourcePages: [SRC_HUB] },
+  { slug: "anthropomorphism-in-animal-behavior", title: "Anthropomorphism in animal behavior", blurb: "Why human projection misleads, how to separate observation from interpretation, without dismissing cognition.", relatedPillarSlugs: ["animal-emotions", "social-behavior"], relatedSpeciesSlugs: ["wolf", "dolphin"], relatedSourcePages: [SRC_WORKFLOW, SRC_HUB] },
+  { slug: "evidence-context-in-animal-behavior", title: "Evidence context in animal behavior", blurb: "What FaunaHub’s evidence labels mean — field, controlled, captive, wild, mixed, debated, broad-group.", relatedPillarSlugs: ["animal-intelligence", "wild-vs-captive-behavior"], relatedSpeciesSlugs: ["dolphin", "elephant"], relatedSourcePages: [SRC_WORKFLOW, SRC_HUB] },
+];
+
+/** Which method guides each pillar links to (reverse map, for in-page cross-linking). */
+export const PILLAR_METHOD_LINKS: Record<string, string[]> = {
+  "animal-intelligence": ["how-animal-intelligence-is-studied", "why-animal-iq-rankings-mislead"],
+  "problem-solving": ["how-animal-intelligence-is-studied", "tool-use-definitions"],
+  "tool-use": ["tool-use-definitions"],
+  "animal-communication": ["communication-vs-language"],
+  "self-recognition": ["mirror-test-limitations"],
+  "animal-emotions": ["anthropomorphism-in-animal-behavior", "evidence-context-in-animal-behavior"],
+  "wild-vs-captive-behavior": ["captive-bias-in-behavior-research", "field-observation-vs-lab-study"],
+  "animal-culture": ["communication-vs-language"],
+  "social-behavior": ["field-observation-vs-lab-study"],
+};
+
+export function methodBySlug(slug: string): BehaviorMethodGuide | undefined {
+  return BEHAVIOR_METHODS.find((m) => m.slug === slug);
+}
+
 export function guideBySlug(slug: string): BehaviorGuide | undefined {
   return BEHAVIOR_GUIDES.find((g) => g.slug === slug);
 }
@@ -187,3 +234,4 @@ export function duplicateBehaviorSlugs(): string[] {
 
 export const BEHAVIOR_GUIDE_COUNT = BEHAVIOR_GUIDES.length;
 export const SPECIES_PROFILE_COUNT = SPECIES_INDEX.length;
+export const BEHAVIOR_METHOD_COUNT = BEHAVIOR_METHODS.length;
