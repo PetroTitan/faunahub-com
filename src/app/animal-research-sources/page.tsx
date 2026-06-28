@@ -99,6 +99,7 @@ export default function AnimalResearchSourcesHub() {
     { label: "Editorial Policy", href: "/editorial-policy" },
     { label: "Animal Taxonomy", href: "/animal-taxonomy" },
     { label: "Animal Domestication", href: "/animal-domestication" },
+    { label: "Animal Lifespans", href: "/animal-lifespans" },
   ];
 
   return (

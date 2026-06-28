@@ -21,6 +21,7 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
     { label: "Domestic & Companion Animals", href: "/domestic-animals" },
     { label: "Animal Domestication", href: "/animal-domestication" },
     { label: "Animal Food & Diet", href: "/animal-food-and-diet" },
+    { label: "Animal Lifespans", href: "/animal-lifespans" },
     { label: "Mammals", href: "/animal-encyclopedia/mammals" },
     { label: "Birds", href: "/animal-encyclopedia/birds" },
     { label: "Reptiles & Amphibians", href: "/animal-encyclopedia/reptiles" },
