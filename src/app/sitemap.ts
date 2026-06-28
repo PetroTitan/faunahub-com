@@ -626,6 +626,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "lake-sturgeon",
     "monarch-butterfly",
     "luna-moth",
+    // Regional Fauna: South America Expansion (2026-06-28)
+    "giant-anteater",
+    "vicuna",
+    "guanaco",
+    "llama",
+    "spectacled-bear",
+    "pink-river-dolphin",
+    "giant-otter",
+    "harpy-eagle",
+    "andean-condor",
+    "macaw",
+    "rhea",
+    "king-vulture",
+    "scarlet-ibis",
+    "marine-iguana",
+    "galapagos-tortoise",
+    "arapaima",
+    "blue-morpho-butterfly",
+    "leafcutter-ant",
+    "goliath-birdeater",
+    "amazonian-giant-centipede",
   ];
 
   const compareSlugs = [

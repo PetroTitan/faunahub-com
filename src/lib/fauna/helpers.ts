@@ -35,6 +35,10 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     "bighorn-sheep", "mountain-goat", "cougar", "american-black-bear",
     "polar-bear", "arctic-fox", "pronghorn", "elk", "bobcat", "coyote",
     "skunk", "bison",
+    // South America expansion
+    "giant-anteater", "vicuna", "guanaco", "llama", "spectacled-bear",
+    "pink-river-dolphin", "giant-otter", "capybara", "maned-wolf", "ocelot",
+    "howler-monkey", "spider-monkey", "coati", "agouti", "kinkajou", "peccary",
   ]),
   birds: new Set([
     "eagle", "owl", "falcon", "hawk", "vulture", "penguin", "pelican",
@@ -49,6 +53,9 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     // North America expansion
     "bald-eagle", "wild-turkey", "whooping-crane", "sandhill-crane",
     "california-condor", "snowy-owl", "common-loon",
+    // South America expansion
+    "harpy-eagle", "andean-condor", "macaw", "rhea", "king-vulture",
+    "scarlet-ibis", "hoatzin",
   ]),
   "reptiles-amphibians": new Set([
     "crocodile", "alligator", "caiman", "komodo-dragon", "monitor-lizard",
@@ -63,6 +70,9 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     // North America expansion
     "american-alligator", "snapping-turtle", "rattlesnake", "gila-monster",
     "axolotl", "bullfrog",
+    // South America expansion
+    "marine-iguana", "galapagos-tortoise", "poison-dart-frog", "glass-frog",
+    "boa",
   ]),
   invertebrates: new Set([
     "bee", "butterfly", "ant", "spider", "dragonfly", "ladybug",
@@ -75,6 +85,9 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     "stag-beetle",
     // North America expansion
     "monarch-butterfly", "luna-moth", "scorpion",
+    // South America expansion
+    "blue-morpho-butterfly", "leafcutter-ant", "goliath-birdeater",
+    "amazonian-giant-centipede",
   ]),
 };
 

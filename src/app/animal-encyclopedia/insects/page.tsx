@@ -241,6 +241,27 @@ const groups = [
     label: "Luna Moth",
     desc: "Actias luna — a large pale-green silk moth of eastern North American forests; adults do not feed.",
   },
+  // Regional Fauna: South America Expansion (2026-06-28)
+  {
+    href: "/animals/blue-morpho-butterfly",
+    label: "Blue Morpho Butterfly",
+    desc: "Genus Morpho — large Neotropical butterflies with brilliant iridescent blue wings (a structural colour).",
+  },
+  {
+    href: "/animals/leafcutter-ant",
+    label: "Leafcutter Ant",
+    desc: "Atta and Acromyrmex — Neotropical ants that cut leaves to farm an edible fungus underground.",
+  },
+  {
+    href: "/animals/goliath-birdeater",
+    label: "Goliath Birdeater",
+    desc: "Theraphosa blondi — the largest spider in the world by body mass, a tarantula of South American rainforest.",
+  },
+  {
+    href: "/animals/amazonian-giant-centipede",
+    label: "Amazonian Giant Centipede",
+    desc: "Scolopendra gigantea — one of the largest centipedes, a fast venomous predator of northern South America.",
+  },
 ];
 
 export default function InsectsPage() {

@@ -65,6 +65,8 @@ const reptiles = [
   { href: "/animals/grass-snake", label: "Grass Snake", desc: "Natrix natrix — a non-venomous, collared snake of European wetlands that often feigns death when threatened." },
   { href: "/animals/american-alligator", label: "American Alligator", desc: "Alligator mississippiensis — a crocodilian of the south-eastern US; a conservation-recovery success." },
   { href: "/animals/snapping-turtle", label: "Snapping Turtle", desc: "Chelydra serpentina — a large, mostly aquatic freshwater turtle of central and eastern North America." },
+  { href: "/animals/marine-iguana", label: "Marine Iguana", desc: "Amblyrhynchus cristatus — the only sea-foraging lizard, endemic to the Galápagos Islands. Vulnerable." },
+  { href: "/animals/galapagos-tortoise", label: "Galapagos Tortoise", desc: "Chelonoidis — giant tortoises endemic to the Galápagos Islands; a species complex, several threatened." },
 ];
 
 const amphibians = [

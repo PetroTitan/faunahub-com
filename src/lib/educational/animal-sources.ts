@@ -2963,6 +2963,107 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("luna-moth", "Luna moth (Actias luna)"),
     SRC_XERCES,
   ],
+  // === Regional Fauna: South America Expansion (2026-06-28) ===
+  "giant-anteater": [
+    adw("Myrmecophaga_tridactyla", "Myrmecophaga tridactyla (giant anteater)"),
+    brit("giant-anteater", "Giant anteater (Myrmecophaga tridactyla)"),
+    SRC_IUCN,
+  ],
+  vicuna: [
+    adw("Vicugna_vicugna", "Vicugna vicugna (vicuna)"),
+    brit("vicuna", "Vicuna (Vicugna vicugna)"),
+    SRC_IUCN,
+  ],
+  guanaco: [
+    adw("Lama_guanicoe", "Lama guanicoe (guanaco)"),
+    brit("guanaco", "Guanaco (Lama guanicoe)"),
+    SRC_IUCN,
+  ],
+  llama: [
+    adw("Lama_glama", "Lama glama (llama)"),
+    brit("llama", "Llama (Lama glama)"),
+    SRC_SMITHSONIAN_ZOO,
+  ],
+  "spectacled-bear": [
+    adw("Tremarctos_ornatus", "Tremarctos ornatus (spectacled bear)"),
+    brit("spectacled-bear", "Spectacled bear (Tremarctos ornatus)"),
+    SRC_IUCN,
+  ],
+  "pink-river-dolphin": [
+    adw("Inia_geoffrensis", "Inia geoffrensis (Amazon river dolphin)"),
+    brit("Amazon-river-dolphin", "Amazon river dolphin (Inia geoffrensis)"),
+    SRC_IUCN,
+  ],
+  "giant-otter": [
+    adw("Pteronura_brasiliensis", "Pteronura brasiliensis (giant otter)"),
+    brit("giant-otter", "Giant otter (Pteronura brasiliensis)"),
+    SRC_IUCN,
+  ],
+  "harpy-eagle": [
+    adw("Harpia_harpyja", "Harpia harpyja (harpy eagle)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "andean-condor": [
+    adw("Vultur_gryphus", "Vultur gryphus (Andean condor)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  macaw: [
+    adw("Ara_macao", "Ara macao (scarlet macaw)"),
+    brit("macaw", "Macaw (Ara and related genera)"),
+    SRC_IUCN,
+  ],
+  rhea: [
+    adw("Rhea_americana", "Rhea americana (greater rhea)"),
+    brit("rhea-bird", "Rhea (Rhea americana and relatives)"),
+    SRC_IUCN,
+  ],
+  "king-vulture": [
+    adw("Sarcoramphus_papa", "Sarcoramphus papa (king vulture)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "scarlet-ibis": [
+    adw("Eudocimus_ruber", "Eudocimus ruber (scarlet ibis)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "marine-iguana": [
+    adw("Amblyrhynchus_cristatus", "Amblyrhynchus cristatus (marine iguana)"),
+    brit("marine-iguana", "Marine iguana (Amblyrhynchus cristatus)"),
+    SRC_IUCN,
+  ],
+  "galapagos-tortoise": [
+    adw("Chelonoidis_nigra", "Chelonoidis (Galapagos giant tortoises)"),
+    brit("Galapagos-tortoise", "Galapagos tortoise (Chelonoidis)"),
+    SRC_IUCN,
+  ],
+  arapaima: [
+    adw("Arapaima_gigas", "Arapaima gigas (arapaima)"),
+    brit("arapaima", "Arapaima (Arapaima gigas)"),
+    SRC_IUCN,
+  ],
+  "blue-morpho-butterfly": [
+    adw("Morpho_menelaus", "Morpho menelaus (blue morpho)"),
+    brit("morpho-butterfly", "Morpho butterfly (genus Morpho)"),
+    SRC_XERCES,
+  ],
+  "leafcutter-ant": [
+    adw("Atta_cephalotes", "Atta cephalotes (leafcutter ant)"),
+    brit("leaf-cutter-ant", "Leafcutter ant (Atta and Acromyrmex)"),
+    SRC_XERCES,
+  ],
+  "goliath-birdeater": [
+    adw("Theraphosa_blondi", "Theraphosa blondi (goliath birdeater)"),
+    brit("goliath-bird-eating-spider", "Goliath birdeater (Theraphosa blondi)"),
+    SRC_XERCES,
+  ],
+  "amazonian-giant-centipede": [
+    adw("Scolopendra_gigantea", "Scolopendra gigantea (Amazonian giant centipede)"),
+    brit("centipede", "Centipede (Scolopendra gigantea and relatives)"),
+    SRC_XERCES,
+  ],
 };
 
 /**

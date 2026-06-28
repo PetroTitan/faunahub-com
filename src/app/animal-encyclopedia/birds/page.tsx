@@ -144,6 +144,12 @@ const birds = [
   { href: "/animals/california-condor", label: "California Condor", desc: "Gymnogyps californianus — a giant New World vulture; Critically Endangered, restored by captive breeding." },
   { href: "/animals/snowy-owl", label: "Snowy Owl", desc: "Bubo scandiacus — a large white Arctic owl that hunts by day; Vulnerable." },
   { href: "/animals/common-loon", label: "Common Loon", desc: "Gavia immer — a diving waterbird of northern lakes with haunting calls and striking plumage." },
+  { href: "/animals/harpy-eagle", label: "Harpy Eagle", desc: "Harpia harpyja — one of the most powerful eagles, a hunter of the Neotropical rainforest canopy. Vulnerable." },
+  { href: "/animals/andean-condor", label: "Andean Condor", desc: "Vultur gryphus — one of the largest flying birds, a New World vulture of the Andes. Vulnerable." },
+  { href: "/animals/macaw", label: "Macaw", desc: "Ara and relatives — large, vividly coloured Neotropical parrots; status varies, several threatened by trade." },
+  { href: "/animals/rhea", label: "Rhea", desc: "Rhea americana and relatives — large flightless ratite birds of South American grasslands and pampas." },
+  { href: "/animals/king-vulture", label: "King Vulture", desc: "Sarcoramphus papa — a striking New World vulture with a colourful bare head, of Neotropical forests." },
+  { href: "/animals/scarlet-ibis", label: "Scarlet Ibis", desc: "Eudocimus ruber — a vivid scarlet wading bird of northern South American wetlands and mangroves." },
 ];
 
 export default function EncyclopediaBirdsPage() {

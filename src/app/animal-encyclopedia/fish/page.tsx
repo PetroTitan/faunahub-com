@@ -39,6 +39,7 @@ const freshwater = [
   { href: "/animals/chinook-salmon", label: "Chinook Salmon", desc: "Oncorhynchus tshawytscha — the largest Pacific salmon, an anadromous fish of western North American rivers and the North Pacific." },
   { href: "/animals/alligator-gar", label: "Alligator Gar", desc: "Atractosteus spatula — the largest gar, an ancient armoured freshwater fish of the southern US and Mexico." },
   { href: "/animals/lake-sturgeon", label: "Lake Sturgeon", desc: "Acipenser fulvescens — a large, long-lived, ancient bottom-feeding fish of North American river and lake systems." },
+  { href: "/animals/arapaima", label: "Arapaima", desc: "Arapaima gigas and relatives — one of the largest freshwater fish, an air-breathing giant of the Amazon basin." },
 ];
 
 const marine = [

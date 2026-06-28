@@ -166,6 +166,13 @@ const mammals = [
   { href: "/animals/american-black-bear", label: "American Black Bear", desc: "Ursus americanus — the most widespread bear in North America; coat colour varies from black to cinnamon." },
   { href: "/animals/polar-bear", label: "Polar Bear", desc: "Ursus maritimus — a large white bear of the Arctic that depends on sea ice to hunt seals; Vulnerable." },
   { href: "/animals/arctic-fox", label: "Arctic Fox", desc: "Vulpes lagopus — a small tundra fox whose coat turns white in winter; circumpolar in the Arctic." },
+  { href: "/animals/giant-anteater", label: "Giant Anteater", desc: "Myrmecophaga tridactyla — a large, toothless mammal that eats ants and termites with its long tongue." },
+  { href: "/animals/vicuna", label: "Vicuna", desc: "Vicugna vicugna — a wild Andean camelid with very fine wool; a famous conservation recovery." },
+  { href: "/animals/guanaco", label: "Guanaco", desc: "Lama guanicoe — a wild camelid of the Andes and Patagonia; the ancestor of the domestic llama." },
+  { href: "/animals/llama", label: "Llama", desc: "Lama glama — a domesticated Andean camelid, descended from the guanaco; a traditional pack animal." },
+  { href: "/animals/spectacled-bear", label: "Spectacled Bear", desc: "Tremarctos ornatus — the only bear native to South America; lives in Andean cloud forests. Vulnerable." },
+  { href: "/animals/pink-river-dolphin", label: "Pink River Dolphin", desc: "Inia geoffrensis — a freshwater dolphin of the Amazon and Orinoco rivers; Endangered." },
+  { href: "/animals/giant-otter", label: "Giant Otter", desc: "Pteronura brasiliensis — the largest otter, a social fish-eater of Amazon rivers and wetlands; Endangered." },
 ];
 
 export default function MammalsPage() {
