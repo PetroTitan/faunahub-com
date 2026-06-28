@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import BehaviorLayout, { Section, FaqBlock, Prose } from "@/components/behavior/BehaviorLayout";
 import { buildMetadata } from "@/lib/metadata";
-import { BEHAVIOR_BASE, BEHAVIOR_GUIDES, PILLAR_METHOD_LINKS, methodBySlug, guideBySlug } from "@/lib/animal-behavior";
+import { BEHAVIOR_BASE, BEHAVIOR_GUIDES, PILLAR_METHOD_LINKS, PILLAR_GROUP_LINKS, methodBySlug, groupBySlug, guideBySlug } from "@/lib/animal-behavior";
 import { PILLAR_CONTENT, pillarBySlug } from "@/lib/behavior-pillar-content";
 
 const MODIFIED = "2026-06-28";
@@ -69,6 +69,25 @@ export default async function BehaviorPillarPage({ params }: { params: Promise<{
                   >
                     <span className="text-sm font-semibold text-[#17211B] group-hover:text-[#16414F]">{m.title}</span>
                     <span className="text-xs text-[#5E6B63] leading-snug">{m.blurb}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </Section>
+      )}
+
+      {(PILLAR_GROUP_LINKS[c.slug] ?? []).length > 0 && (
+        <Section id="groups" title="Related animal groups">
+          <p>How whole groups of animals show this behavior:</p>
+          <ul className="flex flex-wrap gap-2 list-none p-0 m-0 not-prose">
+            {(PILLAR_GROUP_LINKS[c.slug] ?? []).map((gs) => {
+              const g = groupBySlug(gs);
+              if (!g) return null;
+              return (
+                <li key={gs}>
+                  <Link href={`${BEHAVIOR_BASE}/groups/${g.slug}`} className="inline-block text-sm px-3 py-1.5 rounded-full border border-[#DCE6E9] bg-white hover:border-[#BFD9E4] hover:bg-[#F3F8FA] hover:no-underline transition-colors">
+                    {g.title}
                   </Link>
                 </li>
               );

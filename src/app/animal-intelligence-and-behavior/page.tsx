@@ -7,6 +7,7 @@ import {
   BEHAVIOR_BASE,
   BEHAVIOR_GUIDES,
   BEHAVIOR_METHODS,
+  BEHAVIOR_GROUPS,
   SPECIES_INDEX,
   GROUP_LABEL,
   type DisplayGroup,
@@ -142,6 +143,27 @@ export default function AnimalIntelligenceAndBehaviorHub() {
             </div>
           );
         })}
+      </Section>
+
+      <Section id="groups" title="Behavior by animal group">
+        <p>
+          Group-level overviews of how whole kinds of animals behave — always with representative
+          examples rather than sweeping &ldquo;all of them do this&rdquo; claims, since each group
+          holds enormous diversity.
+        </p>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 list-none p-0 m-0 not-prose">
+          {BEHAVIOR_GROUPS.map((g) => (
+            <li key={g.slug}>
+              <Link
+                href={`${BEHAVIOR_BASE}/groups/${g.slug}`}
+                className="card p-4 h-full flex flex-col gap-1.5 hover:shadow-md hover:border-[#BFD9E4] transition-all group hover:no-underline"
+              >
+                <span className="text-base font-semibold text-[#17211B] group-hover:text-[#16414F] transition-colors">{g.title}</span>
+                <span className="text-sm text-[#2C3A2F] leading-snug">{g.blurb}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </Section>
 
       <Section id="emotions" title="Emotions and self-recognition: cautious interpretation">
