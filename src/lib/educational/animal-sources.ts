@@ -3165,6 +3165,57 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("weta", "Weta (giant weta, genus Deinacrida)"),
     SRC_XERCES,
   ],
+  // === Polar / Antarctica Refinement (2026-06-28) ===
+  "emperor-penguin": [
+    adw("Aptenodytes_forsteri", "Aptenodytes forsteri (emperor penguin)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "adelie-penguin": [
+    adw("Pygoscelis_adeliae", "Pygoscelis adeliae (Adelie penguin)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "snow-petrel": [
+    adw("Pagodroma_nivea", "Pagodroma nivea (snow petrel)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "wandering-albatross": [
+    adw("Diomedea_exulans", "Diomedea exulans (wandering albatross)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "leopard-seal": [
+    adw("Hydrurga_leptonyx", "Hydrurga leptonyx (leopard seal)"),
+    brit("leopard-seal", "Leopard seal (Hydrurga leptonyx)"),
+    SRC_IUCN,
+  ],
+  "weddell-seal": [
+    adw("Leptonychotes_weddellii", "Leptonychotes weddellii (Weddell seal)"),
+    brit("Weddell-seal", "Weddell seal (Leptonychotes weddellii)"),
+    SRC_IUCN,
+  ],
+  "crabeater-seal": [
+    adw("Lobodon_carcinophaga", "Lobodon carcinophaga (crabeater seal)"),
+    brit("crabeater-seal", "Crabeater seal (Lobodon carcinophaga)"),
+    SRC_IUCN,
+  ],
+  "antarctic-krill": [
+    adw("Euphausia_superba", "Euphausia superba (Antarctic krill)"),
+    SRC_SMITHSONIAN_OCEAN,
+    SRC_IUCN,
+  ],
+  "antarctic-toothfish": [
+    adw("Dissostichus_mawsoni", "Dissostichus mawsoni (Antarctic toothfish)"),
+    SRC_NOAA_FISHERIES,
+    SRC_SMITHSONIAN_OCEAN,
+  ],
+  icefish: [
+    adw("Channichthyidae", "Channichthyidae (crocodile icefishes)"),
+    brit("icefish", "Icefish (family Channichthyidae)"),
+    SRC_SMITHSONIAN_OCEAN,
+  ],
 };
 
 /**

@@ -89,6 +89,8 @@ const marine = [
   { href: "/animals/snailfish", label: "Snailfish", desc: "Family Liparidae — soft, scaleless fish from tide pools to hadal trenches; some are the deepest-living fish known." },
   { href: "/animals/reef-manta-ray", label: "Reef Manta Ray", desc: "Mobula alfredi — a large filter-feeding ray of Indo-Pacific reefs and coasts, including Australian waters; Vulnerable." },
   { href: "/animals/leafy-seadragon", label: "Leafy Seadragon", desc: "Phycodurus eques — a seahorse relative with leaf-like camouflage, found only along southern Australian coasts." },
+  { href: "/animals/antarctic-toothfish", label: "Antarctic Toothfish", desc: "Dissostichus mawsoni — a large Southern Ocean predator with antifreeze proteins in its blood; sometimes called the Antarctic cod." },
+  { href: "/animals/icefish", label: "Icefish", desc: "Family Channichthyidae — Antarctic crocodile icefishes, the only known vertebrates with no haemoglobin and almost colourless blood." },
 ];
 
 export default function FishEncyclopediaPage() {

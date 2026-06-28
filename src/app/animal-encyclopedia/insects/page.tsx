@@ -288,6 +288,12 @@ const groups = [
     label: "Giant Weta",
     desc: "Genus Deinacrida — very large flightless insects endemic to New Zealand; several species are threatened.",
   },
+  // Polar / Antarctica Refinement (2026-06-28)
+  {
+    href: "/animals/antarctic-krill",
+    label: "Antarctic Krill",
+    desc: "Euphausia superba — a small, swarming crustacean that is a keystone of the Southern Ocean food web.",
+  },
 ];
 
 export default function InsectsPage() {

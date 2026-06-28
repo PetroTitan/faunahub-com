@@ -668,6 +668,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "funnel-web-spider",
     "redback-spider",
     "giant-weta",
+    // Polar / Antarctica Refinement (2026-06-28)
+    "emperor-penguin",
+    "adelie-penguin",
+    "snow-petrel",
+    "wandering-albatross",
+    "leopard-seal",
+    "weddell-seal",
+    "crabeater-seal",
+    "antarctic-krill",
+    "antarctic-toothfish",
+    "icefish",
   ];
 
   const compareSlugs = [

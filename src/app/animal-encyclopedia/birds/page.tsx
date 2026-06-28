@@ -154,6 +154,10 @@ const birds = [
   { href: "/animals/black-swan", label: "Black Swan", desc: "Cygnus atratus — a mostly black, red-billed waterbird native to wetlands of parts of Australia." },
   { href: "/animals/wedge-tailed-eagle", label: "Wedge-tailed Eagle", desc: "Aquila audax — Australia's largest bird of prey, with a long, wedge-shaped tail." },
   { href: "/animals/takahe", label: "Takahe", desc: "Porphyrio hochstetteri — a flightless blue-green rail endemic to New Zealand; Endangered, once thought extinct." },
+  { href: "/animals/emperor-penguin", label: "Emperor Penguin", desc: "Aptenodytes forsteri — the largest living penguin, which breeds through the Antarctic winter on sea ice." },
+  { href: "/animals/adelie-penguin", label: "Adelie Penguin", desc: "Pygoscelis adeliae — a small penguin of Antarctic coasts and islands; one of the most southerly breeding birds." },
+  { href: "/animals/snow-petrel", label: "Snow Petrel", desc: "Pagodroma nivea — a pure-white Southern Ocean seabird strongly tied to Antarctic sea ice." },
+  { href: "/animals/wandering-albatross", label: "Wandering Albatross", desc: "Diomedea exulans — a huge seabird of the Southern Ocean that breeds on subantarctic islands; Vulnerable." },
 ];
 
 export default function EncyclopediaBirdsPage() {

@@ -43,6 +43,8 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     "wallaby", "dingo", "cuscus", "dugong", "humpback-whale", "tree-kangaroo",
     "quokka", "sugar-glider", "echidna", "tasmanian-devil", "numbat", "bilby",
     "quoll", "bandicoot",
+    // Polar / Antarctica refinement (marine mammals)
+    "leopard-seal", "weddell-seal", "crabeater-seal", "whale", "orca",
   ]),
   birds: new Set([
     "eagle", "owl", "falcon", "hawk", "vulture", "penguin", "pelican",
@@ -63,6 +65,9 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     // Oceania expansion
     "galah", "black-swan", "wedge-tailed-eagle", "takahe", "cassowary", "emu",
     "kiwi", "kakapo", "kea", "lyrebird", "bird-of-paradise", "magpie",
+    // Polar / Antarctica refinement (seabirds)
+    "emperor-penguin", "adelie-penguin", "snow-petrel", "wandering-albatross",
+    "albatross",
   ]),
   "reptiles-amphibians": new Set([
     "crocodile", "alligator", "caiman", "komodo-dragon", "monitor-lizard",
@@ -101,6 +106,8 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     // Oceania expansion
     "box-jellyfish", "crown-of-thorns-starfish", "funnel-web-spider",
     "redback-spider", "giant-weta", "blue-ringed-octopus", "stick-insect",
+    // Polar / Antarctica refinement (Southern Ocean invertebrates)
+    "antarctic-krill", "krill", "squid",
   ]),
 };
 

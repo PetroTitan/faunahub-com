@@ -179,6 +179,9 @@ const mammals = [
   { href: "/animals/dugong", label: "Dugong", desc: "Dugong dugon — a seagrass-grazing marine mammal (a sirenian) of Indo-Pacific coasts; Vulnerable." },
   { href: "/animals/humpback-whale", label: "Humpback Whale", desc: "Megaptera novaeangliae — a large baleen whale known for breaching, song, and long ocean migrations." },
   { href: "/animals/tree-kangaroo", label: "Tree Kangaroo", desc: "Genus Dendrolagus — tree-dwelling macropods of New Guinea and northeastern Australian rainforests." },
+  { href: "/animals/leopard-seal", label: "Leopard Seal", desc: "Hydrurga leptonyx — a large predatory seal of Antarctic pack ice; a key Southern Ocean predator." },
+  { href: "/animals/weddell-seal", label: "Weddell Seal", desc: "Leptonychotes weddellii — a seal of Antarctic fast ice; one of the most southerly breeding mammals." },
+  { href: "/animals/crabeater-seal", label: "Crabeater Seal", desc: "Lobodon carcinophaga — an Antarctic pack-ice seal that eats mainly krill, not crabs; among Earth's most abundant large mammals." },
 ];
 
 export default function MammalsPage() {
