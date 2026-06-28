@@ -16,6 +16,7 @@ import { getDetailedSlugs } from "@/lib/red-list/helpers";
 import { REGION_ORDER } from "@/lib/red-list/regions";
 import { CONTINENT_ORDER } from "@/lib/fauna/continents";
 import { OCEAN_ZONE_ORDER } from "@/lib/fauna/ocean";
+import { BEHAVIOR_BASE, BEHAVIOR_GUIDES, SPECIES_INDEX } from "@/lib/animal-behavior";
 
 const BASE_URL = "https://faunahub.com";
 
@@ -804,6 +805,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/animal-senses-and-adaptations/bioluminescence`, lastModified: today, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/animal-senses-and-adaptations/migration-and-navigation`, lastModified: today, changeFrequency: "monthly", priority: 0.6 },
     { url: `${BASE_URL}/animal-senses-and-adaptations/hibernation-and-torpor`, lastModified: today, changeFrequency: "monthly", priority: 0.6 },
+    // Animal Intelligence & Behavior cluster — PUBLIC routes only (hub + 18 pillars + 30 species).
+    // The 1000-item BEHAVIOR_BACKLOG is intentionally NOT included here.
+    { url: `${BASE_URL}${BEHAVIOR_BASE}`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
+    ...BEHAVIOR_GUIDES.map((g) => ({
+      url: `${BASE_URL}${BEHAVIOR_BASE}/${g.slug}`,
+      lastModified: today,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+    ...SPECIES_INDEX.map((s) => ({
+      url: `${BASE_URL}${BEHAVIOR_BASE}/species/${s.slug}`,
+      lastModified: today,
+      changeFrequency: "monthly" as const,
+      priority: 0.55,
+    })),
     { url: `${BASE_URL}/animal-encyclopedia`, lastModified: today, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE_URL}/animal-encyclopedia/mammals`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/animal-encyclopedia/birds`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
