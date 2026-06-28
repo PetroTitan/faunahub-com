@@ -2862,6 +2862,107 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("stag-beetle", "Stag beetle (Lucanus cervus)"),
     SRC_IUCN,
   ],
+  // === Regional Fauna: North America Expansion (2026-06-28) ===
+  "bighorn-sheep": [
+    adw("Ovis_canadensis", "Ovis canadensis (bighorn sheep)"),
+    brit("bighorn-sheep", "Bighorn sheep (Ovis canadensis)"),
+    SRC_IUCN,
+  ],
+  "mountain-goat": [
+    adw("Oreamnos_americanus", "Oreamnos americanus (mountain goat)"),
+    brit("mountain-goat", "Mountain goat (Oreamnos americanus)"),
+    SRC_IUCN,
+  ],
+  cougar: [
+    adw("Puma_concolor", "Puma concolor (cougar / puma)"),
+    brit("puma", "Puma / cougar (Puma concolor)"),
+    SRC_IUCN,
+  ],
+  "american-black-bear": [
+    adw("Ursus_americanus", "Ursus americanus (American black bear)"),
+    brit("American-black-bear", "American black bear (Ursus americanus)"),
+    SRC_IUCN,
+  ],
+  "polar-bear": [
+    adw("Ursus_maritimus", "Ursus maritimus (polar bear)"),
+    brit("polar-bear", "Polar bear (Ursus maritimus)"),
+    SRC_IUCN,
+  ],
+  "arctic-fox": [
+    adw("Vulpes_lagopus", "Vulpes lagopus (Arctic fox)"),
+    brit("Arctic-fox", "Arctic fox (Vulpes lagopus)"),
+    SRC_IUCN,
+  ],
+  "bald-eagle": [
+    adw("Haliaeetus_leucocephalus", "Haliaeetus leucocephalus (bald eagle)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "wild-turkey": [
+    adw("Meleagris_gallopavo", "Meleagris gallopavo (wild turkey)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "whooping-crane": [
+    adw("Grus_americana", "Grus americana (whooping crane)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "sandhill-crane": [
+    adw("Antigone_canadensis", "Antigone canadensis (sandhill crane)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "california-condor": [
+    adw("Gymnogyps_californianus", "Gymnogyps californianus (California condor)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "snowy-owl": [
+    adw("Bubo_scandiacus", "Bubo scandiacus (snowy owl)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "common-loon": [
+    adw("Gavia_immer", "Gavia immer (common loon)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "american-alligator": [
+    adw("Alligator_mississippiensis", "Alligator mississippiensis (American alligator)"),
+    brit("American-alligator", "American alligator (Alligator mississippiensis)"),
+    SRC_IUCN,
+  ],
+  "snapping-turtle": [
+    adw("Chelydra_serpentina", "Chelydra serpentina (snapping turtle)"),
+    brit("snapping-turtle", "Snapping turtle (Chelydra serpentina)"),
+    SRC_IUCN,
+  ],
+  "chinook-salmon": [
+    adw("Oncorhynchus_tshawytscha", "Oncorhynchus tshawytscha (chinook salmon)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "alligator-gar": [
+    adw("Atractosteus_spatula", "Atractosteus spatula (alligator gar)"),
+    brit("alligator-gar", "Alligator gar (Atractosteus spatula)"),
+    SRC_IUCN,
+  ],
+  "lake-sturgeon": [
+    adw("Acipenser_fulvescens", "Acipenser fulvescens (lake sturgeon)"),
+    brit("sturgeon", "Sturgeon (Acipenser fulvescens and relatives)"),
+    SRC_IUCN,
+  ],
+  "monarch-butterfly": [
+    adw("Danaus_plexippus", "Danaus plexippus (monarch butterfly)"),
+    SRC_XERCES,
+    SRC_IUCN,
+  ],
+  "luna-moth": [
+    adw("Actias_luna", "Actias luna (luna moth)"),
+    brit("luna-moth", "Luna moth (Actias luna)"),
+    SRC_XERCES,
+  ],
 };
 
 /**

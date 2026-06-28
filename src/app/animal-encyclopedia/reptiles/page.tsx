@@ -63,6 +63,8 @@ const reptiles = [
   { href: "/animals/reticulated-python", label: "Reticulated Python", desc: "Malayopython reticulatus — the world's longest snake, a non-venomous Asian constrictor." },
   { href: "/animals/european-viper", label: "European Adder", desc: "Vipera berus — a small venomous viper with a zigzag back; the only snake found within the Arctic Circle." },
   { href: "/animals/grass-snake", label: "Grass Snake", desc: "Natrix natrix — a non-venomous, collared snake of European wetlands that often feigns death when threatened." },
+  { href: "/animals/american-alligator", label: "American Alligator", desc: "Alligator mississippiensis — a crocodilian of the south-eastern US; a conservation-recovery success." },
+  { href: "/animals/snapping-turtle", label: "Snapping Turtle", desc: "Chelydra serpentina — a large, mostly aquatic freshwater turtle of central and eastern North America." },
 ];
 
 const amphibians = [

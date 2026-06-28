@@ -605,6 +605,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "european-eel",
     "brown-trout",
     "stag-beetle",
+    // Regional Fauna: North America Expansion (2026-06-28)
+    "bighorn-sheep",
+    "mountain-goat",
+    "cougar",
+    "american-black-bear",
+    "polar-bear",
+    "arctic-fox",
+    "bald-eagle",
+    "wild-turkey",
+    "whooping-crane",
+    "sandhill-crane",
+    "california-condor",
+    "snowy-owl",
+    "common-loon",
+    "american-alligator",
+    "snapping-turtle",
+    "chinook-salmon",
+    "alligator-gar",
+    "lake-sturgeon",
+    "monarch-butterfly",
+    "luna-moth",
   ];
 
   const compareSlugs = [

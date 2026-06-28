@@ -160,6 +160,12 @@ const mammals = [
   { href: "/animals/european-hedgehog", label: "European Hedgehog", desc: "Erinaceus europaeus — a spiny nocturnal insectivore of gardens and hedgerows; rolls into a ball when threatened." },
   { href: "/animals/european-otter", label: "European Otter", desc: "Lutra lutra — a semi-aquatic mustelid of rivers and wetlands across parts of Europe and Asia." },
   { href: "/animals/alpine-ibex", label: "Alpine Ibex", desc: "Capra ibex — a wild goat of the Alps with large ridged horns; famously restored from a single remnant population." },
+  { href: "/animals/bighorn-sheep", label: "Bighorn Sheep", desc: "Ovis canadensis — a wild sheep of western North American mountains; rams carry massive curling horns." },
+  { href: "/animals/mountain-goat", label: "Mountain Goat", desc: "Oreamnos americanus — a white, cliff-dwelling alpine mammal of north-western North America; not a true goat." },
+  { href: "/animals/cougar", label: "Cougar", desc: "Puma concolor — also called puma or mountain lion; a wide-ranging solitary cat of the Americas." },
+  { href: "/animals/american-black-bear", label: "American Black Bear", desc: "Ursus americanus — the most widespread bear in North America; coat colour varies from black to cinnamon." },
+  { href: "/animals/polar-bear", label: "Polar Bear", desc: "Ursus maritimus — a large white bear of the Arctic that depends on sea ice to hunt seals; Vulnerable." },
+  { href: "/animals/arctic-fox", label: "Arctic Fox", desc: "Vulpes lagopus — a small tundra fox whose coat turns white in winter; circumpolar in the Arctic." },
 ];
 
 export default function MammalsPage() {

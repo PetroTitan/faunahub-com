@@ -230,6 +230,17 @@ const groups = [
     label: "Stag Beetle",
     desc: "Lucanus cervus — one of Europe's largest beetles; males have antler-like jaws and larvae develop in dead wood.",
   },
+  // Regional Fauna: North America Expansion (2026-06-28)
+  {
+    href: "/animals/monarch-butterfly",
+    label: "Monarch Butterfly",
+    desc: "Danaus plexippus — an orange-and-black butterfly famous for its long multi-generational migration to Mexico.",
+  },
+  {
+    href: "/animals/luna-moth",
+    label: "Luna Moth",
+    desc: "Actias luna — a large pale-green silk moth of eastern North American forests; adults do not feed.",
+  },
 ];
 
 export default function InsectsPage() {

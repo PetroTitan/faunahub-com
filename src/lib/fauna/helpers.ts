@@ -31,6 +31,10 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     "european-bison", "eurasian-lynx", "european-badger", "red-deer",
     "roe-deer", "european-hare", "european-hedgehog", "european-otter",
     "alpine-ibex", "pine-marten", "wild-boar",
+    // North America expansion
+    "bighorn-sheep", "mountain-goat", "cougar", "american-black-bear",
+    "polar-bear", "arctic-fox", "pronghorn", "elk", "bobcat", "coyote",
+    "skunk", "bison",
   ]),
   birds: new Set([
     "eagle", "owl", "falcon", "hawk", "vulture", "penguin", "pelican",
@@ -42,6 +46,9 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     "sarus-crane", "mandarin-duck", "hornbill",
     // Europe expansion
     "white-stork", "barn-owl", "golden-eagle", "capercaillie",
+    // North America expansion
+    "bald-eagle", "wild-turkey", "whooping-crane", "sandhill-crane",
+    "california-condor", "snowy-owl", "common-loon",
   ]),
   "reptiles-amphibians": new Set([
     "crocodile", "alligator", "caiman", "komodo-dragon", "monitor-lizard",
@@ -53,6 +60,9 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     "king-cobra", "reticulated-python", "asian-giant-salamander", "gharial",
     // Europe expansion
     "european-viper", "grass-snake", "european-tree-frog", "fire-salamander",
+    // North America expansion
+    "american-alligator", "snapping-turtle", "rattlesnake", "gila-monster",
+    "axolotl", "bullfrog",
   ]),
   invertebrates: new Set([
     "bee", "butterfly", "ant", "spider", "dragonfly", "ladybug",
@@ -63,6 +73,8 @@ const TAXON: Record<FaunaTaxon, Set<string>> = {
     "asian-giant-hornet", "silkworm", "horseshoe-crab",
     // Europe expansion
     "stag-beetle",
+    // North America expansion
+    "monarch-butterfly", "luna-moth", "scorpion",
   ]),
 };
 

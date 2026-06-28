@@ -137,6 +137,13 @@ const birds = [
   { href: "/animals/barn-owl", label: "Barn Owl", desc: "Tyto alba — a pale, heart-faced owl of farmland; one of the most widespread birds in the world." },
   { href: "/animals/golden-eagle", label: "Golden Eagle", desc: "Aquila chrysaetos — a large bird of prey of mountains and open upland country." },
   { href: "/animals/capercaillie", label: "Western Capercaillie", desc: "Tetrao urogallus — the largest grouse; males display dramatically at spring leks in old conifer forest." },
+  { href: "/animals/bald-eagle", label: "Bald Eagle", desc: "Haliaeetus leucocephalus — a white-headed sea eagle and US national bird; a famous DDT-era recovery." },
+  { href: "/animals/wild-turkey", label: "Wild Turkey", desc: "Meleagris gallopavo — a large woodland bird and the wild ancestor of the domestic turkey." },
+  { href: "/animals/whooping-crane", label: "Whooping Crane", desc: "Grus americana — the tallest bird in North America; Endangered and intensively managed." },
+  { href: "/animals/sandhill-crane", label: "Sandhill Crane", desc: "Antigone canadensis — a grey crane famous for large migratory gatherings and bugling calls." },
+  { href: "/animals/california-condor", label: "California Condor", desc: "Gymnogyps californianus — a giant New World vulture; Critically Endangered, restored by captive breeding." },
+  { href: "/animals/snowy-owl", label: "Snowy Owl", desc: "Bubo scandiacus — a large white Arctic owl that hunts by day; Vulnerable." },
+  { href: "/animals/common-loon", label: "Common Loon", desc: "Gavia immer — a diving waterbird of northern lakes with haunting calls and striking plumage." },
 ];
 
 export default function EncyclopediaBirdsPage() {

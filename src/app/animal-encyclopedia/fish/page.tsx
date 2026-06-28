@@ -36,6 +36,9 @@ const freshwater = [
   { href: "/animals/atlantic-salmon", label: "Atlantic Salmon", desc: "Salmo salar — an anadromous fish that spawns in rivers and grows in the North Atlantic; assessed as Near Threatened." },
   { href: "/animals/european-eel", label: "European Eel", desc: "Anguilla anguilla — a catadromous, snake-like fish thought to spawn in the Sargasso Sea; Critically Endangered." },
   { href: "/animals/brown-trout", label: "Brown Trout", desc: "Salmo trutta — a variable European salmonid with resident and migratory (sea trout) forms; widely introduced elsewhere." },
+  { href: "/animals/chinook-salmon", label: "Chinook Salmon", desc: "Oncorhynchus tshawytscha — the largest Pacific salmon, an anadromous fish of western North American rivers and the North Pacific." },
+  { href: "/animals/alligator-gar", label: "Alligator Gar", desc: "Atractosteus spatula — the largest gar, an ancient armoured freshwater fish of the southern US and Mexico." },
+  { href: "/animals/lake-sturgeon", label: "Lake Sturgeon", desc: "Acipenser fulvescens — a large, long-lived, ancient bottom-feeding fish of North American river and lake systems." },
 ];
 
 const marine = [
