@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import BehaviorLayout, { Section, FaqBlock, Prose } from "@/components/behavior/BehaviorLayout";
 import { buildMetadata } from "@/lib/metadata";
-import { BEHAVIOR_BASE, BEHAVIOR_GUIDES, guideBySlug } from "@/lib/animal-behavior";
+import { BEHAVIOR_BASE, BEHAVIOR_GUIDES, PILLAR_METHOD_LINKS, methodBySlug, guideBySlug } from "@/lib/animal-behavior";
 import { PILLAR_CONTENT, pillarBySlug } from "@/lib/behavior-pillar-content";
 
 const MODIFIED = "2026-06-28";
@@ -53,6 +53,29 @@ export default async function BehaviorPillarPage({ params }: { params: Promise<{
           {s.paras.map((p, j) => <Prose key={j} text={p} />)}
         </Section>
       ))}
+
+      {(PILLAR_METHOD_LINKS[c.slug] ?? []).length > 0 && (
+        <Section id="methods" title="Related research methods">
+          <p>How the claims on this topic are studied and read:</p>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 list-none p-0 m-0 not-prose">
+            {(PILLAR_METHOD_LINKS[c.slug] ?? []).map((ms) => {
+              const m = methodBySlug(ms);
+              if (!m) return null;
+              return (
+                <li key={ms}>
+                  <Link
+                    href={`${BEHAVIOR_BASE}/methods/${m.slug}`}
+                    className="card p-3 h-full flex flex-col gap-1 hover:shadow-md hover:border-[#BFD9E4] transition-all group hover:no-underline"
+                  >
+                    <span className="text-sm font-semibold text-[#17211B] group-hover:text-[#16414F]">{m.title}</span>
+                    <span className="text-xs text-[#5E6B63] leading-snug">{m.blurb}</span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </Section>
+      )}
 
       <Section id="more" title="Explore more behavior guides">
         <p>

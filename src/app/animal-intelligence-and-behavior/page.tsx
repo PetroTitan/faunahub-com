@@ -6,6 +6,7 @@ import { itemListSchema } from "@/lib/schema";
 import {
   BEHAVIOR_BASE,
   BEHAVIOR_GUIDES,
+  BEHAVIOR_METHODS,
   SPECIES_INDEX,
   GROUP_LABEL,
   type DisplayGroup,
@@ -152,6 +153,28 @@ export default function AnimalIntelligenceAndBehaviorHub() {
           <Link href={`${BEHAVIOR_BASE}/animal-emotions`}>animal emotions</Link> and{" "}
           <Link href={`${BEHAVIOR_BASE}/self-recognition`}>self-recognition</Link>.
         </p>
+      </Section>
+
+      <Section id="methods" title="Research methods & source literacy">
+        <p>
+          Good behavior writing depends on how the evidence is read. These short methodology guides
+          explain how animal minds are studied and how to avoid the most common errors — IQ
+          rankings, mirror-test overclaims, mistaking communication for language, and projecting human
+          feelings onto animals.
+        </p>
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 list-none p-0 m-0 not-prose">
+          {BEHAVIOR_METHODS.map((m) => (
+            <li key={m.slug}>
+              <Link
+                href={`${BEHAVIOR_BASE}/methods/${m.slug}`}
+                className="card p-4 h-full flex flex-col gap-1.5 hover:shadow-md hover:border-[#BFD9E4] transition-all group hover:no-underline"
+              >
+                <span className="text-base font-semibold text-[#17211B] group-hover:text-[#16414F] transition-colors">{m.title}</span>
+                <span className="text-sm text-[#2C3A2F] leading-snug">{m.blurb}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </Section>
 
       <Section id="sources" title="How FaunaHub checks behavior claims">
