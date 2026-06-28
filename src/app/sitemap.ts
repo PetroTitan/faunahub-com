@@ -679,6 +679,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "antarctic-krill",
     "antarctic-toothfish",
     "icefish",
+    // Pollinators Batch (2026-06-28)
+    "bumblebee",
+    "carpenter-bee",
+    "mason-bee",
+    "leafcutter-bee",
+    "orchid-bee",
+    "painted-lady-butterfly",
+    "hawk-moth",
+    "hummingbird-hawk-moth",
+    "hoverfly",
+    "longhorn-beetle",
+    "fig-wasp",
+    "pollen-wasp",
+    "honeyeater",
+    "nectar-bat",
   ];
 
   const compareSlugs = [
@@ -734,6 +749,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/fish`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/reptiles`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/wildlife`, lastModified: today, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE_URL}/wildlife/pollinators`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/animal-encyclopedia`, lastModified: today, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE_URL}/animal-encyclopedia/mammals`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/animal-encyclopedia/birds`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },

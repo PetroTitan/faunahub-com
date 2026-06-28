@@ -560,6 +560,12 @@ export default function WildlifePage() {
                   "How FaunaHub groups animals and expands coverage in verified batches.",
               },
               {
+                label: "Pollinators",
+                href: "/wildlife/pollinators",
+                description:
+                  "Bees, butterflies, moths, flies, beetles, wasps, birds, and bats — pollination across animal groups.",
+              },
+              {
                 label: "Birdwatching",
                 href: "/birdwatching",
                 description: "Responsible, ethical wild bird observation.",

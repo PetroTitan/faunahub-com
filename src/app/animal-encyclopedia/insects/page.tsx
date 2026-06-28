@@ -294,6 +294,19 @@ const groups = [
     label: "Antarctic Krill",
     desc: "Euphausia superba — a small, swarming crustacean that is a keystone of the Southern Ocean food web.",
   },
+  // Pollinators Batch (2026-06-28)
+  { href: "/animals/bumblebee", label: "Bumblebee", desc: "Genus Bombus — robust, hairy social bees and effective buzz pollinators of many plants." },
+  { href: "/animals/carpenter-bee", label: "Carpenter Bee", desc: "Genus Xylocopa — large bees that nest in wood and pollinate many flowers." },
+  { href: "/animals/mason-bee", label: "Mason Bee", desc: "Genus Osmia — gentle solitary bees and efficient early-spring pollinators." },
+  { href: "/animals/leafcutter-bee", label: "Leafcutter Bee", desc: "Family Megachilidae — solitary bees that cut leaf discs and carry pollen on belly hairs." },
+  { href: "/animals/orchid-bee", label: "Orchid Bee", desc: "Tribe Euglossini — brilliant metallic Neotropical bees that pollinate certain orchids." },
+  { href: "/animals/painted-lady-butterfly", label: "Painted Lady", desc: "Vanessa cardui — one of the world's most widespread butterflies and a long-distance migrant." },
+  { href: "/animals/hawk-moth", label: "Hawk Moth", desc: "Family Sphingidae — strong-flying moths; many are key nocturnal pollinators of long-tubed flowers." },
+  { href: "/animals/hummingbird-hawk-moth", label: "Hummingbird Hawk-moth", desc: "Macroglossum stellatarum — a day-flying moth that hovers at flowers like a hummingbird." },
+  { href: "/animals/hoverfly", label: "Hoverfly", desc: "Family Syrphidae — flower flies that mimic bees and wasps but cannot sting; underrated pollinators." },
+  { href: "/animals/longhorn-beetle", label: "Longhorn Beetle", desc: "Family Cerambycidae — long-antennaed beetles; flower-visiting species pollinate as they feed." },
+  { href: "/animals/fig-wasp", label: "Fig Wasp", desc: "Family Agaonidae — tiny wasps in an obligate mutualism pollinating fig trees." },
+  { href: "/animals/pollen-wasp", label: "Pollen Wasp", desc: "Subfamily Masarinae — unusual wasps that provision nests with pollen and nectar." },
 ];
 
 export default function InsectsPage() {
@@ -337,6 +350,24 @@ export default function InsectsPage() {
         </header>
 
         <div className="container-content py-10">
+          <Link
+            href="/wildlife/pollinators"
+            className="card p-5 mb-8 flex items-center justify-between gap-4 border-l-4 border-l-[#7BAA35] hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+          >
+            <span>
+              <span className="block text-xs font-semibold text-[#063F2A] uppercase tracking-wider mb-1">
+                Ecology guide
+              </span>
+              <span className="block text-base font-semibold text-[#17211B] group-hover:text-[#063F2A]">
+                Pollinators: bees, butterflies, birds, bats, flies &amp; beetles
+              </span>
+              <span className="block text-sm text-[#5E6B63] mt-1">
+                How pollination works across animal groups — with source-backed, cautious notes.
+              </span>
+            </span>
+            <span aria-hidden="true" className="text-[#063F2A] group-hover:translate-x-0.5 transition-transform">→</span>
+          </Link>
+
           <section aria-labelledby="profiles-heading">
             <h2 id="profiles-heading" className="section-title">Insect &amp; Invertebrate Profiles</h2>
             <p className="section-subtitle max-w-2xl">

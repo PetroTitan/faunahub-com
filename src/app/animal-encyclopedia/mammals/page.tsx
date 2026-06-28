@@ -182,6 +182,8 @@ const mammals = [
   { href: "/animals/leopard-seal", label: "Leopard Seal", desc: "Hydrurga leptonyx — a large predatory seal of Antarctic pack ice; a key Southern Ocean predator." },
   { href: "/animals/weddell-seal", label: "Weddell Seal", desc: "Leptonychotes weddellii — a seal of Antarctic fast ice; one of the most southerly breeding mammals." },
   { href: "/animals/crabeater-seal", label: "Crabeater Seal", desc: "Lobodon carcinophaga — an Antarctic pack-ice seal that eats mainly krill, not crabs; among Earth's most abundant large mammals." },
+  // Pollinators Batch (2026-06-28)
+  { href: "/animals/nectar-bat", label: "Nectar Bat", desc: "Nectar-feeding bats (e.g. Glossophaginae) that pollinate night-blooming plants such as agave and cactus in some regions." },
 ];
 
 export default function MammalsPage() {

@@ -106,6 +106,27 @@ export const SRC_WHOI: SourceLink = {
   note: "Ocean research and education institution",
 };
 
+export const SRC_USDA_FOREST_POLLINATORS: SourceLink = {
+  label: "USDA Forest Service — Pollinators (Celebrating Wildflowers)",
+  url: "https://www.fs.usda.gov/wildflowers/pollinators/",
+  type: "government",
+  note: "U.S. government educational resource on pollinators and pollination ecology",
+};
+
+export const SRC_USFWS_POLLINATORS: SourceLink = {
+  label: "U.S. Fish & Wildlife Service — Pollinators",
+  url: "https://www.fws.gov/initiative/pollinators",
+  type: "government",
+  note: "U.S. government wildlife agency resource on pollinators and their conservation",
+};
+
+export const SRC_NPS_POLLINATORS: SourceLink = {
+  label: "U.S. National Park Service — Pollinators",
+  url: "https://www.nps.gov/subjects/pollinators/index.htm",
+  type: "government",
+  note: "U.S. government educational resource on pollinators in protected lands",
+};
+
 /** Per-species ADW account helper. */
 function adw(species: string, label: string, note?: string): SourceLink {
   return {
@@ -3216,6 +3237,26 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("icefish", "Icefish (family Channichthyidae)"),
     SRC_SMITHSONIAN_OCEAN,
   ],
+
+  // Pollinators Batch (2026-06-28) — authoritative, reachable landing pages.
+  "bumblebee": [SRC_XERCES, SRC_IUCN, SRC_USDA_FOREST_POLLINATORS],
+  "carpenter-bee": [SRC_XERCES, SRC_USDA_FOREST_POLLINATORS, SRC_BRITANNICA_ANIMALS],
+  "mason-bee": [SRC_XERCES, SRC_USFWS_POLLINATORS, SRC_USDA_FOREST_POLLINATORS],
+  "leafcutter-bee": [SRC_XERCES, SRC_USDA_FOREST_POLLINATORS, SRC_BRITANNICA_ANIMALS],
+  "orchid-bee": [SRC_BRITANNICA_ANIMALS, SRC_XERCES, SRC_SMITHSONIAN_ZOO],
+  "painted-lady-butterfly": [
+    adw("Vanessa_cardui", "Vanessa cardui (painted lady)"),
+    SRC_XERCES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  "hawk-moth": [SRC_BRITANNICA_ANIMALS, SRC_XERCES, SRC_USDA_FOREST_POLLINATORS],
+  "hummingbird-hawk-moth": [SRC_BRITANNICA_ANIMALS, SRC_XERCES, SRC_NPS_POLLINATORS],
+  "hoverfly": [SRC_XERCES, SRC_USDA_FOREST_POLLINATORS, SRC_BRITANNICA_ANIMALS],
+  "longhorn-beetle": [SRC_BRITANNICA_ANIMALS, SRC_XERCES, SRC_USDA_FOREST_POLLINATORS],
+  "fig-wasp": [SRC_BRITANNICA_ANIMALS, SRC_SMITHSONIAN_ZOO, SRC_XERCES],
+  "pollen-wasp": [SRC_XERCES, SRC_BRITANNICA_ANIMALS, SRC_USDA_FOREST_POLLINATORS],
+  "honeyeater": [SRC_CORNELL_BIRDS, SRC_BRITANNICA_ANIMALS, SRC_IUCN],
+  "nectar-bat": [SRC_BRITANNICA_ANIMALS, SRC_IUCN, SRC_SMITHSONIAN_ZOO],
 };
 
 /**

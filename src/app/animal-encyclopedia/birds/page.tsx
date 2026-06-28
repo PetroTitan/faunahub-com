@@ -158,6 +158,8 @@ const birds = [
   { href: "/animals/adelie-penguin", label: "Adelie Penguin", desc: "Pygoscelis adeliae — a small penguin of Antarctic coasts and islands; one of the most southerly breeding birds." },
   { href: "/animals/snow-petrel", label: "Snow Petrel", desc: "Pagodroma nivea — a pure-white Southern Ocean seabird strongly tied to Antarctic sea ice." },
   { href: "/animals/wandering-albatross", label: "Wandering Albatross", desc: "Diomedea exulans — a huge seabird of the Southern Ocean that breeds on subantarctic islands; Vulnerable." },
+  // Pollinators Batch (2026-06-28)
+  { href: "/animals/honeyeater", label: "Honeyeater", desc: "Family Meliphagidae — Australasian nectar-feeding birds that pollinate many native plants; not hummingbirds." },
 ];
 
 export default function EncyclopediaBirdsPage() {
