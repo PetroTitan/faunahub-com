@@ -58,9 +58,14 @@ export async function generateMetadata({
   const { continent } = await params;
   if (!isFaunaContinent(continent)) return {};
   const meta = getContinentMeta(continent);
+  const isAntarctica = continent === "antarctica";
   return buildMetadata({
-    title: `Land Animals of ${meta.label} — Fauna by Continent`,
-    description: `Representative land fauna of ${meta.label}: mammals, birds, reptiles, amphibians, and notable invertebrates, with cautious source-backed distribution notes. Not a complete range map.`,
+    title: isAntarctica
+      ? `Antarctic & Southern Ocean Wildlife — Fauna by Continent`
+      : `Land Animals of ${meta.label} — Fauna by Continent`,
+    description: isAntarctica
+      ? `Representative Antarctic and Southern Ocean wildlife — penguins, seals, whales, seabirds, krill and fish. Antarctica has no native land vertebrates; its animals are marine and coastal. Cautious, source-backed notes; not a complete range map.`
+      : `Representative land fauna of ${meta.label}: mammals, birds, reptiles, amphibians, and notable invertebrates, with cautious source-backed distribution notes. Not a complete range map.`,
     path: `/fauna/continents/${continent}`,
   });
 }
@@ -133,10 +138,13 @@ export default async function ContinentPage({
               ]}
             />
             <p className="text-xs uppercase tracking-wider text-[#7BAA35] font-semibold mb-3">
-              <span aria-hidden="true">{meta.icon}</span> Land fauna
+              <span aria-hidden="true">{meta.icon}</span>{" "}
+              {isAntarctica ? "Antarctic & Southern Ocean wildlife" : "Land fauna"}
             </p>
             <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] leading-tight">
-              Land animals of {meta.label}
+              {isAntarctica
+                ? "Antarctic and Southern Ocean wildlife"
+                : `Land animals of ${meta.label}`}
             </h1>
             <p className="mt-4 text-base text-[#2C3A2F] max-w-2xl leading-relaxed">
               {OVERVIEW[continent]}
