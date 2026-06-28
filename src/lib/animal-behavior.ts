@@ -210,6 +210,62 @@ export function methodBySlug(slug: string): BehaviorMethodGuide | undefined {
   return BEHAVIOR_METHODS.find((m) => m.slug === slug);
 }
 
+export interface BehaviorGroupGuide {
+  slug: string;
+  title: string;
+  /** Short hub/card blurb. */
+  blurb: string;
+  /** Pillar guide slugs (must exist in BEHAVIOR_GUIDES). */
+  relatedPillarSlugs: string[];
+  /** Method guide slugs (must exist in BEHAVIOR_METHODS). */
+  relatedMethodSlugs: string[];
+  /** Species behavior-page slugs (must exist in SPECIES_INDEX). */
+  relatedSpeciesSlugs: string[];
+  /** Base /animals/[slug] profiles (must resolve). */
+  relatedAnimalSlugs: { slug: string; name: string }[];
+  /** Optional cross-cluster ecosystem hub links (must be real routes). */
+  ecosystemLinks?: { label: string; href: string }[];
+}
+
+const A = (slug: string, name: string) => ({ slug, name });
+
+/** 14 published group behavior pages under /groups/[slug] (first batch). */
+export const BEHAVIOR_GROUPS: BehaviorGroupGuide[] = [
+  { slug: "primate-behavior", title: "Primate behavior", blurb: "Social learning, tool use, parenting, and communication — and how apes, monkeys, and lemurs differ.", relatedPillarSlugs: ["social-behavior", "tool-use", "animal-learning"], relatedMethodSlugs: ["how-animal-intelligence-is-studied", "tool-use-definitions"], relatedSpeciesSlugs: ["chimpanzee", "gorilla", "orangutan"], relatedAnimalSlugs: [A("chimpanzee", "Chimpanzee"), A("gorilla", "Gorilla"), A("orangutan", "Orangutan"), A("lemur", "Lemur"), A("baboon", "Baboon"), A("macaque", "Macaque")] },
+  { slug: "corvid-intelligence", title: "Corvid intelligence", blurb: "Problem-solving, caching, and tool use in some crows, ravens, and jays — representative, not a ranking.", relatedPillarSlugs: ["problem-solving", "tool-use", "animal-intelligence"], relatedMethodSlugs: ["how-animal-intelligence-is-studied", "why-animal-iq-rankings-mislead"], relatedSpeciesSlugs: ["crow", "raven"], relatedAnimalSlugs: [A("crow", "Crow"), A("raven", "Raven"), A("magpie", "Magpie")] },
+  { slug: "parrot-learning", title: "Parrot learning", blurb: "Vocal learning, imitation, and social learning — and why mimicry is not human language.", relatedPillarSlugs: ["animal-communication", "animal-learning"], relatedMethodSlugs: ["communication-vs-language", "captive-bias-in-behavior-research"], relatedSpeciesSlugs: ["parrot", "macaw"], relatedAnimalSlugs: [A("parrot", "Parrot"), A("macaw", "Macaw")] },
+  { slug: "cetacean-behavior", title: "Cetacean behavior", blurb: "Communication, social structure, migration, and foraging — toothed vs baleen whales differ greatly.", relatedPillarSlugs: ["animal-communication", "social-behavior", "cooperation"], relatedMethodSlugs: ["communication-vs-language", "captive-bias-in-behavior-research"], relatedSpeciesSlugs: ["dolphin", "orca", "whale"], relatedAnimalSlugs: [A("dolphin", "Dolphin"), A("orca", "Orca"), A("whale", "Whale")], ecosystemLinks: [{ label: "Ocean fauna", href: "/fauna/ocean" }] },
+  { slug: "elephant-social-behavior", title: "Elephant social behavior", blurb: "Social bonds, low-frequency communication, and calf care, with memory in ecological context.", relatedPillarSlugs: ["social-behavior", "animal-memory", "cooperation"], relatedMethodSlugs: ["anthropomorphism-in-animal-behavior", "evidence-context-in-animal-behavior"], relatedSpeciesSlugs: ["elephant"], relatedAnimalSlugs: [A("elephant", "Elephant")] },
+  { slug: "cephalopod-intelligence", title: "Cephalopod intelligence", blurb: "Problem-solving, camouflage signalling, and the diversity of octopuses, cuttlefish, squid, and nautilus.", relatedPillarSlugs: ["problem-solving", "animal-communication", "animal-learning"], relatedMethodSlugs: ["how-animal-intelligence-is-studied", "captive-bias-in-behavior-research"], relatedSpeciesSlugs: ["octopus", "cuttlefish", "squid"], relatedAnimalSlugs: [A("octopus", "Octopus"), A("cuttlefish", "Cuttlefish"), A("squid", "Squid"), A("nautilus", "Nautilus")], ecosystemLinks: [{ label: "Ocean fauna", href: "/fauna/ocean" }] },
+  { slug: "eusocial-insects", title: "Eusocial insects", blurb: "Division of labour, communication, and decentralised colony organisation in bees, ants, and termites.", relatedPillarSlugs: ["cooperation", "social-behavior", "animal-communication"], relatedMethodSlugs: ["anthropomorphism-in-animal-behavior"], relatedSpeciesSlugs: ["bee", "ant", "termite"], relatedAnimalSlugs: [A("bee", "Bee"), A("ant", "Ant"), A("termite", "Termite"), A("wasp", "Wasp")] },
+  { slug: "reptile-behavior", title: "Reptile behavior", blurb: "Thermoregulation, territoriality, courtship, and parental care across hugely varied reptiles.", relatedPillarSlugs: ["territorial-behavior", "parenting-and-care", "mating-displays"], relatedMethodSlugs: ["anthropomorphism-in-animal-behavior", "evidence-context-in-animal-behavior"], relatedSpeciesSlugs: ["sea-turtle"], relatedAnimalSlugs: [A("sea-turtle", "Sea turtle"), A("snake", "Snake"), A("coral-snake", "Coral snake"), A("gecko", "Gecko"), A("chameleon", "Chameleon"), A("iguana", "Iguana"), A("komodo-dragon", "Komodo dragon")], ecosystemLinks: [{ label: "Reptiles & amphibians", href: "/animal-taxonomy/reptiles-amphibians" }] },
+  { slug: "amphibian-communication", title: "Amphibian communication", blurb: "Frog and toad calls, courtship and territorial signals — with salamander and caecilian caveats.", relatedPillarSlugs: ["animal-communication", "mating-displays", "territorial-behavior"], relatedMethodSlugs: ["communication-vs-language"], relatedSpeciesSlugs: ["frog"], relatedAnimalSlugs: [A("frog", "Frog"), A("toad", "Toad"), A("salamander", "Salamander"), A("axolotl", "Axolotl"), A("newt", "Newt")], ecosystemLinks: [{ label: "Reptiles & amphibians", href: "/animal-taxonomy/reptiles-amphibians" }] },
+  { slug: "fish-schooling", title: "Fish schooling", blurb: "Schooling vs shoaling, predator avoidance, and self-organised group movement — not all fish school.", relatedPillarSlugs: ["social-behavior", "cooperation", "animal-communication"], relatedMethodSlugs: ["anthropomorphism-in-animal-behavior", "evidence-context-in-animal-behavior"], relatedSpeciesSlugs: ["salmon"], relatedAnimalSlugs: [A("salmon", "Salmon"), A("shark", "Shark"), A("tuna", "Tuna"), A("cod", "Cod")], ecosystemLinks: [{ label: "Ocean fauna", href: "/fauna/ocean" }] },
+  { slug: "pollinator-behavior", title: "Pollinator behavior", blurb: "Flower-visiting across bees, butterflies, moths, birds, and bats — visiting is not always pollination.", relatedPillarSlugs: ["animal-communication", "animal-learning"], relatedMethodSlugs: ["evidence-context-in-animal-behavior"], relatedSpeciesSlugs: ["bee", "monarch-butterfly"], relatedAnimalSlugs: [A("bee", "Bee"), A("butterfly", "Butterfly"), A("monarch-butterfly", "Monarch butterfly"), A("moth", "Moth"), A("hummingbird", "Hummingbird"), A("bat", "Bat")], ecosystemLinks: [{ label: "Pollinators hub", href: "/wildlife/pollinators" }, { label: "Ocean fauna", href: "/fauna/ocean" }] },
+  { slug: "bird-migration-behavior", title: "Bird migration behavior", blurb: "Seasonal movement, multi-cue navigation, flocking, and stopovers — and why not all birds migrate.", relatedPillarSlugs: ["social-behavior", "animal-memory"], relatedMethodSlugs: ["evidence-context-in-animal-behavior"], relatedSpeciesSlugs: ["albatross", "pigeon"], relatedAnimalSlugs: [A("albatross", "Albatross"), A("pigeon", "Pigeon"), A("goose", "Goose"), A("swan", "Swan"), A("stork", "Stork")], ecosystemLinks: [{ label: "Migration & navigation", href: "/animal-senses-and-adaptations/migration-and-navigation" }, { label: "Animal lifespans", href: "/animal-lifespans" }] },
+  { slug: "mammal-parenting-behavior", title: "Mammal parenting behavior", blurb: "Lactation and the wide variation in parental care — maternal, biparental, and cooperative.", relatedPillarSlugs: ["parenting-and-care", "social-behavior", "cooperation"], relatedMethodSlugs: ["anthropomorphism-in-animal-behavior"], relatedSpeciesSlugs: ["elephant", "wolf", "meerkat", "polar-bear"], relatedAnimalSlugs: [A("elephant", "Elephant"), A("wolf", "Wolf"), A("meerkat", "Meerkat"), A("polar-bear", "Polar bear"), A("lion", "Lion")], ecosystemLinks: [{ label: "Animal lifespans", href: "/animal-lifespans" }] },
+  { slug: "social-carnivore-behavior", title: "Social carnivore behavior", blurb: "Cooperative hunting and group living in wolves, lions, hyenas, and meerkats — modern family-pack view.", relatedPillarSlugs: ["cooperation", "social-behavior", "hunting-and-foraging"], relatedMethodSlugs: ["anthropomorphism-in-animal-behavior", "field-observation-vs-lab-study"], relatedSpeciesSlugs: ["wolf", "meerkat"], relatedAnimalSlugs: [A("wolf", "Wolf"), A("lion", "Lion"), A("hyena", "Hyena"), A("meerkat", "Meerkat"), A("cheetah", "Cheetah")] },
+];
+
+export function groupBySlug(slug: string): BehaviorGroupGuide | undefined {
+  return BEHAVIOR_GROUPS.find((g) => g.slug === slug);
+}
+
+/** Which group guides each pillar links to (reverse map, for in-page cross-linking). */
+export const PILLAR_GROUP_LINKS: Record<string, string[]> = {
+  "animal-intelligence": ["primate-behavior", "corvid-intelligence", "cephalopod-intelligence"],
+  "problem-solving": ["corvid-intelligence", "cephalopod-intelligence"],
+  "tool-use": ["primate-behavior", "corvid-intelligence"],
+  "animal-communication": ["parrot-learning", "cetacean-behavior", "amphibian-communication", "eusocial-insects"],
+  "social-behavior": ["primate-behavior", "cetacean-behavior", "social-carnivore-behavior", "fish-schooling"],
+  "cooperation": ["eusocial-insects", "social-carnivore-behavior"],
+  "parenting-and-care": ["mammal-parenting-behavior", "reptile-behavior"],
+  "animal-memory": ["elephant-social-behavior", "bird-migration-behavior"],
+  "animal-learning": ["parrot-learning", "primate-behavior"],
+  "mating-displays": ["amphibian-communication"],
+  "territorial-behavior": ["reptile-behavior"],
+};
+
 export function guideBySlug(slug: string): BehaviorGuide | undefined {
   return BEHAVIOR_GUIDES.find((g) => g.slug === slug);
 }
@@ -235,3 +291,4 @@ export function duplicateBehaviorSlugs(): string[] {
 export const BEHAVIOR_GUIDE_COUNT = BEHAVIOR_GUIDES.length;
 export const SPECIES_PROFILE_COUNT = SPECIES_INDEX.length;
 export const BEHAVIOR_METHOD_COUNT = BEHAVIOR_METHODS.length;
+export const BEHAVIOR_GROUP_COUNT = BEHAVIOR_GROUPS.length;

@@ -16,7 +16,7 @@ import { getDetailedSlugs } from "@/lib/red-list/helpers";
 import { REGION_ORDER } from "@/lib/red-list/regions";
 import { CONTINENT_ORDER } from "@/lib/fauna/continents";
 import { OCEAN_ZONE_ORDER } from "@/lib/fauna/ocean";
-import { BEHAVIOR_BASE, BEHAVIOR_GUIDES, BEHAVIOR_METHODS, SPECIES_INDEX } from "@/lib/animal-behavior";
+import { BEHAVIOR_BASE, BEHAVIOR_GUIDES, BEHAVIOR_METHODS, BEHAVIOR_GROUPS, SPECIES_INDEX } from "@/lib/animal-behavior";
 
 const BASE_URL = "https://faunahub.com";
 
@@ -822,6 +822,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...BEHAVIOR_METHODS.map((m) => ({
       url: `${BASE_URL}${BEHAVIOR_BASE}/methods/${m.slug}`,
+      lastModified: today,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+    ...BEHAVIOR_GROUPS.map((g) => ({
+      url: `${BASE_URL}${BEHAVIOR_BASE}/groups/${g.slug}`,
       lastModified: today,
       changeFrequency: "monthly" as const,
       priority: 0.6,
