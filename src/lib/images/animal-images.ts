@@ -26296,8 +26296,8 @@ export const ANIMAL_IMAGES: readonly AnimalImage[] = [
     license: "CC BY-SA 4.0",
     licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
     attribution: "Photo by John Robert McPherson, CC BY-SA 4.0, via Wikimedia Commons.",
-    alt: "A red-necked wallaby.",
-    caption: "A red-necked wallaby (Macropus rufogriseus); \"wallaby\" covers many macropod species.",
+    alt: "An agile wallaby.",
+    caption: "An agile wallaby (Macropus agilis); \"wallaby\" covers many macropod species.",
     width: 1600,
     height: 1055,
     commercialUseAllowed: true,
@@ -26550,7 +26550,7 @@ export const ANIMAL_IMAGES: readonly AnimalImage[] = [
     licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
     attribution: "Photo by Calistemon, CC BY-SA 4.0, via Wikimedia Commons.",
     alt: "A tree-kangaroo.",
-    caption: "A Goodfellow's tree-kangaroo (Dendrolagus goodfellowi); tree-kangaroos live in New Guinea and NE Australia.",
+    caption: "A Goodfellow's tree-kangaroo (Dendrolagus goodfellowi), photographed at a wildlife park; tree-kangaroos live in New Guinea and NE Australia.",
     width: 1600,
     height: 1200,
     commercialUseAllowed: true,
@@ -26558,7 +26558,7 @@ export const ANIMAL_IMAGES: readonly AnimalImage[] = [
     attributionRequired: true,
     verifiedAt: "2026-06-28",
     riskNotes:
-      "CC BY-SA 4.0, by Calistemon.",
+      "CC BY-SA 4.0, by Calistemon. Photographed at a wildlife park (captive); captioned honestly.",
   },
   {
     id: "galah-wikimedia-001",
@@ -26964,7 +26964,7 @@ export const ANIMAL_IMAGES: readonly AnimalImage[] = [
     licenseUrl: "https://creativecommons.org/licenses/by/2.0/",
     attribution: "Photo by Sonse, CC BY 2.0, via Wikimedia Commons.",
     alt: "A leafy seadragon.",
-    caption: "A leafy seadragon (Phycodurus eques); its leaf-like appendages camouflage it among seaweed.",
+    caption: "A leafy seadragon (Phycodurus eques), photographed at a public aquarium; its leaf-like appendages camouflage it among seaweed.",
     width: 1600,
     height: 1095,
     commercialUseAllowed: true,
@@ -26972,7 +26972,7 @@ export const ANIMAL_IMAGES: readonly AnimalImage[] = [
     attributionRequired: true,
     verifiedAt: "2026-06-28",
     riskNotes:
-      "CC BY 2.0, by Sonse.",
+      "CC BY 2.0, by Sonse. Photographed at a public aquarium; captioned honestly.",
   },
   {
     id: "box-jellyfish-wikimedia-001",
