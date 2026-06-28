@@ -33,6 +33,7 @@ const SUB_PAGES = [
   { label: "Marine animal groups", href: "/animal-taxonomy/marine-animal-groups" },
   { label: "Missing animals", href: "/animal-taxonomy/missing-animals" },
   { label: "Coverage roadmap", href: "/animal-taxonomy/coverage-roadmap" },
+  { label: "Animal research sources", href: "/animal-research-sources" },
 ];
 
 const FAQ = [

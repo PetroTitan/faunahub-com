@@ -201,6 +201,15 @@ export default function EditorialPolicyPage() {
             When a page&apos;s sources have not yet been fully verified, this is noted with a
             &quot;Source review pending&quot; notice.
           </p>
+          <p>
+            For a deeper look at how we choose and read these sources — taxonomy databases,
+            conservation assessments, range data, image licensing, and the boundary between
+            educational content and veterinary advice — see our{" "}
+            <Link href="/animal-research-sources" className="text-[#063F2A] underline">
+              animal research sources
+            </Link>{" "}
+            guide.
+          </p>
 
           <h2>Image Use Policy</h2>
           <p>

@@ -44,6 +44,7 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
   Legal: [
     { label: "About", href: "/about" },
     { label: "Editorial Policy", href: "/editorial-policy" },
+    { label: "Animal Research Sources", href: "/animal-research-sources" },
     { label: "Image Credits", href: "/image-credits" },
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Cookie Policy", href: "/cookie-policy" },

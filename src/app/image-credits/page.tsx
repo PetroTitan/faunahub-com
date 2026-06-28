@@ -99,7 +99,7 @@ const IMAGE_CREDITS_FAQ = [
   {
     question: "What licenses does FaunaHub accept?",
     answer:
-      "Only Public Domain, CC0, CC BY, and CC BY-SA. FaunaHub never publishes images with CC BY-NC, CC BY-NC-SA, CC BY-ND, GFDL-only, all-rights-reserved, AI-generated, or unclear-license status.",
+      "Only Public Domain, CC0, CC BY, and CC BY-SA. FaunaHub never publishes images with CC BY-NC, CC BY-NC-SA, CC BY-ND, GFDL-only, all-rights-reserved, AI-generated, or unclear-license status. The image-licensing guide explains why derivative rights matter for WebP conversion and how captive or specimen contexts are disclosed.",
   },
   {
     question: "How do I request an attribution correction?",
