@@ -584,6 +584,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "mekong-giant-catfish",
     "asian-giant-hornet",
     "silkworm",
+    // Regional Fauna: Europe Expansion (2026-06-27)
+    "european-bison",
+    "eurasian-lynx",
+    "european-badger",
+    "red-deer",
+    "roe-deer",
+    "european-hare",
+    "european-hedgehog",
+    "european-otter",
+    "alpine-ibex",
+    "white-stork",
+    "barn-owl",
+    "golden-eagle",
+    "capercaillie",
+    "european-viper",
+    "grass-snake",
+    "european-tree-frog",
+    "atlantic-salmon",
+    "european-eel",
+    "brown-trout",
+    "stag-beetle",
   ];
 
   const compareSlugs = [

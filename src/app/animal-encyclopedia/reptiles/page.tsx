@@ -61,6 +61,8 @@ const reptiles = [
   { href: "/animals/puff-adder", label: "Puff Adder", desc: "Bitis arietans — a wide-ranging, well-camouflaged venomous African viper." },
   { href: "/animals/king-cobra", label: "King Cobra", desc: "Ophiophagus hannah — the world's longest venomous snake, an Asian snake-eater; Vulnerable." },
   { href: "/animals/reticulated-python", label: "Reticulated Python", desc: "Malayopython reticulatus — the world's longest snake, a non-venomous Asian constrictor." },
+  { href: "/animals/european-viper", label: "European Adder", desc: "Vipera berus — a small venomous viper with a zigzag back; the only snake found within the Arctic Circle." },
+  { href: "/animals/grass-snake", label: "Grass Snake", desc: "Natrix natrix — a non-venomous, collared snake of European wetlands that often feigns death when threatened." },
 ];
 
 const amphibians = [
@@ -97,6 +99,7 @@ const amphibians = [
   { href: "/animals/chorus-frog", label: "Chorus Frog", desc: "Genus Pseudacris — small striped North American frogs whose spring choruses include the spring peeper." },
   { href: "/animals/rain-frog", label: "Rain Frog", desc: "Genus Breviceps — round African burrowing frogs that squeak, can't really swim, and hatch straight into froglets." },
   { href: "/animals/asian-giant-salamander", label: "Asian Giant Salamander", desc: "Genus Andrias — the largest living amphibians, fully aquatic salamanders of East Asian rivers." },
+  { href: "/animals/european-tree-frog", label: "European Tree Frog", desc: "Hyla arborea — a small, bright-green climbing frog with adhesive toe pads, found near water in parts of Europe." },
 ];
 
 export default function EncyclopediaReptilesPage() {

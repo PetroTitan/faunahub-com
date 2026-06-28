@@ -224,6 +224,12 @@ const groups = [
     label: "Silkworm",
     desc: "Bombyx mori — the fully domesticated silk moth, reared for silk (sericulture) since ancient China.",
   },
+  // Regional Fauna: Europe Expansion (2026-06-27)
+  {
+    href: "/animals/stag-beetle",
+    label: "Stag Beetle",
+    desc: "Lucanus cervus — one of Europe's largest beetles; males have antler-like jaws and larvae develop in dead wood.",
+  },
 ];
 
 export default function InsectsPage() {

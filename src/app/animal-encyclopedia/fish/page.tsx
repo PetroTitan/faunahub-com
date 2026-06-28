@@ -33,6 +33,9 @@ const freshwater = [
   { href: "/animals/arowana", label: "Asian Arowana", desc: "Scleropages formosus — a prized 'dragon fish' of Southeast Asian rivers; Endangered and CITES-protected." },
   { href: "/animals/mahseer", label: "Mahseer", desc: "Genus Tor — large, powerful carp-family fish of fast South and Southeast Asian rivers." },
   { href: "/animals/mekong-giant-catfish", label: "Mekong Giant Catfish", desc: "Pangasianodon gigas — one of the world's largest freshwater fish; Critically Endangered." },
+  { href: "/animals/atlantic-salmon", label: "Atlantic Salmon", desc: "Salmo salar — an anadromous fish that spawns in rivers and grows in the North Atlantic; assessed as Near Threatened." },
+  { href: "/animals/european-eel", label: "European Eel", desc: "Anguilla anguilla — a catadromous, snake-like fish thought to spawn in the Sargasso Sea; Critically Endangered." },
+  { href: "/animals/brown-trout", label: "Brown Trout", desc: "Salmo trutta — a variable European salmonid with resident and migratory (sea trout) forms; widely introduced elsewhere." },
 ];
 
 const marine = [

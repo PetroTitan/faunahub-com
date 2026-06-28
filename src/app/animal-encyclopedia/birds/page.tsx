@@ -133,6 +133,10 @@ const birds = [
   { href: "/animals/african-grey-parrot", label: "African Grey Parrot", desc: "Psittacus erithacus — a highly intelligent African forest parrot; Endangered, pressured by the pet trade." },
   { href: "/animals/sarus-crane", label: "Sarus Crane", desc: "Antigone antigone — the tallest flying bird, a red-headed crane of Asian wetlands; Vulnerable." },
   { href: "/animals/mandarin-duck", label: "Mandarin Duck", desc: "Aix galericulata — an ornately coloured East Asian perching duck that nests in tree cavities." },
+  { href: "/animals/white-stork", label: "White Stork", desc: "Ciconia ciconia — a long-billed wading bird that nests on European rooftops and migrates to Africa." },
+  { href: "/animals/barn-owl", label: "Barn Owl", desc: "Tyto alba — a pale, heart-faced owl of farmland; one of the most widespread birds in the world." },
+  { href: "/animals/golden-eagle", label: "Golden Eagle", desc: "Aquila chrysaetos — a large bird of prey of mountains and open upland country." },
+  { href: "/animals/capercaillie", label: "Western Capercaillie", desc: "Tetrao urogallus — the largest grouse; males display dramatically at spring leks in old conifer forest." },
 ];
 
 export default function EncyclopediaBirdsPage() {

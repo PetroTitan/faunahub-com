@@ -2761,6 +2761,107 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     brit("silkworm", "Silkworm (Bombyx mori)"),
     SRC_SMITHSONIAN_ZOO,
   ],
+  // === Regional Fauna: Europe Expansion (2026-06-27) ===
+  "european-bison": [
+    adw("Bison_bonasus", "Bison bonasus (European bison)"),
+    brit("wisent", "Wisent / European bison (Bison bonasus)"),
+    SRC_IUCN,
+  ],
+  "eurasian-lynx": [
+    adw("Lynx_lynx", "Lynx lynx (Eurasian lynx)"),
+    brit("lynx", "Lynx (Lynx lynx and relatives)"),
+    SRC_IUCN,
+  ],
+  "european-badger": [
+    adw("Meles_meles", "Meles meles (European badger)"),
+    brit("badger", "Badger (Meles meles and relatives)"),
+    SRC_IUCN,
+  ],
+  "red-deer": [
+    adw("Cervus_elaphus", "Cervus elaphus (red deer)"),
+    brit("red-deer", "Red deer (Cervus elaphus)"),
+    SRC_IUCN,
+  ],
+  "roe-deer": [
+    adw("Capreolus_capreolus", "Capreolus capreolus (roe deer)"),
+    brit("roe-deer", "Roe deer (Capreolus capreolus)"),
+    SRC_IUCN,
+  ],
+  "european-hare": [
+    adw("Lepus_europaeus", "Lepus europaeus (European hare)"),
+    brit("hare", "Hare (Lepus europaeus and relatives)"),
+    SRC_IUCN,
+  ],
+  "european-hedgehog": [
+    adw("Erinaceus_europaeus", "Erinaceus europaeus (European hedgehog)"),
+    brit("hedgehog", "Hedgehog (Erinaceus europaeus and relatives)"),
+    SRC_IUCN,
+  ],
+  "european-otter": [
+    adw("Lutra_lutra", "Lutra lutra (European otter)"),
+    brit("otter", "Otter (Lutra lutra and relatives)"),
+    SRC_IUCN,
+  ],
+  "alpine-ibex": [
+    adw("Capra_ibex", "Capra ibex (Alpine ibex)"),
+    brit("ibex", "Ibex (Capra ibex and relatives)"),
+    SRC_IUCN,
+  ],
+  "white-stork": [
+    adw("Ciconia_ciconia", "Ciconia ciconia (white stork)"),
+    brit("white-stork", "White stork (Ciconia ciconia)"),
+    SRC_IUCN,
+  ],
+  "barn-owl": [
+    adw("Tyto_alba", "Tyto alba (barn owl)"),
+    brit("barn-owl", "Barn owl (Tyto alba)"),
+    SRC_IUCN,
+  ],
+  "golden-eagle": [
+    adw("Aquila_chrysaetos", "Aquila chrysaetos (golden eagle)"),
+    brit("golden-eagle", "Golden eagle (Aquila chrysaetos)"),
+    SRC_IUCN,
+  ],
+  capercaillie: [
+    adw("Tetrao_urogallus", "Tetrao urogallus (western capercaillie)"),
+    brit("capercaillie", "Capercaillie (Tetrao urogallus)"),
+    SRC_IUCN,
+  ],
+  "european-viper": [
+    adw("Vipera_berus", "Vipera berus (European adder)"),
+    brit("adder", "Adder / European viper (Vipera berus)"),
+    SRC_IUCN,
+  ],
+  "grass-snake": [
+    adw("Natrix_natrix", "Natrix natrix (grass snake)"),
+    brit("grass-snake", "Grass snake (Natrix natrix)"),
+    SRC_IUCN,
+  ],
+  "european-tree-frog": [
+    adw("Hyla_arborea", "Hyla arborea (European tree frog)"),
+    brit("tree-frog", "Tree frog (Hyla arborea and relatives)"),
+    SRC_IUCN,
+  ],
+  "atlantic-salmon": [
+    adw("Salmo_salar", "Salmo salar (Atlantic salmon)"),
+    brit("Atlantic-salmon", "Atlantic salmon (Salmo salar)"),
+    SRC_IUCN,
+  ],
+  "european-eel": [
+    adw("Anguilla_anguilla", "Anguilla anguilla (European eel)"),
+    brit("eel", "Eel (Anguilla anguilla and relatives)"),
+    SRC_IUCN,
+  ],
+  "brown-trout": [
+    adw("Salmo_trutta", "Salmo trutta (brown trout)"),
+    brit("trout", "Trout (Salmo trutta and relatives)"),
+    SRC_IUCN,
+  ],
+  "stag-beetle": [
+    adw("Lucanus_cervus", "Lucanus cervus (stag beetle)"),
+    brit("stag-beetle", "Stag beetle (Lucanus cervus)"),
+    SRC_IUCN,
+  ],
 };
 
 /**

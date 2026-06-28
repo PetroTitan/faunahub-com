@@ -151,6 +151,15 @@ const mammals = [
   { href: "/animals/snow-leopard", label: "Snow Leopard", desc: "Panthera uncia — an elusive big cat of the high mountains of Central and South Asia; Vulnerable." },
   { href: "/animals/asian-black-bear", label: "Asian Black Bear", desc: "Ursus thibetanus — the 'moon bear' of Asian forests, with a pale crescent on its chest." },
   { href: "/animals/musk-deer", label: "Musk Deer", desc: "Genus Moschus — small Asian hoofed mammals (not true deer); males have tusk-like canines." },
+  { href: "/animals/european-bison", label: "European Bison", desc: "Bison bonasus — the wisent, Europe's largest land mammal; restored from captive stock after going extinct in the wild." },
+  { href: "/animals/eurasian-lynx", label: "Eurasian Lynx", desc: "Lynx lynx — the largest lynx, a forest cat of parts of Europe and northern Asia." },
+  { href: "/animals/european-badger", label: "European Badger", desc: "Meles meles — a striped-faced mustelid that lives in social setts across parts of Europe." },
+  { href: "/animals/red-deer", label: "Red Deer", desc: "Cervus elaphus — one of the largest deer; stags grow branching antlers and roar during the autumn rut." },
+  { href: "/animals/roe-deer", label: "Roe Deer", desc: "Capreolus capreolus — a small, widespread deer of European woodland edges and farmland." },
+  { href: "/animals/european-hare", label: "European Hare", desc: "Lepus europaeus — the long-eared brown hare of open grassland; larger than a rabbit and a fast runner." },
+  { href: "/animals/european-hedgehog", label: "European Hedgehog", desc: "Erinaceus europaeus — a spiny nocturnal insectivore of gardens and hedgerows; rolls into a ball when threatened." },
+  { href: "/animals/european-otter", label: "European Otter", desc: "Lutra lutra — a semi-aquatic mustelid of rivers and wetlands across parts of Europe and Asia." },
+  { href: "/animals/alpine-ibex", label: "Alpine Ibex", desc: "Capra ibex — a wild goat of the Alps with large ridged horns; famously restored from a single remnant population." },
 ];
 
 export default function MammalsPage() {
