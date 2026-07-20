@@ -83,13 +83,25 @@ test("CV & Resume Builder is iOS-only — no fabricated Android link", () => {
   );
 });
 
-test("Cash Workspace has no fabricated website link", () => {
+test("Cash Workspace has its verified website link and is live", () => {
   const cash = getProductById("cash-workspace");
   assert.ok(cash);
-  assert.equal(cash.platforms.length, 0, "Cash Workspace must expose no platform");
-  assert.ok(
-    !cash.platforms.some((p) => p.type === "website"),
-    "must not have a website platform",
+  assert.equal(cash.status, "live", "Cash Workspace is now a live product");
+
+  const site = cash.platforms.find((p) => p.type === "website");
+  assert.ok(site, "expected a clickable Website platform");
+  assert.equal(
+    site.url,
+    "https://www.cashworkspace.com",
+    "must use the exact verified Cash Workspace URL",
+  );
+  assert.match(site.url, /^https:\/\//, "Cash Workspace URL must be HTTPS");
+
+  // No lingering placeholder/coming-soon state.
+  assert.deepEqual(
+    validateEcosystemRegistry([cash]),
+    [],
+    "Cash Workspace must pass registry validation",
   );
 });
 

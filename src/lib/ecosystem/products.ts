@@ -12,10 +12,9 @@
  *   - no empty urls, no placeholder "#" links
  *   - no invented links (products without a verified url expose no platform)
  *
- * Verified 2026-07-20: all 15 web domains below returned HTTP 200.
- * Cash Workspace has no supplied public URL and therefore exposes no platform
- * (it must never render a clickable link). CV & Resume Builder is iOS-only —
- * no Android link is invented.
+ * Verified 2026-07-20: all 16 web domains below returned HTTP 200 (Cash
+ * Workspace's verified website https://www.cashworkspace.com was confirmed
+ * and added). CV & Resume Builder is iOS-only — no Android link is invented.
  */
 
 export type PlatformType = "website" | "web-app" | "ios" | "android";
@@ -221,15 +220,12 @@ export const ECOSYSTEM_PRODUCTS: readonly EcosystemProduct[] = [
     timelineOrder: 15,
   },
   {
-    // No public website URL was supplied for Cash Workspace. Per the brief we
-    // never invent one — it exposes no platform and therefore cannot render a
-    // clickable link. Shown in the directory with a plain "Link coming soon".
     id: "cash-workspace",
     name: "Cash Workspace",
     description: "A workspace for personal finances and money management.",
     category: "finance",
-    status: "coming-soon",
-    platforms: [],
+    status: "live",
+    platforms: [web("https://www.cashworkspace.com")],
     timelineOrder: 16,
   },
 
