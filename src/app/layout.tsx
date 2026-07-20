@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
+import EcosystemBar from "@/components/ecosystem/EcosystemBar";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import WebmasterIdTracker from "@/components/WebmasterIdTracker";
@@ -73,6 +74,7 @@ export default function RootLayout({
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
+        <EcosystemBar />
         <SiteHeader />
         {children}
         <SiteFooter />

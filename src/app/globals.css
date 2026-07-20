@@ -25,12 +25,31 @@
     --color-tag-bg: #eff4e0;
     --color-tag-border: #cfe0a8;
     --color-tag-text: #063f2a;
+
+    /* HELPERG ecosystem sticky stack.
+       The banner height includes the iOS safe-area inset; the site header
+       offsets itself by exactly this value so the two never overlap. */
+    --ecosystem-bar-height: calc(48px + env(safe-area-inset-top, 0px));
+    /* h-16 (64px) inner + the header's 1px bottom border = 65px rendered. */
+    --site-header-height: 65px;
+    --sticky-stack-height: calc(
+      var(--ecosystem-bar-height) + var(--site-header-height)
+    );
+  }
+
+  /* Header grows from h-16 (64px) to h-[68px] at the `sm` breakpoint; +1px border. */
+  @media (min-width: 640px) {
+    :root {
+      --site-header-height: 69px;
+    }
   }
 
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
+    /* Anchor targets and the skip link clear the full sticky stack. */
+    scroll-padding-top: var(--sticky-stack-height);
   }
 
   body {
@@ -164,8 +183,50 @@
   }
 
   .skip-link {
+    /* z above the ecosystem bar (z-60) so it is visible when focused. */
     @apply sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2
-      focus:z-50 focus:px-4 focus:py-2 focus:bg-[#063F2A] focus:text-white
+      focus:z-[90] focus:px-4 focus:py-2 focus:bg-[#063F2A] focus:text-white
       focus:rounded-lg focus:text-sm focus:font-semibold;
+  }
+}
+
+/* ── HELPERG ecosystem panel motion ──────────────────────────────────────
+   Restrained enter transitions only (no looping/marquee). Every consumer
+   pairs these with Tailwind's `motion-reduce:animate-none`, and the block
+   below is a belt-and-braces guard for reduced-motion users. */
+@keyframes eco-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes eco-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes eco-sheet-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [class*="animate-[eco-"] {
+    animation: none !important;
   }
 }
