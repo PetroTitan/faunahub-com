@@ -7,6 +7,7 @@ import RelatedLinks from "@/components/RelatedLinks";
 import SourcesSection from "@/components/educational/SourcesSection";
 import AnimalHeroImage from "@/components/AnimalHeroImage";
 import AnimalGallery from "@/components/AnimalGallery";
+import AnimalComparisonLinks from "@/components/compare/AnimalComparisonLinks";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
 import { getAnimalGalleryImages, getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
@@ -202,6 +203,10 @@ export default function WildBoarPage() {
                   intro="Authoritative wildlife references used for general educational context. Conservation and management status varies by region and should always be verified against current data. External links open in a new tab."
                 />
               </div>
+              <div className="mt-10">
+                <AnimalComparisonLinks slug="wild-boar" />
+              </div>
+
             </article>
 
             <aside aria-label="Wild boar profile sidebar" className="space-y-6 lg:sticky lg:top-6 self-start">

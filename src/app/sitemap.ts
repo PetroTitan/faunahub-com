@@ -17,6 +17,12 @@ import { REGION_ORDER } from "@/lib/red-list/regions";
 import { CONTINENT_ORDER } from "@/lib/fauna/continents";
 import { OCEAN_ZONE_ORDER } from "@/lib/fauna/ocean";
 import { BEHAVIOR_BASE, BEHAVIOR_GUIDES, BEHAVIOR_METHODS, BEHAVIOR_GROUPS, SPECIES_INDEX } from "@/lib/animal-behavior";
+import {
+  COMPARE_BASE,
+  COMPARISON_CATEGORIES,
+  COMPARISONS,
+  categoryPath,
+} from "@/lib/animal-compare";
 
 const BASE_URL = "https://faunahub.com";
 
@@ -1120,6 +1126,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: p === "/animal-taxonomy" || p === "/domestic-animals" ? 0.7 : 0.6,
   }));
 
+  // Animal Compare Center. Sourced from the published registry only — the
+  // private candidate backlog is never imported here, so a backlog pair cannot
+  // reach the sitemap.
+  const animalCompareRoutes = [
+    {
+      url: `${BASE_URL}${COMPARE_BASE}`,
+      lastModified: today,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+    ...COMPARISON_CATEGORIES.map((category) => ({
+      url: `${BASE_URL}${categoryPath(category.id)}`,
+      lastModified: today,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+    ...COMPARISONS.map((record) => ({
+      url: `${BASE_URL}${COMPARE_BASE}/${record.slug}`,
+      lastModified: record.lastReviewed,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
+
   return [
     ...staticRoutes,
     ...faunaRoutes,
@@ -1127,6 +1157,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...animalRoutes,
     ...breedRoutes,
     ...compareRoutes,
+    ...animalCompareRoutes,
     ...toolRoutes,
     ...foodSafetyRoutes,
     ...decisionRoutes,

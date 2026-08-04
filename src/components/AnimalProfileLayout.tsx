@@ -7,6 +7,7 @@ import SourceNote from "@/components/SourceNote";
 import LastUpdated from "@/components/LastUpdated";
 import RelatedLinks from "@/components/RelatedLinks";
 import SourcesSection from "@/components/educational/SourcesSection";
+import AnimalComparisonLinks from "@/components/compare/AnimalComparisonLinks";
 import AnimalHeroImage from "@/components/AnimalHeroImage";
 import AnimalGallery from "@/components/AnimalGallery";
 import type { SourceLink } from "@/lib/educational/types";
@@ -111,6 +112,10 @@ export default function AnimalProfileLayout({
   modifiedDate,
 }: AnimalProfileLayoutProps) {
   const hasSources = !!sources && sources.length > 0;
+  // Derive the animal slug from the canonical path ("/animals/lion" -> "lion")
+  // so every profile using this layout gains Compare Center links without any
+  // per-file edit. The component renders nothing when there is no comparison.
+  const animalSlug = path.startsWith("/animals/") ? path.slice("/animals/".length) : "";
   const schemas = [
     breadcrumbSchema([
       { name: "Home", url: "https://faunahub.com" },
@@ -208,6 +213,8 @@ export default function AnimalProfileLayout({
                   ))}
                 </p>
               )}
+
+              <AnimalComparisonLinks slug={animalSlug} />
 
               {galleryImages && galleryImages.length > 0 && (
                 <AnimalGallery
