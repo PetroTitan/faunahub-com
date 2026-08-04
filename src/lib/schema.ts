@@ -107,6 +107,72 @@ export function faqSchema(items: { question: string; answer: string }[]) {
   };
 }
 
+/**
+ * Structured data for a two-animal comparison page.
+ *
+ * schema.org has no Comparison type, and inventing one — or reaching for
+ * Product/Review to get a rating widget — would be describing the page as
+ * something it is not. This stays inside Article, which the page already is,
+ * and adds two properties Article genuinely inherits from CreativeWork:
+ *
+ *   `about`       the two animals the page is about, each linked to its real
+ *                 FaunaHub page. Group-level names point at their hub rather
+ *                 than at an invented /animals/ URL.
+ *   `mainEntity`  an ItemList of the key differences — the page's actual
+ *                 subject matter, expressed as the list it visibly is.
+ *
+ * No rating, no winner, no ranking: the page makes no such claim, so neither
+ * does its markup.
+ */
+export function comparisonArticleSchema({
+  title,
+  description,
+  path,
+  datePublished,
+  dateModified,
+  about,
+  keyDifferences,
+}: {
+  title: string;
+  description: string;
+  path: string;
+  datePublished: string;
+  dateModified?: string;
+  about: { name: string; url: string }[];
+  keyDifferences: { name: string; description: string }[];
+}) {
+  const base = articleSchema({
+    title,
+    description,
+    path,
+    datePublished,
+    dateModified,
+  });
+
+  return {
+    ...base,
+    about: about.map((entity) => ({
+      "@type": "Thing",
+      name: entity.name,
+      url: entity.url,
+    })),
+    ...(keyDifferences.length > 0
+      ? {
+          mainEntity: {
+            "@type": "ItemList",
+            name: title,
+            itemListElement: keyDifferences.map((item, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              name: item.name,
+              description: item.description,
+            })),
+          },
+        }
+      : {}),
+  };
+}
+
 export function itemListSchema(
   items: { name: string; url: string; position: number }[]
 ) {
