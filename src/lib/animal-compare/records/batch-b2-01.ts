@@ -285,7 +285,7 @@ export const BATCH_B2_01 = [
       "Both are muroid rodents with continuously growing incisors and heavy reliance on scent.",
       "Both are prey animals that startle easily and find being picked up stressful.",
       "Both dig, nest and cache food when given material to work with.",
-      "Both are kept in homes and used in research, though the order differs: fancy mice were bred as companions long before laboratory strains were derived from them, whereas the Mongolian gerbil reached homes by way of research colonies.",
+      "Both are kept in homes and used in research, though the order differs: fancy mice were bred as companions long before laboratory strains were derived from them, whereas the Syrian hamster reached homes by way of research colonies rather than the other way round.",
     ],
     keyDifferences: [
       "A mouse's tail is long, scaly and near naked; a hamster's is a stub.",
