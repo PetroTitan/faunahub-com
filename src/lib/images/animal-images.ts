@@ -1,5 +1,6 @@
 import type { AnimalImage } from "./types";
 import { COMPARE_BATCH_TWO_IMAGES } from "./compare-batch-two-images.ts";
+import { COMPARE_BATCH_THREE_IMAGES } from "./compare-batch-three-images.ts";
 
 /**
  * Verified animal images.
@@ -18,6 +19,8 @@ import { COMPARE_BATCH_TWO_IMAGES } from "./compare-batch-two-images.ts";
 export const ANIMAL_IMAGES: readonly AnimalImage[] = [
   // Batch two: images for the twelve profiles added to unblock comparisons.
   ...COMPARE_BATCH_TWO_IMAGES,
+  // Batch three: images for the five profiles that unlock batch-three comparisons.
+  ...COMPARE_BATCH_THREE_IMAGES,
   {
     id: "tiger-wikimedia-001",
     animalSlug: "tiger",

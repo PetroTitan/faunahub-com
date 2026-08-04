@@ -242,11 +242,14 @@ export default function MousePage() {
                 movement and low light rather than to fine detail or rich colour.
               </p>
               <p>
-                The physical adaptations follow from small size. A flexible skeleton and
-                slight build allow passage through gaps that look far too small for the
-                animal; strong claws and a long tail used for balance support climbing and
-                jumping; and ever-growing incisors, worn down by constant gnawing, let a mouse
-                open seeds, nuts and much tougher material. Being small also means losing
+                The physical adaptations follow from small size. A slight build allows
+                passage through gaps that look far too small for the animal &mdash; the
+                limiting dimension is the width of the skull rather than any ability to
+                collapse the skeleton, which mice, like other rodents, cannot do; strong
+                claws and a long tail used for balance support climbing and jumping; and
+                ever-growing incisors carry hard enamel on the front face with softer
+                dentine behind, so constant gnawing wears the two unevenly and maintains a
+                chisel edge that opens seeds, nuts and much tougher material. Being small also means losing
                 heat quickly, which is one reason mice build insulated nests, huddle, and in
                 cold regions favour sheltered sites &mdash; including human buildings. Wood
                 mice have a further escape mechanism: the skin of the tail tip can be shed if
@@ -342,11 +345,9 @@ export default function MousePage() {
               </p>
               <p>
                 Two comparisons are worth stating plainly.{" "}
-                <strong>Mouse versus rat:</strong> mice are much smaller and lighter, with a
-                finer, more pointed muzzle, ears that appear large relative to the head, and
-                slender feet, whereas rats are bulkier and longer-bodied with blunter faces,
-                proportionally smaller ears and thicker tails &mdash; the common
-                misidentification is a half-grown rat mistaken for a mouse.{" "}
+                <strong>Mouse versus rat:</strong> the two sit in separate genera,{" "}
+                <em>Mus</em> and <em>Rattus</em>, and are told apart by proportion rather
+                than by size &mdash; the rat profile covers that comparison in full.{" "}
                 <strong>Mouse versus vole:</strong> voles are close relatives with a blunt,
                 rounded face, small eyes, small ears often half buried in fur, and a tail
                 clearly shorter than the head and body, while mice have pointed muzzles,
@@ -402,7 +403,7 @@ export default function MousePage() {
         {
           question: "What is the difference between a mouse and a rat?",
           answer:
-            "Both are rodents, and the distinction is one of size and proportion rather than a strict taxonomic rule. Mice such as the house mouse are much smaller and lighter, with a fine, pointed muzzle, ears that look large for the head, and slender feet. Rats are heavier and longer-bodied, with a blunter muzzle, proportionally smaller ears and thicker tails. A young rat can be mouse-sized, which is where most misidentifications happen.",
+            "In the strict sense the two belong to different genera, Mus and Rattus, within the same subfamily. FaunaHub sets out the full identification treatment — proportion, head shape, hind feet and the juvenile-rat trap — on the rat profile at /animals/rat.",
         },
         {
           question: "How do you tell a mouse from a vole?",
@@ -468,6 +469,11 @@ export default function MousePage() {
         },
       ]}
       relatedLinks={[
+        {
+          label: "Rat Profile",
+          href: "/animals/rat",
+          description: "The genus Rattus, and the full rat-versus-mouse identification treatment",
+        },
         {
           label: "Mammal Encyclopedia",
           href: "/animal-encyclopedia/mammals",

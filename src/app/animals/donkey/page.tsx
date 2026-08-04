@@ -208,6 +208,11 @@ export default function DonkeyPage() {
       ]}
       relatedLinks={[
         {
+          label: "Mule Profile",
+          href: "/animals/mule",
+          description: "The donkey-horse hybrid this page's own FAQ discusses",
+        },
+        {
           label: "Horse Profile",
           href: "/animals/horse",
           description: "The other domestic equid, and the closest familiar comparison for a donkey",
