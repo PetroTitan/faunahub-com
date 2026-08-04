@@ -90,7 +90,7 @@ export const BATCH_B2_03 = [
     ],
     narrative: {
       taxonomy:
-        "Both belong to Equus, the only surviving genus of the horse family, Equidae. The donkey descends from the African wild ass and is usually written Equus asinus, though some authorities treat domestic forms as a subspecies of the wild ancestor. Zebra is not a formal rank at all: it is a common name for the plains zebra, the mountain zebra and Grevy's zebra, which are separate species and, on current evidence, do not form a tidy exclusive group within the genus.",
+        "Both belong to Equus, the only surviving genus of the horse family, Equidae. The donkey descends from the African wild ass and is usually written Equus asinus, though some authorities treat domestic forms as a subspecies of the wild ancestor. Zebra is not a formal rank at all: it is a common name for the plains zebra, the mountain zebra and Grevy's zebra, which are separate species. Whether the three form an exclusive group within Equus has been debated, and published phylogenies have not settled it consistently, so the name is best treated as a description of striped equids rather than a guaranteed clade.",
       identification:
         "Striping ends the question wherever the animal can be seen clearly. A zebra is patterned over the body, legs and often the face, while a donkey carries a plain ground colour with at most a dorsal line and a cross over the withers. Where light is poor, ear outline helps: donkey ears are proportionally very long and mobile, and zebra ears are shorter and more rounded, though Grevy's zebra is a notable exception with conspicuously large rounded ears.",
       habitat:
@@ -140,7 +140,7 @@ export const BATCH_B2_03 = [
       },
     ],
     commonConfusions: [
-      "Treating zebra as a single species when three living species are recognised.",
+      "Calling a zebra a wild donkey, when the donkey's own wild ancestor is the African wild ass, a separate animal whose remaining wild populations are precarious.",
       "Reading a donkey's dorsal cross or faint leg barring as evidence of zebra ancestry.",
       "Assuming that because zebra hybrids exist, zebras and donkeys are one interbreeding species.",
       "Believing zebras were domesticated somewhere in Africa because individual animals have been trained.",
@@ -1032,7 +1032,7 @@ export const BATCH_B2_03 = [
     ],
     similarities: [
       "Both are bovids, both are true ruminants, and both chew cud on a four-chambered stomach.",
-      "Neither has upper front incisors; both bite forage against a hard dental pad.",
+      "Both are milked across much of the world, though cream rises readily from cattle milk while the goat's smaller fat globules stay suspended, which is one reason butter traditions grew up around cattle and cheese traditions around goats in many regions.",
       "Both were domesticated early in south-west Asia and spread worldwide with agriculture.",
       "Both are herd animals with recognisable social structure that fare poorly kept alone.",
     ],

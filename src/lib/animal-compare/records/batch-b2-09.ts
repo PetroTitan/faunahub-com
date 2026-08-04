@@ -129,7 +129,7 @@ export const BATCH_B2_09 = [
     commonConfusions: [
       "Calling a koala a bear, when it is a marsupial with no relationship to bears at all.",
       "Assuming wombats are rodents because of the build and the gnawing incisors.",
-      "Treating wombat as a single species when three living species are recognised.",
+      "Reading the two as distant relatives because one lives in the canopy and the other underground, when no living marsupial is closer to either.",
       "Believing koalas sleep so much because eucalyptus intoxicates them.",
     ],
     similarities: [

@@ -1057,7 +1057,7 @@ export const BATCH_B2_06 = [
     similarities: [
       "Both are pinnipeds that can rotate their hind flippers forward and move on all fours ashore.",
       "Both haul out in large breeding aggregations and both show marked size differences between the sexes.",
-      "Both share deep-diving physiology, including high blood volume and a slowed heart rate on submersion.",
+      "Males of both advertise with sound through the breeding season, the sea lion barking almost continuously in air while the walrus delivers bell-like calls underwater.",
       "Both were hunted commercially for oil, hide or ivory and are covered by marine mammal law in several countries.",
     ],
     keyDifferences: [

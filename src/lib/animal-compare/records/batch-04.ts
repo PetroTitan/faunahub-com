@@ -896,10 +896,10 @@ export const BATCH_04 = [
       "Mistaking the roe deer's alarm bark for a dog.",
     ],
     similarities: [
-      "Both are deer in the family Cervidae with annually shed antlers in males.",
+      "Both cast and regrow a full set of antlers every year, but a red deer stag rebuilds a long branched rack while a roe buck rebuilds only a short set of about three points, and the two run on opposite schedules — the stag through spring and summer, the buck through the winter.",
       "Both are ruminants that browse and both are widespread across Europe.",
       "Both are managed as game and culled where numbers affect forestry or road safety.",
-      "Both are involved in significant numbers of vehicle collisions.",
+      "Both are struck by vehicles on European roads, though roe deer account for a large share of reported deer collisions in many countries because they are far more numerous and live tight against roadside cover.",
     ],
     keyDifferences: [
       "Red deer are roughly half again as tall at the shoulder as roe deer.",
@@ -1018,15 +1018,15 @@ export const BATCH_04 = [
       },
     ],
     commonConfusions: [
-      "Assuming elk means the same animal in Europe and North America.",
+      "Reading any very dark deer as a moose, when a red deer in winter has swapped its summer red for a much greyer, duller coat.",
       "Expecting moose to be found in herds, when they are largely solitary.",
       "Relying on antlers outside the season males carry them.",
     ],
     similarities: [
-      "Both are large ruminant deer in the family Cervidae with annually shed antlers in males.",
+      "Both regrow the whole antler set from bare pedicles over spring and summer, but a bull moose is building broad flat palms while a red deer stag is building a tined beam that in mature animals often ends in a crown of points.",
       "Both occur across northern Europe and both are managed as game species.",
-      "Both have an autumn rut in which males compete for mating opportunities.",
-      "Both are involved in significant numbers of vehicle collisions.",
+      "Both rut in autumn, though the advertising sound is nothing alike: a bull moose gives low grunts and moaning calls that carry only a moderate distance, while a red deer stag roars repeatedly from a rutting stand and can be heard across a valley.",
+      "Both turn up in road-collision records where their ranges meet in the European north, but a moose stands tall enough to put its body at windscreen height, which is why fencing and warning signs there are aimed at moose in particular.",
     ],
     keyDifferences: [
       "The moose is far larger, with a shoulder hump and hanging throat dewlap.",
@@ -1160,7 +1160,7 @@ export const BATCH_04 = [
     keyDifferences: [
       "A whale is an air-breathing mammal; a shark is a fish breathing through gills.",
       "Whale flukes are horizontal and beat up and down, while shark tails are vertical.",
-      "Whales have bone skeletons with finger bones in the flippers; sharks have cartilage.",
+      "Whales are built on bone and reach a bulk no living cartilaginous fish comes near, since even the whale shark, the largest fish alive, is far lighter than the biggest baleen whales.",
       "Baleen whales filter with keratin plates, whereas filter-feeding sharks use gill structures.",
       "Whales nurse young on milk, while shark reproduction varies from eggs to live birth.",
     ],

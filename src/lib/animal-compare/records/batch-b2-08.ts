@@ -34,7 +34,7 @@ export const BATCH_B2_08 = [
         id: "lineage",
         label: "Genus and nearest relatives",
         animalAValue: "Genus Lynx — the Eurasian lynx, Canada lynx, Iberian lynx and the bobcat",
-        animalBValue: "Genus Caracal, whose closest living relatives are the serval and African golden cat",
+        animalBValue: "Genus Caracal, shared with the African golden cat, within the wider lineage that also holds the serval",
         interpretation:
           "The shared ear tufts arose in two separate branches of the cat family, so they are convergent decoration rather than evidence of kinship.",
       },
@@ -173,16 +173,16 @@ export const BATCH_B2_08 = [
     title: "Caracal vs Serval",
     metaTitle: "Caracal vs Serval — Ears, Spots, Legs & Habitat",
     metaDescription:
-      "Servals are tall, long-legged and boldly spotted with huge round ears. Caracals are compact and plain tawny with long black ear tufts. Two African cats compared.",
+      "Servals are tall, long-legged and boldly spotted with huge round ears. Caracals are compact and plain tawny with long black ear tufts. Two tufted-ear cats compared.",
     shortAnswer:
       "Ears and legs settle it. A serval is the leggiest cat in the world for its size, with enormous rounded ears, a tawny coat covered in bold black spots and bars, and a short black-ringed tail. A caracal is more compact and heavily built, plain reddish-tan with no spotting, and carries narrow pointed ears with black backs and long black tufts. Servals hunt rodents in damp grassland, while caracals work drier scrub and take more birds.",
     primaryCategory: "look-alikes",
     secondaryCategories: ["mammals"],
     relationship: "commonly-confused",
-    confidence: "strong",
+    confidence: "supported",
     searchIntent: "identification",
     whyCompare:
-      "These are each other's closest living relatives, they overlap widely in Africa at similar weights, and their names are swapped constantly in safari captions and exotic-pet listings despite two cues that separate them instantly.",
+      "They sit in the same lineage of the cat family, overlap widely in Africa at similar weights, and their names are swapped constantly in safari captions and exotic-pet listings despite two cues that separate them instantly.",
     centralDifference:
       "A serval is a tall, long-legged spotted cat with huge round untufted ears; a caracal is a stockier plain tawny cat with narrow black-backed ears carrying long tufts.",
     dimensions: [
@@ -232,14 +232,14 @@ export const BATCH_B2_08 = [
       {
         id: "genus",
         label: "Genus",
-        animalAValue: "Caracal caracal, the only living member of its genus",
-        animalBValue: "Leptailurus serval, likewise the only living member of its genus",
+        animalAValue: "Caracal caracal, sharing the genus Caracal with the African golden cat",
+        animalBValue: "Leptailurus serval, the only living member of its genus",
         interpretation: "They are close relatives in the same lineage of the cat family, not two forms of one variable cat.",
       },
     ],
     narrative: {
       taxonomy:
-        "Both belong to the caracal lineage of the cat family, a group that also contains the African golden cat. The serval is placed in Leptailurus and the caracal in Caracal, each the only living member of its genus. That makes them relatives on neighbouring branches rather than variants of a single species. It also means the serval, not any lynx, is the caracal's nearest living relative, which is why the old name desert lynx is doubly misleading.",
+        "Both belong to the caracal lineage of the cat family, which also contains the African golden cat. The serval sits alone in Leptailurus, while the caracal shares the genus Caracal with the African golden cat — so the caracal's nearest living relative is that golden cat rather than the serval. The two are neighbouring branches of one lineage rather than variants of a single species, and neither is a lynx, which is why the old name desert lynx misleads.",
       identification:
         "Two features do almost all the work. Spots first: an adult serval is boldly marked with black spots and shoulder bars, while an adult caracal is essentially plain. Then ears: the serval's are huge, rounded and untufted with a pale bar across the black back, and the caracal's are narrow, pointed and topped with long black tufts. Proportions confirm the call, since a serval reads as a small head on a very tall frame and a caracal reads as compact and muscular.",
       habitat:
@@ -263,7 +263,7 @@ export const BATCH_B2_08 = [
       {
         question: "Is a serval the same animal as a caracal?",
         answer:
-          "No, although they are each other's closest living relatives within the cat family. The serval is Leptailurus serval and the caracal is Caracal caracal, each alone in its genus. Coat settles it in a photograph, since servals are boldly spotted and caracals are plain. Ear shape settles it in silhouette, since servals have huge rounded untufted ears while caracals have narrow pointed ears topped with long black tufts.",
+          "No. They sit in the same lineage of the cat family but in different genera: the serval is Leptailurus serval, alone in its genus, while the caracal is Caracal caracal and shares its genus with the African golden cat, which is the caracal's closest living relative rather than the serval. Coat settles it in a photograph, since servals are boldly spotted and caracals are plain. Ear shape settles it in silhouette, since servals have huge rounded untufted ears while caracals have narrow pointed ears topped with long black tufts.",
       },
       {
         question: "Which is bigger, a serval or a caracal?",
@@ -310,7 +310,9 @@ export const BATCH_B2_08 = [
       "Servals, caracals and serval hybrids are all traded. Legality varies by jurisdiction and by hybrid generation, and suitability depends on household, law, welfare capacity and lifelong responsibility. Care decisions belong with a qualified veterinarian, and nothing here recommends acquiring any of them.",
     conservationCaveat:
       "The serval and the caracal are assessed separately and regional populations differ considerably. Consult the current IUCN Red List entry for each species rather than treating a single status as fixed.",
-    relatedComparisonSlugs: ["lynx-vs-caracal", "lynx-vs-bobcat", "clouded-leopard-vs-leopard", "jaguar-vs-cougar"],
+        taxonomyCaveat:
+      "Neither cat is a lynx despite the old name desert lynx, and the two are not each other's closest relatives: the caracal shares its genus with the African golden cat, while the serval sits alone in Leptailurus. Placements within the caracal lineage have been revised as molecular data accumulated and may be revised again.",
+relatedComparisonSlugs: ["lynx-vs-caracal", "lynx-vs-bobcat", "clouded-leopard-vs-leopard", "jaguar-vs-cougar"],
     relatedHubPaths: ["/animal-encyclopedia/mammals", "/wildlife", "/animal-taxonomy/vertebrates"],
     sourceIds: ["adw", "britannica", "iucn"],
     lastReviewed: REVIEWED,
@@ -1027,7 +1029,7 @@ export const BATCH_B2_08 = [
       humanRelationship:
         "Both genera are conspicuously commensal, and the resulting conflict shapes their reputations. Baboons raid crops and bins across Africa and are widely killed as pests. Macaques share temples, towns and tourist sites across Asia and North Africa, where feeding creates dependence, aggression around food, and disease risk in both directions. Rhesus and crab-eating macaques are also the most commonly used primates in biomedical research, and baboons have featured in physiological studies.",
       whichIsWhich:
-        "Long dog-like muzzle, heavy build, long kinked tail, African savanna or rocky slope: baboon. Shorter flatter face, smaller body, a tail anything from long to absent, and a location anywhere from Gibraltar to Japan: macaque. If the photograph was taken in Asia it is not a baboon, and a very large monkey in African grassland is very unlikely to be a macaque.",
+        "Long dog-like muzzle, heavy build, long kinked tail, African savanna or rocky slope: baboon. Shorter flatter face, smaller body, a tail anything from long to absent, and a location anywhere from Gibraltar to Japan: macaque. Asia is a strong but not absolute signal, because hamadryas baboons reach the south-western Arabian Peninsula; a very large monkey in African grassland, meanwhile, is very unlikely to be a macaque.",
       petContext:
         "Macaques are widely kept and traded as pets in parts of Asia and beyond, and baboons appear in private collections. Both are strong, long-lived, socially complex primates whose adult behaviour is not compatible with a household, and many jurisdictions restrict or prohibit primate keeping. Some macaques can carry viruses transmissible to people, a further reason such decisions belong with public health and wildlife authorities and a qualified veterinarian.",
     },

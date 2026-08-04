@@ -453,7 +453,7 @@ export const BATCH_B2_04 = [
     ],
     similarities: [
       "Both are domesticated members of Carnivora with long working histories alongside people.",
-      "Both retain object play well into adulthood.",
+      "Both play with objects as adults, but a dog's game typically has a person at the other end of it, while a ferret more often drags the object off to a private cache.",
       "Both tend towards crepuscular activity that household routine reshapes.",
       "Both rely heavily on scent for social information and for marking.",
     ],

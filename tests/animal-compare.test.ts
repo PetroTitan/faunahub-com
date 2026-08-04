@@ -250,6 +250,45 @@ test("no two comparisons are near-duplicates", () => {
   );
 });
 
+test("no prose fragment is reused verbatim across comparisons", () => {
+  // The registry's own similarity gate covers shortAnswer and centralDifference.
+  // Adversarial review found reuse in the fields it did NOT cover — similarity
+  // bullets, key differences, common confusions and FAQ answers — which is what
+  // makes two pages feel templated even when their headline prose differs.
+  //
+  // Short factual dimension VALUES ("Absent", "Round", "Sub-Saharan Africa") are
+  // deliberately NOT checked: two pages can legitimately report the same fact,
+  // and forcing artificial variation there would make the data less accurate
+  // rather than the page less thin.
+  const seen = new Map<string, string>();
+  const collisions: string[] = [];
+  const norm = (text: string) => text.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+
+  for (const record of COMPARISONS) {
+    const fragments: [string, string][] = [
+      ...record.similarities.map((t) => ["similarity", t] as [string, string]),
+      ...record.keyDifferences.map((t) => ["keyDifference", t] as [string, string]),
+      ...record.commonConfusions.map((t) => ["commonConfusion", t] as [string, string]),
+      ...record.faqs.map((f) => ["faq.answer", f.answer] as [string, string]),
+      ...record.dimensions.map((d) => ["interpretation", d.interpretation] as [string, string]),
+    ];
+    if (record.petBoundary) fragments.push(["petBoundary", record.petBoundary]);
+    if (record.safetyBoundary) fragments.push(["safetyBoundary", record.safetyBoundary]);
+
+    for (const [field, text] of fragments) {
+      const key = `${field}||${norm(text)}`;
+      const previous = seen.get(key);
+      if (previous && previous !== record.slug) {
+        collisions.push(`${field}: ${previous} and ${record.slug} share "${text.slice(0, 60)}..."`);
+      } else {
+        seen.set(key, record.slug);
+      }
+    }
+  }
+
+  assert.deepEqual(collisions, [], "verbatim prose reused across comparison pages");
+});
+
 test("FAQ questions are not recycled across comparisons", () => {
   const counts = new Map<string, number>();
   for (const record of COMPARISONS) {

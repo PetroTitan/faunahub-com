@@ -119,7 +119,7 @@ export const BATCH_05 = [
       "Both are birds of prey with hooked bills and taloned feet used to seize live prey.",
       "Both take small mammals, birds and reptiles and are valuable rodent predators.",
       "Both suffered mid-twentieth-century pesticide declines and remain at risk from rodenticides.",
-      "Both are territorial and many species form long-term pair bonds.",
+      "Both defend a hunting territory, but an owl advertises the claim by voice through the dark while many hawks do it visually, in conspicuous soaring display over the ground they hold.",
     ],
     keyDifferences: [
       "Owls hunt mainly at night, while hawks hunt by day.",
@@ -373,7 +373,7 @@ export const BATCH_05 = [
     ],
     similarities: [
       "Both are corvids with large brains relative to body size and sophisticated behaviour.",
-      "Both are adaptable omnivores that cache food and remember where they put it.",
+      "The black in both is glossed rather than flat — blue-green iridescence across a magpie's wing and tail, a subtler purple-green sheen over a crow — so both change appearance with the angle of the light.",
       "Both thrive around human settlement and both mob predators.",
       "Both have been persecuted as pests and both feature heavily in folklore.",
     ],
@@ -757,7 +757,7 @@ export const BATCH_05 = [
       "Treating an intimidating display as an attack, when it is territorial warning behaviour.",
     ],
     similarities: [
-      "Both are large waterfowl in the family Anatidae with webbed feet and waterproof plumage.",
+      "Neither dives for its food: both reach it by extending a long neck, the goose down to the sward and the swan down to the bed of water too deep for other waterfowl.",
       "Both form long-term pair bonds and both parents care for the young.",
       "Both are strongly territorial during nesting and defend young assertively.",
       "Both are affected by lead from fishing tackle, power line collisions and wetland loss.",

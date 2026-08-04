@@ -505,7 +505,7 @@ export const BATCH_03 = [
       "Both are brush-footed butterflies in the family Nymphalidae.",
       "Both undertake long-distance multi-generational migrations.",
       "Both feed as adults on nectar from a wide range of flowers.",
-      "Both are affected by pesticide use and loss of flower-rich habitat.",
+      "Both time their breeding movements to host-plant availability, the monarch following milkweed as it emerges northward and the painted lady exploiting flushes of thistles and other hosts after rain.",
     ],
     keyDifferences: [
       "Monarch caterpillars eat only milkweed; painted lady caterpillars use many host plants.",
@@ -1017,7 +1017,7 @@ export const BATCH_03 = [
     ],
     similarities: [
       "Both are decapodiform cephalopods with eight arms and two feeding tentacles.",
-      "Both change colour and skin texture rapidly using chromatophores under nervous control.",
+      "Both retain an internal remnant of the ancestral cephalopod shell, thinned to a flexible pen in squid and modified into a chambered buoyancy device in cuttlefish.",
       "Both are active predators that strike with extensible tentacles and have a hard beak.",
       "Both are short-lived, typically maturing and dying within one to two years.",
     ],

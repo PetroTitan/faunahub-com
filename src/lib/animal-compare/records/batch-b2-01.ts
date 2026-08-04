@@ -65,7 +65,7 @@ export const BATCH_B2_01 = [
       {
         id: "water-economy",
         label: "Water physiology",
-        animalAValue: "A steppe and farmland rodent that drinks readily and produces ordinary urine volumes",
+        animalAValue: "A steppe and farmland rodent that concentrates urine to a degree, but drinks more readily than a gerbil",
         animalBValue: "Arid-adapted, concentrating urine so strongly that very little water is lost",
         interpretation:
           "The gerbil's desert kidney explains why its bedding stays drier, which reflects physiology rather than any lower standard of care.",
@@ -87,7 +87,7 @@ export const BATCH_B2_01 = [
     ],
     narrative: {
       taxonomy:
-        "Both sit in the superfamily Muroidea but in different families. Hamsters are cricetids, in the subfamily Cricetinae, roughly two dozen species including the golden or Syrian hamster, Mesocricetus auratus, and the dwarf species of the genus Phodopus. Gerbils belong to Muridae, the family of mice and rats, in the subfamily Gerbillinae, which holds around a hundred species across Africa and Asia. The one kept in homes is almost always the Mongolian gerbil, Meriones unguiculatus, so a gerbil is a closer relative of a house mouse than of any hamster.",
+        "Both sit in the superfamily Muroidea but in different families. Hamsters are cricetids, in the subfamily Cricetinae, roughly eighteen to nineteen species including the golden or Syrian hamster, Mesocricetus auratus, and the dwarf species of the genus Phodopus. Gerbils belong to Muridae, the family of mice and rats, in the subfamily Gerbillinae, which holds around a hundred species across Africa and Asia. The one kept in homes is almost always the Mongolian gerbil, Meriones unguiculatus, so a gerbil is a closer relative of a house mouse than of any hamster.",
       identification:
         "Start with the tail. A gerbil carries a fully furred tail about as long as its body, finished with a small darker tuft, while a hamster's tail is a stub that is easy to overlook entirely. Body shape confirms it: gerbils are lightly built with long hind legs and often sit upright on them, whereas hamsters are broad and low with a rounded rump and small ears. Cheeks bulging along the sides of the head belong only to the hamster.",
       habitat:
@@ -150,13 +150,13 @@ export const BATCH_B2_01 = [
       "Hamsters are cricetids, while gerbils sit in Muridae with mice and rats.",
       "Only the hamster has cheek pouches for carrying food.",
       "Most kept hamsters live alone, whereas gerbils live in family groups.",
-      "Gerbils concentrate urine as a desert adaptation; hamsters do not.",
+      "Gerbils carry water economy further than hamsters, producing very concentrated urine and small dry faecal pellets; arid-steppe hamsters conserve water too, but less extremely.",
       "Gerbils are active in daylight bouts, while hamsters are strongly nocturnal.",
     ],
     petBoundary:
-      "Neither animal is a starter pet, and the two must never share an enclosure. This page gives no housing dimensions, feeding quantities, handling protocols or health guidance, and it does not recommend acquiring either animal — those decisions rest with the household, local law and a veterinarian experienced in small mammals.",
+      "Suitability belongs to the household rather than to the species, and the two must never share an enclosure. This page gives no housing dimensions, feeding quantities, handling protocols or health guidance, and it does not recommend acquiring either animal — those decisions rest with the household, local law and a veterinarian experienced in small mammals.",
     taxonomyCaveat:
-      "Hamster covers roughly two dozen species and gerbil around a hundred; this page compares the species usually kept, namely the Syrian and dwarf hamsters and the Mongolian gerbil.",
+      "Hamster covers roughly eighteen to nineteen species and gerbil around a hundred; this page compares the species usually kept, namely the Syrian and dwarf hamsters and the Mongolian gerbil.",
     relatedComparisonSlugs: ["hamster-vs-mouse", "gerbil-vs-mouse", "gerbil-vs-guinea-pig", "rabbit-vs-hamster"],
     relatedHubPaths: ["/small-pets", "/small-pets/hamsters", "/animal-encyclopedia/mammals"],
     sourceIds: ["adw", "britannica", "smithsonian"],
@@ -217,7 +217,7 @@ export const BATCH_B2_01 = [
         animalAValue: "Territorial in most kept species, treating an encounter as a confrontation",
         animalBValue: "Group-living around a dominant male, related females and communal nests",
         interpretation: "Sociality differs by species and by sex, so it cannot be generalised from one rodent to another.",
-        caveat: "Male pet mice frequently fight, so group living is not automatic even within the species.",
+        caveat: "Male pet mice are frequently aggressive toward one another, so group living is not automatic even within the species.",
       },
       {
         id: "range",
@@ -229,7 +229,7 @@ export const BATCH_B2_01 = [
     ],
     narrative: {
       taxonomy:
-        "Both are muroid rodents but in different families. The hamster is a cricetid, sharing that family with voles and lemmings; the house mouse, Mus musculus, is a murid, in the subfamily Murinae alongside rats. Hamster covers roughly two dozen species, of which the golden hamster and the dwarf Phodopus species reach homes. Mouse is a far looser word, applied to dozens of unrelated small rodents worldwide, so this page treats the house mouse, the animal behind both the pet and the laboratory mouse.",
+        "Both are muroid rodents but in different families. The hamster is a cricetid, sharing that family with voles and lemmings; the house mouse, Mus musculus, is a murid, in the subfamily Murinae alongside rats. Hamster covers roughly eighteen to nineteen species, of which the golden hamster and the dwarf Phodopus species reach homes. Mouse is a far looser word, applied to dozens of unrelated small rodents worldwide, so this page treats the house mouse, the animal behind both the pet and the laboratory mouse.",
       identification:
         "Weight and outline give it away before any detail does. A hamster looks heavy for its length, sits low to the ground and has small ears set on a rounded head. A house mouse looks light and angular, with a pointed muzzle, large thin ears and prominent whiskers, and it moves in quick darting runs. The tail settles any remaining doubt: nearly naked, faintly scaly and about the length of head and body in the mouse, a stub in the hamster.",
       habitat:
@@ -247,7 +247,7 @@ export const BATCH_B2_01 = [
       lifespan:
         "Both are short-lived. Hamsters under care commonly reach two to three years and pet mice roughly one and a half to three, so the gap between them is small next to the difference between either and a rabbit. Wild figures are much lower again, since a house mouse in a field or building rarely survives a full year with predation, weather and competition working against it. All of these are ranges rather than expectations.",
       petContext:
-        "Both are kept, and both are routinely underestimated at the point of purchase. Most hamsters must be housed alone, while mice are social, though male mice frequently fight, so arrangements depend on sex and history. Both want substrate deep enough to burrow, both find handling stressful as prey animals, and mice have a stronger odour from scent marking. Specific housing, diet and health decisions belong with a veterinarian familiar with small rodents.",
+        "Both are kept, and both are routinely underestimated at the point of purchase. Most hamsters must be housed alone, while mice are social, though males are frequently aggressive toward one another, so arrangements depend on sex and history. Both want substrate deep enough to burrow, both find handling stressful as prey animals, and mice have a stronger odour from scent marking. Specific housing, diet and health decisions belong with a veterinarian familiar with small rodents.",
     },
     faqs: [
       {
@@ -268,7 +268,7 @@ export const BATCH_B2_01 = [
       {
         question: "Are pet mice social when hamsters are not?",
         answer:
-          "Broadly yes, though the picture is more complicated than that. House mice naturally live in groups built around a dominant male and related females, and pet mice are commonly kept with company. Male mice, however, frequently fight, so grouping depends on sex and history. Most hamsters, and Syrians in particular, are territorial and are housed alone. Species-specific arrangements should follow veterinary and welfare guidance.",
+          "Broadly yes, though the picture is more complicated than that. House mice naturally live in groups built around a dominant male and related females, and pet mice are commonly kept with company. Males, however, are frequently aggressive toward one another, so grouping depends on sex and history. Most hamsters, and Syrians in particular, are territorial and are housed alone. Species-specific arrangements should follow veterinary and welfare guidance.",
       },
       {
         question: "Which lives longer, a pet hamster or a pet mouse?",
@@ -285,7 +285,7 @@ export const BATCH_B2_01 = [
       "Both are muroid rodents with continuously growing incisors and heavy reliance on scent.",
       "Both are prey animals that startle easily and find being picked up stressful.",
       "Both dig, nest and cache food when given material to work with.",
-      "Both have long histories in laboratories that fed directly into the pet trade.",
+      "Both are kept in homes and used in research, though the order differs: fancy mice were bred as companions long before laboratory strains were derived from them, whereas the Mongolian gerbil reached homes by way of research colonies.",
     ],
     keyDifferences: [
       "A mouse's tail is long, scaly and near naked; a hamster's is a stub.",
@@ -297,7 +297,7 @@ export const BATCH_B2_01 = [
     safetyBoundary:
       "Wild rodents in buildings are a public health and property matter, and wild mice can carry pathogens transmissible to people. This page covers biology only and gives no trapping, exclusion, poisoning or removal methods; contact a licensed pest-management professional or the local public health authority, and a doctor about any health concern.",
     petBoundary:
-      "Neither species is a low-effort animal, and they must not be housed together. This page gives no cage dimensions, feeding quantities or health guidance and does not recommend acquiring either — suitability depends on the household, on welfare capacity and on access to a veterinarian who treats small rodents.",
+      "Neither species suits every household, and they must not be housed together. This page gives no cage dimensions, feeding quantities or health guidance and does not recommend acquiring either — suitability depends on the household, on welfare capacity and on access to a veterinarian who treats small rodents.",
     taxonomyCaveat:
       "Mouse is applied to many unrelated small rodents worldwide; here it means the house mouse, Mus musculus, which is the pet and laboratory animal as well as the commensal one.",
     relatedComparisonSlugs: ["hamster-vs-gerbil", "gerbil-vs-mouse", "mouse-vs-guinea-pig", "guinea-pig-vs-hamster"],
@@ -351,7 +351,7 @@ export const BATCH_B2_01 = [
         id: "water-economy",
         label: "Water and scent",
         animalAValue: "Concentrates urine strongly, losing very little water and marking with a belly gland",
-        animalBValue: "No comparable water economy; marks extensively with urine trails",
+        animalBValue: "Also able to live on dry seed with little free water, though less extreme than a gerbil; marks extensively with urine trails",
         interpretation: "The difference in odour that keepers notice traces to physiology rather than to hygiene.",
       },
       {
@@ -396,7 +396,7 @@ export const BATCH_B2_01 = [
       lifespan:
         "Both are short-lived, with captive figures commonly quoted at roughly two to four years for gerbils and one and a half to three for house mice. Wild numbers are far lower in both cases, and particularly for mice, where surviving a full year already counts as a good run. Genetics, sex, environment and health all shift these ranges, so they describe typical patterns and never a prediction for one animal.",
       petContext:
-        "Gerbils are widely kept, and pet or fancy mice are the same species as the animal in the wall. Both are social, though male mice frequently fight, and both want substrate deep enough to dig. Gerbils are prohibited in a few jurisdictions. This page neither ranks the two nor encourages acquiring either; the decision depends on the household, on local law and on access to a veterinarian who treats small rodents.",
+        "Gerbils are widely kept, and pet or fancy mice are the same species as the animal in the wall. Both are social, though male mice are frequently aggressive toward one another, and both want substrate deep enough to dig. Gerbils are prohibited in a few jurisdictions. This page neither ranks the two nor encourages acquiring either; the decision depends on the household, on local law and on access to a veterinarian who treats small rodents.",
     },
     faqs: [
       {
@@ -434,7 +434,7 @@ export const BATCH_B2_01 = [
       "Both are murids with continuously growing incisors and strong reliance on scent.",
       "Both are social burrowers that nest communally and cache seed.",
       "Both are prey animals that startle quickly and rely on cover.",
-      "Both entered homes by way of laboratory populations rather than direct wild collection.",
+      "Neither reached the pet trade by direct wild collection, but the routes differ: gerbils came out of mid-twentieth-century research colonies, while fancy mice were already long-established companions before laboratory strains were drawn from them.",
     ],
     keyDifferences: [
       "The gerbil's tail is fully furred with a tuft; the mouse's is scaly and nearly bare.",
@@ -491,7 +491,7 @@ export const BATCH_B2_01 = [
         id: "native-environment",
         label: "Native environment",
         animalAValue: "Grassland, dune and scrub, with extensive dug warrens",
-        animalBValue: "Arid rocky Andean slopes at high altitude, sheltering in crevices among boulders",
+        animalBValue: "Arid rocky Andean slopes, sheltering in crevices among boulders; surviving long-tailed populations are recorded at moderate rather than extreme elevations",
         interpretation: "One environment rewards digging, the other rewards insulation and agility on rock.",
       },
       {
@@ -512,7 +512,7 @@ export const BATCH_B2_01 = [
       {
         id: "size",
         label: "Adult size",
-        animalAValue: "Roughly 1 to 5 kg depending on breed, with some considerably larger",
+        animalAValue: "Roughly 1 to 5 kg across common breeds, with recognised dwarf breeds below that and giant breeds well above it",
         animalBValue: "Roughly 400 to 800 g, with females typically the heavier sex",
         interpretation: "Most rabbit breeds substantially outweigh a chinchilla despite similar-looking enclosures.",
       },
@@ -631,7 +631,7 @@ export const BATCH_B2_01 = [
         label: "Native range and altitude",
         animalAValue: "Cold, dry rocky slopes high in the Andes",
         animalBValue: "Lower South American grassland, scrub and rocky ground, from wild cavy ancestors",
-        interpretation: "Altitude and humidity are the axis along which almost all their other differences run.",
+        interpretation: "Aridity and cold shaped the chinchilla coat; they do not by themselves explain the vitamin C or lifespan differences below.",
       },
       {
         id: "coat",
@@ -679,11 +679,11 @@ export const BATCH_B2_01 = [
     ],
     narrative: {
       taxonomy:
-        "These two are close by rodent standards. Both are caviomorphs, the South American branch of the rodents that also includes capybaras, agoutis and viscachas, and both show the heavy head, short limbs and stout body typical of that group. Guinea pigs are caviids, descended from a wild cavy and known domestically as Cavia porcellus. Chinchillas form their own family, with two recognised wild species. The resemblance readers notice between them is inherited rather than coincidental.",
+        "These two are close by rodent standards. Both are caviomorphs, the South American branch of the rodents that also includes capybaras, agoutis and viscachas, and both show the heavy head, short limbs and stout body typical of that group. Guinea pigs are caviids, descended from a wild cavy and known domestically as Cavia porcellus. Chinchillas belong to Chinchillidae, a family they share with the viscachas, and the genus Chinchilla holds two recognised wild species. The resemblance readers notice between them is inherited rather than coincidental.",
       identification:
         "Size and texture are the practical cues. A chinchilla has a bushy tail, large rounded ears, big dark eyes and a coat of extraordinary density that springs back when disturbed. A guinea pig shows no visible tail, smaller ears and a blunt face, with a coat of ordinary thickness that varies enormously by breed, from short and smooth to long or rosetted. The chinchilla is lighter and longer in the leg; the guinea pig heavier and lower.",
       habitat:
-        "The chinchilla is a mountain animal of dry rocky Andean slopes at high altitude, where nights are cold and humidity is very low, sheltering in crevices among boulders. Wild cavies live at lower elevations across South American grassland, scrub and rocky ground, using existing cover and the burrows of other animals rather than excavating extensively. Altitude, temperature and humidity are the axis on which the biology of the two diverges.",
+        "The chinchilla is a mountain animal of dry rocky Andean slopes, where nights are cold and humidity is very low, sheltering in crevices among boulders. Elevation varies by species, and the surviving long-tailed populations behind domestic chinchillas are documented at moderate rather than extreme altitudes. Wild cavies live at lower elevations across South American grassland, scrub and rocky ground, using existing cover and the burrows of other animals rather than excavating extensively. Aridity, temperature and shelter type are the axes on which the biology of the two diverges.",
       diet:
         "Both are strict herbivores that ferment fibre in a large caecum and re-ingest caecotrophs, and both have teeth that grow throughout life to cope with abrasive plant material. The decisive difference is vitamin C. Guinea pigs have lost the ability to synthesise it and must take it in through food, a limitation shared with primates and a few other mammals, while chinchillas make their own. That single fact shapes guinea pig nutrition entirely.",
       behavior:
@@ -705,7 +705,7 @@ export const BATCH_B2_01 = [
       {
         question: "Are chinchillas and guinea pigs actually related?",
         answer:
-          "Yes, genuinely. Both are caviomorph rodents, the South American branch of the order that also contains capybaras, agoutis and viscachas, so their similar stocky build and short limbs reflect shared ancestry rather than coincidence. They sit in different families within that group, with guinea pigs among the caviids and chinchillas in their own family, but by pet-shop standards they are unusually close relatives.",
+          "Yes, genuinely. Both are caviomorph rodents, the South American branch of the order that also contains capybaras, agoutis and viscachas, so their similar stocky build and short limbs reflect shared ancestry rather than coincidence. They sit in different families within that group, with guinea pigs among the caviids and chinchillas among the chinchillids alongside the viscachas, but by pet-shop standards they are unusually close relatives.",
       },
       {
         question: "Do chinchillas need dietary vitamin C the way guinea pigs do?",
@@ -737,10 +737,10 @@ export const BATCH_B2_01 = [
       "Both are South American caviomorph rodents with a shared stocky body plan.",
       "Both are strict herbivores that ferment fibre and re-ingest caecotrophs.",
       "Both have teeth that grow throughout life and need abrasive plant material.",
-      "Both are colonial and vocal in the wild, and both do poorly kept in isolation.",
+      "Both are highly vocal and strongly social, and both do poorly kept in isolation — colonial living is documented in wild chinchillas and in the wild cavies the guinea pig descends from, rather than in the domestic guinea pig itself, which has no wild population.",
     ],
     keyDifferences: [
-      "Chinchillas evolved at high Andean altitude; wild cavies live much lower.",
+      "Chinchillas are animals of dry, cold, rocky Andean slopes, while wild cavies occupy warmer, moister grassland and scrub — aridity and temperature separate them more reliably than altitude alone.",
       "Only the chinchilla has a coat dense enough to require dust bathing.",
       "Guinea pigs cannot synthesise vitamin C, while chinchillas can.",
       "Chinchillas leap between surfaces, whereas guinea pigs stay on the ground.",
@@ -825,7 +825,7 @@ export const BATCH_B2_01 = [
     ],
     narrative: {
       taxonomy:
-        "Both are rodents, but from opposite ends of the order. Chinchillas are caviomorphs, the South American group that also holds guinea pigs and capybaras, with two recognised wild species. Hamsters are cricetids of Eurasia, roughly two dozen species, of which the golden hamster and the dwarf Phodopus species are the ones kept in homes. The distance between them inside Rodentia is considerable, and very little about the ecology of one transfers to the other.",
+        "Both are rodents, but from opposite ends of the order. Chinchillas are caviomorphs, the South American group that also holds guinea pigs and capybaras, with two recognised wild species. Hamsters are cricetids of Eurasia, roughly eighteen to nineteen species, of which the golden hamster and the dwarf Phodopus species are the ones kept in homes. The distance between them inside Rodentia is considerable, and very little about the ecology of one transfers to the other.",
       identification:
         "No one confuses them once both are seen. A chinchilla stands taller on longer hind legs, carries a bushy tail and has a coat so dense that a finger pressed into it disappears. A hamster is palm-sized, low-slung and stub-tailed, with cheek pouches that distend visibly when loaded. Even the movement differs: a chinchilla leaps upward between surfaces, while a hamster scurries and digs, climbing badly and falling clumsily.",
       habitat:
@@ -895,7 +895,7 @@ export const BATCH_B2_01 = [
     petBoundary:
       "Neither animal is recommended here and neither is ranked above the other. Both have requirements commonly underestimated at purchase, the chinchilla especially in years and room conditions, and all housing, diet and health decisions belong with a veterinarian experienced in small and exotic companion mammals.",
     taxonomyCaveat:
-      "Hamster covers roughly two dozen species, of which only a few are kept, and chinchilla covers two wild species plus their farmed and pet descendants.",
+      "Hamster covers roughly eighteen to nineteen species, of which only a few are kept, and chinchilla covers two wild species plus their farmed and pet descendants.",
     conservationCaveat:
       "Both wild chinchilla species and the wild golden hamster occupy restricted ranges; consult the current IUCN Red List entry rather than treating any status mentioned here as settled.",
     relatedComparisonSlugs: ["chinchilla-vs-guinea-pig", "rabbit-vs-chinchilla", "hamster-vs-gerbil"],
@@ -1024,7 +1024,7 @@ export const BATCH_B2_01 = [
       },
     ],
     commonConfusions: [
-      "Assuming a ferret is a rodent because it is sold beside small rodents and rabbits.",
+      "Reading the rabbit's constant intake of forage as a preference and the ferret's meat-only diet as a habit, when each is set by the animal's digestive anatomy.",
       "Believing a rabbit is a rodent, when it belongs to the separate order Lagomorpha.",
       "Treating the two as compatible companions because both are common household animals.",
     ],

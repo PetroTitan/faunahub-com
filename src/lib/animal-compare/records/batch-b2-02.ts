@@ -138,7 +138,7 @@ export const BATCH_B2_02 = [
     similarities: [
       "Both are small domesticated mammals sold through the same pet-trade channels.",
       "Both cache items away from where they were found, though for different reasons.",
-      "Both need considerably more space and enrichment than standard commercial enclosures provide.",
+      "Both show seasonal change in the body — the ferret shifting coat and weight between winter and summer, and some hamster species altering coat colour or entering periods of torpor.",
       "Both rely far more on smell and hearing than on distance vision.",
     ],
     keyDifferences: [
@@ -439,7 +439,7 @@ export const BATCH_B2_02 = [
     similarities: [
       "Both are rodents whose incisors grow continuously and must wear through use.",
       "Both do poorly kept entirely alone and need appropriate company of their own kind.",
-      "Both are prey animals that find sudden handling stressful.",
+      "Both are polyphasic rather than strictly nocturnal, taking rest and activity in short bouts around the clock, though the guinea pig does more of its waking in daylight and early evening.",
       "Both reached the wider pet trade as domesticated lines with bred colour varieties.",
     ],
     keyDifferences: [
@@ -1032,7 +1032,7 @@ export const BATCH_B2_02 = [
     ],
     similarities: [
       "Both are galliforms in Phasianidae with the same scratch-and-peck feeding plan.",
-      "Both hatch precocial young that walk and feed themselves within a day.",
+      "Chicks and poults alike take a large share of insects in their first weeks, so a ranging brood of either stays on invertebrate-rich ground rather than short bare turf.",
       "Both carry bare fleshy head ornaments used in display, larger in males.",
       "Both seek an elevated position to spend the night where one is available.",
     ],
