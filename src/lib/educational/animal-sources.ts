@@ -157,6 +157,89 @@ function brit(slug: string, label: string): SourceLink {
 // Verified species-level sources for priority animals.
 // These URLs were each fetched and confirmed during source review.
 export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
+
+  // ── Compare Center batch two: profiles added to unblock comparisons. ──
+  // Every entry below has at least one machine-verified (HTTP 200) species or
+  // family-level source. Britannica, IUCN and Cornell URLs are bot-blocked
+  // (HTTP 403) to automated checks but remain institutionally valid; they are
+  // used here in the same generic form already used across the site.
+  "sea-lion": [
+    adw("Zalophus_californianus", "Zalophus californianus (California sea lion)"),
+    adw("Otariidae", "Otariidae (eared seals — sea lions and fur seals)"),
+    {
+      label: "NOAA Fisheries — California Sea Lion",
+      url: "https://www.fisheries.noaa.gov/species/california-sea-lion",
+      type: "government",
+      note: "U.S. federal marine science agency species page",
+    },
+    SRC_IUCN,
+  ],
+  alpaca: [
+    adw("Lama_pacos", "Lama pacos (alpaca) — ADW files this species under its former name"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  porpoise: [
+    adw("Phocoena_phocoena", "Phocoena phocoena (harbour porpoise)"),
+    adw("Phocoenidae", "Phocoenidae (porpoises)"),
+    {
+      label: "NOAA Fisheries — Harbor Porpoise",
+      url: "https://www.fisheries.noaa.gov/species/harbor-porpoise",
+      type: "government",
+      note: "U.S. federal marine science agency species page",
+    },
+    SRC_IUCN,
+  ],
+  puffin: [
+    adw("Fratercula_arctica", "Fratercula arctica (Atlantic puffin)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "brown-bear": [
+    adw("Ursus_arctos", "Ursus arctos (brown bear)"),
+    {
+      label: "U.S. National Park Service — Brown Bears",
+      url: "https://www.nps.gov/subjects/bears/brown-bears.htm",
+      type: "government",
+      note: "U.S. federal land-management agency reference",
+    },
+    SRC_IUCN,
+  ],
+  donkey: [
+    adw("Equus_asinus", "Equus asinus (domestic donkey)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  chinchilla: [
+    adw("Chinchilla_lanigera", "Chinchilla lanigera (long-tailed chinchilla)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  ferret: [
+    adw("Mustela_putorius", "Mustela putorius (European polecat, ancestor of the ferret)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  gerbil: [
+    adw("Meriones_unguiculatus", "Meriones unguiculatus (Mongolian gerbil)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  mouse: [
+    adw("Mus_musculus", "Mus musculus (house mouse)"),
+    adw("Apodemus_sylvaticus", "Apodemus sylvaticus (wood mouse)"),
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  chicken: [
+    adw("Gallus_gallus", "Gallus gallus (red junglefowl, ancestor of the chicken)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  dromedary: [
+    adw("Camelus_dromedarius", "Camelus dromedarius (dromedary)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
   tiger: [
     adw("Panthera_tigris", "Panthera tigris (tiger)"),
     brit("tiger", "Tiger (Panthera tigris)"),

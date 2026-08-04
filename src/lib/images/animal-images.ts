@@ -1,4 +1,5 @@
 import type { AnimalImage } from "./types";
+import { COMPARE_BATCH_TWO_IMAGES } from "./compare-batch-two-images.ts";
 
 /**
  * Verified animal images.
@@ -15,6 +16,8 @@ import type { AnimalImage } from "./types";
  * under every license used below.
  */
 export const ANIMAL_IMAGES: readonly AnimalImage[] = [
+  // Batch two: images for the twelve profiles added to unblock comparisons.
+  ...COMPARE_BATCH_TWO_IMAGES,
   {
     id: "tiger-wikimedia-001",
     animalSlug: "tiger",
