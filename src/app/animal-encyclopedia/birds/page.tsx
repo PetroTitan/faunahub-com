@@ -11,6 +11,8 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const birds = [
+  { href: "/animals/puffin", label: "Puffin", desc: "Fratercula — North Atlantic and Pacific auks, not penguins." },
+  { href: "/animals/chicken", label: "Chicken", desc: "Gallus gallus domesticus — descended from the red junglefowl." },
   {
     href: "/animals/eagle",
     label: "Eagle",

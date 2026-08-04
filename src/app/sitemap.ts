@@ -30,6 +30,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const today = new Date().toISOString().split("T")[0];
 
   const animalSlugs = [
+    // Compare Center batch two: profiles added to unblock comparisons.
+    "alpaca",
+    "brown-bear",
+    "chicken",
+    "chinchilla",
+    "donkey",
+    "dromedary",
+    "ferret",
+    "gerbil",
+    "mouse",
+    "porpoise",
+    "puffin",
+    "sea-lion",
     "lion",
     "tiger",
     "leopard",

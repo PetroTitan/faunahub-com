@@ -84,6 +84,42 @@ export interface AnimalProfileLayoutProps {
   modifiedDate: string;
 }
 
+
+/**
+ * Italicise only the taxon name, never the rank word.
+ *
+ * Zoological convention italicises genus-rank names and below, and leaves
+ * higher ranks — and the words "family", "genus", "order", "subfamily" — in
+ * roman type. Many group-level profiles carry values like "family Otariidae" or
+ * "Mus musculus and relatives", so italicising the whole string set the rank
+ * word in italics too. Splitting here fixes every profile at once rather than
+ * asking each page to pre-format its own markup.
+ */
+const RANK_PREFIX = /^(super|sub|infra)?(family|order|class|phylum|genus|tribe)\s+/i;
+
+function renderScientificName(value: string): ReactNode {
+  const trailing = value.match(/^(.*?)(\s+and relatives)$/i);
+  const core = trailing ? trailing[1] : value;
+  const suffix = trailing ? trailing[2] : "";
+
+  const rank = core.match(RANK_PREFIX);
+  if (rank) {
+    return (
+      <>
+        {rank[0]}
+        <span className="italic">{core.slice(rank[0].length)}</span>
+        {suffix}
+      </>
+    );
+  }
+  return (
+    <>
+      <span className="italic">{core}</span>
+      {suffix}
+    </>
+  );
+}
+
 export default function AnimalProfileLayout({
   commonName,
   scientificName,
@@ -155,8 +191,8 @@ export default function AnimalProfileLayout({
                 {scientificName && (
                   <>
                     {" "}
-                    <span className="italic font-normal text-[#5E6B63]">
-                      ({scientificName})
+                    <span className="font-normal text-[#5E6B63]">
+                      ({renderScientificName(scientificName)})
                     </span>
                   </>
                 )}
