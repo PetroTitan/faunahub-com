@@ -37,7 +37,11 @@ import {
   validateComparisonRegistry,
 } from "../src/lib/animal-compare/index.ts";
 import { COMPARE_ANIMALS } from "../src/lib/animal-compare/animals.ts";
-import { COMPARISON_BACKLOG, backlogPairKeys } from "../src/lib/animal-compare/backlog.ts";
+import {
+  COMPARISON_BACKLOG,
+  statusDistribution,
+  unpublishedPairKeys,
+} from "../src/lib/animal-compare/backlog.ts";
 
 const REPO_ROOT = path.resolve(import.meta.dirname, "..");
 const APP_DIR = path.join(REPO_ROOT, "src", "app");
@@ -246,6 +250,45 @@ test("no two comparisons are near-duplicates", () => {
   );
 });
 
+test("no prose fragment is reused verbatim across comparisons", () => {
+  // The registry's own similarity gate covers shortAnswer and centralDifference.
+  // Adversarial review found reuse in the fields it did NOT cover — similarity
+  // bullets, key differences, common confusions and FAQ answers — which is what
+  // makes two pages feel templated even when their headline prose differs.
+  //
+  // Short factual dimension VALUES ("Absent", "Round", "Sub-Saharan Africa") are
+  // deliberately NOT checked: two pages can legitimately report the same fact,
+  // and forcing artificial variation there would make the data less accurate
+  // rather than the page less thin.
+  const seen = new Map<string, string>();
+  const collisions: string[] = [];
+  const norm = (text: string) => text.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+
+  for (const record of COMPARISONS) {
+    const fragments: [string, string][] = [
+      ...record.similarities.map((t) => ["similarity", t] as [string, string]),
+      ...record.keyDifferences.map((t) => ["keyDifference", t] as [string, string]),
+      ...record.commonConfusions.map((t) => ["commonConfusion", t] as [string, string]),
+      ...record.faqs.map((f) => ["faq.answer", f.answer] as [string, string]),
+      ...record.dimensions.map((d) => ["interpretation", d.interpretation] as [string, string]),
+    ];
+    if (record.petBoundary) fragments.push(["petBoundary", record.petBoundary]);
+    if (record.safetyBoundary) fragments.push(["safetyBoundary", record.safetyBoundary]);
+
+    for (const [field, text] of fragments) {
+      const key = `${field}||${norm(text)}`;
+      const previous = seen.get(key);
+      if (previous && previous !== record.slug) {
+        collisions.push(`${field}: ${previous} and ${record.slug} share "${text.slice(0, 60)}..."`);
+      } else {
+        seen.set(key, record.slug);
+      }
+    }
+  }
+
+  assert.deepEqual(collisions, [], "verbatim prose reused across comparison pages");
+});
+
 test("FAQ questions are not recycled across comparisons", () => {
   const counts = new Map<string, number>();
   for (const record of COMPARISONS) {
@@ -387,18 +430,48 @@ test("no dimension renders an empty value or 'Unknown' filler", () => {
  * Backlog isolation
  * ------------------------------------------------------------------ */
 
-test("no backlog pair is also published", () => {
+test("only backlog rows marked published correspond to a live comparison", () => {
+  // Promotion means a backlog row and a public page CAN share a pair key — but
+  // only when that row says status: "published". Any other status sharing a key
+  // with a live page would mean the backlog is lying about what is public.
   const published = new Set(COMPARISONS.map((r) => r.canonicalPairKey));
-  for (const key of backlogPairKeys()) {
-    assert.equal(published.has(key), false, `backlog pair "${key}" is also published`);
+  for (const candidate of COMPARISON_BACKLOG) {
+    const live = published.has(candidate.canonicalPairKey);
+    if (candidate.status === "published") {
+      assert.ok(live, `${candidate.id} claims published but has no live comparison`);
+      assert.ok(candidate.publishedSlug, `${candidate.id} is published with no publishedSlug`);
+      assert.ok(
+        comparisonBySlug(candidate.publishedSlug!),
+        `${candidate.id} publishedSlug does not resolve`,
+      );
+      assert.ok(candidate.publishedAt, `${candidate.id} is published with no publishedAt`);
+    } else {
+      assert.equal(live, false, `${candidate.id} is ${candidate.status} but is publicly live`);
+      assert.equal(
+        candidate.publishedSlug,
+        undefined,
+        `${candidate.id} is not published but carries a publishedSlug`,
+      );
+    }
+  }
+});
+
+test("no unpublished backlog pair is publicly routable", () => {
+  const paths = new Set(allComparePaths());
+  for (const key of unpublishedPairKeys()) {
+    const [a, b] = key.split("--");
+    for (const guess of [`${COMPARE_BASE}/${a}-vs-${b}`, `${COMPARE_BASE}/${b}-vs-${a}`]) {
+      assert.equal(paths.has(guess), false, `unpublished backlog route leaked: ${guess}`);
+    }
   }
 });
 
 test("backlog generates no routes and is not in the public path list", () => {
   const paths = new Set(allComparePaths());
   for (const candidate of COMPARISON_BACKLOG) {
-    const guessA = `${COMPARE_BASE}/${candidate.animalA}-vs-${candidate.animalB}`;
-    const guessB = `${COMPARE_BASE}/${candidate.animalB}-vs-${candidate.animalA}`;
+    if (candidate.status === "published") continue; // published rows ARE public by design
+    const guessA = `${COMPARE_BASE}/${candidate.animalASlug}-vs-${candidate.animalBSlug}`;
+    const guessB = `${COMPARE_BASE}/${candidate.animalBSlug}-vs-${candidate.animalASlug}`;
     assert.equal(paths.has(guessA), false, `backlog route leaked: ${guessA}`);
     assert.equal(paths.has(guessB), false, `backlog route leaked: ${guessB}`);
   }
@@ -423,15 +496,43 @@ test("route generation and the sitemap never import the backlog", () => {
   }
 });
 
-test("every backlog entry records a reason", () => {
+test("every backlog entry is well formed and records a reason", () => {
+  const ids = new Set<string>();
+  const keys = new Set<string>();
   for (const candidate of COMPARISON_BACKLOG) {
-    assert.ok(candidate.note.trim().length > 10, `${candidate.canonicalPairKey} has no reason`);
+    assert.ok(candidate.note.trim().length > 10, `${candidate.id} has no reason`);
     assert.equal(
       candidate.canonicalPairKey,
-      buildPairKey(candidate.animalA, candidate.animalB),
-      "backlog pair key is not canonical",
+      buildPairKey(candidate.animalASlug, candidate.animalBSlug),
+      `${candidate.id}: pair key is not canonical`,
     );
+    assert.equal(ids.has(candidate.id), false, `duplicate backlog id ${candidate.id}`);
+    ids.add(candidate.id);
+    assert.equal(keys.has(candidate.canonicalPairKey), false, `duplicate backlog pair ${candidate.canonicalPairKey}`);
+    keys.add(candidate.canonicalPairKey);
+    assert.notEqual(candidate.animalASlug, candidate.animalBSlug, `${candidate.id}: same animal twice`);
+    if (candidate.status === "blocked-missing-profile") {
+      assert.ok(candidate.blockerReason, `${candidate.id} is blocked with no blockerReason`);
+    }
+    if (candidate.status === "rejected") {
+      assert.ok(candidate.rejectionReason, `${candidate.id} is rejected with no rejectionReason`);
+    }
   }
+});
+
+test("backlog status distribution is reportable and every status is valid", () => {
+  const VALID = new Set([
+    "candidate", "needs-sources", "blocked-missing-profile",
+    "ready-for-review", "approved", "published", "rejected",
+  ]);
+  const dist = statusDistribution();
+  for (const status of Object.keys(dist)) {
+    assert.ok(VALID.has(status), `unknown backlog status "${status}"`);
+  }
+  assert.equal(
+    Object.values(dist).reduce((a, b) => a + b, 0),
+    COMPARISON_BACKLOG.length,
+  );
 });
 
 /* ------------------------------------------------------------------ *

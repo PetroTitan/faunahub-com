@@ -1576,7 +1576,7 @@ export const BATCH_01 = [
       {
         question: "Are rabbits rodents?",
         answer:
-          "No. Rabbits and hares belong to the order Lagomorpha, which is separate from Rodentia, and one clear anatomical marker is a second pair of small peg teeth sitting directly behind the upper incisors — rodents have a single pair. The two orders are related and were once classified together, but they have been recognised as distinct for a long time on both anatomical and molecular grounds.",
+          "No, and neither are hares — the question applies equally to both animals on this page, which is part of why they get lumped together. Common names make it worse rather than better: a jackrabbit is a hare, while the domestic breed called the Belgian hare is a rabbit, so the word in an animal's name is no guide to what it actually is. The reliable marker is in the mouth, where both carry a small second pair of upper incisors tucked behind the front ones that no rodent has.",
       },
     ],
     commonConfusions: [

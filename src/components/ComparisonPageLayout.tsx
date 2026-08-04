@@ -110,7 +110,11 @@ export default function ComparisonPageLayout({
           </nav>
 
           <div className="grid lg:grid-cols-[1fr_280px] gap-10">
-            <article>
+            {/* min-w-0: a grid item defaults to min-width:auto, so the wide
+                comparison table inside forced this column past the viewport and
+                produced page-wide horizontal scrolling on narrow screens.
+                AnimalProfileLayout already carries the same fix. */}
+            <article className="min-w-0">
               <span className="tag mb-4 inline-block">Animal Comparison</span>
               <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-6">
                 {title}
@@ -216,7 +220,7 @@ export default function ComparisonPageLayout({
 
             <aside
               aria-label="Comparison sidebar"
-              className="space-y-5 lg:pt-14"
+              className="space-y-5 lg:pt-14 min-w-0"
             >
               <RelatedLinks title="Related Pages" links={relatedLinks} />
               {hasSources ? (

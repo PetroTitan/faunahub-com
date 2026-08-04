@@ -126,7 +126,7 @@ export const BATCH_02 = [
     keyDifferences: [
       "Alligators occur in North America and China; caimans only in Central and South America.",
       "Several caiman species have a bony ridge between the eyes that alligators lack.",
-      "Caimans carry extensive bony osteoderms in the belly skin.",
+      "The alligator branch has only two living species, while caimans are a radiation of several species spread across more than one genus.",
       "American alligators typically grow larger than most caiman species, the black caiman excepted.",
       "Alligators tolerate cooler climates than any caiman.",
     ],
@@ -643,7 +643,7 @@ export const BATCH_02 = [
     similarities: [
       "Both are squamate reptiles with elongated limbless bodies and scaled skin.",
       "Both move by lateral undulation and both include burrowing specialists.",
-      "Both are ectothermic and regulate temperature behaviourally.",
+      "Both retain vestiges of the limbs their ancestors lost — scaly hind-limb flaps in some legless lizards, and pelvic spurs in boas, pythons and other basal snake lineages.",
       "Both are beneficial predators of invertebrates and are protected in many jurisdictions.",
     ],
     keyDifferences: [
@@ -1031,7 +1031,7 @@ export const BATCH_02 = [
       "Treating anaconda as a single species, when the name covers several.",
     ],
     similarities: [
-      "Both are large non-venomous constrictors that ambush prey and kill by coiling.",
+      "Both are capable swimmers, though to different ends — the anaconda ambushes from the water it lives in, while the reticulated python's swimming is credited with helping it reach islands across South-East Asia.",
       "Both can go long periods between meals after consuming large prey.",
       "Both are hunted for skins and both appear in the international pet trade.",
       "Both attract persistent exaggeration in reported sizes and encounter accounts.",

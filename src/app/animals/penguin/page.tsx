@@ -120,9 +120,11 @@ export default function PenguinPage() {
       ]}
       similarAnimals={
         <p>
-          Penguins are not closely related to the flightless birds of the Northern Hemisphere
-          (auks, puffins, murres), although they fill broadly similar ecological roles
-          through convergent evolution. Within birds they share the broader seabird
+          Penguins are not closely related to the wing-propelled diving seabirds of the
+          Northern Hemisphere — the auks, including <a href="/animals/puffin">puffins</a> and
+          murres — although they fill broadly similar ecological roles through convergent
+          evolution. Those auks still fly; only the extinct great auk had lost flight, which
+          is the one genuinely penguin-like case in the group. Within birds they share the broader seabird
           ecological grouping with families such as petrels, albatrosses and shearwaters.
         </p>
       }

@@ -647,7 +647,7 @@ export const BATCH_06 = [
       "Believing Przewalski's horse is the direct ancestor of domestic horses.",
     ],
     similarities: [
-      "Both are equids in the genus Equus, close enough to produce hybrids.",
+      "The two are alike enough in build that horses fitted with striped coats have stood in for zebras in experiments testing whether striping deters biting flies.",
       "Both are grazers and hindgut fermenters processing large volumes of fibrous grass.",
       "Both live in social groups with foals following mares closely from birth.",
       "Both are highly alert prey animals with excellent hearing and wide field of vision.",

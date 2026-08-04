@@ -65,6 +65,15 @@ export const DOMESTIC_ANIMALS: readonly AnimalClassification[] = [
   // Working / other domestic
   { slug: "horse", status: "domestic", role: "working", note: "Kept for riding, work, and sport; also companion in many homes." },
   { slug: "camel", status: "domestic", role: "working", note: "Domesticated dromedary and Bactrian camels; the wild Bactrian camel is a separate species." },
+  // Compare Center batch two.
+  { slug: "dromedary", status: "domestic", role: "working", note: "No wild dromedaries survive; the species persists as domestic animals plus a large feral population in Australia." },
+  { slug: "donkey", status: "domestic", role: "working", note: "Descended from the African wild ass, which is itself critically endangered." },
+  { slug: "alpaca", status: "domestic", role: "livestock", note: "Kept for fibre rather than as a pack animal, unlike the llama." },
+  { slug: "chicken", status: "domestic", role: "livestock", note: "Descended chiefly from the red junglefowl; the most numerous bird on Earth." },
+  { slug: "ferret", status: "domestic", role: "companion", ...SMALL_PETS, petFoodRelevant: true, note: "A domesticated form of the European polecat, distinct from the wild black-footed ferret." },
+  { slug: "chinchilla", status: "domestic", role: "companion", ...SMALL_PETS, petFoodRelevant: true, note: "Domestic chinchillas are abundant while wild Andean chinchillas are endangered." },
+  { slug: "gerbil", status: "domestic", role: "companion", ...SMALL_PETS, petFoodRelevant: true, note: "The Mongolian gerbil is the species usually kept; most other gerbils are wild." },
+  { slug: "mouse", status: "domestic", role: "companion", ...SMALL_PETS, petFoodRelevant: true, note: "Domestic fancy mice are kept, but most mice are wild or commensal animals, not pets." },
 ];
 
 const BY_SLUG = new Map(DOMESTIC_ANIMALS.map((a) => [a.slug, a]));

@@ -7,6 +7,7 @@ import RelatedLinks from "@/components/RelatedLinks";
 import SourcesSection from "@/components/educational/SourcesSection";
 import AnimalHeroImage from "@/components/AnimalHeroImage";
 import AnimalGallery from "@/components/AnimalGallery";
+import AnimalComparisonLinks from "@/components/compare/AnimalComparisonLinks";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
 import { getAnimalGalleryImages, getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
@@ -230,6 +231,10 @@ export default function RhinocerosPage() {
                   intro="Authoritative wildlife references used for general educational context. Conservation status varies by species and should always be verified against current IUCN Red List data. External links open in a new tab."
                 />
               </div>
+              <div className="mt-10">
+                <AnimalComparisonLinks slug="rhinoceros" />
+              </div>
+
             </article>
 
             <aside aria-label="Rhinoceros profile sidebar" className="space-y-6 lg:sticky lg:top-6 self-start">

@@ -13,6 +13,14 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const mammals = [
+  { href: "/animals/brown-bear", label: "Brown Bear", desc: "Ursus arctos — one species spanning grizzly and Kodiak populations." },
+  { href: "/animals/alpaca", label: "Alpaca", desc: "Vicugna pacos — domesticated South American camelid kept for fibre." },
+  { href: "/animals/dromedary", label: "Dromedary", desc: "Camelus dromedarius — the one-humped camel of arid Africa and Asia." },
+  { href: "/animals/donkey", label: "Donkey", desc: "Equus asinus — domesticated from the African wild ass." },
+  { href: "/animals/ferret", label: "Ferret", desc: "Mustela putorius furo — the domesticated European polecat." },
+  { href: "/animals/chinchilla", label: "Chinchilla", desc: "Andean rodents with exceptionally dense fur." },
+  { href: "/animals/gerbil", label: "Gerbil", desc: "Gerbillinae — arid-adapted rodents with furred, tufted tails." },
+  { href: "/animals/mouse", label: "Mouse", desc: "Small murid rodents; the house mouse as reference species." },
   { href: "/animals/lion", label: "Lion", desc: "Panthera leo — apex predator of African savannas." },
   { href: "/animals/tiger", label: "Tiger", desc: "Panthera tigris — largest living cat species." },
   { href: "/animals/leopard", label: "Leopard", desc: "Panthera pardus — most widely distributed big cat." },

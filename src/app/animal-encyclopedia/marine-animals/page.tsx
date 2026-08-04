@@ -11,6 +11,8 @@ export const metadata: Metadata = buildMetadata({
 });
 
 const links = [
+  { href: "/animals/sea-lion", label: "Sea Lion", desc: "Otariidae — eared seals that walk on rotated hind flippers." },
+  { href: "/animals/porpoise", label: "Porpoise", desc: "Phocoenidae — blunt-headed toothed whales, distinct from dolphins." },
   {
     href: "/animals/dolphin",
     label: "Dolphin",

@@ -15,6 +15,18 @@
  */
 export const HUB_LABELS: Record<string, string> = {
   "/animal-domestication": "Animal domestication",
+  "/animal-encyclopedia/fish": "Fish encyclopedia",
+  "/animal-encyclopedia/insects": "Insect encyclopedia",
+  "/animal-encyclopedia/marine-animals": "Marine animal encyclopedia",
+  "/animal-food-and-diet": "Animal food & diet",
+  "/animal-lifespans": "Animal lifespans",
+  "/animal-research-sources": "Animal research sources",
+  "/animal-taxonomy/invertebrates": "Invertebrate taxonomy",
+  "/animal-taxonomy/marine-animal-groups": "Marine animal groups",
+  "/animal-taxonomy/vertebrates": "Vertebrate taxonomy",
+  "/pet-nutrition": "Pet nutrition",
+  "/pet-safety": "Pet safety",
+  "/vet-care": "Veterinary care",
   "/animal-encyclopedia": "Animal encyclopedia",
   "/animal-encyclopedia/birds": "Bird encyclopedia",
   "/animal-encyclopedia/mammals": "Mammal encyclopedia",
