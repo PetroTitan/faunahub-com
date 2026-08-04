@@ -46,9 +46,26 @@ export default function ComparisonTaxonomy({
         </span>
       </p>
 
+      {/*
+        Only animals that actually have a scientific name get a box.
+
+        An earlier version filled the gap with "Group-level name — no single
+        scientific name applies", which reads as a statement about the taxon but
+        was really a statement about missing data. That is true for a name like
+        "shark", and false for the dog and cat cluster hubs, whose binomials
+        (Canis familiaris, Felis catus) are perfectly well defined — the
+        generator simply cannot see them, because it reads /animals/<slug> pages
+        and those two are cluster hubs. Six comparison pages asserted it.
+
+        Absence is now rendered as absence. The taxonomy paragraph below already
+        explains the relationship in every case, so nothing is lost by declining
+        to caption a box we have no data for.
+      */}
       {names.some((n) => n.scientific) && (
         <dl className="mb-4 grid gap-3 sm:grid-cols-2">
-          {names.map((n) => (
+          {names
+            .filter((n) => n.scientific)
+            .map((n) => (
             <div
               key={n.name}
               className="rounded-xl border border-[#DDE6DD] bg-white px-4 py-3"
@@ -58,13 +75,7 @@ export default function ComparisonTaxonomy({
                 {n.name}
               </dt>
               <dd className="m-0 text-sm text-[#17211B]">
-                {n.scientific ? (
-                  <ScientificName value={n.scientific} />
-                ) : (
-                  <span className="text-[#5E6B63]">
-                    Group-level name — no single scientific name applies
-                  </span>
-                )}
+                <ScientificName value={n.scientific!} />
               </dd>
             </div>
           ))}
