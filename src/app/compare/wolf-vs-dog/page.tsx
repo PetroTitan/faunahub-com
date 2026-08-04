@@ -82,7 +82,7 @@ export default function WolfVsDogPage() {
           </nav>
 
           <div className="grid lg:grid-cols-[1fr_280px] gap-10">
-            <article>
+            <article className="min-w-0">
               <span className="tag mb-4 inline-block">Animal Comparison</span>
               <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-6">
                 Wolf vs Dog
@@ -168,7 +168,7 @@ export default function WolfVsDogPage() {
               </div>
             </article>
 
-            <aside aria-label="Comparison sidebar" className="space-y-5 lg:pt-14">
+            <aside aria-label="Comparison sidebar" className="space-y-5 lg:pt-14 min-w-0">
               <RelatedLinks
                 title="Related Pages"
                 links={[
