@@ -32,6 +32,11 @@ const groups = [
     desc: "Infraorder Anisoptera — fast aerial predators with aquatic larvae.",
   },
   {
+    href: "/animals/damselfly",
+    label: "Damselfly",
+    desc: "Suborder Zygoptera — slender relatives that hold their wings closed at rest.",
+  },
+  {
     href: "/animals/ladybug",
     label: "Ladybug",
     desc: "Family Coccinellidae — small beetles, many of them helpful aphid predators.",
