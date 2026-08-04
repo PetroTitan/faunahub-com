@@ -324,7 +324,7 @@ export const BATCH_B3_10 = [
       "A horse is a species, Equus caballus, that breeds and produces fertile foals. A mule is not a species at all: it is the first-generation cross between a donkey sire and a horse mare, produced anew each time that cross is made. Horses carry 64 chromosomes and donkeys 62, so a mule inherits 32 from its dam and 31 from its sire and ends with an odd 63. That odd number disrupts the chromosome pairing needed to form viable eggs and sperm, which is why mules are treated as sterile.",
     primaryCategory: "pets-domestic",
     secondaryCategories: [],
-    relationship: "domestic-vs-wild",
+    relationship: "close-relatives",
     confidence: "strong",
     searchIntent: "identification",
     whyCompare:
@@ -473,7 +473,7 @@ export const BATCH_B3_10 = [
       "The donkey is the parent species and the mule is its hybrid son or daughter. A donkey, Equus asinus, is a domestic species with 62 chromosomes that breeds true and sustains free-roaming populations. A mule results from a donkey sire covering a horse mare, carries 63 chromosomes, and is effectively sterile. In appearance the mule is usually taller and more horse-shaped through the body and neck, while the long ears, upright mane, tufted tail, narrow hooves and part-bray call are the donkey showing through.",
     primaryCategory: "pets-domestic",
     secondaryCategories: [],
-    relationship: "domestic-vs-wild",
+    relationship: "close-relatives",
     confidence: "strong",
     searchIntent: "identification",
     whyCompare:

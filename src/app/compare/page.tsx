@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, itemListSchema } from "@/lib/schema";
+import {
+  COMPARE_BASE,
+  COMPARISON_CATEGORIES,
+  PUBLISHED_COMPARISON_COUNT,
+  categoryPath,
+} from "@/lib/animal-compare";
 
 export const metadata: Metadata = buildMetadata({
   title: "Animal Comparisons — Side-by-Side Wildlife & Pet Facts",
@@ -133,15 +139,47 @@ export default function ComparePage() {
             ))}
           </div>
 
-          <div className="mt-10 p-5 bg-[#EFF4E0] border border-[#CFE0A8] rounded-xl">
-            <h3 className="text-sm font-semibold text-[#0F5A3A] mb-2">
-              More comparisons coming soon
+          {/*
+            These seven pages predate the Animal Compare Center and are kept at
+            their original URLs rather than duplicated into it — the Compare
+            Center registers them as external so no pair is ever published
+            twice. This block used to say more comparisons were "planned",
+            including domestic-vs-wild, which has been live for some time; it now
+            points readers at the cluster that actually holds them.
+          */}
+          <div className="mt-10 p-5 sm:p-6 bg-[#EFF4E0] border border-[#CFE0A8] rounded-xl">
+            <h3 className="text-base font-semibold text-[#0F5A3A] mb-2">
+              The full comparison library is the Animal Compare Center
             </h3>
-            <p className="text-sm text-[#2C3A2F]">
-              Planned comparisons include cat breeds, dog breeds, domestic vs wild animals,
-              and more wildlife species. Comparisons are added once sufficient data from
-              authoritative sources can be verified.
+            <p className="text-sm text-[#2C3A2F] mb-4">
+              The {comparisons.length} pages above are FaunaHub&apos;s original
+              comparisons and stay at these addresses. Everything added since
+              lives in the Animal Compare Center, which now holds{" "}
+              {PUBLISHED_COMPARISON_COUNT} comparisons across{" "}
+              {COMPARISON_CATEGORIES.length} categories, each with a quick
+              answer, a side-by-side table, the taxonomic relationship and the
+              sources behind it.
             </p>
+            <p className="mb-4">
+              <Link
+                href={COMPARE_BASE}
+                className="inline-block rounded-full bg-[#063F2A] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[#0A5638] hover:no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#063F2A] focus-visible:ring-offset-2"
+              >
+                Browse all {PUBLISHED_COMPARISON_COUNT} comparisons
+              </Link>
+            </p>
+            <ul className="not-prose flex flex-wrap gap-2 list-none p-0 m-0">
+              {COMPARISON_CATEGORIES.map((category) => (
+                <li key={category.id}>
+                  <Link
+                    href={categoryPath(category.id)}
+                    className="inline-block rounded-full border border-[#CFE0A8] bg-white px-3 py-1.5 text-xs font-medium text-[#063F2A] transition-colors hover:bg-[#EFF4E0] hover:no-underline"
+                  >
+                    {category.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </main>

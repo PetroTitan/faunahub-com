@@ -4,6 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQBlock from "@/components/FAQBlock";
 import ComparisonCard from "@/components/compare/ComparisonCard";
 import ComparisonFinder from "@/components/compare/ComparisonFinder";
+import { getConfusionClusters } from "@/lib/animal-compare/intelligence";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, faqSchema, itemListSchema } from "@/lib/schema";
 import {
@@ -79,6 +80,7 @@ export default function CompareHubPage() {
   }
 
   const popular = COMPARISONS.filter((r) => r.confidence === "strong").slice(0, 6);
+  const clusters = getConfusionClusters();
 
   return (
     <main id="main-content" className="mx-auto w-full max-w-5xl px-4 sm:px-6 pb-16">
@@ -150,6 +152,56 @@ export default function CompareHubPage() {
           ))}
         </ul>
       </section>
+
+      {/*
+        Confusion clusters answer the question a category listing cannot: "I saw
+        something and I am not sure what it was." An animal that appears in many
+        identification pairings is one readers repeatedly fail to place, so the
+        set is derived from that count rather than editorially chosen.
+      */}
+      {clusters.length > 0 && (
+        <section aria-labelledby="clusters-heading" className="mb-12">
+          <h2
+            id="clusters-heading"
+            className="text-2xl font-bold text-[#17211B] mb-1"
+          >
+            Frequently confused animals
+          </h2>
+          <p className="text-sm text-[#5E6B63] mb-4">
+            Animals that sit at the centre of several identification questions,
+            with every comparison that separates them.
+          </p>
+          <ul className="grid gap-4 sm:grid-cols-2 list-none p-0">
+            {clusters.map((cluster) => (
+              <li
+                key={cluster.slug}
+                className="rounded-2xl border border-[#DDE6DD] bg-white p-5"
+              >
+                <h3 className="text-base font-bold text-[#17211B] mb-2">
+                  <Link
+                    href={cluster.profilePath}
+                    className="hover:text-[#063F2A]"
+                  >
+                    {cluster.name}
+                  </Link>
+                </h3>
+                <ul className="flex flex-wrap gap-2 list-none p-0 m-0">
+                  {cluster.comparisons.slice(0, 5).map((item) => (
+                    <li key={item.slug}>
+                      <Link
+                        href={item.path}
+                        className="inline-block rounded-full border border-[#CFE0A8] bg-[#EFF4E0] px-3 py-1 text-xs font-medium text-[#063F2A] transition-colors hover:bg-[#E3EDCB] hover:no-underline"
+                      >
+                        {item.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <section aria-labelledby="categories-heading" className="mb-12">
         <h2

@@ -6,8 +6,15 @@ import FAQBlock from "@/components/FAQBlock";
 import LastUpdated from "@/components/LastUpdated";
 import DimensionTable from "@/components/compare/DimensionTable";
 import SourcesSection from "@/components/educational/SourcesSection";
+import ComparisonQuickAnswer from "@/components/animal-compare/ComparisonQuickAnswer";
+import ComparisonKeyDifferences from "@/components/animal-compare/ComparisonKeyDifferences";
+import ComparisonTaxonomy from "@/components/animal-compare/ComparisonTaxonomy";
+import ComparisonMisconceptions from "@/components/animal-compare/ComparisonMisconceptions";
+import FrequentlyConfusedAnimals from "@/components/animal-compare/FrequentlyConfusedAnimals";
+import ComparisonRelated from "@/components/animal-compare/ComparisonRelated";
 import { buildArticleMetadata } from "@/lib/metadata";
-import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
+import { breadcrumbSchema, comparisonArticleSchema, faqSchema } from "@/lib/schema";
+import { getComparisonIntelligence } from "@/lib/animal-compare/intelligence";
 import {
   COMPARE_BASE,
   COMPARISONS,
@@ -103,11 +110,14 @@ export default async function ComparisonPage({
     record.sourceIds,
   );
 
-  const related = record.relatedComparisonSlugs
-    .map((s) => comparisonBySlug(s))
-    .filter((r): r is NonNullable<typeof r> => Boolean(r));
-
+  const intelligence = getComparisonIntelligence(record);
   const { narrative } = record;
+
+  // `about` must point at pages that exist. Group-level names (dog, cat) resolve
+  // to their guide hub, never to an invented /animals/ URL.
+  const aboutEntities = [animalA, animalB]
+    .filter((a): a is NonNullable<typeof a> => Boolean(a))
+    .map((a) => ({ name: a.name, url: `https://faunahub.com${a.profilePath}` }));
 
   return (
     <main id="main-content" className="mx-auto w-full max-w-4xl px-4 sm:px-6 pb-16">
@@ -130,12 +140,17 @@ export default async function ComparisonPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
-            articleSchema({
+            comparisonArticleSchema({
               title: heading,
               description: record.metaDescription,
               path,
               datePublished: record.lastReviewed,
               dateModified: record.lastReviewed,
+              about: aboutEntities,
+              keyDifferences: intelligence.keyDifferences.map((row) => ({
+                name: row.label,
+                description: `${record.animalA.name}: ${row.animalAValue}. ${record.animalB.name}: ${row.animalBValue}.`,
+              })),
             }),
           ),
         }}
@@ -166,15 +181,15 @@ export default async function ComparisonPage({
           {heading}
         </h1>
 
-        <div className="rounded-2xl border border-[#CFE0A8] bg-[#EFF4E0] p-5 sm:p-6">
-          <h2 className="text-xs font-semibold uppercase tracking-wider text-[#063F2A] mb-2">
-            The short answer
-          </h2>
-          <p className="text-base sm:text-lg text-[#17211B] leading-relaxed">
-            {record.shortAnswer}
-          </p>
-        </div>
+        <ComparisonQuickAnswer answer={intelligence.quickAnswer} />
       </header>
+
+      <ComparisonKeyDifferences
+        labelA={record.animalA.name}
+        labelB={record.animalB.name}
+        rows={intelligence.keyDifferences}
+        summaryPoints={record.keyDifferences}
+      />
 
       <Section id="main-difference" heading="The main difference">
         <p className="text-base text-[#2C3A2F] leading-relaxed border-l-4 border-l-[#7BAA35] pl-4 mb-3">
@@ -183,7 +198,7 @@ export default async function ComparisonPage({
         <Prose>{record.whyCompare}</Prose>
       </Section>
 
-      <Section id="at-a-glance" heading="At a glance">
+      <Section id="full-comparison" heading="Full side-by-side comparison">
         <DimensionTable
           labelA={record.animalA.name}
           labelB={record.animalB.name}
@@ -192,17 +207,7 @@ export default async function ComparisonPage({
         />
       </Section>
 
-      <Section id="taxonomy" heading="How they are related">
-        <Prose>{narrative.taxonomy}</Prose>
-        {record.taxonomyCaveat && (
-          <p className="text-sm text-[#5E6B63] leading-relaxed bg-[#EFF1EB] rounded-xl p-4">
-            <strong className="font-semibold text-[#17211B]">
-              A note on naming:{" "}
-            </strong>
-            {record.taxonomyCaveat}
-          </p>
-        )}
-      </Section>
+      <ComparisonTaxonomy taxonomy={intelligence.taxonomyDifference} />
 
       <Section id="identification" heading="Telling them apart">
         <Prose>{narrative.identification}</Prose>
@@ -278,31 +283,7 @@ export default async function ComparisonPage({
         </ul>
       </Section>
 
-      <Section id="key-differences" heading="Key differences">
-        <ul className="grid gap-3 sm:grid-cols-2">
-          {record.keyDifferences.map((item) => (
-            <li
-              key={item}
-              className="rounded-xl border border-[#DDE6DD] bg-white p-4 text-sm text-[#2C3A2F] leading-relaxed"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      </Section>
-
-      <Section id="confusions" heading="Where people go wrong">
-        <ul className="space-y-2">
-          {record.commonConfusions.map((item) => (
-            <li
-              key={item}
-              className="text-base text-[#2C3A2F] leading-relaxed pl-5 relative before:absolute before:left-0 before:top-[0.6em] before:h-1.5 before:w-1.5 before:rounded-full before:bg-[#075FA8]"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      </Section>
+      <ComparisonMisconceptions misconceptions={intelligence.misconceptions} />
 
       {(record.safetyBoundary || record.petBoundary) && (
         <div className="pt-8 space-y-4">
@@ -345,22 +326,11 @@ export default async function ComparisonPage({
         </ul>
       </Section>
 
-      {related.length > 0 && (
-        <Section id="related-comparisons" heading="Related comparisons">
-          <ul className="flex flex-wrap gap-2">
-            {related.map((item) => (
-              <li key={item.slug}>
-                <Link
-                  href={`${COMPARE_BASE}/${item.slug}`}
-                  className="inline-block rounded-full border border-[#CFE0A8] bg-[#EFF4E0] px-3.5 py-1.5 text-sm font-medium text-[#063F2A] transition-colors hover:bg-[#E3EDCB] hover:no-underline"
-                >
-                  {item.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </Section>
-      )}
+      <FrequentlyConfusedAnimals
+        animals={intelligence.frequentlyConfusedAnimals}
+      />
+
+      <ComparisonRelated related={intelligence.relatedComparisons} />
 
       <Section id="related-guides" heading="Related FaunaHub guides">
         <ul className="flex flex-wrap gap-2">
