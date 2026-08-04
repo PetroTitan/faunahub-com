@@ -453,6 +453,46 @@ test("domestic-vs-wild is only used when exactly one animal is domestic", async 
   assert.deepEqual(bad.map((r) => r.slug), []);
 });
 
+test("the taxonomy block never asserts group-level-ness it has not verified", async () => {
+  // Six pages rendered "Group-level name — no single scientific name applies"
+  // for the dog and cat cluster hubs. That phrasing reads as a claim about the
+  // taxon, but was really a statement about missing data: Canis familiaris and
+  // Felis catus are perfectly well defined, and the generator simply cannot see
+  // them because it reads /animals/<slug> pages and those two are hubs.
+  //
+  // The component must render only names it actually has. This test pins the
+  // absence of the claim rather than the presence of any particular wording, so
+  // it keeps holding if the copy is reworded later.
+  const raw = fs.readFileSync(
+    path.join(REPO_ROOT, "src", "components", "animal-compare", "ComparisonTaxonomy.tsx"),
+    "utf8",
+  );
+  // Comments are stripped first: the block explaining why the claim was removed
+  // necessarily quotes it, and that documentation is worth keeping.
+  const component = raw.replace(/\/\*[\s\S]*?\*\//g, "").replace(/\/\/[^\n]*/g, "");
+  assert.equal(
+    /Group-level name/.test(component),
+    false,
+    "taxonomy block still claims an unverified name is group-level",
+  );
+  assert.ok(
+    /\.filter\(\(n\) => n\.scientific\)/.test(component),
+    "taxonomy block no longer filters to animals that actually have a name",
+  );
+
+  // And the data path that produced it: every hub-kind animal reaches the block
+  // with no scientific name, so none of them may be captioned.
+  const hubs = COMPARE_ANIMALS.filter((a) => a.profileKind === "hub");
+  assert.ok(hubs.length > 0, "no hub animals to check");
+  for (const hub of hubs) {
+    assert.equal(
+      SCIENTIFIC_NAMES[hub.slug],
+      undefined,
+      `${hub.slug}: hub unexpectedly has a generated name — revisit the fallback`,
+    );
+  }
+});
+
 test("the legacy compare hub links to the Animal Compare Center", () => {
   // It previously advertised categories as "planned" that had been live for
   // some time, and linked nowhere into the 281-page cluster.
