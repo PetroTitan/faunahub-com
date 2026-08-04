@@ -158,6 +158,61 @@ function brit(slug: string, label: string): SourceLink {
 // These URLs were each fetched and confirmed during source review.
 export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
 
+  // ── Compare Center batch three: profiles added to unlock comparisons. ──
+  // Each entry carries at least one machine-verified (HTTP 200, content-checked)
+  // species or group-level source. Britannica, IUCN and Cornell are bot-blocked
+  // to automated checks but remain institutionally valid and are used in the
+  // same generic form already used across the site.
+  rat: [
+    adw("Rattus_norvegicus", "Rattus norvegicus (brown rat)"),
+    adw("Rattus_rattus", "Rattus rattus (black rat)"),
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  damselfly: [
+    adw("Odonata", "Odonata (dragonflies and damselflies)"),
+    adw("Calopteryx_splendens", "Calopteryx splendens (banded demoiselle)"),
+    SRC_XERCES,
+    SRC_BRITANNICA_ANIMALS,
+    // The profile routes readers to the Red List for odonate status three times,
+    // so the destination has to be present in the reference list.
+    SRC_IUCN,
+  ],
+  osprey: [
+    adw("Pandion_haliaetus", "Pandion haliaetus (osprey)"),
+    SRC_CORNELL_BIRDS,
+    {
+      label: "Audubon Field Guide — Osprey",
+      url: "https://www.audubon.org/field-guide/bird/osprey",
+      type: "wildlife",
+      note: "National Audubon Society species account",
+    },
+    SRC_IUCN,
+  ],
+  rook: [
+    adw("Corvus_frugilegus", "Corvus frugilegus (rook)"),
+    SRC_CORNELL_BIRDS,
+    SRC_BRITANNICA_ANIMALS,
+    SRC_IUCN,
+  ],
+  // A mule is a hybrid rather than a species, so ADW — which is organised by
+  // species — has no mule account. The parent-species accounts are listed for
+  // the inherited biology, and a mule-specific reference is listed for the
+  // hybrid itself so the page's own figures have somewhere to be checked.
+  mule: [
+    {
+      label: "Encyclopaedia Britannica — Mule",
+      url: "https://www.britannica.com/animal/mule-mammal",
+      type: "reference",
+      note: "Species-level article on the donkey × horse hybrid itself",
+    },
+    adw("Equus_asinus", "Equus asinus (domestic donkey — the sire of a mule)"),
+    adw("Equus_caballus", "Equus caballus (domestic horse — the dam of a mule)"),
+    // The page routes readers to the Red List for the African wild ass, the
+    // donkey's threatened wild ancestor, so the destination has to be cited.
+    SRC_IUCN,
+  ],
+
   // ── Compare Center batch two: profiles added to unblock comparisons. ──
   // Every entry below has at least one machine-verified (HTTP 200) species or
   // family-level source. Britannica, IUCN and Cornell URLs are bot-blocked

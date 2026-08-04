@@ -152,6 +152,7 @@ export default function DragonflyPage() {
         { label: "Conservation", value: "Varies by species — verify per species" },
       ]}
       relatedLinks={[
+        { label: "Damselfly Profile", href: "/animals/damselfly", description: "The other major division of Odonata — wings closed at rest" },
         { label: "Butterfly Profile", href: "/animals/butterfly", description: "Another familiar flying insect" },
         { label: "Bee Profile", href: "/animals/bee" },
         { label: "Frog Profile", href: "/animals/frog", description: "Shares wetland habitats" },

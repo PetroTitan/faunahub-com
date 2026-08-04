@@ -34,6 +34,21 @@ import { BATCH_B2_16 } from "./batch-b2-16.ts";
 import { BATCH_B2_17 } from "./batch-b2-17.ts";
 import { BATCH_B2_18 } from "./batch-b2-18.ts";
 
+// Batch three: comparisons unlocked by the rat, damselfly, osprey, rook and
+// mule profiles. Every pair here involves at least one of those five animals.
+import { BATCH_B3_01 } from "./batch-b3-01.ts";
+import { BATCH_B3_02 } from "./batch-b3-02.ts";
+import { BATCH_B3_03 } from "./batch-b3-03.ts";
+import { BATCH_B3_04 } from "./batch-b3-04.ts";
+import { BATCH_B3_05 } from "./batch-b3-05.ts";
+import { BATCH_B3_06 } from "./batch-b3-06.ts";
+import { BATCH_B3_07 } from "./batch-b3-07.ts";
+import { BATCH_B3_08 } from "./batch-b3-08.ts";
+import { BATCH_B3_09 } from "./batch-b3-09.ts";
+import { BATCH_B3_10 } from "./batch-b3-10.ts";
+import { BATCH_B3_11 } from "./batch-b3-11.ts";
+import { BATCH_B3_12 } from "./batch-b3-12.ts";
+
 export const COMPARISON_RECORDS: ComparisonRecord[] = [
   ...BATCH_01,
   ...BATCH_02,
@@ -59,4 +74,16 @@ export const COMPARISON_RECORDS: ComparisonRecord[] = [
   ...BATCH_B2_16,
   ...BATCH_B2_17,
   ...BATCH_B2_18,
+  ...BATCH_B3_01,
+  ...BATCH_B3_02,
+  ...BATCH_B3_03,
+  ...BATCH_B3_04,
+  ...BATCH_B3_05,
+  ...BATCH_B3_06,
+  ...BATCH_B3_07,
+  ...BATCH_B3_08,
+  ...BATCH_B3_09,
+  ...BATCH_B3_10,
+  ...BATCH_B3_11,
+  ...BATCH_B3_12,
 ];

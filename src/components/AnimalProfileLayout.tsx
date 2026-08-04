@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Fragment } from "react";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQBlock from "@/components/FAQBlock";
@@ -94,10 +95,35 @@ export interface AnimalProfileLayoutProps {
  * "Mus musculus and relatives", so italicising the whole string set the rank
  * word in italics too. Splitting here fixes every profile at once rather than
  * asking each page to pre-format its own markup.
+ *
+ * Hybrid formulae are the third case. A cross is written "Equus asinus ×
+ * Equus caballus", and the multiplication sign is NOT part of either name, so
+ * it stays roman while the two binomials either side are italicised. Rendering
+ * the whole string in italics turns the formula into something that reads like
+ * a single pseudo-binomial — exactly the reading a hybrid page has to avoid.
  */
 const RANK_PREFIX = /^(super|sub|infra)?(family|order|class|phylum|genus|tribe)\s+/i;
+/** Matches the multiplication sign, or a lone ASCII "x" used in its place. */
+const HYBRID_SEPARATOR = /\s+(?:×|x)\s+/;
 
 function renderScientificName(value: string): ReactNode {
+  if (HYBRID_SEPARATOR.test(value)) {
+    const parts = value.split(HYBRID_SEPARATOR);
+    return (
+      <>
+        {parts.map((part, index) => (
+          <Fragment key={part}>
+            {index > 0 && " × "}
+            <span className="italic">{part}</span>
+          </Fragment>
+        ))}
+      </>
+    );
+  }
+  return renderRankedName(value);
+}
+
+function renderRankedName(value: string): ReactNode {
   const trailing = value.match(/^(.*?)(\s+and relatives)$/i);
   const core = trailing ? trailing[1] : value;
   const suffix = trailing ? trailing[2] : "";
