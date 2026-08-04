@@ -653,7 +653,7 @@ export const BATCH_B3_06 = [
         id: "foot-structure",
         label: "Foot structure",
         animalAValue: "Outer toe reverses to give a two-front, two-back grip, and the soles are studded with spined scales",
-        animalBValue: "Three toes forward and one back throughout, with smooth pads and a very large hind talon",
+        animalBValue: "Three toes forward and one back throughout, with a very large hind talon; the fish-taking sea eagles carry toe spicules too, though less developed than the osprey's",
         interpretation:
           "The osprey's foot is a clamp for a struggling, slippery fish; an eagle's is built to hold prey against ground or perch.",
       },
@@ -736,7 +736,7 @@ export const BATCH_B3_06 = [
       {
         question: "What is different about an osprey's feet?",
         answer:
-          "Two things. The outer toe reverses, so the osprey can grip with two toes forward and two back rather than the three-and-one arrangement other raptors keep, and the soles carry short spined scales called spicules. Together these hold a wet, powerfully struggling fish that a conventional foot would lose. The claws are also strongly curved and closer to equal in length than an eagle's.",
+          "Two things. The outer toe reverses, so the osprey can grip with two toes forward and two back rather than the three-and-one arrangement usual among the diurnal raptors — owls have a reversible outer toe as well — and the soles carry short spined scales called spicules. Together these hold a wet, powerfully struggling fish that a conventional foot would lose. The claws are also strongly curved and closer to equal in length than an eagle's.",
       },
       {
         question: "Do ospreys and eagles ever interact over food?",

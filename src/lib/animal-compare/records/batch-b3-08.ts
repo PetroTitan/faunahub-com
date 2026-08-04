@@ -484,7 +484,7 @@ export const BATCH_B3_08 = [
       {
         id: "global-range",
         label: "Global range",
-        animalAValue: "Breeds on every continent except Antarctica, with strongly migratory northern populations",
+        animalAValue: "Occurs on every continent except Antarctica and breeds across most of that range, with South America non-breeding and strongly migratory northern populations",
         animalBValue: "Restricted to scattered wetlands in a handful of African countries, with no true migration",
         interpretation: "Range size is why one of these birds is familiar worldwide and the other is a destination in itself.",
         caveat: "Osprey populations in the tropics and Australasia are largely resident rather than migratory.",

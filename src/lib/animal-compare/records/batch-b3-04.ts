@@ -224,7 +224,7 @@ export const BATCH_B3_04 = [
         id: "activity-cycle",
         label: "When active",
         animalAValue: "Mostly nocturnal and crepuscular, though commensal animals shift with lighting and disturbance",
-        animalBValue: "Strictly diurnal, feeding through daylight and returning to roost sites before dark",
+        animalBValue: "Chiefly diurnal, feeding through daylight and returning to roost sites before dark, though feral birds are recorded foraging after dark where artificial lighting is strong",
         interpretation:
           "The two share ground-level feeding sites but rarely at the same time, which limits direct contest for the same crumbs.",
       },
@@ -328,7 +328,7 @@ export const BATCH_B3_04 = [
     ],
     keyDifferences: [
       "A rat is a mammal that works the ground and subfloor layer; a pigeon is a bird that works the ledges above it.",
-      "Rats are mainly nocturnal, while pigeons feed and move exclusively in daylight.",
+      "Rats are mainly nocturnal, while pigeons feed and move mainly in daylight.",
       "Rats gnaw and grind with teeth, whereas pigeons swallow food whole into a crop and grind it in a gizzard.",
       "Both pigeon parents produce crop milk for the squabs; only the female rat nurses the litter.",
       "Flight gives a pigeon a citywide feeding range, while a rat's range is small but its access to enclosed spaces is not.",

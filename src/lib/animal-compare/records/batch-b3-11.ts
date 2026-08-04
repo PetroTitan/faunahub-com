@@ -371,7 +371,7 @@ export const BATCH_B3_11 = [
         id: "size",
         label: "Size",
         animalAValue: "Horse-scale; substantially the larger animal",
-        animalBValue: "Small for a camelid, and the smallest of the four South American camelids",
+        animalBValue: "Small for a camelid — larger than the wild vicuña it descends from, but far smaller than the llama or the guanaco",
         interpretation:
           "The size gap alone rules out any equivalence in what the two can be asked to do.",
       },
@@ -579,7 +579,7 @@ export const BATCH_B3_11 = [
       {
         question: "Why can a guanaco reproduce when a mule cannot?",
         answer:
-          "Because a guanaco is a species and a mule is a cross between two. Guanacos breed with other guanacos and their chromosomes pair normally. A mule inherits 62 chromosomes from a donkey sire and 64 from a horse dam, giving 63 — an odd number that cannot pair evenly during the cell division that produces sperm and eggs. Male mules are considered universally sterile and documented fertile females are extremely rare.",
+          "Because a guanaco is a species and a mule is a cross between two. Guanacos breed with other guanacos and their chromosomes pair normally. A mule inherits 31 chromosomes from a 62-chromosome donkey sire and 32 from a 64-chromosome horse dam, giving 63 — an odd number that cannot pair evenly during the cell division that produces sperm and eggs. Male mules are considered universally sterile and documented fertile females are extremely rare.",
       },
       {
         question: "Do guanacos carry loads like mules?",

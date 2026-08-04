@@ -202,7 +202,7 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
   mule: [
     {
       label: "Encyclopaedia Britannica — Mule",
-      url: "https://www.britannica.com/animal/mule-hybrid-mammal",
+      url: "https://www.britannica.com/animal/mule-mammal",
       type: "reference",
       note: "Species-level article on the donkey × horse hybrid itself",
     },
