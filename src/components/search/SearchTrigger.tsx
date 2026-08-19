@@ -12,6 +12,7 @@
  * document body — see SearchDialog for why that is required rather than
  * preferred.
  */
+import Link from "next/link";
 import { Suspense, lazy, useCallback, useEffect, useRef, useState } from "react";
 import { trackSearchEvent } from "@/lib/search/analytics";
 import { SEARCH_INDEX_URL } from "@/lib/search/types";
@@ -46,7 +47,7 @@ function isTypingTarget(target: EventTarget | null): boolean {
 export default function SearchTrigger() {
   const [open, setOpen] = useState(false);
   const [isMac, setIsMac] = useState(false);
-  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const triggerRef = useRef<HTMLAnchorElement | null>(null);
   const warmed = useRef(false);
 
   useEffect(() => {
@@ -115,10 +116,26 @@ export default function SearchTrigger() {
 
   return (
     <>
-      <button
+      {/* A real link, not a button.
+          With JavaScript off — or during the hydration window on a slow
+          connection — a button here was a fully-styled control that did
+          nothing at all on 1,690 pages. As a link it navigates to /search,
+          which server-renders its own input and a crawlable hub grid. It also
+          gives /search the inbound links that make its `follow` directive mean
+          something; nothing else on the site points at it.
+
+          The default is prevented only for a plain left click, so
+          middle-click, ⌘-click and open-in-new-tab still reach the page. */}
+      <Link
         ref={triggerRef}
-        type="button"
-        onClick={() => openSearch("header")}
+        href="/search"
+        prefetch={false}
+        onClick={(event) => {
+          if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+          if (event.button !== 0) return;
+          event.preventDefault();
+          openSearch("header");
+        }}
         onPointerEnter={warm}
         onFocus={warm}
         aria-label="Search FaunaHub"
@@ -145,7 +162,7 @@ export default function SearchTrigger() {
         >
           {isMac ? "⌘K" : "Ctrl K"}
         </kbd>
-      </button>
+      </Link>
 
       {open && (
         // No fallback: the chunk is warmed on hover and focus, and a flash of

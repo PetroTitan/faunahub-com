@@ -91,11 +91,13 @@ export function buildMetadata({
       description,
       images: [img.url],
     },
-    // The googleBot sub-object is spelled out on every branch on purpose. The
-    // root layout sets `robots.googleBot = { index: true, follow: true, … }`,
-    // and Googlebot obeys the most specific directive it is given — so a page
-    // that set only the generic `index: false` would still be indexed by Google
-    // through the inherited googleBot block.
+    // The two noindex branches spell out `googleBot` as well as the generic
+    // rule. Next replaces the whole `robots` field rather than merging it with
+    // the layout's, so nothing is inherited and this is belt-and-braces rather
+    // than strictly required — but Googlebot obeys the most specific directive
+    // it is given, and a page that must not be indexed is worth being explicit
+    // about. The indexable branch deliberately omits it: adding a googleBot
+    // block there would change the emitted tags on all 850 existing pages.
     robots: noindex
       ? {
           index: false,
