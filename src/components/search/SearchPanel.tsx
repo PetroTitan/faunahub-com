@@ -239,18 +239,16 @@ export default function SearchPanel({
     (event: React.KeyboardEvent<HTMLInputElement>) => {
       if (visible.length === 0) return;
 
+      // Home and End are deliberately NOT intercepted. They are the standard
+      // caret bindings for the field the reader is still typing in, and taking
+      // them to jump the result selection left someone who spotted a typo with
+      // no way back to the start of their own text.
       if (event.key === "ArrowDown") {
         event.preventDefault();
         setActiveIndex((index) => (index + 1) % visible.length);
       } else if (event.key === "ArrowUp") {
         event.preventDefault();
         setActiveIndex((index) => (index <= 0 ? visible.length - 1 : index - 1));
-      } else if (event.key === "Home" && activeIndex >= 0) {
-        event.preventDefault();
-        setActiveIndex(0);
-      } else if (event.key === "End" && activeIndex >= 0) {
-        event.preventDefault();
-        setActiveIndex(visible.length - 1);
       } else if (event.key === "Enter") {
         // Enter with nothing highlighted follows the top result, which is what
         // a reader who typed an exact animal name expects.

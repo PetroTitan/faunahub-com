@@ -289,9 +289,18 @@ architecture is ready for that — the fix is to split the payload into a core i
 descriptions sidecar, a change local to `load-index.ts` — but the split is not built
 today and should not be assumed.
 
-**No custom cache headers.** The asset is revalidated on each page load, which costs one
-conditional request and guarantees a deploy that removes a page can never leave a stale
-index pointing readers at a 404. That trade is deliberate.
+**No custom cache headers.** The asset is served at a fixed URL with `max-age=0`, so it
+is revalidated on each fresh page load. That guarantees a deploy which removes a page can
+never leave a stale index pointing readers at a 404 — but it costs a conditional request
+even when the body is already on disk: measured at 162 ms on Fast 3G and **408 ms on Slow
+3G**, on a page where nothing needed downloading.
+
+The better answer, and the recommended next step, is a **content-hashed filename**
+(`search-index.<hash>.json`) served `immutable`, with the hash emitted into a generated
+module the client imports. That is strictly better on both counts: repeat opens become
+instant, and the hash changing with the content is a stronger staleness guarantee than
+revalidation. It is not built here because it introduces a generated source module and
+stale-artifact cleanup, and the correctness property was the one worth having first.
 
 ### Colour
 

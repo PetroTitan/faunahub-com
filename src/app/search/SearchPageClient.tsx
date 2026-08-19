@@ -48,7 +48,12 @@ export default function SearchPageClient() {
           result below the fold was clipped away with no scrollbar and no way to
           reach it. */}
       <div className="h-[min(70vh,640px)] min-h-[420px]">
-        <SearchPanel placement="page" autoFocus />
+        {/* No autoFocus. It is right for a modal, where focus must move into
+            what the reader just invoked; on a page nobody invoked anything, and
+            moving focus into the input on load puts the skip link, breadcrumb
+            and <h1> behind the reader — a screen-reader user lands in an
+            unlabelled text field before hearing what page they are on. */}
+        <SearchPanel placement="page" />
       </div>
     </div>
   );

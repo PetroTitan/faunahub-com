@@ -651,6 +651,26 @@ test("every result points at a url that is in the index", () => {
  * Performance
  * ------------------------------------------------------------------ */
 
+test("a pathological query cannot be made expensive", () => {
+  // Ranking runs synchronously during render, so cost has to be bounded by the
+  // input rather than by good behaviour. A query made entirely of intent words
+  // deliberately survives stripping (a query of only intent words still has to
+  // search for something), which at 3,200 repetitions took over a second.
+  // SearchPanel caps the input at 120 characters before it reaches the engine;
+  // this asserts the engine is fast at that ceiling whatever was pasted.
+  const CAP = 120;
+  for (const tokens of [400, 1600, 3200]) {
+    const query = "the ".repeat(tokens).trim().slice(0, CAP);
+    const started = performance.now();
+    engine.search(query);
+    const elapsed = performance.now() - started;
+    assert.ok(elapsed < 60, `${tokens} pasted tokens still cost ${elapsed.toFixed(0)}ms once capped`);
+  }
+  const started = performance.now();
+  engine.search("a".repeat(20_000).slice(0, CAP));
+  assert.ok(performance.now() - started < 60);
+});
+
 test("a query completes fast enough to run on every keystroke", () => {
   const queries = ["w", "wo", "wol", "wolf", "wolf d", "wolf dog", "elephant rhinoceros"];
   const started = performance.now();
