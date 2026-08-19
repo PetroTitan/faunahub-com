@@ -594,8 +594,14 @@ export async function buildSearchIndex({ generatedAt }) {
   const harvested = harvestStaticRoutes(APP_DIR);
   const harvestedByUrl = new Map(harvested.map((row) => [row.url, row]));
 
-  /** Every concrete URL the site actually serves. Built alongside the docs. */
-  const concreteRoutes = new Set(harvested.map((row) => row.url));
+  // Every concrete URL the site actually serves AND wants indexed. A page that
+  // declares noindex is excluded from both sides: it must not become a document,
+  // and the "every route is findable" gate must not then demand one. Without
+  // that symmetry the first page to set `noindex: true` would fail the build
+  // with an error naming the wrong cause.
+  const concreteRoutes = new Set(
+    harvested.filter((row) => !row.noindex).map((row) => row.url),
+  );
 
   /* ---- Classification lookups ------------------------------------ */
 

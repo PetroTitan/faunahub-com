@@ -94,21 +94,24 @@ export function normalizeQuery(input: string): string {
 }
 
 /**
- * Additive singular candidates for a token.
+ * Additive morphological variants of a token.
  *
- * Standard English morphology only, applied conservatively:
+ * Standard English number inflection only, applied conservatively in both
+ * directions:
  *   - "butterflies" -> "butterfly"   (ies -> y)
  *   - "wolves"      -> "wolf", "wolfe" (ves -> f / fe)
  *   - "foxes"       -> "fox"         (es -> "")
  *   - "dogs"        -> "dog"         (s  -> "")
+ *   - "dog"         -> "dogs"        (   -> s)
  *
- * The token itself is always the first candidate, so a word that is already
- * singular — or that simply ends in "s", like "octopus" — is never damaged.
- * Short tokens are left alone entirely: trimming "bus" to "bu" or "ants" to
- * "ant" is fine, but trimming "cats" is the only useful case at that length and
- * the guard below still allows it.
+ * The token itself is always the FIRST candidate, so a word that is already in
+ * the form a page uses — or that simply ends in "s", like "octopus" — is never
+ * damaged. Everything else is additive: a variant that matches nothing costs
+ * nothing, which is what makes this safe without a dictionary. A reader typing
+ * "dog" reaches "Best Dogs for Apartments" and one typing "wolves" reaches the
+ * Wolf profile, and neither can be rewritten into a different animal.
  */
-export function singularCandidates(token: string): string[] {
+export function wordVariants(token: string): string[] {
   const out = [token];
   if (token.length > 4 && token.endsWith("ies")) {
     out.push(`${token.slice(0, -3)}y`);
@@ -121,6 +124,10 @@ export function singularCandidates(token: string): string[] {
   }
   if (token.length > 3 && token.endsWith("s") && !token.endsWith("ss")) {
     out.push(token.slice(0, -1));
+  }
+  if (token.length > 2 && !token.endsWith("s")) {
+    out.push(`${token}s`);
+    if (token.endsWith("y") && !/[aeiou]y$/.test(token)) out.push(`${token.slice(0, -1)}ies`);
   }
   // De-duplicate while preserving the original-first ordering.
   return out.filter((value, index) => value.length > 1 && out.indexOf(value) === index);

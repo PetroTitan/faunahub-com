@@ -19,7 +19,7 @@ import {
   fuzzyBudget,
   isConservativeFuzzyMatch,
   queryTokens,
-  singularCandidates,
+  wordVariants,
   tokenize,
 } from "./normalize.ts";
 import {
@@ -66,6 +66,8 @@ const ANIMAL_SUBJECT_BASE = 5_400;
 const ANIMAL_SUBJECT_STEP = 300;
 /** Hard ceiling, kept a full tier gap below `title-tokens`. */
 const ANIMAL_SUBJECT_CAP = TIER["title-tokens"] - 400;
+/** Subtracted per query token the animal match does not explain. */
+const ANIMAL_SUBJECT_UNMATCHED_PENALTY = 500;
 
 /** Small, static per-shelf nudge. Intent always dominates this. */
 const TYPE_BOOST: Record<SearchDocumentType, number> = {
@@ -316,13 +318,13 @@ export function createSearchEngine(payload: SearchIndexPayload): SearchEngine {
   function expandPhrase(phrase: string[]): string[] {
     const head = phrase.slice(0, -1);
     const last = phrase[phrase.length - 1];
-    const spaced = singularCandidates(last).map((value) => [...head, value].join(" "));
+    const spaced = wordVariants(last).map((value) => [...head, value].join(" "));
     // Readers space compound names that FaunaHub writes closed: "sea horse",
     // "lion fish", "cat fish". Without this, "sea horse" resolved to plain
     // Horse and the seahorse's own profile never appeared. Collapsing is safe
     // because it only ever produces one extra candidate to look up — a form
     // that either names a real animal or names nothing.
-    if (phrase.length > 1) spaced.push(...singularCandidates(phrase.join("")));
+    if (phrase.length > 1) spaced.push(...wordVariants(phrase.join("")));
     return spaced.filter((value, index) => spaced.indexOf(value) === index);
   }
 
@@ -445,14 +447,14 @@ export function createSearchEngine(payload: SearchIndexPayload): SearchEngine {
     }
 
     // Every distinct token form we will accept as "this token matched".
-    const tokenForms = tokens.map((token) => singularCandidates(token));
+    const tokenForms = tokens.map((token) => wordVariants(token));
 
     // Whole-query forms for exact matching: the query as typed, then the same
     // query with its final token de-pluralised. That second form is what lets
     // "cats" land squarely on the Cat profile instead of tying with "Sand Cat".
     const queryHead = tokens.slice(0, -1);
     const exactForms = dedupeStrings(
-      singularCandidates(tokens[tokens.length - 1]).map((form) =>
+      wordVariants(tokens[tokens.length - 1]).map((form) =>
         [...queryHead, form].join(" "),
       ),
     );
@@ -464,6 +466,7 @@ export function createSearchEngine(payload: SearchIndexPayload): SearchEngine {
       const hit = scoreDocument(entry, {
         normalized,
         fullyResolved: unmatched === 0,
+        unmatched,
         exactForms,
         tokens,
         tokenForms,
@@ -516,6 +519,8 @@ export function createSearchEngine(payload: SearchIndexPayload): SearchEngine {
     normalized: string;
     /** True when every non-intent token was consumed by an animal name. */
     fullyResolved: boolean;
+    /** How many non-intent tokens no animal name accounted for. */
+    unmatched: number;
     /** normalized, plus its singularised form when they differ. */
     exactForms: string[];
     tokens: string[];
@@ -589,14 +594,23 @@ export function createSearchEngine(payload: SearchIndexPayload): SearchEngine {
       let overlap = 0;
       for (const slug of doc.animalSlugs) if (ctx.resolvedSet.has(slug)) overlap++;
       if (overlap > 0) {
-        // Capped. Uncapped, a page listing seven animals reached 7,200 and
-        // climbed above `title-prefix` — a page that merely MENTIONS the animals
-        // outranking one whose title starts with the query.
+        // Capped above, and reduced by whatever the query left unexplained.
+        //
+        // Every other tier demands ALL query tokens; this one asked for a
+        // single overlap, which made it the only survivor of a real question.
+        // "my dog ate chocolate" returned the Dog hub and four dog comparisons
+        // while "Dog Ate Chocolate — What to Do First", a page FaunaHub had
+        // written, was absent. One recognised word out of four is weak
+        // evidence and is now scored like it.
         promote(
           "animal-subject",
-          Math.min(
-            ANIMAL_SUBJECT_BASE + (overlap - 1) * ANIMAL_SUBJECT_STEP,
-            ANIMAL_SUBJECT_CAP,
+          Math.max(
+            TIER.partial + 100,
+            Math.min(
+              ANIMAL_SUBJECT_BASE + (overlap - 1) * ANIMAL_SUBJECT_STEP,
+              ANIMAL_SUBJECT_CAP,
+            ) -
+              ctx.unmatched * ANIMAL_SUBJECT_UNMATCHED_PENALTY,
           ),
         );
       }
@@ -633,27 +647,28 @@ export function createSearchEngine(payload: SearchIndexPayload): SearchEngine {
       promote("description-phrase", TIER["description-phrase"]);
     }
 
-    // Most of the query, not all of it. Real questions carry words no page
-    // title contains — "my dog ate chocolate", "dog age in human years" — and
-    // requiring every token meant the page the reader actually wanted was not
-    // merely ranked low, it was absent. This is the weakest exact tier by
-    // design: it can only add pages that would otherwise never appear.
+    // Most of the query, not all of it — matched against the NAME fields only.
+    //
+    // Real questions carry words no page title contains ("my dog ate
+    // chocolate", "dog age in human years"), and requiring every token meant
+    // the page the reader actually wanted was not merely ranked low, it was
+    // absent. The score scales with how much of the query the title covers, so
+    // three of four words in the title outranks one recognised animal name —
+    // and it stays below `title-tokens`, so a page matching everything still
+    // wins.
     if (ctx.tokens.length >= 2) {
       let matched = 0;
       for (const forms of ctx.tokenForms) {
-        if (
-          forms.some(
-            (form) =>
-              entry.titleTokens.includes(form) ||
-              entry.aliasTokens.has(form) ||
-              ` ${entry.keywordText} `.includes(` ${form} `),
-          )
-        ) {
+        if (forms.some((form) => entry.titleTokens.includes(form) || entry.aliasTokens.has(form))) {
           matched++;
         }
       }
-      if (matched >= 2 && matched / ctx.tokens.length >= 0.6) {
-        promote("partial", TIER.partial);
+      const coverage = matched / ctx.tokens.length;
+      if (matched >= 2 && coverage >= 0.6) {
+        promote(
+          "partial",
+          TIER.partial + Math.round(coverage * (TIER["title-tokens"] - TIER.partial - 200)),
+        );
       }
     }
 

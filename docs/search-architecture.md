@@ -131,12 +131,12 @@ strong one.
 | `title-tokens` | 6,400 | Every query token is a title token |
 | `comparison-pair` (partial) | 6,000 | A pair match with query words left over |
 | `description-phrase` | 5,800 | The whole query appears as a contiguous phrase in the description |
-| `animal-subject` | 5,400 (+300 each, capped 6,000) | The document is *about* an animal the query named |
+| `animal-subject` | 5,400 (+300 each, capped 6,000, −500 per unexplained word) | The document is *about* an animal the query named |
 | `alias-tokens` | 4,800 | Every query token appears in an alias |
 | `token-prefix` | 4,200 | Every query token prefixes a distinct title token |
 | `keyword` | 3,000 | Every query token appears in keywords/category |
 | `description` | 2,000 | Every query token appears in the description |
-| `partial` | 1,500 | At least two tokens, and 60% of the query, matched |
+| `partial` | 1,500 + coverage×4,700 | ≥2 tokens and ≥60% of the query matched in the title or an alias |
 | `fuzzy` | 1,000 − 120·distance − 40·length gap | Conservative typo tolerance, common names only |
 
 Modifiers total between −60 and +250: static priority (0–150), a small per-type nudge
@@ -157,8 +157,9 @@ Modifiers total between −60 and +250: static priority (0–150), a small per-t
   degraded into plain "starfish", a *different* animal, and served that pair's comparison
   as the best match. Keeping `vs` in place also stops the greedy scanner reading
   "mole vs rat" as the single animal "mole rat".
-- **Morphology** — plurals produce *additional* candidate forms, never replacements.
-  "wolves" also tries "wolf"; "octopus" is never damaged.
+- **Morphology** — number inflection produces *additional* candidate forms in both
+  directions, never replacements. "wolves" also tries "wolf"; "dog" also tries "dogs", so
+  a reader typing "dog" reaches "Best Dogs for Apartments". "octopus" is never damaged.
 - **Animal phrases** — a greedy longest-match scan over a 988-name vocabulary covering
   every animal document, Red List species included. It also tries the space-collapsed
   form, so "sea horse" finds Seahorse, and a phrase with exactly one mistyped word, so
@@ -224,6 +225,27 @@ never promoted to "Best match", and the same caveat reaches the live region.
 rejected, so "gamster" cannot reach "hamster" and "lownfish" cannot reach "clownfish";
 relaxing it would let mole/vole and seal/teal substitute for each other, which is the
 worse failure. Two-edit misspellings of six-letter names ("dolfin") find nothing.
+
+### Whole questions, not just names
+
+Every tier above `partial` demands that ALL query tokens match, and `animal-subject`
+originally demanded only one. That asymmetry made it the sole survivor of a real
+question: "my dog ate chocolate" returned the Dog hub and four dog comparisons while
+"Dog Ate Chocolate — What to Do First", a page FaunaHub had written, was absent
+entirely.
+
+Two changes fix it, and they pull in opposite directions on purpose:
+
+- `animal-subject` loses 500 points for every query word the animal match does not
+  explain. One recognised word out of four is weak evidence and is now scored like it.
+- `partial` scales with how much of the query the title covers, up to just below
+  `title-tokens`. Three of four words in a title beats one recognised animal name; four
+  of four still loses to a page that matches everything.
+
+The result on real question shapes: "my dog ate chocolate" → the pet-safety page,
+"dog age in human years" → the Dog Age Calculator, "cat vomiting" → the symptom guide,
+"best dog breed for apartments" → that exact guide, "how long do dogs live" → the
+lifespans hub.
 
 ---
 

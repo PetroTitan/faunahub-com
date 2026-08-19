@@ -330,9 +330,14 @@ export default function SearchPanel({
       </div>
 
       {/* Results / states */}
+      {/* tabIndex 0 because this region scrolls and its contents are not in the
+          tab order — the options are listbox options reached with the arrow
+          keys. Without it a keyboard user who does not know the arrow-key
+          convention has no way to scroll the results at all. */}
       <div
         ref={listRef}
-        className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-3 py-3 sm:px-4"
+        tabIndex={0}
+        className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-3 py-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#063F2A] sm:px-4"
       >
         {loadState === "error" && (
           <p className="px-2 py-6 text-sm text-[#2C3A2F]">
@@ -404,7 +409,10 @@ function ResultSections({
   onSelect: (result: SearchResult, index: number) => void;
 }) {
   return (
-    <div id={listboxId} role="listbox" aria-label="Search results">
+    <>
+      {/* The notices sit OUTSIDE the listbox: role="listbox" may own only
+          `option` and `group` children. Their content reaches assistive tech
+          through the live region either way. */}
       {suggestionsOnly && (
         <p className="mx-1 mb-3 rounded-xl border border-[#DDE6DD] bg-[#F7F8F3] px-3 py-2.5 text-sm text-[#2C3A2F]">
           {/* Said plainly, because the alternative is a page that looks like it
@@ -425,29 +433,31 @@ function ResultSections({
         </p>
       )}
 
-      {sections.map((section) => (
-        <div key={section.label} role="group" aria-label={section.label} className="mb-3 last:mb-0">
-          <p
-            aria-hidden="true"
-            className="px-2 pb-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#5E6B63]"
-          >
-            {section.label}
-          </p>
-          <ul role="presentation" className="space-y-0.5">
-            {section.items.map(({ result, index }) => (
-              <li key={result.document.id} role="presentation">
-                <ResultCard
-                  result={result}
-                  id={optionId(index)}
-                  active={index === activeIndex}
-                  onSelect={() => onSelect(result, index)}
-                />
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
+      <div id={listboxId} role="listbox" aria-label="Search results">
+        {sections.map((section) => (
+          <div key={section.label} role="group" aria-label={section.label} className="mb-3 last:mb-0">
+            <p
+              aria-hidden="true"
+              className="px-2 pb-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#5E6B63]"
+            >
+              {section.label}
+            </p>
+            <ul role="presentation" className="space-y-0.5">
+              {section.items.map(({ result, index }) => (
+                <li key={result.document.id} role="presentation">
+                  <ResultCard
+                    result={result}
+                    id={optionId(index)}
+                    active={index === activeIndex}
+                    onSelect={() => onSelect(result, index)}
+                  />
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
 

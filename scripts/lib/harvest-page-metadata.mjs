@@ -127,8 +127,10 @@ export function harvestPageMetadata(file) {
 
           if (ts.isPropertyAssignment(property)) {
             key = property.name.getText(sourceFile).replace(/["']/g, "");
-            if (key === "noindex") {
-              found.noindex = property.initializer.kind === ts.SyntaxKind.TrueKeyword;
+            // Either directive means the page must stay out of search.
+            if (key === "noindex" || key === "noindexFollow") {
+              found.noindex =
+                found.noindex || property.initializer.kind === ts.SyntaxKind.TrueKeyword;
               continue;
             }
             value = literalValue(property.initializer, consts);

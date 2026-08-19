@@ -26,7 +26,7 @@ import {
   fuzzyBudget,
   isConservativeFuzzyMatch,
   queryTokens,
-  singularCandidates,
+  wordVariants,
 } from "../src/lib/search/normalize.ts";
 import type { SearchIndexPayload, SearchResult } from "../src/lib/search/types.ts";
 
@@ -69,14 +69,28 @@ test("comparison intent words are stripped, but never all of them", () => {
   assert.deepEqual(queryTokens("what is the difference"), ["what", "is", "the", "difference"]);
 });
 
-test("singular candidates are additive and keep the original first", () => {
-  assert.equal(singularCandidates("wolves")[0], "wolves");
-  assert.ok(singularCandidates("wolves").includes("wolf"));
-  assert.ok(singularCandidates("butterflies").includes("butterfly"));
-  assert.ok(singularCandidates("foxes").includes("fox"));
-  assert.ok(singularCandidates("dogs").includes("dog"));
+test("word variants are additive, both ways, and keep the original first", () => {
+  assert.equal(wordVariants("wolves")[0], "wolves");
+  assert.ok(wordVariants("wolves").includes("wolf"));
+  assert.ok(wordVariants("butterflies").includes("butterfly"));
+  assert.ok(wordVariants("foxes").includes("fox"));
+  assert.ok(wordVariants("dogs").includes("dog"));
+  assert.ok(wordVariants("dog").includes("dogs"), "a singular must also try its plural");
+  assert.ok(wordVariants("butterfly").includes("butterflies"));
   // A word that merely ends in "s" is never damaged: the original survives.
-  assert.equal(singularCandidates("octopus")[0], "octopus");
+  assert.equal(wordVariants("octopus")[0], "octopus");
+  // Every variant of every animal name must still be a variant, never a
+  // different animal that happens to be one letter away.
+  for (const token of ["cat", "bat", "rat", "cow", "sow", "mole", "vole"]) {
+    const variants = wordVariants(token);
+    assert.equal(variants[0], token);
+    for (const variant of variants.slice(1)) {
+      assert.ok(
+        variant.startsWith(token) || token.startsWith(variant),
+        `"${token}" produced unrelated variant "${variant}"`,
+      );
+    }
+  }
 });
 
 test("typo tolerance is off below four characters", () => {
@@ -112,6 +126,39 @@ test("scoring tiers stay far enough apart that modifiers cannot invert them", ()
   for (let i = 1; i < tiers.length; i++) {
     const gap = tiers[i] - tiers[i - 1];
     assert.ok(gap >= 400, `tier gap of ${gap} is too small to be safe`);
+  }
+});
+
+test("no computed score can climb into the tier above it", () => {
+  // Two tiers are computed rather than constant — animal-subject grows with the
+  // number of animals a document covers, and partial grows with coverage — so
+  // neither appears in TIER and the gap test above cannot see them. Both used
+  // to be unbounded; a page listing seven animals reached 7,200, above
+  // `title-prefix`. Asserted here over the real index rather than by reading
+  // the formulas.
+  const queries = [
+    "chimpanzee gorilla orangutan lemur baboon macaque",
+    "gecko chameleon iguana komodo dragon sea turtle snake",
+    "octopus cuttlefish squid nautilus",
+    "frog toad salamander newt",
+    "my dog ate chocolate",
+    "dog age in human years",
+  ];
+  for (const query of queries) {
+    for (const result of engine.search(query).results) {
+      if (result.reason === "animal-subject") {
+        assert.ok(
+          result.score < TIER["title-prefix"],
+          `animal-subject reached ${result.score} on "${query}" — above title-prefix`,
+        );
+      }
+      if (result.reason === "partial") {
+        assert.ok(
+          result.score < TIER["title-tokens"],
+          `partial reached ${result.score} on "${query}" — above title-tokens`,
+        );
+      }
+    }
   }
 });
 
