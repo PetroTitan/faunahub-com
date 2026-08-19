@@ -270,6 +270,37 @@ test("every animal name in the vocabulary resolves to its own animal", () => {
   assert.deepEqual(broken, [], `names that do not resolve to themselves: ${broken.join("; ")}`);
 });
 
+test("every animal document leads with its own page when searched by title", () => {
+  // A sweep over all 992 animal documents. This is the check that catches a
+  // multi-word name being split into two other animals — "whale shark" used to
+  // return a Whale vs Shark comparison above the whale shark's own profile.
+  const animals = payload.documents.filter((document) => document.type === "animal");
+  // Keyed on the FOLDED title, because that is what a reader's query becomes.
+  // "Kākāpō" and "Kakapo" are one bird under two spellings, and leading with
+  // either page is correct.
+  const titles = new Map<string, string[]>();
+  for (const document of animals) {
+    const key = fold(document.title);
+    titles.set(key, [...(titles.get(key) ?? []), document.url]);
+  }
+
+  const failures: string[] = [];
+  for (const document of animals) {
+    const top = engine.search(document.title).results[0];
+    if (!top) {
+      failures.push(`"${document.title}" returned nothing`);
+      continue;
+    }
+    // Two documents may legitimately share a title (the same species under two
+    // spellings); leading with either is correct.
+    const acceptable = titles.get(fold(document.title)) ?? [document.url];
+    if (!acceptable.includes(top.document.url)) {
+      failures.push(`"${document.title}" -> ${top.document.url} (expected one of ${acceptable.join(", ")})`);
+    }
+  }
+  assert.deepEqual(failures, [], `animals not leading with their own page:\n${failures.join("\n")}`);
+});
+
 test("every published pair resolves to its comparison, in both orders", () => {
   // All 288, both directions. The earlier test checked one pair, which is how
   // "Mole vs Rat" shipped answering correctly in one order and wrongly in the
