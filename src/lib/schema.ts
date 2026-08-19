@@ -12,8 +12,15 @@ export function websiteSchema() {
     url: SITE_URL,
     description:
       "Practical pet care guides, animal facts, wildlife explainers, and simple decision tools for responsible pet owners and curious readers.",
-    // SearchAction intentionally omitted: no on-site search route exists yet.
-    // Re-add once /search is implemented.
+    // SearchAction intentionally omitted. /search now exists, but the sitelinks
+    // searchbox works by sending readers to /search?q={search_term_string} —
+    // and the site-wide WebmasterID tracker reports window.location.href, so
+    // every such visit would ship the reader's typed text to a third-party
+    // endpoint. FaunaHub's privacy policy lists what it collects and has no
+    // user-supplied free-text category, and there is no consent banner.
+    // Re-add once consent gates the tracker and the policy covers search terms;
+    // /search will need to accept ?q= again at the same time.
+    // See docs/search-architecture.md.
   };
 }
 
