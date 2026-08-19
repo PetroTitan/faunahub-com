@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import SearchTrigger from "@/components/search/SearchTrigger";
 
 const navItems = [
   { label: "Dogs", href: "/dogs" },
@@ -49,37 +50,45 @@ export default function SiteHeader() {
             />
           </Link>
 
-          {/* Desktop nav */}
-          <nav
-            aria-label="Main navigation"
-            className="hidden md:flex items-center gap-1"
-          >
-            {navItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="px-3 py-2 rounded-md text-sm font-medium text-[#2C3A2F] hover:text-[#063F2A] hover:bg-[#EFF4E0] transition-colors hover:no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#063F2A] focus-visible:ring-offset-2"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          {/* Right-hand group: navigation, then search.
+              Search sits last so it is the nearest control to the thumb on a
+              phone and the rightmost affordance on a desktop — and so adding it
+              never reorders the links that were already here. */}
+          <div className="flex items-center gap-1 sm:gap-2">
+            {/* Desktop nav */}
+            <nav
+              aria-label="Main navigation"
+              className="hidden md:flex items-center gap-1"
+            >
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="px-3 py-2 rounded-md text-sm font-medium text-[#2C3A2F] hover:text-[#063F2A] hover:bg-[#EFF4E0] transition-colors hover:no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#063F2A] focus-visible:ring-offset-2"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
 
-          {/* Compact nav for small screens */}
-          <nav
-            aria-label="Compact navigation"
-            className="md:hidden flex items-center gap-0.5 -mr-2"
-          >
-            {compactNavItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="px-2 py-2 rounded-md text-xs font-medium text-[#2C3A2F] hover:text-[#063F2A] hover:no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#063F2A] focus-visible:ring-offset-2"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+            {/* Compact nav for small screens */}
+            <nav
+              aria-label="Compact navigation"
+              className="md:hidden flex items-center gap-0.5"
+            >
+              {compactNavItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="px-1.5 py-2 rounded-md text-xs font-medium text-[#2C3A2F] hover:text-[#063F2A] hover:no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#063F2A] focus-visible:ring-offset-2"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+
+            <SearchTrigger />
+          </div>
         </div>
       </div>
     </header>
