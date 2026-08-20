@@ -47,12 +47,23 @@ export function buildMetadata({
   path,
   ogImage,
   noindex,
+  noindexFollow,
 }: {
   title: string;
   description: string;
   path: string;
   ogImage?: string | OgImageInput;
+  /** Keep the page out of the index AND stop crawlers following its links. */
   noindex?: boolean;
+  /**
+   * Keep the page out of the index but let crawlers follow its links.
+   *
+   * This is the correct directive for a search-results page: the page itself is
+   * a near-duplicate of the site's real landing pages and should never rank,
+   * but the links it contains are legitimate paths into published content.
+   * `noindex` (which also sets `nofollow`) would waste that.
+   */
+  noindexFollow?: boolean;
 }): Metadata {
   const url = `${SITE_URL}${path}`;
   const img = resolveOgImage(ogImage, title);
@@ -80,9 +91,26 @@ export function buildMetadata({
       description,
       images: [img.url],
     },
+    // The two noindex branches spell out `googleBot` as well as the generic
+    // rule. Next replaces the whole `robots` field rather than merging it with
+    // the layout's, so nothing is inherited and this is belt-and-braces rather
+    // than strictly required — but Googlebot obeys the most specific directive
+    // it is given, and a page that must not be indexed is worth being explicit
+    // about. The indexable branch deliberately omits it: adding a googleBot
+    // block there would change the emitted tags on all 850 existing pages.
     robots: noindex
-      ? { index: false, follow: false }
-      : { index: true, follow: true },
+      ? {
+          index: false,
+          follow: false,
+          googleBot: { index: false, follow: false },
+        }
+      : noindexFollow
+        ? {
+            index: false,
+            follow: true,
+            googleBot: { index: false, follow: true },
+          }
+        : { index: true, follow: true },
   };
 }
 

@@ -38,12 +38,24 @@ npm run typecheck
 # Lint
 npm run lint
 
-# Build for production
+# Run the test suite
+npm test
+
+# Build for production (regenerates the search index first, via `prebuild`)
 npm run build
 
 # Run production build locally
 npm run start
+
+# Regenerate public/search-index.json by hand, or check it is not stale
+npm run search:index
+npm run search:check
 ```
+
+`public/search-index.json` is generated from the app's own routes and registries — see
+[docs/search-architecture.md](docs/search-architecture.md). It is committed so `next dev`
+and preview deployments work with no extra step, regenerated automatically before every
+build, and guarded by a staleness test.
 
 After cloning, run `npm install` first. Next.js will auto-generate `next-env.d.ts` on the first `dev`/`build`. Until then, IDEs may show transient `Cannot find module 'next'` errors — these resolve as soon as dependencies are installed.
 
