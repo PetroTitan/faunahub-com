@@ -213,6 +213,14 @@ export default function AnimalEncyclopediaPage() {
                 Structured profiles covering habitat, diet, behavior, ecology, and human interaction
                 for mammals, birds, reptiles, marine animals, and insects.
               </p>
+              <p className="mt-4">
+                <Link
+                  href="/animal-finder"
+                  className="inline-flex min-h-[44px] items-center rounded-lg border border-[#063F2A] bg-white px-4 text-sm font-semibold text-[#063F2A] transition-colors hover:bg-[#EFF4E0] hover:no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#063F2A] focus-visible:ring-offset-2"
+                >
+                  Browse and filter every profile with Animal Finder
+                </Link>
+              </p>
             </div>
           </div>
         </header>

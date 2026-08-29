@@ -442,6 +442,20 @@ validated against what the pages already say* — an editorial project, not an e
 The extension points are in place: `SearchDocument.group` and `SearchIndexPayload.facets`
 are the only two places a second axis has to appear.
 
+### Superseded by /animal-finder
+
+The overlay's browse chips remain what they are — a one-axis shortcut inside search. The
+full browse experience now lives at **`/animal-finder`**, which ships its own index and
+two more axes: the taxonomy registry's class/phylum groups (497/642) and a set of
+complete coverage flags derived from the compare, image, Red List and domestication
+registries. It re-measured every axis in the table above from source and reached the same
+conclusions, plus four the earlier audit had not measured directly. See
+[`animal-finder.md`](./animal-finder.md) — §4 for the full audit, §2 for why it does not
+reuse this index.
+
+The overlay links into it from both its initial and its no-results state, and
+`/animal-finder` links back to `/search` for anything that is not a name.
+
 ---
 
 ## 9. What is deliberately excluded

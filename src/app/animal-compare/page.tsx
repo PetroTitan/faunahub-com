@@ -128,6 +128,14 @@ export default function CompareHubPage() {
           rankings, no fight predictions, and no page that exists only because
           both animals are well known.
         </p>
+        <p className="mt-4">
+          <Link
+            href="/animal-finder"
+            className="inline-flex min-h-[44px] items-center rounded-lg border border-[#063F2A] bg-white px-4 text-sm font-semibold text-[#063F2A] transition-colors hover:bg-[#EFF4E0] hover:no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#063F2A] focus-visible:ring-offset-2"
+          >
+            Not sure which animal? Browse them all in Animal Finder
+          </Link>
+        </p>
       </header>
 
       <div className="mb-12">

@@ -29,6 +29,11 @@ export const DISCOVERY_DESTINATIONS: DiscoveryDestination[] = [
     blurb: "Species profiles by group — mammals, birds, fish, reptiles, insects.",
   },
   {
+    label: "Animal Finder",
+    href: "/animal-finder",
+    blurb: "Browse and filter every animal profile by group and taxonomy.",
+  },
+  {
     label: "Compare Animals",
     href: "/animal-compare",
     blurb: "Side-by-side pages that explain what actually separates two animals.",
@@ -70,15 +75,26 @@ export const DISCOVERY_DESTINATIONS: DiscoveryDestination[] = [
  * entry points, because a reader who just failed does not want another wall.
  */
 export const FALLBACK_DESTINATIONS: DiscoveryDestination[] = [
-  DISCOVERY_DESTINATIONS[0],
-  DISCOVERY_DESTINATIONS[1],
-  DISCOVERY_DESTINATIONS[2],
+  // Selected BY HREF, not by position. These were three numeric indexes into
+  // the list above until inserting Animal Finder at index 1 silently pushed
+  // Animal Taxonomy out of the no-results state — a change nothing named and
+  // no test caught. Naming the destination makes the intent explicit and makes
+  // a missing one fail loudly at build time instead.
+  byHref("/animal-encyclopedia"),
+  byHref("/animal-compare"),
+  byHref("/animal-taxonomy"),
   {
     label: "Pet Care Tools",
     href: "/tools",
     blurb: "Age calculators, cost planning, and setup checklists.",
   },
 ];
+
+function byHref(href: string): DiscoveryDestination {
+  const found = DISCOVERY_DESTINATIONS.find((destination) => destination.href === href);
+  if (!found) throw new Error(`no discovery destination for ${href}`);
+  return found;
+}
 
 /** Every href referenced above. Used by the test that keeps them real. */
 export const ALL_DISCOVERY_HREFS: string[] = [

@@ -34,6 +34,9 @@ import {
   type SearchResponse,
   type SearchResult,
 } from "@/lib/search/types";
+// The route constant only. No finder module is imported here: the search
+// chunk must not pull in the Finder's engine or its 60 KB index.
+import { FINDER_BASE } from "@/lib/finder/types";
 import { SearchIcon, CornerArrowIcon } from "./icons";
 
 /*
@@ -550,6 +553,29 @@ function EmptyState({
           : "Nothing on FaunaHub matches that yet. These hubs are the best places to look next."}
       </p>
 
+      {/* A failed query is exactly when structured browse beats another guess
+          at wording, so the Finder is offered as an action rather than as one
+          more card in the hub grid below. */}
+      <Link
+        href={FINDER_BASE}
+        onClick={onNavigate}
+        prefetch={false}
+        data-wmid-cta="search-empty-finder"
+        className="mt-4 flex items-center justify-between gap-3 rounded-xl border border-[#CFE0A8] bg-[#EFF4E0] px-3 py-2.5 transition-colors hover:border-[#063F2A] hover:no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#063F2A]"
+      >
+        <span className="min-w-0">
+          <span className="block text-sm font-semibold text-[#063F2A]">
+            Try Animal Finder filters
+          </span>
+          <span className="mt-0.5 block text-xs leading-snug text-[#2C3A2F]">
+            Narrow by group and taxonomy instead of by wording.
+          </span>
+        </span>
+        <span aria-hidden="true" className="shrink-0 text-[#063F2A]">
+          <CornerArrowIcon />
+        </span>
+      </Link>
+
       <ul className="mt-4 grid gap-2 sm:grid-cols-2">
         {FALLBACK_DESTINATIONS.map((destination) => (
           <li key={destination.href}>
@@ -606,6 +632,30 @@ function InitialState({
 
   return (
     <div className="px-2 py-2">
+      {/* The overlay ranks; the Finder filters. A reader who does not have a
+          name in mind is better served by structured browse than by an empty
+          query box, so the route there is offered before the hub grid rather
+          than buried inside it. */}
+      <Link
+        href={FINDER_BASE}
+        onClick={onNavigate}
+        prefetch={false}
+        data-wmid-cta="search-open-finder"
+        className="mb-3 flex items-center justify-between gap-3 rounded-xl border border-[#CFE0A8] bg-[#EFF4E0] px-3 py-2.5 transition-colors hover:border-[#063F2A] hover:no-underline focus:outline-none focus-visible:ring-2 focus-visible:ring-[#063F2A]"
+      >
+        <span className="min-w-0">
+          <span className="block text-sm font-semibold text-[#063F2A]">
+            Browse animals with Animal Finder
+          </span>
+          <span className="mt-0.5 block text-xs leading-snug text-[#2C3A2F]">
+            Filter every animal profile by group and taxonomy.
+          </span>
+        </span>
+        <span aria-hidden="true" className="shrink-0 text-[#063F2A]">
+          <CornerArrowIcon />
+        </span>
+      </Link>
+
       <p className="pb-2 text-[11px] font-semibold uppercase tracking-wider text-[#5E6B63]">
         Explore
       </p>
