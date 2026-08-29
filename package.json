@@ -7,14 +7,17 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-search-index.mjs",
+    "prebuild": "node scripts/generate-search-index.mjs && node scripts/generate-finder-index.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
     "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test \"tests/**/*.test.ts\"",
     "search:index": "node scripts/generate-search-index.mjs",
-    "search:check": "node scripts/generate-search-index.mjs --check"
+    "search:check": "node scripts/generate-search-index.mjs --check",
+    "finder:index": "node scripts/generate-finder-index.mjs",
+    "finder:check": "node scripts/generate-finder-index.mjs --check",
+    "finder:audit": "node scripts/generate-finder-index.mjs --audit"
   },
   "dependencies": {
     "next": "^15.5.18",

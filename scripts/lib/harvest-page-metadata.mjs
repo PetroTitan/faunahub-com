@@ -324,11 +324,49 @@ function categoryFromBreadcrumbs(sourceFile) {
 }
 
 /**
+ * Read a `quickFacts={[{ label, value }, …]}` attribute.
+ *
+ * Only plain string literals are read. A value assembled at runtime is left
+ * out rather than guessed at, which keeps the coverage measurement in
+ * build-finder-index.mjs honest: an axis is reported as thin because the data
+ * is thin, never because the extractor gave up quietly.
+ */
+function jsxFactsAttribute(initializer, sourceFile) {
+  if (
+    !initializer ||
+    !ts.isJsxExpression(initializer) ||
+    !initializer.expression ||
+    !ts.isArrayLiteralExpression(initializer.expression)
+  ) {
+    return [];
+  }
+  const facts = [];
+  for (const element of initializer.expression.elements) {
+    if (!ts.isObjectLiteralExpression(element)) continue;
+    let label = null;
+    let value = null;
+    for (const property of element.properties) {
+      if (!ts.isPropertyAssignment(property)) continue;
+      const key = property.name.getText(sourceFile).replace(/["']/g, "");
+      const text =
+        ts.isStringLiteral(property.initializer) ||
+        ts.isNoSubstitutionTemplateLiteral(property.initializer)
+          ? property.initializer.text
+          : null;
+      if (key === "label") label = text;
+      if (key === "value") value = text;
+    }
+    if (label !== null) facts.push({ label, value });
+  }
+  return facts;
+}
+
+/**
  * Extract the classification an animal profile already publishes.
  *
  * @returns {{ commonName: string|null, scientificName: string|null,
  *             parentCategory: string|null, parentCategoryHref: string|null,
- *             tags: string[] }}
+ *             tags: string[], quickFacts: { label: string, value: string|null }[] }}
  */
 export function harvestAnimalProfileFacts(file) {
   const source = fs.readFileSync(file, "utf8");
@@ -346,6 +384,7 @@ export function harvestAnimalProfileFacts(file) {
     parentCategory: null,
     parentCategoryHref: null,
     tags: [],
+    quickFacts: [],
   };
 
   const visit = (node) => {
@@ -363,6 +402,8 @@ export function harvestAnimalProfileFacts(file) {
           facts.parentCategoryHref = jsxStringAttribute(attribute.initializer);
         } else if (name === "tags" && facts.tags.length === 0) {
           facts.tags = jsxStringArrayAttribute(attribute.initializer) ?? [];
+        } else if (name === "quickFacts" && facts.quickFacts.length === 0) {
+          facts.quickFacts = jsxFactsAttribute(attribute.initializer, sourceFile);
         }
       }
     }
