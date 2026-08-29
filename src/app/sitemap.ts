@@ -857,6 +857,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     })),
     { url: `${BASE_URL}/animal-encyclopedia`, lastModified: today, changeFrequency: "weekly", priority: 0.9 },
+    // Animal Finder is ONE canonical hub. Its filters live in component state
+    // and never reach the URL, so there is no faceted or query variant of this
+    // route to submit — by construction, not by omission.
+    { url: `${BASE_URL}/animal-finder`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/animal-encyclopedia/mammals`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/animal-encyclopedia/birds`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/animal-encyclopedia/reptiles`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
