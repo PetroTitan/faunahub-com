@@ -1,0 +1,11 @@
+:root { --ink: #17211B; --muted: #5E6B63; --line: #DDE6DD; }
+* { box-sizing: border-box; }
+body { margin: 0; font: 15px/1.6 ui-sans-serif, system-ui, sans-serif; color: var(--ink); background: #fff; }
+main { max-width: 720px; margin: 0 auto; padding: 32px 20px; }
+h1 { font-size: 26px; margin: 0 0 4px; }
+.tag { display: inline-block; font-size: 12px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); }
+table { border-collapse: collapse; width: 100%; margin-top: 16px; font-size: 13px; }
+th, td { border: 1px solid var(--line); padding: 6px 8px; text-align: left; vertical-align: top; }
+th { background: #F7F8F3; width: 38%; }
+code { font-family: ui-monospace, monospace; font-size: 12px; word-break: break-all; }
+a { color: #063F2A; }
