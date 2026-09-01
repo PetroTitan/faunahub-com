@@ -199,11 +199,27 @@ test("a verified scientific name resolves to its animal", () => {
   assert.match(result.document.scientificName ?? "", /Panthera leo/);
 });
 
-test("scientific-name matching only uses names the profiles declare", () => {
-  // The wolf profile declares no scientificName, so nothing may claim it does.
-  const wolf = engine.documents.find((document) => document.url === "/animals/wolf");
-  assert.ok(wolf);
-  assert.equal(wolf.scientificName, undefined);
+test("scientific-name matching only uses names the profiles declare", async () => {
+  // Wolf used to be the fixture here, because it declared no scientificName
+  // despite printing "(Canis lupus)" in its own <h1>. It now declares one, so
+  // the example moved to a page where the absence is permanent: "Shark" covers
+  // more than 500 species and must never resolve to one of them.
+  const shark = engine.documents.find((document) => document.url === "/animals/shark");
+  assert.ok(shark);
+  assert.equal(shark.scientificName, undefined);
+
+  // The point the fixture was standing in for, asserted directly: no document
+  // may carry a name its profile does not declare, in either direction.
+  const { SCIENTIFIC_NAMES } = await import("../src/lib/animal-compare/scientific-names.ts");
+  for (const document of engine.documents) {
+    if (!document.url.startsWith("/animals/")) continue;
+    const slug = document.url.slice("/animals/".length);
+    assert.equal(
+      document.scientificName ?? undefined,
+      SCIENTIFIC_NAMES[slug] ?? undefined,
+      `${document.url} carries a scientific name its profile does not declare`,
+    );
+  }
 });
 
 test("a verified alias resolves to the canonical animal", () => {
