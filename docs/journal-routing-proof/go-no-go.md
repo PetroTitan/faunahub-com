@@ -3,6 +3,44 @@
 **Verdict: routing proof NOT completed. Journal build stays blocked — on access,
 not on architecture.**
 
+Nothing found argues against the design. The experiment could not be run.
+
+## Attempt history
+
+Three attempts, all stopped by the same wall in a different place. Read this
+before the table below, because the table's two "UNKNOWN" rows have not moved
+since the first attempt.
+
+| # | Premise | What was actually true | Outcome |
+| --- | --- | --- | --- |
+| 1 | create a disposable Vercel project | `deploy_to_vercel` and `create_git_project` both **403 forbidden** | blocked at project creation |
+| 2 | `faunahub-journal-proof` was created manually | it did not exist (`get_project` 404, 4 hostnames 404) | blocked at Phase 0 |
+| 3 | `PetroTitan/faunahub-journal` repo + Vercel project both exist | **repo yes** (private, empty → now populated at `61a0f9d`); **Vercel project no**, creation still 403 | blocked at Phase 3 |
+
+Full records: [`results.md`](results.md) for attempts 1–2,
+[`existing-project-proof.md`](existing-project-proof.md) for attempt 3.
+
+**Current position.** The Journal repository is populated and its proof app is
+verified locally, so the outstanding manual step is a single Vercel import. The
+two blocking questions are untouched, because both live inside Vercel's routing
+network and need a second project to observe.
+
+### Two evidence traps met along the way
+
+Both produce a confident wrong answer, in opposite directions:
+
+- **`*.vercel.app` DNS resolves for any name.** A DNS answer is not proof a
+  project exists. Only the HTTP status is.
+- **`vercel.com/<team>/<project>` returns 200 for any path when
+  unauthenticated.** That is the dashboard SPA shell, not proof of existence.
+  The API result is authoritative.
+
+A third, on the GitHub side: an unauthenticated 404 from both the web and the
+API is what a **private** repo looks like, and `git ls-remote` exiting **0 with
+zero refs** is what an **empty** repo looks like. Calibrate against a
+known-missing repo (exit 128, `ERROR: Repository not found.`) before concluding
+absence.
+
 Nothing was discovered that argues against the design. The experiment could not
 be run: creating the disposable Vercel project returned
 `403 forbidden — "You don't have permission to create a project."` on both

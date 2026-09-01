@@ -140,3 +140,44 @@ by repair: production was never touched.
 
 Requires two projects. Not attempted. No evidence is offered, and none should be
 inferred.
+
+---
+
+## Continuation attempt 1 — after PR #12
+
+A continuation was started on the premise that `faunahub-journal-proof` had been
+created manually. **It had not been.** Verified four ways:
+
+| Check | Result |
+| --- | --- |
+| `list_projects` on `team_XVsatleKgqptkBkRWGq7L0Xs` | only `faunahub-com`, `builddesignhub-com` |
+| `get_project` by slug | **404 Not Found** |
+| `list_teams` | one team only — nowhere else to hide |
+| 4 candidate `*.vercel.app` hostnames | all **404** |
+
+`*.vercel.app` DNS resolves for *any* name; the wildcard is not evidence. The
+HTTP 404 is.
+
+### What PR #12 established at no cost
+
+The proof app was merged to `main` (`bcf5785`) and Vercel deployed production
+successfully — `dpl_EbwQrNMCc39tWQuFik9JKs6TKUeB`, READY.
+
+That upgrades a local claim to a production one: **`proofs/journal-routing/` is
+inert on real Vercel infrastructure**, not just in a local build. Its nested
+`package.json` triggered no monorepo detection, changed no build, leaked no
+route. Measured live and cache-busted after the merge: 13/13 main routes 200,
+custom 404 rendering, `/__journal-proof` 404, `/journal` 404,
+`/proofs/journal-routing` 404, zero `PROOF-APP-MARKER` on the homepage, sitemap
+1691, search-index 1691, finder 642, IndexNow key correct.
+
+Side effect worth noting: the proof app's source is now public on `main`. It is
+inert and unroutable, and `proofs/journal-routing/README.md` documents disposal.
+
+## Continuation attempt 2 — using `PetroTitan/faunahub-journal`
+
+Recorded in full in [`existing-project-proof.md`](existing-project-proof.md).
+In short: the **GitHub repo exists** (private, and was empty) and is now
+populated with the proof app at `61a0f9d`; the **Vercel project
+`faunahub-journal` does not exist** and creation still returns 403. Both
+blocking questions remain unanswered.

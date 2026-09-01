@@ -1,8 +1,15 @@
 # Unblocking the routing proof
 
-Everything except the two platform questions is done. The proof app is written,
-built, locally verified and committed at `proofs/journal-routing/`. What is
-missing is **permission to create a Vercel project**.
+Everything except the two platform questions is done. What is missing is
+**permission to create a Vercel project**.
+
+> **Superseded instructions below the fold.** The original plan was to deploy
+> `proofs/journal-routing/` from the FaunaHub repo into a project named
+> `faunahub-journal-proof`. That is no longer the shortest path:
+> **`PetroTitan/faunahub-journal` now exists and is populated** with the same
+> proof app at commit `61a0f9d`, at the repository root. Use Option 2 below.
+> The copy at `proofs/journal-routing/` in the FaunaHub repo is now a reference
+> copy only.
 
 ## Option 1 — grant the integration project-creation rights (preferred)
 
@@ -10,17 +17,21 @@ The Vercel MCP connection currently authenticates with read + deploy-to-existing
 scope. Raising it to allow project creation on
 `team_XVsatleKgqptkBkRWGq7L0Xs` lets the whole proof run unattended in one pass.
 
-## Option 2 — create the project by hand (5 minutes)
+## Option 2 — create the project by hand (one import)
 
-1. Vercel dashboard → **Add New… → Project**.
-2. Name it **`faunahub-journal-proof`**. Do **not** name it `faunahub-journal`;
-   that name is reserved for the real thing.
-3. Deploy the contents of `proofs/journal-routing/` (drag-drop, or link a repo
-   with **Root Directory** = `proofs/journal-routing`).
-4. Confirm `https://faunahub-journal-proof.vercel.app/__journal-proof` renders
-   the diagnostics table.
-5. Tell the agent the project exists; it can then read deployments over MCP and
-   drive the rest.
+1. Vercel dashboard → **Add New… → Project** → import
+   **`PetroTitan/faunahub-journal`** (private; already contains the proof app).
+2. Keep the name **`faunahub-journal`**. Framework **Next.js**.
+   **Root Directory: the repository root** — not a subdirectory.
+3. Do **not** attach `faunahub.com`, and do **not** attach any custom domain.
+   The proof runs on the Vercel-assigned hostname until routing is configured.
+4. Deploy, then confirm
+   `https://faunahub-journal.vercel.app/__journal-proof` renders the diagnostics
+   table and contains `PROOF-APP-MARKER`.
+5. Say so; the agent can then read deployments over MCP and drive Phase 4 onward.
+
+The repo currently holds **only** the disposable proof app. It mounts
+`/__journal-proof`, never `/journal`, so importing it claims no real path.
 
 ## Then: the microfrontends step, and its one real risk
 
@@ -70,8 +81,8 @@ www.faunahub.com/__journal-proof/nested
   NOT → /nested, NOT 200, NOT a *.vercel.app host
 
 # 4. Infrastructure host must not leak.
-No occurrence of faunahub-journal-proof.vercel.app in HTML, canonical, OG,
-JSON-LD or any feed.
+No occurrence of faunahub-journal.vercel.app (or any *.vercel.app host) in
+HTML, canonical, OG, JSON-LD or any feed.
 
 # 5. Root namespace unchanged.
 /sitemap.xml 1691 · /search-index.json 1691 · /animal-finder-index.json 642
@@ -91,6 +102,8 @@ cache-busted success proves nothing extra; it only prevents a false negative.
 
 ## Cleanup when done
 
-Delete the `faunahub-journal-proof` Vercel project, remove the
-`__journal-proof` entry from `microfrontends.json`, and delete
-`proofs/journal-routing/`. Nothing depends on any of them.
+Remove the `__journal-proof` entry from `microfrontends.json`, delete the proof
+app from `PetroTitan/faunahub-journal` (the repo then becomes the real Journal's
+home), and delete the reference copy at `proofs/journal-routing/` in the FaunaHub
+repo. Keep the Vercel project only if it is to become the real Journal project;
+otherwise delete it. Nothing depends on any of them.
