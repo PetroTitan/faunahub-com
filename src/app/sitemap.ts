@@ -782,6 +782,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/cats/insurance`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/small-pets`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/small-pets/care`, lastModified: today, changeFrequency: "monthly", priority: 0.8 },
+    // The three species hubs under /small-pets. They are static routes rather
+    // than SMALL_PET_ARTICLES entries, so the data-driven block below never saw
+    // them and they were absent from the sitemap while being fully indexable —
+    // their own child cost pages were submitted but their parents were not.
+    { url: `${BASE_URL}/small-pets/rabbits`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE_URL}/small-pets/hamsters`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${BASE_URL}/small-pets/guinea-pigs`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/birds`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/fish`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/reptiles`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
