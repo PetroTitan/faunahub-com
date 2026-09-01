@@ -140,3 +140,53 @@ by repair: production was never touched.
 
 Requires two projects. Not attempted. No evidence is offered, and none should be
 inferred.
+
+---
+
+## Continuation attempt — 2026-09-01, after PR #12
+
+A continuation sprint was started on the premise that `faunahub-journal-proof`
+had been created manually. **It has not been.** Verified four ways before
+concluding, to avoid the false-negative failure mode this project has been bitten
+by before:
+
+| Check | Result |
+| --- | --- |
+| `list_projects` on `team_XVsatleKgqptkBkRWGq7L0Xs` | only `faunahub-com`, `builddesignhub-com` |
+| `get_project` by slug `faunahub-journal-proof` | **404 Not Found** |
+| `list_teams` | one team only — no second account to hide in |
+| `faunahub-journal-proof.vercel.app` + 3 name variants | all **404** |
+
+(`*.vercel.app` DNS resolves for any name — the wildcard is not evidence. The
+HTTP 404 is.)
+
+So blocking questions 1 and 2 remain **unanswered**. Nothing changed about them.
+
+### What PR #12 did establish, at no cost
+
+The proof app was merged to `main` (`bcf5785`) and Vercel built and deployed
+production successfully — `dpl_EbwQrNMCc39tWQuFik9JKs6TKUeB`, READY, target
+production.
+
+That upgrades a local claim to a production one: **`proofs/journal-routing/` is
+inert on real Vercel infrastructure**, not merely in a local build. Its nested
+`package.json` did not trigger monorepo detection, change the build, or leak a
+route. Measured live, cache-busted, after the merge:
+
+```
+13/13 main routes            200
+/this-main-page-does-not-exist 404, custom "Page not found"
+/__journal-proof             404      ← proof app NOT served by main
+/__journal-proof/nested      404
+/journal                     404      ← still unclaimed
+/proofs/journal-routing      404
+PROOF-APP-MARKER on homepage 0 occurrences
+sitemap                      1691, 0 proof URLs
+search-index                 1691
+animal-finder-index          642
+IndexNow key                 200, correct body
+```
+
+The one thing to be aware of: the proof app's source is now public in the repo
+and on `main`. It is inert and unroutable, but it is no longer a private
+scratch artifact, and `proofs/journal-routing/README.md` documents its disposal.

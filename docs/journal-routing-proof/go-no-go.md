@@ -3,6 +3,13 @@
 **Verdict: routing proof NOT completed. Journal build stays blocked — on access,
 not on architecture.**
 
+> **Status as of the 2026-09-01 continuation attempt:** unchanged. The
+> `faunahub-journal-proof` project still does not exist (verified via
+> `list_projects`, `get_project` → 404, `list_teams`, and four candidate
+> hostnames → 404). PR #12 merged the proof app to `main` at `bcf5785`, which
+> proved the app is inert on real Vercel infrastructure but answers neither
+> blocking question. See the continuation section in `results.md`.
+
 Nothing was discovered that argues against the design. The experiment could not
 be run: creating the disposable Vercel project returned
 `403 forbidden — "You don't have permission to create a project."` on both
