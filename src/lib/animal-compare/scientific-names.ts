@@ -6,7 +6,7 @@
  * is authored: each value is the exact string that profile already displays, so
  * the comparison pages and the profile can never disagree.
  *
- * Absence is meaningful. 109 profiles carry no scientific name — usually
+ * Absence is meaningful. 94 profiles carry no scientific name — usually
  * group-level pages where a single binomial would be wrong — and those animals
  * are simply omitted from the taxonomy block rather than given an invented one.
  *
@@ -14,6 +14,7 @@
  */
 
 export const SCIENTIFIC_NAMES: Record<string, string> = {
+  "aardvark": "Orycteropus afer",
   "aardwolf": "Proteles cristata",
   "abalone": "genus Haliotis",
   "adelie-penguin": "Pygoscelis adeliae",
@@ -71,6 +72,7 @@ export const SCIENTIFIC_NAMES: Record<string, string> = {
   "bilby": "Macrotis lagotis",
   "binturong": "Arctictis binturong",
   "bird-of-paradise": "e.g. Paradisaea raggiana",
+  "bison": "Bison bison",
   "black-dragonfish": "genus Idiacanthus",
   "black-swan": "Cygnus atratus",
   "blenny": "family Blenniidae",
@@ -79,6 +81,7 @@ export const SCIENTIFIC_NAMES: Record<string, string> = {
   "blue-tongued-skink": "Tiliqua (several species)",
   "boa": "Boa constrictor",
   "boat-billed-heron": "Cochlearius cochlearius",
+  "bobcat": "Lynx rufus",
   "bowerbird": "Ptilonorhynchus violaceus",
   "box-jellyfish": "Cubozoa (e.g. Chironex fleckeri)",
   "box-turtle": "Terrapene",
@@ -99,6 +102,7 @@ export const SCIENTIFIC_NAMES: Record<string, string> = {
   "california-condor": "Gymnogyps californianus",
   "cane-toad": "Rhinella marina",
   "capercaillie": "Tetrao urogallus",
+  "capybara": "Hydrochoerus hydrochaeris",
   "caracal": "Caracal caracal",
   "cardinal": "Cardinalis cardinalis",
   "carp": "Cyprinus carpio",
@@ -141,6 +145,7 @@ export const SCIENTIFIC_NAMES: Record<string, string> = {
   "courser": "e.g. Cursorius",
   "cow": "Bos taurus",
   "cowrie": "family Cypraeidae",
+  "coyote": "Canis latrans",
   "crabeater-seal": "Lobodon carcinophaga",
   "crayfish": "e.g. Astacus astacus",
   "cricket": "family Gryllidae",
@@ -166,6 +171,7 @@ export const SCIENTIFIC_NAMES: Record<string, string> = {
   "earthworm": "Lumbricus terrestris and relatives",
   "earwig": "order Dermaptera",
   "electric-eel": "Electrophorus electricus",
+  "elk": "Cervus canadensis",
   "elkhorn-coral": "Acropora palmata",
   "emperor-penguin": "Aptenodytes forsteri",
   "emu": "Dromaius novaehollandiae",
@@ -247,6 +253,7 @@ export const SCIENTIFIC_NAMES: Record<string, string> = {
   "hellbender": "Cryptobranchus alleganiensis",
   "hermit-crab": "superfamily Paguroidea",
   "heron": "family Ardeidae",
+  "hippopotamus": "Hippopotamus amphibius",
   "hoatzin": "Opisthocomus hoazin",
   "honeyeater": "Family Meliphagidae",
   "honeyguide": "family Indicatoridae",
@@ -300,6 +307,7 @@ export const SCIENTIFIC_NAMES: Record<string, string> = {
   "leopard-seal": "Hydrurga leptonyx",
   "limpet": "marine gastropods (e.g. Patella, Lottia)",
   "limpkin": "Aramus guarauna",
+  "lion": "Panthera leo",
   "lionfish": "genus Pterois",
   "llama": "Lama glama",
   "longhorn-beetle": "Family Cerambycidae",
@@ -358,6 +366,7 @@ export const SCIENTIFIC_NAMES: Record<string, string> = {
   "numbat": "Myrmecobius fasciatus",
   "oarfish": "Regalecus glesne",
   "ocelot": "Leopardus pardalis",
+  "okapi": "Okapia johnstoni",
   "olingo": "genus Bassaricyon",
   "olm": "Proteus anguinus",
   "oncilla": "Leopardus tigrinus",
@@ -392,6 +401,7 @@ export const SCIENTIFIC_NAMES: Record<string, string> = {
   "potoo": "Nyctibius grandis",
   "pratincole": "Glareola spp.",
   "proboscis-monkey": "Nasalis larvatus",
+  "pronghorn": "Antilocapra americana",
   "puff-adder": "Bitis arietans",
   "puffbird": "family Bucconidae",
   "puffin": "genus Fratercula",
@@ -480,6 +490,7 @@ export const SCIENTIFIC_NAMES: Record<string, string> = {
   "stonefish": "Synanceia verrucosa",
   "sturgeon": "family Acipenseridae",
   "sugar-glider": "Petaurus breviceps",
+  "sun-bear": "Helarctos malayanus",
   "sunbird": "family Nectariniidae",
   "sunbittern": "Eurypyga helias",
   "sungrebe": "Heliornis fulica",
@@ -528,6 +539,7 @@ export const SCIENTIFIC_NAMES: Record<string, string> = {
   "wallaby": "various genera (Macropodidae)",
   "walrus": "Odobenus rosmarus",
   "wandering-albatross": "Diomedea exulans",
+  "warthog": "Phacochoerus africanus",
   "wasp": "e.g. Vespula vulgaris",
   "weaver": "family Ploceidae",
   "weddell-seal": "Leptonychotes weddellii",
@@ -538,8 +550,11 @@ export const SCIENTIFIC_NAMES: Record<string, string> = {
   "whiptail": "genus Aspidoscelis",
   "white-stork": "Ciconia ciconia",
   "whooping-crane": "Grus americana",
+  "wild-boar": "Sus scrofa",
   "wild-turkey": "Meleagris gallopavo",
+  "wolf": "Canis lupus",
   "wolffish": "genus Anarhichas",
+  "wolverine": "Gulo gulo",
   "wood-frog": "Lithobates sylvaticus",
   "woodlouse": "suborder Oniscidea",
   "woolly-monkey": "Lagothrix lagothricha",

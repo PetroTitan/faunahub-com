@@ -8,6 +8,7 @@ import SourcesSection from "@/components/educational/SourcesSection";
 import AnimalHeroImage from "@/components/AnimalHeroImage";
 import AnimalGallery from "@/components/AnimalGallery";
 import AnimalComparisonLinks from "@/components/compare/AnimalComparisonLinks";
+import ScientificName from "@/components/ScientificName";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
 import { getAnimalGalleryImages, getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
@@ -86,7 +87,7 @@ export default function AardvarkPage() {
           <div className="grid lg:grid-cols-[1fr_300px] gap-10 mt-2">
             <article className="prose-content min-w-0">
               <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-2 leading-tight">
-                Aardvark <span className="italic font-normal text-[#5E6B63]">(Orycteropus afer)</span>
+                Aardvark <ScientificName scientificName="Orycteropus afer" />
               </h1>
               <p className="mb-8">
                 <span className="tag">Mammal</span>{" "}

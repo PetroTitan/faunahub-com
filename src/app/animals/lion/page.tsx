@@ -9,6 +9,7 @@ import ComparisonTable from "@/components/ComparisonTable";
 import SourcesSection from "@/components/educational/SourcesSection";
 import AnimalHeroImage from "@/components/AnimalHeroImage";
 import AnimalGallery from "@/components/AnimalGallery";
+import ScientificName from "@/components/ScientificName";
 import { ANIMAL_SOURCES } from "@/lib/educational/animal-sources";
 import { getAnimalGalleryImages, getAnimalImage, getAnimalOgImage } from "@/lib/images/animal-images";
 import { buildArticleMetadata } from "@/lib/metadata";
@@ -87,7 +88,7 @@ export default function LionPage() {
           <div className="grid lg:grid-cols-[1fr_300px] gap-10 mt-2">
             <article className="prose-content min-w-0">
               <h1 className="text-3xl sm:text-4xl font-bold text-[#17211B] mb-2 leading-tight">
-                Lion <span className="italic font-normal text-[#5E6B63]">(Panthera leo)</span>
+                Lion <ScientificName scientificName="Panthera leo" />
               </h1>
               <p className="mb-8">
                 <span className="tag">Mammal</span>{" "}
