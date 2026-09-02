@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/microfrontends.json",
+  "applications": {
+    "faunahub-com": {},
+    "faunahub-journal": {
+      "routing": [
+        {
+          "paths": ["/__journal-proof", "/__journal-proof/:path*"]
+        }
+      ]
+    }
+  }
+}
