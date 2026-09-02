@@ -1,0 +1,8 @@
+# This proof app is disposable and is NOT part of the FaunaHub build. Installing
+# its dependencies here (to reproduce a Vercel build locally) leaves artifacts
+# that must not enter the main repository.
+node_modules/
+.next/
+package-lock.json
+*.tsbuildinfo
+next-env.d.ts
