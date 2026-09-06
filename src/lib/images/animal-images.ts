@@ -1,6 +1,7 @@
 import type { AnimalImage } from "./types";
 import { COMPARE_BATCH_TWO_IMAGES } from "./compare-batch-two-images.ts";
 import { COMPARE_BATCH_THREE_IMAGES } from "./compare-batch-three-images.ts";
+import { EXPANSION_WAVE_IMAGES } from "./expansion-wave-images.ts";
 
 /**
  * Verified animal images.
@@ -21,6 +22,8 @@ export const ANIMAL_IMAGES: readonly AnimalImage[] = [
   ...COMPARE_BATCH_TWO_IMAGES,
   // Batch three: images for the five profiles that unlock batch-three comparisons.
   ...COMPARE_BATCH_THREE_IMAGES,
+  // Design polish + animal expansion wave: one verified hero image per new profile.
+  ...EXPANSION_WAVE_IMAGES,
   {
     id: "tiger-wikimedia-001",
     animalSlug: "tiger",

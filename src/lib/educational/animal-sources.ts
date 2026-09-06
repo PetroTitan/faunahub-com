@@ -3435,6 +3435,321 @@ export const ANIMAL_SOURCES: Record<string, SourceLink[]> = {
     SRC_BRITANNICA_ANIMALS,
   ],
   "caecilian": [SRC_AMPHIBIAWEB, SRC_BRITANNICA_ANIMALS, SRC_SMITHSONIAN_ZOO],
+
+  // ── Design polish + animal expansion wave (2026-09-06). ──
+  // Every entry leads with the species' own Animal Diversity Web account,
+  // each of which was confirmed to return HTTP 200 during this pass, followed
+  // by the institutional references already used site-wide.
+  narwhal: [
+    adw("Monodon_monoceros", "Monodon monoceros (narwhal)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  reindeer: [
+    adw("Rangifer_tarandus", "Rangifer tarandus (caribou / reindeer)"),
+    SRC_SMITHSONIAN_ZOO,
+    SRC_IUCN,
+  ],
+  chipmunk: [
+    adw("Tamias_striatus", "Tamias striatus (eastern chipmunk)"),
+    SRC_SMITHSONIAN_ZOO,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  "prairie-dog": [
+    adw("Cynomys", "Cynomys (prairie dogs)"),
+    SRC_SMITHSONIAN_ZOO,
+    SRC_IUCN,
+  ],
+  groundhog: [
+    adw("Marmota_monax", "Marmota monax (woodchuck)"),
+    SRC_SMITHSONIAN_ZOO,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  muskox: [
+    adw("Ovibos_moschatus", "Ovibos moschatus (muskox)"),
+    SRC_SMITHSONIAN_ZOO,
+    SRC_IUCN,
+  ],
+  pika: [
+    adw("Ochotona", "Ochotona (pikas)"),
+    SRC_SMITHSONIAN_ZOO,
+    SRC_IUCN,
+  ],
+  impala: [
+    adw("Aepyceros_melampus", "Aepyceros melampus (impala)"),
+    SRC_SMITHSONIAN_ZOO,
+    SRC_IUCN,
+  ],
+  "beluga-whale": [
+    adw("Delphinapterus_leucas", "Delphinapterus leucas (beluga)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  manatee: [
+    adw("Trichechus", "Trichechus (manatees)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "sea-otter": [
+    adw("Enhydra_lutris", "Enhydra lutris (sea otter)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "blue-whale": [
+    adw("Balaenoptera_musculus", "Balaenoptera musculus (blue whale)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "sperm-whale": [
+    adw("Physeter_macrocephalus", "Physeter macrocephalus (sperm whale)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "whale-shark": [
+    adw("Rhincodon_typus", "Rhincodon typus (whale shark)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "tiger-shark": [
+    adw("Galeocerdo_cuvier", "Galeocerdo cuvier (tiger shark)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "bull-shark": [
+    adw("Carcharhinus_leucas", "Carcharhinus leucas (bull shark)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "basking-shark": [
+    adw("Cetorhinus_maximus", "Cetorhinus maximus (basking shark)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "portuguese-man-o-war": [
+    adw("Physalia_physalis", "Physalia physalis (Portuguese man o' war)"),
+    SRC_SMITHSONIAN_OCEAN,
+    SRC_NOAA_OCEAN_EXPLORATION,
+  ],
+  "sand-dollar": [
+    adw("Clypeasteroida", "Clypeasteroida (sand dollars)"),
+    SRC_SMITHSONIAN_OCEAN,
+    SRC_WORMS,
+  ],
+  "brittle-star": [
+    adw("Ophiuroidea", "Ophiuroidea (brittle stars)"),
+    SRC_SMITHSONIAN_OCEAN,
+    SRC_WORMS,
+  ],
+  kestrel: [
+    adw("Falco_tinnunculus", "Falco tinnunculus (common kestrel)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "barn-swallow": [
+    adw("Hirundo_rustica", "Hirundo rustica (barn swallow)"),
+    SRC_CORNELL_BIRDS,
+    SRC_AUDUBON,
+  ],
+  budgerigar: [
+    adw("Melopsittacus_undulatus", "Melopsittacus undulatus (budgerigar)"),
+    SRC_SMITHSONIAN_ZOO,
+    SRC_IUCN,
+  ],
+  cockatiel: [
+    adw("Nymphicus_hollandicus", "Nymphicus hollandicus (cockatiel)"),
+    SRC_SMITHSONIAN_ZOO,
+    SRC_IUCN,
+  ],
+  starling: [
+    adw("Sturnus_vulgaris", "Sturnus vulgaris (European starling)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  cuckoo: [
+    adw("Cuculus_canorus", "Cuculus canorus (common cuckoo)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  pheasant: [
+    adw("Phasianus_colchicus", "Phasianus colchicus (ring-necked pheasant)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "eurasian-jay": [
+    adw("Garrulus_glandarius", "Garrulus glandarius (Eurasian jay)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  cormorant: [
+    adw("Phalacrocoracidae", "Phalacrocoracidae (cormorants)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "great-crested-grebe": [
+    adw("Podiceps_cristatus", "Podiceps cristatus (great crested grebe)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "canada-goose": [
+    adw("Branta_canadensis", "Branta canadensis (Canada goose)"),
+    SRC_CORNELL_BIRDS,
+    SRC_AUDUBON,
+  ],
+  "northern-lapwing": [
+    adw("Vanellus_vanellus", "Vanellus vanellus (northern lapwing)"),
+    SRC_CORNELL_BIRDS,
+    SRC_IUCN,
+  ],
+  "black-capped-chickadee": [
+    adw("Poecile_atricapillus", "Poecile atricapillus (black-capped chickadee)"),
+    SRC_CORNELL_BIRDS,
+    SRC_AUDUBON,
+  ],
+  "bearded-dragon": [
+    adw("Pogona_vitticeps", "Pogona vitticeps (central bearded dragon)"),
+    SRC_REPTILE_DATABASE,
+    SRC_IUCN,
+  ],
+  "corn-snake": [
+    adw("Pantherophis_guttatus", "Pantherophis guttatus (corn snake)"),
+    SRC_REPTILE_DATABASE,
+    SRC_IUCN,
+  ],
+  kingsnake: [
+    adw("Lampropeltis_getula", "Lampropeltis getula (common kingsnake)"),
+    SRC_REPTILE_DATABASE,
+    SRC_IUCN,
+  ],
+  "hawksbill-turtle": [
+    adw("Eretmochelys_imbricata", "Eretmochelys imbricata (hawksbill sea turtle)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "loggerhead-turtle": [
+    adw("Caretta_caretta", "Caretta caretta (loggerhead sea turtle)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "red-eared-slider": [
+    adw("Trachemys_scripta", "Trachemys scripta (pond slider)"),
+    SRC_REPTILE_DATABASE,
+    SRC_IUCN,
+  ],
+  "common-frog": [
+    adw("Rana_temporaria", "Rana temporaria (common frog)"),
+    SRC_AMPHIBIAWEB,
+    SRC_IUCN,
+  ],
+  "leopard-frog": [
+    adw("Lithobates_pipiens", "Lithobates pipiens (northern leopard frog)"),
+    SRC_AMPHIBIAWEB,
+    SRC_IUCN,
+  ],
+  "slow-worm": [
+    adw("Anguis_fragilis", "Anguis fragilis (slow worm)"),
+    SRC_REPTILE_DATABASE,
+    SRC_IUCN,
+  ],
+  "leopard-gecko": [
+    adw("Eublepharis_macularius", "Eublepharis macularius (leopard gecko)"),
+    SRC_REPTILE_DATABASE,
+    SRC_IUCN,
+  ],
+  "blue-marlin": [
+    adw("Makaira_nigricans", "Makaira nigricans (Atlantic blue marlin)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  sailfish: [
+    adw("Istiophorus_platypterus", "Istiophorus platypterus (sailfish)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  pike: [
+    adw("Esox_lucius", "Esox lucius (northern pike)"),
+    SRC_IUCN,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  zebrafish: [
+    adw("Danio_rerio", "Danio rerio (zebrafish)"),
+    SRC_IUCN,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  discus: [
+    adw("Symphysodon", "Symphysodon (discus)"),
+    SRC_IUCN,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  "rainbow-trout": [
+    adw("Oncorhynchus_mykiss", "Oncorhynchus mykiss (rainbow trout)"),
+    SRC_NOAA_FISHERIES,
+    SRC_IUCN,
+  ],
+  "blue-tang": [
+    adw("Paracanthurus_hepatus", "Paracanthurus hepatus (blue tang)"),
+    SRC_IUCN,
+    SRC_SMITHSONIAN_OCEAN,
+  ],
+  "moorish-idol": [
+    adw("Zanclus_cornutus", "Zanclus cornutus (Moorish idol)"),
+    SRC_IUCN,
+    SRC_SMITHSONIAN_OCEAN,
+  ],
+  firefly: [
+    adw("Lampyridae", "Lampyridae (fireflies)"),
+    SRC_XERCES,
+    SRC_IUCN,
+  ],
+  locust: [
+    adw("Schistocerca_gregaria", "Schistocerca gregaria (desert locust)"),
+    SRC_XERCES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  katydid: [
+    adw("Tettigoniidae", "Tettigoniidae (katydids / bush crickets)"),
+    SRC_XERCES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  "jumping-spider": [
+    adw("Salticidae", "Salticidae (jumping spiders)"),
+    SRC_XERCES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  "wolf-spider": [
+    adw("Lycosidae", "Lycosidae (wolf spiders)"),
+    SRC_XERCES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  "black-widow": [
+    adw("Latrodectus_mactans", "Latrodectus mactans (southern black widow)"),
+    SRC_XERCES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  harvestman: [
+    adw("Opiliones", "Opiliones (harvestmen)"),
+    SRC_XERCES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  "army-ant": [
+    adw("Eciton_burchellii", "Eciton burchellii (army ant)"),
+    SRC_XERCES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  "fire-ant": [
+    adw("Solenopsis_invicta", "Solenopsis invicta (red imported fire ant)"),
+    SRC_XERCES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
+  "swallowtail-butterfly": [
+    adw("Papilio_machaon", "Papilio machaon (Old World swallowtail)"),
+    SRC_XERCES,
+    SRC_IUCN,
+  ],
+  "atlas-moth": [
+    adw("Attacus_atlas", "Attacus atlas (atlas moth)"),
+    SRC_XERCES,
+    SRC_BRITANNICA_ANIMALS,
+  ],
 };
 
 /**

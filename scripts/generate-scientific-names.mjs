@@ -12,9 +12,11 @@ const REPO = "/Users/titan/faunahub-com";
 const ANIMALS = path.join(REPO, "src/app/animals");
 
 const entries = [];
+let profileCount = 0;
 for (const slug of fs.readdirSync(ANIMALS).sort()) {
   const file = path.join(ANIMALS, slug, "page.tsx");
   if (!fs.existsSync(file)) continue;
+  profileCount += 1;
   const m = fs.readFileSync(file, "utf8").match(/scientificName="([^"]+)"/);
   if (!m) continue;
   entries.push([slug, m[1]]);
@@ -32,7 +34,7 @@ const out = `/**
  * is authored: each value is the exact string that profile already displays, so
  * the comparison pages and the profile can never disagree.
  *
- * Absence is meaningful. ${642 - entries.length} profiles carry no scientific name — usually
+ * Absence is meaningful. ${profileCount - entries.length} profiles carry no scientific name — usually
  * group-level pages where a single binomial would be wrong — and those animals
  * are simply omitted from the taxonomy block rather than given an invented one.
  *
@@ -50,4 +52,4 @@ export function scientificNameFor(slug: string): string | undefined {
 `;
 
 fs.writeFileSync(path.join(REPO, "src/lib/animal-compare/scientific-names.ts"), out);
-console.log("entries written:", entries.length);
+console.log("entries written:", entries.length, "of", profileCount, "profiles");
