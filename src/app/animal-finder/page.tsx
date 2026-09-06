@@ -19,7 +19,7 @@ import { FINDER_DESTINATIONS, FINDER_PRESETS } from "@/lib/finder/presets";
  *    state and are never written to the URL, so no `?group=birds` or
  *    `/animal-finder/ocean/mammals` variant exists to be crawled, indexed or
  *    submitted. `sitemap.ts` gains exactly one entry. A faceted-URL scheme over
- *    a 642-item collection would mint thousands of near-duplicate pages whose
+ *    a collection this size would mint thousands of near-duplicate pages whose
  *    content is a reordering of the encyclopedia's — the textbook doorway
  *    pattern, and the reason the Finder deliberately cannot deep-link.
  *  - The existing hubs remain the landing pages. Every group, preset and
@@ -75,11 +75,25 @@ export const metadata: Metadata = buildMetadata({
   path: FINDER_BASE,
 });
 
+/**
+ * The coverage numbers the FAQ answers quote.
+ *
+ * They used to be typed into the answer strings, and went stale the moment the
+ * collection grew: an expansion took the corpus past 642 while the FAQ still
+ * told readers "283 of 642". Reading them from the same index the tool reads
+ * is the whole point of this page, so the FAQ now does it too.
+ */
+const excluded = (id: string) => index.excludedFacets.find((axis) => axis.id === id);
+const CONTINENT_COVERED = excluded("continent")?.covered ?? 0;
+const DIET_COVERED = excluded("diet")?.covered ?? 0;
+const DIET_DISTINCT = excluded("diet")?.distinctValues ?? 0;
+const TAXON_COVERED = TAXON?.covered ?? 0;
+
 const FAQS = [
   {
     question: "Why can I filter by group but not by habitat, diet or continent?",
     answer:
-      "Because a filter is a promise that the collection can be sliced that way, and for those axes it cannot. Habitat and continent are recorded for 283 of 642 profiles, so a continent filter would silently hide more than half the animals rather than reporting them as unrecorded. Diet is written on most profiles, but as a sentence — 561 profiles carry 508 different diet descriptions — and sorting those sentences into carnivore, herbivore and omnivore would mean assigning a classification FaunaHub's editors never made. The full measurement for every axis considered is in the coverage table on this page.",
+      `Because a filter is a promise that the collection can be sliced that way, and for those axes it cannot. Habitat and continent are recorded for ${CONTINENT_COVERED} of ${TOTAL} profiles, so a continent filter would silently hide most of the animals rather than reporting them as unrecorded. Diet is written on most profiles, but as a sentence — ${DIET_COVERED} profiles carry ${DIET_DISTINCT} different diet descriptions — and sorting those sentences into carnivore, herbivore and omnivore would mean assigning a classification FaunaHub's editors never made. The full measurement for every axis considered is in the coverage table on this page.`,
   },
   {
     question: "Does the Finder cover every animal on FaunaHub?",
@@ -98,7 +112,7 @@ const FAQS = [
   {
     question: "Why do some animals show no group tag?",
     answer:
-      "Because FaunaHub has not filed them under one yet, and saying so is more useful than guessing. The taxonomic registry covers 497 of 642 profiles; the rest are absent from it, which is a gap in FaunaHub's records rather than a statement about the animal. Filtering on that axis narrows to the animals that have been filed, and the panel says how many that is.",
+      `Because FaunaHub has not filed them under one yet, and saying so is more useful than guessing. The taxonomic registry covers ${TAXON_COVERED} of ${TOTAL} profiles; the rest are absent from it, which is a gap in FaunaHub's records rather than a statement about the animal. Filtering on that axis narrows to the animals that have been filed, and the panel says how many that is.`,
   },
 ];
 
