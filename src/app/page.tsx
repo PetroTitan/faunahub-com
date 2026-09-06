@@ -4,6 +4,8 @@ import Link from "next/link";
 import HubGrid from "@/components/HubGrid";
 import ToolCard from "@/components/ToolCard";
 import { getAnimalImage } from "@/lib/images/animal-images";
+import { COMPARE_ANIMALS } from "@/lib/animal-compare";
+import { COMPARISONS } from "@/lib/animal-compare";
 import { websiteSchema, organizationSchema } from "@/lib/schema";
 import { RED_LIST_SPECIES_COUNT } from "@/lib/red-list/species";
 import { getDetailedProfiles, getFeaturedSpecies } from "@/lib/red-list/helpers";
@@ -40,6 +42,75 @@ export const metadata: Metadata = {
     images: [HOME_OG_IMAGE.url],
   },
 };
+
+/**
+ * Counted from the registries at build time, never typed in. The discovery
+ * section below tells readers how big the collection is, and a hand-written
+ * number there would start drifting the day the next batch of profiles lands.
+ */
+const PROFILE_COUNT = COMPARE_ANIMALS.filter(
+  (animal) => animal.profileKind === "profile",
+).length;
+const COMPARISON_COUNT = COMPARISONS.length;
+
+/**
+ * The knowledge surfaces that sit above the individual profiles.
+ *
+ * Before this section the homepage linked to none of them: Animal Finder,
+ * the Compare Center and all six editorial clusters were reachable only from
+ * the footer or from inside the encyclopedia, so the front page read as a
+ * collection of care guides rather than as the entrance to a knowledge base.
+ */
+const knowledgeSurfaces = [
+  {
+    title: "Animal Taxonomy",
+    description: "How animals are grouped, from vertebrates to invertebrates, and where coverage is still thin.",
+    href: "/animal-taxonomy",
+    icon: "\u{1F9EC}",
+  },
+  {
+    title: "Intelligence & Behavior",
+    description: "Cognition, social structure and communication — with the evidence, and its limits, stated.",
+    href: "/animal-intelligence-and-behavior",
+    icon: "\u{1F9E0}",
+  },
+  {
+    title: "Lifespans & Life Stages",
+    description: "How long animals live, why wild and captive figures differ, and what a typical span really means.",
+    href: "/animal-lifespans",
+    icon: "\u{23F3}",
+  },
+  {
+    title: "Senses & Adaptations",
+    description: "Vision, echolocation, camouflage, migration and hibernation across the animal kingdom.",
+    href: "/animal-senses-and-adaptations",
+    icon: "\u{1F441}",
+  },
+  {
+    title: "Food & Diet",
+    description: "What animals eat and the ecology behind it — with clear veterinary boundaries throughout.",
+    href: "/animal-food-and-diet",
+    icon: "\u{1F33F}",
+  },
+  {
+    title: "Domestication",
+    description: "How a handful of species became livestock and companions — process, not a single event.",
+    href: "/animal-domestication",
+    icon: "\u{1F410}",
+  },
+  {
+    title: "Fauna by Continent",
+    description: "Land animals by continent and habitat, and ocean life by depth zone.",
+    href: "/fauna",
+    icon: "\u{1F30D}",
+  },
+  {
+    title: "Research Sources",
+    description: "The references FaunaHub uses, how they are chosen, and where each one stops being authoritative.",
+    href: "/animal-research-sources",
+    icon: "\u{1F4DA}",
+  },
+];
 
 const petCareCategories = [
   {
@@ -228,6 +299,9 @@ export default function HomePage() {
                 <Link href="/animal-encyclopedia" className="btn-secondary">
                   Animal Encyclopedia
                 </Link>
+                <Link href="/animal-finder" className="btn-secondary">
+                  Find an Animal
+                </Link>
                 <Link href="/wildlife" className="btn-secondary">
                   Wildlife &amp; Biodiversity
                 </Link>
@@ -321,6 +395,91 @@ export default function HomePage() {
                   </Link>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Explore the collection — Finder, Compare Center, knowledge clusters */}
+        <section className="py-14 bg-[#EFF1EB] border-y border-[#DDE6DD]">
+          <div className="container-content">
+            <h2 className="section-title">Explore the Animal Knowledge Base</h2>
+            <p className="section-subtitle">
+              {PROFILE_COUNT.toLocaleString("en-GB")} animal profiles and{" "}
+              {COMPARISON_COUNT.toLocaleString("en-GB")} side-by-side comparisons,
+              with the reference layers that sit above them.
+            </p>
+
+            {/* The two ways into the collection itself */}
+            <div className="grid gap-4 sm:grid-cols-2 mb-8">
+              <Link
+                href="/animal-finder"
+                className="card p-6 border-l-4 border-l-[#7BAA35] hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+              >
+                <div className="flex items-start gap-4">
+                  <span className="text-3xl flex-shrink-0" role="img" aria-hidden="true">
+                    🔎
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="text-lg font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
+                      Animal Finder
+                    </h3>
+                    <p className="text-sm text-[#5E6B63] leading-snug">
+                      Filter all {PROFILE_COUNT.toLocaleString("en-GB")} profiles by animal
+                      group, taxonomic group and what each profile actually carries — a
+                      photo, a comparison, a conservation record.
+                    </p>
+                    <span className="text-xs font-medium text-[#063F2A] mt-3 block">
+                      Browse and filter →
+                    </span>
+                  </div>
+                </div>
+              </Link>
+
+              <Link
+                href="/animal-compare"
+                className="card p-6 border-l-4 border-l-[#075FA8] hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline"
+              >
+                <div className="flex items-start gap-4">
+                  <span className="text-3xl flex-shrink-0" role="img" aria-hidden="true">
+                    ⚖️
+                  </span>
+                  <div className="min-w-0">
+                    <h3 className="text-lg font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
+                      Animal Compare Center
+                    </h3>
+                    <p className="text-sm text-[#5E6B63] leading-snug">
+                      Tell commonly confused animals apart and see how close relatives
+                      differ. Comparisons explain identification and ecology — never
+                      which animal would win.
+                    </p>
+                    <span className="text-xs font-medium text-[#063F2A] mt-3 block">
+                      Open the Compare Center →
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </div>
+
+            {/* The reference layers above the individual profiles */}
+            <h3 className="text-sm font-semibold text-[#5E6B63] uppercase tracking-wider mb-3">
+              Reference Layers
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {knowledgeSurfaces.map((surface) => (
+                <Link
+                  key={surface.href}
+                  href={surface.href}
+                  className="card p-4 hover:shadow-md hover:border-[#CFE0A8] transition-all group hover:no-underline flex flex-col"
+                >
+                  <span className="text-2xl mb-2" role="img" aria-hidden="true">
+                    {surface.icon}
+                  </span>
+                  <h4 className="text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors mb-1">
+                    {surface.title}
+                  </h4>
+                  <p className="text-xs text-[#5E6B63] leading-snug">{surface.description}</p>
+                </Link>
+              ))}
             </div>
           </div>
         </section>

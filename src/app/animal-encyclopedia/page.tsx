@@ -4,6 +4,7 @@ import Link from "next/link";
 import HubGrid from "@/components/HubGrid";
 import RelatedLinks from "@/components/RelatedLinks";
 import { getAnimalImage } from "@/lib/images/animal-images";
+import { COMPARE_ANIMALS } from "@/lib/animal-compare";
 import { buildMetadata } from "@/lib/metadata";
 import { breadcrumbSchema, itemListSchema } from "@/lib/schema";
 
@@ -173,6 +174,15 @@ const allAnimalProfiles: { label: string; href: string; group: string }[] = [
   { label: "Hyena", href: "/animals/hyena", group: "Mammals" },
 ];
 
+/**
+ * Counted from the animal roster at build time, never typed in. The section
+ * below shows a curated subset, so the copy has to name the real size of the
+ * collection rather than imply the subset is all of it.
+ */
+const TOTAL_PROFILES = COMPARE_ANIMALS.filter(
+  (animal) => animal.profileKind === "profile",
+).length;
+
 const ORDER = ["Mammals", "Birds", "Reptiles & Amphibians", "Marine Animals", "Fish", "Insects & Invertebrates"];
 
 export default function AnimalEncyclopediaPage() {
@@ -300,10 +310,16 @@ export default function AnimalEncyclopediaPage() {
 
           <section className="mt-12" aria-labelledby="all-profiles-heading">
             <h2 id="all-profiles-heading" className="section-title">
-              All Animal Profiles
+              Featured Animal Profiles
             </h2>
             <p className="section-subtitle">
-              Browse the full set of detailed animal profiles, grouped by category.
+              A curated selection, grouped by category. The full collection of{" "}
+              {TOTAL_PROFILES.toLocaleString("en-GB")} profiles is browsable — and
+              filterable by group, taxon and coverage — in{" "}
+              <Link href="/animal-finder" className="font-medium text-[#063F2A]">
+                Animal Finder
+              </Link>
+              .
             </p>
             <div className="space-y-8">
               {ORDER.map((group) => {
@@ -382,7 +398,8 @@ export default function AnimalEncyclopediaPage() {
                 { label: "Endangered Animals", href: "/endangered-animals", description: "IUCN Red List categories and threatened species" },
                 { label: "Fauna by Continent", href: "/fauna", description: "Land animals by continent, habitat, and evolution" },
                 { label: "Animal Taxonomy & Coverage", href: "/animal-taxonomy", description: "How animals are grouped and how coverage expands" },
-                { label: "Compare Animals", href: "/compare", description: "Side-by-side animal comparisons" },
+                { label: "Animal Compare Center", href: "/animal-compare", description: "Side-by-side comparisons, filterable by category and relationship" },
+                { label: "Compare Animals (classic)", href: "/compare", description: "The original side-by-side comparison pages" },
                 { label: "Dog Care Guides", href: "/dogs", description: "Domestic dog care and breeds" },
                 { label: "Cat Care Guides", href: "/cats", description: "Domestic cat care and breeds" },
               ]}
