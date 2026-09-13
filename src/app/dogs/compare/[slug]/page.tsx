@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import BreedComparisonView from "@/components/breeds/BreedComparisonView";
 import { buildMetadata } from "@/lib/metadata";
+import { fitDescription } from "@/lib/pet-intelligence";
 import { PUBLISHED_COMPARISONS, getComparison } from "@/lib/pet-intelligence/comparisons";
 
 /**
@@ -32,7 +33,7 @@ export async function generateMetadata({
   if (!pair) return {};
   return buildMetadata({
     title: `${pair.a.name} vs ${pair.b.name} — Size, Coat, Grooming & Exercise Compared`,
-    description: `How the ${pair.a.name} and ${pair.b.name} compare on the attributes their registries publish — size, coat, exercise, grooming, shedding and more. No winner, no scores.`,
+    description: fitDescription(`${pair.a.name} and ${pair.b.name} compared on size, coat, exercise, grooming and shedding — registry values only, no winner and no scores.`),
     path: `/dogs/compare/${pair.slug}`,
   });
 }

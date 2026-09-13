@@ -28,6 +28,7 @@
  * A test asserts the two slug spaces never collide.
  */
 import { breedsForSpecies } from "./index.ts";
+import { fitDescription } from "./presentation.ts";
 import { ORDINAL_TRAIT_KEYS } from "./types.ts";
 import type { Breed, BreedSpecies, OrdinalTrait, SizeClass } from "./types.ts";
 
@@ -124,7 +125,7 @@ function sizeCollections(): BreedCollection[] {
     slug: `${size}-dog-breeds`,
     species: "dog" as const,
     title: `${SIZE_COPY[size].label} Dog Breeds`,
-    description: `Every dog breed FaunaHub publishes whose registry-published adult weight places it in the ${size} band — ${SIZE_COPY[size].gloss}. Listed alphabetically, with the measurements each band is derived from.`,
+    description: fitDescription(`Dog breeds whose registry-published adult weight places them in the ${size} band — ${SIZE_COPY[size].gloss}. Alphabetical, with measurements.`),
     methodology: SIZE_METHOD,
     axis: "sizeClass" as const,
     matches: (b: Breed) => b.sizeClass === size,
@@ -144,10 +145,11 @@ function coatCollections(): BreedCollection[] {
     slug: d.title.toLowerCase().replace(/[^a-z]+/g, "-").replace(/^-|-$/g, ""),
     species: d.species,
     title: d.title,
-    description:
+    description: fitDescription(
       d.value === "variable"
-        ? "Cat breeds whose registry recognises them in both longhair and shorthair, listed alphabetically with the registry wording for each."
-        : `Every ${d.noun} breed FaunaHub publishes whose registry records a ${d.value} coat, listed alphabetically with the registry's own wording.`,
+        ? "Cat breeds their registry recognises in both longhair and shorthair, listed alphabetically with the registry wording."
+        : `${d.noun === "dog" ? "Dog" : "Cat"} breeds whose registry records a ${d.value} coat, listed alphabetically with the registry's own wording.`,
+    ),
     methodology:
       d.species === "cat"
         ? "Coat length comes from the CFA breed profile's own \"Coat Length\" field, or from the breed's registry name where that names the coat. Breeds their registry recognises in both lengths are recorded as recognised in both rather than being filed under one."
@@ -171,7 +173,7 @@ function groupCollections(): BreedCollection[] {
     slug: g.slug,
     species: "dog" as const,
     title: g.title,
-    description: `Every dog breed FaunaHub publishes that the American Kennel Club places in its ${g.group}, listed alphabetically with each breed's registry entry.`,
+    description: fitDescription(`Dog breeds the American Kennel Club places in its ${g.group}, listed alphabetically, each linked to its registry entry.`),
     methodology: `Membership is the AKC's own classification, taken verbatim from each breed's AKC entry. Registry groups are NOT interchangeable between organisations — the FCI classifies the same dogs into ten numbered groups on a different basis, and a breed in the AKC's ${g.group} may sit in a differently-named FCI group. This page reports one registry's view and says whose it is.`,
     axis: "registryGroup" as const,
     matches: (b: Breed) =>
@@ -196,7 +198,7 @@ function traitCollections(): BreedCollection[] {
         slug: `dog-breeds-with-${band}-${key.replace(/([A-Z])/g, "-$1").toLowerCase()}`,
         species: "dog",
         title: `Dog Breeds With ${BAND_LABEL[band]} ${copy.noun}`,
-        description: `Dog breeds FaunaHub records in the ${band} band for ${copy.noun.toLowerCase()} — ${copy.means}. Listed alphabetically, never ranked.`,
+        description: fitDescription(`Dog breeds recorded in the ${band} band for ${copy.noun.toLowerCase()} — ${copy.means}. Alphabetical, never ranked.`),
         methodology: `${TRAIT_METHOD} ${copy.notMeans}`,
         axis: "trait",
         matches: (b: Breed) => b.traits[key]?.value === band,

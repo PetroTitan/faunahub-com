@@ -17,6 +17,7 @@ export {
   breedPageDescription,
   breedSearchDescription,
   breedPageTags,
+  fitDescription,
 } from "./presentation.ts";
 export { BREED_REGISTRIES, getRegistry, citableRegistryIds } from "./registries.ts";
 export { BREED_SOURCES, getBreedSource } from "./sources.ts";

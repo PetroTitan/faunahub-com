@@ -32,6 +32,7 @@
  *    any particular animal, and every page says so.
  */
 import { breedsForSpecies, span } from "./index.ts";
+import { fitDescription } from "./presentation.ts";
 import type { Breed, BreedSpecies, Measurement } from "./types.ts";
 
 export type RankingMetric = "heightCm" | "weightKg";
@@ -77,7 +78,9 @@ export const BREED_RANKINGS: readonly BreedRanking[] = [
     species: "dog",
     title: "Tallest Dog Breeds by Published Height",
     description:
-      "Dog breeds ordered by the upper end of the height range their registry publishes. Every row shows the range and the registry's own wording; breeds with an open-ended standard are excluded and counted.",
+      fitDescription(
+        "Dog breeds ordered by the upper end of the height range their registry publishes. Every row shows the range and the registry's own wording; breeds with an open-ended standard are excluded and counted.",
+      ),
     metric: "heightCm",
     orderBy: "max",
     direction: "desc",
@@ -90,7 +93,9 @@ export const BREED_RANKINGS: readonly BreedRanking[] = [
     species: "dog",
     title: "Heaviest Dog Breeds by Published Weight",
     description:
-      "Dog breeds ordered by the upper end of the weight range their registry publishes, with the range shown for each so overlapping standards are visible.",
+      fitDescription(
+        "Dog breeds ordered by the upper end of the weight range their registry publishes, with the range shown for each so overlapping standards are visible.",
+      ),
     metric: "weightKg",
     orderBy: "max",
     direction: "desc",
@@ -103,7 +108,9 @@ export const BREED_RANKINGS: readonly BreedRanking[] = [
     species: "dog",
     title: "Smallest Dog Breeds by Published Weight",
     description:
-      "Dog breeds ordered by the lower end of the weight range their registry publishes — the smallest published figures first.",
+      fitDescription(
+        "Dog breeds ordered by the lower end of the weight range their registry publishes — the smallest published figures first.",
+      ),
     metric: "weightKg",
     orderBy: "min",
     direction: "asc",

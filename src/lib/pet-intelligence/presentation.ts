@@ -19,14 +19,33 @@ export function breedPageTitle(breed: Breed): string {
   return `${breed.name} — Breed Overview, Care & Household Fit`;
 }
 
+/**
+ * Meta description, kept under ~155 characters.
+ *
+ * Search engines truncate around 160, and an audit found 460 generated
+ * descriptions running past it — so the tail of every one was being cut mid-
+ * sentence. Built from the breed's own recorded attributes so it stays specific
+ * rather than boilerplate, then trimmed to the last clause that fits.
+ */
+export const DESCRIPTION_LIMIT = 155;
+
+export function fitDescription(text: string, limit = DESCRIPTION_LIMIT): string {
+  if (text.length <= limit) return text;
+  const cut = text.slice(0, limit);
+  const stop = Math.max(cut.lastIndexOf(". "), cut.lastIndexOf(", "), cut.lastIndexOf(" — "));
+  return (stop > limit * 0.6 ? cut.slice(0, stop) : cut.replace(/\s+\S*$/, "")).replace(/[,;:—-]$/, "") + ".";
+}
+
 export function breedPageDescription(breed: Breed): string {
   const bits: string[] = [];
   const group = primaryGroup(breed);
-  if (group) bits.push(group.toLowerCase());
+  if (group) bits.push(group);
   if (breed.sizeClass) bits.push(`${breed.sizeClass} size`);
   if (breed.coat?.length) bits.push(`${breed.coat.length} coat`);
   const lead = bits.length ? `${bits.join(", ")}. ` : "";
-  return `${breed.name} breed profile: ${lead}Registry-sourced measurements and recognition, plus a cautious overview of temperament, exercise, grooming, and responsible-ownership planning.`;
+  return fitDescription(
+    `${breed.name}: ${lead}Registry-sourced measurements, recognition and trait bands, with sources for every value.`,
+  );
 }
 
 /**
