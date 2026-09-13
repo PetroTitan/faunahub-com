@@ -20,6 +20,13 @@ const sections = [
     icon: "🐕",
   },
   {
+    title: "Dog Breed Finder",
+    description:
+      "Filter breed profiles by attributes a named registry publishes.",
+    href: "/dogs/breed-finder",
+    icon: "🔎",
+  },
+  {
     title: "Dog Health",
     description: "Common health conditions, preventive care, and when to contact a veterinarian.",
     href: "/dogs/health",

@@ -20,6 +20,13 @@ const sections = [
     icon: "🐈",
   },
   {
+    title: "Cat Breed Finder",
+    description:
+      "Filter breed profiles by attributes a named registry publishes — and see which filters the data cannot support.",
+    href: "/cats/breed-finder",
+    icon: "🔎",
+  },
+  {
     title: "Cat Health",
     description: "Common feline health conditions, preventive care, and when to call a veterinarian.",
     href: "/cats/health",
