@@ -1,10 +1,20 @@
 import type { Metadata } from "next";
 import DecisionHub from "@/components/pet-choice/DecisionHub";
 import BreedProfileGrid from "@/components/breeds/BreedProfileGrid";
+import BreedDirectory from "@/components/breeds/BreedDirectory";
 import RelatedLinks from "@/components/RelatedLinks";
 import { getDecisionsByKind } from "@/lib/pet-choice/data";
 import { DOG_BREED_RECORDS } from "@/lib/pet-intelligence";
 import { buildMetadata } from "@/lib/metadata";
+
+/**
+ * How many image cards the hub renders.
+ *
+ * Kept small on purpose: each card is a `next/image`, so an unbounded grid puts
+ * one image element per breed into the initial HTML. Every breed stays
+ * reachable through the plain-text A-Z directory underneath.
+ */
+const FEATURED_CARDS = 24;
 
 const LAST_UPDATED = "2026-05-22";
 
@@ -53,7 +63,17 @@ export default function DogBreedsHub() {
       hubFaqs={HUB_FAQS}
       faqTitle="Dog Breeds — Frequently Asked Questions"
       lastUpdated={LAST_UPDATED}
-      leadSection={<BreedProfileGrid species="dog" breeds={DOG_BREED_RECORDS} />}
+      leadSection={
+        <>
+          <BreedProfileGrid
+            species="dog"
+            breeds={DOG_BREED_RECORDS}
+            limit={FEATURED_CARDS}
+            heading="Breed profiles"
+          />
+          <BreedDirectory species="dog" breeds={DOG_BREED_RECORDS} />
+        </>
+      }
       extraSection={
         <>
           <div className="mt-10">

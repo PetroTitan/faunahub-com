@@ -18,6 +18,19 @@ import type { FinderBreed, FinderFacet } from "@/lib/pet-intelligence/finder";
  * page. Nothing is fetched, nothing is sent anywhere, and the text box value
  * never reaches a URL — consistent with Global Search on this site.
  */
+/**
+ * How many result cards render at once.
+ *
+ * Each card is a `next/image`; an unbounded list at 300 breeds would put 300
+ * image elements into the initial HTML and 300 links into the accessibility
+ * tree. The window grows on request and resets whenever the filters change, so
+ * a reader never has to page past stale results.
+ *
+ * Discovery does not depend on this: the Breed Center's A-Z directory lists
+ * every breed as a plain link.
+ */
+const RESULT_WINDOW = 24;
+
 export default function BreedFinderClient({
   breeds,
   facets,
@@ -29,6 +42,7 @@ export default function BreedFinderClient({
 }) {
   const [selected, setSelected] = useState<Record<string, string[]>>({});
   const [query, setQuery] = useState("");
+  const [windowSize, setWindowSize] = useState(RESULT_WINDOW);
 
   const activeCount = Object.values(selected).reduce((n, v) => n + v.length, 0);
 
@@ -57,7 +71,13 @@ export default function BreedFinderClient({
       .sort((a, b) => a.name.localeCompare(b.name));
   }, [breeds, selected, query]);
 
+  const visible = results.slice(0, windowSize);
+  const remaining = results.length - visible.length;
+
   function toggle(facetId: string, value: string) {
+    // Narrowing the filters must reset the window, or a reader who filters
+    // after scrolling keeps looking at a window sized for the old result set.
+    setWindowSize(RESULT_WINDOW);
     setSelected((prev) => {
       const current = prev[facetId] ?? [];
       const next = current.includes(value)
@@ -70,6 +90,7 @@ export default function BreedFinderClient({
   function reset() {
     setSelected({});
     setQuery("");
+    setWindowSize(RESULT_WINDOW);
   }
 
   return (
@@ -86,7 +107,10 @@ export default function BreedFinderClient({
             id="breed-finder-search"
             type="search"
             value={query}
-            onChange={(e) => setQuery(e.target.value)}
+            onChange={(e) => {
+              setWindowSize(RESULT_WINDOW);
+              setQuery(e.target.value);
+            }}
             placeholder={`e.g. ${breeds[0]?.name ?? ""}`}
             className="w-full min-h-[44px] px-3 py-2 rounded-lg border border-[#DDE6DD] bg-white text-sm text-[#17211B] focus:outline-none focus:ring-2 focus:ring-[#7BAA35] focus:border-[#7BAA35]"
           />
@@ -141,9 +165,12 @@ export default function BreedFinderClient({
 
       <div>
         <p className="text-sm text-[#5E6B63] mb-4" role="status" aria-live="polite">
-          Showing {results.length} of {breeds.length} {speciesWord} breeds
-          {activeCount > 0 || query ? " matching your filters" : ""}. Results are alphabetical —
-          FaunaHub does not rank breeds.
+          {results.length === breeds.length
+            ? `Showing ${visible.length} of ${breeds.length} ${speciesWord} breeds`
+            : `${results.length} of ${breeds.length} ${speciesWord} breeds match your filters${
+                remaining > 0 ? `, showing ${visible.length}` : ""
+              }`}
+          . Results are alphabetical — FaunaHub does not rank breeds.
         </p>
 
         {/* The results list holds h3 cards, so it needs an h2 above it or the
@@ -163,7 +190,7 @@ export default function BreedFinderClient({
           </div>
         ) : (
           <ul className="grid sm:grid-cols-2 xl:grid-cols-3 gap-3 list-none p-0 m-0">
-            {results.map((breed) => (
+            {visible.map((breed) => (
               <li key={breed.slug}>
                 <Link
                   href={breed.url}
@@ -216,6 +243,29 @@ export default function BreedFinderClient({
               </li>
             ))}
           </ul>
+        )}
+
+        {remaining > 0 && (
+          <div className="mt-6">
+            <button
+              type="button"
+              onClick={() => setWindowSize((n) => n + RESULT_WINDOW)}
+              className="min-h-[44px] w-full sm:w-auto rounded-lg border border-[#DDE6DD] bg-white px-5 text-sm font-medium text-[#063F2A] hover:border-[#7BAA35]"
+            >
+              Show {Math.min(remaining, RESULT_WINDOW)} more
+              <span className="text-[#5E6B63] font-normal"> ({remaining} remaining)</span>
+            </button>
+            <p className="text-xs text-[#5E6B63] mt-2 mb-0">
+              Every {speciesWord} breed is also listed as a plain link in the{" "}
+              <a
+                href={speciesWord === "dog" ? "/dogs/breeds#breed-directory-heading" : "/cats/breeds#breed-directory-heading"}
+                className="underline decoration-dotted underline-offset-2 text-[#063F2A]"
+              >
+                A–Z directory
+              </a>
+              , so nothing here is hidden behind this button.
+            </p>
+          </div>
         )}
       </div>
     </div>
