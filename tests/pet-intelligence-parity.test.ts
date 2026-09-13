@@ -31,6 +31,8 @@ import {
   breedPath,
 } from "../src/lib/pet-intelligence/index.ts";
 import { DECISION_PAGES } from "../src/lib/pet-choice/data.ts";
+import sitemap from "../src/app/sitemap.ts";
+import { breedRouteParams } from "../src/lib/pet-intelligence/index.ts";
 import { BREED_IMAGES } from "../src/lib/images/breed-images.ts";
 
 const REPO_ROOT = path.resolve(import.meta.dirname, "..");
@@ -77,25 +79,56 @@ test("breed slugs and decision-page slugs never collide", () => {
   }
 });
 
-test("the sitemap derives breed URLs from the registry, not a hand-kept list", () => {
-  const source = fs.readFileSync(path.join(APP_DIR, "sitemap.ts"), "utf8");
-  assert.match(source, /BREEDS\.map/, "sitemap no longer derives breed routes from the registry");
-  assert.doesNotMatch(
-    source,
-    /const (dog|cat)BreedSlugs\s*=/,
-    "sitemap has regrown a hand-written breed slug array",
-  );
+/**
+ * The sitemap as it is actually EMITTED, not as its source reads.
+ *
+ * An adversarial review defeated the first version of these tests in three
+ * different ways, because they grepped source text: deleting `...breedRoutes`
+ * from the returned array left `BREEDS.map` present in the file, so a sitemap
+ * containing ZERO breed URLs passed. The same trick 404'd nine of twelve breed
+ * pages by appending `.slice(0, 3)` to generateStaticParams while the regex
+ * still matched. A grep on source text is not a parity check.
+ *
+ * These call the real functions and compare sets.
+ */
+const emittedSitemapUrls = new Set(sitemap().map((entry) => entry.url));
+const SITE = "https://faunahub.com";
+
+test("the sitemap EMITS exactly the registry's breed URLs", () => {
+  const emittedBreedUrls = [...emittedSitemapUrls]
+    .filter((url) => /\/(dogs|cats)\/breeds\/[a-z0-9-]+$/.test(url))
+    .filter((url) => !DECISION_PAGES.some((p) => url.endsWith(`/${p.slug}`)))
+    .sort();
+  const expected = BREEDS.map((b) => `${SITE}${breedPath(b)}`).sort();
+  assert.deepEqual(emittedBreedUrls, expected, "sitemap and registry disagree about breed URLs");
 });
 
-test("the sitemap includes both breed hubs and both Breed Finders", () => {
-  const source = fs.readFileSync(path.join(APP_DIR, "sitemap.ts"), "utf8");
+test("the sitemap EMITS both breed hubs and both Breed Finders", () => {
   for (const species of ["dog", "cat"] as const) {
-    assert.ok(source.includes(breedHubPath(species)), `${species} breed hub missing from sitemap`);
     assert.ok(
-      source.includes(breedFinderPath(species)),
-      `${species} breed finder missing from sitemap`,
+      emittedSitemapUrls.has(`${SITE}${breedHubPath(species)}`),
+      `${species} breed hub missing from the emitted sitemap`,
+    );
+    assert.ok(
+      emittedSitemapUrls.has(`${SITE}${breedFinderPath(species)}`),
+      `${species} breed finder missing from the emitted sitemap`,
     );
   }
+});
+
+test("the sitemap never lists a breed URL the route will not build", () => {
+  // With dynamicParams = false, a URL in the sitemap that generateStaticParams
+  // does not emit is a hard 404 that Google is being asked to crawl.
+  const built = new Set([
+    ...breedRouteParams("dog").map((p: { slug: string }) => `${SITE}/dogs/breeds/${p.slug}`),
+    ...breedRouteParams("cat").map((p: { slug: string }) => `${SITE}/cats/breeds/${p.slug}`),
+    ...DECISION_PAGES.map((p) => `${SITE}${p.parentHub}/${p.slug}`),
+  ]);
+  const sitemapBreedish = [...emittedSitemapUrls].filter((url) =>
+    /\/(dogs|cats)\/breeds\/[a-z0-9-]+$/.test(url),
+  );
+  const missing = sitemapBreedish.filter((url) => !built.has(url));
+  assert.deepEqual(missing, [], "sitemap lists URLs the route does not generate");
 });
 
 test("every breed in the registry is in the search index exactly once", () => {
@@ -161,39 +194,110 @@ test("every breed image referenced by the registry exists on disk", () => {
   }
 });
 
-test("every breed is reachable from its hub", () => {
-  // The hubs render the registry directly, so this asserts the wiring rather
-  // than a list: a hub that stopped importing the registry would fail here.
+test("breedRouteParams GENERATES a param for every registry record", () => {
+  // Executed, not grepped. `.slice(0, 3)` here used to pass a source regex.
+  for (const [species, records] of [
+    ["dog", DOG_BREED_RECORDS],
+    ["cat", CAT_BREED_RECORDS],
+  ] as const) {
+    const generated = breedRouteParams(species).map((p: { slug: string }) => p.slug).sort();
+    assert.deepEqual(
+      generated,
+      records.map((b) => b.slug).sort(),
+      `${species} route params disagree with the registry; with dynamicParams=false the gap 404s`,
+    );
+  }
+});
+
+test("both breed routes call breedRouteParams rather than mapping their own list", () => {
+  // The executable test above only helps if the routes actually use it.
+  for (const species of ["dogs", "cats"]) {
+    const source = fs.readFileSync(
+      path.join(APP_DIR, species, "breeds", "[slug]", "page.tsx"),
+      "utf8",
+    );
+    assert.match(source, /breedRouteParams\("(dog|cat)"\)/, `${species} route builds its own list`);
+    assert.doesNotMatch(
+      source,
+      /BREED_RECORDS\s*\.\s*(slice|filter)/,
+      `${species} route narrows the registry before generating params`,
+    );
+  }
+});
+
+test("breed routes refuse slugs they did not generate", () => {
+  for (const species of ["dogs", "cats"]) {
+    const source = fs.readFileSync(
+      path.join(APP_DIR, species, "breeds", "[slug]", "page.tsx"),
+      "utf8",
+    );
+    assert.match(source, /dynamicParams = false/, `${species} route allows unlisted slugs`);
+  }
+});
+
+test("every breed is linked from its hub's BUILT html", () => {
+  // The strongest available check, and it reads the real artifact: a hub that
+  // sliced its breed list would render fewer cards and fail here. Skips when
+  // .next is absent (it is gitignored), following the pattern already used by
+  // tests/search-index.test.ts for the prerender manifest.
   for (const [species, records] of [
     ["dogs", DOG_BREED_RECORDS],
     ["cats", CAT_BREED_RECORDS],
   ] as const) {
+    const built = path.join(REPO_ROOT, ".next", "server", "app", species, "breeds.html");
+    if (!fs.existsSync(built)) continue;
+    const html = fs.readFileSync(built, "utf8");
+    for (const breed of records) {
+      assert.ok(
+        html.includes(`href="${breedPath(breed)}"`),
+        `${breed.id} is not linked from the built ${species} hub`,
+      );
+    }
+  }
+});
+
+test("neither hub narrows the registry before rendering it", () => {
+  for (const species of ["dogs", "cats"]) {
     const source = fs.readFileSync(path.join(APP_DIR, species, "breeds", "page.tsx"), "utf8");
-    assert.match(
+    assert.match(source, /BREED_RECORDS/, `${species} hub does not render the registry`);
+    assert.doesNotMatch(
       source,
-      /BREED_RECORDS/,
-      `${species} hub does not render the registry`,
+      /BREED_RECORDS\s*\.\s*(slice|filter)/,
+      `${species} hub narrows the registry before rendering`,
     );
     assert.doesNotMatch(
       source,
       /const (DOG|CAT)_BREED_PROFILES/,
       `${species} hub has regrown a hand-written breed list`,
     );
-    assert.ok(records.length > 0, `${species} registry is empty`);
   }
 });
 
-test("breed routes generate static params for every registry record", () => {
-  for (const [species, records] of [
-    ["dogs", DOG_BREED_RECORDS],
-    ["cats", CAT_BREED_RECORDS],
-  ] as const) {
-    const source = fs.readFileSync(
-      path.join(APP_DIR, species, "breeds", "[slug]", "page.tsx"),
-      "utf8",
+test("every decision page's kind agrees with the hub it is filed under", () => {
+  // The route dispatches on `kind` while the sitemap emits `parentHub`, and
+  // nothing compared them: setting a dog-breed page's parentHub to "/guides"
+  // put a 404 in the sitemap while the real URL went unlisted.
+  const HUB_FOR_KIND: Record<string, string> = {
+    "dog-breed": "/dogs/breeds",
+    "cat-breed": "/cats/breeds",
+    guide: "/guides",
+  };
+  for (const page of DECISION_PAGES) {
+    const expected = HUB_FOR_KIND[page.kind];
+    assert.ok(expected, `unknown decision kind "${page.kind}"`);
+    assert.equal(
+      page.parentHub,
+      expected,
+      `${page.slug} is kind "${page.kind}" but filed under ${page.parentHub}`,
     );
-    assert.match(source, /BREED_RECORDS\.map\(\(breed\) => \(\{ slug: breed\.slug \}\)\)/);
-    assert.match(source, /dynamicParams = false/, `${species} route allows unlisted slugs`);
-    assert.ok(records.length > 0);
+  }
+});
+
+test("every decision page URL the sitemap emits is one a route will build", () => {
+  for (const page of DECISION_PAGES) {
+    assert.ok(
+      emittedSitemapUrls.has(`${SITE}${page.parentHub}/${page.slug}`),
+      `${page.slug} is missing from the emitted sitemap`,
+    );
   }
 });

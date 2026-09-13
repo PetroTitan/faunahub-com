@@ -1,0 +1,18 @@
+{
+  "dog:sizeClass": "primary",
+  "dog:coatLength": "primary",
+  "dog:registryGroup": "primary",
+  "dog:shedding": "primary",
+  "dog:groomingNeeds": "primary",
+  "dog:exerciseNeeds": "primary",
+  "dog:trainability": "primary",
+  "dog:vocality": "primary",
+  "cat:sizeClass": "internal",
+  "cat:coatLength": "primary",
+  "cat:registryGroup": "internal",
+  "cat:shedding": "internal",
+  "cat:groomingNeeds": "internal",
+  "cat:exerciseNeeds": "internal",
+  "cat:trainability": "internal",
+  "cat:vocality": "internal"
+}

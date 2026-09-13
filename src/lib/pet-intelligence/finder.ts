@@ -13,9 +13,9 @@
  * and Global Search already work on this site.
  */
 import { getBreedHeroImage } from "@/lib/images/breed-images";
-import { breedPath, breedsForSpecies, span } from "./index.ts";
-import { exposedFacets, type FacetCoverage } from "./facets.ts";
-import type { BreedSpecies, OrdinalTrait } from "./types.ts";
+import { breedPath, breedsForSpecies, formatMeasurement, span } from "./index.ts";
+import { exposedFacets, facetCoverage, type FacetCoverage } from "./facets.ts";
+import type { BreedSpecies, Measurement, OrdinalTrait } from "./types.ts";
 
 export interface FinderBreed {
   slug: string;
@@ -28,9 +28,30 @@ export interface FinderBreed {
   coatLength?: string;
   /** Ordinal trait values, keyed by trait id. Bands only — never a score. */
   traits: Partial<Record<string, OrdinalTrait>>;
-  /** Upper end of the published weight span, kg. Absent where none is published. */
-  weightMaxKg?: number;
+  /**
+   * The published adult weight, already formatted, or absent.
+   *
+   * A plain `weightMaxKg` inverted the truth on the cat cards: the British
+   * Shorthair ("males may grow as large as 17 pounds") rendered "to 7.7 kg"
+   * while the Maine Coon — whose standard gives only a floor of 20 lb and is
+   * much the larger cat — rendered nothing at all. A reader scanning the grid
+   * would have concluded the opposite of the facts. The bound has to survive
+   * into the label.
+   */
+  weightLabel?: string;
   image?: { src: string; alt: string };
+}
+
+/** Formats a breed's whole weight span, keeping half-open bounds open. */
+function weightLabelFor(weights: readonly Measurement[] | undefined): string | undefined {
+  if (!weights?.length) return undefined;
+  const { min, max } = span(weights);
+  const openTop = weights.some((m) => m.max === undefined);
+  const openBottom = weights.every((m) => m.min === undefined);
+  if (openTop && min !== undefined) return formatMeasurement({ min, bound: "at-least", basis: { kind: "breed" }, statedAs: "", sourceId: "" }, "kg");
+  if (openBottom && max !== undefined) return formatMeasurement({ max, bound: "at-most", basis: { kind: "breed" }, statedAs: "", sourceId: "" }, "kg");
+  if (min !== undefined && max !== undefined) return formatMeasurement({ min, max, bound: "closed", basis: { kind: "breed" }, statedAs: "", sourceId: "" }, "kg");
+  return undefined;
 }
 
 export function finderBreeds(species: BreedSpecies): FinderBreed[] {
@@ -55,7 +76,7 @@ export function finderBreeds(species: BreedSpecies): FinderBreed[] {
       sizeClass: breed.sizeClass,
       coatLength: breed.coat?.length,
       traits,
-      weightMaxKg: span(breed.measurements?.weightKg).max,
+      weightLabel: weightLabelFor(breed.measurements?.weightKg),
       image: image ? { src: image.localPath, alt: image.alt } : undefined,
     };
   });
@@ -112,30 +133,37 @@ export function finderFacets(species: BreedSpecies): FinderFacet[] {
  * The axes the Finder is NOT offering, with the reason.
  *
  * Rendered on the page. A filter list that silently omits what it cannot do
- * leaves a reader assuming the omission is an oversight; saying "no size filter,
- * because cat breed standards publish no numbers" is both more useful and the
- * only honest version.
+ * leaves a reader assuming the omission is an oversight; saying why is both
+ * more useful and the only honest version.
+ *
+ * The list is DERIVED from the facet definitions rather than hardcoded, and the
+ * reason is computed per facet from the measured coverage. The first version
+ * was a hand-kept list of eight ids with a single cat-specific explanation
+ * applied to all of them — which meant two things an adversarial review caught:
+ * a new facet would be silently missing from the "what we don't offer" panel,
+ * and if a dog facet ever fell below threshold (adding 100 FCI-sourced breeds
+ * with no AKC trait scores would do it) the DOG page would have published
+ * "CFA publishes no trait scale" as its reason. On a site whose doctrine is no
+ * fabrication, a withheld-facet explanation has to be as sourced as the facets.
  */
 export function withheldFacets(species: BreedSpecies): { label: string; reason: string }[] {
-  const exposed = new Set(exposedFacets(species).map((f) => f.id));
-  const catNoNumbers =
-    "CFA breed standards describe size qualitatively and publish no height or weight, and CFA publishes no trait scale — so FaunaHub has nothing to filter on that it did not invent.";
-  return [
-    { id: "sizeClass", label: "Adult size" },
-    { id: "coatLength", label: "Coat length" },
-    { id: "registryGroup", label: "Registry group" },
-    { id: "exerciseNeeds", label: "Exercise needs" },
-    { id: "groomingNeeds", label: "Grooming needs" },
-    { id: "shedding", label: "Shedding" },
-    { id: "trainability", label: "Trainability" },
-    { id: "vocality", label: "Vocality" },
-  ]
-    .filter((f) => !exposed.has(f.id))
-    .map((f) => ({
-      label: f.label,
-      reason:
-        f.id === "registryGroup"
-          ? "Every breed in this registry sits in the same class, so filtering by it would never narrow the list."
-          : catNoNumbers,
-    }));
+  return facetCoverage(species)
+    .filter((facet) => facet.tier === "internal")
+    .map((facet) => ({ label: facet.label, reason: reasonFor(species, facet) }));
+}
+
+function reasonFor(species: BreedSpecies, facet: FacetCoverage): string {
+  if (facet.distinctValues === 1) {
+    return `Every breed in this registry records the same value (${facet.values[0]?.value}), so filtering by it would never narrow the list.`;
+  }
+  if (facet.covered === 0) {
+    if (species === "cat" && facet.id === "sizeClass") {
+      return "FaunaHub's size bands are calibrated for dogs — 9.1 kg is a small dog and a very large cat — so no cat is banded. Four cat breeds do carry a published weight, shown on their own profile.";
+    }
+    if (species === "cat") {
+      return "CFA publishes no trait scale of the kind the AKC does for dogs, so there is nothing to normalise.";
+    }
+    return "No breed in this registry records a value for this axis, so there is nothing to filter on.";
+  }
+  return `Recorded for only ${facet.covered} of ${facet.total} breeds — filtering would hide more than it reveals.`;
 }

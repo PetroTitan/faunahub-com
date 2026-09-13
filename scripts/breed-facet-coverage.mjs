@@ -11,6 +11,7 @@
  *
  * Reads the registry only — no network.
  */
+import fs from "node:fs";
 import { register } from "node:module";
 import { pathToFileURL } from "node:url";
 import path from "node:path";
@@ -55,15 +56,63 @@ for (const row of rows.filter((r) => r.tier === "internal")) {
 }
 
 if (checkOnly) {
-  // A facet is "shipped" if it is not internal. Failing here means the UI is
-  // offering a filter the data no longer supports.
-  const degraded = rows.filter((r) => r.tier === "partial" && r.coverage < 0.5);
-  if (degraded.length > 0) {
-    console.error("\nfacets have degraded below their tier:");
-    for (const row of degraded) {
-      console.error(`  ${row.species} ${row.id}: ${(row.coverage * 100).toFixed(0)}%`);
-    }
+  /*
+   * Compares the live table against a COMMITTED BASELINE.
+   *
+   * The first version of this asked for facets where `tier === "partial" &&
+   * coverage < 0.5` — which `tierFor` makes unsatisfiable, since a facet is
+   * only ever "partial" AT OR ABOVE 0.5. An adversarial review enumerated all
+   * 110,011 input pairs and found zero that satisfy it, then proved the
+   * consequence: raising the thresholds until three dog filters vanished from
+   * the UI entirely still printed "no shipped facet has degraded" and exited 0.
+   *
+   * A tier change cannot be detected without knowing the previous tier, so the
+   * baseline is a committed file. `--update` rewrites it deliberately.
+   */
+  const baselinePath = path.join(REPO_ROOT, "docs/pet-intelligence/facet-baseline.json");
+  const current = Object.fromEntries(rows.map((r) => [`${r.species}:${r.id}`, r.tier]));
+
+  if (process.argv.includes("--update")) {
+    fs.writeFileSync(baselinePath, `${JSON.stringify(current, null, 2)}\n`);
+    console.log(`\nbaseline written: ${path.relative(REPO_ROOT, baselinePath)}`);
+    process.exit(0);
+  }
+
+  if (!fs.existsSync(baselinePath)) {
+    console.error(`\nno facet baseline at ${path.relative(REPO_ROOT, baselinePath)}`);
+    console.error("run `npm run breeds:facets:check -- --update` to record one.");
     process.exit(1);
   }
-  console.log("\nno shipped facet has degraded below its tier.");
+
+  const baseline = JSON.parse(fs.readFileSync(baselinePath, "utf8"));
+  const RANK = { internal: 0, partial: 1, primary: 2 };
+  const regressions = [];
+  const additions = [];
+  for (const [key, tier] of Object.entries(current)) {
+    const was = baseline[key];
+    if (was === undefined) {
+      additions.push(`${key} (new facet, now ${tier})`);
+    } else if (RANK[tier] < RANK[was]) {
+      regressions.push(`${key}: ${was} -> ${tier}`);
+    }
+  }
+  for (const key of Object.keys(baseline)) {
+    if (!(key in current)) regressions.push(`${key}: ${baseline[key]} -> gone`);
+  }
+
+  if (regressions.length > 0) {
+    console.error("\nfacets have DEGRADED since the recorded baseline:");
+    for (const r of regressions) console.error(`  ${r}`);
+    console.error(
+      "\nA filter the UI offers is a promise about the data behind it. Either restore\n" +
+        "the coverage, or accept the change with `npm run breeds:facets:check -- --update`\n" +
+        "and say in the commit why the filter is being withdrawn.",
+    );
+    process.exit(1);
+  }
+  if (additions.length > 0) {
+    console.log("\nnew facets since the baseline (not a failure):");
+    for (const a of additions) console.log(`  ${a}`);
+  }
+  console.log("\nno facet has degraded below its recorded tier.");
 }

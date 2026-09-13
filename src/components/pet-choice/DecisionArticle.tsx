@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { breedPath, resolveBreedByExactName } from "@/lib/pet-intelligence";
 import FAQBlock from "@/components/FAQBlock";
 import LastUpdated from "@/components/LastUpdated";
 import RelatedLinks from "@/components/RelatedLinks";
@@ -123,6 +124,22 @@ export default function DecisionArticleView({
 
   const related = getRelatedDecisions(page, 3);
 
+  /**
+   * The breed profile this recommendation names, if FaunaHub publishes one.
+   *
+   * Exact-name only. These guides name breeds FaunaHub has no profile for
+   * (Russian Blue, Burmese) and entries that are not breeds at all ("Adult
+   * mixed-breed cat from a reputable shelter"); those stay unlinked rather than
+   * being pointed at the nearest-looking profile. 18 of the 56 recommendations
+   * across the nine guides resolve.
+   */
+  const resolvedBreedUrl = (name: string): string | undefined => {
+    if (page.kind !== "dog-breed" && page.kind !== "cat-breed") return undefined;
+    const species = page.kind === "dog-breed" ? "dog" : "cat";
+    const breed = resolveBreedByExactName(species, name);
+    return breed ? `https://faunahub.com${breedPath(breed)}` : undefined;
+  };
+
   const schemas = [
     breadcrumbSchema([
       { name: "Home", url: "https://faunahub.com" },
@@ -140,9 +157,12 @@ export default function DecisionArticleView({
       dateModified: page.modifiedTime,
     }),
     itemListSchema(
+      // Each item points at the BREED it names, where FaunaHub publishes that
+      // breed. Every item used to carry this page's own URL, so the list said
+      // six different breeds all live at one address.
       page.recommendations.map((r, i) => ({
         name: r.name,
-        url,
+        url: resolvedBreedUrl(r.name),
         position: i + 1,
       }))
     ),
@@ -217,7 +237,16 @@ export default function DecisionArticleView({
                   >
                     <div className="flex items-baseline justify-between gap-3 flex-wrap mb-1">
                       <h3 className="text-lg font-semibold text-[#17211B]">
-                        {r.name}
+                        {resolvedBreedUrl(r.name) ? (
+                          <Link
+                            href={(resolvedBreedUrl(r.name) as string).replace("https://faunahub.com", "")}
+                            className="hover:underline"
+                          >
+                            {r.name}
+                          </Link>
+                        ) : (
+                          r.name
+                        )}
                       </h3>
                       <span className="text-xs uppercase tracking-wider text-[#8A958E]">
                         {page.kind === "guide" ? "Pet category" : "Breed example"}
@@ -351,6 +380,22 @@ export default function DecisionArticleView({
                       label: `All ${hubLabel.toLowerCase()}`,
                       href: page.parentHub,
                     },
+                    // The breed guides were the only pages in the cluster with
+                    // no route to the Finder; every breed profile carries one.
+                    ...(page.kind === "dog-breed" || page.kind === "cat-breed"
+                      ? [
+                          {
+                            label:
+                              page.kind === "dog-breed"
+                                ? "Dog Breed Finder"
+                                : "Cat Breed Finder",
+                            href:
+                              page.kind === "dog-breed"
+                                ? "/dogs/breed-finder"
+                                : "/cats/breed-finder",
+                          },
+                        ]
+                      : []),
                   ]}
                 />
               )}

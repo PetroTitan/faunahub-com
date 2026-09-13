@@ -30,9 +30,15 @@ export const CAT_BREEDS: readonly Breed[] = [
         status: "recognized",
         registryGroup: "Championship",
         registryUrl: "https://cfa.org/breed/maine-coon-cat/",
+        recognizedYear: 1976,
         sourceId: "cfa-maine-coon",
       },
     ],
+    measurements: {
+      weightKg: [
+        { min: 9.1, bound: "at-least", basis: { kind: "sex", sex: "male" }, statedAs: "not unusual for a mature male's weight to reach or exceed 20 pounds", sourceId: "cfa-maine-coon" },
+      ],
+    },
     coat: {
       length: "long",
       statedAs: "thick, luxuriant coat that is shorter at the shoulders, longer on the sides, stomach and back legs, and culminating in a dramatically long plumed tail",
@@ -87,6 +93,7 @@ export const CAT_BREEDS: readonly Breed[] = [
         status: "recognized",
         registryGroup: "Championship",
         registryUrl: "https://cfa.org/breed/siamese/",
+        recognizedYear: 1906,
         sourceId: "cfa-siamese",
       },
     ],
@@ -147,6 +154,11 @@ export const CAT_BREEDS: readonly Breed[] = [
         sourceId: "cfa-british-shorthair",
       },
     ],
+    measurements: {
+      weightKg: [
+        { max: 7.7, bound: "at-most", basis: { kind: "sex", sex: "male" }, statedAs: "males may grow as large as 17 pounds", sourceId: "cfa-british-shorthair" },
+      ],
+    },
     coat: {
       length: "short",
       statedAs: "short, dense coat contains more hairs per square inch than any other breed",
@@ -205,6 +217,11 @@ export const CAT_BREEDS: readonly Breed[] = [
         sourceId: "cfa-ragdoll",
       },
     ],
+    measurements: {
+      weightKg: [
+        { min: 9.1, bound: "at-least", basis: { kind: "sex", sex: "male" }, statedAs: "not unusual for a mature male's weight to reach or exceed 20 pounds", sourceId: "cfa-ragdoll" },
+      ],
+    },
     coat: {
       length: "medium",
       statedAs: "Moderately long length, with abundant guard hairs, but minimal woolly undercoat",
@@ -378,6 +395,12 @@ export const CAT_BREEDS: readonly Breed[] = [
         sourceId: "cfa-norwegian-forest-cat",
       },
     ],
+    measurements: {
+      weightKg: [
+        { min: 5.4, max: 7.3, bound: "closed", basis: { kind: "sex", sex: "male" }, statedAs: "a male will weigh from 12 to 16 pounds", sourceId: "cfa-norwegian-forest-cat" },
+        { min: 4.1, max: 5.4, bound: "closed", basis: { kind: "sex", sex: "female" }, statedAs: "females from 9 to 12 pounds", sourceId: "cfa-norwegian-forest-cat" },
+      ],
+    },
     coat: {
       length: "long",
       statedAs: "luxuriantly thick double coat, marked by a silky, water-repellant overcoat, and frontal ruff adorning the neck and chest",
@@ -389,7 +412,7 @@ export const CAT_BREEDS: readonly Breed[] = [
         "The Norwegian Forest Cat is a large, long-coated breed from Norway, accepted for CFA Championship competition in 1993. The breed is usually described as sturdy and slow-maturing, with a dense double coat developed for a cold climate.",
       ],
       appearance: [
-        "Norwegian Forest Cats are substantial, well-muscled cats with a long double coat, a full ruff, and a bushy tail. The CFA standard notes that the dense undercoat reaches its full development in winter, so the same cat can look noticeably different between seasons. Many colours and patterns are recognised. CFA breed standards describe size qualitatively rather than by weight, so FaunaHub does not publish a numeric size range for this breed.",
+        "Norwegian Forest Cats are substantial, well-muscled cats with a long double coat, a full ruff, and a bushy tail. The CFA standard notes that the dense undercoat reaches its full development in winter, so the same cat can look noticeably different between seasons. Many colours and patterns are recognised. CFA's written standard describes size qualitatively rather than by weight; the breed's CFA profile page does give figures, which are recorded below.",
       ],
       temperament: [
         "The breed is commonly described as calm, sociable, and comparatively undemanding of constant attention. Individual cats vary considerably, and early handling, environment, and household routine shape adult behaviour at least as much as breed background does.",
@@ -441,7 +464,7 @@ export const CAT_BREEDS: readonly Breed[] = [
     ],
     coat: {
       length: "hairless",
-      statedAs: "hairlessness, although Sphynx are not actually complete-ly hairless cats",
+      statedAs: "hairlessness, although Sphynx are not actually completely hairless cats",
       sourceId: "cfa-std-sphynx",
     },
     traits: {},

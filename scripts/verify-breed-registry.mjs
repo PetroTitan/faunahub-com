@@ -171,14 +171,67 @@ async function checkFci(breed, rec) {
 
 /* ---------------------------- CFA ---------------------------- */
 
+/**
+ * CFA checks.
+ *
+ * The first version of this asked only whether the page contained the string
+ * "standard" and whether the recognition year appeared ANYWHERE in the HTML.
+ * Both were near-vacuous: a Sphynx page contains "2018" nineteen times, so a
+ * record claiming the wrong year would have passed. These checks now require
+ * the year to appear in a sentence that is actually about recognition, and
+ * verify the coat wording and the standard PDF link.
+ */
 async function checkCfa(breed, rec) {
   const html = await fetchText(rec.registryUrl);
   checked.cfa += 1;
-  if (!/standard/i.test(html)) {
-    report(breed, "cfa:standard", "a linked breed standard", "no standard reference on the page");
+
+  const text = html
+    .replace(/<(script|style|nav|header|footer)[^>]*>[\s\S]*?<\/\1>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/\s+/g, " ");
+
+  if (!/\/wp-content\/uploads\/[^"' ]*standard[^"' ]*\.pdf/i.test(html)) {
+    report(breed, "cfa:standard", "a linked breed standard PDF", "no standard PDF on the page");
   }
-  if (rec.recognizedYear && !html.includes(String(rec.recognizedYear))) {
-    report(breed, "cfa:recognizedYear", rec.recognizedYear, "year no longer stated on the page");
+
+  if (rec.recognizedYear) {
+    // The year must appear in a sentence about recognition, not merely anywhere.
+    const sentences = text.split(/(?<=[.!?])\s+/);
+    const supported = sentences.some(
+      (sentence) =>
+        sentence.includes(String(rec.recognizedYear)) &&
+        /championship|recognis|recogniz|accepted|granted|status/i.test(sentence),
+    );
+    if (!supported) {
+      report(
+        breed,
+        "cfa:recognizedYear",
+        rec.recognizedYear,
+        "no sentence on the page ties that year to recognition",
+      );
+    }
+  }
+
+  if (rec.registryGroup && !new RegExp(rec.registryGroup, "i").test(text)) {
+    report(breed, "cfa:group", rec.registryGroup, "class no longer named on the page");
+  }
+
+  // The coat wording is quoted verbatim on the page, so it must still be there.
+  if (breed.coat?.statedAs && breed.coat.sourceId === `cfa-${breed.slug}`) {
+    const needle = breed.coat.statedAs.replace(/\s+/g, " ").slice(0, 60);
+    if (!text.replace(/[\u2018\u2019]/g, "'").includes(needle.replace(/[\u2018\u2019]/g, "'"))) {
+      report(breed, "cfa:coat", needle, "quoted coat wording not found on the page");
+    }
+  }
+
+  // Any weight FaunaHub records from the profile page must still be published.
+  for (const m of breed.measurements?.weightKg ?? []) {
+    if (m.sourceId !== `cfa-${breed.slug}`) continue;
+    const needle = m.statedAs.replace(/[\u2018\u2019]/g, "'").slice(0, 50);
+    if (!text.replace(/[\u2018\u2019]/g, "'").includes(needle)) {
+      report(breed, "cfa:weight", m.statedAs, "quoted weight wording not found on the page");
+    }
   }
 }
 

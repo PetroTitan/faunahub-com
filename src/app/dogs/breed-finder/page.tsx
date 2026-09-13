@@ -51,9 +51,9 @@ export default function DogBreedFinderPage() {
           </h1>
           <p className="text-[#2C3A2F] max-w-3xl leading-relaxed">
             Filter FaunaHub&apos;s {breeds.length} dog breed profiles by attributes a named registry
-            publishes. Every filter below exists because the underlying data covers the whole
-            registry — and the panel at the foot of this page lists what the Finder deliberately
-            cannot offer.
+            publishes. A filter appears only when the data behind it covers enough of the registry
+            to filter honestly, and any filter that covers less than all of it says so above its
+            options. The panel at the foot of this page lists what the Finder cannot offer, and why.
           </p>
           <div className="not-prose mt-5 border-l-4 border-l-[#7BAA35] bg-[#EFF4E0]/60 p-5 rounded-r-xl max-w-3xl">
             <p className="text-sm text-[#2C3A2F] leading-relaxed m-0">

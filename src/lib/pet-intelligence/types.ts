@@ -414,6 +414,25 @@ export interface Breed {
    */
   originNote?: string;
 
+  /**
+   * What this record covers, where a registry splits the breed and FaunaHub
+   * does not.
+   *
+   * Some breeds are one page on one registry and several on another. The AKC
+   * publishes THREE Poodle pages — Standard, Miniature and Toy — which share a
+   * breed code (701) but not a group: the Toy Poodle is in the Toy Group while
+   * the other two are Non-Sporting. A single record that silently used the
+   * Standard's page would assert a group that the registry contradicts for a
+   * third of the breed, and would band a 2 kg Toy Poodle as a large dog.
+   *
+   * The Dachshund is the contrast: the AKC publishes both varieties on one page,
+   * so one record covers them correctly and needs no note.
+   *
+   * When present, this renders at the top of the recognition panel, so a reader
+   * is told the scope before reading any value inside it.
+   */
+  scopeNote?: string;
+
   recognition: BreedRecognition[];
 
   /** What the breed was developed to do, as cited sources describe it. */

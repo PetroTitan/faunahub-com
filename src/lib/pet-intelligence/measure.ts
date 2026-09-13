@@ -65,6 +65,12 @@ const SEX_WORDS: Record<string, "male" | "female"> = {
  * parentheses — "20-30 pounds (13-15 inches)" is ONE segment whose qualifier
  * happens to contain a comma-free range, and a naive split on "," would have
  * produced two unparseable halves.
+ *
+ * Semicolons separate too. A review found that "25-30 pounds (standard); 11
+ * pounds & under (miniature)" collapsed into ONE segment: the standard
+ * variety's range was relabelled with the miniature's qualifier and the
+ * miniature's own limit was discarded. Nothing reported it, because the result
+ * parsed cleanly.
  */
 function splitSegments(input: string): string[] {
   const out: string[] = [];
@@ -73,7 +79,7 @@ function splitSegments(input: string): string[] {
   for (const ch of input) {
     if (ch === "(") depth += 1;
     if (ch === ")") depth = Math.max(0, depth - 1);
-    if (ch === "," && depth === 0) {
+    if ((ch === "," || ch === ";") && depth === 0) {
       out.push(current.trim());
       current = "";
       continue;
@@ -112,7 +118,9 @@ function parseSegment(
   total: number,
 ): ParsedSegment | undefined {
   const statedAs = segment.trim();
-  const qualifierMatch = statedAs.match(/\(([^)]*)\)\s*$/);
+  // Matches the LAST balanced parenthetical, so "(male (large))" keeps its sex
+  // rather than falling back to a breed-wide basis.
+  const qualifierMatch = statedAs.match(/\(((?:[^()]|\([^()]*\))*)\)\s*$/);
   const qualifier = qualifierMatch?.[1];
   const body = (qualifierMatch ? statedAs.slice(0, qualifierMatch.index) : statedAs)
     .trim()
@@ -127,23 +135,51 @@ function parseSegment(
   const basis = basisFrom(qualifier, fallback);
   const convert = unit === "in" ? inchesToCm : poundsToKg;
 
+  // The unit comes from the caller. If the text names a DIFFERENT unit, the
+  // caller is wrong and the result would be silently mis-converted — a height
+  // string parsed as pounds once produced a 127-177 cm "weight".
+  const textUnit = /\b(inches|inch|in\.)\b/i.test(body)
+    ? "in"
+    : /\b(pounds|lbs?|pound)\b/i.test(body)
+      ? "lb"
+      : undefined;
+  if (textUnit && textUnit !== unit) return undefined;
+  if (/\b(kg|kilograms?|cm|centimet(?:re|er)s?|grams?)\b/i.test(body)) return undefined;
+
   // "13 inches & under" / "11 pounds & under" / "under 28 pounds" /
   // "not exceeding 6 pounds"
   const atMost =
     body.match(new RegExp(`^(${NUM})\\s*\\w*\\s*(?:&|and)\\s*under$`)) ??
-    body.match(new RegExp(`^(?:under|below|up to|not exceeding|no more than)\\s*(${NUM})`));
+    body.match(new RegExp(`^(?:under|below|up to|not exceeding|no more than)\\s*(${NUM})`)) ??
+    body.match(new RegExp(`(?:as large as|as much as|up to)\\s*(${NUM})`));
   if (atMost) {
     return { max: convert(Number(atMost[1])), bound: "at-most", basis, statedAs };
   }
 
-  // "over 15 inches" / "at least 20 pounds"
-  const atLeast = body.match(new RegExp(`^(?:over|above|at least|more than)\\s*(${NUM})`));
+  // "over 15 inches" / "at least 20 pounds" / CFA's "reach or exceed 20 pounds"
+  const atLeast =
+    body.match(new RegExp(`^(?:over|above|at least|more than|no less than)\\s*(${NUM})`)) ??
+    body.match(new RegExp(`(?:reach or exceed|exceed|or more than)\\s*(${NUM})`));
   if (atLeast) {
     return { min: convert(Number(atLeast[1])), bound: "at-least", basis, statedAs };
   }
 
-  // "22.5-24.5 inches" (also en dash)
-  const range = body.match(new RegExp(`^(${NUM})\\s*[-–]\\s*(${NUM})`));
+  // "22.5-24.5 inches" (also en dash). Anchored at BOTH ends — unanchored,
+  // "13-15 inches & under" parsed as a closed 13-15 range and silently threw
+  // away the "& under", turning a half-open bound into a closed one.
+  const range = body.match(
+    new RegExp(`^(${NUM})\\s*(?:[-–]|to)\\s*(${NUM})\\s*(?:inches|inch|pounds|lbs?|pound)?\\s*$`),
+  );
+  const fromTo = body.match(new RegExp(`from\\s*(${NUM})\\s*to\\s*(${NUM})`)) ??
+    body.match(new RegExp(`from\\s*(${NUM})\\s*[-–]\\s*(${NUM})`));
+  if (!range && fromTo) {
+    const min = Number(fromTo[1]);
+    const max = Number(fromTo[2]);
+    if (max >= min) {
+      return { min: convert(min), max: convert(max), bound: "closed", basis, statedAs };
+    }
+  }
+
   if (range) {
     const min = Number(range[1]);
     const max = Number(range[2]);

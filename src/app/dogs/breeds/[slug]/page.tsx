@@ -5,7 +5,7 @@ import BreedProfileView from "@/components/breeds/BreedProfileView";
 import { DECISION_PAGES, getDecisionBySlug } from "@/lib/pet-choice/data";
 import {
   getBreed,
-  DOG_BREED_RECORDS,
+  breedRouteParams,
   breedPageDescription,
   breedPageTags,
   breedPageTitle,
@@ -34,7 +34,7 @@ export const dynamicParams = false;
 
 export function generateStaticParams() {
   return [
-    ...DOG_BREED_RECORDS.map((breed) => ({ slug: breed.slug })),
+    ...breedRouteParams("dog"),
     ...DECISION_PAGES.filter((p) => p.kind === "dog-breed").map((p) => ({ slug: p.slug })),
   ];
 }

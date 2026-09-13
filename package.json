@@ -12,7 +12,7 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test \"tests/**/*.test.ts\"",
+    "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --import ./scripts/lib/register-test-hooks.mjs --test \"tests/**/*.test.ts\"",
     "search:index": "node scripts/generate-search-index.mjs",
     "search:check": "node scripts/generate-search-index.mjs --check",
     "finder:index": "node scripts/generate-finder-index.mjs",

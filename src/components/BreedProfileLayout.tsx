@@ -123,6 +123,10 @@ export default function BreedProfileLayout(props: BreedProfileLayoutProps) {
       path,
       datePublished: publishedDate,
       dateModified: modifiedDate,
+      // The breed's own verified hero, which the page already renders and
+      // already uses for og:image — so the asset exists and was simply not
+      // reaching the structured data.
+      image: image ? `https://faunahub.com${image.localPath}` : undefined,
     }),
     faqSchema(faqs),
   ];

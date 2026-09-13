@@ -5,10 +5,19 @@
  * expectancy, coat, trait bands) and the FCI nomenclature entry (group,
  * section, breed number, country of origin, recognition status) for each breed.
  *
- * Seven of these twelve carry an `originNote`, because the AKC and the FCI
- * genuinely disagree about where the breed comes from — two of them flatly
- * (the Poodle: AKC Germany, FCI France; the French Bulldog: AKC England, FCI
- * France). Neither registry is being corrected here.
+ * NINE of these twelve carry an `originNote`, because the AKC and the FCI
+ * genuinely disagree about where the breed comes from. Four of the nine are flat
+ * contradictions rather than granularity differences:
+ *
+ *   Poodle           AKC Germany   FCI France
+ *   French Bulldog   AKC England   FCI France
+ *   Siberian Husky   AKC Siberia   FCI United States of America
+ *   Labrador         AKC Canada    FCI Great Britain
+ *
+ * The other five are refinements of the same place (Scotland / England inside
+ * Great Britain; the Mexican state of Chihuahua inside Mexico; Tibet inside
+ * China). Neither registry is being corrected here, and the count is asserted
+ * by tests/pet-intelligence-registry.test.ts rather than left to this comment.
  *
  * Generated once from the verified acquisition run, then maintained by hand.
  * Re-check any value against its source with `npm run breeds:verify`.
@@ -185,7 +194,7 @@ export const DOG_BREEDS: readonly Breed[] = [
         "Most Goldens benefit from substantial daily activity — walks, off-lead exercise in safe environments, and mental enrichment such as scent work or fetch. Many Goldens enjoy swimming. Bored or under-exercised dogs of this breed often develop unwanted behaviours.",
       ],
       grooming: [
-        "The long double coat sheds year-round, with heavier seasonal sheds. Regular brushing several times a week, periodic baths, and routine ear/dental/nail care help keep the coat and skin in good condition. The feathered legs and tail can pick up mud and debris, so wipe-downs after outdoor activity are common.",
+        "The dense double coat — which the AKC records as medium length — sheds year-round, with heavier seasonal sheds. Regular brushing several times a week, periodic baths, and routine ear/dental/nail care help keep the coat and skin in good condition. The feathered legs and tail can pick up mud and debris, so wipe-downs after outdoor activity are common.",
       ],
       training: [
         "Goldens are often described as trainable, with positive-reinforcement methods working well for many individuals. Early socialisation with people, other dogs, and varied environments matters for any breed.",
@@ -199,7 +208,7 @@ export const DOG_BREEDS: readonly Breed[] = [
       faqs: [
         { question: "Are Golden Retrievers good with families?", answer: "Goldens are widely described as people-oriented, but no breed is universally safe with children, and behaviour varies by individual, age, training, and household. Adult supervision and gentle handling matter for any breed." },
         { question: "How much exercise does a Golden Retriever need?", answer: "Most Goldens benefit from substantial daily exercise as adults; puppies and senior dogs have different needs. Discuss specifics with your veterinarian for an individual dog." },
-        { question: "Do Goldens shed a lot?", answer: "Yes — Goldens have a long double coat that sheds year-round, with heavier seasonal sheds. Regular brushing helps manage this. No breed is fully non-shedding." },
+        { question: "Do Goldens shed a lot?", answer: "Yes — Goldens have a dense double coat that sheds year-round, with heavier seasonal sheds. Regular brushing helps manage this. No breed is fully non-shedding." },
         { question: "Are Goldens hypoallergenic?", answer: "No dog breed is fully hypoallergenic. Anyone with allergies should spend time with a specific dog before committing." },
       ],
     },
@@ -507,6 +516,8 @@ export const DOG_BREEDS: readonly Breed[] = [
     ],
     originNote:
       "The two registries FaunaHub cites record different origins for this breed: the AKC records Germany, while the FCI records France as the country of origin. FaunaHub shows both rather than choosing between them.",
+    scopeNote:
+      "This profile covers the STANDARD Poodle. The AKC publishes the Poodle as three separate breeds — Standard, Miniature and Toy — which share breed code 701 but not a group: the Toy Poodle is in the Toy Group, while Standard and Miniature are Non-Sporting. Every measurement and group below is the Standard's. The FCI treats the Poodle as one breed (#172) across its size varieties.",
     recognition: [
       {
         registryId: "akc",

@@ -162,6 +162,11 @@ export default function BreedAttributes({ breed }: { breed: Breed }) {
       </div>
 
       <Panel title="Recognition">
+        {breed.scopeNote && (
+          <p className="text-sm text-[#5E6B63] leading-relaxed mt-0 mb-3 border-l-2 border-l-[#7BAA35] pl-3">
+            {breed.scopeNote}
+          </p>
+        )}
         <ul className="space-y-3 m-0 list-none p-0">
           {breed.recognition.map((rec) => {
             const registry = getRegistry(rec.registryId);
@@ -214,7 +219,7 @@ export default function BreedAttributes({ breed }: { breed: Breed }) {
         >
           {heights.length > 0 && (
             <div className="mb-4">
-              <p className="text-xs font-semibold uppercase tracking-wide text-[#8A958E] mb-1">
+              <p className="text-xs font-semibold uppercase tracking-wide text-[#5E6B63] mb-1">
                 Height
               </p>
               <MeasurementTable rows={heights} unit="cm" caption={`${breed.name} height`} />
@@ -222,7 +227,7 @@ export default function BreedAttributes({ breed }: { breed: Breed }) {
           )}
           {weights.length > 0 && (
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wide text-[#8A958E] mb-1">
+              <p className="text-xs font-semibold uppercase tracking-wide text-[#5E6B63] mb-1">
                 Weight
               </p>
               <MeasurementTable rows={weights} unit="kg" caption={`${breed.name} weight`} />
@@ -239,9 +244,9 @@ export default function BreedAttributes({ breed }: { breed: Breed }) {
       ) : (
         <Panel title="Published size">
           <p className="text-sm text-[#5E6B63] m-0 leading-relaxed">
-            No numeric size is published for this breed. Cat breed standards describe size
-            qualitatively rather than by height or weight, so FaunaHub records none rather than
-            estimating one. See the{" "}
+            No numeric size is published for this breed. CFA&apos;s written standard describes size
+            qualitatively, and this breed&apos;s CFA profile page gives no figure either, so FaunaHub
+            records none rather than estimating one. See the{" "}
             <Link
               href="/cats/breeds"
               className="underline decoration-dotted underline-offset-2 text-[#063F2A]"

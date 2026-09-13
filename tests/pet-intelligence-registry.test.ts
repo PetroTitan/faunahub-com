@@ -30,6 +30,7 @@ import {
   getBreedSource,
   getRegistry,
   parseMeasurementString,
+  parseLifespanYears,
   relatedBreeds,
 } from "../src/lib/pet-intelligence/index.ts";
 import { BREED_IMAGES } from "../src/lib/images/breed-images.ts";
@@ -334,7 +335,7 @@ test("coat lengths and size classes use only the declared vocabularies", () => {
 
 test("size class is derived from weight, never asserted independently", () => {
   for (const breed of BREEDS) {
-    const derived = deriveSizeClass(breed.measurements?.weightKg);
+    const derived = deriveSizeClass(breed.species, breed.measurements?.weightKg);
     assert.equal(
       breed.sizeClass,
       derived,
@@ -352,6 +353,17 @@ test("a breed with no published weight has no size class", () => {
       `${breed.id} carries a size class with no weight behind it`,
     );
   }
+});
+
+test("no cat is given a size class, even when its weight is published", () => {
+  // The bands are dog-calibrated. Before this was enforced, adding the four
+  // CFA profile-page weights banded the Maine Coon as "small" — 9.1 kg is a
+  // small dog and a very large cat. Correct data, confidently wrong label.
+  for (const breed of CAT_BREED_RECORDS) {
+    assert.equal(breed.sizeClass, undefined, `${breed.id} was banded with dog weight bands`);
+  }
+  const withWeights = CAT_BREED_RECORDS.filter((b) => b.measurements?.weightKg?.length);
+  assert.ok(withWeights.length > 0, "no cat carries a published weight — this test is vacuous");
 });
 
 test("the five-point band edges are where the methodology says", () => {
@@ -495,4 +507,135 @@ test("a breed image belongs to a breed in the registry", () => {
       `${image.id} pagePath does not match its breed`,
     );
   }
+});
+
+test("the registry-conflict count in the dogs docstring matches the data", () => {
+  // The docstring said "seven of these twelve" while nine records carried an
+  // originNote. A comment that miscounts its own file is how a reader learns to
+  // stop trusting the comments, so the number is asserted rather than written.
+  const withNote = DOG_BREED_RECORDS.filter((b) => b.originNote).length;
+  const source = fs.readFileSync(
+    path.join(REPO_ROOT, "src/lib/pet-intelligence/breeds/dogs.ts"),
+    "utf8",
+  );
+  const claimed = source.match(/\bNINE of these twelve carry an `originNote`/);
+  assert.ok(claimed, "the dogs docstring no longer states the conflict count");
+  assert.equal(withNote, 9, `${withNote} dog breeds carry an originNote; the docstring says nine`);
+});
+
+test("a breed whose registries split it into varieties declares its scope", () => {
+  // The Poodle record uses the AKC's Standard page, but the AKC publishes three
+  // Poodle breeds sharing code 701, and the Toy is in a DIFFERENT group. Without
+  // a scope note the record asserts a group the registry contradicts for a third
+  // of the breed.
+  const poodle = BREEDS.find((b) => b.id === "dog-poodle");
+  assert.ok(poodle, "the poodle record is gone");
+  assert.ok(
+    poodle.scopeNote && /standard/i.test(poodle.scopeNote),
+    "the Poodle record no longer declares which variety it covers",
+  );
+});
+
+/* ---------------------------------------------------------------- *
+ * Stored numbers vs the wording they came from
+ * ---------------------------------------------------------------- */
+
+test("every measurement's numbers re-derive from its own statedAs", () => {
+  /*
+   * The load-bearing test for measurement accuracy.
+   *
+   * `min`/`max` and `statedAs` are two representations of the same fact, and the
+   * page renders them side by side ("Converted" | "As published"). Nothing used
+   * to compare them: an adversarial review set the Labrador's male height to
+   * 40-41 cm while leaving statedAs as "22.5-24.5 inches (male)" and the whole
+   * suite stayed green, so the page would have shown "40-41 cm" next to
+   * "22.5-24.5 inches" on the same row.
+   *
+   * Re-parsing here is also what gives `parseMeasurementString` a production
+   * consumer. Before this it had none — it was exercised only by a handful of
+   * happy-path strings, while being the intended ingest path for the next
+   * several hundred breeds.
+   */
+  for (const breed of BREEDS) {
+    for (const [field, unit, rows] of [
+      ["heightCm", "in", breed.measurements?.heightCm ?? []],
+      ["weightKg", "lb", breed.measurements?.weightKg ?? []],
+    ] as const) {
+      for (const m of rows) {
+        const parsed = parseMeasurementString(m.statedAs, unit);
+        assert.equal(
+          parsed.rejected.length,
+          0,
+          `${breed.id}.${field}: statedAs "${m.statedAs}" no longer parses`,
+        );
+        assert.equal(
+          parsed.segments.length,
+          1,
+          `${breed.id}.${field}: statedAs "${m.statedAs}" yields ${parsed.segments.length} segments`,
+        );
+        const [seg] = parsed.segments;
+        assert.equal(seg.bound, m.bound, `${breed.id}.${field}: bound disagrees with "${m.statedAs}"`);
+        assert.equal(seg.min, m.min, `${breed.id}.${field}: min disagrees with "${m.statedAs}"`);
+        assert.equal(seg.max, m.max, `${breed.id}.${field}: max disagrees with "${m.statedAs}"`);
+      }
+    }
+  }
+});
+
+test("every lifespan's numbers re-derive from its own statedAs", () => {
+  for (const breed of BREEDS) {
+    const life = breed.lifespanYears;
+    if (!life) continue;
+    const parsed = parseLifespanYears(life.statedAs, life.sourceId);
+    assert.ok(parsed, `${breed.id}: lifespan "${life.statedAs}" no longer parses`);
+    assert.equal(parsed.min, life.min, `${breed.id}: lifespan min disagrees with its wording`);
+    assert.equal(parsed.max, life.max, `${breed.id}: lifespan max disagrees with its wording`);
+  }
+});
+
+test("the parser refuses the shapes it used to corrupt", () => {
+  // Each of these previously returned rejected: [] while producing a wrong
+  // answer, which is worse than failing.
+  const dropped = parseMeasurementString("13-15 inches & under", "in");
+  assert.equal(dropped.segments.length, 0, "a trailing half-open suffix is being dropped again");
+
+  const wrongUnit = parseMeasurementString("6-8 kilograms", "lb");
+  assert.equal(wrongUnit.segments.length, 0, "a contradicting unit word is being ignored again");
+
+  // A semicolon-separated variety split must yield BOTH varieties, not one
+  // variety's range wearing the other's label.
+  const semi = parseMeasurementString(
+    "25-30 pounds (standard); 11 pounds & under (miniature)",
+    "lb",
+  );
+  assert.equal(semi.segments.length, 2, "semicolon-separated varieties are being merged again");
+  assert.equal(semi.segments[0].basis.kind, "variety");
+  assert.deepEqual(
+    semi.segments.map((x) => x.bound),
+    ["closed", "at-most"],
+  );
+
+  // A nested parenthetical must not lose the sex basis.
+  const nested = parseMeasurementString("20-25 lbs (male (large))", "lb");
+  assert.deepEqual(nested.segments[0].basis, { kind: "sex", sex: "male" });
+});
+
+test("an unbounded weight is not banded into a size class", () => {
+  // `deriveSizeClass` used to fall back to the MINIMUM when no maximum existed,
+  // so a standard publishing only "over 90 pounds" — unbounded above — came out
+  // as `large`, which is a manufactured ceiling.
+  const openTop = [
+    {
+      min: 40.8,
+      bound: "at-least" as const,
+      basis: { kind: "breed" as const },
+      statedAs: "over 90 pounds",
+      sourceId: "x",
+    },
+  ];
+  assert.equal(
+    deriveSizeClass("dog", openTop),
+    undefined,
+    "a weight with no upper bound is being banded",
+  );
 });

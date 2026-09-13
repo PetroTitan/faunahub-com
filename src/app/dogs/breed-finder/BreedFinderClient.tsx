@@ -98,7 +98,7 @@ export default function BreedFinderClient({
               {facet.label}
             </legend>
             {facet.partial && (
-              <p className="text-xs text-[#8A958E] mb-1.5 mt-0">
+              <p className="text-xs text-[#5E6B63] mb-1.5 mt-0">
                 Recorded for {facet.covered} of {facet.total} breeds — filtering hides the rest.
               </p>
             )}
@@ -118,7 +118,7 @@ export default function BreedFinderClient({
                     }`}
                   >
                     {option.label}{" "}
-                    <span className={on ? "text-[#CFE0A8]" : "text-[#8A958E]"}>
+                    <span className={on ? "text-[#CFE0A8]" : "text-[#5E6B63]"}>
                       {option.count}
                     </span>
                   </button>
@@ -145,6 +145,11 @@ export default function BreedFinderClient({
           {activeCount > 0 || query ? " matching your filters" : ""}. Results are alphabetical —
           FaunaHub does not rank breeds.
         </p>
+
+        {/* The results list holds h3 cards, so it needs an h2 above it or the
+            outline skips a level. Visually redundant next to the count line, so
+            it is exposed to assistive tech only. */}
+        <h2 className="sr-only">Matching breeds</h2>
 
         {results.length === 0 ? (
           <div className="border border-[#DDE6DD] rounded-xl bg-white p-6">
@@ -193,14 +198,14 @@ export default function BreedFinderClient({
                           ? breed.sizeClass.charAt(0).toUpperCase() + breed.sizeClass.slice(1)
                           : undefined,
                         breed.coatLength ? `${breed.coatLength} coat` : undefined,
-                        breed.weightMaxKg ? `to ${breed.weightMaxKg} kg` : undefined,
+                        breed.weightLabel,
                       ]
                         .filter(Boolean)
                         .join(" · ")}
                     </p>
                     {breed.group && (
                       <p
-                        className="text-[11px] text-[#8A958E] mt-0.5 mb-0 truncate"
+                        className="text-[11px] text-[#5E6B63] mt-0.5 mb-0 truncate"
                         title={breed.group}
                       >
                         {breed.group}

@@ -91,7 +91,7 @@ export default function BreedProfileGrid({
                     </h3>
                     {detail ? <p className="text-xs text-[#5E6B63] mt-1 mb-0">{detail}</p> : null}
                     {group && (
-                      <p className="text-[11px] text-[#8A958E] mt-0.5 mb-0 truncate" title={group}>
+                      <p className="text-[11px] text-[#5E6B63] mt-0.5 mb-0 truncate" title={group}>
                         {group}
                       </p>
                     )}
