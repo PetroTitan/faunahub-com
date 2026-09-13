@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { FOOD_SAFETY_ARTICLES } from "@/lib/food-safety/data";
 import { DECISION_PAGES } from "@/lib/pet-choice/data";
 import { BREEDS, breedPath } from "@/lib/pet-intelligence";
+import { collectionPath, publishedCollections } from "@/lib/pet-intelligence/collections";
+import { BREED_RANKINGS, rankingPath } from "@/lib/pet-intelligence/rankings";
 import { BUDGET_GUIDES, PET_COST_ARTICLES } from "@/lib/pet-cost/data";
 import { INSURANCE_ARTICLES } from "@/lib/pet-insurance/data";
 import { VET_CARE_ARTICLES } from "@/lib/vet-care/data";
@@ -977,12 +979,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // registry, and a breed added to one could silently miss the sitemap.
   // `tests/pet-intelligence-parity.test.ts` asserts registry, routes, sitemap
   // and search index all describe the same set.
-  const breedRoutes: MetadataRoute.Sitemap = BREEDS.map((breed) => ({
-    url: `${BASE_URL}${breedPath(breed)}`,
-    lastModified: today,
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+  const breedRoutes: MetadataRoute.Sitemap = [
+    ...BREEDS.map((breed) => ({
+      url: `${BASE_URL}${breedPath(breed)}`,
+      lastModified: today,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+    // Collections and rankings are registry QUERIES over the same corpus, so
+    // they derive from it here too rather than being listed by hand.
+    ...publishedCollections().map((c) => ({
+      url: `${BASE_URL}${collectionPath(c)}`,
+      lastModified: today,
+      changeFrequency: "weekly" as const,
+      priority: 0.65,
+    })),
+    ...BREED_RANKINGS.map((r) => ({
+      url: `${BASE_URL}${rankingPath(r)}`,
+      lastModified: today,
+      changeFrequency: "weekly" as const,
+      priority: 0.65,
+    })),
+  ];
 
   const compareRoutes: MetadataRoute.Sitemap = compareSlugs.map((slug) => ({
     url: `${BASE_URL}/compare/${slug}`,

@@ -31,6 +31,8 @@ import {
   breedPath,
 } from "../src/lib/pet-intelligence/index.ts";
 import { DECISION_PAGES } from "../src/lib/pet-choice/data.ts";
+import { collectionPath, publishedCollections } from "../src/lib/pet-intelligence/collections.ts";
+import { BREED_RANKINGS, rankingPath } from "../src/lib/pet-intelligence/rankings.ts";
 import sitemap from "../src/app/sitemap.ts";
 import { breedRouteParams } from "../src/lib/pet-intelligence/index.ts";
 import { BREED_IMAGES } from "../src/lib/images/breed-images.ts";
@@ -94,13 +96,75 @@ test("breed slugs and decision-page slugs never collide", () => {
 const emittedSitemapUrls = new Set(sitemap().map((entry) => entry.url));
 const SITE = "https://faunahub.com";
 
-test("the sitemap EMITS exactly the registry's breed URLs", () => {
-  const emittedBreedUrls = [...emittedSitemapUrls]
+/**
+ * The breed URL space holds FOUR record types — profiles, collections,
+ * rankings, and hand-written decision guides. The invariant is that the sitemap
+ * emits exactly their union: no URL the routes will not build, and no record
+ * missing from the sitemap.
+ */
+const expectedBreedSpaceUrls = new Set([
+  ...BREEDS.map((b) => `${SITE}${breedPath(b)}`),
+  ...publishedCollections().map((c) => `${SITE}${collectionPath(c)}`),
+  ...BREED_RANKINGS.map((r) => `${SITE}${rankingPath(r)}`),
+  ...DECISION_PAGES.filter((p) => p.kind.endsWith("-breed")).map(
+    (p) => `${SITE}${p.parentHub}/${p.slug}`,
+  ),
+]);
+
+test("the sitemap EMITS exactly the union of the breed URL space", () => {
+  const emitted = [...emittedSitemapUrls]
     .filter((url) => /\/(dogs|cats)\/breeds\/[a-z0-9-]+$/.test(url))
-    .filter((url) => !DECISION_PAGES.some((p) => url.endsWith(`/${p.slug}`)))
     .sort();
-  const expected = BREEDS.map((b) => `${SITE}${breedPath(b)}`).sort();
-  assert.deepEqual(emittedBreedUrls, expected, "sitemap and registry disagree about breed URLs");
+  assert.deepEqual(
+    emitted,
+    [...expectedBreedSpaceUrls].sort(),
+    "sitemap and the breed registries disagree",
+  );
+});
+
+test("every breed profile is in the sitemap", () => {
+  for (const breed of BREEDS) {
+    assert.ok(
+      emittedSitemapUrls.has(`${SITE}${breedPath(breed)}`),
+      `${breed.id} is missing from the emitted sitemap`,
+    );
+  }
+});
+
+test("every published collection and ranking is in the sitemap", () => {
+  for (const c of publishedCollections()) {
+    assert.ok(
+      emittedSitemapUrls.has(`${SITE}${collectionPath(c)}`),
+      `collection ${c.slug} is missing from the sitemap`,
+    );
+  }
+  for (const r of BREED_RANKINGS) {
+    assert.ok(
+      emittedSitemapUrls.has(`${SITE}${rankingPath(r)}`),
+      `ranking ${r.slug} is missing from the sitemap`,
+    );
+  }
+});
+
+test("the four breed-space slug sets never collide", () => {
+  // The route dispatches breed -> collection -> ranking -> decision. A
+  // collision would make one of them permanently unreachable with no error.
+  for (const species of ["dog", "cat"] as const) {
+    const sets: Record<string, string[]> = {
+      breed: BREEDS.filter((b) => b.species === species).map((b) => b.slug),
+      collection: publishedCollections().filter((c) => c.species === species).map((c) => c.slug),
+      ranking: BREED_RANKINGS.filter((r) => r.species === species).map((r) => r.slug),
+      decision: DECISION_PAGES.filter((p) => p.kind === `${species}-breed`).map((p) => p.slug),
+    };
+    const seen = new Map<string, string>();
+    for (const [kind, slugs] of Object.entries(sets)) {
+      for (const slug of slugs) {
+        const owner = seen.get(slug);
+        assert.equal(owner, undefined, `${species} slug "${slug}" claimed by ${owner} and ${kind}`);
+        seen.set(slug, kind);
+      }
+    }
+  }
 });
 
 test("the sitemap EMITS both breed hubs and both Breed Finders", () => {
@@ -123,11 +187,13 @@ test("the sitemap never lists a breed URL the route will not build", () => {
     ...breedRouteParams("dog").map((p: { slug: string }) => `${SITE}/dogs/breeds/${p.slug}`),
     ...breedRouteParams("cat").map((p: { slug: string }) => `${SITE}/cats/breeds/${p.slug}`),
     ...DECISION_PAGES.map((p) => `${SITE}${p.parentHub}/${p.slug}`),
+    ...publishedCollections().map((c) => `${SITE}${collectionPath(c)}`),
+    ...BREED_RANKINGS.map((r) => `${SITE}${rankingPath(r)}`),
   ]);
   const sitemapBreedish = [...emittedSitemapUrls].filter((url) =>
     /\/(dogs|cats)\/breeds\/[a-z0-9-]+$/.test(url),
   );
-  const missing = sitemapBreedish.filter((url) => !built.has(url));
+  const missing = sitemapBreedish.filter((url) => !built.has(url) && !expectedBreedSpaceUrls.has(url));
   assert.deepEqual(missing, [], "sitemap lists URLs the route does not generate");
 });
 
