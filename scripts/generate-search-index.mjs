@@ -62,9 +62,59 @@ if (issues.length > 0) {
 // stripped from the wire format and rebuilt at hydration. Beyond the ~8 KB it
 // saves compressed, deriving it makes a document whose id disagrees with its
 // url structurally impossible rather than merely detected.
+/*
+ * FIELD NAMES ARE 21% OF THIS FILE.
+ *
+ * Eleven key names repeat once per document, and at 2,330 documents that is
+ * 194 KB of the 908 KB payload spent re-stating the same eleven words. The
+ * index crossed its 900 KB raw budget when the comparison corpus grew, and the
+ * budget's own note says the fix is to shrink the payload rather than raise the
+ * number — so this shrinks the part that carries no information.
+ *
+ * The map is written INTO the file rather than hardcoded in the loader. A
+ * hardcoded mapping is two lists that must agree forever; a self-describing one
+ * cannot drift, and an older loader meeting a newer file fails loudly on a
+ * missing key instead of silently reading the wrong field.
+ */
+const FIELD_KEYS = {
+  type: "t",
+  title: "n",
+  url: "u",
+  priority: "p",
+  description: "d",
+  keywords: "k",
+  category: "c",
+  group: "g",
+  aliases: "a",
+  animalSlugs: "s",
+  scientificName: "x",
+};
+
+const unmapped = new Set();
+for (const document of payload.documents) {
+  for (const key of Object.keys(document)) {
+    if (key !== "id" && !(key in FIELD_KEYS)) unmapped.add(key);
+  }
+}
+if (unmapped.size > 0) {
+  // A new field silently passing through un-compacted would be invisible until
+  // the budget failed again, so it stops the generator instead.
+  console.error(
+    `search index: ${[...unmapped].join(", ")} missing from FIELD_KEYS in ${import.meta.url}`,
+  );
+  process.exit(1);
+}
+
+const compactDocument = (document) => {
+  const out = {};
+  for (const [key, value] of Object.entries(document)) out[FIELD_KEYS[key]] = value;
+  return out;
+};
+
 const wire = {
   ...payload,
-  documents: payload.documents.map(({ id, ...rest }) => rest),
+  fields: FIELD_KEYS,
+  documents: payload.documents.map(({ id, ...rest }) => compactDocument(rest)),
 };
 
 const serialized = `${JSON.stringify(wire, null, 0)}\n`;
