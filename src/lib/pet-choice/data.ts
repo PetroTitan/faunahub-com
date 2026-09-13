@@ -82,7 +82,7 @@ export const DECISION_PAGES: DecisionPage[] = [
           "Sociable temperament when well-socialised",
         ],
         caveat:
-          "Predisposed to certain heart and neurological conditions in some lines — ongoing veterinary care and breeder/shelter due diligence are important.",
+          "Health screening and breeder or shelter due diligence matter for this breed, as for any; discuss what to ask about, and what preventive care to plan, with a licensed veterinarian.",
       },
       {
         name: "Bichon Frise",
@@ -182,7 +182,7 @@ export const DECISION_PAGES: DecisionPage[] = [
     parentHub: "/dogs/breeds",
     title: "Best Family Dogs — Breeds Often Considered for Households With Children",
     description:
-      "Some breeds tend to fit family households well, but compatibility with children depends on the individual dog, supervision, and consistent training — not breed alone.",
+      "Some breeds tend to fit family households, but compatibility with children depends on the individual dog, supervision and training — not breed alone.",
     pageHeading: "Best Family Dogs",
     shortIntent: "Family-friendly dog breeds",
     directAnswer:
@@ -315,7 +315,7 @@ export const DECISION_PAGES: DecisionPage[] = [
     decisionCriteria: [
       "Realistic time available for daily exercise and training.",
       "Grooming tolerance and budget.",
-      "Health profile — some 'low-fuss' breeds carry significant predispositions.",
+      "Health profile — \"low-fuss\" describes one axis of care and not health, which is a separate question for a veterinarian.",
       "Tolerance for being alone.",
       "Indoor vs outdoor lifestyle.",
       "Routine veterinary care expectations.",
@@ -432,7 +432,7 @@ export const DECISION_PAGES: DecisionPage[] = [
     parentHub: "/dogs/breeds",
     title: "Best Dogs for First-Time Owners — A Practical, Cautious Shortlist",
     description:
-      "Some breeds are often considered a more forgiving starting point for first-time owners — but commitment to training, daily care, and realistic expectations matters most.",
+      "Some breeds are often a more forgiving start for first-time owners — but training, daily care and realistic expectations matter more than breed.",
     pageHeading: "Best Dogs for First-Time Owners",
     shortIntent: "First-time-owner dog breeds",
     directAnswer:
@@ -605,14 +605,14 @@ export const DECISION_PAGES: DecisionPage[] = [
         summary: "Small short-legged hound-type breed.",
         bullets: ["Small", "Often sociable", "Distinctive build"],
         caveat:
-          "Documented spinal/back issues — careful handling, weight management, and avoiding rough play matter.",
+          "Long-bodied breeds have care considerations around jumping and body condition; what is appropriate for a particular dog is a question for that dog's veterinarian.",
       },
       {
         name: "Pug",
         summary: "Small companion breed.",
         bullets: ["Small", "Typically affectionate", "Compact size"],
         caveat:
-          "Brachycephalic welfare concerns include breathing and eye issues; weight management is critical.",
+          "Short-muzzled breeds have care considerations around heat and exertion that are worth raising with a licensed veterinarian before they matter.",
       },
       {
         name: "Boston Terrier",

@@ -245,12 +245,55 @@ export function differenceSummary(pair: ComparisonPair): string[] {
   const { a, b } = pair;
   const out: string[] = [];
 
+  /*
+   * Weight comparison had to handle HALF-OPEN bounds.
+   *
+   * It compared `span().max` only, which is undefined for an `at-least` bound —
+   * so a Burmese recorded as "over 5.4 kg" against a Singapura at "2.7-3.2 kg"
+   * produced NO difference, and the page then told the reader the two breeds
+   * were "noted the same way" directly above a table showing otherwise. Seven of
+   * nine cat comparisons said that.
+   *
+   * Comparing the widest available figure on each side — ceiling where there is
+   * one, floor otherwise — states the difference without pretending the
+   * half-open bound is a ceiling.
+   */
   const aw = span(a.measurements?.weightKg);
   const bw = span(b.measurements?.weightKg);
-  if (aw.max !== undefined && bw.max !== undefined && aw.max !== bw.max) {
-    const [heavier, lighter] = aw.max > bw.max ? [a, b] : [b, a];
+  const aTop = aw.max ?? aw.min;
+  const bTop = bw.max ?? bw.min;
+  if (aTop !== undefined && bTop !== undefined && aTop !== bTop) {
+    const [heavier, lighter] = aTop > bTop ? [a, b] : [b, a];
+    const openA = aw.max === undefined;
+    const openB = bw.max === undefined;
+    const qualifier =
+      openA || openB
+        ? " — one of these standards gives only a floor, so the figures are not a like-for-like ceiling"
+        : "";
     out.push(
-      `${heavier.name} has the higher published weight ceiling (${Math.max(aw.max, bw.max)} kg against ${Math.min(aw.max, bw.max)} kg for the ${lighter.name}).`,
+      `${heavier.name} carries the higher published weight figure (${Math.max(aTop, bTop)} kg against ${Math.min(aTop, bTop)} kg for the ${lighter.name})${qualifier}.`,
+    );
+  }
+
+  // Lifespan is in the comparison table and was absent from this summary, so
+  // 173 dog pages under-counted their differences.
+  const al = a.lifespanYears;
+  const bl = b.lifespanYears;
+  if (al?.max !== undefined && bl?.max !== undefined && (al.min !== bl.min || al.max !== bl.max)) {
+    out.push(
+      `Published lifespan differs: ${al.statedAs} for the ${a.name}, ${bl.statedAs} for the ${b.name}.`,
+    );
+  }
+
+  // Height, likewise present in the table and previously unreported.
+  const ah = span(a.measurements?.heightCm);
+  const bh = span(b.measurements?.heightCm);
+  const ahTop = ah.max ?? ah.min;
+  const bhTop = bh.max ?? bh.min;
+  if (ahTop !== undefined && bhTop !== undefined && ahTop !== bhTop) {
+    const [taller, shorter] = ahTop > bhTop ? [a, b] : [b, a];
+    out.push(
+      `${taller.name} carries the higher published height figure (${Math.max(ahTop, bhTop)} cm against ${Math.min(ahTop, bhTop)} cm for the ${shorter.name}).`,
     );
   }
   if (a.sizeClass && b.sizeClass && a.sizeClass !== b.sizeClass) {

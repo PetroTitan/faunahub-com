@@ -79,7 +79,7 @@ export const BREED_RANKINGS: readonly BreedRanking[] = [
     title: "Tallest Dog Breeds by Published Height",
     description:
       fitDescription(
-        "Dog breeds ordered by the upper end of the height range their registry publishes. Every row shows the range and the registry's own wording; breeds with an open-ended standard are excluded and counted.",
+        "Dog breeds ordered by the upper end of the height range their registry publishes, with each range and the registry's own wording shown beside it.",
       ),
     metric: "heightCm",
     orderBy: "max",
@@ -126,17 +126,49 @@ export interface RankedRow {
   max: number;
   /** The registry wording behind the figures, for display. */
   statedAs: string[];
+  /**
+   * The ONE published figure that supplied the ordering value.
+   *
+   * A breed can publish several — by sex, or by variety — and the ranking uses
+   * the widest span across all of them. That is defensible, but it means the
+   * American Eskimo Dog sits high in "smallest by published weight" on the
+   * floor of its TOY variety while the same breed's standard variety reaches
+   * 35 pounds. Naming the figure that did the ordering lets a reader see which
+   * one it was instead of assuming it describes the whole breed.
+   */
+  orderedOn: string;
+  /** The breed publishes more than one figure for this metric. */
+  multiBasis: boolean;
+  /** One published figure, not a range — ordered against others' range ends. */
+  pointFigure: boolean;
 }
 
 export interface RankingResult {
   rows: RankedRow[];
   /** Breeds in this species with no usable measurement, and why. */
   excluded: { breed: Breed; reason: string }[];
+  /**
+   * Excluded breeds whose open end points INTO this ranking's extreme.
+   *
+   * A count is not disclosure. "Smallest Dog Breeds by Published Weight" that
+   * silently omits the Chihuahua — because the AKC publishes "not exceeding 6
+   * pounds", a ceiling with no floor — is wrong in the way a reader will
+   * actually notice, and so is a tallest list without the Irish Wolfhound.
+   * These breeds are named with their published wording so the reader can
+   * place them, rather than being folded into a number.
+   */
+  notableExclusions: { breed: Breed; statedAs: string[] }[];
 }
 
 export function rankingResult(ranking: BreedRanking, limit = 40): RankingResult {
   const rows: RankedRow[] = [];
   const excluded: { breed: Breed; reason: string }[] = [];
+
+  // An excluded breed matters most when its OPEN end runs toward the extreme
+  // this ranking is about: an "at least 32 inches" breed in a tallest list, or
+  // a "not exceeding 6 pounds" breed in a smallest one.
+  const openEndOfInterest = ranking.direction === "desc" ? "at-least" : "at-most";
+  const notableExclusions: { breed: Breed; statedAs: string[] }[] = [];
 
   for (const breed of breedsForSpecies(ranking.species)) {
     const measurements = breed.measurements?.[ranking.metric];
@@ -148,14 +180,25 @@ export function rankingResult(ranking: BreedRanking, limit = 40): RankingResult 
           ? "the registry publishes no figure"
           : "the registry's figure is open-ended, so it has no comparable end",
       });
+      if (measurements?.some((m) => m.bound === openEndOfInterest)) {
+        notableExclusions.push({ breed, statedAs: measurements.map((m) => m.statedAs) });
+      }
       continue;
     }
+    const rows_ = measurements ?? [];
+    const value = ranking.orderBy === "max" ? usable.max : usable.min;
+    const source =
+      rows_.find((m) => (ranking.orderBy === "max" ? m.max : m.min) === value) ?? rows_[0];
     rows.push({
       breed,
       ...usable,
-      statedAs: (measurements ?? []).map((m) => m.statedAs),
+      statedAs: rows_.map((m) => m.statedAs),
+      orderedOn: source?.statedAs ?? "",
+      multiBasis: rows_.length > 1,
+      pointFigure: usable.min === usable.max,
     });
   }
+  notableExclusions.sort((a, b) => a.breed.name.localeCompare(b.breed.name));
 
   rows.sort((a, b) => {
     const av = ranking.orderBy === "max" ? a.max : a.min;
@@ -166,7 +209,7 @@ export function rankingResult(ranking: BreedRanking, limit = 40): RankingResult 
     return primary || a.breed.name.localeCompare(b.breed.name);
   });
 
-  return { rows: rows.slice(0, limit), excluded };
+  return { rows: rows.slice(0, limit), excluded, notableExclusions };
 }
 
 export function getRanking(species: BreedSpecies, slug: string): BreedRanking | undefined {

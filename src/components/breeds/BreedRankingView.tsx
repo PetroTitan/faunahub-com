@@ -77,12 +77,38 @@ export default function BreedRankingView({
               {ranking.methodology}
             </p>
             <p className="px-5 pb-4 text-sm text-[#5E6B63] leading-relaxed m-0">
-              {result.excluded.length} {speciesWord} breed
-              {result.excluded.length === 1 ? "" : "s"} in FaunaHub&apos;s registry are{" "}
+              {result.excluded.length} {speciesWord} breed{result.excluded.length === 1 ? "" : "s"} in FaunaHub&apos;s registry are{" "}
               <strong>excluded</strong> from this ranking because their standard gives no
               comparable figure. They are not at the bottom of the list — they are not on it.
             </p>
           </section>
+
+          {result.notableExclusions.length > 0 && (
+            <section
+              aria-labelledby="notable-exclusions"
+              className="not-prose mt-4 border border-[#E3D4A8] rounded-xl bg-[#FBF7EA] p-5 max-w-3xl"
+            >
+              <h2
+                id="notable-exclusions"
+                className="text-sm font-semibold text-[#6B5310] uppercase tracking-wider m-0 mb-2"
+              >
+                Breeds you might expect here, and why they are not
+              </h2>
+              <p className="text-sm text-[#2C3A2F] leading-relaxed m-0 mb-3">
+                These {speciesWord} breeds would plausibly belong at this end of the list, but their
+                standard publishes only one side of the figure — so there is no second end to order
+                them on. Their published wording is given so you can place them yourself.
+              </p>
+              <ul className="text-sm space-y-1.5 list-none p-0 m-0">
+                {result.notableExclusions.map(({ breed, statedAs }) => (
+                  <li key={breed.id} className="text-[#2C3A2F]">
+                    <Link href={breedPath(breed)}>{breed.name}</Link>
+                    <span className="text-[#5E6B63]"> — {statedAs.join("; ")}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           <div className="mt-8 overflow-x-auto">
             <table className="w-full text-sm border-collapse min-w-[34rem]">
@@ -115,7 +141,25 @@ export default function BreedRankingView({
                         ? `${row.min} ${ranking.unit}`
                         : `${row.min}–${row.max} ${ranking.unit}`}
                     </td>
-                    <td className="py-2.5 text-[#5E6B63]">{row.statedAs.join("; ")}</td>
+                    <td className="py-2.5 text-[#5E6B63]">
+                      {row.statedAs.join("; ")}
+                      {/*
+                        A breed with several published figures was ordered on ONE of
+                        them. Without this the American Eskimo Dog's position looks
+                        like a statement about the breed rather than about its toy
+                        variety's floor.
+                      */}
+                      {row.multiBasis && row.orderedOn && (
+                        <span className="block mt-0.5 text-xs text-[#5E6B63]">
+                          Ordered on “{row.orderedOn}”
+                        </span>
+                      )}
+                      {row.pointFigure && (
+                        <span className="block mt-0.5 text-xs text-[#5E6B63]">
+                          A single published figure, not a range
+                        </span>
+                      )}
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -128,7 +172,9 @@ export default function BreedRankingView({
               breed standard describes an ideal, and individual {speciesWord}s routinely fall
               outside it. Two breeds a few places apart usually have overlapping published ranges —
               the range column is there so you can see that rather than infer a difference the data
-              does not support.
+              does not support. Where a standard gives one figure rather than a range, that row says
+              so — a point figure is placed against other breeds&apos; range ends, which is the
+              closest comparison available and not a like-for-like one.
             </p>
           </div>
 

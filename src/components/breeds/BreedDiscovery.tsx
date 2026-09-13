@@ -98,8 +98,8 @@ export default function BreedDiscovery({ species }: { species: BreedSpecies }) {
               Breed comparisons
             </h3>
             <p className="text-xs text-[#5E6B63] mb-2.5 max-w-2xl">
-              {comparisons.length} published pair
-              {comparisons.length === 1 ? "" : "s"}, each one two breeds their registry lists as
+              {comparisons.length} published{" "}
+              {comparisons.length === 1 ? "pair" : "pairs"}, each one two breeds their registry lists as
               related to each other. Every comparison shows both breeds&apos; published values and
               picks no winner. Each breed&apos;s own profile links the comparisons it appears in.
             </p>
