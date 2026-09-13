@@ -27,6 +27,7 @@ import {
 } from "../src/lib/pet-intelligence/comparisons/index.ts";
 import { publishedCollections } from "../src/lib/pet-intelligence/collections.ts";
 import { BREED_RANKINGS, rankingResult } from "../src/lib/pet-intelligence/rankings.ts";
+import { DECISION_PAGES } from "../src/lib/pet-choice/data.ts";
 import type { Breed } from "../src/lib/pet-intelligence/types.ts";
 
 const REPO_ROOT = path.resolve(import.meta.dirname, "..");
@@ -700,4 +701,109 @@ test("no ranking names an excluded breed it cannot actually place", () => {
       );
     }
   }
+});
+
+/*
+ * ---------------------------------------------------------------------------
+ * DECISION GUIDES
+ *
+ * These are the most claim-heavy pages on the site. Every one is titled "Best
+ * X", and that framing is deliberate and hedged in the body — it is the phrase
+ * a reader actually searches, and the page's job is to complicate it honestly
+ * rather than to answer it. So the title-superlative guard above, which governs
+ * registry-DERIVED pages that must not editorialise at all, does not apply
+ * here; a collection called "Best Low-Maintenance Dog Breeds" is a registry
+ * query pretending to be advice, which is a different thing entirely.
+ *
+ * The prose detectors do apply, and until now none of them could read a word of
+ * these pages.
+ * ---------------------------------------------------------------------------
+ */
+
+function decisionText(): { surface: string; text: string }[] {
+  return DECISION_PAGES.map((page) => ({
+    surface: `decision ${page.slug}`,
+    text: [
+      page.title,
+      page.description,
+      page.directAnswer,
+      ...page.decisionCriteria,
+      page.recommendationsIntro,
+      ...page.recommendations.flatMap((r) => [r.name, r.summary, ...r.bullets, r.caveat ?? ""]),
+      ...page.careExpectations,
+      ...page.notIdealFor,
+      ...page.faqs.flatMap((f) => [f.question, f.answer]),
+    ].join("\n"),
+  }));
+}
+
+test("decision guides exist and carry prose to check", () => {
+  const pages = decisionText();
+  assert.ok(pages.length >= 13, `only ${pages.length} decision guides found`);
+  assert.ok(pages.every((p) => p.text.length > 500), "a decision guide has almost no prose");
+});
+
+test("no decision guide promises child safety, allergy freedom, or gives treatment", () => {
+  for (const { surface, text } of decisionText()) {
+    for (const m of text.matchAll(CHILD_CERTAINTY)) {
+      assert.fail(`${surface} promises a child-safety outcome: "${m[0]}"`);
+    }
+    for (const m of text.matchAll(VET_INSTRUCTION)) {
+      assert.fail(`${surface} gives a veterinary instruction: "${m[0]}"`);
+    }
+    for (const m of text.matchAll(FAKE_PRECISION)) {
+      assert.fail(`${surface} renders a numeric rating: "${m[0]}"`);
+    }
+    for (const m of text.matchAll(HYPOALLERGENIC_CLAIM)) {
+      assert.ok(isDenial(text, m.index), `${surface} claims hypoallergenic status: "${m[0]}"`);
+    }
+  }
+});
+
+test("no decision guide presents a named condition as a breed diagnosis", () => {
+  /*
+   * A decision guide is exactly where "prone to hip dysplasia" feels helpful,
+   * and it is a veterinary claim about an animal nobody has examined. Caveats
+   * belong on commitment and cost, which a reader can act on.
+   */
+  for (const { surface, text } of decisionText()) {
+    for (const m of text.matchAll(CONDITION_CLAIM)) {
+      assert.fail(`${surface} states a breed-level condition claim: "${m[0]}"`);
+    }
+  }
+});
+
+test("every trait bullet in a decision guide matches the registry", () => {
+  /*
+   * A guide that says "higher exercise needs" beside a breed whose profile says
+   * "moderate" is two pages of the same site disagreeing, and the reader has no
+   * way to tell which is right. This re-derives each bullet from the record.
+   */
+  const BAND: Record<string, string> = { Higher: "higher", Lower: "lower", Moderate: "moderate" };
+  const FIELD: Record<string, string> = {
+    "exercise needs": "exerciseNeeds",
+    grooming: "groomingNeeds",
+    shedding: "shedding",
+    trainability: "trainability",
+    vocality: "vocality",
+  };
+  let checked = 0;
+  for (const page of DECISION_PAGES) {
+    for (const rec of page.recommendations) {
+      const breed = BREEDS.find((b) => b.name === rec.name);
+      for (const bullet of rec.bullets) {
+        const m = bullet.match(
+          /^(Higher|Lower|Moderate) (exercise needs|grooming|shedding|trainability|vocality)$/,
+        );
+        if (!m || !breed) continue;
+        checked += 1;
+        assert.equal(
+          breed.traits?.[FIELD[m[2]] as keyof typeof breed.traits]?.value,
+          BAND[m[1]],
+          `${page.slug}: "${bullet}" for ${rec.name} disagrees with the registry`,
+        );
+      }
+    }
+  }
+  assert.ok(checked >= 30, `only ${checked} trait bullets were re-derived — is the format matching?`);
 });
