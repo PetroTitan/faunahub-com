@@ -50,12 +50,25 @@ npm run start
 # Regenerate public/search-index.json by hand, or check it is not stale
 npm run search:index
 npm run search:check
+
+# Breed registry (Pet Intelligence)
+npm run breeds:facets          # which Breed Finder filters the data supports, and why
+npm run breeds:facets:check    # fail if a shipped facet has degraded
+npm run breeds:verify          # re-check every breed against its live registry sources (NETWORK)
 ```
 
 `public/search-index.json` is generated from the app's own routes and registries — see
 [docs/search-architecture.md](docs/search-architecture.md). It is committed so `next dev`
 and preview deployments work with no extra step, regenerated automatically before every
 build, and guarded by a staleness test.
+
+The dog and cat breed corpus is a typed registry under `src/lib/pet-intelligence/`, and
+every structured value on a breed traces to a named registry (AKC, FCI, CFA) with an access
+date. Routes, the sitemap, and the search index all derive from it, so a breed cannot exist
+in one and be missing from another. The methodology — what each trait means, which rankings
+are prohibited, where the veterinary boundary sits, and how a future commercial layer must
+attach — is in [docs/pet-intelligence/](docs/pet-intelligence/). `npm run breeds:verify`
+re-checks the data against the live registries.
 
 After cloning, run `npm install` first. Next.js will auto-generate `next-env.d.ts` on the first `dev`/`build`. Until then, IDEs may show transient `Cannot find module 'next'` errors — these resolve as soon as dependencies are installed.
 

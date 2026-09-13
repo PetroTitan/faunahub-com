@@ -17,7 +17,10 @@
     "search:check": "node scripts/generate-search-index.mjs --check",
     "finder:index": "node scripts/generate-finder-index.mjs",
     "finder:check": "node scripts/generate-finder-index.mjs --check",
-    "finder:audit": "node scripts/generate-finder-index.mjs --audit"
+    "finder:audit": "node scripts/generate-finder-index.mjs --audit",
+    "breeds:facets": "node scripts/breed-facet-coverage.mjs",
+    "breeds:facets:check": "node scripts/breed-facet-coverage.mjs --check",
+    "breeds:verify": "node scripts/verify-breed-registry.mjs"
   },
   "dependencies": {
     "next": "^15.5.18",
