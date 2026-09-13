@@ -32,7 +32,19 @@ export async function generateMetadata({
   const pair = getComparison("cat", slug);
   if (!pair) return {};
   return buildMetadata({
-    title: `${pair.a.name} vs ${pair.b.name} — Size, Coat, Grooming & Exercise Compared`,
+    /*
+     * NO BRAND SUFFIX on this page type.
+     *
+     * Two breed names are already the whole distinctive content of this title,
+     * and some pairs run to 62 characters between them. With the old tail
+     * ("— Size, Coat, Grooming & Exercise Compared") plus the suffix, all 284
+     * comparison titles were over 60 characters, median 89 — so the SECOND
+     * BREED NAME was what a SERP cut off, which is the one word a reader
+     * searching for that comparison is looking for. Dropping the tail and the
+     * suffix leaves 13 over the limit instead of 284.
+     */
+    title: `${pair.a.name} vs ${pair.b.name} Compared`,
+    brandSuffix: false,
     description: fitDescription(`${pair.a.name} and ${pair.b.name} compared on coat, size and recognition — registry values only, no winner and no scores.`),
     path: `/cats/compare/${pair.slug}`,
   });

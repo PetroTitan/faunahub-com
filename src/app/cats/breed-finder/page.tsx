@@ -13,7 +13,7 @@ const LAST_UPDATED = "2026-09-13";
 export const metadata: Metadata = buildMetadata({
   title: "Cat Breed Finder — Filter Cat Breeds by Coat Length",
   description:
-    "Filter FaunaHub's cat breed registry by coat length. FaunaHub's size bands are calibrated for dogs and CFA publishes no cat trait scale, so this Finder offers one honest filter rather than several invented ones.",
+    "Filter FaunaHub's cat breed registry by coat length — one honest filter, because the CFA publishes no cat trait scale and our size bands are dog-calibrated.",
   path: "/cats/breed-finder",
 });
 

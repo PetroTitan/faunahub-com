@@ -13,7 +13,7 @@ const LAST_UPDATED = "2026-09-13";
 export const metadata: Metadata = buildMetadata({
   title: "Dog Breed Finder — Filter Breeds by Size, Coat, Exercise & Grooming",
   description:
-    "Filter FaunaHub's dog breed registry by registry group, adult size, coat length, exercise needs, grooming needs, shedding, trainability, and vocality. Results are alphabetical — no rankings, no scores.",
+    "Filter FaunaHub's dog breed registry by group, size, coat, exercise, grooming, shedding, trainability and vocality. Alphabetical — no rankings, no scores.",
   path: "/dogs/breed-finder",
 });
 

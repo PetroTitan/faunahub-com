@@ -30,8 +30,32 @@ import {
 
 const BASE_URL = "https://faunahub.com";
 
+/**
+ * lastmod for pages that carry no per-item modified date of their own.
+ *
+ * Update this deliberately when a batch of those pages actually changes. It is
+ * a claim about content, so it must never be derived from the clock or the
+ * build.
+ */
+const SECTION_LASTMOD = "2026-09-13";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const today = new Date().toISOString().split("T")[0];
+  /*
+   * A BUILD STAMP IS NOT A MODIFICATION DATE.
+   *
+   * This read the clock, so all 123 sections below — 1,815 of the 2,255 URLs —
+   * claimed they had changed on whatever day the site was last built. /about,
+   * /privacy-policy and /animals/wolf all announced today's date after a deploy
+   * that touched none of them. The 440 URLs with a real `modifiedTime` were
+   * mixed in among them, indistinguishable, which devalues the honest ones too:
+   * a crawler that learns lastmod is noise on this host stops reading it
+   * everywhere.
+   *
+   * A hand-maintained constant is the smallest truthful version. It moves when
+   * someone decides content moved, not when a build runs. Sections that can
+   * derive a real per-item date still do, below.
+   */
+  const today = SECTION_LASTMOD;
 
   const animalSlugs = [
     // Compare Center batch two: profiles added to unblock comparisons.

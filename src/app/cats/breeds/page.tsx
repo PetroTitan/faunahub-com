@@ -23,7 +23,7 @@ const LAST_UPDATED = "2026-05-22";
 export const metadata: Metadata = buildMetadata({
   title: "Cat Breed Center — Profiles, Registry Facts & Decision Guides",
   description:
-    "Every cat breed profile on FaunaHub, with registry recognition, published measurements and coat data, plus cautious decision guides for apartments, families and first-time owners.",
+    "Every cat breed profile on FaunaHub, with registry recognition, published measurements and coat data, plus cautious decision guides.",
   path: "/cats/breeds",
 });
 
@@ -59,7 +59,7 @@ export default function CatBreedsHub() {
       parentPath="/cats"
       parentLabel="Cats"
       h1="Cat Breed Center"
-      intro="Every cat breed FaunaHub publishes, each with registry-sourced recognition and measurements alongside a written overview. Below the breed profiles are decision guides that organise breed thinking by household intent. Breed tendencies are not guarantees — individual animals vary."
+      intro="Every cat breed FaunaHub publishes, each with registry-sourced recognition and measurements. Some carry a written overview as well; the rest are data profiles and say so. Below the breed profiles are decision guides that organise breed thinking by household intent. Breed tendencies are not guarantees — individual animals vary."
       decisionPages={decisions}
       hubFaqs={HUB_FAQS}
       faqTitle="Cat Breeds — Frequently Asked Questions"

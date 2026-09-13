@@ -36,11 +36,6 @@ const LAST_UPDATED = "2026-09-13";
  * disjoint and a test asserts they stay that way, so the dispatch below can
  * never be ambiguous.
  *
- * They share a URL space because a reader browsing dog breeds does not care
- * which of FaunaHub's registries a page came from. The slug sets are disjoint
- * and a test asserts they stay that way, so the dispatch below can never be
- * ambiguous.
- *
  * Until this migration the twelve breed profiles were twelve hand-written page
  * files, and the breed list existed separately in the hub, the sitemap, and the
  * image registry — four copies that had to be edited together. Generating them
