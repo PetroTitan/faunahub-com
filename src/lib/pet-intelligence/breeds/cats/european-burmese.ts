@@ -12,7 +12,10 @@ export const breed: Breed = {
       status: "recognized",
       registryGroup: "Championship",
       registryUrl: "https://cfa.org/breed/european-burmese/",
-      recognizedYear: 1952,
+      // CFA: "accepted for CFA registration in 1993. Championship status came
+      // in 2002." The stored 1952 was neither date. registryGroup is
+      // "Championship", so this field carries the year that status was granted.
+      recognizedYear: 2002,
       sourceId: "cfa-european-burmese",
     },
   ],

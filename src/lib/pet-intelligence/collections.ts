@@ -137,6 +137,11 @@ function coatCollections(): BreedCollection[] {
     { species: "dog", value: "short", title: "Short-Coated Dog Breeds", noun: "dog" },
     { species: "dog", value: "medium", title: "Medium-Coated Dog Breeds", noun: "dog" },
     { species: "dog", value: "long", title: "Long-Coated Dog Breeds", noun: "dog" },
+    // The AKC records two coat lengths for nine breeds (Collie, Dachshund,
+    // English Cocker Spaniel and others). They used to be filed under the
+    // shorter one, which left no page for the fact that the registry recognises
+    // both — the cat side has had this collection since the pilot.
+    { species: "dog", value: "variable", title: "Dog Breeds Recorded in More Than One Coat Length", noun: "dog" },
     { species: "cat", value: "short", title: "Short-Haired Cat Breeds", noun: "cat" },
     { species: "cat", value: "long", title: "Long-Haired Cat Breeds", noun: "cat" },
     { species: "cat", value: "variable", title: "Cat Breeds Recognised in Both Coat Lengths", noun: "cat" },
@@ -147,13 +152,15 @@ function coatCollections(): BreedCollection[] {
     title: d.title,
     description: fitDescription(
       d.value === "variable"
-        ? "Cat breeds their registry recognises in both longhair and shorthair, listed alphabetically with the registry wording."
+        ? d.species === "cat"
+          ? "Cat breeds their registry recognises in both longhair and shorthair, listed alphabetically with the registry wording."
+          : "Dog breeds for which the AKC records more than one coat length, listed alphabetically with the registry's own wording."
         : `${d.noun === "dog" ? "Dog" : "Cat"} breeds whose registry records a ${d.value} coat, listed alphabetically with the registry's own wording.`,
     ),
     methodology:
       d.species === "cat"
         ? "Coat length comes from the CFA breed profile's own \"Coat Length\" field, or from the breed's registry name where that names the coat. Breeds their registry recognises in both lengths are recorded as recognised in both rather than being filed under one."
-        : "Coat length comes from the AKC's published coat-length field for the breed. A breed with no recorded coat length is absent rather than assigned one.",
+        : "Coat length comes from the AKC's published coat-length field for the breed. Where that field lists more than one length, the breed is recorded as having more than one rather than being filed under the shorter. A breed with no recorded coat length is absent rather than assigned one.",
     axis: "coatLength" as const,
     matches: (b: Breed) => b.species === d.species && b.coat?.length === d.value,
   }));

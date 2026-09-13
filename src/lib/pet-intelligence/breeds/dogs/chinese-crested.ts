@@ -28,9 +28,9 @@ export const breed: Breed = {
     ],
   },
   coat: {
-    length: "short",
+    length: "hairless",
     types: ["Silky", "Hairless"],
-    statedAs: "AKC coat length: Short, Medium; coat type: Silky, Hairless",
+    statedAs: "Recorded as hairless: the AKC coat-length field describes the coat where one is present, but this is a hairless breed and filing it as short-coated would put it in the wrong collection and hide it from a hairless filter. AKC coat length: Short, Medium; coat type: Silky, Hairless",
     sourceId: "akc-chinese-crested",
   },
   traits: {

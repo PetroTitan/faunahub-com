@@ -19,9 +19,9 @@ export const breed: Breed = {
     },
   ],
   coat: {
-    length: "short",
+    length: "hairless",
     types: ["Smooth", "Hairless"],
-    statedAs: "AKC coat length: Short; coat type: Smooth, Hairless",
+    statedAs: "Recorded as hairless: the AKC coat-length field describes the coat where one is present, but this is a hairless breed and filing it as short-coated would put it in the wrong collection and hide it from a hairless filter. AKC coat length: Short; coat type: Smooth, Hairless",
     sourceId: "akc-peruvian-inca-orchid",
   },
   traits: {

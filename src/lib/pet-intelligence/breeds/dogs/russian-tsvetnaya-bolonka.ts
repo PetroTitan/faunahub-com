@@ -14,6 +14,12 @@ export const breed: Breed = {
       status: "recognized",
       registryGroup: "Toy Group",
       registryBreedCode: "549",
+      // NO recognizedYear. AKC's year_recognized field gives 1935 for this
+      // breed, which predates the breed's own recorded history and is plainly
+      // a placeholder rather than a recognition date. 203 fully-recognised
+      // breeds carry the field; these three omit it deliberately, and
+      // tests/pet-intelligence-registry.test.ts now names them so a future
+      // import cannot quietly restore the wrong value.
       registryUrl: "https://www.akc.org/dog-breeds/russian-tsvetnaya-bolonka/",
       sourceId: "akc-russian-tsvetnaya-bolonka",
     },

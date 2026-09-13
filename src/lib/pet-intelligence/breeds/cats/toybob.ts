@@ -12,7 +12,10 @@ export const breed: Breed = {
       status: "recognized",
       registryGroup: "Championship",
       registryUrl: "https://cfa.org/breed/toybob/",
-      recognizedYear: 2019,
+      // CFA states two dates: accepted for registration in 2019, advanced to
+      // Championship in 2025. registryGroup here is "Championship", and the
+      // contract for this field is the year the registry granted THAT status.
+      recognizedYear: 2025,
       sourceId: "cfa-toybob",
     },
   ],

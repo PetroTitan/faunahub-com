@@ -12,7 +12,10 @@ export const breed: Breed = {
       status: "recognized",
       registryGroup: "Championship",
       registryUrl: "https://cfa.org/breed/american-wirehair/",
-      recognizedYear: 1967,
+      // CFA states two dates: accepted for registration in 1967, advanced to
+      // Championship in 1978. registryGroup here is "Championship", and the
+      // contract for this field is the year the registry granted THAT status.
+      recognizedYear: 1978,
       sourceId: "cfa-american-wirehair",
     },
   ],

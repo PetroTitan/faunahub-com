@@ -18,7 +18,7 @@ export const breed: Breed = {
   ],
   coat: {
     length: "short",
-    statedAs: "Coat length is stated by the breed's registry name (Thai).",
+    statedAs: "FIFe breed profile: \"Thai is a pointed breed, with a short coat recognized in the basic natural colours\"",
     sourceId: "fife-thai",
   },
   traits: {},

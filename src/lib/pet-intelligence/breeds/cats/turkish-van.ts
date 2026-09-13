@@ -26,7 +26,7 @@ export const breed: Breed = {
   ],
   measurements: {
     weightKg: [
-      { min: 9.1, max: 9.1, bound: "about", basis: { kind: "sex", sex: "male" }, statedAs: "Mature males may weigh 20 pounds", sourceId: "cfa-turkish-van" },
+      { max: 9.1, bound: "at-most", basis: { kind: "sex", sex: "male" }, statedAs: "Mature males may weigh 20 pounds", sourceId: "cfa-turkish-van" },
     ],
   },
   coat: {

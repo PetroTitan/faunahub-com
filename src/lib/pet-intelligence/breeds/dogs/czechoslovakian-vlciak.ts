@@ -21,17 +21,18 @@ export const breed: Breed = {
   measurements: {
     heightCm: [
       { min: 64.8, bound: "at-least", basis: { kind: "sex", sex: "male" }, statedAs: "Minimum: 25.5 males", sourceId: "akc-czechoslovakian-vlciak" },
-      { min: 59.7, max: 59.7, bound: "about", basis: { kind: "sex", sex: "female" }, statedAs: "23.5 females", sourceId: "akc-czechoslovakian-vlciak" },
+      { min: 59.7, bound: "at-least", basis: { kind: "sex", sex: "female" }, statedAs: "Minimum: 23.5 females", sourceId: "akc-czechoslovakian-vlciak" },
     ],
     weightKg: [
       { min: 25.9, bound: "at-least", basis: { kind: "sex", sex: "male" }, statedAs: "Minimum: 57 males", sourceId: "akc-czechoslovakian-vlciak" },
-      { min: 20, max: 20, bound: "about", basis: { kind: "sex", sex: "female" }, statedAs: "44 females", sourceId: "akc-czechoslovakian-vlciak" },
+      { min: 20, bound: "at-least", basis: { kind: "sex", sex: "female" }, statedAs: "Minimum: 44 females", sourceId: "akc-czechoslovakian-vlciak" },
     ],
   },
   coat: {
     length: "medium",
-    types: ["0"],
-    statedAs: "AKC coat length: Medium; coat type: 0",
+    // AKC's coat_type field is literally ["0"] for this breed — its null
+    // marker, not a coat. It rendered on the page as "Coat Medium · 0".
+    statedAs: "AKC coat length: Medium (the AKC records no coat type for this breed)",
     sourceId: "akc-czechoslovakian-vlciak",
   },
   traits: {

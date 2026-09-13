@@ -12,7 +12,10 @@ export const breed: Breed = {
       status: "recognized",
       registryGroup: "Championship",
       registryUrl: "https://cfa.org/breed/siberian/",
-      recognizedYear: 2000,
+      // CFA states two dates: accepted for registration in 2000, advanced to
+      // Championship in 2007. registryGroup here is "Championship", and the
+      // contract for this field is the year the registry granted THAT status.
+      recognizedYear: 2007,
       sourceId: "cfa-siberian",
     },
     {
@@ -27,6 +30,10 @@ export const breed: Breed = {
   measurements: {
     weightKg: [
       { min: 5.4, max: 8.2, bound: "closed", basis: { kind: "sex", sex: "male" }, statedAs: "can range between 12 and 18 pounds for a mature male", sourceId: "cfa-siberian" },
+      // The female clause was in the same CFA sentence and was dropped. The
+      // identically-shaped clause IS stored for Norwegian Forest Cat and
+      // Russian Blue, so this was an omission rather than a policy.
+      { min: 3.6, max: 5.4, bound: "closed", basis: { kind: "sex", sex: "female" }, statedAs: "females range from 8 to 12 pounds", sourceId: "cfa-siberian" },
     ],
   },
   coat: {

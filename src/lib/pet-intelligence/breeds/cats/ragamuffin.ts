@@ -12,7 +12,10 @@ export const breed: Breed = {
       status: "recognized",
       registryGroup: "Championship",
       registryUrl: "https://cfa.org/breed/ragamuffin/",
-      recognizedYear: 2003,
+      // CFA states two dates: accepted for registration in 2003, advanced to
+      // Championship in 2011. registryGroup here is "Championship", and the
+      // contract for this field is the year the registry granted THAT status.
+      recognizedYear: 2011,
       sourceId: "cfa-ragamuffin",
     },
   ],

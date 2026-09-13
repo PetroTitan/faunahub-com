@@ -28,8 +28,8 @@ export const breed: Breed = {
   },
   coat: {
     length: "medium",
-    types: ["0", "Double"],
-    statedAs: "AKC coat length: Medium; coat type: 0, Double",
+    types: ["Double"],
+    statedAs: "AKC coat length: Medium; coat type: Double",
     sourceId: "akc-alaskan-klee-kai",
   },
   traits: {

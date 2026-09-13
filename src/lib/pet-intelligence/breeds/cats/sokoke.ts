@@ -16,11 +16,21 @@ export const breed: Breed = {
       sourceId: "fife-sokoke",
     },
   ],
-  coat: {
-    length: "short",
-    statedAs: "Coat length is stated by the breed's registry name (Sokoke).",
-    sourceId: "fife-sokoke",
-  },
+  /*
+   * NO COAT LENGTH IS PUBLISHED, because the registry FaunaHub cites does not
+   * state one.
+   *
+   * These records carried "Coat length is stated by the breed's registry name
+   * (Sokoke)" — a rule that genuinely holds for British Longhair and the
+   * Longhair/Shorthair variety pairs FIFe splits by code (KBL/KBS, SRL/SRS,
+   * OLH/OSH), and was then applied to names that contain no coat term at all.
+   * It was the only source cited for the value.
+   *
+   * FIFe's breed list and this breed's own profile page were re-read on
+   * 2026-09-13: neither states a coat length. The value may well be right, but
+   * a plausible value with an invented citation is worse than an absent field,
+   * and the facet gate reports the gap honestly.
+   */
   traits: {},
   sources: ["fife-sokoke"],
   images: [],

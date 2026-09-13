@@ -15,6 +15,12 @@ export const breed: Breed = {
       status: "recognized",
       registryGroup: "Hound Group",
       registryBreedCode: "446",
+      // NO recognizedYear. AKC's year_recognized field gives 1885 for this
+      // breed, which predates the breed's own recorded history and is plainly
+      // a placeholder rather than a recognition date. 203 fully-recognised
+      // breeds carry the field; these three omit it deliberately, and
+      // tests/pet-intelligence-registry.test.ts now names them so a future
+      // import cannot quietly restore the wrong value.
       registryUrl: "https://www.akc.org/dog-breeds/basset-fauve-de-bretagne/",
       sourceId: "akc-basset-fauve-de-bretagne",
     },

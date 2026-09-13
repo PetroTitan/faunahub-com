@@ -12,7 +12,10 @@ export const breed: Breed = {
       status: "recognized",
       registryGroup: "Championship",
       registryUrl: "https://cfa.org/breed/havana-brown/",
-      recognizedYear: 1959,
+      // CFA states two dates: accepted for registration in 1959, advanced to
+      // Championship in 1964. registryGroup here is "Championship", and the
+      // contract for this field is the year the registry granted THAT status.
+      recognizedYear: 1964,
       sourceId: "cfa-havana-brown",
     },
   ],
