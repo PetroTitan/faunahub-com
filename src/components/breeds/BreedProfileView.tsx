@@ -4,6 +4,7 @@ import BreedAttributes from "@/components/breeds/BreedAttributes";
 import { getBreedHeroImage } from "@/lib/images/breed-images";
 import { AVMA_PET_CARE } from "@/lib/educational/animal-sources";
 import type { SourceLink } from "@/lib/educational/types";
+import { comparisonPath, comparisonsForBreed } from "@/lib/pet-intelligence/comparisons";
 import {
   ORDINAL_LABEL,
   breedFinderPath,
@@ -195,6 +196,10 @@ export default function BreedProfileView({
       quickFacts={quickFacts(breed)}
       faqs={e?.faqs ?? []}
       relatedLinks={[
+        ...comparisonsForBreed(breed, 3).map((p) => ({
+          label: `${p.a.name} vs ${p.b.name}`,
+          href: comparisonPath(p),
+        })),
         ...related.map((b) => ({
           label: `${b.name} profile`,
           href: breedPath(b),

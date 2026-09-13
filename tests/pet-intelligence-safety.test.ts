@@ -21,6 +21,10 @@ import path from "node:path";
 
 import { BREEDS } from "../src/lib/pet-intelligence/index.ts";
 import { AKC_TRAITS_EXCLUDED } from "../src/lib/pet-intelligence/trait-scale.ts";
+import {
+  PUBLISHED_COMPARISONS,
+  differenceSummary,
+} from "../src/lib/pet-intelligence/comparisons/index.ts";
 import type { Breed } from "../src/lib/pet-intelligence/types.ts";
 
 const REPO_ROOT = path.resolve(import.meta.dirname, "..");
@@ -396,4 +400,76 @@ test("breed pages emit no Product, Review or AggregateRating schema", () => {
 test("no breed page invents a Schema.org type that does not exist", () => {
   const source = fs.readFileSync(path.join(REPO_ROOT, "src/lib/schema.ts"), "utf8");
   assert.doesNotMatch(source, /"(?:DogBreed|CatBreed|PetBreed)"/, "invented Schema.org type");
+});
+
+/* ---------------------------------------------------------------- *
+ * Comparisons must never pick a winner
+ * ---------------------------------------------------------------- */
+
+test("no comparison difference statement declares a winner", () => {
+  // `differenceSummary` is generated from two breeds' values, so a careless
+  // template here would produce a verdict on hundreds of pages at once.
+  const VERDICT =
+    /\b(better|best|worse|superior|inferior|winner|wins|beats|safer|smarter|easier breed|right choice|recommend)\b/i;
+  for (const pair of PUBLISHED_COMPARISONS) {
+    for (const line of differenceSummary(pair)) {
+      assert.doesNotMatch(line, VERDICT, `${pair.slug}: "${line}"`);
+    }
+  }
+});
+
+test("the comparison verdict detector actually fires", () => {
+  const VERDICT =
+    /\b(better|best|worse|superior|inferior|winner|wins|beats|safer|smarter|easier breed|right choice|recommend)\b/i;
+  for (const bad of [
+    "The Labrador is the better family dog.",
+    "We recommend the Poodle for most households.",
+    "The Beagle wins on trainability.",
+  ]) {
+    assert.match(bad, VERDICT, `detector missed: ${bad}`);
+  }
+});
+
+/**
+ * A verdict word only counts when nothing nearby negates it.
+ *
+ * The first version matched a bare "better" and failed on "Neither is better" —
+ * the single most important line on the page. Widening it to a lookbehind still
+ * failed on "There is no winner" and "does not pick a winner", where the
+ * negation is several words away. So the check looks back a short window rather
+ * than trying to encode English in one expression. This is the same failure the
+ * child-safety guard was built to avoid: a naive phrase list flags the honest
+ * sentence and pressures an author to delete it.
+ */
+function unnegatedVerdicts(source: string): string[] {
+  const VERDICT = /\b(winner|wins|beats|superior|is better|are better)\b/gi;
+  const NEGATION = /\b(no|not|never|neither|nor|without)\b/i;
+  const hits: string[] = [];
+  for (const m of source.matchAll(VERDICT)) {
+    const before = source.slice(Math.max(0, m.index - 60), m.index);
+    if (!NEGATION.test(before)) hits.push(source.slice(Math.max(0, m.index - 40), m.index + 20));
+  }
+  return hits;
+}
+
+test("the comparison renderer contains no winner or score logic", () => {
+  const source = fs.readFileSync(
+    path.join(REPO_ROOT, "src/components/breeds/BreedComparisonView.tsx"),
+    "utf8",
+  );
+  assert.deepEqual(unnegatedVerdicts(source), [], "verdict logic in the comparison view");
+  assert.doesNotMatch(source, /★|\/\s*5\b|aggregateRating/i, "a score reached the comparison view");
+  assert.match(
+    source,
+    /Neither is better/,
+    "the comparison page no longer states that it picks no winner",
+  );
+});
+
+test("the comparison-view detector separates verdicts from disclaimers", () => {
+  assert.equal(unnegatedVerdicts("The Labrador is the winner here.").length, 1);
+  assert.equal(unnegatedVerdicts("The Poodle is better for most homes.").length, 1);
+  assert.equal(unnegatedVerdicts("Neither is better.").length, 0);
+  assert.equal(unnegatedVerdicts("FaunaHub does not pick a winner.").length, 0);
+  assert.equal(unnegatedVerdicts("There is no winner, no recommendation.").length, 0);
 });

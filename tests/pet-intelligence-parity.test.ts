@@ -33,6 +33,14 @@ import {
 import { DECISION_PAGES } from "../src/lib/pet-choice/data.ts";
 import { collectionPath, publishedCollections } from "../src/lib/pet-intelligence/collections.ts";
 import { BREED_RANKINGS, rankingPath } from "../src/lib/pet-intelligence/rankings.ts";
+import {
+  MIN_SHARED_DIMENSIONS,
+  PUBLISHED_COMPARISONS,
+  comparisonPath,
+  getComparison,
+  pairSlug,
+  sharedDimensions,
+} from "../src/lib/pet-intelligence/comparisons/index.ts";
 import sitemap from "../src/app/sitemap.ts";
 import { breedRouteParams } from "../src/lib/pet-intelligence/index.ts";
 import { BREED_IMAGES } from "../src/lib/images/breed-images.ts";
@@ -364,6 +372,65 @@ test("every decision page URL the sitemap emits is one a route will build", () =
     assert.ok(
       emittedSitemapUrls.has(`${SITE}${page.parentHub}/${page.slug}`),
       `${page.slug} is missing from the emitted sitemap`,
+    );
+  }
+});
+
+/* ---------------------------------------------------------------- *
+ * Breed comparisons
+ * ---------------------------------------------------------------- */
+
+test("every published comparison is in the sitemap and resolvable", () => {
+  for (const pair of PUBLISHED_COMPARISONS) {
+    assert.ok(
+      emittedSitemapUrls.has(`${SITE}${comparisonPath(pair)}`),
+      `comparison ${pair.slug} is missing from the sitemap`,
+    );
+    assert.equal(
+      getComparison(pair.species, pair.slug)?.slug,
+      pair.slug,
+      `comparison ${pair.slug} does not resolve by its own slug`,
+    );
+  }
+});
+
+test("comparison slugs are canonical and unique", () => {
+  const seen = new Set<string>();
+  for (const pair of PUBLISHED_COMPARISONS) {
+    const key = `${pair.species}:${pair.slug}`;
+    assert.ok(!seen.has(key), `duplicate comparison ${key}`);
+    seen.add(key);
+    // Order-independent: a pair has exactly one URL, so A-vs-B and B-vs-A
+    // cannot both exist.
+    assert.equal(
+      pair.slug,
+      pairSlug(pair.a.slug, pair.b.slug),
+      `${pair.slug} is not the canonical ordering of its two breeds`,
+    );
+    assert.notEqual(pair.a.id, pair.b.id, `${pair.slug} compares a breed with itself`);
+    assert.equal(pair.a.species, pair.species);
+    assert.equal(pair.b.species, pair.species);
+  }
+});
+
+test("every published comparison clears its species' shared-dimension bar", () => {
+  for (const pair of PUBLISHED_COMPARISONS) {
+    const shared = sharedDimensions(pair.a, pair.b).length;
+    assert.ok(
+      shared >= MIN_SHARED_DIMENSIONS[pair.species],
+      `${pair.slug} publishes with only ${shared} shared dimensions`,
+    );
+  }
+});
+
+test("breed comparisons never collide with the species comparison namespace", () => {
+  // /animal-compare compares species; /dogs/compare compares breeds. A URL in
+  // both would make one unreachable.
+  for (const pair of PUBLISHED_COMPARISONS) {
+    assert.doesNotMatch(
+      comparisonPath(pair),
+      /^\/animal-compare\//,
+      `${pair.slug} is routed into the species comparison namespace`,
     );
   }
 });

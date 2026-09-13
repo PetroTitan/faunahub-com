@@ -4,6 +4,7 @@ import { DECISION_PAGES } from "@/lib/pet-choice/data";
 import { BREEDS, breedPath } from "@/lib/pet-intelligence";
 import { collectionPath, publishedCollections } from "@/lib/pet-intelligence/collections";
 import { BREED_RANKINGS, rankingPath } from "@/lib/pet-intelligence/rankings";
+import { PUBLISHED_COMPARISONS, comparisonPath } from "@/lib/pet-intelligence/comparisons";
 import { BUDGET_GUIDES, PET_COST_ARTICLES } from "@/lib/pet-cost/data";
 import { INSURANCE_ARTICLES } from "@/lib/pet-insurance/data";
 import { VET_CARE_ARTICLES } from "@/lib/vet-care/data";
@@ -999,6 +1000,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: today,
       changeFrequency: "weekly" as const,
       priority: 0.65,
+    })),
+    ...PUBLISHED_COMPARISONS.map((p) => ({
+      url: `${BASE_URL}${comparisonPath(p)}`,
+      lastModified: today,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
     })),
   ];
 
