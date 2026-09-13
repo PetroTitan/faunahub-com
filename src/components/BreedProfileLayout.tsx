@@ -39,8 +39,16 @@ export interface BreedProfileLayoutProps {
   intro: ReactNode;
   /** Appearance & size content. */
   appearance: ReactNode;
-  /** Temperament & household-fit content; must include "individual variation" language. */
+  /** Temperament content; must include "individual variation" language. */
   temperament: ReactNode;
+  /**
+   * True when the breed record carries household context.
+   *
+   * The heading used to read "Temperament & household fit" on every page, while
+   * only a minority of records actually carry householdContext — so on most
+   * pages the heading promised guidance the section did not contain.
+   */
+  hasHouseholdContext?: boolean;
   /** Exercise/enrichment for dogs, activity for cats. */
   activity: ReactNode;
   /** Grooming & care notes. */
@@ -81,6 +89,7 @@ export default function BreedProfileLayout(props: BreedProfileLayoutProps) {
     intro,
     appearance,
     temperament,
+    hasHouseholdContext,
     activity,
     grooming,
     training,
@@ -192,7 +201,7 @@ export default function BreedProfileLayout(props: BreedProfileLayoutProps) {
               <h2>Appearance &amp; size</h2>
               {appearance}
 
-              <h2>Temperament &amp; household fit</h2>
+              <h2>{hasHouseholdContext ? "Temperament & household fit" : "Temperament"}</h2>
               {temperament}
 
               <h2>{species === "dog" ? "Exercise & enrichment" : "Activity & enrichment"}</h2>

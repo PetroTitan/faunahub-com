@@ -44,11 +44,11 @@ export interface FacetCoverage {
   note: string;
 }
 
-const PRIMARY_THRESHOLD = 0.999;
+const PRIMARY_THRESHOLD = 0.8;
 const PARTIAL_THRESHOLD = 0.5;
 
 /** A facet needs at least this many distinct values to filter anything. */
-const MIN_DISTINCT = 4;
+const MIN_DISTINCT = 2;
 
 type Extractor = (breed: Breed) => string | undefined;
 

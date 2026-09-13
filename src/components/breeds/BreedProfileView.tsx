@@ -161,6 +161,7 @@ export default function BreedProfileView({
           ) : null}
         </>
       }
+      hasHouseholdContext={Boolean(breed.editorial.householdContext?.length)}
       activity={paragraphs(breed.editorial.activity)}
       grooming={paragraphs(breed.editorial.grooming)}
       training={

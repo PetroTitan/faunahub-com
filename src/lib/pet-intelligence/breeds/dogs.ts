@@ -188,7 +188,7 @@ export const DOG_BREEDS: readonly Breed[] = [
         "The long double coat sheds year-round, with heavier seasonal sheds. Regular brushing several times a week, periodic baths, and routine ear/dental/nail care help keep the coat and skin in good condition. The feathered legs and tail can pick up mud and debris, so wipe-downs after outdoor activity are common.",
       ],
       training: [
-        "Goldens are often described as trainable, with positive- reinforcement methods working well for many individuals. Early socialisation with people, other dogs, and varied environments matters for any breed.",
+        "Goldens are often described as trainable, with positive-reinforcement methods working well for many individuals. Early socialisation with people, other dogs, and varied environments matters for any breed.",
       ],
       health: [
         "Like all breeds, Goldens can be affected by inherited and lifestyle health conditions. Responsible breeders typically screen for joint and other concerns; rescues and shelters may have varying levels of background information. FaunaHub does not list specific medical conditions or treatments; discuss preventive care with a licensed veterinarian.",
@@ -290,7 +290,7 @@ export const DOG_BREEDS: readonly Breed[] = [
         "German Shepherds can be affected by inherited and lifestyle health conditions. Responsible breeders typically screen for joint and other concerns. FaunaHub does not list specific medical conditions or treatments; discuss preventive care with a licensed veterinarian.",
       ],
       responsibility: [
-        "A German Shepherd is a substantial commitment in time, space, exercise, training, and budget. They are not a default choice for an apartment, a busy first-time owner, or a household that cannot guarantee daily mental engagement. Reputable shelters, rescues, and responsible breeders are appropriate sources.",
+        "A German Shepherd is a substantial commitment in time, space, exercise, training, and budget. They are not a default choice for an apartment, a busy first-time owner, or a household that cannot reliably offer daily mental engagement. Reputable shelters, rescues, and responsible breeders are appropriate sources.",
       ],
       faqs: [
         { question: "Are German Shepherds good family dogs?", answer: "Many German Shepherds live successfully in families, but no breed is universally child-safe and the breed's size, energy, and training needs require committed adult oversight. Behaviour varies by individual, training, and household." },
@@ -381,7 +381,7 @@ export const DOG_BREEDS: readonly Breed[] = [
         "French Bulldogs are often described as cooperative with patient, positive-reinforcement training. Short, focused training sessions tend to work better than long, repetitive drills.",
       ],
       health: [
-        "Brachycephalic context: the flat-faced head shape is associated with a set of health considerations commonly grouped as brachycephalic obstructive airway syndrome (BOAS). FaunaHub does not provide diagnosis or treatment. Anyone considering this breed should research these considerations with a licensed veterinarian familiar with brachycephalic dogs, and choose a breeder or rescue that takes airway health seriously.",
+        "Brachycephalic context: the flat-faced head shape is associated with specific care considerations, particularly around heat, exertion and air travel, which are worth raising with a licensed veterinarian before they matter. FaunaHub does not provide diagnosis or treatment. Anyone considering this breed should research these considerations with a licensed veterinarian familiar with brachycephalic dogs, and choose a breeder or rescue that takes airway health seriously.",
       ],
       responsibility: [
         "Plan for veterinary care that may be more involved than the average small dog, including monitoring for heat sensitivity, airway concerns, and skin-fold care. Reputable shelters, rescues, and breeders that prioritise health and welfare are appropriate sources. Avoid pet-store or unverified online sellers, and be cautious about \"rare colour\" marketing.",
@@ -389,7 +389,7 @@ export const DOG_BREEDS: readonly Breed[] = [
       faqs: [
         { question: "Are French Bulldogs good for apartments?", answer: "Some French Bulldogs do well in apartments because of their modest exercise tolerance, but the breed is not universally suitable for every apartment — landlord rules, noise sensitivity, heat exposure, and household routines all matter. Spend time with a specific dog before deciding." },
         { question: "Do French Bulldogs need a lot of exercise?", answer: "Most French Bulldogs benefit from short, regular exercise rather than long high-intensity sessions. The breed's brachycephalic head shape means heat and strenuous exercise can be a particular risk; confirm an exercise plan with a veterinarian." },
-        { question: "Are French Bulldogs healthy dogs?", answer: "The flat-faced head shape is associated with specific care considerations grouped as brachycephalic obstructive airway syndrome (BOAS), and various coat-colour fads have been linked to additional concerns. FaunaHub does not diagnose or treat. Discuss the breed's care considerations with a licensed veterinarian before adoption." },
+        { question: "Are French Bulldogs healthy dogs?", answer: "The flat-faced head shape is associated with specific care considerations, and and coat colours marketed as rare are worth asking a veterinarian and a reputable breeder about. FaunaHub does not diagnose or treat. Discuss the breed's care considerations with a licensed veterinarian before adoption." },
         { question: "Are French Bulldogs hypoallergenic?", answer: "No dog breed is fully hypoallergenic. Allergens come from dander and saliva as well as hair. Anyone with allergies should spend time with a specific dog before committing." },
       ],
     },
@@ -462,7 +462,7 @@ export const DOG_BREEDS: readonly Breed[] = [
         "Beagles are compact, sturdily built dogs with a short tri-colour or two-colour coat, large drop ears, and a gently curved tail often carried upright. Breed standards recognise different size varieties; confirm size expectations with a reputable source for any specific dog.",
       ],
       temperament: [
-        "Beagles are often described as sociable, playful, and pack- oriented. The breed's strong scenting drive can mean that a Beagle on a trail follows their nose rather than the human calling them. Like all dogs, behaviour varies by individual, socialisation, training, and environment.",
+        "Beagles are often described as sociable, playful, and pack-oriented. The breed's strong scenting drive can mean that a Beagle on a trail follows their nose rather than the human calling them. Like all dogs, behaviour varies by individual, socialisation, training, and environment.",
       ],
       activity: [
         "Most Beagles benefit from substantial daily exercise — walks, safe off-lead time in enclosed areas, and scent-based enrichment. The breed's nose can lead to wandering, so secure fencing and reliable recall training matter.",
@@ -474,7 +474,7 @@ export const DOG_BREEDS: readonly Breed[] = [
         "Beagles are often described as cooperative with patient, positive-reinforcement training, although the breed's scenting drive can make outdoor recall a recurring training challenge. Short, engaging sessions and food-motivated rewards work well for many individuals.",
       ],
       health: [
-        "As with all breeds, Beagles can be affected by inherited and lifestyle health conditions. Body-condition management and ear care are common discussion points with veterinarians. FaunaHub does not list specific medical conditions or treatments.",
+        "As with all breeds, Beagles can be affected by inherited and lifestyle health conditions. FaunaHub does not list specific medical conditions or treatments. Discuss preventive care, body condition, and any specific concerns for a particular dog with a licensed veterinarian.",
       ],
       responsibility: [
         "Plan for a vocal, scent-driven dog with substantial exercise and enrichment needs. Reputable shelters, rescues, and responsible breeders are appropriate sources. Beagles historically have been used in laboratory research; some rescues specifically place ex-laboratory Beagles and can be a meaningful adoption option for committed homes.",
@@ -568,7 +568,7 @@ export const DOG_BREEDS: readonly Breed[] = [
         "The single-layer curly coat does not shed in the same way as many double-coated breeds, but it does need regular maintenance — brushing several times a week and professional grooming every several weeks. Mat formation is a common issue without routine care. Despite popular belief, no breed is fully hypoallergenic.",
       ],
       training: [
-        "Poodles are often described as very trainable using positive- reinforcement methods. They tend to respond well to varied, engaging training rather than repetitive drills. First-time owners typically benefit from structured classes with a qualified force-free trainer.",
+        "Poodles are often described as very trainable using positive-reinforcement methods. They tend to respond well to varied, engaging training rather than repetitive drills. First-time owners typically benefit from structured classes with a qualified force-free trainer.",
       ],
       health: [
         "As with all breeds, Poodles can be affected by inherited and lifestyle health conditions, with some differing across size varieties. Responsible breeders typically screen for relevant conditions; rescues and shelters may have varying levels of background information. FaunaHub does not list specific medical conditions or treatments. Discuss preventive care, coat and skin care, and any specific concerns for a particular dog with a licensed veterinarian.",
@@ -649,7 +649,7 @@ export const DOG_BREEDS: readonly Breed[] = [
     lifespanYears: { min: 12, max: 15, bound: "closed", basis: { kind: "breed" }, statedAs: "12-15 years", sourceId: "akc-border-collie" },
     editorial: {
       intro: [
-        "The Border Collie is a medium-sized herding breed developed on the Anglo-Scottish border. The breed has a strong working heritage and is widely described as highly active, intelligent, and biddable. Border Collies are often a poor choice for households unable to commit to substantial daily work — but they are a strong fit for active homes that want a deeply engaged dog.",
+        "The Border Collie is a medium-sized herding breed developed on the Anglo-Scottish border. The breed has a strong working heritage and is widely described as highly active, intelligent, and biddable. Border Collies are often described as a poor choice for households unable to commit to substantial daily work, and as better suited to active homes that want a deeply engaged dog.",
       ],
       appearance: [
         "Border Collies are medium-sized, athletic dogs with a double coat that may be rough or smooth. The classic black-and-white coat is familiar, but the breed comes in many recognised colour patterns. Working-line and show-line dogs may differ visibly in build.",
@@ -670,7 +670,7 @@ export const DOG_BREEDS: readonly Breed[] = [
         "As with all breeds, Border Collies can be affected by inherited and lifestyle health conditions. Responsible breeders typically screen for relevant concerns. FaunaHub does not list specific medical conditions or treatments. Discuss preventive care, weight management, and any specific concerns for a particular dog with a licensed veterinarian.",
       ],
       responsibility: [
-        "Border Collies are not a default choice for a quiet apartment, a sedentary household, or an owner whose schedule cannot guarantee daily mental and physical work. Mismatched placements are a common reason this breed shows up in rescues. Be honest about the time and energy you can commit before adopting.",
+        "Border Collies are not a default choice for a quiet apartment, a sedentary household, or an owner whose schedule cannot reliably accommodate daily mental and physical work. Mismatched placements are a common reason this breed shows up in rescues. Be honest about the time and energy you can commit before adopting.",
       ],
       faqs: [
         { question: "Are Border Collies good apartment dogs?", answer: "Border Collies are generally not a default match for apartment living. Some individuals can do well in apartments with very active owners and a long daily work plan, but the breed's energy and mental needs are substantial. Spend time with a specific dog before deciding." },
@@ -760,7 +760,7 @@ export const DOG_BREEDS: readonly Breed[] = [
         "Dachshunds are often described as cooperative learners with positive-reinforcement training, although the breed's independent streak can make consistency more important than with very biddable breeds. Short, engaging sessions and food-motivated rewards work for many individuals.",
       ],
       health: [
-        "Back-health context: the long-bodied build is associated with specific spinal-care considerations that should be discussed with a licensed veterinarian. Avoid jumping from heights, use ramps where appropriate, manage body condition carefully, and follow vet guidance for any individual dog. FaunaHub does not provide diagnosis or treatment.",
+        "Back-health context: the long-bodied build is associated with specific spinal-care considerations that should be discussed with a licensed veterinarian. Jumping, stairs, and body condition are the things owners most often raise with a veterinarian for this breed; what is appropriate for a particular dog is a question for that dog's vet rather than a rule that holds for all of them. FaunaHub does not provide diagnosis or treatment.",
       ],
       responsibility: [
         "Plan for routine veterinary care and weight management as ongoing priorities. Reputable shelters, rescues, and responsible breeders are appropriate sources. Avoid pet-store or unverified online sellers.",
@@ -768,7 +768,7 @@ export const DOG_BREEDS: readonly Breed[] = [
       faqs: [
         { question: "Are Dachshunds good apartment dogs?", answer: "Many Dachshunds do well in apartments because of their small size and modest exercise needs, but landlord rules, neighbour noise tolerance, stairs, and the breed's back-care considerations all matter. Spend time with a specific dog before deciding." },
         { question: "Do Dachshunds bark a lot?", answer: "The breed is often described as alert and vocal. Some individuals are noticeably barky, others much less so. This matters for apartment living and for shared-wall housing." },
-        { question: "What about their long backs?", answer: "The long-bodied build brings spinal-care considerations that should be discussed with a licensed veterinarian. Many owners use ramps to reduce jumping impact, manage body condition carefully, and limit stairs. FaunaHub does not diagnose or treat." },
+        { question: "What about their long backs?", answer: "The long-bodied build brings spinal-care considerations that should be discussed with a licensed veterinarian. Owners commonly discuss jumping, stairs, and body condition with their veterinarian for this breed; specific guidance depends on the individual dog. FaunaHub does not diagnose or treat." },
         { question: "Are Dachshunds good with children?", answer: "Many Dachshunds live happily in families, but no breed is universally child-safe. Behaviour varies by individual, training, supervision, and the child's experience around dogs." },
       ],
     },
@@ -866,7 +866,7 @@ export const DOG_BREEDS: readonly Breed[] = [
       ],
       faqs: [
         { question: "Are Siberian Huskies good off-lead?", answer: "The breed is widely described as prone to running and roaming, and many owners never achieve reliable off-lead recall. Secure fencing and careful lead management are standard advice for this breed. Individual dogs vary, and any decision about off-lead freedom should be based on that specific dog's demonstrated behaviour in safe, controlled conditions." },
-        { question: "Do Siberian Huskies shed a lot?", answer: "Yes. The AKC places this breed in the high band of its shedding scale, and the dense double coat sheds heavily during seasonal coat changes in addition to year-round shedding. Regular brushing helps, but shedding is a normal characteristic of the breed rather than a problem to solve." },
+        { question: "Do Siberian Huskies shed a lot?", answer: "Yes. The AKC's published shedding scale places this breed at the high end, and the dense double coat sheds heavily during seasonal coat changes in addition to year-round shedding. Regular brushing helps, but shedding is a normal characteristic of the breed rather than a problem to solve." },
         { question: "Are Siberian Huskies suitable for first-time owners?", answer: "Some first-time owners do well with the breed, but the combination of high exercise needs, independent-mindedness, roaming tendency, and heavy shedding makes it a demanding first dog. Meeting adult Huskies, talking to a rescue or reputable breeder, and being honest about your daily routine matter more than any general rule." },
         { question: "Are Siberian Huskies hypoallergenic?", answer: "No dog breed is fully hypoallergenic. Allergens come from dander and saliva as well as hair, and a heavily shedding double-coated breed does not reduce exposure. Anyone with allergies should spend time around a specific dog before committing." },
       ],
@@ -950,13 +950,13 @@ export const DOG_BREEDS: readonly Breed[] = [
         "The short, smooth coat is straightforward to maintain, and regular brushing manages the moderate shedding the AKC records for the breed. Routine dental, ear, and nail care are sensible parts of any Dane routine. Nail care in particular is easier when introduced early, given the size of the adult dog.",
       ],
       training: [
-        "Early training and socialisation are widely recommended for this breed specifically because of adult size: behaviour that is manageable in a puppy may not be in a dog that weighs as much as an adult human. The AKC places the breed in the middle band of its trainability scale. Consistent positive-reinforcement methods and early lead manners are common advice.",
+        "Early training and socialisation are widely recommended for this breed specifically because of adult size: behaviour that is manageable in a puppy may not be in a dog that weighs as much as an adult human. The AKC's published trainability scale places this breed in the middle. Consistent positive-reinforcement methods and early lead manners are common advice.",
       ],
       health: [
-        "As with all breeds, Great Danes can be affected by inherited and lifestyle health conditions, and giant breeds have a shorter typical lifespan than most smaller breeds — the AKC publishes a life-expectancy range of 7 to 10 years for this breed. Responsible breeders typically screen for relevant concerns. FaunaHub does not list specific medical conditions or treatments. Discuss growth, feeding, and preventive care for any specific dog with a licensed veterinarian.",
+        "As with all breeds, Great Danes can be affected by inherited and lifestyle health conditions, and giant breeds have a shorter typical lifespan than most smaller breeds — the AKC publishes a life-expectancy range of 7 to 10 years for this breed, which is a breed-level published figure and not a prediction about any individual dog. Responsible breeders typically screen for relevant concerns. FaunaHub does not list specific medical conditions or treatments. Discuss growth, feeding, and preventive care for any specific dog with a licensed veterinarian.",
       ],
       responsibility: [
-        "Great Danes are an expensive breed to keep: food, medication dosed by weight, boarding, transport, and equipment all scale with size. The published life-expectancy range is also markedly shorter than for smaller breeds, which is worth considering honestly before adopting. Reputable shelters, rescues, and responsible breeders are appropriate sources.",
+        "Great Danes are an expensive breed to keep: food, medication dosed by weight, boarding, transport, and equipment all scale with size. The published life-expectancy range is also markedly shorter than for smaller breeds — a breed-level figure rather than a forecast for a particular dog, but worth considering honestly before adopting. Reputable shelters, rescues, and responsible breeders are appropriate sources.",
       ],
       householdContext: [
         "Space matters less than it might seem — many Danes are described as relatively calm indoors — but floor space, vehicle size, and the practicalities of moving a large dog who becomes unwell are real considerations. Households with young children should account for the breed's size around small people regardless of temperament, with supervision as standard. First-time owners should plan budget and veterinary logistics realistically.",
@@ -1041,13 +1041,13 @@ export const DOG_BREEDS: readonly Breed[] = [
         "The breed is commonly described as confident, alert, and closely attached to one or a few people. Chihuahuas are also frequently described as wary of strangers, and under-socialisation is a common contributor to defensive behaviour that owners later find difficult. As with all breeds, the individual dog, its early experiences, and its household matter more than breed reputation.",
       ],
       activity: [
-        "Chihuahuas are more active than their size suggests — the AKC places the breed in the high band of its energy scale. Daily walks and play are still part of a healthy routine, scaled appropriately. Short legs do not mean no exercise; they mean shorter distances and attention to heat, cold, and rough terrain.",
+        "Chihuahuas are more active than their size suggests — the AKC's published energy scale places this breed at the high end. Daily walks and play are still part of a healthy routine, scaled appropriately. Short legs do not mean no exercise; they mean shorter distances and attention to heat, cold, and rough terrain.",
       ],
       grooming: [
         "Grooming needs are modest for the smooth-coat variety and somewhat higher for the long coat. The AKC records the breed in the low band of its shedding scale. Routine dental, ear, and nail care matter for this breed, and small-breed dental care in particular is worth discussing with a veterinarian as part of preventive planning.",
       ],
       training: [
-        "Training and socialisation are widely recommended and often skipped for small dogs, because unwanted behaviour is easier to pick up and carry away than to address. The AKC places the breed in the middle band of its trainability scale. Consistent positive-reinforcement methods, early exposure to varied people and environments, and treating the dog as a dog rather than as an accessory are the usual advice.",
+        "Training and socialisation are widely recommended and often skipped for small dogs, because unwanted behaviour is easier to pick up and carry away than to address. The AKC's published trainability scale places this breed in the middle. Consistent positive-reinforcement methods, early exposure to varied people and environments, and treating the dog as a dog rather than as an accessory are the usual advice.",
       ],
       health: [
         "As with all breeds, Chihuahuas can be affected by inherited and lifestyle health conditions, and toy breeds have care considerations that differ from larger dogs. Responsible breeders typically screen for relevant concerns. FaunaHub does not list specific medical conditions or treatments. Discuss preventive care, dental planning, weight management, and any specific concerns with a licensed veterinarian.",
@@ -1135,10 +1135,10 @@ export const DOG_BREEDS: readonly Breed[] = [
         "The breed is commonly described as affectionate, people-focused, and comparatively content indoors. Shih Tzu are often kept as companion dogs for exactly this reason. Individual temperament still varies by dog, line, socialisation, and household, and a breed described as easy-going is not thereby a breed that needs no training.",
       ],
       activity: [
-        "The AKC places the breed in the middle band of its energy scale. Daily walks and play are part of a healthy routine, but the breed is not generally described as needing the sustained work that herding or sporting breeds do. Short-muzzled dogs can find heat and strenuous exercise harder to manage, which is worth raising with a veterinarian when planning activity.",
+        "The AKC's published energy scale places this breed in the middle. Daily walks and play are part of a healthy routine, but the breed is not generally described as needing the sustained work that herding or sporting breeds do. Short-muzzled dogs can find heat and strenuous exercise harder to manage, which is worth raising with a veterinarian when planning activity.",
       ],
       grooming: [
-        "This is the breed's main practical demand. A long double coat requires frequent brushing to prevent matting, along with regular professional grooming for most owners — the AKC places the breed in the high band of its grooming-frequency scale. Face and eye cleaning are commonly part of the routine. Owners who prefer a clipped coat still need regular grooming appointments.",
+        "This is the breed's main practical demand. A long double coat requires frequent brushing to prevent matting, along with regular professional grooming for most owners — the AKC's published grooming-frequency scale places this breed at the high end. Face and eye cleaning are commonly part of the routine. Owners who prefer a clipped coat still need regular grooming appointments.",
       ],
       training: [
         "Shih Tzu are widely described as responsive to gentle, consistent positive-reinforcement training. Early handling practice is particularly useful for this breed, because a dog who tolerates brushing, face cleaning, and grooming handling comfortably makes a lifelong routine much easier for both of you.",
@@ -1147,15 +1147,15 @@ export const DOG_BREEDS: readonly Breed[] = [
         "As with all breeds, Shih Tzu can be affected by inherited and lifestyle health conditions, and short-muzzled breeds have care considerations — particularly around heat and exertion — that differ from longer-muzzled dogs. Responsible breeders typically screen for relevant concerns. FaunaHub does not list specific medical conditions or treatments. Discuss preventive care, exercise in warm weather, and any specific concerns with a licensed veterinarian.",
       ],
       responsibility: [
-        "Budget for grooming as a recurring cost, not a one-off: for most owners this breed means regular professional appointments for the life of the dog. The AKC publishes a life-expectancy range of 10 to 18 years. Reputable shelters, rescues, and responsible breeders are appropriate sources.",
+        "Budget for grooming as a recurring cost, not a one-off: for most owners this breed means regular professional appointments for the life of the dog. The AKC publishes a life-expectancy range of 10 to 18 years — a breed-level published figure rather than a prediction about any individual dog. Reputable shelters, rescues, and responsible breeders are appropriate sources.",
       ],
       householdContext: [
         "The breed's size and moderate activity needs suit apartments well. Households considering a Shih Tzu should be realistic about coat care above all else — it is the commitment owners most often underestimate. As with any breed, interactions between children and dogs should be supervised, and the individual dog assessed rather than assumed from breed reputation.",
       ],
       faqs: [
-        { question: "How much grooming does a Shih Tzu need?", answer: "A great deal, relative to most breeds. The AKC places the Shih Tzu in the high band of its coat-grooming-frequency scale, and a full-length double coat mats without frequent brushing. Many owners keep the coat clipped shorter, which reduces daily brushing but still means regular professional grooming appointments." },
+        { question: "How much grooming does a Shih Tzu need?", answer: "A great deal, relative to most breeds. The AKC's published coat-grooming-frequency scale places this breed at the high end, and a full-length double coat mats without frequent brushing. Many owners keep the coat clipped shorter, which reduces daily brushing but still means regular professional grooming appointments." },
         { question: "Are Shih Tzu good apartment dogs?", answer: "Their size and moderate exercise needs generally suit apartment living. As with any dog, daily walks, mental engagement, and consideration for neighbours still apply, and individual dogs vary in how much activity and how much company they want." },
-        { question: "Are Shih Tzu hypoallergenic?", answer: "No dog breed is fully hypoallergenic. The breed is often described as lower-shedding, and the AKC does place it in the low band of its shedding scale, but allergens come from dander and saliva as well as hair. Anyone with allergies should spend time with a specific dog before committing." },
+        { question: "Are Shih Tzu hypoallergenic?", answer: "No dog breed is fully hypoallergenic. The breed is often described as lower-shedding, and the AKC's published shedding scale does place it at the low end, but allergens come from dander and saliva as well as hair. Anyone with allergies should spend time with a specific dog before committing." },
         { question: "Do Shih Tzu need much exercise?", answer: "Less than working breeds, but not none. Daily walks and play suit most individuals. Because the breed is short-muzzled, exertion and heat are worth planning around and discussing with a veterinarian rather than judging by how willing the dog seems." },
       ],
     },

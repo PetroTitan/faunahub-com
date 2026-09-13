@@ -44,7 +44,7 @@ export const CAT_BREEDS: readonly Breed[] = [
         "The Maine Coon is one of the largest domestic cat breeds, with a long history in North America. The breed is often described as sociable and people-oriented, with a distinctive long coat and substantial body size. As with all breeds, individual cats vary widely in personality, activity level, and care needs.",
       ],
       appearance: [
-        "Maine Coons are large, muscular cats with a long, water- resistant coat, a heavy tail, and tufted ears. Many lines have a square muzzle, a broad chest, and a relatively long body proportion. Recognised coat colours and patterns vary widely.",
+        "Maine Coons are large, muscular cats with a long, water-resistant coat, a heavy tail, and tufted ears. Many lines have a square muzzle, a broad chest, and a relatively long body proportion. Recognised coat colours and patterns vary widely.",
       ],
       temperament: [
         "The breed is often described as friendly, sociable, and interactive — sometimes called \"the gentle giant\". Some individuals are very engaged and follow people around the home; others are quieter. Like every breed, behaviour varies by individual, socialisation, and household.",
@@ -167,7 +167,7 @@ export const CAT_BREEDS: readonly Breed[] = [
         "Most British Shorthairs need daily play and engagement but are often less hyperactive than some other breeds. Interactive toys, climbing structures, and brief structured play sessions help maintain body condition and mental engagement.",
       ],
       grooming: [
-        "The dense double coat benefits from regular brushing, particularly during seasonal sheds. Routine dental, nail, and ear care are sensible parts of any cat's routine. Discuss body-condition management with a veterinarian — the breed's build can mask weight gain.",
+        "The dense double coat benefits from regular brushing, particularly during seasonal sheds. Routine dental, nail, and ear care are sensible parts of any cat's routine. Discuss body-condition management with a veterinarian — the breed's dense coat and cobby build can make body condition harder to judge by eye, which is worth raising with a veterinarian.",
       ],
       health: [
         "As with all breeds, British Shorthairs can be affected by inherited and lifestyle health conditions. Responsible breeders typically test for relevant concerns. FaunaHub does not list specific medical conditions or treatments. Discuss preventive care, weight management, and any specific concerns for a particular cat with a licensed veterinarian.",
@@ -237,7 +237,7 @@ export const CAT_BREEDS: readonly Breed[] = [
         { question: "Do Ragdolls really go limp when you pick them up?", answer: "The breed has a reputation for relaxed handling — the source of the name 'Ragdoll' — but individual cats vary, and 'goes limp' is not a universal trait. Treat handling tolerance as a generalisation, not a guarantee." },
         { question: "Are Ragdolls good with children?", answer: "Many Ragdolls live happily in households with children, but no breed is universally child-safe and individual personality matters. Adult supervision and respect for the cat's space are important for any cat." },
         { question: "Are Ragdolls hypoallergenic?", answer: "No cat breed is fully hypoallergenic. Anyone with allergies should spend time with a specific cat before committing." },
-        { question: "Can Ragdolls be outdoor cats?", answer: "Many breed sources strongly recommend keeping Ragdolls indoors because of their trusting temperament and limited self-defence in many lines. If any outdoor access is provided, a secure 'catio' or supervised harness time is generally safer than free-roaming." },
+        { question: "Can Ragdolls be outdoor cats?", answer: "Many breed sources strongly recommend keeping Ragdolls indoors because the breed is often described as trusting. If any outdoor access is provided, a secure 'catio' or supervised harness time is generally safer than free-roaming." },
       ],
     },
     sources: ["cfa-ragdoll", "cfa-std-ragdoll"],
@@ -279,10 +279,10 @@ export const CAT_BREEDS: readonly Breed[] = [
         "The breed is widely described as gentle, calm, and affectionate, often preferring quiet indoor environments to high-energy households. Individual personality varies — some Persians are very playful, others very mellow.",
       ],
       activity: [
-        "Most Persians need modest daily play and engagement. Interactive toys and gentle climbing options work well. Avoid stressful or chaotic environments — the breed often does best in calmer households.",
+        "Most Persians need modest daily play and engagement. Interactive toys and gentle climbing options work well. Calm, predictable environments are commonly described as suiting the breed — the breed often does best in calmer households.",
       ],
       grooming: [
-        "The long coat needs daily brushing to prevent matting, particularly under the legs and around the rear. Routine eye care is important in many lines — discuss specifics with a veterinarian, especially for any cat with a pronounced flat-faced profile. Some owners use professional grooming periodically.",
+        "The long coat is generally described as needing brushing most days to prevent matting, particularly under the legs and around the rear. Routine eye care is important in many lines — discuss specifics with a veterinarian, especially for any cat with a pronounced flat-faced profile. Some owners use professional grooming periodically.",
       ],
       health: [
         "Brachycephalic context: the flat-faced head shape is associated with specific care considerations in some lines. FaunaHub does not provide diagnosis or treatment. Anyone considering this breed should research these considerations with a licensed veterinarian and choose a breeder or rescue that prioritises health and welfare.",
@@ -291,7 +291,7 @@ export const CAT_BREEDS: readonly Breed[] = [
         "Plan for daily grooming time and budget for veterinary care that may include attention to airway, eye, and skin-fold health in some lines. Reputable shelters, rescues, and responsible breeders are appropriate sources. Avoid pet-store or unverified online sellers and be cautious about \"rare colour\" marketing.",
       ],
       faqs: [
-        { question: "Do Persians need daily grooming?", answer: "Most Persians need daily brushing to prevent matting, particularly under the legs and around the rear. Some owners also use periodic professional grooming. Plan time for this if considering the breed." },
+        { question: "Do Persians need daily grooming?", answer: "Most Persians are described as needing brushing most days to prevent matting, particularly under the legs and around the rear. Some owners also use periodic professional grooming. Plan time for this if considering the breed." },
         { question: "Are Persians good for apartments?", answer: "Many Persians do well in apartments because of their typically calm activity level, but landlord rules, household noise, and the breed's grooming and veterinary care needs all matter. Spend time with a specific cat before deciding." },
         { question: "Are Persians healthy cats?", answer: "The flat-faced head shape in many modern lines is associated with specific care considerations. FaunaHub does not diagnose or treat. Discuss the breed's care considerations with a licensed veterinarian and choose breeders/rescues that prioritise health." },
         { question: "Are Persians hypoallergenic?", answer: "No cat breed is fully hypoallergenic. Anyone with allergies should spend time with a specific cat before committing." },
@@ -328,7 +328,7 @@ export const CAT_BREEDS: readonly Breed[] = [
     traits: {},
     editorial: {
       intro: [
-        "The Bengal is a domestic cat breed developed through crossbreeding programmes with the wild Asian leopard cat (Prionailurus bengalensis) several generations back. Modern registered Bengals are generally many generations removed from the wild ancestor and are considered domestic cats. Bengals are widely described as high-energy and demanding — a poor match for low-engagement households.",
+        "The Bengal is a domestic cat breed developed through crossbreeding programmes with the wild Asian leopard cat (Prionailurus bengalensis) several generations back. Modern registered Bengals are generally many generations removed from the wild ancestor and are considered domestic cats. Bengals are widely described as high-energy and demanding, and are often said to be a poor match for households that cannot offer much daily engagement.",
       ],
       appearance: [
         "Bengals are athletic, muscular cats with a distinctive spotted or marbled coat, often with glittery-looking guard hairs. Coat colours include brown, silver, snow, and other recognised variations. Generational labels (F1, F2, F3, etc.) describe how many generations a cat is from a wild ancestor — most cats sold as pets are F4 and later.",
@@ -386,7 +386,7 @@ export const CAT_BREEDS: readonly Breed[] = [
     traits: {},
     editorial: {
       intro: [
-        "The Norwegian Forest Cat is a large, long-coated breed from Norway, accepted for CFA Championship competition in 1993. The breed is usually described as sturdy and slow-maturing, and its dense coat — developed for a cold climate — is the characteristic that shapes most day-to-day care.",
+        "The Norwegian Forest Cat is a large, long-coated breed from Norway, accepted for CFA Championship competition in 1993. The breed is usually described as sturdy and slow-maturing, with a dense double coat developed for a cold climate.",
       ],
       appearance: [
         "Norwegian Forest Cats are substantial, well-muscled cats with a long double coat, a full ruff, and a bushy tail. The CFA standard notes that the dense undercoat reaches its full development in winter, so the same cat can look noticeably different between seasons. Many colours and patterns are recognised. CFA breed standards describe size qualitatively rather than by weight, so FaunaHub does not publish a numeric size range for this breed.",
@@ -404,10 +404,10 @@ export const CAT_BREEDS: readonly Breed[] = [
         "As with all breeds, Norwegian Forest Cats can be affected by inherited and lifestyle health conditions. Responsible breeders typically screen for relevant concerns, and rescue or adoption sources may have varying levels of health history. FaunaHub does not list specific medical conditions or treatments. Discuss preventive care, weight management, and any specific concerns with a licensed veterinarian.",
       ],
       responsibility: [
-        "Coat care is a real but often over-estimated commitment with this breed — CFA describes the double coat as not requiring a lot of maintenance, with seasonal peaks. Consider climbing space and the long-term cost of veterinary care and insurance before adopting. Reputable shelters, rescues, and responsible breeders are appropriate sources.",
+        "Coat care is a real commitment with this breed, though CFA describes it as lighter than the coat's appearance suggests — CFA describes the double coat as not requiring a lot of maintenance. Consider climbing space and the long-term cost of veterinary care and insurance before adopting. Reputable shelters, rescues, and responsible breeders are appropriate sources.",
       ],
       householdContext: [
-        "The breed generally suits homes that can offer vertical space and regular grooming time. As with any cat, introductions to other pets should be gradual and individual rather than assumed from breed reputation, and interactions between young children and cats should be supervised with an accessible retreat the cat can use.",
+        "The breed generally suits homes that can offer vertical space and a routine that includes combing a long coat. As with any cat, introductions to other pets should be gradual and individual rather than assumed from breed reputation, and interactions between young children and cats should be supervised with an accessible retreat the cat can use.",
       ],
       faqs: [
         { question: "How much grooming does a Norwegian Forest Cat need?", answer: "Less than the coat suggests. CFA describes the double coat as not requiring a lot of maintenance, which surprises many owners. Demand is seasonal rather than constant: the breed standard notes the dense undercoat reaches its full development in winter, so combing tends to matter most around coat changes. What works varies by individual coat, and a groomer or veterinarian can advise for a specific cat." },
