@@ -21,6 +21,7 @@ import {
   BREED_COMMERCIAL_CONTEXT,
   COMMERCE_ENABLED,
   COMMERCIAL_CATEGORIES,
+  COMMERCIAL_RELEVANCE_RULES,
   SERVICE_CATEGORIES,
 } from "../src/lib/pet-intelligence/commercial.ts";
 
@@ -129,4 +130,27 @@ test("the Finder cannot be ordered by anything but the breed name", () => {
 test("the commercial module documents the one-way rule it depends on", () => {
   const source = fs.readFileSync(path.join(PI_DIR, "commercial.ts"), "utf8");
   assert.match(source, /never import/i, "the direction rule is no longer written down");
+});
+
+test("commercial relevance rules derive from recorded registry values only", () => {
+  // The rules describe WHICH recorded value implies a category. If a rule ever
+  // cites something FaunaHub does not record, the mapping would need a human to
+  // assign it per breed — which is exactly where an advertiser's influence
+  // would enter a system that is otherwise derived.
+  const RECORDED = /coat|size band|exercise needs|grooming needs|shedding|vocality|trainability|every cat breed|registry/i;
+  for (const rule of COMMERCIAL_RELEVANCE_RULES) {
+    assert.match(rule.reason, RECORDED, `rule for "${rule.category}" cites something unrecorded`);
+    assert.ok(
+      COMMERCIAL_CATEGORIES[rule.species].includes(rule.category),
+      `rule cites "${rule.category}", which is not in the ${rule.species} vocabulary`,
+    );
+  }
+});
+
+test("no commercial rule targets a subject FaunaHub refuses to monetise", () => {
+  const REFUSED = /medicat|supplement|drug|vet|breeder|health|diet plan|treatment/i;
+  for (const rule of COMMERCIAL_RELEVANCE_RULES) {
+    assert.doesNotMatch(rule.category, REFUSED);
+    assert.doesNotMatch(rule.reason, /health|medical|treat/i, `rule for "${rule.category}" reaches into health`);
+  }
 });

@@ -76,11 +76,63 @@ export const SERVICE_CATEGORIES: readonly string[] = [
 ];
 
 /**
+ * Coarse relevance rules a future commercial layer may start from.
+ *
+ * These are NOT populated per breed, and nothing reads them at render time.
+ * They exist so that when commerce is built, the mapping is derived from
+ * registry facts a breed already records — coat length, size band, trait bands —
+ * rather than being hand-assigned breed by breed, which is where an advertiser's
+ * influence would enter.
+ *
+ * Written as a pure function of a breed's own recorded values, so a category
+ * appears for a breed only because the registry says something that implies it.
+ * A breed with no recorded coat gets no grooming category, the same way a breed
+ * with no recorded weight gets no size band.
+ */
+export const COMMERCIAL_RELEVANCE_RULES: readonly {
+  category: string;
+  species: BreedSpecies;
+  reason: string;
+}[] = [
+  {
+    category: "grooming-tools",
+    species: "dog",
+    reason: "Recorded grooming needs in the higher band, or a recorded long coat.",
+  },
+  {
+    category: "grooming-tools",
+    species: "cat",
+    reason: "A recorded long coat, or a registry that recognises the breed in a long coat.",
+  },
+  {
+    category: "crates-and-carriers",
+    species: "dog",
+    reason: "A derived size band, which determines the size of crate that fits.",
+  },
+  {
+    category: "training-equipment",
+    species: "dog",
+    reason: "Recorded exercise needs in the higher band.",
+  },
+  {
+    category: "toys",
+    species: "dog",
+    reason: "Recorded exercise needs in the higher band.",
+  },
+  {
+    category: "scratching-furniture",
+    species: "cat",
+    reason: "Applies to every cat breed; not breed-specific.",
+  },
+];
+
+/**
  * Commercial context per breed. EMPTY, and it stays empty until a commercial
  * sprint is explicitly authorised.
  *
  * An empty array here is the current, correct state of the system: FaunaHub
  * publishes no affiliate links, no products, and no merchant relationships.
+ * `COMMERCE_ENABLED` is false and the registry cannot import this module.
  */
 export const BREED_COMMERCIAL_CONTEXT: readonly BreedCommercialContext[] = [];
 
