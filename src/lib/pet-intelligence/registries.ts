@@ -16,6 +16,18 @@
  *   gccfcats.org           403  refuses automated requests
  *   thekennelclub.org.uk   301  redirects; not followed up this sprint
  *
+ * Re-tested 2026-09-13 for the mass expansion:
+ *
+ *   fifeweb.org            200  /breeds/ redirects to /cats/breeds/, which the
+ *                               foundation recorded as a 404 because it probed
+ *                               the pre-redirect path. 50 fully recognised
+ *                               breeds with official codes and categories.
+ *   akc.org                200  wp-json/json/v2/breedlist.json enumerates all
+ *                               297 breed pages — the endpoint the paginated
+ *                               HTML listings could not provide.
+ *   tica.org               403  still refuses
+ *   gccfcats.org           403  still refuses
+ *
  * Two traps this table exists to record, both found by control-testing rather
  * than by reading a page and believing it:
  *
@@ -66,6 +78,18 @@ export const BREED_REGISTRIES: readonly BreedRegistry[] = [
       "A pedigree cat registry, headquartered in the United States and operating internationally. Its championship list is narrower than some other cat registries' lists, so a breed absent from CFA is not thereby a breed nobody recognises.",
     groupingModel:
       "Breeds are accepted into competition classes rather than function groups; Championship is the full tier, with Miscellaneous and Provisional classes beneath it. CFA publishes a written standard per breed as a PDF.",
+    machineReadable: true,
+  },
+  {
+    id: "fife",
+    name: "Fédération Internationale Féline",
+    shortName: "FIFe",
+    url: "https://fifeweb.org/cats/breeds/",
+    species: "cat",
+    scope:
+      "A federation of national cat registries, primarily European. Its recognised list differs from CFA's, so a breed recognised by one and not the other is a real difference between two authorities rather than a contradiction.",
+    groupingModel:
+      "Breeds are filed in four categories (1-4) and carry a three-letter code (e.g. MCO Maine Coon). FIFe sometimes splits by coat length what CFA treats as one breed — the American Curl, LaPerm, Selkirk Rex and Oriental are each TWO FIFe breeds and one CFA breed.",
     machineReadable: true,
   },
   {

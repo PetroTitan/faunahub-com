@@ -159,6 +159,19 @@ function parseSegment(
     basis = { kind: "sex", sex: /^f/.test(trailingSex[1]) ? "female" : "male" };
     text = text.slice(0, trailingSex.index).trim();
   }
+  // Registry PROSE puts qualifiers and verbs before the figure: CFA writes
+  // "females weigh 5 to 8 pounds" and "Mature males may weigh 20 pounds". The
+  // sex is already captured above; these words carry no measurement, and
+  // stripping them is what lets `statedAs` stay the source's own sentence while
+  // still re-deriving to the same numbers.
+  text = text
+    .replace(/^(?:mature|adult|full[- ]grown|average|typically|usually)\s+/g, "")
+    .replace(/^(?:males?|females?|dogs|bitches)\s+/g, "")
+    .replace(/^(?:may|can|will|should|might)\s+/g, "")
+    .replace(/^(?:weigh|weighs|weighing|measure|measures|stand|stands|reach|reaches|range|ranges|average|averages)\s+/g, "")
+    .replace(/^(?:in weight|at)\s+/g, "")
+    .trim();
+
   // "15½ inches", and the inch mark used instead of the word.
   text = text
     .replace(/½/g, ".5")
@@ -186,7 +199,7 @@ function parseSegment(
   const atMost =
     text.match(new RegExp(`^(${NUM})\\s*\\w*\\s*(?:&|and)\\s*under$`)) ??
     text.match(new RegExp(`^(?:under|below|up to|not exceeding|no more than)\\s*(${NUM})`)) ??
-    text.match(new RegExp(`(?:as large as|as much as|up to)\\s*(${NUM})`));
+    text.match(new RegExp(`(?:as large as|as much as|up to|rarely exceeding|may weigh up to)\\s*(${NUM})`));
   if (atMost) {
     return { max: convert(Number(atMost[1])), bound: "at-most", basis, statedAs };
   }
@@ -206,7 +219,7 @@ function parseSegment(
   // "over 15 inches" / "at least 20 pounds" / CFA's "reach or exceed 20 pounds"
   const atLeast =
     text.match(new RegExp(`^(?:over|above|at least|more than|no less than)\\s*(${NUM})`)) ??
-    text.match(new RegExp(`(?:reach or exceed|exceed|or more than)\\s*(${NUM})`));
+    text.match(new RegExp(`(?:reach or exceed|match or exceed|exceed|or more than)\\s*(${NUM})`));
   if (atLeast) {
     return { min: convert(Number(atLeast[1])), bound: "at-least", basis, statedAs };
   }
@@ -217,7 +230,9 @@ function parseSegment(
   const range = text.match(
     new RegExp(`^(${NUM})\\s*(?:[-–]|to)\\s*(${NUM})\\s*(?:inches|inch|pounds|lbs?|pound)?\\s*$`),
   );
-  const fromTo = text.match(new RegExp(`from\\s*(${NUM})\\s*to\\s*(${NUM})`)) ??
+  const fromTo =
+    text.match(new RegExp(`between\\s*(${NUM})\\s*and\\s*(${NUM})`)) ??
+    text.match(new RegExp(`from\\s*(${NUM})\\s*to\\s*(${NUM})`)) ??
     text.match(new RegExp(`from\\s*(${NUM})\\s*[-–]\\s*(${NUM})`));
   if (!range && fromTo) {
     const min = Number(fromTo[1]);
