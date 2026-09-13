@@ -43,7 +43,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 10, max: 15, bound: "closed", basis: { kind: "breed" }, statedAs: "10-15 years", sourceId: "akc-glen-of-imaal-terrier" },
   sources: ["akc-glen-of-imaal-terrier"],
-  images: [],
+  images: ["dog-glen-of-imaal-terrier-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

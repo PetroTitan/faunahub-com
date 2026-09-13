@@ -30,7 +30,12 @@ export const breed: Breed = {
     ],
   },
   coat: {
-    length: "medium",
+    // AKC records TWO coat lengths for this breed. Storing array[0]
+    // filed it under the shorter one alone, so the page contradicted the
+    // citation printed directly beneath it and the breed was missing from
+    // the collection for its other coat. "variable" is the value the cat
+    // side already uses for exactly this case.
+    length: "variable",
     types: ["Double"],
     statedAs: "AKC coat length: Medium, Long; coat type: Double",
     sourceId: "akc-english-cocker-spaniel",
@@ -44,7 +49,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 12, max: 14, bound: "closed", basis: { kind: "breed" }, statedAs: "12-14 years", sourceId: "akc-english-cocker-spaniel" },
   sources: ["akc-english-cocker-spaniel"],
-  images: [],
+  images: ["dog-english-cocker-spaniel-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

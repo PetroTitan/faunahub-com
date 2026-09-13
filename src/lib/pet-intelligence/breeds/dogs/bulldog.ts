@@ -43,7 +43,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 8, max: 10, bound: "closed", basis: { kind: "breed" }, statedAs: "8-10 years", sourceId: "akc-bulldog" },
   sources: ["akc-bulldog"],
-  images: [],
+  images: ["dog-bulldog-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

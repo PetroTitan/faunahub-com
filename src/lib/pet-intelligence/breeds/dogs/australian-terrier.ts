@@ -41,7 +41,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 11, max: 15, bound: "closed", basis: { kind: "breed" }, statedAs: "11-15 years", sourceId: "akc-australian-terrier" },
   sources: ["akc-australian-terrier"],
-  images: [],
+  images: ["dog-australian-terrier-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

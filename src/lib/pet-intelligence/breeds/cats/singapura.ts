@@ -36,7 +36,7 @@ export const breed: Breed = {
   },
   traits: {},
   sources: ["cfa-singapura", "cfa-std-singapura", "fife-singapura"],
-  images: [],
+  images: ["cat-singapura-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

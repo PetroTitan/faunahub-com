@@ -42,7 +42,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 12, max: 13, bound: "closed", basis: { kind: "breed" }, statedAs: "12-13 years", sourceId: "akc-bull-terrier" },
   sources: ["akc-bull-terrier"],
-  images: [],
+  images: ["dog-bull-terrier-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

@@ -43,7 +43,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 9, max: 11, bound: "closed", basis: { kind: "breed" }, statedAs: "9-11 years", sourceId: "akc-boerboel" },
   sources: ["akc-boerboel"],
-  images: [],
+  images: ["dog-boerboel-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

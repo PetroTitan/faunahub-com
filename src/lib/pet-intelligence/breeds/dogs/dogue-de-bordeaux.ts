@@ -22,7 +22,11 @@ export const breed: Breed = {
   ],
   measurements: {
     heightCm: [
-      { min: 59.1, max: 59.1, bound: "about", basis: { kind: "sex", sex: "male" }, statedAs: "23.27 inches (male)", sourceId: "akc-dogue-de-bordeaux" },
+      // AKC publishes "23.27 inches (male)" here. A standard does not state
+      // inches to hundredths, and 23.27 below a female range of 23-26 is
+      // incoherent; the AKC's own standard PDF gives males 23.5-27. It is a
+      // corrupted "23-27", so no male height is published rather than a figure
+      // no registry wrote. The parser now rejects this shape outright.
       { min: 58.4, max: 66, bound: "closed", basis: { kind: "sex", sex: "female" }, statedAs: "23-26 inches (female)", sourceId: "akc-dogue-de-bordeaux" },
     ],
     weightKg: [
@@ -45,7 +49,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 5, max: 8, bound: "closed", basis: { kind: "breed" }, statedAs: "5-8 years", sourceId: "akc-dogue-de-bordeaux" },
   sources: ["akc-dogue-de-bordeaux"],
-  images: [],
+  images: ["dog-dogue-de-bordeaux-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

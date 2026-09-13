@@ -25,8 +25,14 @@ export const breed: Breed = {
     ],
   },
   coat: {
-    length: "medium",
-    statedAs: "Moderately long length, with abundant guard hairs, but minimal woolly undercoat",
+    // CFA's "Coat Length:" field reads Longhair. Banding the standard's
+    // "moderately long" prose as "medium" was defensible in isolation, but no
+    // cat collection covers "medium", so the Ragdoll fell out of every coat
+    // grouping while the methodology told readers coat length came from the
+    // CFA field. The band follows the field; the standard's own sentence stays
+    // below it, which is what statedAs is for.
+    length: "long",
+    statedAs: "CFA breed profile, Coat Length: Longhair — the standard describes \"moderately long length, with abundant guard hairs, but minimal woolly undercoat\"",
     sourceId: "cfa-std-ragdoll",
   },
   traits: {},

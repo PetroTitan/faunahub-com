@@ -31,7 +31,7 @@ export const breed: Breed = {
   },
   traits: {},
   sources: ["cfa-balinese", "cfa-std-balinese", "fife-balinese"],
-  images: [],
+  images: ["cat-balinese-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

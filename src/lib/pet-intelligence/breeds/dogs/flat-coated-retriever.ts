@@ -44,7 +44,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 8, max: 10, bound: "closed", basis: { kind: "breed" }, statedAs: "8-10 years", sourceId: "akc-flat-coated-retriever" },
   sources: ["akc-flat-coated-retriever"],
-  images: [],
+  images: ["dog-flat-coated-retriever-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

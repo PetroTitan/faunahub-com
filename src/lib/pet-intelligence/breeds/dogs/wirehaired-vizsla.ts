@@ -44,7 +44,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 12, max: 14, bound: "closed", basis: { kind: "breed" }, statedAs: "12-14 years", sourceId: "akc-wirehaired-vizsla" },
   sources: ["akc-wirehaired-vizsla"],
-  images: [],
+  images: ["dog-wirehaired-vizsla-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

@@ -44,7 +44,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 13, max: 15, bound: "closed", basis: { kind: "breed" }, statedAs: "13-15 years", sourceId: "akc-cairn-terrier" },
   sources: ["akc-cairn-terrier"],
-  images: [],
+  images: ["dog-cairn-terrier-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

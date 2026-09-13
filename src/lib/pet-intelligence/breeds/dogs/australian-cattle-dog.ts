@@ -43,7 +43,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 12, max: 16, bound: "closed", basis: { kind: "breed" }, statedAs: "12-16 years", sourceId: "akc-australian-cattle-dog" },
   sources: ["akc-australian-cattle-dog"],
-  images: [],
+  images: ["dog-australian-cattle-dog-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

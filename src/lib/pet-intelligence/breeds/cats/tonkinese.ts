@@ -23,7 +23,7 @@ export const breed: Breed = {
   },
   traits: {},
   sources: ["cfa-tonkinese", "cfa-std-tonkinese"],
-  images: [],
+  images: ["cat-tonkinese-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

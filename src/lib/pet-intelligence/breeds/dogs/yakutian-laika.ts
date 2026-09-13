@@ -41,7 +41,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 10, max: 12, bound: "closed", basis: { kind: "breed" }, statedAs: "10-12 years", sourceId: "akc-yakutian-laika" },
   sources: ["akc-yakutian-laika"],
-  images: [],
+  images: ["dog-yakutian-laika-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

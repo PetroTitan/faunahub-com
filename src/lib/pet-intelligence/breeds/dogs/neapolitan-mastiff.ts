@@ -44,7 +44,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 7, max: 9, bound: "closed", basis: { kind: "breed" }, statedAs: "7-9 years", sourceId: "akc-neapolitan-mastiff" },
   sources: ["akc-neapolitan-mastiff"],
-  images: [],
+  images: ["dog-neapolitan-mastiff-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

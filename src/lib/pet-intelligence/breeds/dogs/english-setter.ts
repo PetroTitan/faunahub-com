@@ -44,7 +44,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 12, max: 12, bound: "about", basis: { kind: "breed" }, statedAs: "12 years", sourceId: "akc-english-setter" },
   sources: ["akc-english-setter"],
-  images: [],
+  images: ["dog-english-setter-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

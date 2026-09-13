@@ -44,7 +44,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 10, max: 15, bound: "closed", basis: { kind: "breed" }, statedAs: "10-15 years", sourceId: "akc-boykin-spaniel" },
   sources: ["akc-boykin-spaniel"],
-  images: [],
+  images: ["dog-boykin-spaniel-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

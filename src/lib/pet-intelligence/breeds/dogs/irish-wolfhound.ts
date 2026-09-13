@@ -44,7 +44,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 6, max: 8, bound: "closed", basis: { kind: "breed" }, statedAs: "6-8 years", sourceId: "akc-irish-wolfhound" },
   sources: ["akc-irish-wolfhound"],
-  images: [],
+  images: ["dog-irish-wolfhound-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

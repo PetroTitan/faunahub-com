@@ -31,7 +31,7 @@ export const breed: Breed = {
   },
   traits: {},
   sources: ["cfa-cornish-rex", "cfa-std-cornish-rex", "fife-cornish-rex"],
-  images: [],
+  images: ["cat-cornish-rex-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

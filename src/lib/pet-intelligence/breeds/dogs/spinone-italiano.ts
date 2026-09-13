@@ -40,7 +40,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 10, max: 12, bound: "closed", basis: { kind: "breed" }, statedAs: "10-12 years", sourceId: "akc-spinone-italiano" },
   sources: ["akc-spinone-italiano"],
-  images: [],
+  images: ["dog-spinone-italiano-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

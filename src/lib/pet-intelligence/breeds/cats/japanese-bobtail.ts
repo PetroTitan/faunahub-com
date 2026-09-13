@@ -33,7 +33,7 @@ export const breed: Breed = {
   },
   traits: {},
   sources: ["cfa-japanese-bobtail", "cfa-std-japanese-bobtail", "fife-japanese-bobtail"],
-  images: [],
+  images: ["cat-japanese-bobtail-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

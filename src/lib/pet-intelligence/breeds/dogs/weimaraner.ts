@@ -44,7 +44,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 10, max: 13, bound: "closed", basis: { kind: "breed" }, statedAs: "10-13 years", sourceId: "akc-weimaraner" },
   sources: ["akc-weimaraner"],
-  images: [],
+  images: ["dog-weimaraner-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

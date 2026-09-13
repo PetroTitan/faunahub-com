@@ -43,7 +43,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 13, max: 15, bound: "closed", basis: { kind: "breed" }, statedAs: "13-15 years", sourceId: "akc-parson-russell-terrier" },
   sources: ["akc-parson-russell-terrier"],
-  images: [],
+  images: ["dog-parson-russell-terrier-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

@@ -42,7 +42,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 12, max: 15, bound: "closed", basis: { kind: "breed" }, statedAs: "12-15 years", sourceId: "akc-lhasa-apso" },
   sources: ["akc-lhasa-apso"],
-  images: [],
+  images: ["dog-lhasa-apso-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

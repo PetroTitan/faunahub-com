@@ -20,8 +20,14 @@ export const breed: Breed = {
     },
   ],
   coat: {
-    length: "variable",
-    statedAs: "Bengals can be either shorthaired or longhaired",
+    // CFA's "Coat Length:" field — the source collections.ts cites for coat
+    // membership — reads Shorthair. The longhair appears on the same page only
+    // as "AOV COAT LENGTH LONGHAIR BENGAL (CASHMERE)": an Any Other Variety,
+    // not a championship coat division, which is why CFA's own field says
+    // Shorthair. Filing it as "variable" put the breed in the both-coats
+    // collection and out of the short-haired one.
+    length: "short",
+    statedAs: "CFA breed profile, Coat Length: Shorthair (a longhair is recognised only as an AOV)",
     sourceId: "cfa-bengal-cat",
   },
   traits: {},

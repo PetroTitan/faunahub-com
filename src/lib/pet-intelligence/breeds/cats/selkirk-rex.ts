@@ -14,7 +14,10 @@ export const breed: Breed = {
       status: "recognized",
       registryGroup: "Championship",
       registryUrl: "https://cfa.org/breed/selkirk-rex/",
-      recognizedYear: 1992,
+      // CFA states two dates: accepted for registration in 1992, advanced to
+      // Championship in 2000. registryGroup here is "Championship", and the
+      // contract for this field is the year the registry granted THAT status.
+      recognizedYear: 2000,
       sourceId: "cfa-selkirk-rex",
     },
     {
@@ -38,7 +41,7 @@ export const breed: Breed = {
   },
   traits: {},
   sources: ["cfa-selkirk-rex", "cfa-std-selkirk-rex", "fife-selkirk-rex"],
-  images: [],
+  images: ["cat-selkirk-rex-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

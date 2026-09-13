@@ -44,7 +44,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 10, max: 14, bound: "closed", basis: { kind: "breed" }, statedAs: "10-14 years", sourceId: "akc-alaskan-malamute" },
   sources: ["akc-alaskan-malamute"],
-  images: [],
+  images: ["dog-alaskan-malamute-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

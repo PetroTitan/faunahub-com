@@ -12,7 +12,10 @@ export const breed: Breed = {
       status: "recognized",
       registryGroup: "Championship",
       registryUrl: "https://cfa.org/breed/egyptian-mau/",
-      recognizedYear: 1970,
+      // CFA states two dates: accepted for registration in 1970, advanced to
+      // Championship in 1977. registryGroup here is "Championship", and the
+      // contract for this field is the year the registry granted THAT status.
+      recognizedYear: 1977,
       sourceId: "cfa-egyptian-mau",
     },
     {
@@ -31,7 +34,7 @@ export const breed: Breed = {
   },
   traits: {},
   sources: ["cfa-egyptian-mau", "cfa-std-egyptian-mau", "fife-egyptian-mau"],
-  images: [],
+  images: ["cat-egyptian-mau-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

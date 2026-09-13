@@ -42,7 +42,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 8, max: 12, bound: "closed", basis: { kind: "breed" }, statedAs: "8-12 years", sourceId: "akc-chow-chow" },
   sources: ["akc-chow-chow"],
-  images: [],
+  images: ["dog-chow-chow-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

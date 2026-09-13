@@ -23,6 +23,14 @@ export const breed: Breed = {
       sourceId: "fife-devon-rex",
     },
   ],
+  measurements: {
+    weightKg: [
+      // CFA states this as words — "Typical adult weights range from six to
+      // nine pounds" — which the parser could not read, so the breed published
+      // no weight and fell below the shared-dimension floor for comparisons.
+      { min: 2.7, max: 4.1, bound: "closed", basis: { kind: "breed" }, statedAs: "Typical adult weights range from six to nine pounds", sourceId: "cfa-devon-rex" },
+    ],
+  },
   coat: {
     length: "short",
     statedAs: "CFA breed profile, Coat Length: Shorthair",
@@ -30,7 +38,7 @@ export const breed: Breed = {
   },
   traits: {},
   sources: ["cfa-devon-rex", "cfa-std-devon-rex", "fife-devon-rex"],
-  images: [],
+  images: ["cat-devon-rex-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

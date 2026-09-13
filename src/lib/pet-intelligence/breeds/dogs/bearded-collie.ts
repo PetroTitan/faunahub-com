@@ -43,7 +43,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 12, max: 14, bound: "closed", basis: { kind: "breed" }, statedAs: "12-14 years", sourceId: "akc-bearded-collie" },
   sources: ["akc-bearded-collie"],
-  images: [],
+  images: ["dog-bearded-collie-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

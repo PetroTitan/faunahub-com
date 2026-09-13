@@ -44,7 +44,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 7, max: 7, bound: "about", basis: { kind: "breed" }, statedAs: "7 years", sourceId: "akc-leonberger" },
   sources: ["akc-leonberger"],
-  images: [],
+  images: ["dog-leonberger-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

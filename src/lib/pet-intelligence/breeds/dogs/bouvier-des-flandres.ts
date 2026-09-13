@@ -44,7 +44,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 10, max: 12, bound: "closed", basis: { kind: "breed" }, statedAs: "10-12 years", sourceId: "akc-bouvier-des-flandres" },
   sources: ["akc-bouvier-des-flandres"],
-  images: [],
+  images: ["dog-bouvier-des-flandres-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

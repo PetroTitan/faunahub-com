@@ -5,11 +5,16 @@ export const breed: Breed = {
   id: "dog-poodle",
   slug: "poodle",
   species: "dog",
-  name: "Poodle",
+  // The AKC's own page for this record is titled "Poodle (Standard)" and every
+  // figure below is the Standard's. An unqualified "Poodle" in the A-Z
+  // directory and in comparison titles read as the whole breed while carrying
+  // one variety's measurements, beside siblings already named
+  // "Poodle (Miniature)" and "Poodle (Toy)".
+  name: "Poodle (Standard)",
   canonicalCommonName: "Poodle (Standard)",
   aliases: [
     "Standards",
-    "Poodle (Standard)",
+    "Poodle",
   ],
   originCountries: [
     "Germany",

@@ -44,7 +44,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 10, max: 14, bound: "closed", basis: { kind: "breed" }, statedAs: "10-14 years", sourceId: "akc-cocker-spaniel" },
   sources: ["akc-cocker-spaniel"],
-  images: [],
+  images: ["dog-cocker-spaniel-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

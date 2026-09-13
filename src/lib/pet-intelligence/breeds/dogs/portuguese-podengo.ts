@@ -32,7 +32,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 10, max: 15, bound: "closed", basis: { kind: "breed" }, statedAs: "10-15 years", sourceId: "akc-portuguese-podengo" },
   sources: ["akc-portuguese-podengo"],
-  images: [],
+  images: ["dog-portuguese-podengo-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

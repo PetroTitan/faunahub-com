@@ -45,7 +45,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 11, max: 15, bound: "closed", basis: { kind: "breed" }, statedAs: "11-15 years", sourceId: "akc-irish-red-and-white-setter" },
   sources: ["akc-irish-red-and-white-setter"],
-  images: [],
+  images: ["dog-irish-red-and-white-setter-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

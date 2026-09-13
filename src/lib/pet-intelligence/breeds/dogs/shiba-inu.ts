@@ -44,7 +44,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 13, max: 16, bound: "closed", basis: { kind: "breed" }, statedAs: "13-16 years", sourceId: "akc-shiba-inu" },
   sources: ["akc-shiba-inu"],
-  images: [],
+  images: ["dog-shiba-inu-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

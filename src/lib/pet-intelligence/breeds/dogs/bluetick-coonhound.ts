@@ -44,7 +44,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 11, max: 12, bound: "closed", basis: { kind: "breed" }, statedAs: "11-12 years", sourceId: "akc-bluetick-coonhound" },
   sources: ["akc-bluetick-coonhound"],
-  images: [],
+  images: ["dog-bluetick-coonhound-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

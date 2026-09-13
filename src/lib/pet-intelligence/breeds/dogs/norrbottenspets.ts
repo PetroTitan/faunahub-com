@@ -41,7 +41,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 14, max: 17, bound: "closed", basis: { kind: "breed" }, statedAs: "14-17 years", sourceId: "akc-norrbottenspets" },
   sources: ["akc-norrbottenspets"],
-  images: [],
+  images: ["dog-norrbottenspets-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

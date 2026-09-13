@@ -42,7 +42,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 15, max: 16, bound: "closed", basis: { kind: "breed" }, statedAs: "15-16 years", sourceId: "akc-tibetan-terrier" },
   sources: ["akc-tibetan-terrier"],
-  images: [],
+  images: ["dog-tibetan-terrier-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

@@ -44,7 +44,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 11, max: 14, bound: "closed", basis: { kind: "breed" }, statedAs: "11-14 years", sourceId: "akc-ibizan-hound" },
   sources: ["akc-ibizan-hound"],
-  images: [],
+  images: ["dog-ibizan-hound-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

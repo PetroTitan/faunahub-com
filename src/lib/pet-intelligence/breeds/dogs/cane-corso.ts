@@ -40,7 +40,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 9, max: 12, bound: "closed", basis: { kind: "breed" }, statedAs: "9-12 years", sourceId: "akc-cane-corso" },
   sources: ["akc-cane-corso"],
-  images: [],
+  images: ["dog-cane-corso-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

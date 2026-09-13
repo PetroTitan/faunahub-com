@@ -45,7 +45,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 15, max: 19, bound: "closed", basis: { kind: "breed" }, statedAs: "15-19 years", sourceId: "akc-coton-de-tulear" },
   sources: ["akc-coton-de-tulear"],
-  images: [],
+  images: ["dog-coton-de-tulear-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

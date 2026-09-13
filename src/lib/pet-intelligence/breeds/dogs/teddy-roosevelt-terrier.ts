@@ -14,6 +14,12 @@ export const breed: Breed = {
       status: "recognized",
       registryGroup: "Terrier Group",
       registryBreedCode: "250",
+      // NO recognizedYear. AKC's year_recognized field gives 1885 for this
+      // breed, which predates the breed's own recorded history and is plainly
+      // a placeholder rather than a recognition date. 203 fully-recognised
+      // breeds carry the field; these three omit it deliberately, and
+      // tests/pet-intelligence-registry.test.ts now names them so a future
+      // import cannot quietly restore the wrong value.
       registryUrl: "https://www.akc.org/dog-breeds/teddy-roosevelt-terrier/",
       sourceId: "akc-teddy-roosevelt-terrier",
     },
@@ -41,7 +47,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 14, max: 16, bound: "closed", basis: { kind: "breed" }, statedAs: "14-16 years", sourceId: "akc-teddy-roosevelt-terrier" },
   sources: ["akc-teddy-roosevelt-terrier"],
-  images: [],
+  images: ["dog-teddy-roosevelt-terrier-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

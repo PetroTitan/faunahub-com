@@ -42,7 +42,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 12, max: 13, bound: "closed", basis: { kind: "breed" }, statedAs: "12-13 years", sourceId: "akc-basset-hound" },
   sources: ["akc-basset-hound"],
-  images: [],
+  images: ["dog-basset-hound-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

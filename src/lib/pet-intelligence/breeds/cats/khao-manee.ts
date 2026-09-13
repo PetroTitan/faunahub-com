@@ -9,8 +9,11 @@ export const breed: Breed = {
   recognition: [
     {
       registryId: "cfa",
-      status: "recognized",
-      registryGroup: "Championship",
+      // CFA: "accepted for CFA registration in 2018 and is currently shown in
+      // the Provisional class." Publishing this as Championship flattened a
+      // distinction the registry draws and the type system already carries.
+      status: "provisional",
+      registryGroup: "Provisional",
       registryUrl: "https://cfa.org/breed/khao-manee/",
       sourceId: "cfa-khao-manee",
     },
@@ -22,7 +25,7 @@ export const breed: Breed = {
   },
   traits: {},
   sources: ["cfa-khao-manee", "cfa-std-khao-manee"],
-  images: [],
+  images: ["cat-khao-manee-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

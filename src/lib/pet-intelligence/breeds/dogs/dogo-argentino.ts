@@ -42,7 +42,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 9, max: 15, bound: "closed", basis: { kind: "breed" }, statedAs: "9-15 years", sourceId: "akc-dogo-argentino" },
   sources: ["akc-dogo-argentino"],
-  images: [],
+  images: ["dog-dogo-argentino-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

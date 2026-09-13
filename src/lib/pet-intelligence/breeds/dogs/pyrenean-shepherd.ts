@@ -45,7 +45,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 17, max: 19, bound: "closed", basis: { kind: "breed" }, statedAs: "17-19 years", sourceId: "akc-pyrenean-shepherd" },
   sources: ["akc-pyrenean-shepherd"],
-  images: [],
+  images: ["dog-pyrenean-shepherd-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

@@ -42,7 +42,12 @@ export const breed: Breed = {
     ],
   },
   coat: {
-    length: "short",
+    // AKC records TWO coat lengths for this breed. Storing array[0]
+    // filed it under the shorter one alone, so the page contradicted the
+    // citation printed directly beneath it and the breed was missing from
+    // the collection for its other coat. "variable" is the value the cat
+    // side already uses for exactly this case.
+    length: "variable",
     types: [
       "Smooth",
     ],

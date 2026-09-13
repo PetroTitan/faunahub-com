@@ -43,7 +43,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 9, max: 14, bound: "closed", basis: { kind: "breed" }, statedAs: "9-14 years", sourceId: "akc-borzoi" },
   sources: ["akc-borzoi"],
-  images: [],
+  images: ["dog-borzoi-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

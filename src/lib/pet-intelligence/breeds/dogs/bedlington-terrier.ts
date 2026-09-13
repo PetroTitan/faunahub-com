@@ -42,7 +42,7 @@ export const breed: Breed = {
   },
   lifespanYears: { min: 11, max: 16, bound: "closed", basis: { kind: "breed" }, statedAs: "11-16 years", sourceId: "akc-bedlington-terrier" },
   sources: ["akc-bedlington-terrier"],
-  images: [],
+  images: ["dog-bedlington-terrier-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };

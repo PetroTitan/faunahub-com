@@ -23,7 +23,7 @@ export const breed: Breed = {
   },
   traits: {},
   sources: ["cfa-colorpoint-shorthair", "cfa-std-colorpoint-shorthair"],
-  images: [],
+  images: ["cat-colorpoint-shorthair-001"],
   reviewedAt: "2026-09-13",
   publishedAt: "2026-09-13",
 };
