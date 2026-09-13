@@ -6,8 +6,8 @@
  * invariants below (unique ids, unique slugs per species, resolvable source and
  * image ids) have exactly one place to be enforced.
  */
-import { DOG_BREEDS } from "./breeds/dogs.ts";
-import { CAT_BREEDS } from "./breeds/cats.ts";
+import { DOG_BREEDS } from "./breeds/dogs/index.ts";
+import { CAT_BREEDS } from "./breeds/cats/index.ts";
 import { span } from "./measure.ts";
 import type { Breed, BreedSpecies, Measurement, SizeClass } from "./types.ts";
 

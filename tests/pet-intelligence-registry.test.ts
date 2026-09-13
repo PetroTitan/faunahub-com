@@ -509,18 +509,18 @@ test("a breed image belongs to a breed in the registry", () => {
   }
 });
 
-test("the registry-conflict count in the dogs docstring matches the data", () => {
-  // The docstring said "seven of these twelve" while nine records carried an
-  // originNote. A comment that miscounts its own file is how a reader learns to
-  // stop trusting the comments, so the number is asserted rather than written.
-  const withNote = DOG_BREED_RECORDS.filter((b) => b.originNote).length;
-  const source = fs.readFileSync(
-    path.join(REPO_ROOT, "src/lib/pet-intelligence/breeds/dogs.ts"),
-    "utf8",
-  );
-  const claimed = source.match(/\bNINE of these twelve carry an `originNote`/);
-  assert.ok(claimed, "the dogs docstring no longer states the conflict count");
-  assert.equal(withNote, 9, `${withNote} dog breeds carry an originNote; the docstring says nine`);
+test("every breed listing more than one origin country explains the disagreement", () => {
+  // Replaces an assertion tied to a docstring in the old single-module
+  // `dogs.ts`, which the shard refactor removed. The property it was really
+  // protecting is this one, and it survives the corpus growing.
+  const withSeveral = BREEDS.filter((b) => (b.originCountries?.length ?? 0) > 1);
+  assert.ok(withSeveral.length > 0, "no breed records a registry origin conflict — is the data loaded?");
+  for (const breed of withSeveral) {
+    assert.ok(
+      breed.originNote && breed.originNote.length > 40,
+      `${breed.id} lists several origin countries with no note explaining why`,
+    );
+  }
 });
 
 test("a breed whose registries split it into varieties declares its scope", () => {
