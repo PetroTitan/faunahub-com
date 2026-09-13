@@ -45,6 +45,7 @@ import { FINDER_PRESETS, FINDER_DESTINATIONS } from "../src/lib/finder/presets.t
 import { COMPARISONS, EXTERNAL_COMPARISONS } from "../src/lib/animal-compare/index.ts";
 import { DOMESTIC_ANIMALS } from "../src/lib/animals/classification.ts";
 import { FALLBACK_DESTINATIONS } from "../src/lib/search/discovery.ts";
+import { expandDocuments } from "../src/lib/search/load-index.ts";
 
 const REPO_ROOT = path.resolve(import.meta.dirname, "..");
 const INDEX_PATH = path.join(REPO_ROOT, "public", "animal-finder-index.json");
@@ -674,9 +675,11 @@ test("selection helpers are order-independent and stable", () => {
  * the species' own title, which is what makes the name check below possible.
  */
 function publishedRedListSpecies(): Map<string, string> {
-  const search = JSON.parse(
-    fs.readFileSync(path.join(REPO_ROOT, "public", "search-index.json"), "utf8"),
-  ) as { documents: { url: string; title: string }[] };
+  const search = expandDocuments(
+  JSON.parse(
+fs.readFileSync(path.join(REPO_ROOT, "public", "search-index.json"), "utf8"),
+    ),
+) as { documents: { url: string; title: string }[] };
   const out = new Map<string, string>();
   for (const document of search.documents) {
     const match = document.url.match(/^\/endangered-animals\/species\/([a-z0-9-]+)$/);

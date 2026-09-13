@@ -46,20 +46,59 @@ test("commerce is off and no commercial context is published", () => {
   assert.deepEqual([...BREED_COMMERCIAL_CONTEXT], []);
 });
 
+/**
+ * Every module specifier in a file, however it is written.
+ *
+ * The previous matcher was `/from\s+"([^"]+)"/g` — static `from`, double quotes
+ * only. Three one-character variants walked straight through it and passed the
+ * whole suite plus `tsc`: single quotes (there is no quote lint rule),
+ * backticks, and `await import("./commercial.ts")`. A rule described as
+ * "one-directional BY CONSTRUCTION" was one-directional by punctuation.
+ */
+function moduleSpecifiers(source: string): string[] {
+  const patterns = [
+    /\bfrom\s*(["'`])([^"'`]+)\1/g, // import x from "y" / export … from "y"
+    /\bimport\s*\(\s*(["'`])([^"'`]+)\1/g, // import("y"), await import("y")
+    /\brequire\s*\(\s*(["'`])([^"'`]+)\1/g, // require("y")
+    /\bimport\s*(["'`])([^"'`]+)\1/g, // bare side-effect import "y"
+  ];
+  return patterns.flatMap((re) => [...source.matchAll(re)].map((m) => m[2]));
+}
+
 test("the registry never imports the commercial module", () => {
   // One-directional by construction. If this fails, a breed fact can be
   // computed from a merchant relationship.
   for (const file of libFiles()) {
     if (path.basename(file) === "commercial.ts") continue;
     const source = fs.readFileSync(file, "utf8");
-    const imports = [...source.matchAll(/from\s+"([^"]+)"/g)].map((m) => m[1]);
-    for (const spec of imports) {
+    for (const spec of moduleSpecifiers(source)) {
       assert.ok(
         !spec.includes("commercial"),
-        `${path.relative(REPO_ROOT, file)} imports the commercial module`,
+        `${path.relative(REPO_ROOT, file)} imports the commercial module as "${spec}"`,
       );
     }
   }
+});
+
+test("the import matcher catches every spelling of an import", () => {
+  // Each of these passed the previous double-quote-only matcher.
+  const spellings = [
+    'import { X } from "./commercial.ts";',
+    "import { X } from './commercial.ts';",
+    "import { X } from `./commercial.ts`;",
+    'const m = await import("./commercial.ts");',
+    "const m = await import('./commercial.ts');",
+    'const m = require("./commercial.ts");',
+    'import "./commercial.ts";',
+    'export { X } from "./commercial.ts";',
+  ];
+  for (const line of spellings) {
+    assert.ok(
+      moduleSpecifiers(line).some((s) => s.includes("commercial")),
+      `matcher missed: ${line}`,
+    );
+  }
+  assert.deepEqual(moduleSpecifiers('const s = "commercial";'), [], "bare string is not an import");
 });
 
 test("no breed record carries a commercial field", () => {

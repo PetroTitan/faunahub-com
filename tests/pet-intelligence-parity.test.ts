@@ -44,12 +44,15 @@ import {
 import sitemap from "../src/app/sitemap.ts";
 import { breedRouteParams } from "../src/lib/pet-intelligence/index.ts";
 import { BREED_IMAGES } from "../src/lib/images/breed-images.ts";
+import { expandDocuments } from "../src/lib/search/load-index.ts";
 
 const REPO_ROOT = path.resolve(import.meta.dirname, "..");
 const APP_DIR = path.join(REPO_ROOT, "src", "app");
 
-const searchIndex = JSON.parse(
-  fs.readFileSync(path.join(REPO_ROOT, "public", "search-index.json"), "utf8"),
+const searchIndex = expandDocuments(
+  JSON.parse(
+fs.readFileSync(path.join(REPO_ROOT, "public", "search-index.json"), "utf8"),
+  ),
 ) as { documents: { type: string; url: string; title: string; description?: string; category?: string; aliases?: string[] }[] };
 
 const breedDocs = searchIndex.documents.filter((d) => d.type === "breed");
@@ -201,8 +204,32 @@ test("the sitemap never lists a breed URL the route will not build", () => {
   const sitemapBreedish = [...emittedSitemapUrls].filter((url) =>
     /\/(dogs|cats)\/breeds\/[a-z0-9-]+$/.test(url),
   );
-  const missing = sitemapBreedish.filter((url) => !built.has(url) && !expectedBreedSpaceUrls.has(url));
-  assert.deepEqual(missing, [], "sitemap lists URLs the route does not generate");
+  /*
+   * The `&& !expectedBreedSpaceUrls.has(url)` clause that used to be here made
+   * this test unsatisfiable for the very case its docstring describes. An
+   * earlier test asserts the emitted sitemap EQUALS expectedBreedSpaceUrls, so
+   * that clause emptied the set whenever the sitemap was correct — and a
+   * truncated generateStaticParams leaves the sitemap correct and the ROUTES
+   * short. Truncating breedRouteParams to three breeds did not fire it.
+   */
+  const missing = sitemapBreedish.filter((url) => !built.has(url));
+  assert.deepEqual(missing, [], "sitemap lists breed URLs the route does not generate");
+
+  // V9: /dogs/compare/* never matched the /breeds/ regex above, so nothing
+  // checked sitemap → published in the comparison namespace. A fabricated
+  // comparison URL is a hard 404 under dynamicParams = false.
+  const builtComparisons = new Set(
+    PUBLISHED_COMPARISONS.map((p) => `${SITE}${comparisonPath(p)}`),
+  );
+  const sitemapComparisons = [...emittedSitemapUrls].filter((url) =>
+    /\/(dogs|cats)\/compare\/[a-z0-9-]+$/.test(url),
+  );
+  assert.ok(sitemapComparisons.length > 0, "no comparison URLs in the sitemap to check");
+  assert.deepEqual(
+    sitemapComparisons.filter((url) => !builtComparisons.has(url)),
+    [],
+    "sitemap lists comparison URLs the route does not generate",
+  );
 });
 
 test("every breed in the registry is in the search index exactly once", () => {
@@ -290,6 +317,18 @@ test("both breed routes call breedRouteParams rather than mapping their own list
       path.join(APP_DIR, species, "breeds", "[slug]", "page.tsx"),
       "utf8",
     );
+    /*
+     * THE EXPORT NAME IS THE CONTRACT. Next.js calls a function named exactly
+     * `generateStaticParams` and nothing else; rename it and the route builds
+     * zero pages while every breed URL stays in the sitemap and search index.
+     * Matching only `breedRouteParams("dog")` survived that rename, because the
+     * call still sits in the file — inside a function nobody calls.
+     */
+    assert.match(
+      source,
+      /export\s+(?:async\s+)?(?:function\s+generateStaticParams\b|const\s+generateStaticParams\b)/,
+      `${species} route does not export generateStaticParams under that exact name`,
+    );
     assert.match(source, /breedRouteParams\("(dog|cat)"\)/, `${species} route builds its own list`);
     assert.doesNotMatch(
       source,
@@ -309,22 +348,65 @@ test("breed routes refuse slugs they did not generate", () => {
   }
 });
 
-test("every breed is linked from its hub's BUILT html", () => {
-  // The strongest available check, and it reads the real artifact: a hub that
-  // sliced its breed list would render fewer cards and fail here. Skips when
-  // .next is absent (it is gitignored), following the pattern already used by
-  // tests/search-index.test.ts for the prerender manifest.
+test("every breed is linked from its hub's BUILT html", (t) => {
+  /*
+   * This reads the real artifact, which makes it the only check here that can
+   * see a route returning notFound() at runtime. It used to `continue` when the
+   * HTML was absent — so when .next held nothing but _not-found.html it read
+   * NOTHING and reported green, while a route-body notFound() 404ing 254 of 274
+   * breed pages passed the whole suite.
+   *
+   * Two states are now distinguished. No build at all is an explicit SKIP, and
+   * shows as one. A build that exists but did not produce the hub is a
+   * FAILURE — that is the artifact saying the page did not render.
+   */
+  const appDir = path.join(REPO_ROOT, ".next", "server", "app");
+  if (!fs.existsSync(appDir)) {
+    t.skip("no build artifact in .next — run `npm run build` for this check to mean anything");
+    return;
+  }
+
   for (const [species, records] of [
     ["dogs", DOG_BREED_RECORDS],
     ["cats", CAT_BREED_RECORDS],
   ] as const) {
-    const built = path.join(REPO_ROOT, ".next", "server", "app", species, "breeds.html");
-    if (!fs.existsSync(built)) continue;
+    const built = path.join(appDir, species, "breeds.html");
+    assert.ok(
+      fs.existsSync(built),
+      `.next exists but ${species}/breeds.html was not prerendered — the hub did not build`,
+    );
     const html = fs.readFileSync(built, "utf8");
     for (const breed of records) {
       assert.ok(
         html.includes(`href="${breedPath(breed)}"`),
         `${breed.id} is not linked from the built ${species} hub`,
+      );
+    }
+  }
+});
+
+test("neither breed route 404s a page it generated", () => {
+  /*
+   * `if (breed && !breed.editorial) notFound()` would 404 the 254 data profiles
+   * while leaving every one of them in the sitemap, the search index and
+   * generateStaticParams. Nothing caught it, because notFound() is legitimate
+   * — for a slug that does not resolve.
+   *
+   * So the shape is constrained rather than the call: every notFound() in a
+   * breed route must be guarded by the lookup having failed, never by a
+   * property of a breed that was found.
+   */
+  for (const species of ["dogs", "cats"]) {
+    const source = fs.readFileSync(
+      path.join(APP_DIR, species, "breeds", "[slug]", "page.tsx"),
+      "utf8",
+    );
+    for (const m of source.matchAll(/notFound\(\)/g)) {
+      const before = source.slice(Math.max(0, m.index - 140), m.index);
+      assert.match(
+        before,
+        /if\s*\(\s*!\s*\w+\s*\)\s*$|if\s*\(\s*!\s*\w+\s*\)\s*\{?\s*$/,
+        `${species} route calls notFound() somewhere other than a failed lookup: "...${before.slice(-90)}notFound()"`,
       );
     }
   }
@@ -431,6 +513,64 @@ test("breed comparisons never collide with the species comparison namespace", ()
       comparisonPath(pair),
       /^\/animal-compare\//,
       `${pair.slug} is routed into the species comparison namespace`,
+    );
+  }
+});
+
+/*
+ * ---------------------------------------------------------------------------
+ * SERP WIDTH
+ *
+ * A title and a description have a rendered width, and exceeding it does not
+ * error — it truncates, silently, in the one place a reader sees the page
+ * before deciding whether to open it.
+ *
+ * This shipped: 409 of 527 breed-space titles were over 60 characters, all 284
+ * comparison titles among them at a median of 89, because the TEMPLATES were
+ * over budget before a breed name was substituted in. Descriptions were fixed
+ * to the limit in an earlier commit; titles were not, and nothing measured
+ * either.
+ *
+ * The limits are soft — Google measures pixels, not characters — so these
+ * assert the template's own budget rather than a per-page ideal. A handful of
+ * genuinely long breed names (Nova Scotia Duck Tolling Retriever) may exceed
+ * it; a systemic overshoot may not.
+ * ---------------------------------------------------------------------------
+ */
+const TITLE_LIMIT = 60;
+const BRAND_SUFFIX = " | FaunaHub";
+
+test("breed page titles fit the width a SERP renders", () => {
+  const over = BREEDS.map((b) => `${breedPageTitle(b)}${BRAND_SUFFIX}`).filter(
+    (t) => t.length > TITLE_LIMIT,
+  );
+  // Only names long enough to blow the budget on their own may exceed it.
+  assert.ok(
+    over.length <= 5,
+    `${over.length} of ${BREEDS.length} breed titles exceed ${TITLE_LIMIT} chars — the template is over budget, not the names:\n  ${over.slice(0, 5).join("\n  ")}`,
+  );
+});
+
+test("comparison titles fit the width a SERP renders", () => {
+  const titles = PUBLISHED_COMPARISONS.map((p) => `${p.a.name} vs ${p.b.name} Compared`);
+  const over = titles.filter((t) => t.length > TITLE_LIMIT);
+  assert.ok(
+    over.length <= titles.length * 0.1,
+    `${over.length} of ${titles.length} comparison titles exceed ${TITLE_LIMIT} chars:\n  ${over.slice(0, 5).join("\n  ")}`,
+  );
+});
+
+test("collection and ranking titles fit too", () => {
+  for (const c of publishedCollections()) {
+    assert.ok(
+      `${c.title}${BRAND_SUFFIX}`.length <= TITLE_LIMIT,
+      `collection title too long (${`${c.title}${BRAND_SUFFIX}`.length}): ${c.title}`,
+    );
+  }
+  for (const r of BREED_RANKINGS) {
+    assert.ok(
+      `${r.title}${BRAND_SUFFIX}`.length <= TITLE_LIMIT,
+      `ranking title too long (${`${r.title}${BRAND_SUFFIX}`.length}): ${r.title}`,
     );
   }
 });

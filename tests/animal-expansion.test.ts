@@ -237,9 +237,12 @@ test("every new profile links only to pages that exist", () => {
  * ------------------------------------------------------------------------ */
 import { createSearchEngine } from "../src/lib/search/engine.ts";
 import type { SearchIndexPayload } from "../src/lib/search/types.ts";
+import { expandDocuments } from "../src/lib/search/load-index.ts";
 
-const searchPayload = JSON.parse(
-  fs.readFileSync(path.join(REPO_ROOT, "public", "search-index.json"), "utf8"),
+const searchPayload = expandDocuments(
+  JSON.parse(
+fs.readFileSync(path.join(REPO_ROOT, "public", "search-index.json"), "utf8"),
+  ),
 ) as SearchIndexPayload;
 const engine = createSearchEngine(searchPayload);
 const topUrl = (query: string) => engine.search(query).results[0]?.document.url;

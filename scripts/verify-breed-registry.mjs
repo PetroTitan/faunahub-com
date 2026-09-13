@@ -49,7 +49,7 @@ const slugFilter = (() => {
 })();
 
 const problems = [];
-const checked = { akc: 0, fci: 0, cfa: 0 };
+const checked = { akc: 0, fci: 0, cfa: 0, fife: 0 };
 
 function report(breed, field, expected, actual) {
   problems.push({ breed: breed.id, field, expected, actual });
@@ -235,6 +235,78 @@ async function checkCfa(breed, rec) {
   }
 }
 
+/**
+ * FIFe publishes every breed on ONE page, so it is fetched once and reused.
+ *
+ * These 35 records were checked by nothing. `fife` was absent from the dispatch
+ * below — the string does not appear anywhere in this file — so each FiFe
+ * recognition fell through the if/else chain, still paid its 900 ms rate-limit
+ * sleep, and the run then printed "registry agrees with every source it cites"
+ * and exited 0. A verifier that reports green on data it never read is worse
+ * than no verifier, because it is believed.
+ */
+let fifeListing = null;
+async function fifeText() {
+  if (fifeListing === null) {
+    const html = await fetchText("https://fifeweb.org/cats/breeds/");
+    fifeListing = html
+      .replace(/<(script|style)[^>]*>[\s\S]*?<\/\1>/gi, " ")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/&#8211;|&ndash;/g, "-")
+      .replace(/&nbsp;/g, " ")
+      .replace(/\s+/g, " ");
+  }
+  return fifeListing;
+}
+
+async function checkFife(breed, rec) {
+  const text = await fifeText();
+  checked.fife += 1;
+
+  if (!text || text.length < 5000) {
+    // The page shape changed or the fetch returned a stub. Say so rather than
+    // letting every comparison below pass because there is nothing to compare.
+    report(breed, "fife:page", "fifeweb.org/cats/breeds/", "breed listing could not be read");
+    return;
+  }
+
+  const code = rec.registryBreedCode;
+  if (!code) {
+    report(breed, "fife:code", "(none stored)", "FIFe record stores no breed code");
+    return;
+  }
+  if (!new RegExp(`\\b${code}\\b`).test(text)) {
+    report(breed, "fife:code", code, "code no longer listed by FIFe");
+    return;
+  }
+
+  /*
+   * FIFe splits its page into fully recognised breeds and a "Preliminary
+   * Recognised Breeds and Varieties" section. Which side of that split a code
+   * falls on is the breed's status, and publishing a preliminary breed as fully
+   * recognised is the error this catches — it is how the Lykoi shipped as
+   * "Fully recognised, category 4".
+   */
+  const split = text.search(/Preliminary Recognised Breeds and Varieties/i);
+  const at = text.search(new RegExp(`\\b${code}\\b`));
+  const isPreliminary = split >= 0 && at > split;
+  const claimsFull = /fully recognised/i.test(rec.registryGroup ?? "");
+  if (isPreliminary && claimsFull) {
+    report(breed, "fife:status", rec.registryGroup, `FIFe lists ${code} as preliminary recognised`);
+  }
+  if (!isPreliminary && /preliminary/i.test(rec.registryGroup ?? "")) {
+    report(breed, "fife:status", rec.registryGroup, `FIFe lists ${code} as fully recognised`);
+  }
+
+  const category = (rec.registryGroup ?? "").match(/category (\d)/i);
+  if (category) {
+    const near = text.slice(Math.max(0, at - 40), at + 260);
+    if (!new RegExp(`category ${category[1]}\\b`, "i").test(near)) {
+      report(breed, "fife:category", `category ${category[1]}`, "category not stated beside the code");
+    }
+  }
+}
+
 /* ---------------------------- run ---------------------------- */
 
 const targets = BREEDS.filter((b) => !slugFilter || b.slug === slugFilter);
@@ -250,6 +322,10 @@ for (const breed of targets) {
       if (rec.registryId === "akc") await checkAkc(breed, rec);
       else if (rec.registryId === "fci") await checkFci(breed, rec);
       else if (rec.registryId === "cfa") await checkCfa(breed, rec);
+      else if (rec.registryId === "fife") await checkFife(breed, rec);
+      // EXHAUSTIVE. A registry with no checker used to fall through in silence
+      // while the summary still claimed every source had been verified.
+      else report(breed, `${rec.registryId}:unchecked`, rec.registryUrl, "no checker for this registry");
     } catch (error) {
       report(breed, `${rec.registryId}:fetch`, rec.registryUrl, String(error.message));
     }
@@ -264,7 +340,8 @@ for (const breed of targets) {
 
 process.stdout.write("\n\n");
 console.log(
-  `checked ${targets.length} breeds — ${checked.akc} AKC, ${checked.fci} FCI, ${checked.cfa} CFA pages`,
+  `checked ${targets.length} breeds — ${checked.akc} AKC, ${checked.fci} FCI, ` +
+    `${checked.cfa} CFA, ${checked.fife} FIFe records`,
 );
 
 if (problems.length === 0) {

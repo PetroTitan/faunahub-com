@@ -667,3 +667,52 @@ test("an unbounded weight is not banded into a size class", () => {
     "a weight with no upper bound is being banded",
   );
 });
+
+/*
+ * Three fully-recognised AKC breeds deliberately omit `recognizedYear`, because
+ * AKC's year_recognized field for them is a placeholder rather than a date: it
+ * gives 1885 for the Basset Fauve de Bretagne and the Teddy Roosevelt Terrier,
+ * decades before either breed existed in the form the AKC recognises, and 1935
+ * for the Russian Tsvetnaya Bolonka.
+ *
+ * Omitting them is right. Leaving the omission undocumented and unenforced was
+ * not — the next import would have restored all three silently, and they would
+ * have read as facts. Naming them makes the exception deliberate, and makes an
+ * accidental fourth omission visible.
+ */
+const YEAR_OMITTED_ON_PURPOSE = new Set([
+  "dog-basset-fauve-de-bretagne",
+  "dog-russian-tsvetnaya-bolonka",
+  "dog-teddy-roosevelt-terrier",
+]);
+
+test("only the documented exceptions omit a recognition year while fully recognised", () => {
+  const missing: string[] = [];
+  for (const breed of BREEDS) {
+    for (const rec of breed.recognition) {
+      if (rec.registryId !== "akc" || rec.status !== "recognized") continue;
+      if (rec.recognizedYear === undefined && !YEAR_OMITTED_ON_PURPOSE.has(breed.id)) {
+        missing.push(breed.id);
+      }
+    }
+  }
+  assert.deepEqual(
+    missing,
+    [],
+    "fully-recognised AKC breed with no recognition year and no documented reason",
+  );
+});
+
+test("the documented exceptions still exist and still omit the year", () => {
+  // A stale allow-list is its own defect: it would hide a real omission.
+  for (const id of YEAR_OMITTED_ON_PURPOSE) {
+    const breed = BREEDS.find((b) => b.id === id);
+    assert.ok(breed, `${id} is in the exception list but not in the registry`);
+    const akc = breed.recognition.find((r) => r.registryId === "akc");
+    assert.equal(
+      akc?.recognizedYear,
+      undefined,
+      `${id} now records a recognition year — remove it from the exception list`,
+    );
+  }
+});
