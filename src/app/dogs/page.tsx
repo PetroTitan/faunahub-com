@@ -27,6 +27,13 @@ const sections = [
     icon: "🔎",
   },
   {
+    title: "Compare Dog Breeds",
+    description:
+      "Side-by-side comparisons of breeds their registry lists as related — size, coat, exercise, grooming. No winner, no scores.",
+    href: "/dogs/breeds#comparisons",
+    icon: "⚖️",
+  },
+  {
     title: "Dog Health",
     description: "Common health conditions, preventive care, and when to contact a veterinarian.",
     href: "/dogs/health",

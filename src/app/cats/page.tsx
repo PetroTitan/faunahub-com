@@ -27,6 +27,13 @@ const sections = [
     icon: "🔎",
   },
   {
+    title: "Compare Cat Breeds",
+    description:
+      "Side-by-side comparisons of breeds their registry lists as related — size, coat, exercise, grooming. No winner, no scores.",
+    href: "/cats/breeds#comparisons",
+    icon: "⚖️",
+  },
+  {
     title: "Cat Health",
     description: "Common feline health conditions, preventive care, and when to call a veterinarian.",
     href: "/cats/health",

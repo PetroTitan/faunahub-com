@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import DecisionHub from "@/components/pet-choice/DecisionHub";
 import BreedProfileGrid from "@/components/breeds/BreedProfileGrid";
 import BreedDirectory from "@/components/breeds/BreedDirectory";
+import BreedDiscovery from "@/components/breeds/BreedDiscovery";
 import RelatedLinks from "@/components/RelatedLinks";
 import { getDecisionsByKind } from "@/lib/pet-choice/data";
 import { CAT_BREED_RECORDS } from "@/lib/pet-intelligence";
@@ -71,6 +72,7 @@ export default function CatBreedsHub() {
             limit={FEATURED_CARDS}
             heading="Breed profiles"
           />
+          <BreedDiscovery species="cat" />
           <BreedDirectory species="cat" breeds={CAT_BREED_RECORDS} />
         </>
       }
