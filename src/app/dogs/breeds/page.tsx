@@ -3,25 +3,16 @@ import DecisionHub from "@/components/pet-choice/DecisionHub";
 import BreedProfileGrid from "@/components/breeds/BreedProfileGrid";
 import RelatedLinks from "@/components/RelatedLinks";
 import { getDecisionsByKind } from "@/lib/pet-choice/data";
+import { DOG_BREED_RECORDS } from "@/lib/pet-intelligence";
 import { buildMetadata } from "@/lib/metadata";
 
 const LAST_UPDATED = "2026-05-22";
 
-const DOG_BREED_PROFILES = [
-  { name: "Labrador Retriever", slug: "labrador-retriever" },
-  { name: "Golden Retriever", slug: "golden-retriever" },
-  { name: "German Shepherd", slug: "german-shepherd" },
-  { name: "French Bulldog", slug: "french-bulldog" },
-  { name: "Beagle", slug: "beagle" },
-  { name: "Poodle", slug: "poodle" },
-  { name: "Border Collie", slug: "border-collie" },
-  { name: "Dachshund", slug: "dachshund" },
-];
 
 export const metadata: Metadata = buildMetadata({
-  title: "Dog Breed Decision Guides — Apartments, Families & First-Time Owners",
+  title: "Dog Breed Center — Profiles, Registry Facts & Decision Guides",
   description:
-    "Cautious, practical dog breed decision pages — apartment-friendly, family-friendly, low-maintenance, first-time-owner, and small dog breeds.",
+    "Every dog breed profile on FaunaHub, with registry recognition, published measurements and coat data, plus cautious decision guides for apartments, families and first-time owners.",
   path: "/dogs/breeds",
 });
 
@@ -56,15 +47,28 @@ export default function DogBreedsHub() {
       hubLabel="Dog Breeds"
       parentPath="/dogs"
       parentLabel="Dogs"
-      h1="Dog Breed Decision Guides"
-      intro="Practical pages that organise dog breed thinking by household intent — apartment-friendly, family-friendly, low-maintenance, first-time-owner, and small breeds. Every page uses cautious framing and notes individual variation in temperament, health, and training."
+      h1="Dog Breed Center"
+      intro="Every dog breed FaunaHub publishes, each with registry-sourced recognition and measurements alongside a written overview. Below the breed profiles are decision guides that organise breed thinking by household intent. Breed tendencies are not guarantees — individual animals vary."
       decisionPages={decisions}
       hubFaqs={HUB_FAQS}
       faqTitle="Dog Breeds — Frequently Asked Questions"
       lastUpdated={LAST_UPDATED}
+      leadSection={<BreedProfileGrid species="dog" breeds={DOG_BREED_RECORDS} />}
       extraSection={
         <>
-          <BreedProfileGrid species="dog" breeds={DOG_BREED_PROFILES} />
+          <div className="mt-10">
+            <RelatedLinks
+              title="Filter by what is actually recorded"
+              links={[
+                {
+                  label: "Dog Breed Finder",
+                  href: "/dogs/breed-finder",
+                  description:
+                    "Filter the breed registry on attributes FaunaHub can source. The Finder states which filters it cannot offer, and why.",
+                },
+              ]}
+            />
+          </div>
           <div className="mt-10">
             <RelatedLinks
               title="Bringing home a puppy?"

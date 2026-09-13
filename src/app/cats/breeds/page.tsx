@@ -3,23 +3,16 @@ import DecisionHub from "@/components/pet-choice/DecisionHub";
 import BreedProfileGrid from "@/components/breeds/BreedProfileGrid";
 import RelatedLinks from "@/components/RelatedLinks";
 import { getDecisionsByKind } from "@/lib/pet-choice/data";
+import { CAT_BREED_RECORDS } from "@/lib/pet-intelligence";
 import { buildMetadata } from "@/lib/metadata";
 
 const LAST_UPDATED = "2026-05-22";
 
-const CAT_BREED_PROFILES = [
-  { name: "Maine Coon", slug: "maine-coon" },
-  { name: "Siamese", slug: "siamese" },
-  { name: "British Shorthair", slug: "british-shorthair" },
-  { name: "Persian", slug: "persian-cat" },
-  { name: "Ragdoll", slug: "ragdoll" },
-  { name: "Bengal", slug: "bengal-cat" },
-];
 
 export const metadata: Metadata = buildMetadata({
-  title: "Cat Breed Decision Guides — Apartments, First-Time Owners & Families",
+  title: "Cat Breed Center — Profiles, Registry Facts & Decision Guides",
   description:
-    "Cautious, practical cat breed decision pages — apartment-friendly, first-time-owner, low-maintenance, and family-friendly cat breeds.",
+    "Every cat breed profile on FaunaHub, with registry recognition, published measurements and coat data, plus cautious decision guides for apartments, families and first-time owners.",
   path: "/cats/breeds",
 });
 
@@ -54,15 +47,28 @@ export default function CatBreedsHub() {
       hubLabel="Cat Breeds"
       parentPath="/cats"
       parentLabel="Cats"
-      h1="Cat Breed Decision Guides"
-      intro="Practical pages that organise cat breed thinking by household intent — apartment, first-time owner, low-maintenance, and family situations. Every page uses cautious framing and emphasises that mixed-breed shelter cats with observable temperaments are often the most practical match."
+      h1="Cat Breed Center"
+      intro="Every cat breed FaunaHub publishes, each with registry-sourced recognition and measurements alongside a written overview. Below the breed profiles are decision guides that organise breed thinking by household intent. Breed tendencies are not guarantees — individual animals vary."
       decisionPages={decisions}
       hubFaqs={HUB_FAQS}
       faqTitle="Cat Breeds — Frequently Asked Questions"
       lastUpdated={LAST_UPDATED}
+      leadSection={<BreedProfileGrid species="cat" breeds={CAT_BREED_RECORDS} />}
       extraSection={
         <>
-          <BreedProfileGrid species="cat" breeds={CAT_BREED_PROFILES} />
+          <div className="mt-10">
+            <RelatedLinks
+              title="Filter by what is actually recorded"
+              links={[
+                {
+                  label: "Cat Breed Finder",
+                  href: "/cats/breed-finder",
+                  description:
+                    "Filter the breed registry on attributes FaunaHub can source. The Finder states which filters it cannot offer, and why.",
+                },
+              ]}
+            />
+          </div>
           <div className="mt-10">
             <RelatedLinks
               title="Bringing home a kitten?"

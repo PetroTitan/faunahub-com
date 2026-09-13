@@ -52,6 +52,16 @@ export interface BreedProfileLayoutProps {
   /** Cost & responsible ownership notes. */
   responsibility: ReactNode;
   quickFacts: BreedFact[];
+  /**
+   * Sourced, structured attributes — registry recognition, published
+   * measurements, coat, normalised trait bands.
+   *
+   * A separate slot from the prose sections on purpose: the page has to make
+   * visible which figures came from a named registry and which are editorial
+   * context, and the only reliable way to do that is to render them through
+   * different components rather than to trust the wording.
+   */
+  structuredSection?: ReactNode;
   faqs: BreedFaq[];
   relatedLinks: BreedRelatedLink[];
   sources: SourceLink[];
@@ -77,6 +87,7 @@ export default function BreedProfileLayout(props: BreedProfileLayoutProps) {
     health,
     responsibility,
     quickFacts,
+    structuredSection,
     faqs,
     relatedLinks,
     sources,
@@ -175,6 +186,8 @@ export default function BreedProfileLayout(props: BreedProfileLayoutProps) {
 
               <h2>Overview</h2>
               {intro}
+
+              {structuredSection}
 
               <h2>Appearance &amp; size</h2>
               {appearance}
