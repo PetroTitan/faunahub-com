@@ -132,7 +132,7 @@ function parseSegment(
   // the breed, which is exactly wrong.
   const fallback: MeasurementBasis =
     total > 1 && !qualifier ? { kind: "variety", variety: statedAs } : { kind: "breed" };
-  const basis = basisFrom(qualifier, fallback);
+  let basis = basisFrom(qualifier, fallback);
   const convert = unit === "in" ? inchesToCm : poundsToKg;
 
   // The unit comes from the caller. If the text names a DIFFERENT unit, the
@@ -146,20 +146,67 @@ function parseSegment(
   if (textUnit && textUnit !== unit) return undefined;
   if (/\b(kg|kilograms?|cm|centimet(?:re|er)s?|grams?)\b/i.test(body)) return undefined;
 
+  // A sex named in the TEXT rather than in a parenthetical: "Males 30-31
+  // inches", "Dogs 16"", "23.5 females". AKC uses all three shapes.
+  let text = body;
+  const leadingSex = text.match(/^(males?|females?|dogs|bitches)\b\s*:?\s*/);
+  if (leadingSex) {
+    basis = { kind: "sex", sex: /^(f|bitch)/.test(leadingSex[1]) ? "female" : "male" };
+    text = text.slice(leadingSex[0].length).trim();
+  }
+  const trailingSex = text.match(/\s+(males?|females?)\s*$/);
+  if (trailingSex) {
+    basis = { kind: "sex", sex: /^f/.test(trailingSex[1]) ? "female" : "male" };
+    text = text.slice(0, trailingSex.index).trim();
+  }
+  // "15½ inches", and the inch mark used instead of the word.
+  text = text
+    .replace(/½/g, ".5")
+    .replace(/¼/g, ".25")
+    .replace(/¾/g, ".75")
+    .replace(/["\u201d]/g, " inches")
+    .trim();
+  // "32 inches minimum" / "27.5 minimum inches" / "100 pounds or more"
+  const floor =
+    text.match(new RegExp(`^(${NUM})\\s*(?:inches|inch|pounds|lbs?)?\\s*(?:minimum|or more)`)) ??
+    text.match(new RegExp(`^(${NUM})\\s*minimum`));
+  if (floor) {
+    return { min: convert(Number(floor[1])), bound: "at-least", basis, statedAs };
+  }
+  // "around 10 pounds" / "approximately 12 inches"
+  const approx = text.match(new RegExp(`^(?:around|approximately|about|roughly)\\s*(${NUM})`));
+  if (approx) {
+    const n = convert(Number(approx[1]));
+    return { min: n, max: n, bound: "about", basis, statedAs };
+  }
+
+
   // "13 inches & under" / "11 pounds & under" / "under 28 pounds" /
   // "not exceeding 6 pounds"
   const atMost =
-    body.match(new RegExp(`^(${NUM})\\s*\\w*\\s*(?:&|and)\\s*under$`)) ??
-    body.match(new RegExp(`^(?:under|below|up to|not exceeding|no more than)\\s*(${NUM})`)) ??
-    body.match(new RegExp(`(?:as large as|as much as|up to)\\s*(${NUM})`));
+    text.match(new RegExp(`^(${NUM})\\s*\\w*\\s*(?:&|and)\\s*under$`)) ??
+    text.match(new RegExp(`^(?:under|below|up to|not exceeding|no more than)\\s*(${NUM})`)) ??
+    text.match(new RegExp(`(?:as large as|as much as|up to)\\s*(${NUM})`));
   if (atMost) {
     return { max: convert(Number(atMost[1])), bound: "at-most", basis, statedAs };
   }
 
+  // "28 inches & up" / "110 pounds & up"
+  const andUp = text.match(new RegExp(`^(${NUM})\\s*\\w*\\s*(?:&|and)\\s*up$`));
+  if (andUp) {
+    return { min: convert(Number(andUp[1])), bound: "at-least", basis, statedAs };
+  }
+
+  // "Minimum: 25.5 males" — AKC's wording for a floor, with the sex trailing.
+  const minimum = text.match(new RegExp(`^minimum:?\\s*(${NUM})`));
+  if (minimum) {
+    return { min: convert(Number(minimum[1])), bound: "at-least", basis, statedAs };
+  }
+
   // "over 15 inches" / "at least 20 pounds" / CFA's "reach or exceed 20 pounds"
   const atLeast =
-    body.match(new RegExp(`^(?:over|above|at least|more than|no less than)\\s*(${NUM})`)) ??
-    body.match(new RegExp(`(?:reach or exceed|exceed|or more than)\\s*(${NUM})`));
+    text.match(new RegExp(`^(?:over|above|at least|more than|no less than)\\s*(${NUM})`)) ??
+    text.match(new RegExp(`(?:reach or exceed|exceed|or more than)\\s*(${NUM})`));
   if (atLeast) {
     return { min: convert(Number(atLeast[1])), bound: "at-least", basis, statedAs };
   }
@@ -167,11 +214,11 @@ function parseSegment(
   // "22.5-24.5 inches" (also en dash). Anchored at BOTH ends — unanchored,
   // "13-15 inches & under" parsed as a closed 13-15 range and silently threw
   // away the "& under", turning a half-open bound into a closed one.
-  const range = body.match(
+  const range = text.match(
     new RegExp(`^(${NUM})\\s*(?:[-–]|to)\\s*(${NUM})\\s*(?:inches|inch|pounds|lbs?|pound)?\\s*$`),
   );
-  const fromTo = body.match(new RegExp(`from\\s*(${NUM})\\s*to\\s*(${NUM})`)) ??
-    body.match(new RegExp(`from\\s*(${NUM})\\s*[-–]\\s*(${NUM})`));
+  const fromTo = text.match(new RegExp(`from\\s*(${NUM})\\s*to\\s*(${NUM})`)) ??
+    text.match(new RegExp(`from\\s*(${NUM})\\s*[-–]\\s*(${NUM})`));
   if (!range && fromTo) {
     const min = Number(fromTo[1]);
     const max = Number(fromTo[2]);
@@ -187,8 +234,15 @@ function parseSegment(
     return { min: convert(min), max: convert(max), bound: "closed", basis, statedAs };
   }
 
-  // A single bare figure ("13 inches") is genuinely ambiguous — a target, a
-  // maximum, a typical. It is rejected rather than assumed.
+  // A single figure — "23 inches", "50 pounds (male)". Recorded as `about`,
+  // which asserts only what the standard asserts: one number, no direction.
+  // See the note on MeasurementBound.
+  const single = text.match(new RegExp(`^(${NUM})\\s*(?:inches|inch|pounds|lbs?|pound)?\\s*$`));
+  if (single) {
+    const n = Number(single[1]);
+    return { min: convert(n), max: convert(n), bound: "about", basis, statedAs };
+  }
+
   void index;
   return undefined;
 }
@@ -208,19 +262,21 @@ export function parseMeasurementString(input: string, unit: "in" | "lb"): ParseR
 
 /** Parses "11-13 years" into a closed lifespan measurement. */
 export function parseLifespanYears(input: string, sourceId: string): Measurement | undefined {
-  const m = input.trim().match(new RegExp(`^(${NUM})\\s*[-–]\\s*(${NUM})\\s*years?$`, "i"));
-  if (!m) return undefined;
-  const min = Number(m[1]);
-  const max = Number(m[2]);
-  if (max < min) return undefined;
-  return {
-    min,
-    max,
-    bound: "closed",
-    basis: { kind: "breed" },
-    statedAs: input.trim(),
-    sourceId,
-  };
+  const text = input.trim();
+  const range = text.match(new RegExp(`^(${NUM})\\s*[-–]\\s*(${NUM})\\s*years?$`, "i"));
+  if (range) {
+    const min = Number(range[1]);
+    const max = Number(range[2]);
+    if (max < min) return undefined;
+    return { min, max, bound: "closed", basis: { kind: "breed" }, statedAs: text, sourceId };
+  }
+  // "12 years" — a single published figure, not a range.
+  const single = text.match(new RegExp(`^(${NUM})\\s*years?$`, "i"));
+  if (single) {
+    const n = Number(single[1]);
+    return { min: n, max: n, bound: "about", basis: { kind: "breed" }, statedAs: text, sourceId };
+  }
+  return undefined;
 }
 
 /* ------------------------------------------------------------------ *
@@ -241,6 +297,7 @@ export function basisLabel(basis: MeasurementBasis): string {
  * rather than being padded into a closed range with an invented endpoint.
  */
 export function formatMeasurement(m: Measurement, unit: string): string {
+  if (m.bound === "about" && m.min !== undefined) return `about ${m.min} ${unit}`;
   if (m.bound === "at-most" && m.max !== undefined) return `up to ${m.max} ${unit}`;
   if (m.bound === "at-least" && m.min !== undefined) return `over ${m.min} ${unit}`;
   if (m.min !== undefined && m.max !== undefined) {
@@ -250,6 +307,7 @@ export function formatMeasurement(m: Measurement, unit: string): string {
 }
 
 export function formatLifespan(m: Measurement): string {
+  if (m.bound === "about" && m.min !== undefined) return `about ${m.min} years`;
   if (m.min !== undefined && m.max !== undefined) return `${m.min}–${m.max} years`;
   return m.statedAs;
 }

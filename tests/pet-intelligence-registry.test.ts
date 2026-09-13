@@ -27,6 +27,7 @@ import {
   bandFromFivePointScale,
   breedPath,
   deriveSizeClass,
+  hasEditorial,
   getBreedSource,
   getRegistry,
   parseMeasurementString,
@@ -270,14 +271,38 @@ test("every measurement keeps the source's own wording", () => {
   }
 });
 
-test("measurement parser rejects rather than guesses", () => {
-  // A single bare figure is genuinely ambiguous — a target, a ceiling, a
-  // typical — so the parser must refuse it instead of picking one.
-  const ambiguous = parseMeasurementString("13 inches", "in");
-  assert.equal(ambiguous.segments.length, 0);
-  assert.deepEqual(ambiguous.rejected, ["13 inches"]);
+test("measurement parser records a single figure as `about`, not a range", () => {
+  // DELIBERATE REVERSAL of the foundation's behaviour, which refused a bare
+  // figure as ambiguous. The ambiguity was real and the remedy was wrong: 45
+  // AKC height strings and 37 weight strings are single figures, and dropping
+  // them lost published data. `about` asserts only what the standard asserts —
+  // one number, no direction — and `statedAs` keeps the original wording.
+  const single = parseMeasurementString("13 inches", "in");
+  assert.equal(single.rejected.length, 0);
+  assert.equal(single.segments.length, 1);
+  assert.equal(single.segments[0].bound, "about");
+  assert.equal(single.segments[0].min, 33);
+  assert.equal(single.segments[0].max, 33);
+});
 
-  // And the four shapes real standards actually use must all parse.
+test("measurement parser still refuses what it cannot interpret", () => {
+  // Relational and unitless statements have no number to record. These are the
+  // shapes that survive in the AKC corpus, and every one of them would need a
+  // human to interpret.
+  for (const text of [
+    "slightly smaller (female)",
+    "females are about 15 pounds less than male",
+    "Proportionate to height",
+    "considerably smaller (female)",
+  ]) {
+    const result = parseMeasurementString(text, "lb");
+    assert.equal(result.segments.length, 0, `parser invented a value for "${text}"`);
+    assert.ok(result.rejected.length > 0, `parser silently dropped "${text}"`);
+  }
+});
+
+test("measurement parser reads the shapes registries actually publish", () => {
+
   const sexSplit = parseMeasurementString("22.5-24.5 inches (male), 21.5-23.5 inches (female)", "in");
   assert.equal(sexSplit.rejected.length, 0);
   assert.deepEqual(
@@ -381,8 +406,11 @@ test("the five-point band edges are where the methodology says", () => {
  * Editorial completeness and relations
  * ---------------------------------------------------------------- */
 
-test("every breed carries the full editorial set", () => {
-  for (const breed of BREEDS) {
+test("every AUTHORED breed carries the full editorial set", () => {
+  // Prose is optional at this corpus size (see Breed.editorial), but a record
+  // that has SOME prose must have all of it — a half-written overview reads as
+  // a bug rather than as a data profile.
+  for (const breed of BREEDS.filter(hasEditorial)) {
     for (const field of [
       "intro",
       "appearance",
@@ -392,14 +420,14 @@ test("every breed carries the full editorial set", () => {
       "health",
       "responsibility",
     ] as const) {
-      const prose = breed.editorial[field];
+      const prose = breed.editorial?.[field];
       assert.ok(prose && prose.length > 0, `${breed.id} has no ${field}`);
       for (const p of prose) {
         assert.ok(p.trim().length > 40, `${breed.id}.${field} has a stub paragraph`);
       }
     }
-    assert.ok(breed.editorial.faqs.length >= 3, `${breed.id} has fewer than three FAQs`);
-    for (const faq of breed.editorial.faqs) {
+    assert.ok((breed.editorial?.faqs.length ?? 0) >= 3, `${breed.id} has fewer than three FAQs`);
+    for (const faq of breed.editorial?.faqs ?? []) {
       assert.ok(faq.question.trim().endsWith("?"), `${breed.id} FAQ is not a question`);
       assert.ok(faq.answer.trim().length > 60, `${breed.id} FAQ answer is a stub`);
     }

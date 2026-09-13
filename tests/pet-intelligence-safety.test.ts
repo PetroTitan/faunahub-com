@@ -25,9 +25,16 @@ import type { Breed } from "../src/lib/pet-intelligence/types.ts";
 
 const REPO_ROOT = path.resolve(import.meta.dirname, "..");
 
-/** Every string a reader can see on a breed page. */
+/**
+ * Every string a reader can see on a breed page.
+ *
+ * A data profile — a breed with no written overview — contributes nothing here,
+ * which is correct: it renders only sourced registry values and a standing
+ * note, so there is no editorial prose to police.
+ */
 function visibleText(breed: Breed): string {
   const e = breed.editorial;
+  if (!e) return "";
   return [
     ...e.intro,
     ...e.appearance,
@@ -102,6 +109,7 @@ const VET_ROUTING =
 
 test("every breed's health section ROUTES the reader to a veterinarian", () => {
   for (const breed of BREEDS) {
+    if (!breed.editorial) continue;
     const health = breed.editorial.health.join(" ");
     assert.match(health, VET_ROUTING, `${breed.id} health section mentions vets without routing to one`);
   }
@@ -179,6 +187,7 @@ const VARIATION =
 test("wherever children are discussed, variation is stated in the same partition", () => {
   for (const breed of BREEDS) {
     const e = breed.editorial;
+    if (!e) continue;
     const openProse = [
       ...e.intro,
       ...e.appearance,
@@ -339,10 +348,11 @@ test("no breed record carries a structured child, stranger or protectiveness val
  * Hedging present where it should be
  * ---------------------------------------------------------------- */
 
-test("every breed's temperament section hedges", () => {
+test("every authored breed's temperament section hedges", () => {
   const HEDGE =
     /\b(?:tends? to|tend to|commonly|often|generally|usually|widely described|frequently described|may be|varies|vary|is described as|are described as)\b/i;
   for (const breed of BREEDS) {
+    if (!breed.editorial) continue;
     const text = breed.editorial.temperament.join(" ");
     assert.match(text, HEDGE, `${breed.id} states temperament as fact`);
   }
