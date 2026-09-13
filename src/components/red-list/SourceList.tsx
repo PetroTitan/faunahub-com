@@ -91,7 +91,7 @@ export default function SourceList({ record, compact }: SourceListProps) {
             >
               IUCN Red List — look up {commonName}
             </a>{" "}
-            <span className="text-[#8A958E]">(authoritative status)</span>
+            <span className="text-[#636E66]">(authoritative status)</span>
           </li>
         )}
         {sourceUrls.map((url) => (

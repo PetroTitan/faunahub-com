@@ -137,7 +137,7 @@ export default function ImageCreditsPage() {
           <div className="container-content">
             <nav
               aria-label="Breadcrumb"
-              className="text-sm text-[#8A958E] mb-4 flex gap-2"
+              className="text-sm text-[#636E66] mb-4 flex gap-2"
             >
               <Link
                 href="/"
@@ -207,7 +207,7 @@ export default function ImageCreditsPage() {
                   </div>
                   <div className="p-4 flex-1 flex flex-col gap-2">
                     <div>
-                      <p className="text-xs uppercase tracking-wider text-[#8A958E]">
+                      <p className="text-xs uppercase tracking-wider text-[#636E66]">
                         Used on
                       </p>
                       <Link
@@ -219,13 +219,13 @@ export default function ImageCreditsPage() {
                     </div>
                     <dl className="text-xs text-[#2C3A2F] grid gap-1.5 mt-1">
                       <div>
-                        <dt className="text-[#8A958E] uppercase tracking-wider text-[10px]">
+                        <dt className="text-[#636E66] uppercase tracking-wider text-[10px]">
                           Author
                         </dt>
                         <dd>{img.author}</dd>
                       </div>
                       <div>
-                        <dt className="text-[#8A958E] uppercase tracking-wider text-[10px]">
+                        <dt className="text-[#636E66] uppercase tracking-wider text-[10px]">
                           License
                         </dt>
                         <dd>
@@ -244,7 +244,7 @@ export default function ImageCreditsPage() {
                         </dd>
                       </div>
                       <div>
-                        <dt className="text-[#8A958E] uppercase tracking-wider text-[10px]">
+                        <dt className="text-[#636E66] uppercase tracking-wider text-[10px]">
                           Source
                         </dt>
                         <dd>
@@ -259,7 +259,7 @@ export default function ImageCreditsPage() {
                         </dd>
                       </div>
                       <div>
-                        <dt className="text-[#8A958E] uppercase tracking-wider text-[10px]">
+                        <dt className="text-[#636E66] uppercase tracking-wider text-[10px]">
                           Verified
                         </dt>
                         <dd>{img.verifiedAt}</dd>

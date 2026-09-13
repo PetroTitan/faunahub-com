@@ -138,7 +138,7 @@ export default function PetBreedSelectorClient() {
         onSubmit={(e) => e.preventDefault()}
         aria-describedby="selector-help"
       >
-        <p id="selector-help" className="text-xs text-[#8A958E] mb-4">
+        <p id="selector-help" className="text-xs text-[#636E66] mb-4">
           Adjust any field — the matches update automatically. All inputs are
           stored only in your browser session.
         </p>
@@ -232,7 +232,7 @@ export default function PetBreedSelectorClient() {
                 className="block h-full rounded-xl border border-[#DDE6DD] bg-white p-5 hover:border-[#0F5A3A] hover:shadow-sm transition focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:ring-offset-2 hover:no-underline"
               >
                 <div className="flex items-baseline justify-between gap-2 flex-wrap mb-2">
-                  <p className="text-xs uppercase tracking-wider text-[#8A958E]">
+                  <p className="text-xs uppercase tracking-wider text-[#636E66]">
                     {category.group === "dog"
                       ? "Dog breed page"
                       : category.group === "cat"

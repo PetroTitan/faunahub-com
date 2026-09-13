@@ -123,7 +123,7 @@ export default function FromWaterToLandPage() {
                         {s.label}
                       </a>
                       {s.note && (
-                        <span className="text-[#8A958E]"> — {s.note}</span>
+                        <span className="text-[#636E66]"> — {s.note}</span>
                       )}
                     </li>
                   ))}

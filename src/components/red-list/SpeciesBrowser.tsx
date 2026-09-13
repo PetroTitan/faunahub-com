@@ -38,7 +38,7 @@ const CONFIDENCE_LABEL: Record<string, string> = {
 const selectClass =
   "w-full rounded-lg border border-[#DDE6DD] bg-white px-3 py-2 text-sm text-[#17211B] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#7BAA35]";
 const labelClass =
-  "block text-[11px] font-semibold uppercase tracking-wider text-[#8A958E] mb-1";
+  "block text-[11px] font-semibold uppercase tracking-wider text-[#636E66] mb-1";
 
 export default function SpeciesBrowser({
   records,

@@ -63,7 +63,7 @@ export default function SourcePageLayout({
       <main id="main-content">
         <header className="bg-gradient-to-b from-[#EFF4E0] via-[#f7faf7] to-white border-b border-[#DDE6DD] py-12 sm:py-16">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex flex-wrap gap-2">
+            <nav aria-label="Breadcrumb" className="text-sm text-[#636E66] mb-4 flex flex-wrap gap-2">
               <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
               {crumbs.map((c, i) => (
                 <span key={c.href} className="flex gap-2">

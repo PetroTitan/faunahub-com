@@ -23,7 +23,7 @@ export default function ContinentCard({ slug, count }: ContinentCardProps) {
       </span>
       <span className="text-sm text-[#5E6B63] leading-snug">{meta.blurb}</span>
       {typeof count === "number" && (
-        <span className="text-xs text-[#8A958E] mt-auto pt-1">
+        <span className="text-xs text-[#636E66] mt-auto pt-1">
           {count} featured animal{count === 1 ? "" : "s"}
         </span>
       )}

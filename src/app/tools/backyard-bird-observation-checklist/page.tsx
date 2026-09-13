@@ -156,15 +156,15 @@ export default function BackyardBirdObservationChecklistPage() {
                 </div>
                 <dl className="divide-y divide-[#EAF0EA] text-sm">
                   <div className="px-5 py-3 flex flex-col gap-0.5">
-                    <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">Output</dt>
+                    <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">Output</dt>
                     <dd className="text-[#17211B] font-medium">Ethical observation checklist</dd>
                   </div>
                   <div className="px-5 py-3 flex flex-col gap-0.5">
-                    <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">Wildlife handling</dt>
+                    <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">Wildlife handling</dt>
                     <dd className="text-[#17211B] font-medium">Never — ask an authority</dd>
                   </div>
                   <div className="px-5 py-3 flex flex-col gap-0.5">
-                    <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">Privacy</dt>
+                    <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">Privacy</dt>
                     <dd className="text-[#17211B] font-medium">Stays in your browser</dd>
                   </div>
                 </dl>

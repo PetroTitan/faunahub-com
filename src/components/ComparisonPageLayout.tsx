@@ -94,7 +94,7 @@ export default function ComparisonPageLayout({
         <div className="container-content py-10">
           <nav
             aria-label="Breadcrumb"
-            className="text-sm text-[#8A958E] mb-6 flex gap-2 items-center flex-wrap"
+            className="text-sm text-[#636E66] mb-6 flex gap-2 items-center flex-wrap"
           >
             <Link href="/" className="hover:text-[#063F2A] hover:no-underline">
               Home

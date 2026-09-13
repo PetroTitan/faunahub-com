@@ -23,7 +23,7 @@ export default function ComparisonCard({ record }: { record: ComparisonRecord })
         <span className="inline-block rounded-full border border-[#CFE0A8] bg-[#EFF4E0] px-2.5 py-0.5 text-[11px] font-medium uppercase tracking-wide text-[#063F2A]">
           {RELATIONSHIP_LABEL[record.relationship]}
         </span>
-        <span className="text-[11px] uppercase tracking-wide text-[#8A958E]">
+        <span className="text-[11px] uppercase tracking-wide text-[#636E66]">
           {categoryName(record.primaryCategory)}
         </span>
       </div>

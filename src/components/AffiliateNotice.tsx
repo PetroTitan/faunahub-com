@@ -26,7 +26,7 @@ interface AffiliateNoticeProps {
 export default function AffiliateNotice({ className = "", variant = "block" }: AffiliateNoticeProps) {
   if (variant === "inline") {
     return (
-      <span className={`text-xs text-[#8A958E] ${className}`}>
+      <span className={`text-xs text-[#636E66] ${className}`}>
         (Affiliate link — we may earn a commission at no extra cost to you.{" "}
         <Link href="/affiliate-disclosure" className="underline hover:text-[#063F2A]">
           Disclosure

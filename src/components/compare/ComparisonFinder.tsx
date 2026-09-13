@@ -123,7 +123,7 @@ export default function ComparisonFinder({
 
         <span
           aria-hidden="true"
-          className="hidden sm:block pb-3 text-sm font-semibold text-[#8A958E]"
+          className="hidden sm:block pb-3 text-sm font-semibold text-[#636E66]"
         >
           vs
         </span>
@@ -156,7 +156,7 @@ export default function ComparisonFinder({
         <button
           type="submit"
           disabled={!slugA || !slugB}
-          className="rounded-lg bg-[#0F5A3A] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#063F2A] disabled:cursor-not-allowed disabled:bg-[#8A958E]"
+          className="rounded-lg bg-[#0F5A3A] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#063F2A] disabled:cursor-not-allowed disabled:bg-[#636E66]"
         >
           Compare
         </button>

@@ -41,8 +41,8 @@ import { SearchIcon, CornerArrowIcon } from "./icons";
 
 /*
  * A note on colour: this panel uses --color-muted (#5E6B63) for its secondary
- * text rather than the lighter --color-subtle (#8A958E) the site uses for the
- * same role elsewhere. Measured from the rendered pixels, #8A958E is 3.10:1 on
+ * text rather than the lighter --color-subtle (#636E66) the site uses for the
+ * same role elsewhere. Measured from the rendered pixels, #636E66 is 3.10:1 on
  * white and 2.91:1 on #F7F8F3 — below the 4.5:1 WCAG AA floor for text at these
  * sizes. #5E6B63 is 5.59:1 and 5.23:1. Every label, hint and count here is real
  * information, not decoration, so it is held to the AA threshold.

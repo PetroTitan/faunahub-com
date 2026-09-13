@@ -173,7 +173,7 @@ export default function FaunaHubPage() {
                 </span>
               ))}
             </div>
-            <p className="text-xs text-[#8A958E] mt-3">
+            <p className="text-xs text-[#636E66] mt-3">
               {FAUNA_RECORDS.length} animal profiles are mapped across{" "}
               {Object.keys(FAUNA_HABITATS).length} habitat types.
             </p>

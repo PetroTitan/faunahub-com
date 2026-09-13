@@ -165,7 +165,7 @@ export default function ToolsPage() {
           <div className="container-content">
             <nav
               aria-label="Breadcrumb"
-              className="text-sm text-[#8A958E] mb-4 flex gap-2"
+              className="text-sm text-[#636E66] mb-4 flex gap-2"
             >
               <Link href="/" className="hover:text-[#063F2A] hover:no-underline">
                 Home

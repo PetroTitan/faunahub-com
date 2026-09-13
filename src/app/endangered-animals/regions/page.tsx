@@ -156,7 +156,7 @@ export default function RegionsHubPage() {
                     <span className="text-sm text-[#5E6B63] leading-snug">
                       {meta.description}
                     </span>
-                    <span className="text-xs text-[#8A958E] mt-1">
+                    <span className="text-xs text-[#636E66] mt-1">
                       {counts[region]} records
                     </span>
                   </Link>
@@ -187,7 +187,7 @@ export default function RegionsHubPage() {
                   <span className="text-xs italic text-[#5E6B63]">
                     {r.scientificName}
                   </span>
-                  <span className="text-xs text-[#8A958E] mt-auto">
+                  <span className="text-xs text-[#636E66] mt-auto">
                     {regionsForSlug(r.slug)
                       .map((rg) => RED_LIST_REGIONS[rg].label)
                       .join(" · ")}

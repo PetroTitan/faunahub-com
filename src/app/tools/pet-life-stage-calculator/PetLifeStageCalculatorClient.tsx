@@ -317,7 +317,7 @@ export default function PetLifeStageCalculatorClient() {
       <div className="container-content py-10">
         <nav
           aria-label="Breadcrumb"
-          className="text-sm text-[#8A958E] mb-6 flex gap-2 items-center flex-wrap"
+          className="text-sm text-[#636E66] mb-6 flex gap-2 items-center flex-wrap"
         >
           <Link href="/" className="hover:text-[#063F2A] hover:no-underline">
             Home
@@ -503,7 +503,7 @@ export default function PetLifeStageCalculatorClient() {
             </ul>
           </section>
 
-          <p className="text-xs text-[#8A958E]">Last updated: May 18, 2026</p>
+          <p className="text-xs text-[#636E66]">Last updated: May 18, 2026</p>
         </div>
       </div>
     </main>

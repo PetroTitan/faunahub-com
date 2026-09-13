@@ -52,8 +52,8 @@ export default function BreedProfileGrid({
       </h2>
       {!compact && (
         <p className="text-sm text-[#5E6B63] mb-6 max-w-3xl">
-          Every profile carries registry-sourced measurements and recognition alongside its written
-          overview. Breed tendencies are not guarantees — individual animals vary by genetics,
+          Every profile carries registry-sourced measurements and recognition, each linked to the
+          registry that published it. Breed tendencies are not guarantees — individual animals vary by genetics,
           training, socialisation, health, and household environment. Spend time with a specific{" "}
           {speciesWord} before deciding.
         </p>
@@ -91,7 +91,7 @@ export default function BreedProfileGrid({
                   ) : (
                     <span
                       aria-hidden="true"
-                      className="absolute inset-0 flex items-center justify-center text-2xl text-[#8A958E]"
+                      className="absolute inset-0 flex items-center justify-center text-2xl text-[#636E66]"
                     >
                       {breed.name.slice(0, 1)}
                     </span>

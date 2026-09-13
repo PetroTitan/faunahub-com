@@ -243,7 +243,7 @@ export default function EndangeredAnimalsHubPage() {
                   >
                     <div className="flex items-center justify-between">
                       <CategoryBadge code={code} />
-                      <span className="text-xs text-[#8A958E]">
+                      <span className="text-xs text-[#636E66]">
                         {catCounts[code]} records
                       </span>
                     </div>
@@ -285,7 +285,7 @@ export default function EndangeredAnimalsHubPage() {
                     <span className="text-sm text-[#5E6B63] leading-snug">
                       {meta.description}
                     </span>
-                    <span className="text-xs text-[#8A958E] mt-1">
+                    <span className="text-xs text-[#636E66] mt-1">
                       {groupCounts[group]} records
                     </span>
                   </Link>

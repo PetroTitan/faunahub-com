@@ -289,7 +289,7 @@ export default function AquariumSetupChecklistClient() {
                       onChange={() => toggle(item.id)}
                       className="mt-0.5 accent-[#063F2A]"
                     />
-                    <span className={checked[item.id] ? "line-through text-[#8A958E]" : ""}>{item.text}</span>
+                    <span className={checked[item.id] ? "line-through text-[#636E66]" : ""}>{item.text}</span>
                   </label>
                 </li>
               ))}
@@ -370,7 +370,7 @@ export default function AquariumSetupChecklistClient() {
             </div>
           </div>
 
-          <p className="text-[11px] text-[#8A958E] leading-relaxed">
+          <p className="text-[11px] text-[#636E66] leading-relaxed">
             Planning checklist only · No diagnosis, medication, chemical doses, tank-size legal claims, or feeding amounts ·
             Your selections stay in your browser and are not saved or sent.
           </p>

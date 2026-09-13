@@ -37,7 +37,7 @@ export default function GuineaPigAgeCalculatorClient() {
       <div className="container-content py-10">
         <nav
           aria-label="Breadcrumb"
-          className="text-sm text-[#8A958E] mb-6 flex gap-2 items-center flex-wrap"
+          className="text-sm text-[#636E66] mb-6 flex gap-2 items-center flex-wrap"
         >
           <Link href="/" className="hover:text-[#063F2A] hover:no-underline">
             Home
@@ -82,7 +82,7 @@ export default function GuineaPigAgeCalculatorClient() {
               className="w-full px-3 py-2.5 border border-[#DDE6DD] rounded-lg text-sm text-[#17211B] focus:outline-none focus:border-[#063F2A] focus:ring-1 focus:ring-[#063F2A]"
               aria-describedby="gp-age-help"
             />
-            <p id="gp-age-help" className="text-xs text-[#8A958E] mt-1.5">
+            <p id="gp-age-help" className="text-xs text-[#636E66] mt-1.5">
               Enter the age in years (e.g. 0.5, 1.5, 4).
             </p>
           </div>
@@ -131,7 +131,7 @@ export default function GuineaPigAgeCalculatorClient() {
             experienced with guinea pigs.
           </div>
 
-          <p className="text-xs text-[#8A958E]">Last updated: May 12, 2026</p>
+          <p className="text-xs text-[#636E66]">Last updated: May 12, 2026</p>
         </div>
       </div>
     </main>

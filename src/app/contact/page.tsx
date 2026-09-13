@@ -25,7 +25,7 @@ export default function ContactPage() {
       <main id="main-content">
         <header className="bg-white border-b border-[#DDE6DD] py-12">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
+            <nav aria-label="Breadcrumb" className="text-sm text-[#636E66] mb-4 flex gap-2">
               <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
               <span>/</span>
               <span className="text-[#17211B] font-medium" aria-current="page">Contact</span>
@@ -51,7 +51,7 @@ export default function ContactPage() {
 
               <div className="card p-5 space-y-4">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[#8A958E] mb-1">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#636E66] mb-1">
                     General Inquiries
                   </p>
                   <a
@@ -62,7 +62,7 @@ export default function ContactPage() {
                   </a>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[#8A958E] mb-1">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#636E66] mb-1">
                     Content Corrections
                   </p>
                   <p className="text-sm text-[#2C3A2F]">
@@ -71,7 +71,7 @@ export default function ContactPage() {
                   </p>
                 </div>
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[#8A958E] mb-1">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#636E66] mb-1">
                     Editorial Inquiries
                   </p>
                   <p className="text-sm text-[#2C3A2F]">
@@ -82,7 +82,7 @@ export default function ContactPage() {
               </div>
 
               {/* No form note */}
-              <p className="text-xs text-[#8A958E] mt-4">
+              <p className="text-xs text-[#636E66] mt-4">
                 A contact form may be added in a future update. For now, please use the email
                 address above.
               </p>
@@ -109,7 +109,7 @@ export default function ContactPage() {
                       <span className="block text-sm font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors">
                         {link.label}
                       </span>
-                      <span className="block text-xs text-[#8A958E]">{link.desc}</span>
+                      <span className="block text-xs text-[#636E66]">{link.desc}</span>
                     </span>
                   </Link>
                 ))}

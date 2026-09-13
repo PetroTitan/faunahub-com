@@ -93,7 +93,7 @@ export default function EaglePage() {
                 <span className="tag ml-1">Raptor</span>{" "}
                 <span className="tag ml-1">Apex Predator</span>
               </p>
-              <p className="text-sm text-[#8A958E] mb-8">
+              <p className="text-sm text-[#636E66] mb-8">
                 Reference species for specific details:{" "}
                 <strong className="text-[#2C3A2F]">Golden Eagle</strong>{" "}
                 (<em>Aquila chrysaetos</em>). This page provides a general overview and should not
@@ -285,7 +285,7 @@ export default function EaglePage() {
                     ["Eagle species count", "60+ species (approximate; taxonomy evolving)"],
                   ].map(([label, value]) => (
                     <div key={label} className="px-5 py-3 flex flex-col gap-0.5">
-                      <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">
+                      <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">
                         {label}
                       </dt>
                       <dd className="text-[#17211B] font-medium">{value}</dd>

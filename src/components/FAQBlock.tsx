@@ -27,7 +27,7 @@ export default function FAQBlock({
               <span>{item.question}</span>
               <span
                 aria-hidden="true"
-                className="ml-3 text-[#8A958E] group-open:rotate-180 transition-transform duration-200 flex-shrink-0"
+                className="ml-3 text-[#636E66] group-open:rotate-180 transition-transform duration-200 flex-shrink-0"
               >
                 ▾
               </span>

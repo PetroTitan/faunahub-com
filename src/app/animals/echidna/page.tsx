@@ -120,7 +120,7 @@ export default function EchidnaPage() {
               <h2>Classification</h2>
               <div className="overflow-x-auto rounded-xl border border-[#DDE6DD] mb-6">
                 <table>
-                  <caption className="text-xs text-[#8A958E] text-left px-4 pt-3 pb-1">
+                  <caption className="text-xs text-[#636E66] text-left px-4 pt-3 pb-1">
                     Taxonomic classification — short-beaked echidna as a reference species
                   </caption>
                   <tbody>
@@ -232,7 +232,7 @@ export default function EchidnaPage() {
                     ["IUCN Status", "Varies by species (verify)"],
                   ].map(([label, value]) => (
                     <div key={label} className="px-5 py-3 flex flex-col gap-0.5">
-                      <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">
+                      <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">
                         {label}
                       </dt>
                       <dd className="text-[#17211B] font-medium">{value}</dd>

@@ -5,6 +5,19 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    /*
+     * src/lib IS A CONTENT SOURCE, because data modules define class strings.
+     *
+     * Without this glob Tailwind never saw `src/lib/red-list/categories.ts`,
+     * where all nine IUCN badge palettes live as strings. Their arbitrary
+     * values were absent from the compiled CSS, so `bg-[#7A1F1F] text-white`
+     * rendered white text on a TRANSPARENT background — 1,903 badges across
+     * 367 pages, at 1.00:1 contrast, on the pages where conservation status is
+     * the single most important fact. Nothing failed; the class simply did not
+     * exist. A test in tests/tailwind-content.test.ts now fails if any class
+     * string lives outside these globs.
+     */
+    "./src/lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {

@@ -35,7 +35,7 @@ function StatusTag({ record }: { record: RedListSpeciesRecord }) {
     );
   }
   return (
-    <span className="text-xs text-[#8A958E]" title="No standalone page by design">
+    <span className="text-xs text-[#636E66]" title="No standalone page by design">
       Index record only
     </span>
   );

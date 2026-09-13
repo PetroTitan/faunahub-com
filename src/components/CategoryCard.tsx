@@ -32,7 +32,7 @@ export default function CategoryCard({
         <p className="text-sm text-[#5E6B63] leading-snug">{description}</p>
       </div>
       {count && (
-        <span className="text-xs text-[#8A958E] mt-auto">{count}</span>
+        <span className="text-xs text-[#636E66] mt-auto">{count}</span>
       )}
       <span className="text-xs font-medium text-[#063F2A] flex items-center gap-1 mt-1">
         Explore{" "}

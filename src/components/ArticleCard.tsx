@@ -28,7 +28,7 @@ export default function ArticleCard({
       </h3>
       <p className="text-sm text-[#5E6B63] leading-relaxed flex-1">{excerpt}</p>
       <div className="flex items-center justify-between mt-2 pt-2 border-t border-[#EAF0EA]">
-        {date && <span className="text-xs text-[#8A958E]">{date}</span>}
+        {date && <span className="text-xs text-[#636E66]">{date}</span>}
         <Link
           href={href}
           className="text-xs font-medium text-[#063F2A] hover:text-[#0F5A3A] hover:no-underline ml-auto"

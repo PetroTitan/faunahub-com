@@ -104,11 +104,11 @@ export default function TaxonomyGroupLayout({
                       >
                         {s.label}
                       </a>
-                      {s.note && <span className="text-[#8A958E]"> — {s.note}</span>}
+                      {s.note && <span className="text-[#636E66]"> — {s.note}</span>}
                     </li>
                   ))}
                 </ul>
-                <p className="text-xs text-[#8A958E] mt-3">
+                <p className="text-xs text-[#636E66] mt-3">
                   Coverage is representative, not a complete inventory. Taxonomy
                   changes as science improves, and species counts vary by source.
                 </p>

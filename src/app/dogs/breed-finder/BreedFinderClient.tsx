@@ -209,7 +209,7 @@ export default function BreedFinderClient({
                     ) : (
                       <span
                         aria-hidden="true"
-                        className="absolute inset-0 flex items-center justify-center text-2xl text-[#8A958E]"
+                        className="absolute inset-0 flex items-center justify-center text-2xl text-[#636E66]"
                       >
                         {breed.name.slice(0, 1)}
                       </span>

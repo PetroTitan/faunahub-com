@@ -80,7 +80,7 @@ export default function CanMyPetEatThisClient() {
             onChange={(e) => setQuery(e.target.value)}
             className="w-full px-3 py-2.5 border border-[#DDE6DD] rounded-lg text-base text-[#17211B] focus:outline-none focus:border-[#063F2A] focus:ring-1 focus:ring-[#063F2A]"
           />
-          <p className="text-xs text-[#8A958E] mt-1.5">
+          <p className="text-xs text-[#636E66] mt-1.5">
             We currently cover {FOOD_SAFETY_ARTICLES.length} foods across dogs and
             cats. More are being added.
           </p>
@@ -165,7 +165,7 @@ export default function CanMyPetEatThisClient() {
                 href={`${SPECIES_HUB[a.species]}/${a.slug}`}
                 className="block h-full rounded-xl border border-[#DDE6DD] bg-white p-5 hover:border-[#0F5A3A] hover:shadow-sm transition focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:ring-offset-2 hover:no-underline"
               >
-                <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                <p className="text-xs uppercase tracking-wider text-[#636E66] mb-1">
                   {SPECIES_LABEL[a.species]} · {a.foodName}
                 </p>
                 <p className="text-base font-semibold text-[#17211B] mb-3 leading-snug">

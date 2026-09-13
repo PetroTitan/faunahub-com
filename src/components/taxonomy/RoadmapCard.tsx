@@ -35,10 +35,10 @@ export default function RoadmapCard({ batch }: { batch: FutureBatch }) {
       </div>
       <p className="text-sm text-[#5E6B63] leading-snug">{batch.purpose}</p>
       <p className="text-xs text-[#2C3A2F] leading-snug">
-        <span className="text-[#8A958E]">Examples: </span>
+        <span className="text-[#636E66]">Examples: </span>
         {batch.exampleSpecies.slice(0, 8).map((s) => s.replace(/-/g, " ")).join(", ")}
       </p>
-      <p className="text-[11px] text-[#8A958E] leading-snug">{batch.riskNotes}</p>
+      <p className="text-[11px] text-[#636E66] leading-snug">{batch.riskNotes}</p>
       <div className="mt-auto flex flex-wrap items-center gap-2 pt-1 text-[11px]">
         <span className="rounded-full bg-[#EFF1EB] border border-[#DDE6DD] px-2 py-0.5 text-[#2C3A2F]">
           {STATUS_LABEL[batch.status]}
@@ -46,7 +46,7 @@ export default function RoadmapCard({ batch }: { batch: FutureBatch }) {
         <span className="rounded-full bg-[#EFF1EB] border border-[#DDE6DD] px-2 py-0.5 text-[#2C3A2F]">
           {DIFFICULTY_LABEL[batch.imageDifficulty]}
         </span>
-        <span className="text-[#8A958E]">
+        <span className="text-[#636E66]">
           {batch.status === "complete"
             ? "Pages: published"
             : batch.shouldCreatePages

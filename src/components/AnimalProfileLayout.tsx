@@ -322,7 +322,7 @@ export default function AnimalProfileLayout({
                 <dl className="divide-y divide-[#EAF0EA] text-sm">
                   {quickFacts.map((f) => (
                     <div key={f.label} className="px-5 py-3 flex flex-col gap-0.5">
-                      <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">
+                      <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">
                         {f.label}
                       </dt>
                       <dd className="text-[#17211B] font-medium">{f.value}</dd>

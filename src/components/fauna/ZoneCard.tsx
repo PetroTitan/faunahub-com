@@ -27,10 +27,10 @@ export default function ZoneCard({
       <span className="text-base font-semibold text-[#17211B] group-hover:text-[#063F2A] transition-colors">
         {meta.label}
       </span>
-      <span className="text-xs italic text-[#8A958E]">{meta.scientificName}</span>
+      <span className="text-xs italic text-[#636E66]">{meta.scientificName}</span>
       <span className="text-sm text-[#5E6B63] leading-snug">{meta.blurb}</span>
       {typeof count === "number" && (
-        <span className="text-xs text-[#8A958E] mt-auto pt-1">
+        <span className="text-xs text-[#636E66] mt-auto pt-1">
           {count > 0
             ? `${count} featured profile${count === 1 ? "" : "s"}`
             : "Zone science overview"}

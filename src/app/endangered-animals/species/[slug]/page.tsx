@@ -164,7 +164,7 @@ export default async function EndangeredSpeciesProfilePage({
                 </h2>
                 <dl className="grid sm:grid-cols-2 gap-x-6 gap-y-3 text-sm">
                   <div>
-                    <dt className="text-[#8A958E] uppercase tracking-wider text-[11px]">
+                    <dt className="text-[#636E66] uppercase tracking-wider text-[11px]">
                       IUCN category
                     </dt>
                     <dd className="text-[#17211B] font-medium">
@@ -172,14 +172,14 @@ export default async function EndangeredSpeciesProfilePage({
                     </dd>
                   </div>
                   <div>
-                    <dt className="text-[#8A958E] uppercase tracking-wider text-[11px]">
+                    <dt className="text-[#636E66] uppercase tracking-wider text-[11px]">
                       Animal group
                     </dt>
                     <dd className="text-[#2C3A2F]">{group.label}</dd>
                   </div>
                   {trend && (
                     <div>
-                      <dt className="text-[#8A958E] uppercase tracking-wider text-[11px]">
+                      <dt className="text-[#636E66] uppercase tracking-wider text-[11px]">
                         Population trend
                       </dt>
                       <dd className="text-[#2C3A2F]">
@@ -189,7 +189,7 @@ export default async function EndangeredSpeciesProfilePage({
                     </div>
                   )}
                   <div>
-                    <dt className="text-[#8A958E] uppercase tracking-wider text-[11px]">
+                    <dt className="text-[#636E66] uppercase tracking-wider text-[11px]">
                       Last verified
                     </dt>
                     <dd className="text-[#2C3A2F]">

@@ -118,7 +118,7 @@ export default function OrangutanPage() {
               <h2>The Three Species</h2>
               <div className="overflow-x-auto rounded-xl border border-[#DDE6DD] mb-6">
                 <table>
-                  <caption className="text-xs text-[#8A958E] text-left px-4 pt-3 pb-1">
+                  <caption className="text-xs text-[#636E66] text-left px-4 pt-3 pb-1">
                     Recognised orangutan species (verify current conservation status at iucnredlist.org)
                   </caption>
                   <tbody>
@@ -139,7 +139,7 @@ export default function OrangutanPage() {
               <h2>Classification</h2>
               <div className="overflow-x-auto rounded-xl border border-[#DDE6DD] mb-6">
                 <table>
-                  <caption className="text-xs text-[#8A958E] text-left px-4 pt-3 pb-1">
+                  <caption className="text-xs text-[#636E66] text-left px-4 pt-3 pb-1">
                     Taxonomic classification — Bornean orangutan as a reference species
                   </caption>
                   <tbody>
@@ -256,7 +256,7 @@ export default function OrangutanPage() {
                     ["IUCN Status", "High risk — verify by species"],
                   ].map(([label, value]) => (
                     <div key={label} className="px-5 py-3 flex flex-col gap-0.5">
-                      <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">
+                      <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">
                         {label}
                       </dt>
                       <dd className="text-[#17211B] font-medium">{value}</dd>

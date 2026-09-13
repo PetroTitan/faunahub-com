@@ -52,6 +52,10 @@ const footerLinks: Record<string, { label: string; href: string }[]> = {
     { label: "About", href: "/about" },
     { label: "Editorial Policy", href: "/editorial-policy" },
     { label: "Animal Research Sources", href: "/animal-research-sources" },
+    // /resources was reachable only through the sitemap — indexable, crawlable
+    // and with zero inbound links from any of the site's 2,255 pages. It sits
+    // beside the other source-and-trust pages because that is what it is.
+    { label: "Pet Care Resources", href: "/resources" },
     { label: "Image Credits", href: "/image-credits" },
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Cookie Policy", href: "/cookie-policy" },
@@ -94,7 +98,7 @@ export default function SiteFooter() {
         >
           {Object.entries(footerLinks).map(([section, links]) => (
             <div key={section}>
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-[#8A958E] mb-3">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-[#9FAFA4] mb-3">
                 {section}
               </h3>
               <ul className="space-y-2">
@@ -114,7 +118,7 @@ export default function SiteFooter() {
         </nav>
 
         {/* Bottom bar */}
-        <div className="pt-6 border-t border-[#2E3F50] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs text-[#5E6B63]">
+        <div className="pt-6 border-t border-[#2E3F50] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-xs text-[#9FAFA4]">
           <p>© {new Date().getFullYear()} FaunaHub. All rights reserved.</p>
           <p className="max-w-md text-right text-[11px] leading-relaxed">
             FaunaHub is an independent educational platform. Content is not a

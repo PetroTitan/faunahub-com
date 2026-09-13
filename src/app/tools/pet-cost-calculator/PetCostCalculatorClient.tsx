@@ -191,14 +191,14 @@ export default function PetCostCalculatorClient() {
             </label>
             <p
               id={`m-${field.key}-desc`}
-              className="text-xs text-[#8A958E] mb-1.5"
+              className="text-xs text-[#636E66] mb-1.5"
             >
               {field.description}
             </p>
             <div className="relative">
               <span
                 aria-hidden="true"
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8A958E] text-sm"
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-[#636E66] text-sm"
               >
                 $
               </span>
@@ -236,7 +236,7 @@ export default function PetCostCalculatorClient() {
           >
             One-time setup costs (optional)
           </h2>
-          <p className="text-xs text-[#8A958E] mt-1">
+          <p className="text-xs text-[#636E66] mt-1">
             Skip the ones that do not apply. The first-year estimate adds these
             to twelve months of recurring costs.
           </p>
@@ -251,14 +251,14 @@ export default function PetCostCalculatorClient() {
             </label>
             <p
               id={`o-${field.key}-desc`}
-              className="text-xs text-[#8A958E] mb-1.5"
+              className="text-xs text-[#636E66] mb-1.5"
             >
               {field.description}
             </p>
             <div className="relative">
               <span
                 aria-hidden="true"
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8A958E] text-sm"
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-[#636E66] text-sm"
               >
                 $
               </span>
@@ -471,7 +471,7 @@ export default function PetCostCalculatorClient() {
         </ul>
       </section>
 
-      <p className="text-xs text-[#8A958E]">Last updated: May 18, 2026</p>
+      <p className="text-xs text-[#636E66]">Last updated: May 18, 2026</p>
     </div>
   );
 }

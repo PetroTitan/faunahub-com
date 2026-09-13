@@ -178,7 +178,7 @@ function Field({
         {label}
       </label>
       {children}
-      {helper && <p className="text-xs text-[#8A958E] leading-relaxed">{helper}</p>}
+      {helper && <p className="text-xs text-[#636E66] leading-relaxed">{helper}</p>}
     </div>
   );
 }
@@ -346,7 +346,7 @@ export default function PetFeedingSchedulePlannerClient() {
           className="rounded-2xl border border-[#DDE6DD] bg-white p-5 sm:p-6"
         >
           <div className="border-b border-[#DDE6DD] pb-3 mb-4">
-            <p className="text-xs uppercase tracking-wider text-[#8A958E]">
+            <p className="text-xs uppercase tracking-wider text-[#636E66]">
               Sample routine template
             </p>
             <h3 className="text-lg font-bold text-[#17211B] mt-1">
@@ -412,7 +412,7 @@ export default function PetFeedingSchedulePlannerClient() {
             </div>
           </div>
 
-          <p className="mt-4 text-[11px] text-[#8A958E] leading-relaxed">
+          <p className="mt-4 text-[11px] text-[#636E66] leading-relaxed">
             Illustrative template only · Not veterinary nutrition advice · No
             feeding amounts · Your selections stay in your browser and are not
             saved or sent.

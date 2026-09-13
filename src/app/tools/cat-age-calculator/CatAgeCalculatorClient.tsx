@@ -35,7 +35,7 @@ export default function CatAgeCalculatorClient() {
   return (
     <main id="main-content">
       <div className="container-content py-10">
-        <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-6 flex gap-2 items-center flex-wrap">
+        <nav aria-label="Breadcrumb" className="text-sm text-[#636E66] mb-6 flex gap-2 items-center flex-wrap">
           <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
           <span>/</span>
           <Link href="/tools" className="hover:text-[#063F2A] hover:no-underline">Tools</Link>
@@ -70,7 +70,7 @@ export default function CatAgeCalculatorClient() {
               onChange={(e) => setCatAge(e.target.value)}
               className="w-full px-3 py-2.5 border border-[#DDE6DD] rounded-lg text-sm text-[#17211B] focus:outline-none focus:border-[#063F2A] focus:ring-1 focus:ring-[#063F2A]"
             />
-            <p className="text-xs text-[#8A958E] mt-1.5">Enter the age in years (e.g. 1, 2.5, 10)</p>
+            <p className="text-xs text-[#636E66] mt-1.5">Enter the age in years (e.g. 1, 2.5, 10)</p>
           </div>
 
           {humanAge !== null && lifeStage !== null && (
@@ -109,11 +109,11 @@ export default function CatAgeCalculatorClient() {
               ].map(([stage, range]) => (
                 <div key={stage} className="flex justify-between">
                   <span className="text-[#2C3A2F] font-medium">{stage}</span>
-                  <span className="text-[#8A958E]">{range}</span>
+                  <span className="text-[#636E66]">{range}</span>
                 </div>
               ))}
             </div>
-            <p className="text-xs text-[#8A958E] mt-3">
+            <p className="text-xs text-[#636E66] mt-3">
               Stage definitions are approximate and based on general feline veterinary guidelines.
               Individual cats vary. Life stage boundaries are used by veterinarians to guide
               preventive care frequency and health monitoring.
@@ -208,7 +208,7 @@ export default function CatAgeCalculatorClient() {
             </ul>
           </section>
 
-          <p className="text-xs text-[#8A958E]">Last updated: May 18, 2026</p>
+          <p className="text-xs text-[#636E66]">Last updated: May 18, 2026</p>
         </div>
       </div>
     </main>
