@@ -367,7 +367,7 @@ export default function PetAdoptionReadinessQuizClient() {
             style={{ width: `${progressPct}%` }}
           />
         </div>
-        <p className="text-xs text-[#8A958E]">
+        <p className="text-xs text-[#636E66]">
           {progress} of {QUESTIONS.length} answered
         </p>
 
@@ -441,7 +441,7 @@ export default function PetAdoptionReadinessQuizClient() {
             </button>
           )}
           {!allAnswered && (
-            <span className="text-xs text-[#8A958E]">
+            <span className="text-xs text-[#636E66]">
               Answer all {QUESTIONS.length} questions to see the result.
             </span>
           )}
@@ -496,7 +496,7 @@ export default function PetAdoptionReadinessQuizClient() {
                     key={f.title}
                     className="border-l-2 border-l-[#DDE6DD] pl-3"
                   >
-                    <p className="text-xs text-[#8A958E]">{f.title}</p>
+                    <p className="text-xs text-[#636E66]">{f.title}</p>
                     <p>{f.flag}</p>
                   </li>
                 ))}

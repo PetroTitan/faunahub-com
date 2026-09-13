@@ -29,10 +29,13 @@ import {
   wordVariants,
 } from "../src/lib/search/normalize.ts";
 import type { SearchIndexPayload, SearchResult } from "../src/lib/search/types.ts";
+import { expandDocuments } from "../src/lib/search/load-index.ts";
 
 const REPO_ROOT = path.resolve(import.meta.dirname, "..");
-const payload = JSON.parse(
-  fs.readFileSync(path.join(REPO_ROOT, "public", "search-index.json"), "utf8"),
+const payload = expandDocuments(
+  JSON.parse(
+fs.readFileSync(path.join(REPO_ROOT, "public", "search-index.json"), "utf8"),
+  ),
 ) as SearchIndexPayload;
 
 const engine = createSearchEngine(payload);

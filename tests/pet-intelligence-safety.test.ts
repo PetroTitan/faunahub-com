@@ -21,14 +21,51 @@ import path from "node:path";
 
 import { BREEDS } from "../src/lib/pet-intelligence/index.ts";
 import { AKC_TRAITS_EXCLUDED } from "../src/lib/pet-intelligence/trait-scale.ts";
+import {
+  PUBLISHED_COMPARISONS,
+  differenceSummary,
+} from "../src/lib/pet-intelligence/comparisons/index.ts";
+import { publishedCollections } from "../src/lib/pet-intelligence/collections.ts";
+import { BREED_RANKINGS, rankingResult } from "../src/lib/pet-intelligence/rankings.ts";
+import { DECISION_PAGES } from "../src/lib/pet-choice/data.ts";
 import type { Breed } from "../src/lib/pet-intelligence/types.ts";
 
 const REPO_ROOT = path.resolve(import.meta.dirname, "..");
 
-/** Every string a reader can see on a breed page. */
+/**
+ * Every string a reader can see on a breed page.
+ *
+ * THIS FUNCTION DEFINES THE SUITE'S SCOPE, and it used to open with
+ * `if (!breed.editorial) return ""`. That single line reduced every detector
+ * below to the 20 authored breeds — 7.3% of the corpus — on the reasoning that
+ * a data profile "renders only sourced registry values and a standing note, so
+ * there is no editorial prose to police".
+ *
+ * The reasoning was wrong twice. `originNote` and `scopeNote` are free prose a
+ * human writes, they are rendered unconditionally
+ * (BreedAttributes.tsx:165 and :209), and neither was ever reachable for a
+ * profile without editorial — `originNote` sat below the early return, and
+ * `scopeNote` was absent from the list entirely. Text that fails four detectors
+ * in an authored breed passed all 29 tests in a data profile.
+ *
+ * So the fields that exist on EVERY breed are collected first and
+ * unconditionally. The editorial block is added when there is one.
+ */
 function visibleText(breed: Breed): string {
+  const always = [
+    breed.originNote ?? "",
+    breed.scopeNote ?? "",
+    breed.coat?.statedAs ?? "",
+    breed.lifespanYears?.statedAs ?? "",
+    ...Object.values(breed.traits ?? {}).map((t) => t?.method ?? ""),
+    ...(breed.measurements?.heightCm ?? []).map((m) => m.statedAs),
+    ...(breed.measurements?.weightKg ?? []).map((m) => m.statedAs),
+    ...breed.recognition.map((r) => r.registryGroup ?? ""),
+  ];
   const e = breed.editorial;
+  if (!e) return always.join("\n");
   return [
+    ...always,
     ...e.intro,
     ...e.appearance,
     ...e.temperament,
@@ -39,7 +76,6 @@ function visibleText(breed: Breed): string {
     ...e.responsibility,
     ...(e.householdContext ?? []),
     ...e.faqs.flatMap((f) => [f.question, f.answer]),
-    breed.originNote ?? "",
   ].join("\n");
 }
 
@@ -102,6 +138,7 @@ const VET_ROUTING =
 
 test("every breed's health section ROUTES the reader to a veterinarian", () => {
   for (const breed of BREEDS) {
+    if (!breed.editorial) continue;
     const health = breed.editorial.health.join(" ");
     assert.match(health, VET_ROUTING, `${breed.id} health section mentions vets without routing to one`);
   }
@@ -179,6 +216,7 @@ const VARIATION =
 test("wherever children are discussed, variation is stated in the same partition", () => {
   for (const breed of BREEDS) {
     const e = breed.editorial;
+    if (!e) continue;
     const openProse = [
       ...e.intro,
       ...e.appearance,
@@ -216,22 +254,39 @@ test("wherever children are discussed, variation is stated in the same partition
 const HYPOALLERGENIC_CLAIM =
   /\b(?:is|are) (?:a )?(?:truly |completely |fully )?hypoallergenic\b|\b(?:allergy[- ]free|allergen[- ]free|safe for allergy sufferers|will not trigger allergies)\b/gi;
 
+/**
+ * True when a match is DENIED rather than asserted.
+ *
+ * "No breed is hypoallergenic" contains the phrase this suite forbids, and it
+ * is the sentence FaunaHub most wants on the page. A phrase list that cannot
+ * tell a claim from its correction flags precisely the honest writing, so every
+ * allergy check reads the run-up to the match before failing.
+ */
+function isDenial(text: string, index: number): boolean {
+  const before = text.slice(Math.max(0, index - 60), index).toLowerCase();
+  return /\bno\b|\bnot\b|\bnone\b|\bnever\b/.test(before);
+}
+
 test("no breed is described as hypoallergenic", () => {
-  const hits = findAll(HYPOALLERGENIC_CLAIM).filter(
-    // "No dog breed IS fully hypoallergenic" is the correction, not the claim.
-    (h) => !/^\s*(?:is|are)\b/i.test(h.match) || false,
-  );
   for (const breed of BREEDS) {
     const text = visibleText(breed);
     for (const m of text.matchAll(HYPOALLERGENIC_CLAIM)) {
-      const before = text.slice(Math.max(0, m.index - 60), m.index).toLowerCase();
       assert.ok(
-        /\bno\b|\bnot\b|\bnone\b/.test(before),
-        `${breed.id} claims hypoallergenic status: "...${before}${m[0]}"`,
+        isDenial(text, m.index),
+        `${breed.id} claims hypoallergenic status: "${m[0]}"`,
       );
     }
   }
-  void hits;
+});
+
+test("the denial test distinguishes a claim from its correction", () => {
+  const claim = "This breed is hypoallergenic and sheds little.";
+  const correction = "No breed is hypoallergenic, whatever a seller tells you.";
+  assert.ok(!isDenial(claim, claim.indexOf("is hypoallergenic")), "claim must not read as denial");
+  assert.ok(
+    isDenial(correction, correction.indexOf("is hypoallergenic")),
+    "correction must read as denial",
+  );
 });
 
 test("the hypoallergenic detector actually fires", () => {
@@ -339,10 +394,11 @@ test("no breed record carries a structured child, stranger or protectiveness val
  * Hedging present where it should be
  * ---------------------------------------------------------------- */
 
-test("every breed's temperament section hedges", () => {
+test("every authored breed's temperament section hedges", () => {
   const HEDGE =
     /\b(?:tends? to|tend to|commonly|often|generally|usually|widely described|frequently described|may be|varies|vary|is described as|are described as)\b/i;
   for (const breed of BREEDS) {
+    if (!breed.editorial) continue;
     const text = breed.editorial.temperament.join(" ");
     assert.match(text, HEDGE, `${breed.id} states temperament as fact`);
   }
@@ -364,21 +420,68 @@ test("the absolute-language detector actually fires", () => {
  * Schema safety
  * ---------------------------------------------------------------- */
 
-test("breed pages emit no Product, Review or AggregateRating schema", () => {
-  for (const file of [
+/**
+ * Every source file that renders any part of the breed space.
+ *
+ * This was a HAND-WRITTEN LIST OF SEVEN FILES guarding against a hand-added
+ * file — the one failure mode a list cannot cover. A reviewer put a Product
+ * node with an AggregateRating into five other breed-facing surfaces
+ * (BreedCollectionView, BreedRankingView, BreedDirectory, BreedDiscovery,
+ * BreedProfileGrid) and all 479 tests passed.
+ *
+ * Discovering the files instead means a new component is covered the moment it
+ * exists, which is the only way a guard survives a corpus that grows.
+ */
+function breedSurfaceFiles(): string[] {
+  const out: string[] = [];
+  const roots = [
+    path.join(REPO_ROOT, "src/components/breeds"),
+    path.join(REPO_ROOT, "src/app/dogs"),
+    path.join(REPO_ROOT, "src/app/cats"),
+  ];
+  const walkDir = (dir: string) => {
+    if (!fs.existsSync(dir)) return;
+    for (const entry of fs.readdirSync(dir)) {
+      const full = path.join(dir, entry);
+      if (fs.statSync(full).isDirectory()) walkDir(full);
+      else if (/\.tsx?$/.test(full)) out.push(full);
+    }
+  };
+  roots.forEach(walkDir);
+  // Shared components that render breed data but live outside those trees.
+  for (const extra of ["src/components/BreedProfileLayout.tsx"]) {
+    const full = path.join(REPO_ROOT, extra);
+    if (fs.existsSync(full)) out.push(full);
+  }
+  return out;
+}
+
+test("the breed-surface file discovery finds the components it must guard", () => {
+  // A discovered list that silently returns nothing would make the guard below
+  // pass vacuously — the exact failure it replaces.
+  const files = breedSurfaceFiles().map((f) => path.relative(REPO_ROOT, f));
+  assert.ok(files.length >= 15, `only ${files.length} breed surfaces discovered`);
+  for (const required of [
+    "src/components/breeds/BreedCollectionView.tsx",
+    "src/components/breeds/BreedRankingView.tsx",
+    "src/components/breeds/BreedDirectory.tsx",
+    "src/components/breeds/BreedDiscovery.tsx",
+    "src/components/breeds/BreedProfileGrid.tsx",
     "src/components/BreedProfileLayout.tsx",
-    "src/components/breeds/BreedAttributes.tsx",
-    "src/components/breeds/BreedProfileView.tsx",
     "src/app/dogs/breeds/[slug]/page.tsx",
-    "src/app/cats/breeds/[slug]/page.tsx",
-    "src/app/dogs/breed-finder/page.tsx",
-    "src/app/cats/breed-finder/page.tsx",
+    "src/app/cats/compare/[slug]/page.tsx",
   ]) {
-    const source = fs.readFileSync(path.join(REPO_ROOT, file), "utf8");
+    assert.ok(files.includes(required), `discovery missed ${required}`);
+  }
+});
+
+test("breed pages emit no Product, Review or AggregateRating schema", () => {
+  for (const file of breedSurfaceFiles()) {
+    const source = fs.readFileSync(file, "utf8");
     assert.doesNotMatch(
       source,
       /"@type":\s*"(?:Product|Review|AggregateRating|Offer)"|AggregateRating|aggregateRating/,
-      `${file} emits commercial schema`,
+      `${path.relative(REPO_ROOT, file)} emits commercial schema`,
     );
   }
 });
@@ -386,4 +489,321 @@ test("breed pages emit no Product, Review or AggregateRating schema", () => {
 test("no breed page invents a Schema.org type that does not exist", () => {
   const source = fs.readFileSync(path.join(REPO_ROOT, "src/lib/schema.ts"), "utf8");
   assert.doesNotMatch(source, /"(?:DogBreed|CatBreed|PetBreed)"/, "invented Schema.org type");
+});
+
+/* ---------------------------------------------------------------- *
+ * Comparisons must never pick a winner
+ * ---------------------------------------------------------------- */
+
+test("no comparison difference statement declares a winner", () => {
+  // `differenceSummary` is generated from two breeds' values, so a careless
+  // template here would produce a verdict on hundreds of pages at once.
+  const VERDICT =
+    /\b(better|best|worse|superior|inferior|winner|wins|beats|safer|smarter|easier breed|right choice|recommend)\b/i;
+  for (const pair of PUBLISHED_COMPARISONS) {
+    for (const line of differenceSummary(pair)) {
+      assert.doesNotMatch(line, VERDICT, `${pair.slug}: "${line}"`);
+    }
+  }
+});
+
+test("the comparison verdict detector actually fires", () => {
+  const VERDICT =
+    /\b(better|best|worse|superior|inferior|winner|wins|beats|safer|smarter|easier breed|right choice|recommend)\b/i;
+  for (const bad of [
+    "The Labrador is the better family dog.",
+    "We recommend the Poodle for most households.",
+    "The Beagle wins on trainability.",
+  ]) {
+    assert.match(bad, VERDICT, `detector missed: ${bad}`);
+  }
+});
+
+/**
+ * A verdict word only counts when nothing nearby negates it.
+ *
+ * The first version matched a bare "better" and failed on "Neither is better" —
+ * the single most important line on the page. Widening it to a lookbehind still
+ * failed on "There is no winner" and "does not pick a winner", where the
+ * negation is several words away. So the check looks back a short window rather
+ * than trying to encode English in one expression. This is the same failure the
+ * child-safety guard was built to avoid: a naive phrase list flags the honest
+ * sentence and pressures an author to delete it.
+ */
+function unnegatedVerdicts(source: string): string[] {
+  const VERDICT = /\b(winner|wins|beats|superior|is better|are better)\b/gi;
+  const NEGATION = /\b(no|not|never|neither|nor|without)\b/i;
+  const hits: string[] = [];
+  for (const m of source.matchAll(VERDICT)) {
+    const before = source.slice(Math.max(0, m.index - 60), m.index);
+    if (!NEGATION.test(before)) hits.push(source.slice(Math.max(0, m.index - 40), m.index + 20));
+  }
+  return hits;
+}
+
+test("the comparison renderer contains no winner or score logic", () => {
+  const source = fs.readFileSync(
+    path.join(REPO_ROOT, "src/components/breeds/BreedComparisonView.tsx"),
+    "utf8",
+  );
+  assert.deepEqual(unnegatedVerdicts(source), [], "verdict logic in the comparison view");
+  assert.doesNotMatch(source, /★|\/\s*5\b|aggregateRating/i, "a score reached the comparison view");
+  assert.match(
+    source,
+    /Neither is better/,
+    "the comparison page no longer states that it picks no winner",
+  );
+});
+
+test("the comparison-view detector separates verdicts from disclaimers", () => {
+  assert.equal(unnegatedVerdicts("The Labrador is the winner here.").length, 1);
+  assert.equal(unnegatedVerdicts("The Poodle is better for most homes.").length, 1);
+  assert.equal(unnegatedVerdicts("Neither is better.").length, 0);
+  assert.equal(unnegatedVerdicts("FaunaHub does not pick a winner.").length, 0);
+  assert.equal(unnegatedVerdicts("There is no winner, no recommendation.").length, 0);
+});
+
+
+/*
+ * ---------------------------------------------------------------------------
+ * DERIVED SURFACES
+ *
+ * Everything above reads breed records. Collections, rankings and comparisons
+ * carry their own written prose — titles, descriptions, methodology notes — and
+ * until now no detector could see a word of it.
+ *
+ * That is not hypothetical. A reviewer renamed a collection to "Best
+ * Low-Maintenance Dog Breeds" — the exact phrase collections.ts's own docstring
+ * forbids — and all 479 tests passed, because the only test touching collection
+ * titles checks them for slug collisions and is title-agnostic. 27 collections,
+ * 3 rankings and 210 comparison pages were policed by nothing.
+ *
+ * These strings are the most dangerous prose on the site: a breed page's claim
+ * is about one breed, but a collection TITLE is a claim about a whole category
+ * and is what a search engine shows.
+ * ---------------------------------------------------------------------------
+ */
+
+/** Every reader-visible string that is written rather than sourced. */
+function derivedSurfaceText(): { surface: string; text: string }[] {
+  const out: { surface: string; text: string }[] = [];
+  for (const c of publishedCollections()) {
+    out.push({
+      surface: `collection ${c.slug}`,
+      text: [c.title, c.description, c.methodology].join("\n"),
+    });
+  }
+  for (const r of BREED_RANKINGS) {
+    out.push({
+      surface: `ranking ${r.slug}`,
+      text: [r.title, r.description, r.methodology, r.columnLabel].join("\n"),
+    });
+  }
+  for (const p of PUBLISHED_COMPARISONS) {
+    out.push({
+      surface: `comparison ${p.slug}`,
+      text: [p.basis, ...differenceSummary(p)].join("\n"),
+    });
+  }
+  return out;
+}
+
+function findAllDerived(pattern: RegExp): { surface: string; match: string }[] {
+  const hits: { surface: string; match: string }[] = [];
+  for (const { surface, text } of derivedSurfaceText()) {
+    for (const m of text.matchAll(pattern)) hits.push({ surface, match: m[0] });
+  }
+  return hits;
+}
+
+test("derived surfaces exist to be checked", () => {
+  // Guards against the whole block below passing because the corpus is empty.
+  const surfaces = derivedSurfaceText();
+  assert.ok(surfaces.length > 200, `only ${surfaces.length} derived surfaces found`);
+  assert.ok(surfaces.every((s) => s.text.trim().length > 0), "a derived surface has no prose");
+});
+
+test("no collection, ranking or comparison crowns a best breed", () => {
+  assert.deepEqual(findAllDerived(BEST_BREED_CLAIM), [], "superlative on a derived surface");
+});
+
+test("the derived-surface superlative detector actually fires", () => {
+  assert.ok("Best Low-Maintenance Dog Breeds".match(/\bbest\b/i));
+  assert.ok(
+    "These are the best dog breeds for families".match(BEST_BREED_CLAIM),
+    "BEST_BREED_CLAIM must catch a category-level superlative",
+  );
+});
+
+/*
+ * A collection TITLE has less room to hedge than a paragraph, so the bar is
+ * higher: marketing superlatives are refused outright, not merely in the
+ * "best breed" construction the prose detector looks for.
+ */
+const TITLE_SUPERLATIVE =
+  /\b(?:best|top|worst|greatest|ultimate|perfect|ideal|must[- ]have|favourite|favorite)\b/i;
+
+test("no collection or ranking TITLE uses a marketing superlative", () => {
+  const offenders: string[] = [];
+  for (const c of publishedCollections()) {
+    if (TITLE_SUPERLATIVE.test(c.title)) offenders.push(`collection ${c.slug}: ${c.title}`);
+  }
+  for (const r of BREED_RANKINGS) {
+    // "Tallest"/"Heaviest"/"Smallest" are measured superlatives and allowed —
+    // they name the variable the page actually orders by.
+    if (TITLE_SUPERLATIVE.test(r.title)) offenders.push(`ranking ${r.slug}: ${r.title}`);
+  }
+  assert.deepEqual(offenders, [], "marketing superlative in a title");
+});
+
+test("the title-superlative guard actually fires", () => {
+  assert.ok(TITLE_SUPERLATIVE.test("Best Low-Maintenance Dog Breeds"));
+  assert.ok(TITLE_SUPERLATIVE.test("Top 10 Apartment Dogs"));
+  assert.ok(!TITLE_SUPERLATIVE.test("Tallest Dog Breeds by Published Height"));
+  assert.ok(!TITLE_SUPERLATIVE.test("Short-Coated Dog Breeds"));
+});
+
+test("no derived surface promises child safety, allergy freedom or a rating", () => {
+  assert.deepEqual(findAllDerived(CHILD_CERTAINTY), [], "child-safety promise");
+  assert.deepEqual(findAllDerived(FAKE_PRECISION), [], "numeric rating");
+  assert.deepEqual(findAllDerived(VET_INSTRUCTION), [], "veterinary instruction");
+
+  // Two shedding collections carry "No breed is hypoallergenic" as the whole
+  // point of their methodology note, so this one reads the run-up too.
+  for (const { surface, text } of derivedSurfaceText()) {
+    for (const m of text.matchAll(HYPOALLERGENIC_CLAIM)) {
+      assert.ok(isDenial(text, m.index), `${surface} claims hypoallergenic status: "${m[0]}"`);
+    }
+  }
+});
+
+test("the derived-surface detectors fire on injected text", () => {
+  assert.ok("Breeds that are always safe with children".match(CHILD_CERTAINTY));
+  assert.ok("Breeds that are completely hypoallergenic".match(HYPOALLERGENIC_CLAIM));
+  assert.ok("Scores 5/5 for grooming".match(FAKE_PRECISION));
+  assert.ok("Administer 10 mg daily".match(VET_INSTRUCTION));
+});
+
+test("no ranking names an excluded breed it cannot actually place", () => {
+  /*
+   * The named-exclusions block tells a reader the Chihuahua is missing from
+   * "Smallest Dog Breeds" and why. That is only honest if the breed is
+   * genuinely absent from the table — naming a breed as excluded while also
+   * ranking it would be worse than saying nothing.
+   */
+  for (const ranking of BREED_RANKINGS) {
+    const result = rankingResult(ranking);
+    const ranked = new Set(result.rows.map((r) => r.breed.id));
+    for (const { breed } of result.notableExclusions) {
+      assert.ok(
+        !ranked.has(breed.id),
+        `${ranking.slug} names ${breed.name} as excluded but also ranks it`,
+      );
+    }
+  }
+});
+
+/*
+ * ---------------------------------------------------------------------------
+ * DECISION GUIDES
+ *
+ * These are the most claim-heavy pages on the site. Every one is titled "Best
+ * X", and that framing is deliberate and hedged in the body — it is the phrase
+ * a reader actually searches, and the page's job is to complicate it honestly
+ * rather than to answer it. So the title-superlative guard above, which governs
+ * registry-DERIVED pages that must not editorialise at all, does not apply
+ * here; a collection called "Best Low-Maintenance Dog Breeds" is a registry
+ * query pretending to be advice, which is a different thing entirely.
+ *
+ * The prose detectors do apply, and until now none of them could read a word of
+ * these pages.
+ * ---------------------------------------------------------------------------
+ */
+
+function decisionText(): { surface: string; text: string }[] {
+  return DECISION_PAGES.map((page) => ({
+    surface: `decision ${page.slug}`,
+    text: [
+      page.title,
+      page.description,
+      page.directAnswer,
+      ...page.decisionCriteria,
+      page.recommendationsIntro,
+      ...page.recommendations.flatMap((r) => [r.name, r.summary, ...r.bullets, r.caveat ?? ""]),
+      ...page.careExpectations,
+      ...page.notIdealFor,
+      ...page.faqs.flatMap((f) => [f.question, f.answer]),
+    ].join("\n"),
+  }));
+}
+
+test("decision guides exist and carry prose to check", () => {
+  const pages = decisionText();
+  assert.ok(pages.length >= 13, `only ${pages.length} decision guides found`);
+  assert.ok(pages.every((p) => p.text.length > 500), "a decision guide has almost no prose");
+});
+
+test("no decision guide promises child safety, allergy freedom, or gives treatment", () => {
+  for (const { surface, text } of decisionText()) {
+    for (const m of text.matchAll(CHILD_CERTAINTY)) {
+      assert.fail(`${surface} promises a child-safety outcome: "${m[0]}"`);
+    }
+    for (const m of text.matchAll(VET_INSTRUCTION)) {
+      assert.fail(`${surface} gives a veterinary instruction: "${m[0]}"`);
+    }
+    for (const m of text.matchAll(FAKE_PRECISION)) {
+      assert.fail(`${surface} renders a numeric rating: "${m[0]}"`);
+    }
+    for (const m of text.matchAll(HYPOALLERGENIC_CLAIM)) {
+      assert.ok(isDenial(text, m.index), `${surface} claims hypoallergenic status: "${m[0]}"`);
+    }
+  }
+});
+
+test("no decision guide presents a named condition as a breed diagnosis", () => {
+  /*
+   * A decision guide is exactly where "prone to hip dysplasia" feels helpful,
+   * and it is a veterinary claim about an animal nobody has examined. Caveats
+   * belong on commitment and cost, which a reader can act on.
+   */
+  for (const { surface, text } of decisionText()) {
+    for (const m of text.matchAll(CONDITION_CLAIM)) {
+      assert.fail(`${surface} states a breed-level condition claim: "${m[0]}"`);
+    }
+  }
+});
+
+test("every trait bullet in a decision guide matches the registry", () => {
+  /*
+   * A guide that says "higher exercise needs" beside a breed whose profile says
+   * "moderate" is two pages of the same site disagreeing, and the reader has no
+   * way to tell which is right. This re-derives each bullet from the record.
+   */
+  const BAND: Record<string, string> = { Higher: "higher", Lower: "lower", Moderate: "moderate" };
+  const FIELD: Record<string, string> = {
+    "exercise needs": "exerciseNeeds",
+    grooming: "groomingNeeds",
+    shedding: "shedding",
+    trainability: "trainability",
+    vocality: "vocality",
+  };
+  let checked = 0;
+  for (const page of DECISION_PAGES) {
+    for (const rec of page.recommendations) {
+      const breed = BREEDS.find((b) => b.name === rec.name);
+      for (const bullet of rec.bullets) {
+        const m = bullet.match(
+          /^(Higher|Lower|Moderate) (exercise needs|grooming|shedding|trainability|vocality)$/,
+        );
+        if (!m || !breed) continue;
+        checked += 1;
+        assert.equal(
+          breed.traits?.[FIELD[m[2]] as keyof typeof breed.traits]?.value,
+          BAND[m[1]],
+          `${page.slug}: "${bullet}" for ${rec.name} disagrees with the registry`,
+        );
+      }
+    }
+  }
+  assert.ok(checked >= 30, `only ${checked} trait bullets were re-derived — is the format matching?`);
 });

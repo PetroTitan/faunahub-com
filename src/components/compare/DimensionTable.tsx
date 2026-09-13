@@ -82,7 +82,7 @@ export default function DimensionTable({
                 <td className="align-top px-4 py-3 text-[#5E6B63] border-t border-[#EAF0EA] leading-relaxed">
                   {dimension.interpretation}
                   {dimension.caveat && (
-                    <span className="block mt-1.5 text-xs text-[#8A958E]">
+                    <span className="block mt-1.5 text-xs text-[#636E66]">
                       {dimension.caveat}
                     </span>
                   )}
@@ -124,7 +124,7 @@ export default function DimensionTable({
               <p className="text-sm text-[#5E6B63] leading-relaxed border-t border-[#EAF0EA] pt-2.5 mb-0">
                 {dimension.interpretation}
                 {dimension.caveat && (
-                  <span className="block mt-1.5 text-xs text-[#8A958E]">
+                  <span className="block mt-1.5 text-xs text-[#636E66]">
                     {dimension.caveat}
                   </span>
                 )}

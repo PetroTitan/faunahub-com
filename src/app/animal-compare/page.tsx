@@ -237,7 +237,7 @@ export default function CompareHubPage() {
                 <p className="text-sm text-[#5E6B63] leading-relaxed mb-2">
                   {category.metaDescription}
                 </p>
-                <p className="text-xs uppercase tracking-wide text-[#8A958E]">
+                <p className="text-xs uppercase tracking-wide text-[#636E66]">
                   {count} {count === 1 ? "comparison" : "comparisons"}
                 </p>
               </li>

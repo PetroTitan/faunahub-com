@@ -128,7 +128,9 @@ export default function BreedProfileLayout(props: BreedProfileLayoutProps) {
       // reaching the structured data.
       image: image ? `https://faunahub.com${image.localPath}` : undefined,
     }),
-    faqSchema(faqs),
+    // An empty FAQPage is a structured-data claim that the page answers
+    // questions it does not. 254 data profiles were emitting mainEntity: [].
+    ...(faqs.length > 0 ? [faqSchema(faqs)] : []),
   ];
 
   return (
@@ -202,17 +204,33 @@ export default function BreedProfileLayout(props: BreedProfileLayoutProps) {
 
               {structuredSection}
 
-              <h2>Appearance &amp; size</h2>
-              {appearance}
+              {appearance && (
+                <>
+                  <h2>Appearance &amp; size</h2>
+                  {appearance}
+                </>
+              )}
 
-              <h2>{hasHouseholdContext ? "Temperament & household fit" : "Temperament"}</h2>
-              {temperament}
+              {temperament && (
+                <>
+                  <h2>{hasHouseholdContext ? "Temperament & household fit" : "Temperament"}</h2>
+                  {temperament}
+                </>
+              )}
 
-              <h2>{species === "dog" ? "Exercise & enrichment" : "Activity & enrichment"}</h2>
-              {activity}
+              {activity && (
+                <>
+                  <h2>{species === "dog" ? "Exercise & enrichment" : "Activity & enrichment"}</h2>
+                  {activity}
+                </>
+              )}
 
-              <h2>Grooming &amp; care</h2>
-              {grooming}
+              {grooming && (
+                <>
+                  <h2>Grooming &amp; care</h2>
+                  {grooming}
+                </>
+              )}
 
               {training && (
                 <>
@@ -221,20 +239,30 @@ export default function BreedProfileLayout(props: BreedProfileLayoutProps) {
                 </>
               )}
 
-              <h2>Health considerations</h2>
-              {health}
+              {health && (
+                <>
+                  <h2>Health considerations</h2>
+                  {health}
+                </>
+              )}
 
-              <h2>Responsible ownership</h2>
-              {responsibility}
+              {responsibility && (
+                <>
+                  <h2>Responsible ownership</h2>
+                  {responsibility}
+                </>
+              )}
 
               <DisclaimerBlock type="general" />
 
-              <div className="mt-10">
-                <FAQBlock
-                  items={faqs}
-                  title={`Frequently asked questions — ${breedName}`}
-                />
-              </div>
+              {faqs.length > 0 && (
+                <div className="mt-10">
+                  <FAQBlock
+                    items={faqs}
+                    title={`Frequently asked questions — ${breedName}`}
+                  />
+                </div>
+              )}
 
               <div className="not-prose mt-10">
                 <SourcesSection
@@ -257,7 +285,7 @@ export default function BreedProfileLayout(props: BreedProfileLayoutProps) {
                 <dl className="divide-y divide-[#EAF0EA] text-sm">
                   {quickFacts.map((f) => (
                     <div key={f.label} className="px-5 py-3 flex flex-col gap-0.5">
-                      <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">
+                      <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">
                         {f.label}
                       </dt>
                       <dd className="text-[#17211B] font-medium">{f.value}</dd>

@@ -27,6 +27,7 @@ import {
   bandFromFivePointScale,
   breedPath,
   deriveSizeClass,
+  hasEditorial,
   getBreedSource,
   getRegistry,
   parseMeasurementString,
@@ -270,14 +271,38 @@ test("every measurement keeps the source's own wording", () => {
   }
 });
 
-test("measurement parser rejects rather than guesses", () => {
-  // A single bare figure is genuinely ambiguous — a target, a ceiling, a
-  // typical — so the parser must refuse it instead of picking one.
-  const ambiguous = parseMeasurementString("13 inches", "in");
-  assert.equal(ambiguous.segments.length, 0);
-  assert.deepEqual(ambiguous.rejected, ["13 inches"]);
+test("measurement parser records a single figure as `about`, not a range", () => {
+  // DELIBERATE REVERSAL of the foundation's behaviour, which refused a bare
+  // figure as ambiguous. The ambiguity was real and the remedy was wrong: 45
+  // AKC height strings and 37 weight strings are single figures, and dropping
+  // them lost published data. `about` asserts only what the standard asserts —
+  // one number, no direction — and `statedAs` keeps the original wording.
+  const single = parseMeasurementString("13 inches", "in");
+  assert.equal(single.rejected.length, 0);
+  assert.equal(single.segments.length, 1);
+  assert.equal(single.segments[0].bound, "about");
+  assert.equal(single.segments[0].min, 33);
+  assert.equal(single.segments[0].max, 33);
+});
 
-  // And the four shapes real standards actually use must all parse.
+test("measurement parser still refuses what it cannot interpret", () => {
+  // Relational and unitless statements have no number to record. These are the
+  // shapes that survive in the AKC corpus, and every one of them would need a
+  // human to interpret.
+  for (const text of [
+    "slightly smaller (female)",
+    "females are about 15 pounds less than male",
+    "Proportionate to height",
+    "considerably smaller (female)",
+  ]) {
+    const result = parseMeasurementString(text, "lb");
+    assert.equal(result.segments.length, 0, `parser invented a value for "${text}"`);
+    assert.ok(result.rejected.length > 0, `parser silently dropped "${text}"`);
+  }
+});
+
+test("measurement parser reads the shapes registries actually publish", () => {
+
   const sexSplit = parseMeasurementString("22.5-24.5 inches (male), 21.5-23.5 inches (female)", "in");
   assert.equal(sexSplit.rejected.length, 0);
   assert.deepEqual(
@@ -381,8 +406,11 @@ test("the five-point band edges are where the methodology says", () => {
  * Editorial completeness and relations
  * ---------------------------------------------------------------- */
 
-test("every breed carries the full editorial set", () => {
-  for (const breed of BREEDS) {
+test("every AUTHORED breed carries the full editorial set", () => {
+  // Prose is optional at this corpus size (see Breed.editorial), but a record
+  // that has SOME prose must have all of it — a half-written overview reads as
+  // a bug rather than as a data profile.
+  for (const breed of BREEDS.filter(hasEditorial)) {
     for (const field of [
       "intro",
       "appearance",
@@ -392,14 +420,14 @@ test("every breed carries the full editorial set", () => {
       "health",
       "responsibility",
     ] as const) {
-      const prose = breed.editorial[field];
+      const prose = breed.editorial?.[field];
       assert.ok(prose && prose.length > 0, `${breed.id} has no ${field}`);
       for (const p of prose) {
         assert.ok(p.trim().length > 40, `${breed.id}.${field} has a stub paragraph`);
       }
     }
-    assert.ok(breed.editorial.faqs.length >= 3, `${breed.id} has fewer than three FAQs`);
-    for (const faq of breed.editorial.faqs) {
+    assert.ok((breed.editorial?.faqs.length ?? 0) >= 3, `${breed.id} has fewer than three FAQs`);
+    for (const faq of breed.editorial?.faqs ?? []) {
       assert.ok(faq.question.trim().endsWith("?"), `${breed.id} FAQ is not a question`);
       assert.ok(faq.answer.trim().length > 60, `${breed.id} FAQ answer is a stub`);
     }
@@ -509,18 +537,18 @@ test("a breed image belongs to a breed in the registry", () => {
   }
 });
 
-test("the registry-conflict count in the dogs docstring matches the data", () => {
-  // The docstring said "seven of these twelve" while nine records carried an
-  // originNote. A comment that miscounts its own file is how a reader learns to
-  // stop trusting the comments, so the number is asserted rather than written.
-  const withNote = DOG_BREED_RECORDS.filter((b) => b.originNote).length;
-  const source = fs.readFileSync(
-    path.join(REPO_ROOT, "src/lib/pet-intelligence/breeds/dogs.ts"),
-    "utf8",
-  );
-  const claimed = source.match(/\bNINE of these twelve carry an `originNote`/);
-  assert.ok(claimed, "the dogs docstring no longer states the conflict count");
-  assert.equal(withNote, 9, `${withNote} dog breeds carry an originNote; the docstring says nine`);
+test("every breed listing more than one origin country explains the disagreement", () => {
+  // Replaces an assertion tied to a docstring in the old single-module
+  // `dogs.ts`, which the shard refactor removed. The property it was really
+  // protecting is this one, and it survives the corpus growing.
+  const withSeveral = BREEDS.filter((b) => (b.originCountries?.length ?? 0) > 1);
+  assert.ok(withSeveral.length > 0, "no breed records a registry origin conflict — is the data loaded?");
+  for (const breed of withSeveral) {
+    assert.ok(
+      breed.originNote && breed.originNote.length > 40,
+      `${breed.id} lists several origin countries with no note explaining why`,
+    );
+  }
 });
 
 test("a breed whose registries split it into varieties declares its scope", () => {
@@ -638,4 +666,53 @@ test("an unbounded weight is not banded into a size class", () => {
     undefined,
     "a weight with no upper bound is being banded",
   );
+});
+
+/*
+ * Three fully-recognised AKC breeds deliberately omit `recognizedYear`, because
+ * AKC's year_recognized field for them is a placeholder rather than a date: it
+ * gives 1885 for the Basset Fauve de Bretagne and the Teddy Roosevelt Terrier,
+ * decades before either breed existed in the form the AKC recognises, and 1935
+ * for the Russian Tsvetnaya Bolonka.
+ *
+ * Omitting them is right. Leaving the omission undocumented and unenforced was
+ * not — the next import would have restored all three silently, and they would
+ * have read as facts. Naming them makes the exception deliberate, and makes an
+ * accidental fourth omission visible.
+ */
+const YEAR_OMITTED_ON_PURPOSE = new Set([
+  "dog-basset-fauve-de-bretagne",
+  "dog-russian-tsvetnaya-bolonka",
+  "dog-teddy-roosevelt-terrier",
+]);
+
+test("only the documented exceptions omit a recognition year while fully recognised", () => {
+  const missing: string[] = [];
+  for (const breed of BREEDS) {
+    for (const rec of breed.recognition) {
+      if (rec.registryId !== "akc" || rec.status !== "recognized") continue;
+      if (rec.recognizedYear === undefined && !YEAR_OMITTED_ON_PURPOSE.has(breed.id)) {
+        missing.push(breed.id);
+      }
+    }
+  }
+  assert.deepEqual(
+    missing,
+    [],
+    "fully-recognised AKC breed with no recognition year and no documented reason",
+  );
+});
+
+test("the documented exceptions still exist and still omit the year", () => {
+  // A stale allow-list is its own defect: it would hide a real omission.
+  for (const id of YEAR_OMITTED_ON_PURPOSE) {
+    const breed = BREEDS.find((b) => b.id === id);
+    assert.ok(breed, `${id} is in the exception list but not in the registry`);
+    const akc = breed.recognition.find((r) => r.registryId === "akc");
+    assert.equal(
+      akc?.recognizedYear,
+      undefined,
+      `${id} now records a recognition year — remove it from the exception list`,
+    );
+  }
 });

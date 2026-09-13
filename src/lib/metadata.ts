@@ -48,6 +48,7 @@ export function buildMetadata({
   ogImage,
   noindex,
   noindexFollow,
+  brandSuffix = true,
 }: {
   title: string;
   description: string;
@@ -64,10 +65,20 @@ export function buildMetadata({
    * `noindex` (which also sets `nofollow`) would waste that.
    */
   noindexFollow?: boolean;
+  /**
+   * Append " | FaunaHub" to the title. Defaults to true.
+   *
+   * Set false where the title's own words are the distinctive content and the
+   * eleven characters cost more than the brand earns. Comparison pages are the
+   * case: two breed names can run to 62 characters between them, so the suffix
+   * is what pushes the SECOND BREED NAME out of the rendered width — the one
+   * word the reader searched for.
+   */
+  brandSuffix?: boolean;
 }): Metadata {
   const url = `${SITE_URL}${path}`;
   const img = resolveOgImage(ogImage, title);
-  const fullTitle = `${title} | ${SITE_NAME}`;
+  const fullTitle = brandSuffix ? `${title} | ${SITE_NAME}` : title;
 
   return {
     // `absolute` bypasses the title.template defined in the root layout,

@@ -209,7 +209,7 @@ export default function AnimalEncyclopediaPage() {
       <main id="main-content">
         <header className="bg-white border-b border-[#DDE6DD] py-12 sm:py-16">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
+            <nav aria-label="Breadcrumb" className="text-sm text-[#636E66] mb-4 flex gap-2">
               <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
               <span aria-hidden="true">/</span>
               <span className="text-[#17211B] font-medium" aria-current="page">Animal Encyclopedia</span>
@@ -352,7 +352,7 @@ export default function AnimalEncyclopediaPage() {
                               ) : (
                                 <span
                                   aria-hidden="true"
-                                  className="absolute inset-0 flex items-center justify-center text-2xl text-[#8A958E]"
+                                  className="absolute inset-0 flex items-center justify-center text-2xl text-[#636E66]"
                                 >
                                   {p.label.slice(0, 1)}
                                 </span>

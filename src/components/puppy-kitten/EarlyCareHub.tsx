@@ -169,7 +169,7 @@ export default function EarlyCareHub({ config }: { config: EarlyCareHubConfig })
                   href={t.href}
                   className="rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:no-underline transition focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:ring-offset-2"
                 >
-                  <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                  <p className="text-xs uppercase tracking-wider text-[#636E66] mb-1">
                     {t.badge}
                   </p>
                   <p className="text-base font-semibold text-[#17211B]">

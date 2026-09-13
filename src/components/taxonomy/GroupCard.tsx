@@ -20,12 +20,12 @@ export default function GroupCard({ group }: { group: AnimalTaxonomyGroup }) {
       </div>
       <p className="text-sm text-[#5E6B63] leading-snug">{group.description}</p>
       {group.notes && (
-        <p className="text-xs text-[#8A958E] leading-snug">{group.notes}</p>
+        <p className="text-xs text-[#636E66] leading-snug">{group.notes}</p>
       )}
 
       {covered > 0 && (
         <div className="mt-1">
-          <p className="text-[11px] uppercase tracking-wider text-[#8A958E] mb-1">
+          <p className="text-[11px] uppercase tracking-wider text-[#636E66] mb-1">
             On FaunaHub ({covered})
           </p>
           <div className="flex flex-wrap gap-1.5">
@@ -39,7 +39,7 @@ export default function GroupCard({ group }: { group: AnimalTaxonomyGroup }) {
               </Link>
             ))}
             {covered > 10 && (
-              <span className="text-[11px] text-[#8A958E] self-center">
+              <span className="text-[11px] text-[#636E66] self-center">
                 +{covered - 10} more
               </span>
             )}
@@ -49,7 +49,7 @@ export default function GroupCard({ group }: { group: AnimalTaxonomyGroup }) {
 
       {missing > 0 && (
         <div className="mt-1">
-          <p className="text-[11px] uppercase tracking-wider text-[#8A958E] mb-1">
+          <p className="text-[11px] uppercase tracking-wider text-[#636E66] mb-1">
             On the roadmap (not yet profiled)
           </p>
           <p className="text-xs text-[#5E6B63] leading-snug">

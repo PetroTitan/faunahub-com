@@ -82,7 +82,7 @@ export const DECISION_PAGES: DecisionPage[] = [
           "Sociable temperament when well-socialised",
         ],
         caveat:
-          "Predisposed to certain heart and neurological conditions in some lines — ongoing veterinary care and breeder/shelter due diligence are important.",
+          "Health screening and breeder or shelter due diligence matter for this breed, as for any; discuss what to ask about, and what preventive care to plan, with a licensed veterinarian.",
       },
       {
         name: "Bichon Frise",
@@ -182,7 +182,7 @@ export const DECISION_PAGES: DecisionPage[] = [
     parentHub: "/dogs/breeds",
     title: "Best Family Dogs — Breeds Often Considered for Households With Children",
     description:
-      "Some breeds tend to fit family households well, but compatibility with children depends on the individual dog, supervision, and consistent training — not breed alone.",
+      "Some breeds tend to fit family households, but compatibility with children depends on the individual dog, supervision and training — not breed alone.",
     pageHeading: "Best Family Dogs",
     shortIntent: "Family-friendly dog breeds",
     directAnswer:
@@ -315,7 +315,7 @@ export const DECISION_PAGES: DecisionPage[] = [
     decisionCriteria: [
       "Realistic time available for daily exercise and training.",
       "Grooming tolerance and budget.",
-      "Health profile — some 'low-fuss' breeds carry significant predispositions.",
+      "Health profile — \"low-fuss\" describes one axis of care and not health, which is a separate question for a veterinarian.",
       "Tolerance for being alone.",
       "Indoor vs outdoor lifestyle.",
       "Routine veterinary care expectations.",
@@ -432,7 +432,7 @@ export const DECISION_PAGES: DecisionPage[] = [
     parentHub: "/dogs/breeds",
     title: "Best Dogs for First-Time Owners — A Practical, Cautious Shortlist",
     description:
-      "Some breeds are often considered a more forgiving starting point for first-time owners — but commitment to training, daily care, and realistic expectations matters most.",
+      "Some breeds are often a more forgiving start for first-time owners — but training, daily care and realistic expectations matter more than breed.",
     pageHeading: "Best Dogs for First-Time Owners",
     shortIntent: "First-time-owner dog breeds",
     directAnswer:
@@ -551,6 +551,210 @@ export const DECISION_PAGES: DecisionPage[] = [
     publishedTime: PUBLISHED,
     modifiedTime: MODIFIED,
   },
+  /*
+   * The two pages below were written against the expanded registry, so every
+   * bullet under a breed is a band the AKC actually records for it — not a
+   * characterisation. Where a bullet says "higher exercise needs", that is the
+   * breed's recorded exerciseNeeds band and the breed's own profile shows the
+   * same value with its source.
+   *
+   * Caveats are about COMMITMENT, never about health. A decision guide is
+   * exactly where a sentence like "prone to hip dysplasia" would feel helpful
+   * and would be a veterinary claim FaunaHub cannot make about an animal it has
+   * never examined.
+   */
+  {
+    slug: "best-large-dog-breeds",
+    kind: "dog-breed",
+    parentHub: "/dogs/breeds",
+    title: "Best Large Dog Breeds — What Size Actually Commits You To",
+    description:
+      "Large breeds ask for space, strength on the lead and higher running costs. What the AKC records about exercise, grooming and shedding — and what it cannot say.",
+    pageHeading: "Best Large Dog Breeds",
+    shortIntent: "Choosing a large dog without underestimating one",
+    directAnswer:
+      "A large dog is a bigger version of every commitment a smaller one asks for: more food, more space, more strength to manage on a lead, and higher costs for boarding and veterinary care. Size says nothing about temperament — the calmest and the most demanding dogs in this list share a size band. Match on recorded exercise and grooming needs, then meet the individual animal.",
+    decisionCriteria: [
+      "Recorded exercise needs, which vary from lower to higher within this size band.",
+      "Whether you can physically manage the dog on a lead in an unexpected moment.",
+      "Grooming routine and shedding, which drive most of the weekly time cost.",
+      "Space at home, and honest access to somewhere the dog can move daily.",
+      "Running costs: food, boarding and veterinary care all scale with body weight.",
+      "Lifespan, which the registry publishes and which is generally shorter in larger breeds.",
+    ],
+    recommendationsHeading: "Large breeds, with what the AKC records about each",
+    recommendationsIntro:
+      "Each bullet is a band the AKC publishes for that breed, shown the same way on the breed's own profile. They describe the breed as a registry describes it, not the dog in front of you.",
+    recommendations: [
+      {
+        name: "Basset Hound",
+        summary: "A large breed with lower recorded exercise needs.",
+        bullets: ["Lower exercise needs", "Moderate grooming", "Lower shedding"],
+        caveat: "Heavy for its height, so lifting one — into a car, or at the vet — is a two-person job more often than owners expect.",
+      },
+      {
+        name: "Airedale Terrier",
+        summary: "Moderate on every band the AKC records.",
+        bullets: ["Moderate exercise needs", "Moderate grooming", "Lower shedding"],
+        caveat: "Lower shedding is not lower maintenance: the coat still needs regular attention to stay in condition.",
+      },
+      {
+        name: "American Staffordshire Terrier",
+        summary: "Moderate exercise, low grooming demand.",
+        bullets: ["Moderate exercise needs", "Lower grooming", "Lower shedding"],
+        caveat: "Breed-specific legislation and insurance or housing restrictions apply in some places. Check what applies where you live before committing.",
+      },
+      {
+        name: "Australian Shepherd",
+        summary: "Higher exercise needs with higher recorded trainability.",
+        bullets: ["Higher exercise needs", "Lower grooming", "Moderate shedding"],
+        caveat: "A working-bred dog in a home with no outlet is the most common source of behaviour that owners describe as sudden.",
+      },
+      {
+        name: "Alaskan Malamute",
+        summary: "Higher exercise needs and a heavy double coat.",
+        bullets: ["Higher exercise needs", "Moderate grooming", "Moderate shedding"],
+        caveat: "Coat maintenance is seasonal and substantial, and heat tolerance is limited — a real constraint in a warm climate.",
+      },
+      {
+        name: "Afghan Hound",
+        summary: "The highest grooming commitment in this list.",
+        bullets: ["Higher exercise needs", "Higher grooming", "Lower shedding"],
+        caveat: "Coat care is a scheduled, recurring cost in time or money, not an occasional brush.",
+      },
+    ],
+    careExpectations: [
+      "Daily exercise appropriate to the recorded band, not to the dog's apparent willingness.",
+      "Lead training early, while the dog is still light enough to correct comfortably.",
+      "Food, boarding and routine veterinary costs that scale with body weight.",
+      "Space to lie down and turn around comfortably indoors, which is easy to underestimate.",
+    ],
+    notIdealFor: [
+      "Homes where nobody can physically manage the adult dog on a lead.",
+      "Anyone whose budget has no room for weight-scaled food and veterinary costs.",
+      "Households wanting a low-effort companion — size does not reduce any of the work.",
+    ],
+    faqs: [
+      {
+        question: "Are large dogs calmer than small dogs?",
+        answer:
+          "Not as a rule. Recorded exercise needs in this size band run from lower to higher, and some small breeds are recorded higher than some large ones. Size and energy are separate things.",
+      },
+      {
+        question: "Do large dogs need a big house?",
+        answer:
+          "Space indoors matters less than daily outdoor exercise and a settled routine. A large dog with a real outlet manages in a smaller home better than an under-exercised one in a large house.",
+      },
+      {
+        question: "Is a large dog more expensive?",
+        answer:
+          "Generally yes. Food, boarding, and many veterinary costs scale with body weight, and equipment is priced accordingly. Budget on the adult size, not the puppy.",
+      },
+      {
+        question: "Do large breeds live shorter lives?",
+        answer:
+          "Published lifespan ranges do tend to be shorter in larger breeds, and each breed profile shows the range its registry publishes. A range is not a prediction about any individual dog.",
+      },
+    ],
+    publishedTime: "2026-09-13",
+    modifiedTime: "2026-09-13",
+  },
+  {
+    slug: "best-dogs-for-active-owners",
+    kind: "dog-breed",
+    parentHub: "/dogs/breeds",
+    title: "Best Dogs for Active Owners — Breeds Recorded as Needing More",
+    description:
+      "Breeds the AKC records with higher exercise needs, what that band actually means day to day, and the honest warning that comes with it.",
+    pageHeading: "Best Dogs for Active Owners",
+    shortIntent: "Matching a high-energy breed to a life that can sustain it",
+    directAnswer:
+      "These are breeds the AKC records in its highest exercise band. That band is a description of what the breed was developed to do, and the demand does not pause for weather, work or illness. The question is not whether you enjoy exercise but whether the dog's needs will still be met in your worst month, not your best one.",
+    decisionCriteria: [
+      "Whether the exercise can happen daily, including in bad weather and busy weeks.",
+      "Who covers the routine when you are ill, travelling or working late.",
+      "Whether mental work is available as well as physical — many of these breeds need both.",
+      "Recorded trainability, which affects how readily that energy can be directed.",
+      "Grooming and shedding, which are independent of energy and add their own weekly cost.",
+      "Whether your activity suits a dog at all: running on hard surfaces has its own limits.",
+    ],
+    recommendationsHeading: "Breeds the AKC records in its higher exercise band",
+    recommendationsIntro:
+      "Every breed below is recorded by the AKC as having higher exercise needs. The other bullets are that breed's other recorded bands, shown identically on its own profile.",
+    recommendations: [
+      {
+        name: "Border Collie",
+        summary: "Higher exercise needs with higher recorded trainability.",
+        bullets: ["Higher exercise needs", "Moderate grooming", "Higher trainability"],
+        caveat: "Mental work is not optional here. A physically exercised but unoccupied dog of this type commonly finds its own job.",
+      },
+      {
+        name: "Australian Cattle Dog",
+        summary: "Higher exercise needs, low grooming demand.",
+        bullets: ["Higher exercise needs", "Lower grooming", "Higher trainability"],
+        caveat: "Bred to move livestock, and that instinct is often directed at whatever is moving — including children on bicycles.",
+      },
+      {
+        name: "Belgian Malinois",
+        summary: "Among the most demanding breeds in the registry.",
+        bullets: ["Higher exercise needs", "Lower grooming", "Higher trainability"],
+        caveat: "Widely acquired on reputation and widely surrendered. This is a working dog that needs experienced, structured handling.",
+      },
+      {
+        name: "Australian Shepherd",
+        summary: "Higher exercise needs with a moderate coat commitment.",
+        bullets: ["Higher exercise needs", "Lower grooming", "Moderate shedding"],
+        caveat: "Energy and biddability together mean the dog learns whatever the household is teaching, intentionally or not.",
+      },
+      {
+        name: "Bluetick Coonhound",
+        summary: "Higher exercise needs, minimal grooming.",
+        bullets: ["Higher exercise needs", "Lower grooming", "Moderate shedding"],
+        caveat: "Scent drive is strong enough that off-lead freedom in unfenced areas is rarely realistic.",
+      },
+      {
+        name: "Bichon Frise",
+        summary: "A small breed the AKC also records in the higher exercise band.",
+        bullets: ["Higher exercise needs", "Higher grooming", "Lower shedding"],
+        caveat: "Included deliberately: high exercise needs are not confined to large breeds, and the grooming commitment here is substantial.",
+      },
+    ],
+    careExpectations: [
+      "Daily physical exercise that continues through bad weather and busy periods.",
+      "Mental work — training, scentwork, or a task — alongside the physical.",
+      "A plan for who maintains the routine when you cannot.",
+      "Grooming on the breed's own schedule, which is unrelated to its energy.",
+    ],
+    notIdealFor: [
+      "Households whose activity is seasonal or weekend-only.",
+      "Anyone wanting a dog that settles without an outlet first.",
+      "First-time owners choosing on appearance or reputation rather than routine.",
+    ],
+    faqs: [
+      {
+        question: "How much exercise does a higher-band breed actually need?",
+        answer:
+          "The AKC publishes a band, not a duration, and FaunaHub does not invent one. The band tells you the breed sits at the demanding end; how much a particular dog needs depends on its age, health and individual temperament. Ask a veterinarian or an experienced trainer about a specific animal.",
+      },
+      {
+        question: "Can a high-energy breed live in an apartment?",
+        answer:
+          "It depends far more on the daily routine than on the floor plan. A dog whose needs are genuinely met settles indoors; one whose needs are not will struggle in any size of home.",
+      },
+      {
+        question: "Will exercise fix unwanted behaviour?",
+        answer:
+          "Not on its own. Many of these breeds need something to think about as well as somewhere to run, and behaviour that persists is worth discussing with a qualified trainer or your veterinarian rather than solving with more distance.",
+      },
+      {
+        question: "Are these breeds good running partners?",
+        answer:
+          "Some are, once mature, but that is a question about an individual animal's age, joints and conditioning rather than about its breed. Ask your veterinarian before starting a running routine with any dog.",
+      },
+    ],
+    publishedTime: "2026-09-13",
+    modifiedTime: "2026-09-13",
+  },
   {
     slug: "best-small-dog-breeds",
     kind: "dog-breed",
@@ -605,14 +809,14 @@ export const DECISION_PAGES: DecisionPage[] = [
         summary: "Small short-legged hound-type breed.",
         bullets: ["Small", "Often sociable", "Distinctive build"],
         caveat:
-          "Documented spinal/back issues — careful handling, weight management, and avoiding rough play matter.",
+          "Long-bodied breeds have care considerations around jumping and body condition; what is appropriate for a particular dog is a question for that dog's veterinarian.",
       },
       {
         name: "Pug",
         summary: "Small companion breed.",
         bullets: ["Small", "Typically affectionate", "Compact size"],
         caveat:
-          "Brachycephalic welfare concerns include breathing and eye issues; weight management is critical.",
+          "Short-muzzled breeds have care considerations around heat and exertion that are worth raising with a licensed veterinarian before they matter.",
       },
       {
         name: "Boston Terrier",

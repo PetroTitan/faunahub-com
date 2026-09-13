@@ -49,7 +49,7 @@ const slugFilter = (() => {
 })();
 
 const problems = [];
-const checked = { akc: 0, fci: 0, cfa: 0 };
+const checked = { akc: 0, fci: 0, cfa: 0, fife: 0 };
 
 function report(breed, field, expected, actual) {
   problems.push({ breed: breed.id, field, expected, actual });
@@ -235,6 +235,120 @@ async function checkCfa(breed, rec) {
   }
 }
 
+/**
+ * FIFe publishes every breed on ONE page, so it is fetched once and reused.
+ *
+ * These 35 records were checked by nothing. `fife` was absent from the dispatch
+ * below — the string does not appear anywhere in this file — so each FiFe
+ * recognition fell through the if/else chain, still paid its 900 ms rate-limit
+ * sleep, and the run then printed "registry agrees with every source it cites"
+ * and exited 0. A verifier that reports green on data it never read is worse
+ * than no verifier, because it is believed.
+ */
+let fifeListing = null;
+async function fifeText() {
+  if (fifeListing === null) {
+    const html = await fetchText("https://fifeweb.org/cats/breeds/");
+    fifeListing = html
+      .replace(/<(script|style)[^>]*>[\s\S]*?<\/\1>/gi, " ")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/&#8211;|&ndash;/g, "-")
+      .replace(/&nbsp;/g, " ")
+      .replace(/\s+/g, " ");
+  }
+  return fifeListing;
+}
+
+async function checkFife(breed, rec) {
+  const text = await fifeText();
+  checked.fife += 1;
+
+  if (!text || text.length < 5000) {
+    // The page shape changed or the fetch returned a stub. Say so rather than
+    // letting every comparison below pass because there is nothing to compare.
+    report(breed, "fife:page", "fifeweb.org/cats/breeds/", "breed listing could not be read");
+    return;
+  }
+
+  const code = rec.registryBreedCode;
+  if (!code) {
+    report(breed, "fife:code", "(none stored)", "FIFe record stores no breed code");
+    return;
+  }
+  /*
+   * FIFe splits five breeds into longhair and shorthair codes, and FaunaHub
+   * stores the pair as one string ("ACL/ACS", "KBL/KBS", "LPL/LPS", "OLH/OSH",
+   * "SRL/SRS"). Searching for the combined string found nothing and reported
+   * all five as delisted — a checker defect that would have read as five data
+   * errors. Each half is looked up on its own, and the first one FIFe lists
+   * carries the status and category for the record.
+   */
+  const parts = code.split("/").map((part) => part.trim()).filter(Boolean);
+  const missing = parts.filter((part) => text.search(new RegExp(`\\b${part}\\b`)) < 0);
+  if (missing.length > 0) {
+    report(breed, "fife:code", code, `no longer listed by FIFe: ${missing.join(", ")}`);
+    return;
+  }
+  const at = text.search(new RegExp(`\\b${parts[0]}\\b`));
+
+  /*
+   * READ FIFe'S OWN WORDING, NOT THE CODE'S POSITION.
+   *
+   * The first version of this check split the page on the heading
+   * "Preliminary Recognised Breeds and Varieties" and treated every code after
+   * it as preliminary. That phrase also appears as a NAVIGATION LINK near the
+   * top of the page, at character 1,474 of 8,504 — so the split landed before
+   * the fully recognised lists and the check reported the Turkish Van, a FIFe
+   * category 1 breed since 1988, as preliminary on its first run.
+   *
+   * FIFe states the status inline instead: "LYO - Lykoi Preliminary recognised
+   * breed in category 4 (2023-2027)", against "TUV - Turkish Van Breed Profile
+   * Breed Standard" for a fully recognised one. Reading that sentence needs no
+   * assumption about page order.
+   */
+  /*
+   * "in" IS LOAD-BEARING. FIFe's section heading reads "Preliminary Recognised
+   * Breeds and Varieties", and a case-insensitive test for "preliminary
+   * recognised breed" matches it — so any code within 220 characters of that
+   * heading read as preliminary. The Sphynx, 110 characters above it, did.
+   * The inline statement always continues "...breed in category 4", which the
+   * heading never does.
+   */
+  const near = text.slice(at, at + 220);
+  const isPreliminary = /Preliminary recognised (?:breed|variety) in /i.test(near);
+  const claimsPreliminary = /preliminary/i.test(rec.registryGroup ?? "");
+
+  if (isPreliminary && !claimsPreliminary) {
+    report(breed, "fife:status", rec.registryGroup, `FIFe states ${code} is preliminary recognised`);
+  }
+  if (!isPreliminary && claimsPreliminary) {
+    report(breed, "fife:status", rec.registryGroup, `FIFe does not state ${code} is preliminary`);
+  }
+
+  /*
+   * The category is inline for a preliminary breed and in the SECTION HEADING
+   * for a fully recognised one ("Fully Recognised Breeds - Category 2"), so a
+   * fully recognised breed's category comes from the nearest heading above it.
+   */
+  const stored = (rec.registryGroup ?? "").match(/category (\d)/i);
+  if (stored) {
+    let live = null;
+    if (isPreliminary) {
+      const inline = near.match(/recognised (?:breed|variety) in category (\d)/i);
+      live = inline ? inline[1] : null;
+    } else {
+      const headings = [...text.matchAll(/Fully Recognised Breeds\s*[\u2013-]\s*Category (\d)/gi)];
+      const above = headings.filter((h) => h.index < at).pop();
+      live = above ? above[1] : null;
+    }
+    if (live === null) {
+      report(breed, "fife:category", `category ${stored[1]}`, "could not read a category for this code");
+    } else if (live !== stored[1]) {
+      report(breed, "fife:category", `category ${stored[1]}`, `FIFe places ${code} in category ${live}`);
+    }
+  }
+}
+
 /* ---------------------------- run ---------------------------- */
 
 const targets = BREEDS.filter((b) => !slugFilter || b.slug === slugFilter);
@@ -250,6 +364,10 @@ for (const breed of targets) {
       if (rec.registryId === "akc") await checkAkc(breed, rec);
       else if (rec.registryId === "fci") await checkFci(breed, rec);
       else if (rec.registryId === "cfa") await checkCfa(breed, rec);
+      else if (rec.registryId === "fife") await checkFife(breed, rec);
+      // EXHAUSTIVE. A registry with no checker used to fall through in silence
+      // while the summary still claimed every source had been verified.
+      else report(breed, `${rec.registryId}:unchecked`, rec.registryUrl, "no checker for this registry");
     } catch (error) {
       report(breed, `${rec.registryId}:fetch`, rec.registryUrl, String(error.message));
     }
@@ -264,7 +382,8 @@ for (const breed of targets) {
 
 process.stdout.write("\n\n");
 console.log(
-  `checked ${targets.length} breeds — ${checked.akc} AKC, ${checked.fci} FCI, ${checked.cfa} CFA pages`,
+  `checked ${targets.length} breeds — ${checked.akc} AKC, ${checked.fci} FCI, ` +
+    `${checked.cfa} CFA, ${checked.fife} FIFe records`,
 );
 
 if (problems.length === 0) {

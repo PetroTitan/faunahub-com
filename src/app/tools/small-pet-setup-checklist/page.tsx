@@ -173,19 +173,19 @@ export default function SmallPetSetupChecklistPage() {
                 </div>
                 <dl className="divide-y divide-[#EAF0EA] text-sm">
                   <div className="px-5 py-3 flex flex-col gap-0.5">
-                    <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">
+                    <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">
                       Output
                     </dt>
                     <dd className="text-[#17211B] font-medium">Setup checklist</dd>
                   </div>
                   <div className="px-5 py-3 flex flex-col gap-0.5">
-                    <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">
+                    <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">
                       Medical advice
                     </dt>
                     <dd className="text-[#17211B] font-medium">Never — ask your vet</dd>
                   </div>
                   <div className="px-5 py-3 flex flex-col gap-0.5">
-                    <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">
+                    <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">
                       Privacy
                     </dt>
                     <dd className="text-[#17211B] font-medium">Stays in your browser</dd>
@@ -220,7 +220,7 @@ export default function SmallPetSetupChecklistPage() {
               </div>
 
               <LastUpdated date={MODIFIED} />
-              <p className="text-[10px] text-[#8A958E]">Published {PUBLISHED}.</p>
+              <p className="text-[10px] text-[#636E66]">Published {PUBLISHED}.</p>
             </aside>
           </div>
         </div>

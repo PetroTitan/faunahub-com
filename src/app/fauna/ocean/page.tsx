@@ -172,7 +172,7 @@ export default function OceanHubPage() {
                       >
                         {s.label}
                       </a>
-                      {s.note && <span className="text-[#8A958E]"> — {s.note}</span>}
+                      {s.note && <span className="text-[#636E66]"> — {s.note}</span>}
                     </li>
                   ))}
                 </ul>

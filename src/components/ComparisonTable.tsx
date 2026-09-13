@@ -21,7 +21,7 @@ export default function ComparisonTable({
     <div className="overflow-x-auto rounded-xl border border-[#DDE6DD] shadow-sm">
       <table className="w-full text-sm">
         {caption && (
-          <caption className="text-xs text-[#8A958E] text-left px-4 pt-3 pb-1">
+          <caption className="text-xs text-[#636E66] text-left px-4 pt-3 pb-1">
             {caption}
           </caption>
         )}

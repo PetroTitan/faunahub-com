@@ -10,6 +10,16 @@ interface BreedProfileGridProps {
   heading?: string;
   /** Hide the cautionary intro where the surrounding page already carries it. */
   compact?: boolean;
+  /**
+   * Maximum cards to render. Absent means all of them.
+   *
+   * Bounding this is the whole point at scale: each card carries a
+   * `next/image`, so an unbounded grid at 300 breeds puts 300 image elements
+   * into the initial HTML and 300 links into the accessibility tree. The
+   * complete set stays reachable through `BreedDirectory`, which renders every
+   * breed as plain text with no image.
+   */
+  limit?: number;
 }
 
 /**
@@ -25,7 +35,10 @@ export default function BreedProfileGrid({
   breeds,
   heading,
   compact = false,
+  limit,
 }: BreedProfileGridProps) {
+  const shown = limit === undefined ? breeds : breeds.slice(0, limit);
+  const hidden = breeds.length - shown.length;
   const speciesWord = species === "dog" ? "dog" : "cat";
   const sectionTitle = heading ?? `${species === "dog" ? "Dog" : "Cat"} breed profiles`;
 
@@ -39,14 +52,14 @@ export default function BreedProfileGrid({
       </h2>
       {!compact && (
         <p className="text-sm text-[#5E6B63] mb-6 max-w-3xl">
-          Every profile carries registry-sourced measurements and recognition alongside its written
-          overview. Breed tendencies are not guarantees — individual animals vary by genetics,
+          Every profile carries registry-sourced measurements and recognition, each linked to the
+          registry that published it. Breed tendencies are not guarantees — individual animals vary by genetics,
           training, socialisation, health, and household environment. Spend time with a specific{" "}
           {speciesWord} before deciding.
         </p>
       )}
       <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 list-none p-0 m-0">
-        {breeds.map((breed) => {
+        {shown.map((breed) => {
           const img = getBreedHeroImage(breed.species, breed.slug);
           const group = breed.recognition.find(
             (r) => r.registryId === "akc" || r.registryId === "cfa",
@@ -78,7 +91,7 @@ export default function BreedProfileGrid({
                   ) : (
                     <span
                       aria-hidden="true"
-                      className="absolute inset-0 flex items-center justify-center text-2xl text-[#8A958E]"
+                      className="absolute inset-0 flex items-center justify-center text-2xl text-[#636E66]"
                     >
                       {breed.name.slice(0, 1)}
                     </span>
@@ -105,6 +118,12 @@ export default function BreedProfileGrid({
           );
         })}
       </ul>
+      {hidden > 0 && (
+        <p className="text-sm text-[#5E6B63] mt-4 mb-0">
+          Showing {shown.length} of {breeds.length}. The remaining {hidden} are listed in the
+          complete A–Z directory below — every breed is a plain link, no button required.
+        </p>
+      )}
     </section>
   );
 }

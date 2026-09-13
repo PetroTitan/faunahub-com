@@ -6,8 +6,8 @@
  * invariants below (unique ids, unique slugs per species, resolvable source and
  * image ids) have exactly one place to be enforced.
  */
-import { DOG_BREEDS } from "./breeds/dogs.ts";
-import { CAT_BREEDS } from "./breeds/cats.ts";
+import { DOG_BREEDS } from "./breeds/dogs/index.ts";
+import { CAT_BREEDS } from "./breeds/cats/index.ts";
 import { span } from "./measure.ts";
 import type { Breed, BreedSpecies, Measurement, SizeClass } from "./types.ts";
 
@@ -17,6 +17,7 @@ export {
   breedPageDescription,
   breedSearchDescription,
   breedPageTags,
+  fitDescription,
 } from "./presentation.ts";
 export { BREED_REGISTRIES, getRegistry, citableRegistryIds } from "./registries.ts";
 export { BREED_SOURCES, getBreedSource } from "./sources.ts";
@@ -250,4 +251,25 @@ export function resolveBreedByExactName(
   return breedsForSpecies(species).find((breed) =>
     breedSearchNames(breed).some((candidate) => candidate.toLowerCase() === needle),
   );
+}
+
+/**
+ * True when a human has written this breed's overview.
+ *
+ * The distinction is rendered, not hidden: a data profile says so. It is also
+ * what the page uses to decide whether it is an Article at all — a record with
+ * no prose is a structured reference entry, and calling it an article in
+ * schema.org would be a claim about content that does not exist.
+ */
+export function hasEditorial(breed: Breed): boolean {
+  return Boolean(breed.editorial?.intro?.length);
+}
+
+/** Breeds whose overview has been written, for coverage reporting. */
+export function editorialCoverage(species: BreedSpecies): {
+  total: number;
+  authored: number;
+} {
+  const breeds = breedsForSpecies(species);
+  return { total: breeds.length, authored: breeds.filter(hasEditorial).length };
 }

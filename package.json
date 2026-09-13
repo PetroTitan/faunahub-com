@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/generate-search-index.mjs && node scripts/generate-finder-index.mjs",
+    "prebuild": "node scripts/generate-breed-index.mjs && node scripts/generate-search-index.mjs && node scripts/generate-finder-index.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -20,7 +20,9 @@
     "finder:audit": "node scripts/generate-finder-index.mjs --audit",
     "breeds:facets": "node scripts/breed-facet-coverage.mjs",
     "breeds:facets:check": "node scripts/breed-facet-coverage.mjs --check",
-    "breeds:verify": "node scripts/verify-breed-registry.mjs"
+    "breeds:verify": "node scripts/verify-breed-registry.mjs",
+    "breeds:index": "node scripts/generate-breed-index.mjs",
+    "breeds:index:check": "node scripts/generate-breed-index.mjs --check"
   },
   "dependencies": {
     "next": "^15.5.18",

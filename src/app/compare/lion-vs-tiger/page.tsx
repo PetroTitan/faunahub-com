@@ -73,7 +73,7 @@ export default function LionVsTigerPage() {
       <main id="main-content">
         <div className="container-content py-10">
           {/* Breadcrumb */}
-          <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-6 flex gap-2 items-center flex-wrap">
+          <nav aria-label="Breadcrumb" className="text-sm text-[#636E66] mb-6 flex gap-2 items-center flex-wrap">
             <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
             <span aria-hidden="true">/</span>
             <Link href="/compare" className="hover:text-[#063F2A] hover:no-underline">Compare</Link>

@@ -128,6 +128,9 @@ async function loadSources() {
     ["birdCare", "bird-care/data.ts"],
     ["petChoice", "pet-choice/data.ts"],
     ["breeds", "pet-intelligence/index.ts"],
+    ["collections", "pet-intelligence/collections.ts"],
+    ["rankings", "pet-intelligence/rankings.ts"],
+    ["breedCompare", "pet-intelligence/comparisons/index.ts"],
   ];
   const modules = await Promise.all(names.map(([, file]) => load(file)));
   return Object.fromEntries(names.map(([key], i) => [key, modules[i]]));
@@ -175,6 +178,28 @@ function breedDoc(breed, sources, url) {
     keywords: [group, breed.sizeClass, breed.coat?.length, ...(breed.originalFunctions ?? [])]
       .filter(Boolean),
     category: breed.species === "dog" ? "Dog breed" : "Cat breed",
+  };
+}
+
+function breedComparisonDoc(p, url) {
+  return {
+    type: "comparison",
+    title: `${p.a.name} vs ${p.b.name}`,
+    url,
+    description: `How the ${p.a.name} and ${p.b.name} compare on size, coat, exercise, grooming and the other attributes their registries publish.`,
+    keywords: [p.species === "dog" ? "dog breeds" : "cat breeds", "breed comparison"],
+    category: p.species === "dog" ? "Dog breed comparison" : "Cat breed comparison",
+  };
+}
+
+function collectionDoc(c, url) {
+  return {
+    type: "category",
+    title: c.title,
+    url,
+    description: c.description,
+    keywords: [c.species === "dog" ? "dog breeds" : "cat breeds", c.axis],
+    category: c.species === "dog" ? "Dog breed group" : "Cat breed group",
   };
 }
 
@@ -296,6 +321,49 @@ const ROUTE_SOURCES = [
   // fourteen breed pages were indexed as generic guides with no aliases and no
   // category, so "lab" found nothing and a breed was indistinguishable from a
   // "best dogs for apartments" listicle.
+  // Breed comparisons — their own namespace, separate from /animal-compare,
+  // which compares species. Filed as `comparison` so a breed pair and a species
+  // pair sit on the same shelf for a reader, while their URLs stay distinct.
+  {
+    template: "/dogs/compare/[slug]",
+    records: (s) => s.breedCompare.PUBLISHED_COMPARISONS.filter((p) => p.species === "dog"),
+    url: (r, s) => s.breedCompare.comparisonPath(r),
+    doc: (r, s, url) => breedComparisonDoc(r, url),
+  },
+  {
+    template: "/cats/compare/[slug]",
+    records: (s) => s.breedCompare.PUBLISHED_COMPARISONS.filter((p) => p.species === "cat"),
+    url: (r, s) => s.breedCompare.comparisonPath(r),
+    doc: (r, s, url) => breedComparisonDoc(r, url),
+  },
+  // Breed collections and measured rankings: registry queries over the corpus,
+  // sharing the breed templates. Registered before the harvest pass so they
+  // carry a category rather than being filed as generic guides.
+  {
+    template: "/dogs/breeds/[slug]",
+    records: (s) => s.collections.publishedCollections().filter((c) => c.species === "dog"),
+    url: (r, s) => s.collections.collectionPath(r),
+    doc: (r, s, url) => collectionDoc(r, url),
+  },
+  {
+    template: "/cats/breeds/[slug]",
+    records: (s) => s.collections.publishedCollections().filter((c) => c.species === "cat"),
+    url: (r, s) => s.collections.collectionPath(r),
+    doc: (r, s, url) => collectionDoc(r, url),
+  },
+  {
+    template: "/dogs/breeds/[slug]",
+    records: (s) => s.rankings.BREED_RANKINGS.filter((r) => r.species === "dog"),
+    url: (r, s) => s.rankings.rankingPath(r),
+    doc: (r, s, url) => ({
+      type: "category",
+      title: r.title,
+      url,
+      description: r.description,
+      keywords: ["dog breeds", "measured ranking"],
+      category: "Dog breed ranking",
+    }),
+  },
   {
     template: "/dogs/breeds/[slug]",
     records: (s) => s.breeds.DOG_BREED_RECORDS,

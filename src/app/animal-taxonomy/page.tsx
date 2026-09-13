@@ -98,7 +98,7 @@ export default function AnimalTaxonomyHub() {
         {title}
       </h3>
       <p className="text-sm text-[#5E6B63] leading-snug">{blurb}</p>
-      <span className="text-xs text-[#8A958E] mt-auto pt-1">
+      <span className="text-xs text-[#636E66] mt-auto pt-1">
         {groups.length} groups tracked
       </span>
       <span className="text-xs font-medium text-[#063F2A]">Explore →</span>
@@ -249,7 +249,7 @@ export default function AnimalTaxonomyHub() {
                       >
                         {s.label}
                       </a>
-                      {s.note && <span className="text-[#8A958E]"> — {s.note}</span>}
+                      {s.note && <span className="text-[#636E66]"> — {s.note}</span>}
                     </li>
                   ))}
                 </ul>

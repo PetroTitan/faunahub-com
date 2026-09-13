@@ -4,6 +4,7 @@ import BreedAttributes from "@/components/breeds/BreedAttributes";
 import { getBreedHeroImage } from "@/lib/images/breed-images";
 import { AVMA_PET_CARE } from "@/lib/educational/animal-sources";
 import type { SourceLink } from "@/lib/educational/types";
+import { comparisonPath, comparisonsForBreed } from "@/lib/pet-intelligence/comparisons";
 import {
   ORDINAL_LABEL,
   breedFinderPath,
@@ -134,6 +135,17 @@ export default function BreedProfileView({
   description: string;
   tags: string[];
 }) {
+  /**
+   * A breed without written prose renders as a DATA PROFILE.
+   *
+   * Rather than an empty article, the page leads with the registry facts and
+   * says plainly that FaunaHub has not written an overview yet. The alternative
+   * — generating eight paragraphs from a template with the name swapped in —
+   * would produce text that looks like editorial judgement and contains none,
+   * which is the specific failure docs/pet-intelligence/ exists to prevent.
+   */
+  const e = breed.editorial;
+  const authored = Boolean(e?.intro?.length);
   const image = getBreedHeroImage(breed.species, breed.slug);
   const related = relatedBreeds(breed);
   const speciesWord = breed.species === "dog" ? "dog" : "cat";
@@ -147,31 +159,47 @@ export default function BreedProfileView({
       path={breedPath(breed)}
       tags={tags}
       image={image ?? undefined}
-      intro={paragraphs(breed.editorial.intro)}
+      intro={
+        authored ? (
+          paragraphs(e?.intro)
+        ) : (
+          <p>
+            This is a <strong>data profile</strong>. Everything below is published by the
+            registries named in the panel — recognition, measurements, coat, and normalised trait
+            bands, each linked to its source. FaunaHub has not yet written an editorial overview of
+            the {breed.name}, and deliberately does not generate one: a templated paragraph would
+            read like judgement and contain none.
+          </p>
+        )
+      }
       structuredSection={<BreedAttributes breed={breed} />}
-      appearance={paragraphs(breed.editorial.appearance)}
+      appearance={paragraphs(e?.appearance)}
       temperament={
         <>
-          {paragraphs(breed.editorial.temperament)}
-          {breed.editorial.householdContext?.length ? (
+          {paragraphs(e?.temperament)}
+          {e?.householdContext?.length ? (
             <>
               <h3>Household considerations</h3>
-              {paragraphs(breed.editorial.householdContext)}
+              {paragraphs(e?.householdContext)}
             </>
           ) : null}
         </>
       }
-      hasHouseholdContext={Boolean(breed.editorial.householdContext?.length)}
-      activity={paragraphs(breed.editorial.activity)}
-      grooming={paragraphs(breed.editorial.grooming)}
+      hasHouseholdContext={Boolean(e?.householdContext?.length)}
+      activity={paragraphs(e?.activity)}
+      grooming={paragraphs(e?.grooming)}
       training={
-        breed.editorial.training?.length ? paragraphs(breed.editorial.training) : undefined
+        e?.training?.length ? paragraphs(e.training) : undefined
       }
-      health={paragraphs(breed.editorial.health)}
-      responsibility={paragraphs(breed.editorial.responsibility)}
+      health={paragraphs(e?.health)}
+      responsibility={paragraphs(e?.responsibility)}
       quickFacts={quickFacts(breed)}
-      faqs={breed.editorial.faqs}
+      faqs={e?.faqs ?? []}
       relatedLinks={[
+        ...comparisonsForBreed(breed, 3).map((p) => ({
+          label: `${p.a.name} vs ${p.b.name}`,
+          href: comparisonPath(p),
+        })),
         ...related.map((b) => ({
           label: `${b.name} profile`,
           href: breedPath(b),

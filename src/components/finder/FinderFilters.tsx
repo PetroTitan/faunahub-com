@@ -91,7 +91,7 @@ export default function FinderFilters({
                           "flex h-[18px] w-[18px] shrink-0 items-center justify-center rounded border-2 transition-colors",
                           selected
                             ? "border-[#063F2A] bg-[#063F2A] text-white"
-                            : "border-[#8A958E] bg-white text-transparent",
+                            : "border-[#636E66] bg-white text-transparent",
                           "peer-focus-visible:ring-2 peer-focus-visible:ring-[#063F2A] peer-focus-visible:ring-offset-2",
                         ].join(" ")}
                       >

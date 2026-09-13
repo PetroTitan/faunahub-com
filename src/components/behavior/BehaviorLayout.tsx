@@ -57,7 +57,7 @@ export default function BehaviorLayout({
       <main id="main-content">
         <header className="bg-gradient-to-b from-[#EAF1F4] via-[#f5f9fa] to-white border-b border-[#DCE6E9] py-12 sm:py-16">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex flex-wrap gap-2">
+            <nav aria-label="Breadcrumb" className="text-sm text-[#636E66] mb-4 flex flex-wrap gap-2">
               <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
               {crumbs.map((c, i) => (
                 <span key={c.href} className="flex gap-2">

@@ -26,12 +26,13 @@ import path from "node:path";
 import { createSearchEngine } from "../src/lib/search/engine.ts";
 import { hydrateFinderDocument } from "../src/lib/finder/types.ts";
 import { runFinder } from "../src/lib/finder/filter.ts";
+import { expandDocuments } from "../src/lib/search/load-index.ts";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
 const ANIMALS = path.join(ROOT, "src/app/animals");
 
-const searchIndex = JSON.parse(
-  fs.readFileSync(path.join(ROOT, "public/search-index.json"), "utf8"),
+const searchIndex = expandDocuments(
+  JSON.parse(fs.readFileSync(path.join(ROOT, "public/search-index.json"), "utf8")),
 );
 const finderIndex = JSON.parse(
   fs.readFileSync(path.join(ROOT, "public/animal-finder-index.json"), "utf8"),

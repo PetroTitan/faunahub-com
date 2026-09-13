@@ -242,7 +242,7 @@ export default function PetAdoptionReadinessQuizPage() {
                 </div>
                 <dl className="divide-y divide-[#EAF0EA] text-sm">
                   <div className="px-5 py-3 flex flex-col gap-0.5">
-                    <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">
+                    <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">
                       Length
                     </dt>
                     <dd className="text-[#17211B] font-medium">
@@ -250,7 +250,7 @@ export default function PetAdoptionReadinessQuizPage() {
                     </dd>
                   </div>
                   <div className="px-5 py-3 flex flex-col gap-0.5">
-                    <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">
+                    <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">
                       Privacy
                     </dt>
                     <dd className="text-[#17211B] font-medium">
@@ -258,13 +258,13 @@ export default function PetAdoptionReadinessQuizPage() {
                     </dd>
                   </div>
                   <div className="px-5 py-3 flex flex-col gap-0.5">
-                    <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">
+                    <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">
                       Account
                     </dt>
                     <dd className="text-[#17211B] font-medium">Not required</dd>
                   </div>
                   <div className="px-5 py-3 flex flex-col gap-0.5">
-                    <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">
+                    <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">
                       Result type
                     </dt>
                     <dd className="text-[#17211B] font-medium">
@@ -337,7 +337,7 @@ export default function PetAdoptionReadinessQuizPage() {
               </div>
 
               <LastUpdated date={MODIFIED} />
-              <p className="text-[10px] text-[#8A958E]">
+              <p className="text-[10px] text-[#636E66]">
                 Published {PUBLISHED}.
               </p>
             </aside>

@@ -41,7 +41,7 @@ export default function DogAgeCalculatorClient() {
   return (
     <main id="main-content">
       <div className="container-content py-10">
-        <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-6 flex gap-2 items-center flex-wrap">
+        <nav aria-label="Breadcrumb" className="text-sm text-[#636E66] mb-6 flex gap-2 items-center flex-wrap">
           <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
           <span>/</span>
           <Link href="/tools" className="hover:text-[#063F2A] hover:no-underline">Tools</Link>
@@ -107,7 +107,7 @@ export default function DogAgeCalculatorClient() {
                 {humanAge}
                 <span className="text-2xl font-normal ml-1 text-[#7BAA35]">years</span>
               </p>
-              <p className="text-xs text-[#8A958E]">
+              <p className="text-xs text-[#636E66]">
                 Based on a {age}-year-old {SIZE_LABELS[size].toLowerCase()} dog
               </p>
             </div>
@@ -225,7 +225,7 @@ export default function DogAgeCalculatorClient() {
             </ul>
           </section>
 
-          <p className="text-xs text-[#8A958E]">Last updated: May 18, 2026</p>
+          <p className="text-xs text-[#636E66]">Last updated: May 18, 2026</p>
         </div>
       </div>
     </main>

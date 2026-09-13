@@ -312,7 +312,7 @@ export default function PuppyKittenFirstWeekChecklistClient() {
                       onChange={() => toggle(item.id)}
                       className="mt-0.5 accent-[#063F2A]"
                     />
-                    <span className={checked[item.id] ? "line-through text-[#8A958E]" : ""}>
+                    <span className={checked[item.id] ? "line-through text-[#636E66]" : ""}>
                       {item.text}
                     </span>
                   </label>
@@ -381,7 +381,7 @@ export default function PuppyKittenFirstWeekChecklistClient() {
             </div>
           </div>
 
-          <p className="text-[11px] text-[#8A958E] leading-relaxed">
+          <p className="text-[11px] text-[#636E66] leading-relaxed">
             Planning checklist only · No vaccine dates or medical schedules · Not veterinary
             advice · Your selections stay in your browser and are not saved or sent.
           </p>

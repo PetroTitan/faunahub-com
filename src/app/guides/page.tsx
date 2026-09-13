@@ -141,7 +141,7 @@ export default function GuidesPage() {
                     href={`/guides/${p.slug}`}
                     className="block h-full rounded-xl border border-[#DDE6DD] bg-white p-5 hover:border-[#0F5A3A] hover:shadow-sm transition focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:ring-offset-2 hover:no-underline"
                   >
-                    <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                    <p className="text-xs uppercase tracking-wider text-[#636E66] mb-1">
                       {p.shortIntent}
                     </p>
                     <p className="text-base font-semibold text-[#17211B] mb-2 leading-snug">
@@ -185,7 +185,7 @@ export default function GuidesPage() {
                   href="/costs"
                   className="block h-full rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:shadow-sm transition focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:ring-offset-2 hover:no-underline"
                 >
-                  <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                  <p className="text-xs uppercase tracking-wider text-[#636E66] mb-1">
                     All species
                   </p>
                   <p className="text-base font-semibold text-[#17211B] mb-2 leading-snug">
@@ -202,7 +202,7 @@ export default function GuidesPage() {
                   href="/pet-insurance"
                   className="block h-full rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:shadow-sm transition focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:ring-offset-2 hover:no-underline"
                 >
-                  <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                  <p className="text-xs uppercase tracking-wider text-[#636E66] mb-1">
                     Educational hub
                   </p>
                   <p className="text-base font-semibold text-[#17211B] mb-2 leading-snug">
@@ -219,7 +219,7 @@ export default function GuidesPage() {
                   href="/vet-care"
                   className="block h-full rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:shadow-sm transition focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:ring-offset-2 hover:no-underline"
                 >
-                  <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                  <p className="text-xs uppercase tracking-wider text-[#636E66] mb-1">
                     Educational hub
                   </p>
                   <p className="text-base font-semibold text-[#17211B] mb-2 leading-snug">
@@ -236,7 +236,7 @@ export default function GuidesPage() {
                   href="/pet-safety"
                   className="block h-full rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:shadow-sm transition focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:ring-offset-2 hover:no-underline"
                 >
-                  <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                  <p className="text-xs uppercase tracking-wider text-[#636E66] mb-1">
                     Educational hub
                   </p>
                   <p className="text-base font-semibold text-[#17211B] mb-2 leading-snug">
@@ -253,7 +253,7 @@ export default function GuidesPage() {
                   href="/pet-nutrition"
                   className="block h-full rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:shadow-sm transition focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:ring-offset-2 hover:no-underline"
                 >
-                  <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                  <p className="text-xs uppercase tracking-wider text-[#636E66] mb-1">
                     Educational hub
                   </p>
                   <p className="text-base font-semibold text-[#17211B] mb-2 leading-snug">
@@ -277,7 +277,7 @@ export default function GuidesPage() {
                 href="/tools/pet-breed-selector"
                 className="rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:no-underline transition"
               >
-                <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                <p className="text-xs uppercase tracking-wider text-[#636E66] mb-1">
                   Free tool
                 </p>
                 <p className="text-base font-semibold text-[#17211B]">
@@ -291,7 +291,7 @@ export default function GuidesPage() {
                 href="/tools/pet-life-stage-calculator"
                 className="rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:no-underline transition"
               >
-                <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                <p className="text-xs uppercase tracking-wider text-[#636E66] mb-1">
                   Free tool
                 </p>
                 <p className="text-base font-semibold text-[#17211B]">

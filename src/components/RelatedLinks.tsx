@@ -32,14 +32,14 @@ export default function RelatedLinks({
             >
               <span
                 aria-hidden="true"
-                className="text-[#8A958E] group-hover:text-[#063F2A] transition-colors mt-0.5 flex-shrink-0"
+                className="text-[#636E66] group-hover:text-[#063F2A] transition-colors mt-0.5 flex-shrink-0"
               >
                 →
               </span>
               <span>
                 <span className="block">{link.label}</span>
                 {link.description && (
-                  <span className="text-[#8A958E] text-xs font-normal">
+                  <span className="text-[#636E66] text-xs font-normal">
                     {link.description}
                   </span>
                 )}

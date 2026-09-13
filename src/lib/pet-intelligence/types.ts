@@ -87,6 +87,13 @@ export interface BreedRegistry {
 export type BreedRecognitionStatus =
   | "recognized"
   | "provisional"
+  /**
+   * The registry keeps a studbook for the breed but does NOT recognise it for
+   * competition. AKC's Foundation Stock Service is the case this exists for:
+   * "recorded" and "recognised" are different claims, and collapsing them into
+   * `provisional` would tell a reader the AKC accepts a breed it does not.
+   */
+  | "recorded"
   | "experimental"
   | "not-recognized";
 
@@ -144,7 +151,26 @@ export type MeasurementBasis =
  * "over 15 inches" — and storing those as a closed range would invent the
  * missing end. `at-most` carries only `max`; `at-least` carries only `min`.
  */
-export type MeasurementBound = "closed" | "at-most" | "at-least";
+export type MeasurementBound =
+  | "closed"
+  | "at-most"
+  | "at-least"
+  /**
+   * The standard publishes ONE figure rather than a range — "23 inches",
+   * "16 years".
+   *
+   * Originally these were refused, on the grounds that a bare number might be a
+   * ceiling, a floor or a typical value and guessing would invent a claim. That
+   * reasoning was right about the ambiguity and wrong about the remedy: 45 dog
+   * height strings and 37 weight strings across the AKC corpus are single
+   * figures, and dropping them lost real published data.
+   *
+   * `about` resolves it by making no claim about direction. It says exactly
+   * what the registry said — one number — and `statedAs` carries the original
+   * wording. It must never be rendered as a range, and `deriveSizeClass`
+   * treats it as a point rather than a bound.
+   */
+  | "about";
 
 export interface Measurement {
   /** Lower bound, in the canonical unit. Absent when `bound` is "at-most". */
@@ -452,7 +478,25 @@ export interface Breed {
    */
   lifespanYears?: Measurement;
 
-  editorial: BreedEditorial;
+  /**
+   * The written half of the page, where a human has written one.
+   *
+   * OPTIONAL, and that is a deliberate product decision rather than a gap.
+   *
+   * A breed record can be fully sourced — recognition from two registries,
+   * published measurements, coat, normalised trait bands, lifespan — without
+   * anyone having written eight paragraphs about it. Requiring prose for every
+   * breed would have left exactly two options at this corpus size: author 200+
+   * breed essays, or generate them from a template with the name swapped in.
+   * The second is the thing docs/pet-intelligence/ exists to prevent; it
+   * produces text that LOOKS like editorial judgement and contains none.
+   *
+   * So a breed without `editorial` renders as a DATA PROFILE: its registry
+   * facts, in structured form, clearly labelled as such — plus an explicit note
+   * that FaunaHub has not yet written an overview. Nothing is invented and
+   * nothing pretends to be an article. See `hasEditorial`.
+   */
+  editorial?: BreedEditorial;
 
   /** Every source id cited anywhere on this record. */
   sources: string[];

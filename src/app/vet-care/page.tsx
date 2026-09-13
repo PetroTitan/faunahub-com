@@ -161,7 +161,7 @@ export default function VetCareHubPage() {
                 href="/pet-safety"
                 className="rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:no-underline transition"
               >
-                <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                <p className="text-xs uppercase tracking-wider text-[#636E66] mb-1">
                   Related hub
                 </p>
                 <p className="text-base font-semibold text-[#17211B]">
@@ -176,7 +176,7 @@ export default function VetCareHubPage() {
                 href="/pet-nutrition"
                 className="rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:no-underline transition"
               >
-                <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                <p className="text-xs uppercase tracking-wider text-[#636E66] mb-1">
                   Related hub
                 </p>
                 <p className="text-base font-semibold text-[#17211B]">
@@ -191,7 +191,7 @@ export default function VetCareHubPage() {
                 href="/tools/pet-cost-calculator"
                 className="rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:no-underline transition"
               >
-                <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                <p className="text-xs uppercase tracking-wider text-[#636E66] mb-1">
                   Free tool
                 </p>
                 <p className="text-base font-semibold text-[#17211B]">
@@ -206,7 +206,7 @@ export default function VetCareHubPage() {
                 href="/pet-insurance"
                 className="rounded-xl border border-[#DDE6DD] bg-[#EFF1EB] p-5 hover:border-[#0F5A3A] hover:no-underline transition"
               >
-                <p className="text-xs uppercase tracking-wider text-[#8A958E] mb-1">
+                <p className="text-xs uppercase tracking-wider text-[#636E66] mb-1">
                   Related hub
                 </p>
                 <p className="text-base font-semibold text-[#17211B]">

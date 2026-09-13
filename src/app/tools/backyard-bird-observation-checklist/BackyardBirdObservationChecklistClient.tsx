@@ -244,7 +244,7 @@ export default function BackyardBirdObservationChecklistClient() {
                       onChange={() => toggle(item.id)}
                       className="mt-0.5 accent-[#063F2A]"
                     />
-                    <span className={checked[item.id] ? "line-through text-[#8A958E]" : ""}>{item.text}</span>
+                    <span className={checked[item.id] ? "line-through text-[#636E66]" : ""}>{item.text}</span>
                   </label>
                 </li>
               ))}
@@ -310,7 +310,7 @@ export default function BackyardBirdObservationChecklistClient() {
             </div>
           </div>
 
-          <p className="text-[11px] text-[#8A958E] leading-relaxed">
+          <p className="text-[11px] text-[#636E66] leading-relaxed">
             Planning checklist only · No wildlife-handling instructions, feeding prescriptions, species-certainty claims, or product brands ·
             Your selections stay in your browser and are not saved or sent.
           </p>

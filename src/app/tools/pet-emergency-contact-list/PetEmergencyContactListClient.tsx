@@ -135,7 +135,7 @@ export default function PetEmergencyContactListClient() {
                   onChange={(e) => update(f.id, e.target.value)}
                   placeholder={f.placeholder}
                   rows={3}
-                  className="rounded-lg border border-[#DDE6DD] bg-white px-3 py-2 text-sm text-[#17211B] placeholder:text-[#8A958E] focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:border-[#063F2A] resize-y"
+                  className="rounded-lg border border-[#DDE6DD] bg-white px-3 py-2 text-sm text-[#17211B] placeholder:text-[#636E66] focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:border-[#063F2A] resize-y"
                 />
               ) : (
                 <input
@@ -144,11 +144,11 @@ export default function PetEmergencyContactListClient() {
                   value={values[f.id]}
                   onChange={(e) => update(f.id, e.target.value)}
                   placeholder={f.placeholder}
-                  className="rounded-lg border border-[#DDE6DD] bg-white px-3 py-2 text-sm text-[#17211B] placeholder:text-[#8A958E] focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:border-[#063F2A]"
+                  className="rounded-lg border border-[#DDE6DD] bg-white px-3 py-2 text-sm text-[#17211B] placeholder:text-[#636E66] focus:outline-none focus:ring-2 focus:ring-[#063F2A] focus:border-[#063F2A]"
                 />
               )}
               {f.helper && (
-                <p className="text-xs text-[#8A958E] leading-relaxed">
+                <p className="text-xs text-[#636E66] leading-relaxed">
                   {f.helper}
                 </p>
               )}
@@ -169,7 +169,7 @@ export default function PetEmergencyContactListClient() {
             </button>
           </div>
 
-          <p className="text-xs text-[#8A958E] leading-relaxed">
+          <p className="text-xs text-[#636E66] leading-relaxed">
             Privacy: this builder runs entirely in your browser. Your entries
             are never sent to a server, saved to a database, or recorded by
             analytics. Closing or refreshing the page clears them.
@@ -180,7 +180,7 @@ export default function PetEmergencyContactListClient() {
         <div className="rounded-2xl border border-[#DDE6DD] bg-white p-5 sm:p-6 print:border-0 print:p-0">
           <div className="flex items-baseline justify-between gap-3 border-b border-[#DDE6DD] pb-3 mb-4">
             <h3 className="text-lg font-bold text-[#17211B]">{headingTitle}</h3>
-            <span className="text-xs text-[#8A958E]">Keep where easy to find</span>
+            <span className="text-xs text-[#636E66]">Keep where easy to find</span>
           </div>
           <dl className="divide-y divide-[#EAF0EA]">
             {FIELDS.map((f) => (
@@ -200,7 +200,7 @@ export default function PetEmergencyContactListClient() {
               </div>
             ))}
           </dl>
-          <p className="mt-4 pt-3 border-t border-[#DDE6DD] text-[11px] text-[#8A958E] leading-relaxed">
+          <p className="mt-4 pt-3 border-t border-[#DDE6DD] text-[11px] text-[#636E66] leading-relaxed">
             Educational planning aid from FaunaHub · Not medical advice · In an
             emergency, contact a licensed veterinarian or emergency clinic
             immediately · faunahub.com/pet-safety

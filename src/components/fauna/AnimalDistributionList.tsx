@@ -72,12 +72,12 @@ export default function AnimalDistributionList({
               <div className="flex flex-wrap items-center gap-2 mt-0.5">
                 <FaunaConfidenceBadge confidence={r.confidence} />
                 {r.isIntroducedRange && (
-                  <span className="text-[11px] text-[#8A958E]">
+                  <span className="text-[11px] text-[#636E66]">
                     Introduced in places
                   </span>
                 )}
                 {r.isDomesticContext && (
-                  <span className="text-[11px] text-[#8A958E]">
+                  <span className="text-[11px] text-[#636E66]">
                     Domestic / livestock
                   </span>
                 )}

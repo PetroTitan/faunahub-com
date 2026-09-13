@@ -244,9 +244,11 @@ export default function BreedAttributes({ breed }: { breed: Breed }) {
       ) : (
         <Panel title="Published size">
           <p className="text-sm text-[#5E6B63] m-0 leading-relaxed">
-            No numeric size is published for this breed. CFA&apos;s written standard describes size
-            qualitatively, and this breed&apos;s CFA profile page gives no figure either, so FaunaHub
-            records none rather than estimating one. See the{" "}
+            No numeric size is published for this breed by{" "}
+            {breed.recognition.length === 1
+              ? (getRegistry(breed.recognition[0].registryId)?.shortName ?? "its registry")
+              : "the registries FaunaHub cites for it"}
+            , so FaunaHub records none rather than estimating one. See the{" "}
             <Link
               href="/cats/breeds"
               className="underline decoration-dotted underline-offset-2 text-[#063F2A]"

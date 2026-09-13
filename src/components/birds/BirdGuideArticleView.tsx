@@ -182,19 +182,19 @@ export default function BirdGuideArticleView({
                 </div>
                 <dl className="divide-y divide-[#EAF0EA] text-sm">
                   <div className="px-5 py-3 flex flex-col gap-0.5">
-                    <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">
+                    <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">
                       Topic
                     </dt>
                     <dd className="text-[#17211B] font-medium">{article.topicTag}</dd>
                   </div>
                   <div className="px-5 py-3 flex flex-col gap-0.5">
-                    <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">
+                    <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">
                       Type
                     </dt>
                     <dd className="text-[#17211B] font-medium">Educational guide</dd>
                   </div>
                   <div className="px-5 py-3 flex flex-col gap-0.5">
-                    <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">
+                    <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">
                       Sections
                     </dt>
                     <dd className="text-[#17211B] font-medium">{sectionCount}</dd>

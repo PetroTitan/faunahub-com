@@ -27,6 +27,13 @@ const sections = [
     icon: "🔎",
   },
   {
+    title: "Compare Cat Breeds",
+    description:
+      "Side-by-side comparisons of breeds their registry lists as related — size, coat, exercise, grooming. No winner, no scores.",
+    href: "/cats/breeds#comparisons",
+    icon: "⚖️",
+  },
+  {
     title: "Cat Health",
     description: "Common feline health conditions, preventive care, and when to call a veterinarian.",
     href: "/cats/health",
@@ -88,7 +95,7 @@ export default function CatsPage() {
       <main id="main-content">
         <header className="bg-white border-b border-[#DDE6DD] py-12 sm:py-16">
           <div className="container-content">
-            <nav aria-label="Breadcrumb" className="text-sm text-[#8A958E] mb-4 flex gap-2">
+            <nav aria-label="Breadcrumb" className="text-sm text-[#636E66] mb-4 flex gap-2">
               <Link href="/" className="hover:text-[#063F2A] hover:no-underline">Home</Link>
               <span aria-hidden="true">/</span>
               <span className="text-[#17211B] font-medium" aria-current="page">Cats</span>

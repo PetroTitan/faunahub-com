@@ -166,15 +166,15 @@ export default function AquariumSetupChecklistPage() {
                 </div>
                 <dl className="divide-y divide-[#EAF0EA] text-sm">
                   <div className="px-5 py-3 flex flex-col gap-0.5">
-                    <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">Output</dt>
+                    <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">Output</dt>
                     <dd className="text-[#17211B] font-medium">Setup checklist</dd>
                   </div>
                   <div className="px-5 py-3 flex flex-col gap-0.5">
-                    <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">Medical advice</dt>
+                    <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">Medical advice</dt>
                     <dd className="text-[#17211B] font-medium">Never — ask an aquatic vet</dd>
                   </div>
                   <div className="px-5 py-3 flex flex-col gap-0.5">
-                    <dt className="text-[#8A958E] text-xs uppercase tracking-wide font-medium">Privacy</dt>
+                    <dt className="text-[#636E66] text-xs uppercase tracking-wide font-medium">Privacy</dt>
                     <dd className="text-[#17211B] font-medium">Stays in your browser</dd>
                   </div>
                 </dl>

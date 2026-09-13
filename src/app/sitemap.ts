@@ -2,6 +2,9 @@ import type { MetadataRoute } from "next";
 import { FOOD_SAFETY_ARTICLES } from "@/lib/food-safety/data";
 import { DECISION_PAGES } from "@/lib/pet-choice/data";
 import { BREEDS, breedPath } from "@/lib/pet-intelligence";
+import { collectionPath, publishedCollections } from "@/lib/pet-intelligence/collections";
+import { BREED_RANKINGS, rankingPath } from "@/lib/pet-intelligence/rankings";
+import { PUBLISHED_COMPARISONS, comparisonPath } from "@/lib/pet-intelligence/comparisons";
 import { BUDGET_GUIDES, PET_COST_ARTICLES } from "@/lib/pet-cost/data";
 import { INSURANCE_ARTICLES } from "@/lib/pet-insurance/data";
 import { VET_CARE_ARTICLES } from "@/lib/vet-care/data";
@@ -27,8 +30,32 @@ import {
 
 const BASE_URL = "https://faunahub.com";
 
+/**
+ * lastmod for pages that carry no per-item modified date of their own.
+ *
+ * Update this deliberately when a batch of those pages actually changes. It is
+ * a claim about content, so it must never be derived from the clock or the
+ * build.
+ */
+const SECTION_LASTMOD = "2026-09-13";
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const today = new Date().toISOString().split("T")[0];
+  /*
+   * A BUILD STAMP IS NOT A MODIFICATION DATE.
+   *
+   * This read the clock, so all 123 sections below — 1,815 of the 2,255 URLs —
+   * claimed they had changed on whatever day the site was last built. /about,
+   * /privacy-policy and /animals/wolf all announced today's date after a deploy
+   * that touched none of them. The 440 URLs with a real `modifiedTime` were
+   * mixed in among them, indistinguishable, which devalues the honest ones too:
+   * a crawler that learns lastmod is noise on this host stops reading it
+   * everywhere.
+   *
+   * A hand-maintained constant is the smallest truthful version. It moves when
+   * someone decides content moved, not when a build runs. Sections that can
+   * derive a real per-item date still do, below.
+   */
+  const today = SECTION_LASTMOD;
 
   const animalSlugs = [
     // Compare Center batch two: profiles added to unblock comparisons.
@@ -977,12 +1004,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // registry, and a breed added to one could silently miss the sitemap.
   // `tests/pet-intelligence-parity.test.ts` asserts registry, routes, sitemap
   // and search index all describe the same set.
-  const breedRoutes: MetadataRoute.Sitemap = BREEDS.map((breed) => ({
-    url: `${BASE_URL}${breedPath(breed)}`,
-    lastModified: today,
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+  const breedRoutes: MetadataRoute.Sitemap = [
+    ...BREEDS.map((breed) => ({
+      url: `${BASE_URL}${breedPath(breed)}`,
+      lastModified: today,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+    // Collections and rankings are registry QUERIES over the same corpus, so
+    // they derive from it here too rather than being listed by hand.
+    ...publishedCollections().map((c) => ({
+      url: `${BASE_URL}${collectionPath(c)}`,
+      lastModified: today,
+      changeFrequency: "weekly" as const,
+      priority: 0.65,
+    })),
+    ...BREED_RANKINGS.map((r) => ({
+      url: `${BASE_URL}${rankingPath(r)}`,
+      lastModified: today,
+      changeFrequency: "weekly" as const,
+      priority: 0.65,
+    })),
+    ...PUBLISHED_COMPARISONS.map((p) => ({
+      url: `${BASE_URL}${comparisonPath(p)}`,
+      lastModified: today,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    })),
+  ];
 
   const compareRoutes: MetadataRoute.Sitemap = compareSlugs.map((slug) => ({
     url: `${BASE_URL}/compare/${slug}`,

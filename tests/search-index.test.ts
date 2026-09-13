@@ -21,21 +21,31 @@ import zlib from "node:zlib";
 import { ALL_DISCOVERY_HREFS } from "../src/lib/search/discovery.ts";
 import { EXTERNAL_COMPARISONS } from "../src/lib/animal-compare/index.ts";
 import { SEARCH_INDEX_VERSION, type SearchIndexPayload } from "../src/lib/search/types.ts";
+import { expandDocuments } from "../src/lib/search/load-index.ts";
 
 const REPO_ROOT = path.resolve(import.meta.dirname, "..");
 const INDEX_PATH = path.join(REPO_ROOT, "public", "search-index.json");
 const APP_DIR = path.join(REPO_ROOT, "src", "app");
 
 const raw = fs.readFileSync(INDEX_PATH, "utf8");
-const payload = JSON.parse(raw) as SearchIndexPayload;
+// `raw` stays the on-disk bytes, because the budget below measures the file
+// that is actually served. The shape assertions read the expanded form through
+// the SAME decoder the browser uses, so a change to the wire format cannot pass
+// here and break there.
+const payload = expandDocuments(JSON.parse(raw)) as SearchIndexPayload;
 
 /**
  * Performance budget for the generated index.
  *
- * Measured at the time of writing: 706 KB raw / 156 KB gzipped / 126 KB brotli
- * (which is what a CDN actually serves). Descriptions are close to half of that
- * and are indexed in FULL rather than at a display length, because truncating
- * them made every word past the cut unsearchable.
+ * Measured on 2026-09-13: 789 KB raw / 174 KB gzipped (a CDN serves
+ * the compressed form). Descriptions are close to half of that and are indexed
+ * in FULL rather than at a display length, because truncating them made every
+ * word past the cut unsearchable.
+ *
+ * The index crossed the raw ceiling when 73 recovered comparison pairs were
+ * added. Rather than move the number, the wire format dropped its repeated
+ * field names — 21% of the file was eleven key names restated 2,330 times —
+ * which bought 119 KB with no information lost. See load-index.ts.
  *
  * The ceilings below leave headroom for content growth while still failing
  * loudly if a change starts shipping whole article bodies. The index is fetched

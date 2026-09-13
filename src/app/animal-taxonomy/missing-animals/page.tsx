@@ -99,7 +99,7 @@ export default function MissingAnimalsPage() {
                   </h3>
                   <p className="text-sm text-[#5E6B63] leading-snug">{gap.body}</p>
                   <p className="text-xs text-[#2C3A2F] leading-snug mt-1">
-                    <span className="text-[#8A958E]">Examples on the roadmap: </span>
+                    <span className="text-[#636E66]">Examples on the roadmap: </span>
                     {gap.examples.join(", ")}
                   </p>
                 </div>
