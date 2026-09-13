@@ -159,8 +159,24 @@ measurement says what it describes:
 
 The parser **rejects rather than guesses**. A single bare figure ("13 inches") is
 genuinely ambiguous — a target, a ceiling, a typical — and is refused rather than
-assumed. All 13 pilot AKC strings parsed with **zero rejections**; a test
-asserts the refusal still happens for the ambiguous case.
+assumed. All 13 pilot AKC strings parsed with **zero rejections**.
+
+It also refuses four shapes that an adversarial review found it silently
+*corrupting* — which is worse than failing, because nothing reported it:
+
+| Input | Was | Now |
+|---|---|---|
+| `25-30 pounds (standard); 11 pounds & under (miniature)` | one segment: the standard's range wearing the miniature's label, the miniature's own limit discarded | two correct segments |
+| `13-15 inches & under` | closed 13–15; the half-open suffix silently dropped | rejected |
+| `6-8 kilograms` parsed as pounds | converted anyway | rejected |
+| `20-25 lbs (male (large))` | sex basis lost to the nested parenthesis | sex preserved |
+
+**Every stored number re-derives from its own `statedAs` in a test.** That is the
+load-bearing guarantee: before it existed, the Labrador's male height could be
+set to 40–41 cm while the row still read "22.5-24.5 inches", and the page would
+have rendered both side by side. It is also what gives the parser a consumer —
+until then it had none in production, while being the intended ingest path for
+the next several hundred breeds.
 
 ### Size class
 
@@ -183,8 +199,11 @@ people would say "small". That is a property of banding a continuous measure, an
 the page always shows the measurements themselves next to the band, so a reader
 is never left with only the label.
 
-A test asserts `sizeClass` always equals `deriveSizeClass(weights)` — it cannot
-be set by hand — and that a breed with no published weight has **no** size class.
+A test asserts `sizeClass` always equals `deriveSizeClass(species, weights)` — it
+cannot be set by hand — that a breed with no published weight has **no** size
+class, that no cat is ever banded, and that a weight with no upper bound is not
+banded either (a standard saying only "over 90 pounds" used to come out as
+`large`, inventing the ceiling the standard left open).
 
 ### Lifespan
 
@@ -195,23 +214,45 @@ wherever it renders.
 
 ---
 
-## Cats have no numbers, and that is a finding
+## Cats: where the numbers are, and where they are not
 
-Every one of the eight CFA standards behind the pilot cat breeds was fetched and
-searched for numeric size. **None publishes a weight or a height.** The Maine
-Coon standard says only:
+Two separate facts, and conflating them produced a defect worth recording.
+
+**CFA's written standards publish no numeric size.** All eight were fetched and
+searched. The Maine Coon standard says only:
 
 > Size medium to large
 
-CFA also publishes no trait scale of the kind the AKC does.
+**CFA's breed PROFILE pages sometimes do.** An adversarial review caught the
+first version of this document asserting the broader claim. Four of the eight
+publish an adult weight, and all four are now recorded:
 
-So cat records carry **no measurements, no size class, and no ordinal traits**.
-This is not an unfinished import — it is what the authoritative source says. The
-consequence is visible in the product: the Cat Breed Finder offers exactly one
-filter (coat length), and says why on the page.
+| Breed | As published | Shape |
+|---|---|---|
+| Norwegian Forest Cat | "a male will weigh from 12 to 16 pounds, and females from 9 to 12 pounds" | closed, split by sex |
+| Maine Coon | "not unusual for a mature male's weight to reach or exceed 20 pounds" | at-least |
+| Ragdoll | same wording | at-least |
+| British Shorthair | "males may grow as large as 17 pounds" | at-most |
 
-The alternative was to estimate cat weights from secondary sources and ship a
-size filter that looked identical to the dog one. That would have been the most
+CFA publishes no trait scale of the kind the AKC does, so cat records still carry
+**no ordinal traits**.
+
+### Cats carry weights but no size class, and that is deliberate
+
+Adding those four measurements immediately banded the Maine Coon — the breed
+CFA's own page calls *"the gentle giant of the cat fancy"* — as **`small`**.
+
+Nothing was wrong with the data. `WEIGHT_BANDS` is calibrated for dogs, where
+9.1 kg genuinely is a small animal, and a shared numeric ladder across two
+species turns correct inputs into a confidently wrong label. `deriveSizeClass`
+is now dog-only, and a test asserts no cat is banded while cats do carry weights.
+
+What is missing for cats is a **cat-calibrated ladder with evidence behind it**,
+not the numbers. Until that exists the Cat Breed Finder offers one filter (coat
+length) and says so, listing every withheld axis with its reason.
+
+The alternative throughout was to estimate cat sizes from secondary sources and
+ship a filter that looked identical to the dog one. That would have been the most
 damaging thing this sprint could have built: a filter whose values no registry
 stands behind, presented exactly like filters that are sourced.
 
