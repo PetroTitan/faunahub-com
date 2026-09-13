@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { FOOD_SAFETY_ARTICLES } from "@/lib/food-safety/data";
 import { DECISION_PAGES } from "@/lib/pet-choice/data";
+import { BREEDS, breedPath } from "@/lib/pet-intelligence";
 import { BUDGET_GUIDES, PET_COST_ARTICLES } from "@/lib/pet-cost/data";
 import { INSURANCE_ARTICLES } from "@/lib/pet-insurance/data";
 import { VET_CARE_ARTICLES } from "@/lib/vet-care/data";
@@ -833,6 +834,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: BASE_URL, lastModified: today, changeFrequency: "weekly", priority: 1.0 },
     { url: `${BASE_URL}/dogs`, lastModified: today, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE_URL}/dogs/breeds`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE_URL}/dogs/breed-finder`, lastModified: today, changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE_URL}/dogs/health`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/dogs/food`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/dogs/behavior`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
@@ -840,6 +842,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/dogs/insurance`, lastModified: today, changeFrequency: "monthly", priority: 0.7 },
     { url: `${BASE_URL}/cats`, lastModified: today, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE_URL}/cats/breeds`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE_URL}/cats/breed-finder`, lastModified: today, changeFrequency: "weekly", priority: 0.7 },
     { url: `${BASE_URL}/cats/health`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/cats/food`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
     { url: `${BASE_URL}/cats/behavior`, lastModified: today, changeFrequency: "weekly", priority: 0.8 },
@@ -969,38 +972,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const dogBreedSlugs = [
-    "labrador-retriever",
-    "golden-retriever",
-    "german-shepherd",
-    "french-bulldog",
-    "beagle",
-    "poodle",
-    "border-collie",
-    "dachshund",
-  ];
-  const catBreedSlugs = [
-    "maine-coon",
-    "siamese",
-    "british-shorthair",
-    "persian-cat",
-    "ragdoll",
-    "bengal-cat",
-  ];
-  const breedRoutes: MetadataRoute.Sitemap = [
-    ...dogBreedSlugs.map((slug) => ({
-      url: `${BASE_URL}/dogs/breeds/${slug}`,
-      lastModified: today,
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    })),
-    ...catBreedSlugs.map((slug) => ({
-      url: `${BASE_URL}/cats/breeds/${slug}`,
-      lastModified: today,
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    })),
-  ];
+  // Derived from the breed registry, not a hand-kept list. Before this the
+  // same twenty slugs lived here, in the two hub pages, and in the image
+  // registry, and a breed added to one could silently miss the sitemap.
+  // `tests/pet-intelligence-parity.test.ts` asserts registry, routes, sitemap
+  // and search index all describe the same set.
+  const breedRoutes: MetadataRoute.Sitemap = BREEDS.map((breed) => ({
+    url: `${BASE_URL}${breedPath(breed)}`,
+    lastModified: today,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
 
   const compareRoutes: MetadataRoute.Sitemap = compareSlugs.map((slug) => ({
     url: `${BASE_URL}/compare/${slug}`,

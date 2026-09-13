@@ -39,8 +39,16 @@ export interface BreedProfileLayoutProps {
   intro: ReactNode;
   /** Appearance & size content. */
   appearance: ReactNode;
-  /** Temperament & household-fit content; must include "individual variation" language. */
+  /** Temperament content; must include "individual variation" language. */
   temperament: ReactNode;
+  /**
+   * True when the breed record carries household context.
+   *
+   * The heading used to read "Temperament & household fit" on every page, while
+   * only a minority of records actually carry householdContext — so on most
+   * pages the heading promised guidance the section did not contain.
+   */
+  hasHouseholdContext?: boolean;
   /** Exercise/enrichment for dogs, activity for cats. */
   activity: ReactNode;
   /** Grooming & care notes. */
@@ -52,6 +60,16 @@ export interface BreedProfileLayoutProps {
   /** Cost & responsible ownership notes. */
   responsibility: ReactNode;
   quickFacts: BreedFact[];
+  /**
+   * Sourced, structured attributes — registry recognition, published
+   * measurements, coat, normalised trait bands.
+   *
+   * A separate slot from the prose sections on purpose: the page has to make
+   * visible which figures came from a named registry and which are editorial
+   * context, and the only reliable way to do that is to render them through
+   * different components rather than to trust the wording.
+   */
+  structuredSection?: ReactNode;
   faqs: BreedFaq[];
   relatedLinks: BreedRelatedLink[];
   sources: SourceLink[];
@@ -71,12 +89,14 @@ export default function BreedProfileLayout(props: BreedProfileLayoutProps) {
     intro,
     appearance,
     temperament,
+    hasHouseholdContext,
     activity,
     grooming,
     training,
     health,
     responsibility,
     quickFacts,
+    structuredSection,
     faqs,
     relatedLinks,
     sources,
@@ -103,6 +123,10 @@ export default function BreedProfileLayout(props: BreedProfileLayoutProps) {
       path,
       datePublished: publishedDate,
       dateModified: modifiedDate,
+      // The breed's own verified hero, which the page already renders and
+      // already uses for og:image — so the asset exists and was simply not
+      // reaching the structured data.
+      image: image ? `https://faunahub.com${image.localPath}` : undefined,
     }),
     faqSchema(faqs),
   ];
@@ -176,10 +200,12 @@ export default function BreedProfileLayout(props: BreedProfileLayoutProps) {
               <h2>Overview</h2>
               {intro}
 
+              {structuredSection}
+
               <h2>Appearance &amp; size</h2>
               {appearance}
 
-              <h2>Temperament &amp; household fit</h2>
+              <h2>{hasHouseholdContext ? "Temperament & household fit" : "Temperament"}</h2>
               {temperament}
 
               <h2>{species === "dog" ? "Exercise & enrichment" : "Activity & enrichment"}</h2>

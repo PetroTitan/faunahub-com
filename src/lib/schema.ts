@@ -65,12 +65,22 @@ export function articleSchema({
   path,
   datePublished,
   dateModified,
+  image,
 }: {
   title: string;
   description: string;
   path: string;
   datePublished: string;
   dateModified?: string;
+  /**
+   * Absolute URL of the page's own hero image, where it has one.
+   *
+   * Optional because most pages on this site have no image; passing one they do
+   * not render would be a structured-data claim the page does not support.
+   * `mainEntityOfPage` travels with it because both are what let a rich result
+   * resolve the article to its canonical page.
+   */
+  image?: string;
 }) {
   return {
     "@context": "https://schema.org",
@@ -78,6 +88,8 @@ export function articleSchema({
     headline: title,
     description,
     url: `${SITE_URL}${path}`,
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE_URL}${path}` },
+    ...(image ? { image: [image] } : {}),
     datePublished,
     dateModified: dateModified ?? datePublished,
     author: {
@@ -180,8 +192,17 @@ export function comparisonArticleSchema({
   };
 }
 
+/**
+ * `url` is OPTIONAL, and that matters.
+ *
+ * Callers used to pass the enclosing page's own URL for every item, so a
+ * six-item list emitted six identical destinations — structured data telling a
+ * search engine that six different named things all live at one URL. An item
+ * with no destination is better described by omitting `url` than by pointing it
+ * at the list itself.
+ */
 export function itemListSchema(
-  items: { name: string; url: string; position: number }[]
+  items: { name: string; url?: string; position: number }[]
 ) {
   return {
     "@context": "https://schema.org",
@@ -190,7 +211,7 @@ export function itemListSchema(
       "@type": "ListItem",
       position: item.position,
       name: item.name,
-      url: item.url,
+      ...(item.url ? { url: item.url } : {}),
     })),
   };
 }

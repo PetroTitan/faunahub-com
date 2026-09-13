@@ -72,6 +72,9 @@ const ANIMAL_SUBJECT_UNMATCHED_PENALTY = 500;
 /** Small, static per-shelf nudge. Intent always dominates this. */
 const TYPE_BOOST: Record<SearchDocumentType, number> = {
   animal: 40,
+  // Just under animals, matching the index's priority ordering: "labrador"
+  // should lead with the breed, while "dog" must still lead with the species.
+  breed: 37,
   comparison: 34,
   hub: 30,
   tool: 26,

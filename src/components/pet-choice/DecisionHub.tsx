@@ -26,6 +26,15 @@ interface DecisionHubProps {
    * Used for example by the dog/cat breed hubs to surface specific
    * breed-profile cards alongside the decision pages. */
   extraSection?: ReactNode;
+  /**
+   * Rendered ABOVE the decision-page list.
+   *
+   * Exists so /dogs/breeds and /cats/breeds can lead with the breed registry
+   * and keep the decision guides below it. Those URLs are the canonical Breed
+   * Centers; a reader arriving on one is looking for breeds, and the guides are
+   * the secondary shelf.
+   */
+  leadSection?: ReactNode;
 }
 
 export default function DecisionHub({
@@ -40,6 +49,7 @@ export default function DecisionHub({
   faqTitle,
   lastUpdated,
   extraSection,
+  leadSection,
 }: DecisionHubProps) {
   const breadcrumb = breadcrumbSchema([
     { name: "Home", url: "https://faunahub.com" },
@@ -93,6 +103,7 @@ export default function DecisionHub({
         </header>
 
         <div className="container-content py-10 space-y-10">
+          {leadSection}
           <section aria-labelledby="pages-heading">
             <h2 id="pages-heading" className="section-title">
               Decision pages

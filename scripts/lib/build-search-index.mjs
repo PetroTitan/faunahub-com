@@ -56,6 +56,9 @@ const MAX_DESCRIPTION = 200;
  */
 const BASE_PRIORITY = {
   animal: 80,
+  // Just under animals. A breed page is a strong intent match for its own name
+  // but must not outrank the species profile for a generic query.
+  breed: 78,
   comparison: 76,
   hub: 72,
   tool: 68,
@@ -124,6 +127,7 @@ async function loadSources() {
     ["birdwatching", "birdwatching/data.ts"],
     ["birdCare", "bird-care/data.ts"],
     ["petChoice", "pet-choice/data.ts"],
+    ["breeds", "pet-intelligence/index.ts"],
   ];
   const modules = await Promise.all(names.map(([, file]) => load(file)));
   return Object.fromEntries(names.map(([key], i) => [key, modules[i]]));
@@ -148,6 +152,29 @@ function articleDoc(article, extra = {}) {
     keywords: [article.topicTag, article.parentHubLabel, article.grandparentLabel],
     category: article.topicTag || article.parentHubLabel || "Guide",
     ...extra,
+  };
+}
+
+/**
+ * A breed profile as a search document.
+ *
+ * `aliases` are only the names a registry publishes for the breed — the AKC's
+ * own nickname field, and the registry's canonical name where it differs from
+ * FaunaHub's. No invented search terms.
+ */
+function breedDoc(breed, sources, url) {
+  const group = breed.recognition.find(
+    (r) => r.registryId === "akc" || r.registryId === "cfa",
+  )?.registryGroup;
+  return {
+    type: "breed",
+    title: breed.name,
+    url,
+    description: sources.breeds.breedSearchDescription(breed),
+    aliases: sources.breeds.breedSearchNames(breed).filter((n) => n !== breed.name),
+    keywords: [group, breed.sizeClass, breed.coat?.length, ...(breed.originalFunctions ?? [])]
+      .filter(Boolean),
+    category: breed.species === "dog" ? "Dog breed" : "Cat breed",
   };
 }
 
@@ -261,6 +288,25 @@ const ROUTE_SOURCES = [
     records: (s) => s.birdwatching.BIRDWATCHING_ARTICLES,
     url: (r) => r.path,
     doc: (r, s, url) => articleDoc(r, { url }),
+  },
+  // Breed profiles. A SECOND entry for each breed template: the template serves
+  // both a breed profile and a decision guide, from two different registries.
+  // Registered here rather than left to the harvest pass so a breed carries its
+  // aliases ("Lab", "GSD") and its "Dog breed" shelf label — before this, all
+  // fourteen breed pages were indexed as generic guides with no aliases and no
+  // category, so "lab" found nothing and a breed was indistinguishable from a
+  // "best dogs for apartments" listicle.
+  {
+    template: "/dogs/breeds/[slug]",
+    records: (s) => s.breeds.DOG_BREED_RECORDS,
+    url: (r, s) => s.breeds.breedPath(r),
+    doc: (r, s, url) => breedDoc(r, s, url),
+  },
+  {
+    template: "/cats/breeds/[slug]",
+    records: (s) => s.breeds.CAT_BREED_RECORDS,
+    url: (r, s) => s.breeds.breedPath(r),
+    doc: (r, s, url) => breedDoc(r, s, url),
   },
   {
     template: "/cats/breeds/[slug]",

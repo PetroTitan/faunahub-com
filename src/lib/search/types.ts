@@ -23,6 +23,7 @@
 /** Coarse shelf a document is filed under. Exactly one per document. */
 export type SearchDocumentType =
   | "animal"
+  | "breed"
   | "comparison"
   | "guide"
   | "category"
@@ -195,6 +196,12 @@ export interface SearchResponse {
 /** Display labels for each shelf. Used for result-card type text and headings. */
 export const SEARCH_TYPE_LABEL: Record<SearchDocumentType, string> = {
   animal: "Animal profile",
+  // A breed is deliberately its OWN shelf rather than a kind of animal. A
+  // Labrador Retriever is not a species competing with the dog profile, and a
+  // reader searching "labrador" wants the breed page while a reader searching
+  // "dog" wants the species. Folding breeds into "animal" would have made
+  // those two indistinguishable in results.
+  breed: "Breed profile",
   comparison: "Animal comparison",
   guide: "Guide",
   category: "Category",
@@ -207,6 +214,7 @@ export const SEARCH_TYPE_LABEL: Record<SearchDocumentType, string> = {
 /** Section headings, in the order the overlay renders them. */
 export const SEARCH_GROUP_ORDER: { type: SearchDocumentType; label: string }[] = [
   { type: "animal", label: "Animals" },
+  { type: "breed", label: "Dog & Cat Breeds" },
   { type: "comparison", label: "Comparisons" },
   { type: "behavior", label: "Behavior" },
   { type: "guide", label: "Guides & Research" },
