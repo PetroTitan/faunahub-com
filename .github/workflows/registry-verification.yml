@@ -1,0 +1,66 @@
+name: Registry verification
+
+# `breeds:verify` re-fetches every cited registry page and compares it against
+# what FaunaHub publishes. It is the most valuable check in the repository and
+# it deliberately does NOT gate pull requests.
+#
+# WHY IT IS NOT IN ci.yml
+#
+#   1. It makes 311 live requests to akc.org, cfa.org, fifeweb.org and fci.be,
+#      rate-limited to one every 900 ms — roughly five minutes of traffic
+#      against four third parties, on every push and every PR.
+#   2. Its result depends on those sites, not on the diff. A registry outage, a
+#      403, or a redesigned page would fail a pull request that changed a CSS
+#      token. A gate that goes red for reasons the author cannot fix teaches
+#      people to merge past red.
+#   3. A disagreement here is not necessarily an error. A registry may have
+#      revised a standard, in which case the fix is to update the record AND its
+#      reviewedAt date — a research task, not a build failure.
+#
+# So it runs weekly and on demand, and it reports rather than blocks. The gates
+# that ARE deterministic and offline — index, facet, search and finder checks —
+# all gate every PR in ci.yml.
+
+on:
+  schedule:
+    # Mondays at 06:00 UTC, before the working week.
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: registry-verification
+  cancel-in-progress: false
+
+jobs:
+  verify-registries:
+    name: Re-fetch every cited registry page
+    runs-on: ubuntu-latest
+    # Generous: 311 requests at 900 ms plus fetch time, with headroom for slow
+    # registry responses.
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - run: npm ci
+
+      # `continue-on-error` so a registry outage does not page anyone, while the
+      # step still shows red in the run and the log names every disagreement.
+      - name: Verify published records against their cited sources
+        continue-on-error: true
+        run: npm run breeds:verify
+
+      # Offline diagnostics, safe to run unconditionally.
+      - name: Facet coverage report
+        run: npm run breeds:facets
+
+      - name: Animal Finder audit
+        run: npm run finder:audit
