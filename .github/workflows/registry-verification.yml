@@ -86,10 +86,19 @@ jobs:
                exit "$code" ;;
           esac
 
+      # The value is one of four literals this workflow writes itself, so it was
+      # never an injection risk — but an expression inside `run:` is substituted
+      # into the script text before bash parses it, and "this particular one is
+      # safe" is a judgement that has to be re-made correctly by every future
+      # reader. Passing it as an environment variable removes the judgement:
+      # the invariant becomes "no expression appears in any run: command", which
+      # a test can enforce without an allowlist of exceptions.
       - name: Verdict
         if: always()
+        env:
+          VERDICT: ${{ steps.verify.outputs.verdict || 'ERROR' }}
         run: |
-          echo "Registry verification verdict: ${{ steps.verify.outputs.verdict || 'ERROR' }}"
+          echo "Registry verification verdict: $VERDICT"
 
       # Offline diagnostics, safe to run unconditionally.
       - name: Facet coverage report
