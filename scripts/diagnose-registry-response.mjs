@@ -56,6 +56,7 @@ import { fetchPage } from "./lib/registry-text.mjs";
 import { describeResponse, formatDiagnostic } from "./lib/registry-diagnostics.mjs";
 import { cfaPagePlausibility, cfaShapeMarkers } from "./lib/registry-plausibility.mjs";
 import { DEFAULT_TARGETS, EX_USAGE, parseDiagnosticInput } from "./lib/diagnostic-input.mjs";
+import { formatAttempt, transportFingerprint } from "./lib/transport-diagnostics.mjs";
 
 /*
  * NOTHING IS FETCHED UNTIL EVERY INPUT HAS BEEN ACCEPTED.
@@ -156,11 +157,18 @@ for (const [i, url] of urls.entries()) {
 
     results.push(diagnostic);
   } catch (error) {
+    /*
+     * A failed fetch is the interesting case here, so it keeps the transport
+     * classification rather than the message. "fetch failed" is what every
+     * transport problem Node has looks like from the outside.
+     */
     results.push({
       registryId,
       requestedUrl: url,
       error: String(error.message),
+      transport: error.transport ?? "unclassified",
       attempts: error.attempts ?? [],
+      fingerprints: [...new Set((error.attempts ?? []).filter((a) => !a.ok).map(transportFingerprint))],
     });
   }
 }

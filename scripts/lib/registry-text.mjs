@@ -5,6 +5,8 @@
  * tested without running a five-minute live verification against four
  * registries — importing that script executes it.
  */
+import { describeAttempt } from "./transport-diagnostics.mjs";
+
 const UA =
   "FaunaHubRegistryCheck/1.0 (+https://faunahub.com; verifying published breed records)";
 
@@ -45,6 +47,9 @@ export async function fetchPage(url, { retries = 1, backoffMs = 2000, binary = f
   const attempts = [];
   for (let attempt = 1; attempt <= retries + 1; attempt += 1) {
     let status;
+    let finalUrl;
+    let retryAfter = null;
+    const startedAt = Date.now();
     try {
       const res = await fetch(url, {
         headers: { "User-Agent": UA },
@@ -52,8 +57,10 @@ export async function fetchPage(url, { retries = 1, backoffMs = 2000, binary = f
         signal: AbortSignal.timeout(25_000),
       });
       status = res.status;
+      finalUrl = res.url || url;
+      retryAfter = res.headers.get("retry-after");
       if (res.ok) {
-        attempts.push({ attempt, status, ok: true });
+        attempts.push({ attempt, status, ok: true, elapsedMs: Date.now() - startedAt });
         fetchAttempts.push({ url, attempts });
         return {
           /*
@@ -72,13 +79,39 @@ export async function fetchPage(url, { retries = 1, backoffMs = 2000, binary = f
       }
       throw new Error(`HTTP ${status}`);
     } catch (error) {
-      attempts.push({ attempt, status, ok: false, error: String(error.message ?? error) });
+      /*
+       * THE CAUSE IS ONE LEVEL DOWN.
+       *
+       * Node raises `TypeError: fetch failed` for every transport problem it
+       * has, so recording `error.message` turned DNS failure, connect timeout,
+       * socket reset and an expired certificate into the same three words. The
+       * system error is on `error.cause`, and telling those apart is the whole
+       * difference between "retry", "slow down" and "do not trust this".
+       */
+      const diagnostic = describeAttempt({
+        error,
+        status,
+        url,
+        attempt,
+        elapsedMs: Date.now() - startedAt,
+        finalUrl,
+        retryAfter,
+      });
+      attempts.push({
+        ...diagnostic,
+        ok: false,
+        // Kept for every existing reader of `attempts`; the classification
+        // above is additive and changes no decision on its own.
+        error: String(error.message ?? error),
+      });
+
       const last = attempt === retries + 1;
       if (last || !isTransient(status, error)) {
         fetchAttempts.push({ url, attempts });
         const err = new Error(attempts.at(-1).error);
         err.attempts = attempts;
         err.transient = isTransient(status, error);
+        err.transport = diagnostic.transport;
         throw err;
       }
       await new Promise((r) => setTimeout(r, backoffMs * attempt));
