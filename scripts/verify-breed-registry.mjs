@@ -54,6 +54,23 @@ import {
   verifiablePart,
 } from "./lib/registry-text.mjs";
 import { buildVerdict } from "./lib/registry-verdict.mjs";
+import { createSharedSource, isSharedSourceFailure } from "./lib/shared-source.mjs";
+
+/**
+ * Test seams. Neither changes how a normal run behaves.
+ *
+ * FAUNAHUB_FIFE_LISTING_URL points the shared FIFe listing at a stub, so the
+ * behaviour of 35 records sharing one source can be exercised deterministically
+ * instead of by waiting for fifeweb.org to have a bad day.
+ *
+ * FAUNAHUB_VERIFY_ONLY restricts the run to one registry. Useful for a spot
+ * check, and it keeps those tests off the other three registries entirely.
+ */
+const FIFE_LISTING_URL =
+  process.env.FAUNAHUB_FIFE_LISTING_URL ?? "https://fifeweb.org/cats/breeds/";
+const ONLY_REGISTRY = process.env.FAUNAHUB_VERIFY_ONLY ?? null;
+/** Rate-limit pause between records. Only a test against a stub sets this to 0. */
+const RECORD_DELAY_MS = Number(process.env.FAUNAHUB_VERIFY_DELAY_MS ?? 900);
 
 const slugFilter = (() => {
   /*
@@ -88,8 +105,46 @@ function report(breed, field, expected, actual) {
   problems.push({ breed: breed.id, field, expected, actual });
 }
 
+/** One breed's own source failed: scoped to that breed. */
 function reportDegraded(breed, registryId, url, error, attempts) {
-  degraded.push({ breed: breed.id, registryId, url, error, attempts: attempts ?? [] });
+  degraded.push({
+    scope: "breed",
+    breed: breed.id,
+    registryId,
+    url,
+    error,
+    attempts: attempts ?? [],
+  });
+}
+
+/**
+ * A source that many records share failed: scoped to the REGISTRY.
+ *
+ * Every record citing it will raise the same cached error, so this is called
+ * once per record and folded into one entry keyed by registry and canonical
+ * URL. What varies is the count — how much verification the outage cost — and
+ * that is recorded as `affectedRecords` rather than as 35 separate findings
+ * each blaming a different cat for a page none of them owns.
+ */
+const sharedFailures = new Map();
+function noteSharedFailure(error, registryId) {
+  const url = error.sharedSourceUrl ?? "(unknown)";
+  const key = `${registryId}\n${url}`;
+  const existing = sharedFailures.get(key);
+  if (existing) {
+    existing.affectedRecords += 1;
+    return;
+  }
+  const entry = {
+    scope: "registry",
+    registryId,
+    url,
+    error: String(error.message),
+    attempts: error.attempts ?? [],
+    affectedRecords: 1,
+  };
+  sharedFailures.set(key, entry);
+  degraded.push(entry);
 }
 
 
@@ -271,36 +326,31 @@ async function checkCfa(breed, rec) {
  * and exited 0. A verifier that reports green on data it never read is worse
  * than no verifier, because it is believed.
  */
-let fifeListing = null;
-async function fifeText() {
-  if (fifeListing === null) {
-    const html = await fetchText("https://fifeweb.org/cats/breeds/");
-      // The shared pipeline decodes &#8211; / &ndash; to a real en dash; FIFe
-      // separates a breed code from its name that way, so it is folded to a
-      // hyphen here to keep the code/name matching below simple.
-      fifeListing = toText(html).replace(/\u2013/g, "-");
-  }
-  return fifeListing;
-}
+const fifeListing = createSharedSource({
+  id: "fife",
+  url: FIFE_LISTING_URL,
+  fetchText,
+  // The shared pipeline decodes &#8211; / &ndash; to a real en dash; FIFe
+  // separates a breed code from its name that way, so it is folded to a hyphen
+  // here to keep the code/name matching below simple.
+  parse: (html) => toText(html).replace(/\u2013/g, "-"),
+  /*
+   * A 200 is not the same as a usable page. A maintenance stub, a login wall or
+   * a redesigned template all answer 200 with something far shorter than the
+   * real listing, and treating that as readable would let every comparison
+   * below pass against nothing — the exact bug the docstring above describes.
+   */
+  validate: (text) =>
+    !text || text.length < 5000
+      ? "breed listing could not be read (page shape changed or stub response)"
+      : null,
+});
 
 async function checkFife(breed, rec) {
-  const text = await fifeText();
+  // Throws the one shared failure if the listing is unusable; the run loop
+  // records that once for the registry rather than once per breed.
+  const text = await fifeListing.resolve();
   checked.fife += 1;
-
-  if (!text || text.length < 5000) {
-    /*
-     * THROW, do not report. An unreadable listing says nothing about whether
-     * any record is right, so turning it into a disagreement per breed is the
-     * same mistake the FCI timeouts made — and worse, because FIFe is fetched
-     * once and cached, so one bad read becomes 35 identical "disagreements".
-     *
-     * Throwing routes it to the run loop, which records it as DEGRADED: one
-     * unreachable source, named once, with the page it could not read.
-     */
-    const error = new Error("FIFe breed listing could not be read (page shape changed or stub response)");
-    error.transient = true;
-    throw error;
-  }
 
   const code = rec.registryBreedCode;
   if (!code) {
@@ -394,6 +444,7 @@ if (slugFilter && targets.length === 0) {
 for (const breed of targets) {
   for (const rec of breed.recognition) {
     if (!rec.registryUrl) continue;
+    if (ONLY_REGISTRY && rec.registryId !== ONLY_REGISTRY) continue;
     try {
       if (rec.registryId === "akc") await checkAkc(breed, rec);
       else if (rec.registryId === "fci") await checkFci(breed, rec);
@@ -403,9 +454,13 @@ for (const breed of targets) {
       // while the summary still claimed every source had been verified.
       else report(breed, `${rec.registryId}:unchecked`, rec.registryUrl, "no checker for this registry");
     } catch (error) {
-      reportDegraded(breed, rec.registryId, rec.registryUrl, String(error.message), error.attempts);
+      if (isSharedSourceFailure(error)) {
+        noteSharedFailure(error, rec.registryId);
+      } else {
+        reportDegraded(breed, rec.registryId, rec.registryUrl, String(error.message), error.attempts);
+      }
     }
-    await new Promise((r) => setTimeout(r, 900));
+    if (RECORD_DELAY_MS > 0) await new Promise((r) => setTimeout(r, RECORD_DELAY_MS));
   }
   // Every cited source must still resolve to a record, network aside.
   for (const id of breed.sources) {
@@ -453,8 +508,16 @@ if (problems.length > 0) {
 if (degraded.length > 0) {
   console.log(`\n${degraded.length} source(s) unreachable after a retry:\n`);
   for (const d of degraded) {
-    console.log(`  ${d.breed}  ${d.registryId}  ${d.url}`);
-    console.log(`      ${d.attempts.map((a) => `#${a.attempt} ${a.status ?? a.error}`).join("  ")}`);
+    if (d.scope === "registry") {
+      console.log(`  ${d.registryId} shared source  ${d.url}`);
+      console.log(`      ${d.error}`);
+      console.log(`      affected verification scope: ${d.affectedRecords} ${d.registryId.toUpperCase()} records`);
+    } else {
+      console.log(`  ${d.breed}  ${d.registryId}  ${d.url}`);
+    }
+    if (d.attempts.length) {
+      console.log(`      fetch attempts: ${d.attempts.map((a) => `#${a.attempt} ${a.status ?? a.error}`).join("  ")}`);
+    }
   }
   console.log("\nUnreachable is not a disagreement. No record was changed on this evidence.");
 }
