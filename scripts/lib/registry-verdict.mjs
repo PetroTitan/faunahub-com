@@ -23,21 +23,34 @@
 /**
  * A source that could not be verified.
  *
- * `scope` distinguishes the two kinds, because they mean different things. A
- * "breed" failure is that breed's own page. A "registry" failure is a page many
- * records share — FIFe publishes one listing for all 35 of its breeds — so it is
- * reported once, with `affectedRecords` saying how much verification the outage
- * cost rather than inventing a finding per breed.
+ * `scope` distinguishes three kinds, because they mean different things and
+ * need different people to act.
+ *
+ *   breed            that breed's own page. One record, one problem.
+ *   registry         ONE page many records share — FIFe publishes a single
+ *                    listing for all 35 of its breeds. One outage, reported
+ *                    once, with `affectedRecords` saying what it cost.
+ *   registry-egress  MANY DISTINCT pages of one registry, all answering with
+ *                    the same unusable response class. Not one shared page —
+ *                    45 different URLs — but one cause, and almost never a
+ *                    cause on the registry's side of the wire. Reported once,
+ *                    with the distinct-URL count, because 45 blocked fetches
+ *                    are one incident and not 45 findings about cats.
  *
  * @typedef {{
- *   scope?: "breed" | "registry",
+ *   scope?: "breed" | "registry" | "registry-egress",
  *   kind?: "fetched" | "unusable" | "processing",
+ *   reason?: string,
  *   breed?: string,
  *   registryId: string,
  *   url: string,
  *   error: string,
  *   attempts: Attempt[],
- *   affectedRecords?: number
+ *   affectedRecords?: number,
+ *   distinctUrls?: number,
+ *   attemptCount?: number,
+ *   fingerprint?: string,
+ *   examples?: string[]
  * }} Degraded
  */
 
@@ -157,15 +170,31 @@ export function buildVerdict({
       "listing for every breed it recognises. One outage there is one failure, reported",
       "once, with the number of records it left unverified.",
       "",
+      "A **registry egress incident** is many DIFFERENT pages of one registry all",
+      "answering with the same unusable response — a bot challenge, a login wall, a",
+      "rate-limit notice. The pages are fine; this runner could not read them. It is",
+      "reported once, and **no field comparison was made against any of those bodies**.",
+      "",
       "| Scope | Registry | Source URL | Attempts |",
       "| --- | --- | --- | --- |",
-      ...degraded.map((d) =>
-        d.scope === "registry"
-          ? `| **shared listing${d.kind === "processing" ? ", OUR processing fault" : d.kind === "unusable" ? ", answered but unusable" : ""}** ` +
+      ...degraded.map((d) => {
+        if (d.scope === "registry-egress") {
+          return (
+            `| **egress incident, ${cell(d.reason ?? "unusable", 24)}** ` +
+            `— ${d.affectedRecords} ${d.registryId.toUpperCase()} records left unverified ` +
+            `| \`${d.registryId}\` | ${d.distinctUrls} distinct URLs / ${d.attemptCount} attempts ` +
+            `| ${cell(d.fingerprint ?? "", 60)} |`
+          );
+        }
+        if (d.scope === "registry") {
+          return (
+            `| **shared listing${d.kind === "processing" ? ", OUR processing fault" : d.kind === "unusable" ? ", answered but unusable" : ""}** ` +
             `— ${d.affectedRecords} ${d.registryId.toUpperCase()} records affected ` +
             `| \`${d.registryId}\` | ${cell(d.url, 100)} | ${cell(describeAttempts(d.attempts))} |`
-          : `| \`${d.breed}\` | \`${d.registryId}\` | ${cell(d.url, 100)} | ${cell(describeAttempts(d.attempts))} |`,
-      ),
+          );
+        }
+        return `| \`${d.breed}\` | \`${d.registryId}\` | ${cell(d.url, 100)} | ${cell(describeAttempts(d.attempts))} |`;
+      }),
       "",
       "| Registry | Unreachable |",
       "| --- | --- |",

@@ -30,7 +30,18 @@ export function isTransient(status, error) {
 /** Every fetch attempt made, for the run summary. */
 export const fetchAttempts = [];
 
-export async function fetchText(url, { retries = 1, backoffMs = 2000 } = {}) {
+/**
+ * Fetch a page and keep what the response WAS, not only what it said.
+ *
+ * `fetchText` threw the response away the moment it had the body, so when 45
+ * CFA pages all came back without a single expected field there was no record
+ * of their size, their final URL, or which edge served them — and the question
+ * "were we blocked, or did the template change?" had no evidence either way.
+ *
+ * The retry and attempt bookkeeping is unchanged: one `fetchAttempts` entry per
+ * call, pushed exactly once, whether the call ends in a body or a throw.
+ */
+export async function fetchPage(url, { retries = 1, backoffMs = 2000 } = {}) {
   const attempts = [];
   for (let attempt = 1; attempt <= retries + 1; attempt += 1) {
     let status;
@@ -44,7 +55,15 @@ export async function fetchText(url, { retries = 1, backoffMs = 2000 } = {}) {
       if (res.ok) {
         attempts.push({ attempt, status, ok: true });
         fetchAttempts.push({ url, attempts });
-        return res.text();
+        return {
+          body: await res.text(),
+          status,
+          // `res.url` is the URL AFTER redirects. A soft block that 302s to an
+          // interstitial is invisible in the requested URL alone.
+          finalUrl: res.url || url,
+          headers: res.headers,
+          attempts,
+        };
       }
       throw new Error(`HTTP ${status}`);
     } catch (error) {
@@ -61,6 +80,12 @@ export async function fetchText(url, { retries = 1, backoffMs = 2000 } = {}) {
     }
   }
   throw new Error("unreachable");
+}
+
+/** The body alone, for callers that need nothing else. */
+export async function fetchText(url, options) {
+  const { body } = await fetchPage(url, options);
+  return body;
 }
 
 /* ------------------------ HTML to text ----------------------- */
