@@ -38,7 +38,7 @@
  *                    are one incident and not 45 findings about cats.
  *
  * @typedef {{
- *   scope?: "breed" | "registry" | "registry-egress",
+ *   scope?: "breed" | "registry" | "registry-egress" | "registry-template",
  *   kind?: "fetched" | "unusable" | "processing" | "out-of-force",
  *   reason?: string,
  *   breed?: string,
@@ -170,6 +170,11 @@ export function buildVerdict({
       "listing for every breed it recognises. One outage there is one failure, reported",
       "once, with the number of records it left unverified.",
       "",
+      "A **template change** is one registry altering what its pages publish. Every",
+      "affected record is still verified against everything the page DOES carry —",
+      "measurements included — and only the fields the template dropped go",
+      "unverified. The aggregate names them, and names every breed it covers.",
+      "",
       "A **registry egress incident** is many DIFFERENT pages of one registry all",
       "answering with the same unusable response — a bot challenge, a login wall, a",
       "rate-limit notice. The pages are fine; this runner could not read them. It is",
@@ -178,6 +183,13 @@ export function buildVerdict({
       "| Scope | Registry | Source URL | Attempts |",
       "| --- | --- | --- | --- |",
       ...degraded.map((d) => {
+        if (d.scope === "registry-template") {
+          return (
+            `| **template change, ${d.affectedRecords} records partly unverified** ` +
+            `| \`${d.registryId}\` | ${cell((d.unverifiedFields ?? []).join(", "), 90)} ` +
+            `| ${cell(d.fingerprint ?? "", 60)} |`
+          );
+        }
         if (d.scope === "registry-egress") {
           return (
             `| **egress incident, ${cell(d.reason ?? "unusable", 24)}** ` +
