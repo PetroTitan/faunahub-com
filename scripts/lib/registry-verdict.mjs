@@ -31,6 +31,7 @@
  *
  * @typedef {{
  *   scope?: "breed" | "registry",
+ *   kind?: "fetched" | "unusable" | "processing",
  *   breed?: string,
  *   registryId: string,
  *   url: string,
@@ -160,7 +161,8 @@ export function buildVerdict({
       "| --- | --- | --- | --- |",
       ...degraded.map((d) =>
         d.scope === "registry"
-          ? `| **shared listing** — ${d.affectedRecords} ${d.registryId.toUpperCase()} records affected ` +
+          ? `| **shared listing${d.kind === "processing" ? ", OUR processing fault" : d.kind === "unusable" ? ", answered but unusable" : ""}** ` +
+            `— ${d.affectedRecords} ${d.registryId.toUpperCase()} records affected ` +
             `| \`${d.registryId}\` | ${cell(d.url, 100)} | ${cell(describeAttempts(d.attempts))} |`
           : `| \`${d.breed}\` | \`${d.registryId}\` | ${cell(d.url, 100)} | ${cell(describeAttempts(d.attempts))} |`,
       ),
