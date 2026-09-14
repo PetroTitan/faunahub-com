@@ -19,7 +19,26 @@
  */
 
 /** @typedef {{breed: string, field: string, expected: unknown, actual: unknown}} Problem */
-/** @typedef {{breed: string, registryId: string, url: string, error: string, attempts: Array<{attempt: number, status?: number, ok?: boolean, error?: string}>}} Degraded */
+/** @typedef {{attempt: number, status?: number, ok?: boolean, error?: string}} Attempt */
+/**
+ * A source that could not be verified.
+ *
+ * `scope` distinguishes the two kinds, because they mean different things. A
+ * "breed" failure is that breed's own page. A "registry" failure is a page many
+ * records share — FIFe publishes one listing for all 35 of its breeds — so it is
+ * reported once, with `affectedRecords` saying how much verification the outage
+ * cost rather than inventing a finding per breed.
+ *
+ * @typedef {{
+ *   scope?: "breed" | "registry",
+ *   breed?: string,
+ *   registryId: string,
+ *   url: string,
+ *   error: string,
+ *   attempts: Attempt[],
+ *   affectedRecords?: number
+ * }} Degraded
+ */
 
 const ICON = { CLEAN: "✅", DISAGREEMENT: "❌", DEGRADED: "⚠️" };
 const EXIT = { CLEAN: 0, DISAGREEMENT: 1, DEGRADED: 2 };
@@ -62,6 +81,12 @@ export function buildVerdict({
   const byRegistry = countBy(degraded, "registryId");
   const retried = fetchAttempts.filter((f) => f.attempts.length > 1);
   const recovered = retried.filter((f) => f.attempts.at(-1)?.ok);
+  /*
+   * URLs and requests are different numbers, and conflating them is how a
+   * shared source looks cheap. "Fetches" counts distinct URLs; "Fetch attempts"
+   * counts requests actually made, so a retried page reads as 1 and 2.
+   */
+  const attemptCount = fetchAttempts.reduce((n, f) => n + f.attempts.length, 0);
 
   const registryLine = Object.entries(checked)
     .filter(([, n]) => n > 0)
@@ -77,7 +102,8 @@ export function buildVerdict({
     "| --- | --- |",
     `| Disagreements | ${problems.length} |`,
     `| Unreachable sources | ${degraded.length} |`,
-    `| Fetches | ${fetchAttempts.length} |`,
+    `| Fetches (distinct URLs) | ${fetchAttempts.length} |`,
+    `| Fetch attempts | ${attemptCount} |`,
     `| Retried | ${retried.length} |`,
     `| Recovered by retry | ${recovered.length} |`,
     "",
@@ -126,11 +152,17 @@ export function buildVerdict({
       "These are **not** disagreements. The source did not answer, so it said nothing",
       "about whether the record is right, and nothing was inferred from the silence.",
       "",
-      "| Breed | Registry | Source URL | Attempts |",
+      "A **shared listing** is one page cited by many records — FIFe publishes a single",
+      "listing for every breed it recognises. One outage there is one failure, reported",
+      "once, with the number of records it left unverified.",
+      "",
+      "| Scope | Registry | Source URL | Attempts |",
       "| --- | --- | --- | --- |",
-      ...degraded.map(
-        (d) =>
-          `| \`${d.breed}\` | \`${d.registryId}\` | ${cell(d.url, 100)} | ${cell(describeAttempts(d.attempts))} |`,
+      ...degraded.map((d) =>
+        d.scope === "registry"
+          ? `| **shared listing** — ${d.affectedRecords} ${d.registryId.toUpperCase()} records affected ` +
+            `| \`${d.registryId}\` | ${cell(d.url, 100)} | ${cell(describeAttempts(d.attempts))} |`
+          : `| \`${d.breed}\` | \`${d.registryId}\` | ${cell(d.url, 100)} | ${cell(describeAttempts(d.attempts))} |`,
       ),
       "",
       "| Registry | Unreachable |",
@@ -158,6 +190,7 @@ export function buildVerdict({
       problems: problems.length,
       degraded: degraded.length,
       fetches: fetchAttempts.length,
+      attempts: attemptCount,
       retried: retried.length,
       recovered: recovered.length,
       byField,
