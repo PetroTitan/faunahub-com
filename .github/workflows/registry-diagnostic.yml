@@ -34,6 +34,23 @@ on:
         required: false
         default: ''
 
+  # WHY A PULL_REQUEST TRIGGER ON A DIAGNOSTIC.
+  #
+  # `workflow_dispatch` only exists once the workflow is on the DEFAULT branch,
+  # so a diagnostic that lives on a feature branch cannot be dispatched at all —
+  # the API answers 404. That makes the evidence unobtainable until after the
+  # merge that is supposed to be justified by the evidence.
+  #
+  # Pull-request runs use the workflow file from the branch, which closes that
+  # loop. It is scoped to the diagnostic's own files so no unrelated pull
+  # request pays four external requests to prove something it did not change.
+  pull_request:
+    paths:
+      - '.github/workflows/registry-diagnostic.yml'
+      - 'scripts/diagnose-registry-response.mjs'
+      - 'scripts/lib/registry-diagnostics.mjs'
+      - 'scripts/lib/registry-plausibility.mjs'
+
 permissions:
   contents: read
 
