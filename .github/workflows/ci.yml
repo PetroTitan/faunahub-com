@@ -1,0 +1,97 @@
+name: CI
+
+# Every gate that must hold before main can change.
+#
+# main auto-deploys, so a merge is a release. Until now nothing ran these checks
+# automatically: the index, facet and search checks existed as npm scripts that
+# a human had to remember, and `prebuild` regenerates those artifacts anyway, so
+# staleness self-healed at build time and never surfaced.
+#
+# Ordering is deliberate — the cheap checks fail first, and the build runs last
+# because it is the only step measured in minutes.
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+# Read-only. This workflow never deploys, never publishes and needs no secrets;
+# it must not be able to.
+permissions:
+  contents: read
+
+# A superseded PR run is wasted compute and a confusing status. Pushes to main
+# are never cancelled, because each one is a release whose result must be known.
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  verify:
+    name: Lint, types, tests, gates, build
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Node 24 matches the environment every one of these gates was validated
+      # on. package.json allows >=22.18.0; CI pins the validated major rather
+      # than drifting with the runner's default.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - name: Install from the lockfile
+        run: npm ci
+
+      # Reviewed advisory policy, not a bare `npm audit`. Any critical fails,
+      # and so does anything outside the documented allowlist. See
+      # scripts/audit-policy.mjs for why the two residual entries are accepted.
+      - name: Security policy
+        run: npm run audit:policy
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Tests
+        run: npm test
+
+      # The generated corpora must already match their sources in the commit,
+      # not merely after a build regenerates them.
+      - name: Breed index is committed and current
+        run: npm run breeds:index:check
+
+      - name: Facet coverage has not degraded
+        run: npm run breeds:facets:check
+
+      - name: Search index is committed and current
+        run: npm run search:check
+
+      - name: Animal Finder index is committed and current
+        run: npm run finder:check
+
+      # `prebuild` runs all three generators, so this also proves the build's own
+      # generation step agrees with what is committed.
+      - name: Production build
+        run: npm run build
+
+      # Nothing the build touched may differ from the commit, except the one
+      # `generatedAt` date stamp two indexes carry. A bare `git diff
+      # --exit-code` cannot express that and would fail every PR on the day
+      # after a commit; scripts/check-generated-clean.mjs explains the rule.
+      - name: Generated artifacts are clean
+        run: npm run generated:check
+
+      # The belt to that braces: catches anything outside the two date-stamped
+      # files, in a form a reviewer can read at a glance.
+      - name: No unexpected source changes
+        run: |
+          git diff --exit-code -- \
+            ':(exclude)public/search-index.json' \
+            ':(exclude)public/animal-finder-index.json'

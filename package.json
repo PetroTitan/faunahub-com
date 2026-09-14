@@ -22,7 +22,9 @@
     "breeds:facets:check": "node scripts/breed-facet-coverage.mjs --check",
     "breeds:verify": "node scripts/verify-breed-registry.mjs",
     "breeds:index": "node scripts/generate-breed-index.mjs",
-    "breeds:index:check": "node scripts/generate-breed-index.mjs --check"
+    "breeds:index:check": "node scripts/generate-breed-index.mjs --check",
+    "audit:policy": "node scripts/audit-policy.mjs",
+    "generated:check": "node scripts/check-generated-clean.mjs"
   },
   "dependencies": {
     "next": "^15.5.18",
