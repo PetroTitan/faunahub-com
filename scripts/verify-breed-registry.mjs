@@ -64,6 +64,7 @@ import {
   spanListsBreed,
 } from "./lib/cfa-show-rules.mjs";
 import { EX_USAGE, checkValidity, resolveNow } from "./lib/source-validity.mjs";
+import { formatAttempt, transportFingerprint } from "./lib/transport-diagnostics.mjs";
 import { describeSegment, lineSupports, resolveAkcBasics } from "./lib/akc-measurements.mjs";
 import {
   akcRepresentations,
@@ -1260,7 +1261,18 @@ if (degraded.length > 0) {
       if (d.error) console.log(`      ${d.error}`);
     }
     if (d.attempts.length) {
-      console.log(`      fetch attempts: ${d.attempts.map((a) => `#${a.attempt} ${a.status ?? a.error}`).join("  ")}`);
+      /*
+       * The classification has to reach the SUMMARY, not just the record.
+       * Collecting the cause and then printing `#1 fetch failed` leaves the
+       * reader exactly where they were: every transport problem Node has looks
+       * identical from the outside, and the summary is where somebody decides
+       * whether to retry, slow down, or stop trusting the connection.
+       */
+      for (const a of d.attempts) {
+        console.log(`      ${a.ok ? `#${a.attempt} ok ${a.status} after ${a.elapsedMs ?? "?"} ms` : formatAttempt(a)}`);
+      }
+      const prints = [...new Set(d.attempts.filter((a) => !a.ok && a.transport).map(transportFingerprint))];
+      if (prints.length) console.log(`      fingerprint: ${prints.join(", ")}`);
     }
   }
   console.log("\nUnreachable is not a disagreement. No record was changed on this evidence.");
