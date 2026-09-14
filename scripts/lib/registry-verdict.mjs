@@ -39,7 +39,7 @@
  *
  * @typedef {{
  *   scope?: "breed" | "registry" | "registry-egress",
- *   kind?: "fetched" | "unusable" | "processing",
+ *   kind?: "fetched" | "unusable" | "processing" | "out-of-force",
  *   reason?: string,
  *   breed?: string,
  *   registryId: string,
@@ -188,7 +188,7 @@ export function buildVerdict({
         }
         if (d.scope === "registry") {
           return (
-            `| **shared listing${d.kind === "processing" ? ", OUR processing fault" : d.kind === "unusable" ? ", answered but unusable" : ""}** ` +
+            `| **shared listing${d.kind === "processing" ? ", OUR processing fault" : d.kind === "out-of-force" ? ", NOT IN FORCE on this date" : d.kind === "unusable" ? ", answered but unusable" : ""}** ` +
             `— ${d.affectedRecords} ${d.registryId.toUpperCase()} records affected ` +
             `| \`${d.registryId}\` | ${cell(d.url, 100)} | ${cell(describeAttempts(d.attempts))} |`
           );

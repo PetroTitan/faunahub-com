@@ -139,15 +139,34 @@ function validShowRules(): Buffer {
     .filter((b) => cfaRecord(b).registryGroupSourceId)
     .map((b) => breedHeadingFromUrl(cfaRecord(b).registryUrl!)!);
   const body = [
+    // Nested parentheses MUST be escaped: a PDF string literal ends at the
+    // first unescaped ")", so an unescaped marker truncates the document.
+    `(${esc("2026 - 2027 Show Season (April 27, 2026 - April 25, 2027)")}) Tj`,
     `(${esc(ARTICLE_START)}) Tj`,
     `(${esc(RULE_30_01)}.) Tj`,
     ...headings.map((h) => `(${esc(h)}) Tj (All Championship Colors) Tj`),
     `(${esc(ARTICLE_END)}) Tj`,
+    // Clear the readability floor the way a real document does.
+    `(${"Additional show rule text for the season. ".repeat(40)}) Tj`,
   ].join(" ");
   return Buffer.concat([
-    Buffer.from("%PDF-1.4\nstream\n"),
-    zlib.deflateSync(Buffer.from(body, "latin1")),
-    Buffer.from("\nendstream\n"),
+    Buffer.from("%PDF-1.4\nstream\nBT "),
+    Buffer.from(body, "latin1"),
+    Buffer.from(" ET\nendstream\n"),
+  ]);
+}
+
+/** A clean addendum: right season, and it does not touch Article XXX. */
+function validAddendum(): Buffer {
+  const body = [
+    "(2026-2027 SHOW RULE ADDENDUM TO THE PRINTED SHOW RULES) Tj",
+    "(Article XXXVI - National/Regional/Divisional Awards Program) Tj",
+    `(${"Exceptions and additions for the season. ".repeat(40)}) Tj`,
+  ].join(" ");
+  return Buffer.concat([
+    Buffer.from("%PDF-1.4\nstream\nBT "),
+    Buffer.from(body, "latin1"),
+    Buffer.from(" ET\nendstream\n"),
   ]);
 }
 
@@ -176,10 +195,11 @@ async function runCfaStub(
   let requests = 0;
   const server = http.createServer((req, res) => {
     const url = req.url ?? "/";
-    if (url.startsWith("/show-rules")) {
-      // Not counted: this harness counts CFA PROFILE requests.
+    if (url.includes("show-rules")) {
+      // Not counted: this harness counts CFA PROFILE requests. The addendum is
+      // the other half of the season package and must answer too.
       res.writeHead(200, { "Content-Type": "application/pdf" });
-      res.end(validShowRules());
+      res.end(url.includes("addendum") ? validAddendum() : validShowRules());
       return;
     }
     requests += 1;
@@ -200,7 +220,7 @@ async function runCfaStub(
             env: {
               ...process.env,
               FAUNAHUB_CFA_BASE_URL: `http://127.0.0.1:${port}`,
-              FAUNAHUB_GROUP_SOURCE_URL: `http://127.0.0.1:${port}/show-rules.pdf`,
+              FAUNAHUB_GROUP_SOURCE_URL: `http://127.0.0.1:${port}`,
               FAUNAHUB_VERIFY_ONLY: "cfa",
               FAUNAHUB_VERIFY_DELAY_MS: "0",
               ...extraEnv,

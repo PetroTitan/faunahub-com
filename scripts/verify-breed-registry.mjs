@@ -56,19 +56,35 @@ import {
   verifiablePart,
 } from "./lib/registry-text.mjs";
 import {
+  articleXxxAmended,
   breedHeadingFromUrl,
   championshipSpan,
+  documentIsForSeason,
   extractPdfText,
   spanListsBreed,
 } from "./lib/cfa-show-rules.mjs";
+import { EX_USAGE, checkValidity, resolveNow } from "./lib/source-validity.mjs";
 import { describeResponse, formatDiagnostic } from "./lib/registry-diagnostics.mjs";
 import { cfaPagePlausibility, cfaShapeMarkers } from "./lib/registry-plausibility.mjs";
 import { buildVerdict } from "./lib/registry-verdict.mjs";
 import {
+  SHARED_SOURCE_FAILURE,
   createSharedSource,
   isSharedSourceFailure,
   sharedSourceFailureKind,
 } from "./lib/shared-source.mjs";
+
+/**
+ * The date this run is judged against. Real time unless a test injects one.
+ *
+ * A malformed injected date stops the run: quietly falling back to the clock
+ * would report a verdict about a different day than the caller asked about.
+ */
+const NOW = resolveNow(process.env);
+if (!NOW.ok) {
+  console.error(`${NOW.error}\n`);
+  process.exit(EX_USAGE);
+}
 
 /**
  * Test seams. Neither changes how a normal run behaves.
@@ -106,13 +122,26 @@ const ONLY_REGISTRIES = process.env.FAUNAHUB_VERIFY_ONLY
 const CFA_BASE_URL = process.env.FAUNAHUB_CFA_BASE_URL ?? null;
 
 /**
- * Point claim-level group sources at a stub. Test-only, inert unless set.
+ * Point claim-level group sources at a stub ORIGIN. Test-only, inert unless set.
  *
- * The Show Rules are a 748 kB PDF republished every show season. Exercising
- * "the breed was removed from Article XXX" against the real document is not
- * possible, and waiting for CFA to have a bad day is not a test strategy.
+ * The Show Rules are a 748 kB PDF republished every show season, and a season's
+ * rules are TWO documents. Exercising "the breed was removed from Article XXX"
+ * or "the addendum amends it" against the live files is not possible, and
+ * waiting for CFA to have a bad day is not a test strategy.
+ *
+ * It replaces the ORIGIN and keeps each document's own path, so the rules and
+ * the addendum stay distinguishable — a single-URL seam would have sent both to
+ * one stub response and made the package untestable as a package.
  */
-const GROUP_SOURCE_URL = process.env.FAUNAHUB_GROUP_SOURCE_URL ?? null;
+const GROUP_SOURCE_ORIGIN = process.env.FAUNAHUB_GROUP_SOURCE_URL ?? null;
+const groupUrl = (url) => {
+  if (!GROUP_SOURCE_ORIGIN) return url;
+  try {
+    return new URL(new URL(url).pathname, GROUP_SOURCE_ORIGIN).toString();
+  } catch {
+    return url;
+  }
+};
 const cfaUrl = (url) =>
   CFA_BASE_URL ? url.replace(/^https?:\/\/(?:www\.)?cfa\.org/i, CFA_BASE_URL) : url;
 /** Rate-limit pause between records. Only a test against a stub sets this to 0. */
@@ -421,7 +450,35 @@ async function checkFci(breed, rec) {
  */
 const groupSources = new Map();
 
-function groupSourceFor(sourceId) {
+/**
+ * A shared source that fails without asking the network.
+ *
+ * An expired document has nothing to tell us, and fetching it anyway would put
+ * a request in the log for a source we already know we may not rely on. This
+ * presents the refusal in the same shape as any other shared-source failure, so
+ * the run loop folds it into ONE registry-scoped DEGRADED entry exactly as it
+ * folds an outage.
+ */
+function refusedSource(id, url, kind, message) {
+  const error = new Error(message);
+  error[SHARED_SOURCE_FAILURE] = true;
+  error.sharedSourceId = id;
+  error.sharedSourceUrl = url;
+  error.sharedSourceFailureKind = kind;
+  error.attempts = [];
+  return {
+    id,
+    url,
+    get state() {
+      return "failed";
+    },
+    resolve: async () => {
+      throw error;
+    },
+  };
+}
+
+function groupSourceFor(sourceId, role = "governing") {
   if (groupSources.has(sourceId)) return groupSources.get(sourceId);
 
   const record = getBreedSource(sourceId);
@@ -430,27 +487,74 @@ function groupSourceFor(sourceId) {
     return null;
   }
 
+  /*
+   * VALIDITY IS DECIDED BEFORE THE FETCH.
+   *
+   * These records cite a document that governs one show season. Nothing read
+   * those dates before: a run after April 2027 would have downloaded the same
+   * file, found the same twelve breeds and reported CLEAN — a stale document
+   * agreeing with a stale record.
+   */
+  const validity = checkValidity(record, NOW.at);
+  if (!validity.inForce) {
+    const refused = refusedSource(
+      sourceId,
+      groupUrl(record.url),
+      "out-of-force",
+      `${record.title} is not in force: ${validity.reason} (no request was made)`,
+    );
+    groupSources.set(sourceId, refused);
+    return refused;
+  }
+
   const source = createSharedSource({
     id: sourceId,
-    url: GROUP_SOURCE_URL ?? record.url,
+    url: groupUrl(record.url),
     // The Show Rules are a PDF: decoding the bytes as text would corrupt every
     // compressed stream before the parser ever saw them.
     fetchText: fetchBytes,
     parse: (bytes) => {
       const text = extractPdfText(bytes);
-      return { text, span: championshipSpan(text) };
+      return { text, span: championshipSpan(text), amends: articleXxxAmended(text) };
     },
     /*
      * A document we cannot find Article XXX in is not evidence of anything, and
      * must never read as "this breed is not listed". Failing here routes it
      * through the shared-source DEGRADED path instead.
      */
-    validate: ({ text, span }) =>
-      span
+    validate: ({ text, span, amends }) => {
+      if (text.length < 1000) {
+        return "the document could not be read as text (not a PDF, or no readable streams)";
+      }
+      /*
+       * THE RIGHT CONTENT IS NOT PROOF OF THE RIGHT DOCUMENT.
+       *
+       * The previous season's Show Rules list the same twelve breeds under the
+       * same article, so every content check below would pass against a stale
+       * file served at the same URL. The marker is printed only by the edition
+       * we cited.
+       */
+      if (record.seasonMarker && !documentIsForSeason(text, record.seasonMarker)) {
+        return `the document at this URL is not the cited edition (expected to find "${record.seasonMarker}")`;
+      }
+      if (role === "amendment") {
+        /*
+         * AN AMENDMENT IS NOT READ FOR THE LIST; IT IS READ FOR WHETHER THE
+         * LIST STILL STANDS.
+         *
+         * If it touches Article XXX then the published breed list is no longer
+         * the whole rule, and no automatic reading of it is trustworthy. This
+         * asks for a person rather than guessing what the amendment did — one
+         * DEGRADED signal, and not one breed blamed for it.
+         */
+        return amends
+          ? `amends the Championship breed list (${amends.join(", ")}) — a person must read it before these records can be verified automatically`
+          : null;
+      }
+      return span
         ? null
-        : text.length < 1000
-          ? "the Show Rules document could not be read as text (not a PDF, or no readable streams)"
-          : "Article XXX (Championship Breeds/Divisions & Colors) was not found in the Show Rules",
+        : "Article XXX (Championship Breeds/Divisions & Colors) was not found in the Show Rules";
+    },
   });
 
   groupSources.set(sourceId, source);
@@ -479,6 +583,33 @@ async function checkGroupAgainstSource(breed, rec) {
   }
 
   const { span } = await source.resolve();
+
+  /*
+   * THE GOVERNING PACKAGE, NOT JUST ITS FIRST DOCUMENT.
+   *
+   * CFA issues a season's rules as a printed document plus an addendum of
+   * exceptions, both official and both current. Verifying only the first is
+   * verifying half the rule: an amendment to Article XXX would be invisible,
+   * and every record would pass against a list that had been changed.
+   *
+   * The amendment is its own shared source — its own URL, its own validity, its
+   * own failure — so a run can say which of the two it could not read, and it
+   * is fetched once however many records cite the package.
+   */
+  const record = getBreedSource(rec.registryGroupSourceId);
+  if (record?.amendedBy) {
+    const amendment = groupSourceFor(record.amendedBy, "amendment");
+    if (!amendment) {
+      report(
+        breed,
+        `${rec.registryId}:group`,
+        rec.registryGroup,
+        `declared amendment "${record.amendedBy}" has no source record`,
+      );
+      return;
+    }
+    await amendment.resolve();
+  }
 
   const heading = breedHeadingFromUrl(rec.registryUrl);
   if (!heading) {
@@ -861,9 +992,11 @@ if (degraded.length > 0) {
       const label =
         d.kind === "processing"
           ? "shared source — OUR PROCESSING FAULT"
-          : d.kind === "unusable"
-            ? "shared source — answered but unusable"
-            : "shared source — could not be fetched";
+          : d.kind === "out-of-force"
+            ? "shared source — NOT IN FORCE on this date, not requested"
+            : d.kind === "unusable"
+              ? "shared source — answered but unusable"
+              : "shared source — could not be fetched";
       console.log(`  ${d.registryId} ${label}  ${d.url}`);
       console.log(`      ${d.error}`);
       console.log(`      affected verification scope: ${d.affectedRecords} ${d.registryId.toUpperCase()} records`);
