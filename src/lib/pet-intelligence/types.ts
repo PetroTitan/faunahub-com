@@ -118,6 +118,29 @@ export interface BreedRecognition {
   recognizedYear?: number;
   /** Source record backing this recognition claim. Required — no exceptions. */
   sourceId: string;
+  /**
+   * Source backing the `registryGroup` claim SPECIFICALLY, when the registry
+   * states the classification somewhere other than the breed's own page.
+   *
+   * CFA is why this exists. Twelve records claimed `registryGroup:
+   * "Championship"` and cited the CFA breed profile; CFA stopped printing the
+   * class there, so the weekly verifier reported twelve disagreements about a
+   * claim that was never wrong. The classification lives in the Show Rules —
+   * Article XXX, "the following breeds ... are recognized as entitled to win
+   * Championship or Premiership honors" — and that is what should be cited for
+   * it.
+   *
+   * It is deliberately claim-level and not a replacement for `registryUrl`. The
+   * profile page still supports coat, weight, recognised year and the standard
+   * PDF; only the group claim moves. Splitting one source per claim is what
+   * keeps "which document proves which sentence" answerable.
+   *
+   * Absent means the group claim is verified against `registryUrl`, as before.
+   * Absence must never mean "unverified": a record with a `registryGroup` and
+   * no group source is still checked against its profile page, and still fails
+   * if the page does not say it.
+   */
+  registryGroupSourceId?: string;
 }
 
 /* ------------------------------------------------------------------ *

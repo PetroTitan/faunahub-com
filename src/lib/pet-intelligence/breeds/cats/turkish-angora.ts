@@ -11,6 +11,7 @@ export const breed: Breed = {
       registryId: "cfa",
       status: "recognized",
       registryGroup: "Championship",
+      registryGroupSourceId: "cfa-show-rules-2026-27",
       registryUrl: "https://cfa.org/breed/turkish-angora/",
       sourceId: "cfa-turkish-angora",
     },
@@ -30,8 +31,8 @@ export const breed: Breed = {
     sourceId: "cfa-turkish-angora",
   },
   traits: {},
-  sources: ["cfa-turkish-angora", "cfa-std-turkish-angora", "fife-turkish-angora"],
+  sources: ["cfa-turkish-angora", "cfa-std-turkish-angora", "fife-turkish-angora", "cfa-show-rules-2026-27"],
   images: [],
-  reviewedAt: "2026-09-13",
+  reviewedAt: "2026-09-14",
   publishedAt: "2026-09-13",
 };

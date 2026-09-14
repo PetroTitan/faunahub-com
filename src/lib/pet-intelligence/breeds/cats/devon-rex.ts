@@ -11,6 +11,7 @@ export const breed: Breed = {
       registryId: "cfa",
       status: "recognized",
       registryGroup: "Championship",
+      registryGroupSourceId: "cfa-show-rules-2026-27",
       registryUrl: "https://cfa.org/breed/devon-rex/",
       sourceId: "cfa-devon-rex",
     },
@@ -38,8 +39,8 @@ export const breed: Breed = {
     sourceId: "cfa-devon-rex",
   },
   traits: {},
-  sources: ["cfa-devon-rex", "cfa-std-devon-rex", "fife-devon-rex"],
+  sources: ["cfa-devon-rex", "cfa-std-devon-rex", "fife-devon-rex", "cfa-show-rules-2026-27"],
   images: ["cat-devon-rex-001"],
-  reviewedAt: "2026-09-13",
+  reviewedAt: "2026-09-14",
   publishedAt: "2026-09-13",
 };

@@ -14,6 +14,7 @@ export const breed: Breed = {
       registryId: "cfa",
       status: "recognized",
       registryGroup: "Championship",
+      registryGroupSourceId: "cfa-show-rules-2026-27",
       registryUrl: "https://cfa.org/breed/british-shorthair/",
       sourceId: "cfa-british-shorthair",
     },
@@ -58,8 +59,8 @@ export const breed: Breed = {
       { question: "Are British Shorthairs hypoallergenic?", answer: "No cat breed is fully hypoallergenic. Anyone with allergies should spend time with a specific cat before committing." },
     ],
   },
-  sources: ["cfa-british-shorthair", "cfa-std-british-shorthair"],
+  sources: ["cfa-british-shorthair", "cfa-std-british-shorthair", "cfa-show-rules-2026-27"],
   images: ["cat-british-shorthair-001"],
-  reviewedAt: "2026-09-13",
+  reviewedAt: "2026-09-14",
   publishedAt: "2026-05-21",
 };

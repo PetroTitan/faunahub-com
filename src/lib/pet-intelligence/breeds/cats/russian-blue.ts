@@ -11,6 +11,7 @@ export const breed: Breed = {
       registryId: "cfa",
       status: "recognized",
       registryGroup: "Championship",
+      registryGroupSourceId: "cfa-show-rules-2026-27",
       registryUrl: "https://cfa.org/breed/russian-blue/",
       sourceId: "cfa-russian-blue",
     },
@@ -36,8 +37,8 @@ export const breed: Breed = {
     sourceId: "cfa-russian-blue",
   },
   traits: {},
-  sources: ["cfa-russian-blue", "cfa-std-russian-blue", "fife-russian-blue"],
+  sources: ["cfa-russian-blue", "cfa-std-russian-blue", "fife-russian-blue", "cfa-show-rules-2026-27"],
   images: [],
-  reviewedAt: "2026-09-13",
+  reviewedAt: "2026-09-14",
   publishedAt: "2026-09-13",
 };
