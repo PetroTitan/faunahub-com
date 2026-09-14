@@ -4,6 +4,7 @@
  *   node scripts/diagnose-registry-response.mjs            # the four defaults
  *   node scripts/diagnose-registry-response.mjs <url>...   # specific pages
  *   node scripts/diagnose-registry-response.mjs --json     # machine-readable
+ *   node scripts/diagnose-registry-response.mjs --both     # human, then JSON
  *   node scripts/diagnose-registry-response.mjs --sweep    # every CFA URL, in order
  *
  * A weekly registry run reported 185 disagreements from a GitHub-hosted runner
@@ -16,7 +17,22 @@
  * are present, and which infrastructure headers answered. It compares nothing
  * and changes nothing.
  *
- * SAFETY
+ * ONE FETCH, HOWEVER MANY REPRESENTATIONS
+ *
+ * The workflow used to run this twice for one answer — once for people, once
+ * for `--json` — and then sweep on top, so a blank dispatch made 53 requests
+ * while its own comment said four. Every response is now fetched once into
+ * `results`, and each rendering is a pure function of that array. Adding an
+ * output format cannot add traffic.
+ *
+ * INPUT IS DATA, NEVER COMMAND TEXT
+ *
+ * Dispatch input arrives in an environment variable and is validated in
+ * diagnostic-input.mjs before anything is fetched. Nothing from a caller is
+ * ever interpolated into a shell command. See that module for why escaping was
+ * not the fix.
+ *
+ * SAFETY OF THE OUTPUT
  *
  * It prints only what registry-diagnostics.mjs allows: no response bodies, no
  * Set-Cookie, no Authorization, no request headers, no tokens. Everything about
@@ -39,17 +55,25 @@ import path from "node:path";
 import { fetchPage } from "./lib/registry-text.mjs";
 import { describeResponse, formatDiagnostic } from "./lib/registry-diagnostics.mjs";
 import { cfaPagePlausibility, cfaShapeMarkers } from "./lib/registry-plausibility.mjs";
+import { DEFAULT_TARGETS, EX_USAGE, parseDiagnosticInput } from "./lib/diagnostic-input.mjs";
 
-const DEFAULT_TARGETS = [
-  "https://cfa.org/breed/abyssinian/",
-  "https://cfa.org/breed/american-bobtail/",
-  "https://cfa.org/breed/siamese/",
-  "https://www.fci.be/en/nomenclature/BEAGLE-161.html",
-];
-
-const asJson = process.argv.includes("--json");
 /*
- * SWEEP MODE EXISTS BECAUSE FOUR REQUESTS PROVED NOTHING.
+ * NOTHING IS FETCHED UNTIL EVERY INPUT HAS BEEN ACCEPTED.
+ *
+ * All-or-nothing, and before the first request: a run that half-validates has
+ * already told a bad host that this runner exists.
+ */
+const parsed = parseDiagnosticInput({ argv: process.argv.slice(2), env: process.env });
+if (!parsed.ok) {
+  console.error("diagnostic input rejected — nothing was fetched:\n");
+  for (const error of parsed.errors) console.error(`  ${error}`);
+  console.error("");
+  process.exit(EX_USAGE);
+}
+const { mode, emit, delayMs } = parsed;
+
+/**
+ * SWEEP EXISTS BECAUSE FOUR REQUESTS PROVED NOTHING.
  *
  * The first runner diagnostic fetched three CFA pages and got three valid ones,
  * byte-identical to a laptop's — no block, no template change, nothing to
@@ -58,17 +82,9 @@ const asJson = process.argv.includes("--json");
  * that never reaches the threshold.
  *
  * Sweep walks every CFA URL the corpus cites, at the verifier's own cadence,
- * and reports WHERE plausibility stops holding. If a block is rate-triggered
- * this finds the index it starts at; if nothing fails, volume is excluded too
- * and the incident was something else again.
- *
- * It is a MEASUREMENT, not a workaround: same user agent, same cadence, same
- * one request at a time. Nothing here evades anything.
+ * and reports WHERE plausibility stops holding. It is a MEASUREMENT: same user
+ * agent, same cadence, one request at a time. Nothing here evades anything.
  */
-const sweep = process.argv.includes("--sweep");
-const delayArg = process.argv.find((a) => a.startsWith("--delay="));
-const DELAY_MS = Number(delayArg?.slice("--delay=".length) ?? 900);
-
 async function cfaUrlsFromCorpus() {
   const REPO_ROOT = path.resolve(import.meta.dirname, "..");
   register("./lib/ts-resolve-hooks.mjs", import.meta.url);
@@ -80,31 +96,32 @@ async function cfaUrlsFromCorpus() {
   );
 }
 
-const targets = process.argv.slice(2).filter((a) => !a.startsWith("--"));
-const urls = sweep
-  ? await cfaUrlsFromCorpus()
-  : targets.length > 0
-    ? targets
-    : DEFAULT_TARGETS;
+const urls =
+  mode === "sweep"
+    ? await cfaUrlsFromCorpus()
+    : parsed.urls.length > 0
+      ? parsed.urls
+      : DEFAULT_TARGETS;
 
-const registryOf = (url) =>
-  /(^|\.)cfa\.org/.test(new URL(url).hostname)
-    ? "cfa"
-    : /fci\.be/.test(new URL(url).hostname)
-      ? "fci"
-      : /akc\.org/.test(new URL(url).hostname)
-        ? "akc"
-        : "other";
+const registryOf = (url) => {
+  const host = new URL(url).hostname;
+  if (/(^|\.)cfa\.org$/.test(host)) return "cfa";
+  if (/(^|\.)fci\.be$/.test(host)) return "fci";
+  if (/(^|\.)akc\.org$/.test(host)) return "akc";
+  if (/(^|\.)fifeweb\.org$/.test(host)) return "fife";
+  return "other";
+};
+
+/* ------------------------- fetch, once ------------------------- */
 
 const results = [];
 
-let index = 0;
-for (const url of urls) {
+for (const [i, url] of urls.entries()) {
   const registryId = registryOf(url);
-  index += 1;
-  if (sweep && index > 1 && DELAY_MS > 0) {
-    await new Promise((r) => setTimeout(r, DELAY_MS));
+  if (mode === "sweep" && i > 0 && delayMs > 0) {
+    await new Promise((r) => setTimeout(r, delayMs));
   }
+
   try {
     const { body, status, finalUrl, headers } = await fetchPage(url);
     const diagnostic = describeResponse({
@@ -138,57 +155,66 @@ for (const url of urls) {
     }
 
     results.push(diagnostic);
-    if (sweep && !asJson) {
-      // One line per request: the shape of a rate-triggered failure is a run of
-      // good responses followed by a run of bad ones, and that is only visible
-      // if every request gets a line.
-      const mark = diagnostic.plausible === false ? `UNUSABLE ${diagnostic.unusableReason}` : "ok";
-      console.log(
-        `  #${String(index).padStart(3)}  ${String(diagnostic.byteLength).padStart(8)} bytes  ` +
-          `age=${diagnostic.headers.age ?? "-"}  ${diagnostic.headers["x-cache"] ?? "-"}  ${mark}  ${url}`,
-      );
-    } else if (!asJson) {
-      console.log(formatDiagnostic(diagnostic));
-      if (diagnostic.plausible === true) {
-        console.log("      verdict:   PLAUSIBLE — the verifier would compare against this");
-      } else if (diagnostic.plausible === false) {
-        console.log(`      verdict:   UNUSABLE (${diagnostic.unusableReason}) — no comparison would be made`);
-        console.log(`                 ${diagnostic.unusableDetail}`);
-        console.log(`      fingerprint: ${diagnostic.fingerprint}`);
-      }
-      console.log("");
-    }
   } catch (error) {
-    const failed = {
+    results.push({
       registryId,
       requestedUrl: url,
       error: String(error.message),
       attempts: error.attempts ?? [],
-    };
-    results.push(failed);
-    if (sweep && !asJson) {
-      console.log(`  #${String(index).padStart(3)}  FETCH FAILED  ${error.message}  ${url}`);
-    } else if (!asJson) {
-      console.log(`  ${registryId}  ${url}`);
-      console.log(`      COULD NOT FETCH: ${error.message}`);
-      console.log(
-        `      attempts: ${(error.attempts ?? []).map((a) => `#${a.attempt} ${a.status ?? a.error}`).join("  ")}`,
-      );
-      console.log("");
-    }
+    });
   }
 }
 
-if (asJson) {
-  console.log(JSON.stringify({ capturedAt: new Date().toISOString(), results }, null, 2));
-} else {
+/* --------------------- render, from that set --------------------- */
+
+function renderHuman() {
+  for (const [i, d] of results.entries()) {
+    if (d.error) {
+      if (mode === "sweep") {
+        console.log(`  #${String(i + 1).padStart(3)}  FETCH FAILED  ${d.error}  ${d.requestedUrl}`);
+      } else {
+        console.log(`  ${d.registryId}  ${d.requestedUrl}`);
+        console.log(`      COULD NOT FETCH: ${d.error}`);
+        console.log(
+          `      attempts: ${(d.attempts ?? []).map((a) => `#${a.attempt} ${a.status ?? a.error}`).join("  ")}`,
+        );
+        console.log("");
+      }
+      continue;
+    }
+
+    if (mode === "sweep") {
+      // One line per request: the shape of a rate-triggered failure is a run of
+      // good responses followed by a run of bad ones, and that is only visible
+      // if every request gets a line.
+      const mark = d.plausible === false ? `UNUSABLE ${d.unusableReason}` : "ok";
+      console.log(
+        `  #${String(i + 1).padStart(3)}  ${String(d.byteLength).padStart(8)} bytes  ` +
+          `age=${d.headers.age ?? "-"}  ${d.headers["x-cache"] ?? "-"}  ${mark}  ${d.requestedUrl}`,
+      );
+      continue;
+    }
+
+    console.log(formatDiagnostic(d));
+    if (d.plausible === true) {
+      console.log("      verdict:   PLAUSIBLE — the verifier would compare against this");
+    } else if (d.plausible === false) {
+      console.log(`      verdict:   UNUSABLE (${d.unusableReason}) — no comparison would be made`);
+      console.log(`                 ${d.unusableDetail}`);
+      console.log(`      fingerprint: ${d.fingerprint}`);
+    }
+    console.log("");
+  }
+
   const cfa = results.filter((r) => r.registryId === "cfa" && r.plausible !== undefined);
   const unusable = cfa.filter((r) => r.plausible === false);
   const failed = results.filter((r) => r.error);
+
   console.log("---");
-  if (sweep) {
+  console.log(`  mode: ${mode}   requests made: ${results.length}`);
+  if (mode === "sweep") {
     const firstBad = results.findIndex((r) => r.plausible === false || r.error);
-    console.log(`  swept ${results.length} CFA URLs at ${DELAY_MS} ms`);
+    console.log(`  swept ${results.length} CFA URLs at ${delayMs} ms`);
     console.log(`  fetch failures: ${failed.length}`);
     console.log(
       firstBad === -1
@@ -208,3 +234,12 @@ if (asJson) {
   }
   console.log("  Nothing was compared and nothing was written. This run reads only.");
 }
+
+const renderJson = () =>
+  console.log(
+    JSON.stringify({ capturedAt: new Date().toISOString(), mode, requests: results.length, results }, null, 2),
+  );
+
+if (emit === "human" || emit === "both") renderHuman();
+if (emit === "both") console.log("\n--- machine-readable, same responses ---\n");
+if (emit === "json" || emit === "both") renderJson();

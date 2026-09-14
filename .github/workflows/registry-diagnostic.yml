@@ -9,14 +9,25 @@ name: Registry response diagnostic
 # served, so "CFA changed its template" and "this runner was handed an
 # interstitial" were equally consistent with the evidence.
 #
-# This workflow answers that, and nothing else. It fetches FOUR pages — not the
-# full 277 — and prints a safe description of each: status, final URL after
-# redirects, byte count, SHA-256, what the document says it is, which structural
-# markers are present, and which infrastructure headers answered.
+# This answers that, and nothing else. It fetches pages and prints a safe
+# description of each: status, final URL after redirects, byte count, SHA-256,
+# what the document says it is, which structural markers are present, and which
+# infrastructure headers answered. It compares nothing against the corpus,
+# writes nothing, and cannot fail a gate.
 #
-# It is DISPATCH-ONLY and deliberately not scheduled. It exists to be run when
-# somebody has a question, and re-running the full 277-URL verification to
-# answer that question is exactly the blind rerun this replaces.
+# TWO MODES, AND THE REQUEST COUNT OF EACH
+#
+#   targeted (default)  exactly 4 requests — three CFA pages chosen to separate
+#                       a real finding from a fetch artefact, plus one FCI page
+#                       as a control on the network rather than on CFA.
+#   sweep               every CFA URL the corpus cites (45), at the verifier's
+#                       own 900 ms cadence, to see whether a block is triggered
+#                       by volume rather than by origin.
+#
+# They are mutually exclusive and each page is fetched ONCE per run. An earlier
+# version ran the script twice for one answer — once for people, once for JSON —
+# and swept on top, so a blank dispatch made 53 requests while this comment said
+# four. Both renderings now come from one set of responses.
 #
 # WHAT IT NEVER PRINTS
 #
@@ -24,32 +35,35 @@ name: Registry response diagnostic
 #   See scripts/lib/registry-diagnostics.mjs — the header list is an allowlist,
 #   and everything about the body is reduced to a number, a hash or a boolean.
 #
-# It compares nothing against the corpus, writes nothing, and cannot fail a gate.
+# TESTING A BRANCH
+#
+# Dispatch this workflow with the branch selected as the ref: workflow_dispatch
+# runs the workflow file and scripts FROM THAT REF, so a change to either can be
+# exercised before merge. Via the API:
+#
+#   gh workflow run registry-diagnostic.yml --ref <branch> -f mode=targeted
+#
+# It is dispatch-only by design. It previously carried a `pull_request` trigger
+# so that a branch could be tested before the workflow existed on main; now that
+# it does exist on main, that trigger was pure standing cost — external requests
+# on pull requests that had no question to answer. `pull_request_target` is NOT
+# an alternative: it runs with a writable token against the base repository.
 
 on:
   workflow_dispatch:
     inputs:
+      mode:
+        description: 'targeted (4 requests) or sweep (every CFA URL at 900 ms)'
+        required: false
+        default: 'targeted'
+        type: choice
+        options:
+          - targeted
+          - sweep
       urls:
-        description: 'Space-separated URLs to describe (blank = the four defaults)'
+        description: 'Optional https registry URLs, space-separated. Not valid with sweep.'
         required: false
         default: ''
-
-  # WHY A PULL_REQUEST TRIGGER ON A DIAGNOSTIC.
-  #
-  # `workflow_dispatch` only exists once the workflow is on the DEFAULT branch,
-  # so a diagnostic that lives on a feature branch cannot be dispatched at all —
-  # the API answers 404. That makes the evidence unobtainable until after the
-  # merge that is supposed to be justified by the evidence.
-  #
-  # Pull-request runs use the workflow file from the branch, which closes that
-  # loop. It is scoped to the diagnostic's own files so no unrelated pull
-  # request pays four external requests to prove something it did not change.
-  pull_request:
-    paths:
-      - '.github/workflows/registry-diagnostic.yml'
-      - 'scripts/diagnose-registry-response.mjs'
-      - 'scripts/lib/registry-diagnostics.mjs'
-      - 'scripts/lib/registry-plausibility.mjs'
 
 permissions:
   contents: read
@@ -62,8 +76,8 @@ jobs:
   describe:
     name: Describe what this runner receives
     runs-on: ubuntu-latest
-    # Four requests. A minute is generous; this must never look like the
-    # 45-minute verification job.
+    # A sweep is 45 requests at 900 ms — under a minute of traffic. This must
+    # never look like the 45-minute verification job.
     timeout-minutes: 10
 
     steps:
@@ -76,25 +90,27 @@ jobs:
 
       - run: npm ci
 
+      # INPUT TRAVELS AS DATA, NOT AS COMMAND TEXT.
+      #
+      # This step used to read:
+      #
+      #     run: node scripts/diagnose-registry-response.mjs ${{ inputs.urls }}
+      #
+      # GitHub substitutes `${{ }}` into the script text BEFORE bash parses it,
+      # so the input was not an argument — it was source code, and anyone able
+      # to dispatch the workflow could run commands on the runner with the job's
+      # token in scope. `; whoami` needed no quoting cleverness at all.
+      #
+      # The fix is not escaping, which is a filter you must get right every time
+      # against a shell you do not control. The value now travels in an
+      # environment variable, which the runner hands to the process verbatim and
+      # never parses, and every decision about it is made in Node on a string —
+      # https only, an explicit registry host allowlist, no embedded
+      # credentials, a URL ceiling, and EX_USAGE with nothing fetched if any of
+      # that fails. See scripts/lib/diagnostic-input.mjs.
       - name: Describe registry responses
-        run: node scripts/diagnose-registry-response.mjs ${{ inputs.urls }}
-
-      # The same four, as JSON, so the result can be diffed against a local run
-      # rather than read and compared by eye.
-      - name: Machine-readable copy
-        run: node scripts/diagnose-registry-response.mjs --json ${{ inputs.urls }}
-
-      # FOUR REQUESTS CANNOT SEE A VOLUME-TRIGGERED BLOCK.
-      #
-      # The first runner diagnostic fetched three CFA pages and got three valid
-      # ones, byte-identical to a laptop's. But the run that produced 185
-      # findings made forty-five CFA requests at 900 ms. Mitigation that
-      # triggers on volume is invisible to a probe that never reaches the
-      # threshold, so the sweep walks every CFA URL at the verifier's own
-      # cadence and reports where, if anywhere, responses stop being readable.
-      #
-      # Forty-five requests over forty seconds — the same traffic the weekly
-      # verification already sends, and a fraction of its 277.
-      - name: Sweep every CFA URL at the verifier's cadence
-        if: inputs.urls == ''
-        run: node scripts/diagnose-registry-response.mjs --sweep
+        env:
+          FAUNAHUB_DIAGNOSTIC_MODE: ${{ inputs.mode }}
+          FAUNAHUB_DIAGNOSTIC_URLS: ${{ inputs.urls }}
+          FAUNAHUB_DIAGNOSTIC_EMIT: both
+        run: node scripts/diagnose-registry-response.mjs
