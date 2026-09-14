@@ -70,6 +70,19 @@ if (audit) {
     );
   }
   console.log("");
+  /*
+   * --audit REPORTS; IT DOES NOT WRITE.
+   *
+   * This block used to fall through to the writer below, so `npm run
+   * finder:audit` rewrote public/animal-finder-index.json — stamping a fresh
+   * generatedAt into a committed artifact and silently dirtying the working
+   * tree of anyone who ran what its name calls an audit.
+   *
+   * Returning here is the whole fix. `--check` and the default write path are
+   * untouched, and a regression test asserts the file is byte-identical before
+   * and after an audit while update mode still writes.
+   */
+  process.exit(0);
 }
 
 const serialized = `${JSON.stringify(payload, null, 0)}\n`;

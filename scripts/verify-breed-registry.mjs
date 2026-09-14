@@ -29,6 +29,7 @@
 import { register } from "node:module";
 import { pathToFileURL } from "node:url";
 import path from "node:path";
+import fs from "node:fs";
 
 register("./lib/ts-resolve-hooks.mjs", import.meta.url);
 
@@ -43,33 +44,44 @@ const { bandFromFivePointScale, AKC_TRAIT_MAP } = await import(
 const UA =
   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36";
 
+import {
+  decodeEntities,
+  fetchAttempts,
+  fetchText,
+  isTransient,
+  pageSupports,
+  toText,
+  verifiablePart,
+} from "./lib/registry-text.mjs";
+import { buildVerdict } from "./lib/registry-verdict.mjs";
+
 const slugFilter = (() => {
   const i = process.argv.indexOf("--slug");
   return i === -1 ? null : process.argv[i + 1];
 })();
 
 const problems = [];
+/**
+ * Fetch failures that survived a retry.
+ *
+ * These are NOT disagreements. A registry that will not answer tells us
+ * nothing about whether our record is right, and recording it as a data
+ * problem is how five FCI timeouts became five "disagreements" in the first
+ * weekly run. They get their own verdict — DEGRADED — so an unreachable
+ * source can never be mistaken for a clean bill of health, nor for drift.
+ */
+const degraded = [];
 const checked = { akc: 0, fci: 0, cfa: 0, fife: 0 };
 
 function report(breed, field, expected, actual) {
   problems.push({ breed: breed.id, field, expected, actual });
 }
 
-async function fetchText(url) {
-  const res = await fetch(url, { headers: { "User-Agent": UA }, redirect: "follow" });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.text();
+function reportDegraded(breed, registryId, url, error, attempts) {
+  degraded.push({ breed: breed.id, registryId, url, error, attempts: attempts ?? [] });
 }
 
-function decodeEntities(s) {
-  return s
-    .replaceAll("&quot;", '"')
-    .replaceAll("&#039;", "'")
-    .replaceAll("&apos;", "'")
-    .replaceAll("&lt;", "<")
-    .replaceAll("&gt;", ">")
-    .replaceAll("&amp;", "&");
-}
+
 
 /* ---------------------------- AKC ---------------------------- */
 
@@ -185,11 +197,7 @@ async function checkCfa(breed, rec) {
   const html = await fetchText(rec.registryUrl);
   checked.cfa += 1;
 
-  const text = html
-    .replace(/<(script|style|nav|header|footer)[^>]*>[\s\S]*?<\/\1>/gi, " ")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/&nbsp;/g, " ")
-    .replace(/\s+/g, " ");
+  const text = toText(html);
 
   if (!/\/wp-content\/uploads\/[^"' ]*standard[^"' ]*\.pdf/i.test(html)) {
     report(breed, "cfa:standard", "a linked breed standard PDF", "no standard PDF on the page");
@@ -219,18 +227,25 @@ async function checkCfa(breed, rec) {
 
   // The coat wording is quoted verbatim on the page, so it must still be there.
   if (breed.coat?.statedAs && breed.coat.sourceId === `cfa-${breed.slug}`) {
-    const needle = breed.coat.statedAs.replace(/\s+/g, " ").slice(0, 60);
-    if (!text.replace(/[\u2018\u2019]/g, "'").includes(needle.replace(/[\u2018\u2019]/g, "'"))) {
-      report(breed, "cfa:coat", needle, "quoted coat wording not found on the page");
+    const { ok, needle } = pageSupports(text, breed.coat.statedAs, breed.coat.statedAsKind);
+    if (!ok) {
+      report(
+        breed,
+        "cfa:coat",
+        needle,
+        breed.coat.statedAsKind === "citation"
+          ? "the cited field and value are not on the page"
+          : "quoted coat wording not found on the page",
+      );
     }
   }
 
   // Any weight FaunaHub records from the profile page must still be published.
   for (const m of breed.measurements?.weightKg ?? []) {
     if (m.sourceId !== `cfa-${breed.slug}`) continue;
-    const needle = m.statedAs.replace(/[\u2018\u2019]/g, "'").slice(0, 50);
-    if (!text.replace(/[\u2018\u2019]/g, "'").includes(needle)) {
-      report(breed, "cfa:weight", m.statedAs, "quoted weight wording not found on the page");
+    const { ok, needle } = pageSupports(text, m.statedAs, m.statedAsKind, 50);
+    if (!ok) {
+      report(breed, "cfa:weight", needle, "quoted weight wording not found on the page");
     }
   }
 }
@@ -249,12 +264,7 @@ let fifeListing = null;
 async function fifeText() {
   if (fifeListing === null) {
     const html = await fetchText("https://fifeweb.org/cats/breeds/");
-    fifeListing = html
-      .replace(/<(script|style)[^>]*>[\s\S]*?<\/\1>/gi, " ")
-      .replace(/<[^>]+>/g, " ")
-      .replace(/&#8211;|&ndash;/g, "-")
-      .replace(/&nbsp;/g, " ")
-      .replace(/\s+/g, " ");
+    // The shared pipeline decodes &#8211;/&ndash; to an en dash; FIFe writes its\n    // code/name separator that way, so it is folded to a hyphen for matching.\n    fifeListing = toText(html).replace(/\u2013/g, "-");
   }
   return fifeListing;
 }
@@ -369,7 +379,7 @@ for (const breed of targets) {
       // while the summary still claimed every source had been verified.
       else report(breed, `${rec.registryId}:unchecked`, rec.registryUrl, "no checker for this registry");
     } catch (error) {
-      report(breed, `${rec.registryId}:fetch`, rec.registryUrl, String(error.message));
+      reportDegraded(breed, rec.registryId, rec.registryUrl, String(error.message), error.attempts);
     }
     await new Promise((r) => setTimeout(r, 900));
   }
@@ -386,20 +396,53 @@ console.log(
     `${checked.cfa} CFA, ${checked.fife} FIFe records`,
 );
 
-if (problems.length === 0) {
-  console.log("registry agrees with every source it cites.");
-  process.exit(0);
+/* ---------------------------- verdict ---------------------------- */
+
+const { verdict, exitCode, counts, summaryMarkdown } = buildVerdict({
+  problems,
+  degraded,
+  fetchAttempts,
+  breedsChecked: targets.length,
+  checked,
+});
+
+console.log(`\nVERDICT: ${verdict}`);
+console.log(
+  `  ${counts.problems} disagreement(s), ${counts.degraded} unreachable source(s), ` +
+    `${counts.fetches} fetch(es), ${counts.retried} retried, ${counts.recovered} recovered`,
+);
+
+if (problems.length > 0) {
+  console.log(`\n${problems.length} disagreement(s):\n`);
+  for (const p of problems) {
+    console.log(`  ${p.breed}  ${p.field}`);
+    console.log(`      stored: ${p.expected}`);
+    console.log(`      live:   ${p.actual}`);
+  }
+  console.log(
+    "\nA disagreement is not automatically an error — a registry may have revised its\n" +
+      "standard, in which case the fix is to update the record AND its reviewedAt date.\n" +
+      "It is an error if the registry never said what the record claims.",
+  );
 }
 
-console.log(`\n${problems.length} disagreement(s):\n`);
-for (const p of problems) {
-  console.log(`  ${p.breed}  ${p.field}`);
-  console.log(`      stored: ${p.expected}`);
-  console.log(`      live:   ${p.actual}`);
+if (degraded.length > 0) {
+  console.log(`\n${degraded.length} source(s) unreachable after a retry:\n`);
+  for (const d of degraded) {
+    console.log(`  ${d.breed}  ${d.registryId}  ${d.url}`);
+    console.log(`      ${d.attempts.map((a) => `#${a.attempt} ${a.status ?? a.error}`).join("  ")}`);
+  }
+  console.log("\nUnreachable is not a disagreement. No record was changed on this evidence.");
 }
-console.log(
-  "\nA disagreement is not automatically an error — a registry may have revised its\n" +
-    "standard, in which case the fix is to update the record AND its reviewedAt date.\n" +
-    "It is an error if the registry never said what the record claims.",
-);
-process.exit(1);
+
+/*
+ * The summary is written to $GITHUB_STEP_SUMMARY so the result appears on the
+ * run page itself. A weekly monitor whose only signal is buried in a log is a
+ * monitor nobody reads.
+ */
+if (process.env.GITHUB_STEP_SUMMARY) {
+  await fs.promises.appendFile(process.env.GITHUB_STEP_SUMMARY, summaryMarkdown);
+}
+
+if (verdict === "CLEAN") console.log("\nregistry agrees with every source it cites.");
+process.exit(exitCode);

@@ -188,6 +188,14 @@ export interface Measurement {
    * standard does not have.
    */
   statedAs: string;
+  /**
+   * Whether `statedAs` is a page quote or a citation of a field on it. Absent
+   * means "quote" — see StatedAsKind. Every one of the 684 measurements in the
+   * corpus today is a genuine verbatim quote, so none declares this; the field
+   * exists because a registry that publishes a figure in a labelled field
+   * rather than prose would need it, and because the verifier reads it.
+   */
+  statedAsKind?: StatedAsKind;
   sourceId: string;
 }
 
@@ -286,10 +294,44 @@ export type CoatLength = "short" | "medium" | "long" | "hairless" | "variable";
  */
 export type SizeClass = "toy" | "small" | "medium" | "large" | "giant";
 
+/**
+ * How a `statedAs` string relates to the page it cites.
+ *
+ * The verifier re-fetches every cited page and checks that what FaunaHub
+ * publishes is still supported by its source. That check assumed every
+ * `statedAs` was a VERBATIM QUOTE — and for all 684 measurements it is. For
+ * coat it is not: 38 CFA records carry an editorial citation naming the
+ * field and its value, "CFA breed profile, Coat Length: Shorthair". The page
+ * carries "Coat Length: Shorthair" and never the "CFA breed profile, " prefix
+ * we wrote ourselves, so all 38 were reported as disagreements — 59% of the
+ * noise in the first weekly run, none of it a data error.
+ *
+ * Inferring the difference from the string's shape would put a brittle
+ * heuristic at the centre of the one check that is supposed to catch drift,
+ * so the record says which it is.
+ *
+ * "quote" is the DEFAULT precisely because it is the strict reading: a new
+ * record with no declaration is fully verified, and a fact that vanishes from
+ * its source still fails.
+ */
+export type StatedAsKind =
+  /** The whole string appears verbatim on the cited page. */
+  | "quote"
+  /**
+   * An editorial label of the form `<source>, <Field>: <Value>`. The
+   * `<Field>: <Value>` part must appear on the page; the source label is ours.
+   */
+  | "citation";
+
 export interface BreedCoat {
   length?: CoatLength;
   /** Registry coat-type vocabulary, verbatim (e.g. "Double", "Silky"). */
   types?: string[];
+  /**
+   * Whether `statedAs` is a quote from the page or a citation of a field on
+   * it. Absent means "quote", the strict reading — see StatedAsKind.
+   */
+  statedAsKind?: StatedAsKind;
   /**
    * The standard's own coat wording, kept verbatim — for the same reason
    * `Measurement.statedAs` exists. Banding loses real information: the CFA

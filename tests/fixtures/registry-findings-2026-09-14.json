@@ -1,0 +1,391 @@
+{
+ "run": "34836698504",
+ "capturedAt": "2026-09-14",
+ "total": 64,
+ "findings": [
+  {
+   "breed": "dog-border-collie",
+   "field": "fci:fetch",
+   "stored": "https://www.fci.be/en/nomenclature/BORDER-COLLIE-297.html",
+   "live": "fetch failed"
+  },
+  {
+   "breed": "dog-chihuahua",
+   "field": "fci:fetch",
+   "stored": "https://www.fci.be/en/nomenclature/CHIHUAHUA-218.html",
+   "live": "fetch failed"
+  },
+  {
+   "breed": "dog-czechoslovakian-vlciak",
+   "field": "akc:height",
+   "stored": "Minimum: 23.5 females",
+   "live": "Minimum: 25.5 males; 23.5 females"
+  },
+  {
+   "breed": "dog-czechoslovakian-vlciak",
+   "field": "akc:weight",
+   "stored": "Minimum: 44 females",
+   "live": "Minimum: 57 males; 44 females"
+  },
+  {
+   "breed": "dog-dachshund",
+   "field": "fci:fetch",
+   "stored": "https://www.fci.be/en/nomenclature/DACHSHUND-148.html",
+   "live": "fetch failed"
+  },
+  {
+   "breed": "dog-labrador-retriever",
+   "field": "fci:fetch",
+   "stored": "https://www.fci.be/en/nomenclature/LABRADOR-RETRIEVER-122.html",
+   "live": "fetch failed"
+  },
+  {
+   "breed": "dog-shih-tzu",
+   "field": "fci:fetch",
+   "stored": "https://www.fci.be/en/nomenclature/SHIH-TZU-208.html",
+   "live": "fetch failed"
+  },
+  {
+   "breed": "dog-st-bernard",
+   "field": "akc:basics",
+   "stored": "a basics record",
+   "live": "none for \"st-bernard\""
+  },
+  {
+   "breed": "cat-abyssinian",
+   "field": "cfa:group",
+   "stored": "Championship",
+   "live": "class no longer named on the page"
+  },
+  {
+   "breed": "cat-abyssinian",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-american-bobtail",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Longhair and Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-american-curl",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Longhair and Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-american-shorthair",
+   "field": "cfa:group",
+   "stored": "Championship",
+   "live": "class no longer named on the page"
+  },
+  {
+   "breed": "cat-american-shorthair",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-american-wirehair",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-balinese",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Longhair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-bengal-cat",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair (a longhair is rec",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-birman",
+   "field": "cfa:group",
+   "stored": "Championship",
+   "live": "class no longer named on the page"
+  },
+  {
+   "breed": "cat-birman",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Longhair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-bombay",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-british-shorthair",
+   "field": "cfa:group",
+   "stored": "Championship",
+   "live": "class no longer named on the page"
+  },
+  {
+   "breed": "cat-burmese",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-burmese",
+   "field": "cfa:weight",
+   "stored": "A mature male's weight may reach or exceed 12 pounds",
+   "live": "quoted weight wording not found on the page"
+  },
+  {
+   "breed": "cat-burmilla",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Longhair and Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-burmilla",
+   "field": "cfa:weight",
+   "stored": "not unusual for a mature male's weight to reach or exceed 10 pounds",
+   "live": "quoted weight wording not found on the page"
+  },
+  {
+   "breed": "cat-chartreux",
+   "field": "cfa:group",
+   "stored": "Championship",
+   "live": "class no longer named on the page"
+  },
+  {
+   "breed": "cat-chartreux",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-colorpoint-shorthair",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-cornish-rex",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-devon-rex",
+   "field": "cfa:group",
+   "stored": "Championship",
+   "live": "class no longer named on the page"
+  },
+  {
+   "breed": "cat-devon-rex",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-egyptian-mau",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-european-burmese",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-exotic-shorthair",
+   "field": "cfa:group",
+   "stored": "Championship",
+   "live": "class no longer named on the page"
+  },
+  {
+   "breed": "cat-exotic-shorthair",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Longhair and Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-havana-brown",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-japanese-bobtail",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Longhair and Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-khao-manee",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-korat",
+   "field": "cfa:group",
+   "stored": "Championship",
+   "live": "class no longer named on the page"
+  },
+  {
+   "breed": "cat-korat",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-korat",
+   "field": "cfa:weight",
+   "stored": "not unusual for a mature male's weight to match or exceed 10 pounds",
+   "live": "quoted weight wording not found on the page"
+  },
+  {
+   "breed": "cat-laperm",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Longhair and Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-lykoi",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-maine-coon",
+   "field": "cfa:weight",
+   "stored": "not unusual for a mature male's weight to reach or exceed 20 pounds",
+   "live": "quoted weight wording not found on the page"
+  },
+  {
+   "breed": "cat-manx",
+   "field": "cfa:group",
+   "stored": "Championship",
+   "live": "class no longer named on the page"
+  },
+  {
+   "breed": "cat-manx",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Longhair and Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-ocicat",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-oriental",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Longhair and Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-ragamuffin",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Longhair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-ragamuffin",
+   "field": "cfa:weight",
+   "stored": "A mature male's weight may reach up to 20 pounds",
+   "live": "quoted weight wording not found on the page"
+  },
+  {
+   "breed": "cat-ragdoll",
+   "field": "cfa:weight",
+   "stored": "not unusual for a mature male's weight to reach or exceed 20 pounds",
+   "live": "quoted weight wording not found on the page"
+  },
+  {
+   "breed": "cat-russian-blue",
+   "field": "cfa:group",
+   "stored": "Championship",
+   "live": "class no longer named on the page"
+  },
+  {
+   "breed": "cat-russian-blue",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-scottish-fold",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Longhair and Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-selkirk-rex",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Longhair and Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-siamese",
+   "field": "cfa:group",
+   "stored": "Championship",
+   "live": "class no longer named on the page"
+  },
+  {
+   "breed": "cat-siberian",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Longhair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-singapura",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-somali",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Longhair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-tonkinese",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-toybob",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Longhair and Shorthair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-turkish-angora",
+   "field": "cfa:group",
+   "stored": "Championship",
+   "live": "class no longer named on the page"
+  },
+  {
+   "breed": "cat-turkish-angora",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Longhair",
+   "live": "quoted coat wording not found on the page"
+  },
+  {
+   "breed": "cat-turkish-van",
+   "field": "cfa:coat",
+   "stored": "CFA breed profile, Coat Length: Longhair",
+   "live": "quoted coat wording not found on the page"
+  }
+ ]
+}
