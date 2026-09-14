@@ -183,10 +183,15 @@
     ]
   },
   "measuredRealPageShape": {
-    "$comment": "Six live CFA breed pages sampled 2026-09-14 from a residential IP. These numbers, not a guess, set CFA_MIN_BYTES. Note ambientMarkers: a captcha widget is present on every ordinary CFA page, which is why captcha presence can never be a block signal.",
-    "sampleSize": 6,
+    "$comment": [
+      "Every CFA URL the corpus cites, swept at the verifier's own 900 ms cadence,",
+      "from BOTH environments on 2026-09-14. These numbers, not a guess, set",
+      "CFA_MIN_BYTES. Note ambientMarkers: a captcha widget is present on every",
+      "ordinary CFA page, which is why captcha presence can never be a block signal."
+    ],
+    "sampleSize": 45,
     "byteRange": [
-      134533,
+      99768,
       960999
     ],
     "allHadCanonicalMatchingRequest": true,
@@ -196,7 +201,11 @@
     "ambientMarkersOnEveryRealPage": [
       "captchaWidget"
     ],
-    "blockingMarkersOnRealPages": []
+    "blockingMarkersOnRealPages": [],
+    "sweptFrom": [
+      "residential",
+      "github-hosted-runner"
+    ]
   },
   "reproduction": {
     "$comment": [
@@ -227,5 +236,51 @@
       "recordsLeftUnverified": 45,
       "verdict": "DEGRADED"
     }
+  },
+  "reproductionAttempt": {
+    "$comment": [
+      "Phase 5 could not be classified as either A or B, because the incident did",
+      "not reproduce. This is the evidence, recorded so the next person does not",
+      "repeat it.",
+      "",
+      "Both environments now receive valid CFA pages, and for the two URLs checked",
+      "in both, BYTE-IDENTICAL ones. The runner is not blocked; the template has",
+      "not changed. Whatever produced 182 findings at 14:09 UTC was transient and",
+      "is no longer present.",
+      "",
+      "Volume is excluded: the sweep sends the same 45 requests at the same cadence",
+      "as the run that failed, from the same class of runner, and all 45 are fine."
+    ],
+    "runnerDiagnosticRunId": "34857025651",
+    "runnerSweepRunId": "34858341155",
+    "targetedProbe": {
+      "cfaPages": 3,
+      "plausible": 3,
+      "unusable": 0
+    },
+    "sweepFromRunner": {
+      "cfaUrls": 45,
+      "plausible": 45,
+      "unusable": 0,
+      "fetchFailures": 0,
+      "cadenceMs": 900
+    },
+    "sweepFromResidential": {
+      "cfaUrls": 45,
+      "plausible": 45,
+      "unusable": 0,
+      "fetchFailures": 0,
+      "cadenceMs": 900
+    },
+    "identicalBodies": {
+      "https://cfa.org/breed/american-bobtail/": "9c0b9a5a93776e7a",
+      "https://cfa.org/breed/siamese/": "ab3c05c878a9ca68"
+    },
+    "infrastructure": {
+      "server": "nginx",
+      "xCache": "HIT",
+      "cloudflareMarkers": "none — no cf-ray on any response from either environment"
+    },
+    "classification": "neither A nor B — transient, cause unconfirmed, not currently reproducible"
   }
 }

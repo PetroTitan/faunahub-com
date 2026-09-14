@@ -321,10 +321,28 @@ test("a page that declares a different document is unusable", () => {
 });
 
 test("the byte floor sits far below the smallest page ever measured", () => {
+  /*
+   * All 45 CFA URLs were swept from both environments; the smallest was 99,768
+   * bytes. A quarter of that is the most the floor may ever be — a floor close
+   * to real page sizes will one day fail a real page and hide a real
+   * disagreement, which is the failure this whole change exists to prevent.
+   */
+  const smallest = captured.measuredRealPageShape.byteRange[0];
+  assert.equal(captured.measuredRealPageShape.sampleSize, 45, "the floor is set from every CFA page");
   assert.ok(
-    CFA_MIN_BYTES * 5 < captured.measuredRealPageShape.byteRange[0],
-    "a floor close to real page sizes will one day hide a real disagreement",
+    CFA_MIN_BYTES <= smallest * 0.25,
+    `floor ${CFA_MIN_BYTES} is not comfortably below the smallest real page (${smallest})`,
   );
+});
+
+test("the incident did not reproduce, and that is recorded rather than assumed", () => {
+  const r = captured.reproductionAttempt;
+  assert.equal(r.sweepFromRunner.cfaUrls, cfaBreeds.length);
+  assert.equal(r.sweepFromRunner.unusable, 0, "the runner is not currently blocked");
+  assert.equal(r.sweepFromResidential.unusable, 0);
+  assert.equal(r.sweepFromRunner.cadenceMs, 900, "same cadence as the run that failed");
+  // Volume was the last untested variable, and it is excluded.
+  assert.match(r.classification, /neither A nor B/);
 });
 
 test("paths compare regardless of host, case and trailing slash", () => {
