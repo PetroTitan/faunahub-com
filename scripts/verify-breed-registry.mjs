@@ -64,6 +64,7 @@ import {
   spanListsBreed,
 } from "./lib/cfa-show-rules.mjs";
 import { EX_USAGE, checkValidity, resolveNow } from "./lib/source-validity.mjs";
+import { describeSegment, lineSupports, resolveAkcBasics } from "./lib/akc-measurements.mjs";
 import { describeResponse, formatDiagnostic } from "./lib/registry-diagnostics.mjs";
 import { cfaPagePlausibility, cfaShapeMarkers } from "./lib/registry-plausibility.mjs";
 import { buildVerdict } from "./lib/registry-verdict.mjs";
@@ -120,6 +121,18 @@ const ONLY_REGISTRIES = process.env.FAUNAHUB_VERIFY_ONLY
  * tested by being blocked.
  */
 const CFA_BASE_URL = process.env.FAUNAHUB_CFA_BASE_URL ?? null;
+
+/**
+ * Point AKC breed-page fetches at a stub. Test-only, inert unless set.
+ *
+ * "AKC dropped the basics container", "two identities both match" and "the
+ * qualifier changed from Minimum to Maximum" cannot be produced on demand from
+ * akc.org, and they are exactly the cases a measurement comparison has to keep
+ * failing on.
+ */
+const AKC_BASE_URL = process.env.FAUNAHUB_AKC_BASE_URL ?? null;
+const akcUrl = (url) =>
+  AKC_BASE_URL ? url.replace(/^https?:\/\/(?:www\.)?akc\.org/i, AKC_BASE_URL) : url;
 
 /**
  * Point claim-level group sources at a stub ORIGIN. Test-only, inert unless set.
@@ -193,13 +206,14 @@ function report(breed, field, expected, actual) {
 }
 
 /** One breed's own source failed: scoped to that breed. */
-function reportDegraded(breed, registryId, url, error, attempts) {
+function reportDegraded(breed, registryId, url, error, attempts, kind) {
   degraded.push({
     scope: "breed",
     breed: breed.id,
     registryId,
     url,
     error,
+    kind,
     attempts: attempts ?? [],
   });
 }
@@ -340,22 +354,77 @@ function noteSharedFailure(error, registryId) {
 /* ---------------------------- AKC ---------------------------- */
 
 async function checkAkc(breed, rec) {
-  const html = await fetchText(rec.registryUrl);
+  const html = await fetchText(akcUrl(rec.registryUrl));
   checked.akc += 1;
 
+  /*
+   * A PAGE THAT CHANGED SHAPE IS NOT A BREED THAT CHANGED.
+   *
+   * These two used to be reported the same way, as an `akc:page` /
+   * `akc:basics` DISAGREEMENT — which reads as "AKC now contradicts this
+   * record" when what happened is that we could not read the page at all. They
+   * are DEGRADED: the claims went unverified, nothing was concluded about the
+   * dog, and the run still cannot report CLEAN.
+   */
   const props = html.match(/data-js-component="breedPage" data-js-props="(.*?)"\s*>/s);
   if (!props) {
-    report(breed, "akc:page", "a breed props blob", "none found — the page shape changed");
+    reportDegraded(
+      breed,
+      rec.registryId,
+      rec.registryUrl,
+      "the page carries no breedPage props blob — its shape changed",
+      [{ attempt: 1, status: 200, ok: true }],
+      "unusable",
+    );
     return;
   }
-  const data = JSON.parse(decodeEntities(props[1]));
-  const slug = rec.registryUrl.replace(/\/$/, "").split("/").pop();
-  const basics = data.settings?.breed_data?.basics?.[slug];
-  const traits = data.settings?.breed_data?.traits?.[slug]?.traits;
-  if (!basics) {
-    report(breed, "akc:basics", "a basics record", `none for "${slug}"`);
+
+  let data;
+  try {
+    data = JSON.parse(decodeEntities(props[1]));
+  } catch (error) {
+    reportDegraded(
+      breed,
+      rec.registryId,
+      rec.registryUrl,
+      `the breedPage props blob is not readable JSON: ${error.message}`,
+      [{ attempt: 1, status: 200, ok: true }],
+      "unusable",
+    );
     return;
   }
+
+  /*
+   * MEASUREMENTS DO NOT DEPEND ON THE PROPS BLOB, SO THEY ARE CHECKED FIRST.
+   *
+   * Height and weight are published in the page's own markup. The old order
+   * returned early when the structured records were missing, which silently
+   * skipped four measurement comparisons for any breed whose props had changed
+   * shape — losing the checks that were still possible.
+   */
+  checkAkcMeasurements(breed, rec, html);
+
+  const resolved = resolveAkcBasics(data, rec.registryUrl);
+  if (!resolved.ok) {
+    if (resolved.reason === "no-basics-container" || resolved.reason === "no-props") {
+      reportDegraded(
+        breed,
+        rec.registryId,
+        rec.registryUrl,
+        `AKC published no structured basics for this breed: ${resolved.detail}`,
+        [{ attempt: 1, status: 200, ok: true }],
+        "unusable",
+      );
+      return;
+    }
+    // The records exist and this breed is not among them, or two identities
+    // both match. Either is a claim about the breed, and neither is agreement.
+    report(breed, "akc:basics", "a basics record", resolved.detail);
+    return;
+  }
+
+  const basics = resolved.basics;
+  const traits = data.settings?.breed_data?.traits?.[resolved.key]?.traits;
 
   if (basics.breed_group !== rec.registryGroup) {
     report(breed, "akc:group", rec.registryGroup, basics.breed_group);
@@ -365,20 +434,6 @@ async function checkAkc(breed, rec) {
   }
   if (rec.recognizedYear && Number(basics.year_recognized) !== rec.recognizedYear) {
     report(breed, "akc:recognizedYear", rec.recognizedYear, basics.year_recognized);
-  }
-
-  const height = html.match(/name="height">Height: ([^<]*)</)?.[1];
-  const weight = html.match(/name="weight">Weight: ([^<]*)</)?.[1];
-  const storedHeights = (breed.measurements?.heightCm ?? []).map((m) => m.statedAs);
-  const storedWeights = (breed.measurements?.weightKg ?? []).map((m) => m.statedAs);
-  for (const [live, stored, field] of [
-    [height, storedHeights, "akc:height"],
-    [weight, storedWeights, "akc:weight"],
-  ]) {
-    if (!live) continue;
-    for (const piece of stored) {
-      if (!live.includes(piece)) report(breed, field, piece, live);
-    }
   }
 
   if (breed.lifespanYears && basics.life_expectancy !== breed.lifespanYears.statedAs) {
@@ -398,6 +453,56 @@ async function checkAkc(breed, rec) {
     const stored = breed.traits[ourKey]?.value;
     if (stored !== liveBand) {
       report(breed, `akc:${ourKey}`, stored ?? "(absent)", liveBand ?? "(absent)");
+    }
+  }
+}
+
+/**
+ * Compare every stored measurement against the line AKC publishes.
+ *
+ * AKC puts a shared qualifier in front of the segments it governs — "Minimum:
+ * 25.5 males; 23.5 females" — while FaunaHub stores one record per sex, each
+ * carrying that qualifier. `live.includes(stored)` therefore passed the first
+ * and failed the second, reporting a correct record as a disagreement; and it
+ * would equally have passed a bare "25.5", a "Minimum: 25.5" with the sex
+ * dropped, or the fragment "5 males". See akc-measurements.mjs.
+ */
+function checkAkcMeasurements(breed, rec, html) {
+  const dimensions = [
+    [html.match(/name="height">Height: ([^<]*)</)?.[1], breed.measurements?.heightCm, "akc:height"],
+    [html.match(/name="weight">Weight: ([^<]*)</)?.[1], breed.measurements?.weightKg, "akc:weight"],
+  ];
+
+  for (const [line, stored, field] of dimensions) {
+    const records = (stored ?? []).filter((m) => m.sourceId === `akc-${breed.slug}`);
+    if (records.length === 0) continue;
+
+    if (!line) {
+      // The dimension is published on every breed page; its absence is the page
+      // having changed, not the record being wrong.
+      reportDegraded(
+        breed,
+        rec.registryId,
+        rec.registryUrl,
+        `the page no longer publishes a ${field.split(":")[1]} line`,
+        [{ attempt: 1, status: 200, ok: true }],
+        "unusable",
+      );
+      continue;
+    }
+
+    for (const record of records) {
+      const result = lineSupports(line, record.statedAs);
+      if (result.ok) continue;
+      const why =
+        result.reason === "unparseable-record"
+          ? "the stored wording is not a readable measurement"
+          : result.reason === "unparseable-page"
+            ? `no measurement could be read from "${line}"`
+            : result.reason === "ambiguous"
+              ? `the page states it ${result.matches} times, so which was verified is unclear`
+              : `the page states: ${(result.segments ?? []).map(describeSegment).join("; ") || "(nothing)"}`;
+      report(breed, field, record.statedAs, why);
     }
   }
 }
@@ -1002,6 +1107,12 @@ if (degraded.length > 0) {
       console.log(`      affected verification scope: ${d.affectedRecords} ${d.registryId.toUpperCase()} records`);
     } else {
       console.log(`  ${d.breed}  ${d.registryId}  ${d.url}`);
+      /*
+       * The reason was collected and never printed, so a breed-scoped DEGRADED
+       * read as "this page did not answer" whatever had actually happened —
+       * including a page that answered 200 and had changed shape.
+       */
+      if (d.error) console.log(`      ${d.error}`);
     }
     if (d.attempts.length) {
       console.log(`      fetch attempts: ${d.attempts.map((a) => `#${a.attempt} ${a.status ?? a.error}`).join("  ")}`);
