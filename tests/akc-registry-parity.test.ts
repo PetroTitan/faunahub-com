@@ -1,6 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 import http from "node:http";
+import fs from "node:fs";
 import path from "node:path";
 import { execFile } from "node:child_process";
 import type { AddressInfo } from "node:net";
@@ -248,6 +249,8 @@ function akcPage(
     extraBasicsKey = undefined as string | undefined,
     malformedProps = false,
     noProps = false,
+    groupName = undefined as string | undefined,
+    colourCode = undefined as string | undefined,
   } = {},
 ): string {
   const rec = akcRecord(breed);
@@ -281,8 +284,13 @@ function akcPage(
   const props = {
     settings: {
       ...(currentBreed ? { current_breed: currentBreed } : {}),
+      ...(groupName ? { current_breed_group: { name: groupName } } : {}),
       breed_data: dropBasics
-        ? { description: {}, standards: {} }
+        ? {
+            description: {},
+            standards: {},
+            ...(colourCode ? { colors: { [key]: { colors: [{ akc_code: colourCode }] } } } : {}),
+          }
         : { basics, traits: { [key]: { traits: traitEntries } } },
     },
   };
@@ -290,8 +298,18 @@ function akcPage(
     ? "{not json"
     : JSON.stringify(props).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 
-  const h = height ?? "Minimum: 25.5 males; 23.5 females";
-  const w = weight ?? "Minimum: 57 males; 44 females";
+  /*
+   * Default to a line the breed's own records would satisfy, built from those
+   * records. A hand-written default only fits one breed, and a fixture that
+   * fails for the wrong reason hides whatever the test was about.
+   */
+  const lineFor = (records: readonly { statedAs?: string; sourceId?: string }[] | undefined) =>
+    (records ?? [])
+      .filter((m) => m.sourceId === `akc-${breed.slug}`)
+      .map((m) => m.statedAs)
+      .join(", ");
+  const h = height ?? (lineFor(breed.measurements?.heightCm) || "Minimum: 25.5 males; 23.5 females");
+  const w = weight ?? (lineFor(breed.measurements?.weightKg) || "Minimum: 57 males; 44 females");
   return [
     "<!doctype html><html><body>",
     `<span name="height">Height: ${h}</span>`,
@@ -429,7 +447,13 @@ test("run loop: a missing basics container is DEGRADED, not a disagreement", asy
   assert.equal(r.disagreements, 0, "a page that changed shape does not contradict the dog");
   assert.equal(r.unreachable, 1);
   assert.equal(r.verdict, "DEGRADED");
-  assert.match(r.stdout, /no structured basics/);
+  /*
+   * The message now names the fields rather than the container. Losing `basics`
+   * does not cost a fixed set of claims — it costs whichever of them have no
+   * second representation on the page, and saying which is the difference
+   * between a signal and a shrug.
+   */
+  assert.match(r.stdout, /does not publish: .*year recognized/);
 });
 
 test("run loop: measurements are still checked when basics are gone", async () => {
@@ -460,4 +484,200 @@ test("run loop: a page with no props blob is DEGRADED, never CLEAN", async () =>
   const r = await runAkc(VLCIAK, (b) => akcPage(b, { noProps: true }));
   assert.equal(r.verdict, "DEGRADED");
   assert.match(r.stdout, /no breedPage props blob/);
+});
+
+/* ================================================================ *
+ * Basics coverage recovery — the same fact in a second representation
+ * ================================================================ */
+
+import {
+  akcRepresentations,
+  resolveField,
+  templateFingerprint,
+} from "../scripts/lib/akc-representations.mjs";
+
+/**
+ * 24 of 219 AKC pages stopped publishing `breed_data.basics`. Two of the facts
+ * it carried are published elsewhere on the SAME page and agree with the basics
+ * value exactly on every control that still has one:
+ *
+ *   breed group   settings.current_breed_group.name
+ *   AKC code      breed_data.colors|markings[].akc_code
+ *
+ * The rest — year recognized, life expectancy, coat, traits — is nowhere on the
+ * page and in no endpoint the page names. Recovering two fields does not make a
+ * record CLEAN, and these tests are mostly about keeping that true.
+ */
+
+const S = (settings: Record<string, unknown>) => settings;
+
+test("group and code resolve from the second representation", () => {
+  const reps = akcRepresentations(
+    S({
+      current_breed: "basset-hound",
+      current_breed_group: { name: "Hound Group" },
+      breed_data: { colors: { "basset-hound": { colors: [{ akc_code: "403" }, { akc_code: "403" }] } } },
+    }),
+    "basset-hound",
+    null,
+  );
+  assert.equal((resolveField(reps.group) as { value: string }).value, "Hound Group");
+  assert.equal((resolveField(reps.code) as { value: string }).value, "403");
+  // And nothing was invented for the fields that really are gone.
+  assert.equal(resolveField(reps.year).state, "unsupported");
+  assert.equal(resolveField(reps.lifespan).state, "unsupported");
+});
+
+test("both representations agree when basics is present", () => {
+  // Measured: beagle 404, labrador 108, chihuahua 503 — identical in both.
+  const reps = akcRepresentations(
+    S({
+      current_breed: "beagle",
+      current_breed_group: { name: "Hound Group" },
+      breed_data: {
+        basics: { beagle: { breed_group: "Hound Group", akc_code: "404" } },
+        colors: { beagle: { colors: [{ akc_code: "404" }] } },
+      },
+    }),
+    "beagle",
+    { breed_group: "Hound Group", akc_code: "404" },
+  );
+  const group = resolveField(reps.group) as { state: string; from: string[] };
+  assert.equal(group.state, "value");
+  assert.equal(group.from.length, 2, "both representations contributed");
+});
+
+test("control: two representations that disagree pick neither", () => {
+  const reps = akcRepresentations(
+    S({
+      current_breed: "beagle",
+      current_breed_group: { name: "Toy Group" },
+      breed_data: { basics: { beagle: { breed_group: "Hound Group" } } },
+    }),
+    "beagle",
+    { breed_group: "Hound Group" },
+  );
+  const r = resolveField(reps.group);
+  assert.equal(r.state, "conflict");
+  assert.match((r as { detail: string }).detail, /Hound Group.*Toy Group|Toy Group.*Hound Group/);
+});
+
+test("control: several different codes on one breed's rows are ambiguous", () => {
+  const reps = akcRepresentations(
+    S({
+      current_breed: "x",
+      breed_data: { colors: { x: { colors: [{ akc_code: "403" }, { akc_code: "999" }] } } },
+    }),
+    "x",
+    null,
+  );
+  assert.equal(resolveField(reps.code).state, "conflict", "never pick the first code");
+});
+
+test("control: a missing field stays unsupported, never a value", () => {
+  assert.equal(resolveField([]).state, "unsupported");
+  const reps = akcRepresentations(S({ breed_data: {} }), null, null);
+  for (const field of ["group", "code", "year", "lifespan"] as const) {
+    assert.equal(resolveField(reps[field]).state, "unsupported", field);
+  }
+});
+
+test("the fingerprint describes the page, not the number of breeds", () => {
+  const a = templateFingerprint(S({ breed_data: { description: {}, colors: {} } }), ["coat length"]);
+  const b = templateFingerprint(S({ breed_data: { colors: {}, description: {} } }), ["coat length"]);
+  assert.equal(a, b, "key order must not change the identity of a failure");
+  const c = templateFingerprint(S({ breed_data: { description: {} } }), ["coat length"]);
+  assert.notEqual(a, c, "a different page shape is a different failure");
+  const d = templateFingerprint(S({ breed_data: { description: {}, colors: {} } }), ["trait bands"]);
+  assert.notEqual(a, d, "losing different fields is a different failure");
+});
+
+/* ---------------- through the real run loop ---------------- */
+
+test("run loop: a recovered group and code verify, the rest is named", async () => {
+  const r = await runAkc("basset-hound", (b) =>
+    akcPage(b, {
+      dropBasics: true,
+      currentBreed: "basset-hound",
+      groupName: akcRecord(b).registryGroup,
+      colourCode: String(akcRecord(b).registryBreedCode),
+    }),
+  );
+  assert.equal(r.disagreements, 0, r.stdout.slice(-500));
+  assert.equal(r.unreachable, 1);
+  assert.match(r.stdout, /does not publish: year recognized, life expectancy/);
+  assert.ok(!/akc:group/.test(r.stdout), "group WAS verified from the second representation");
+  assert.ok(!/akc:code/.test(r.stdout), "and so was the code");
+});
+
+test("run loop: a wrong recovered value is still a disagreement", async () => {
+  const r = await runAkc("basset-hound", (b) =>
+    akcPage(b, {
+      dropBasics: true,
+      currentBreed: "basset-hound",
+      groupName: "Toy Group",
+      colourCode: String(akcRecord(b).registryBreedCode),
+    }),
+  );
+  assert.equal(r.byField["akc:group"], 1, "a fallback source is still a source that can disagree");
+  assert.equal(r.verdict, "DISAGREEMENT");
+});
+
+test("run loop: a wrong recovered code is still a disagreement", async () => {
+  const r = await runAkc("basset-hound", (b) =>
+    akcPage(b, {
+      dropBasics: true,
+      currentBreed: "basset-hound",
+      groupName: akcRecord(b).registryGroup,
+      colourCode: "999",
+    }),
+  );
+  assert.equal(r.byField["akc:code"], 1);
+});
+
+test("run loop: no representation at all is DEGRADED, never CLEAN", async () => {
+  const r = await runAkc("basset-hound", (b) =>
+    akcPage(b, { dropBasics: true, currentBreed: "basset-hound" }),
+  );
+  assert.equal(r.verdict, "DEGRADED");
+  assert.equal(r.disagreements, 0);
+  assert.match(r.stdout, /does not publish: breed group, AKC code/);
+});
+
+test("run loop: measurements are still checked when the template changed", async () => {
+  const r = await runAkc("basset-hound", (b) =>
+    akcPage(b, {
+      height: "99-15 inches",
+      dropBasics: true,
+      currentBreed: "basset-hound",
+      groupName: akcRecord(b).registryGroup,
+      colourCode: String(akcRecord(b).registryBreedCode),
+    }),
+  );
+  assert.ok((r.byField["akc:height"] ?? 0) > 0, "a wrong height is caught despite the template change");
+});
+
+test("no unit test reaches a real registry", () => {
+  /*
+   * Every run-loop test points the verifier at a local stub. A test that
+   * silently fell through to akc.org would be slow, flaky, and would quietly
+   * send traffic to a third party from every contributor's machine — which has
+   * already happened once in this repository, to cfa.org, and was only noticed
+   * because the suite got slower.
+   */
+  const dir = path.join(REPO_ROOT, "tests");
+  const offenders: string[] = [];
+  for (const file of fs.readdirSync(dir).filter((f) => f.endsWith(".ts"))) {
+    const source = fs.readFileSync(path.join(dir, file), "utf8");
+    for (const [i, line] of source.split("\n").entries()) {
+      if (line.trim().startsWith("*") || line.trim().startsWith("//")) continue;
+      if (/https?:\/\/(www\.)?(akc\.org|cfa\.org|fci\.be|fifeweb\.org)/.test(line)) {
+        // A URL in a fixture or an assertion is data; a fetch of it is not.
+        if (/\bfetch\b|fetchText|fetchPage|fetchBytes/.test(line)) {
+          offenders.push(`${file}:${i + 1}`);
+        }
+      }
+    }
+  }
+  assert.deepEqual(offenders, [], `tests fetching a live registry:\n${offenders.join("\n")}`);
 });

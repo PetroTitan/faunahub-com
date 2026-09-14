@@ -65,6 +65,11 @@ import {
 } from "./lib/cfa-show-rules.mjs";
 import { EX_USAGE, checkValidity, resolveNow } from "./lib/source-validity.mjs";
 import { describeSegment, lineSupports, resolveAkcBasics } from "./lib/akc-measurements.mjs";
+import {
+  akcRepresentations,
+  resolveField,
+  templateFingerprint,
+} from "./lib/akc-representations.mjs";
 import { describeResponse, formatDiagnostic } from "./lib/registry-diagnostics.mjs";
 import { cfaPagePlausibility, cfaShapeMarkers } from "./lib/registry-plausibility.mjs";
 import { buildVerdict } from "./lib/registry-verdict.mjs";
@@ -243,6 +248,20 @@ const DIAGNOSTICS = process.env.FAUNAHUB_REGISTRY_DIAGNOSTICS === "1";
  */
 const unusableResponses = [];
 
+/**
+ * Breeds whose page is intact but whose TEMPLATE no longer carries some fields.
+ *
+ * 24 AKC pages stopped publishing `breed_data.basics`. That is one change at
+ * AKC, not 24 breeds going wrong, and reporting it 24 times buries the fact
+ * that the cause is single. Held until every record has been tried, then folded
+ * only if the failures are provably identical — same page shape, same fields
+ * lost. The aggregate names every breed it covers, so nothing is hidden by it.
+ *
+ * @type {Array<{registryId: string, breed: string, url: string,
+ *   fingerprint: string, unsupported: string[]}>}
+ */
+const templateGaps = [];
+
 function noteUnusableResponse(event) {
   unusableResponses.push(event);
   if (DIAGNOSTICS) console.log(`\n${formatDiagnostic(event.diagnostic)}`);
@@ -270,6 +289,49 @@ const CORRELATED_MIN_URLS = 3;
  * one unrelated FCI page 200s a maintenance stub produces one incident and one
  * breed-scoped entry, not one muddled aggregate.
  */
+function foldTemplateGaps() {
+  const groups = new Map();
+  for (const gap of templateGaps) {
+    const key = `${gap.registryId}\n${gap.fingerprint}`;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(gap);
+  }
+
+  for (const gaps of groups.values()) {
+    const breeds = gaps.map((g) => g.breed).sort();
+    const unsupported = [...new Set(gaps.flatMap((g) => g.unsupported))].sort();
+
+    if (breeds.length >= CORRELATED_MIN_URLS) {
+      degraded.push({
+        scope: "registry-template",
+        registryId: gaps[0].registryId,
+        url: `${breeds.length} breed pages`,
+        kind: "unusable",
+        error:
+          `${gaps[0].registryId.toUpperCase()} page template no longer carries these fields: ` +
+          `${unsupported.join(", ")}`,
+        fingerprint: gaps[0].fingerprint,
+        affectedRecords: breeds.length,
+        breeds,
+        unverifiedFields: unsupported,
+        attempts: [],
+      });
+      continue;
+    }
+    for (const gap of gaps) {
+      degraded.push({
+        scope: "breed",
+        breed: gap.breed,
+        registryId: gap.registryId,
+        url: gap.url,
+        kind: "unusable",
+        error: `the page does not publish: ${gap.unsupported.join(", ")}`,
+        attempts: [],
+      });
+    }
+  }
+}
+
 function foldUnusableResponses() {
   const groups = new Map();
   for (const event of unusableResponses) {
@@ -405,55 +467,94 @@ async function checkAkc(breed, rec) {
   checkAkcMeasurements(breed, rec, html);
 
   const resolved = resolveAkcBasics(data, rec.registryUrl);
-  if (!resolved.ok) {
-    if (resolved.reason === "no-basics-container" || resolved.reason === "no-props") {
-      reportDegraded(
-        breed,
-        rec.registryId,
-        rec.registryUrl,
-        `AKC published no structured basics for this breed: ${resolved.detail}`,
-        [{ attempt: 1, status: 200, ok: true }],
-        "unusable",
-      );
-      return;
-    }
+  if (!resolved.ok && resolved.reason !== "no-basics-container") {
     // The records exist and this breed is not among them, or two identities
     // both match. Either is a claim about the breed, and neither is agreement.
     report(breed, "akc:basics", "a basics record", resolved.detail);
     return;
   }
 
-  const basics = resolved.basics;
-  const traits = data.settings?.breed_data?.traits?.[resolved.key]?.traits;
+  const settings = data.settings ?? {};
+  const key = resolved.ok ? resolved.key : (settings.current_breed ?? null);
+  const basics = resolved.ok ? resolved.basics : null;
+  const traits = key ? settings.breed_data?.traits?.[key]?.traits : undefined;
 
-  if (basics.breed_group !== rec.registryGroup) {
-    report(breed, "akc:group", rec.registryGroup, basics.breed_group);
-  }
-  if (String(basics.akc_code) !== String(rec.registryBreedCode)) {
-    report(breed, "akc:code", rec.registryBreedCode, basics.akc_code);
-  }
-  if (rec.recognizedYear && Number(basics.year_recognized) !== rec.recognizedYear) {
-    report(breed, "akc:recognizedYear", rec.recognizedYear, basics.year_recognized);
-  }
+  /*
+   * EVERY FIELD IS RESOLVED ON ITS OWN.
+   *
+   * When `basics` went missing from 24 pages, everything that cited it went
+   * unverified together — including two facts the SAME page still publishes
+   * elsewhere (`current_breed_group.name`, and the akc_code carried on the
+   * colour rows). Verifying per field recovers exactly those two and leaves the
+   * rest visibly unverified, instead of trading one all-or-nothing answer for
+   * another. See akc-representations.mjs for why a second representation is
+   * evidence here and not a guess.
+   */
+  const reps = akcRepresentations(settings, key, basics);
+  const unsupported = [];
 
-  if (breed.lifespanYears && basics.life_expectancy !== breed.lifespanYears.statedAs) {
-    report(breed, "akc:lifespan", breed.lifespanYears.statedAs, basics.life_expectancy);
-  }
+  const claims = [
+    ["akc:group", reps.group, rec.registryGroup, "breed group"],
+    ["akc:code", reps.code, rec.registryBreedCode === undefined ? undefined : String(rec.registryBreedCode), "AKC code"],
+    ["akc:recognizedYear", reps.year, rec.recognizedYear === undefined ? undefined : String(rec.recognizedYear), "year recognized"],
+    ["akc:lifespan", reps.lifespan, breed.lifespanYears?.statedAs, "life expectancy"],
+  ];
 
-  const liveCoat = traits?.coat_length?.selected ?? [];
-  if (breed.coat?.statedAs && liveCoat.length) {
-    if (!breed.coat.statedAs.includes(liveCoat.join(", "))) {
-      report(breed, "akc:coatLength", breed.coat.statedAs, liveCoat.join(", "));
+  for (const [field, representations, stored, label] of claims) {
+    if (stored === undefined || stored === null) continue;
+    const resolvedField = resolveField(representations);
+
+    if (resolvedField.state === "unsupported") {
+      unsupported.push(label);
+      continue;
+    }
+    if (resolvedField.state === "conflict") {
+      /*
+       * Two representations of one fact that do not agree. Choosing either
+       * would verify the record against whichever copy happened to match it.
+       */
+      report(breed, field, stored, `AKC states this twice and they disagree: ${resolvedField.detail}`);
+      continue;
+    }
+    if (resolvedField.value !== String(stored)) {
+      report(breed, field, stored, `${resolvedField.value} (from ${resolvedField.from.join(" + ")})`);
     }
   }
 
-  for (const [akcKey, ourKey] of Object.entries(AKC_TRAIT_MAP)) {
-    const score = traits?.[akcKey]?.score;
-    const liveBand = typeof score === "number" ? bandFromFivePointScale(score) : undefined;
-    const stored = breed.traits[ourKey]?.value;
-    if (stored !== liveBand) {
-      report(breed, `akc:${ourKey}`, stored ?? "(absent)", liveBand ?? "(absent)");
+  /*
+   * Coat and traits live only in `breed_data.traits`. There is no second
+   * representation, so when the container is gone they are simply unverified.
+   */
+  if (traits === undefined) {
+    if (breed.coat?.statedAs) unsupported.push("coat length");
+    if (Object.keys(breed.traits ?? {}).length > 0) unsupported.push("trait bands");
+  } else {
+    const liveCoat = traits?.coat_length?.selected ?? [];
+    if (breed.coat?.statedAs && liveCoat.length) {
+      if (!breed.coat.statedAs.includes(liveCoat.join(", "))) {
+        report(breed, "akc:coatLength", breed.coat.statedAs, liveCoat.join(", "));
+      }
     }
+    for (const [akcKey, ourKey] of Object.entries(AKC_TRAIT_MAP)) {
+      const score = traits?.[akcKey]?.score;
+      const liveBand = typeof score === "number" ? bandFromFivePointScale(score) : undefined;
+      const stored = breed.traits[ourKey]?.value;
+      if (stored !== liveBand) {
+        report(breed, `akc:${ourKey}`, stored ?? "(absent)", liveBand ?? "(absent)");
+      }
+    }
+  }
+
+  if (unsupported.length > 0) {
+    // Held, not reported here: whether this is one AKC template change or one
+    // broken page is not knowable until every record has been tried.
+    templateGaps.push({
+      registryId: rec.registryId,
+      breed: breed.id,
+      url: rec.registryUrl,
+      fingerprint: templateFingerprint(settings, unsupported),
+      unsupported,
+    });
   }
 }
 
@@ -1032,6 +1133,7 @@ for (const breed of targets) {
  * information to tell the two apart.
  */
 foldUnusableResponses();
+foldTemplateGaps();
 
 process.stdout.write("\n\n");
 console.log(
@@ -1072,6 +1174,21 @@ if (problems.length > 0) {
 if (degraded.length > 0) {
   console.log(`\n${degraded.length} source(s) unreachable after a retry:\n`);
   for (const d of degraded) {
+    if (d.scope === "registry-template") {
+      /*
+       * One change at the registry, stated once. The breeds are listed in full
+       * because an aggregate that hides which records it covers is a summary,
+       * not a signal — and the unverified FIELDS are named because "this breed
+       * was not fully checked" is useless without saying what went unchecked.
+       */
+      const reg = d.registryId.toUpperCase();
+      console.log(`  ${reg} page template changed — ${d.affectedRecords} records partly unverified`);
+      console.log(`      unverified fields: ${d.unverifiedFields.join(", ")}`);
+      console.log(`      everything else on these pages WAS verified, including measurements`);
+      console.log(`      fingerprint: ${d.fingerprint}`);
+      console.log(`      affected: ${d.breeds.join(", ")}`);
+      continue;
+    }
     if (d.scope === "registry-egress") {
       /*
        * The shape of this block is the point. Someone skimming a red run must
