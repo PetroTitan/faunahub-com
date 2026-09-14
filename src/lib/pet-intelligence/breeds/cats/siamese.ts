@@ -14,6 +14,7 @@ export const breed: Breed = {
       registryId: "cfa",
       status: "recognized",
       registryGroup: "Championship",
+      registryGroupSourceId: "cfa-show-rules-2026-27",
       registryUrl: "https://cfa.org/breed/siamese/",
       recognizedYear: 1906,
       sourceId: "cfa-siamese",
@@ -54,8 +55,8 @@ export const breed: Breed = {
       { question: "What is the difference between traditional and modern Siamese?", answer: "Different registries recognise different body-type variations of the breed, from rounder 'traditional' types to more slender modern types. They are the same breed under most major registries; specifics vary by registry." },
     ],
   },
-  sources: ["cfa-siamese", "cfa-std-siamese"],
+  sources: ["cfa-siamese", "cfa-std-siamese", "cfa-show-rules-2026-27"],
   images: ["cat-siamese-001"],
-  reviewedAt: "2026-09-13",
+  reviewedAt: "2026-09-14",
   publishedAt: "2026-05-21",
 };

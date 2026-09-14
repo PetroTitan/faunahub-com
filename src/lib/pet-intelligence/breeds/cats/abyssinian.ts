@@ -11,6 +11,7 @@ export const breed: Breed = {
       registryId: "cfa",
       status: "recognized",
       registryGroup: "Championship",
+      registryGroupSourceId: "cfa-show-rules-2026-27",
       registryUrl: "https://cfa.org/breed/abyssinian/",
       sourceId: "cfa-abyssinian",
     },
@@ -30,8 +31,8 @@ export const breed: Breed = {
     sourceId: "cfa-abyssinian",
   },
   traits: {},
-  sources: ["cfa-abyssinian", "cfa-std-abyssinian", "fife-abyssinian"],
+  sources: ["cfa-abyssinian", "cfa-std-abyssinian", "fife-abyssinian", "cfa-show-rules-2026-27"],
   images: [],
-  reviewedAt: "2026-09-13",
+  reviewedAt: "2026-09-14",
   publishedAt: "2026-09-13",
 };

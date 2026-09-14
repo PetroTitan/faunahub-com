@@ -11,6 +11,7 @@ export const breed: Breed = {
       registryId: "cfa",
       status: "recognized",
       registryGroup: "Championship",
+      registryGroupSourceId: "cfa-show-rules-2026-27",
       registryUrl: "https://cfa.org/breed/american-shorthair/",
       sourceId: "cfa-american-shorthair",
     },
@@ -22,8 +23,8 @@ export const breed: Breed = {
     sourceId: "cfa-american-shorthair",
   },
   traits: {},
-  sources: ["cfa-american-shorthair", "cfa-std-american-shorthair"],
+  sources: ["cfa-american-shorthair", "cfa-std-american-shorthair", "cfa-show-rules-2026-27"],
   images: [],
-  reviewedAt: "2026-09-13",
+  reviewedAt: "2026-09-14",
   publishedAt: "2026-09-13",
 };

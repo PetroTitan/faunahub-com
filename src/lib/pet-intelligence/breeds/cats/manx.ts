@@ -11,6 +11,7 @@ export const breed: Breed = {
       registryId: "cfa",
       status: "recognized",
       registryGroup: "Championship",
+      registryGroupSourceId: "cfa-show-rules-2026-27",
       registryUrl: "https://cfa.org/breed/manx/",
       sourceId: "cfa-manx",
     },
@@ -35,8 +36,8 @@ export const breed: Breed = {
     sourceId: "cfa-manx",
   },
   traits: {},
-  sources: ["cfa-manx", "cfa-std-manx", "fife-manx"],
+  sources: ["cfa-manx", "cfa-std-manx", "fife-manx", "cfa-show-rules-2026-27"],
   images: [],
-  reviewedAt: "2026-09-13",
+  reviewedAt: "2026-09-14",
   publishedAt: "2026-09-13",
 };

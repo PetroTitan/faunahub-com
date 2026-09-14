@@ -13,6 +13,7 @@ export const breed: Breed = {
       registryId: "cfa",
       status: "recognized",
       registryGroup: "Championship",
+      registryGroupSourceId: "cfa-show-rules-2026-27",
       registryUrl: "https://cfa.org/breed/birman/",
       sourceId: "cfa-birman",
     },
@@ -32,8 +33,8 @@ export const breed: Breed = {
     sourceId: "cfa-birman",
   },
   traits: {},
-  sources: ["cfa-birman", "cfa-std-birman", "fife-birman"],
+  sources: ["cfa-birman", "cfa-std-birman", "fife-birman", "cfa-show-rules-2026-27"],
   images: [],
-  reviewedAt: "2026-09-13",
+  reviewedAt: "2026-09-14",
   publishedAt: "2026-09-13",
 };

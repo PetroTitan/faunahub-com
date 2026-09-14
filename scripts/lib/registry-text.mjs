@@ -41,7 +41,7 @@ export const fetchAttempts = [];
  * The retry and attempt bookkeeping is unchanged: one `fetchAttempts` entry per
  * call, pushed exactly once, whether the call ends in a body or a throw.
  */
-export async function fetchPage(url, { retries = 1, backoffMs = 2000 } = {}) {
+export async function fetchPage(url, { retries = 1, backoffMs = 2000, binary = false } = {}) {
   const attempts = [];
   for (let attempt = 1; attempt <= retries + 1; attempt += 1) {
     let status;
@@ -56,7 +56,12 @@ export async function fetchPage(url, { retries = 1, backoffMs = 2000 } = {}) {
         attempts.push({ attempt, status, ok: true });
         fetchAttempts.push({ url, attempts });
         return {
-          body: await res.text(),
+          /*
+           * `binary` exists for one caller: CFA publishes the Show Rules as a
+           * PDF, and `res.text()` decodes as UTF-8, which silently corrupts
+           * every compressed stream in it. A Buffer keeps the bytes the bytes.
+           */
+          body: binary ? Buffer.from(await res.arrayBuffer()) : await res.text(),
           status,
           // `res.url` is the URL AFTER redirects. A soft block that 302s to an
           // interstitial is invisible in the requested URL alone.
@@ -85,6 +90,12 @@ export async function fetchPage(url, { retries = 1, backoffMs = 2000 } = {}) {
 /** The body alone, for callers that need nothing else. */
 export async function fetchText(url, options) {
   const { body } = await fetchPage(url, options);
+  return body;
+}
+
+/** The body as raw bytes, for documents that are not text. */
+export async function fetchBytes(url, options) {
+  const { body } = await fetchPage(url, { ...options, binary: true });
   return body;
 }
 

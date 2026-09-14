@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import http from "node:http";
 import path from "node:path";
 import fs from "node:fs";
+import zlib from "node:zlib";
 import { execFile } from "node:child_process";
 import type { AddressInfo } from "node:net";
 
@@ -14,6 +15,12 @@ import {
   samePath,
 } from "../scripts/lib/registry-plausibility.mjs";
 import { ambientMarkers, blockingMarkers } from "../scripts/lib/registry-diagnostics.mjs";
+import {
+  ARTICLE_END,
+  ARTICLE_START,
+  RULE_30_01,
+  breedHeadingFromUrl,
+} from "../scripts/lib/cfa-show-rules.mjs";
 
 /**
  * A 200 is not a page.
@@ -118,6 +125,36 @@ function challengePage(): string {
   ].join("\n");
 }
 
+/**
+ * A valid Show Rules document listing every breed that cites it.
+ *
+ * Twelve CFA records now verify their class against this document rather than
+ * their profile page. Without serving it here the harness would reach the real
+ * cfa.org on every run — which it did, silently, until the suite slowed from
+ * 250 ms to 1.4 s and gave it away.
+ */
+function validShowRules(): Buffer {
+  const esc = (t: string) => t.replace(/([()\\])/g, "\\$1");
+  const headings = cfaBreeds
+    .filter((b) => cfaRecord(b).registryGroupSourceId)
+    .map((b) => breedHeadingFromUrl(cfaRecord(b).registryUrl!)!);
+  const body = [
+    `(${esc(ARTICLE_START)}) Tj`,
+    `(${esc(RULE_30_01)}.) Tj`,
+    ...headings.map((h) => `(${esc(h)}) Tj (All Championship Colors) Tj`),
+    `(${esc(ARTICLE_END)}) Tj`,
+  ].join(" ");
+  return Buffer.concat([
+    Buffer.from("%PDF-1.4\nstream\n"),
+    zlib.deflateSync(Buffer.from(body, "latin1")),
+    Buffer.from("\nendstream\n"),
+  ]);
+}
+
+/** CFA records still verified against their own profile page. */
+const pageGovernedCount = () =>
+  cfaBreeds.filter((b) => cfaRecord(b).registryGroup && !cfaRecord(b).registryGroupSourceId).length;
+
 interface RunResult {
   stdout: string;
   code: number | null;
@@ -138,8 +175,15 @@ async function runCfaStub(
 ): Promise<RunResult> {
   let requests = 0;
   const server = http.createServer((req, res) => {
+    const url = req.url ?? "/";
+    if (url.startsWith("/show-rules")) {
+      // Not counted: this harness counts CFA PROFILE requests.
+      res.writeHead(200, { "Content-Type": "application/pdf" });
+      res.end(validShowRules());
+      return;
+    }
     requests += 1;
-    handler(req.url ?? "/", res);
+    handler(url, res);
   });
   await new Promise<void>((resolve) => server.listen(0, "127.0.0.1", resolve));
   const { port } = server.address() as AddressInfo;
@@ -156,6 +200,7 @@ async function runCfaStub(
             env: {
               ...process.env,
               FAUNAHUB_CFA_BASE_URL: `http://127.0.0.1:${port}`,
+              FAUNAHUB_GROUP_SOURCE_URL: `http://127.0.0.1:${port}/show-rules.pdf`,
               FAUNAHUB_VERIFY_ONLY: "cfa",
               FAUNAHUB_VERIFY_DELAY_MS: "0",
               ...extraEnv,
@@ -364,7 +409,7 @@ test("one cause yields one fingerprint across different URLs", () => {
  * Phase 4 — negative controls, through the real run loop
  * ================================================================ */
 
-test("control 1: 45 valid pages that omit the class stay 45 disagreements", async () => {
+test("control 1: valid pages that omit the class stay disagreements", async () => {
   const r = await runCfaStub((p, res) => {
     const body = pageFor(p, { includeGroup: false });
     if (!body) return res.writeHead(404).end("no");
@@ -372,7 +417,12 @@ test("control 1: 45 valid pages that omit the class stay 45 disagreements", asyn
   });
 
   assert.equal(r.verdict, "DISAGREEMENT");
-  assert.equal(r.byField["cfa:group"], cfaBreeds.length, "every record must still be blamed");
+  /*
+   * Twelve records now cite CFA's Show Rules for their class and are verified
+   * against that document, so omitting the word from their PROFILE page proves
+   * nothing about them. The rest are still page-governed and must all fail.
+   */
+  assert.equal(r.byField["cfa:group"], pageGovernedCount(), "every page-governed record must be blamed");
   assert.equal(r.unreachable, 0, "valid pages are not a degraded source");
   assert.equal(r.egress, null, "a real, correlated finding must NEVER be collapsed into DEGRADED");
   assert.equal(r.code, 1);
@@ -410,11 +460,11 @@ test("control 3: a mixed run separates the two, and DISAGREEMENT outranks DEGRAD
 
   assert.equal(r.verdict, "DISAGREEMENT", "a real disagreement is the headline");
   assert.equal(r.code, 1);
-  assert.equal(
-    r.byField["cfa:group"],
-    cfaBreeds.length - blocked.size,
-    "only the readable pages produce findings",
-  );
+  const blockedIds = new Set(cfaBreeds.slice(0, 5).map((b) => b.id));
+  const expected = cfaBreeds.filter(
+    (b) => cfaRecord(b).registryGroup && !cfaRecord(b).registryGroupSourceId && !blockedIds.has(b.id),
+  ).length;
+  assert.equal(r.byField["cfa:group"], expected, "only readable, page-governed records produce findings");
   assert.ok(r.egress, "the blocked five are still one incident");
   assert.equal(r.egress!.records, blocked.size);
   // No finding may name a breed whose page was never read.
@@ -439,21 +489,33 @@ test("control 4: one isolated bad page stays that breed's problem", async () => 
   assert.equal(r.disagreements, 0, "the other 44 pages are complete and agree");
 });
 
-test("control 5: the reviewed twelve reproduce exactly", async () => {
+test("control 5: the reviewed twelve are answered by their own source, not the page", async () => {
+  /*
+   * This test used to assert the opposite, correctly: the twelve WERE the
+   * finding set, because their class was checked against a profile page that
+   * no longer states it. They have since been re-cited to CFA Show Rules
+   * Article XXX, so the same fixture — pages omitting the word for exactly
+   * those twelve — must now blame nobody.
+   *
+   * The finding did not go away because the check was relaxed. It went away
+   * because the claim is now verified against the document that carries it,
+   * which tests/cfa-championship-source.test.ts exercises in both directions.
+   */
   const r = await runCfaStub((p, res) => {
     const breed = cfaBreeds.find((b) => new URL(cfaRecord(b).registryUrl!).pathname === p);
     if (!breed) return res.writeHead(404).end("no");
     serve(res, breedPage(breed, { includeGroup: !THE_TWELVE.has(breed.slug) }));
   });
 
-  assert.equal(r.byField["cfa:group"], THE_TWELVE.size, "exactly the reviewed set");
+  assert.equal(r.byField["cfa:group"], undefined, "no record is blamed by the page it no longer cites");
   assert.equal(r.unreachable, 0);
-  assert.equal(r.egress, null, "twelve real findings must not be aggregated away");
-  const blamed = new Set(r.findings.map((f) => f.breed));
+  assert.equal(r.egress, null);
   for (const slug of THE_TWELVE) {
-    assert.ok(blamed.has(`cat-${slug}`), `cat-${slug} is a reviewed finding and must be reported`);
+    assert.ok(
+      cfaBreeds.find((b) => b.slug === slug && cfaRecord(b).registryGroupSourceId),
+      `cat-${slug} must cite a claim-level group source`,
+    );
   }
-  assert.equal(blamed.size, THE_TWELVE.size, "and nobody else");
 });
 
 /* ================================================================ *

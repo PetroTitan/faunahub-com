@@ -2238,6 +2238,28 @@ export const BREED_SOURCES: readonly BreedSource[] = [
     scope: "AKC breed group and recognition tier, published height and weight ranges, life expectancy, coat length and type, and the AKC trait scale bands normalised into FaunaHub ordinal traits.",
   },
   {
+    /*
+     * ONE DOCUMENT, TWELVE CLAIMS.
+     *
+     * Every CFA record whose class is verified cites THIS id, not a copy of it
+     * per breed. Twelve nominally separate sources pointing at one PDF would be
+     * twelve lies about provenance and twelve downloads of the same 748 kB
+     * file; the verifier fetches it once per run through the shared-source
+     * model and reports one signal if it fails.
+     */
+    id: "cfa-show-rules-2026-27",
+    title:
+      "CFA Show Rules, 2026-2027 Show Season \u2014 Article XXX, Championship Breeds/Divisions & Colors",
+    organization: "The Cat Fanciers' Association",
+    url: "https://cfa.org/wp-content/uploads/2026/04/26-27show-rules.pdf",
+    sourceType: "registry-standard",
+    accessedAt: "2026-09-14",
+    scope:
+      "Which breeds CFA states are entitled to Championship competition. Rule 30.01: \u201cThe following breeds and colors are recognized as entitled to win Championship or Premiership honors.\u201d Cited ONLY for the registryGroup claim; every other CFA value keeps citing the breed profile page.",
+    notes:
+      "Effective for the 2026-2027 show season (April 27, 2026 \u2013 April 25, 2027); linked from CFA\u2019s own Resources page at cfa.org/cfa-manuals/. Article XXXII lists Provisional breeds (Khao Manee alone) and Article XXXIII Miscellaneous breeds (none), so presence in Article XXX is the Championship entitlement and not an inference from absence elsewhere. A breed named later under Article XXXI (Any Other Variety) is NOT entitled by that mention.",
+  },
+  {
     id: "cfa-abyssinian",
     title: "Abyssinian \u2014 CFA Breed Profile",
     organization: "The Cat Fanciers' Association",

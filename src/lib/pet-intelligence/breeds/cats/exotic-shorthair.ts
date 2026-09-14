@@ -11,6 +11,7 @@ export const breed: Breed = {
       registryId: "cfa",
       status: "recognized",
       registryGroup: "Championship",
+      registryGroupSourceId: "cfa-show-rules-2026-27",
       registryUrl: "https://cfa.org/breed/exotic/",
       sourceId: "cfa-exotic-shorthair",
     },
@@ -30,8 +31,8 @@ export const breed: Breed = {
     sourceId: "cfa-exotic-shorthair",
   },
   traits: {},
-  sources: ["cfa-exotic-shorthair", "cfa-std-exotic-shorthair", "fife-exotic-shorthair"],
+  sources: ["cfa-exotic-shorthair", "cfa-std-exotic-shorthair", "fife-exotic-shorthair", "cfa-show-rules-2026-27"],
   images: [],
-  reviewedAt: "2026-09-13",
+  reviewedAt: "2026-09-14",
   publishedAt: "2026-09-13",
 };

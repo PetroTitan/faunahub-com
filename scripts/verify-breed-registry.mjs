@@ -47,6 +47,7 @@ const UA =
 import {
   decodeEntities,
   fetchAttempts,
+  fetchBytes,
   fetchPage,
   fetchText,
   isTransient,
@@ -54,6 +55,12 @@ import {
   toText,
   verifiablePart,
 } from "./lib/registry-text.mjs";
+import {
+  breedHeadingFromUrl,
+  championshipSpan,
+  extractPdfText,
+  spanListsBreed,
+} from "./lib/cfa-show-rules.mjs";
 import { describeResponse, formatDiagnostic } from "./lib/registry-diagnostics.mjs";
 import { cfaPagePlausibility, cfaShapeMarkers } from "./lib/registry-plausibility.mjs";
 import { buildVerdict } from "./lib/registry-verdict.mjs";
@@ -97,6 +104,15 @@ const ONLY_REGISTRIES = process.env.FAUNAHUB_VERIFY_ONLY
  * tested by being blocked.
  */
 const CFA_BASE_URL = process.env.FAUNAHUB_CFA_BASE_URL ?? null;
+
+/**
+ * Point claim-level group sources at a stub. Test-only, inert unless set.
+ *
+ * The Show Rules are a 748 kB PDF republished every show season. Exercising
+ * "the breed was removed from Article XXX" against the real document is not
+ * possible, and waiting for CFA to have a bad day is not a test strategy.
+ */
+const GROUP_SOURCE_URL = process.env.FAUNAHUB_GROUP_SOURCE_URL ?? null;
 const cfaUrl = (url) =>
   CFA_BASE_URL ? url.replace(/^https?:\/\/(?:www\.)?cfa\.org/i, CFA_BASE_URL) : url;
 /** Rate-limit pause between records. Only a test against a stub sets this to 0. */
@@ -393,6 +409,99 @@ async function checkFci(breed, rec) {
 /* ---------------------------- CFA ---------------------------- */
 
 /**
+ * Documents that carry a `registryGroup` claim for many breeds at once.
+ *
+ * CFA states Championship entitlement in the Show Rules, not on the breed page,
+ * and all twelve records that cite it cite the SAME document. So it is a shared
+ * source in the existing sense: fetched once, parsed once, and — when it fails —
+ * reported once for the registry instead of once per cat.
+ *
+ * Keyed by source id rather than hardcoded, so the URL comes from the cited
+ * source record and the corpus and the verifier cannot drift apart.
+ */
+const groupSources = new Map();
+
+function groupSourceFor(sourceId) {
+  if (groupSources.has(sourceId)) return groupSources.get(sourceId);
+
+  const record = getBreedSource(sourceId);
+  if (!record) {
+    groupSources.set(sourceId, null);
+    return null;
+  }
+
+  const source = createSharedSource({
+    id: sourceId,
+    url: GROUP_SOURCE_URL ?? record.url,
+    // The Show Rules are a PDF: decoding the bytes as text would corrupt every
+    // compressed stream before the parser ever saw them.
+    fetchText: fetchBytes,
+    parse: (bytes) => {
+      const text = extractPdfText(bytes);
+      return { text, span: championshipSpan(text) };
+    },
+    /*
+     * A document we cannot find Article XXX in is not evidence of anything, and
+     * must never read as "this breed is not listed". Failing here routes it
+     * through the shared-source DEGRADED path instead.
+     */
+    validate: ({ text, span }) =>
+      span
+        ? null
+        : text.length < 1000
+          ? "the Show Rules document could not be read as text (not a PDF, or no readable streams)"
+          : "Article XXX (Championship Breeds/Divisions & Colors) was not found in the Show Rules",
+  });
+
+  groupSources.set(sourceId, source);
+  return source;
+}
+
+/**
+ * Verify one `registryGroup` claim against the document that actually carries it.
+ *
+ * Throws the shared-source failure when the document is unavailable, so the run
+ * loop records ONE registry-scoped signal. It deliberately does not fall back to
+ * the profile page: the page stopped stating the class, which is the whole
+ * reason this path exists, and silently re-checking it would manufacture twelve
+ * disagreements out of one outage.
+ */
+async function checkGroupAgainstSource(breed, rec) {
+  const source = groupSourceFor(rec.registryGroupSourceId);
+  if (!source) {
+    report(
+      breed,
+      `${rec.registryId}:group`,
+      rec.registryGroup,
+      `declared group source "${rec.registryGroupSourceId}" has no source record`,
+    );
+    return;
+  }
+
+  const { span } = await source.resolve();
+
+  const heading = breedHeadingFromUrl(rec.registryUrl);
+  if (!heading) {
+    report(
+      breed,
+      `${rec.registryId}:group`,
+      rec.registryGroup,
+      "could not derive the registry's own heading from the profile URL",
+    );
+    return;
+  }
+
+  if (!spanListsBreed(span, heading)) {
+    report(
+      breed,
+      `${rec.registryId}:group`,
+      rec.registryGroup,
+      `Show Rules Article XXX does not list ${heading} as entitled to Championship`,
+    );
+  }
+}
+
+/**
  * CFA checks.
  *
  * The first version of this asked only whether the page contained the string
@@ -475,10 +584,6 @@ async function checkCfa(breed, rec) {
     }
   }
 
-  if (rec.registryGroup && !new RegExp(rec.registryGroup, "i").test(text)) {
-    report(breed, "cfa:group", rec.registryGroup, "class no longer named on the page");
-  }
-
   // The coat wording is quoted verbatim on the page, so it must still be there.
   if (breed.coat?.statedAs && breed.coat.sourceId === `cfa-${breed.slug}`) {
     const { ok, needle } = pageSupports(text, breed.coat.statedAs, breed.coat.statedAsKind);
@@ -500,6 +605,29 @@ async function checkCfa(breed, rec) {
     const { ok, needle } = pageSupports(text, m.statedAs, m.statedAsKind, 50);
     if (!ok) {
       report(breed, "cfa:weight", needle, "quoted weight wording not found on the page");
+    }
+  }
+
+  /*
+   * THE GROUP CLAIM IS CHECKED LAST, AND POSSIBLY ELSEWHERE.
+   *
+   * Last, because a record that cites the Show Rules for its class will throw
+   * from here when that document is unavailable — and everything above has
+   * already verified what the profile page does still support. An outage in one
+   * source should not cost us the claims another source proved.
+   *
+   * Elsewhere, when `registryGroupSourceId` is declared: CFA states Championship
+   * entitlement in Article XXX of the Show Rules and no longer prints it on the
+   * breed page, so the page is simply not the document that answers this.
+   *
+   * With no declared group source the old profile-page test still runs. Absence
+   * of a citation must never mean absence of a check.
+   */
+  if (rec.registryGroup) {
+    if (rec.registryGroupSourceId) {
+      await checkGroupAgainstSource(breed, rec);
+    } else if (!new RegExp(rec.registryGroup, "i").test(text)) {
+      report(breed, "cfa:group", rec.registryGroup, "class no longer named on the page");
     }
   }
 }
