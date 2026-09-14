@@ -141,6 +141,18 @@ const akcUrl = (url) =>
   AKC_BASE_URL ? url.replace(/^https?:\/\/(?:www\.)?akc\.org/i, AKC_BASE_URL) : url;
 
 /**
+ * Point FCI fetches at a stub. Test-only, inert unless set.
+ *
+ * Twelve records, which is what makes it the cheap registry to exercise
+ * transport behaviour against: "three URLs time out identically" needs a run
+ * loop and several breeds, and doing it through AKC would mean 219 requests to
+ * observe three failures.
+ */
+const FCI_BASE_URL = process.env.FAUNAHUB_FCI_BASE_URL ?? null;
+const fciUrl = (url) =>
+  FCI_BASE_URL ? url.replace(/^https?:\/\/(?:www\.)?fci\.be/i, FCI_BASE_URL) : url;
+
+/**
  * Point claim-level group sources at a stub ORIGIN. Test-only, inert unless set.
  *
  * The Show Rules are a 748 kB PDF republished every show season, and a season's
@@ -263,6 +275,24 @@ const unusableResponses = [];
  */
 const templateGaps = [];
 
+/**
+ * Breed-scoped fetch failures that might be ONE transport problem.
+ *
+ * Measured on run 34910508375: three different FCI URLs failed with
+ * `UND_ERR_CONNECT_TIMEOUT` after 10,492-10,493 ms each — the same class, the
+ * same system code, the same host, and a duration identical to the millisecond
+ * because it is a fixed connect timeout expiring. That is one condition between
+ * this runner and one host, not three breeds with broken pages.
+ *
+ * Held until the run ends, then folded ONLY where the fingerprint proves the
+ * failures are the same failure. An isolated 404, or one host timing out while
+ * another resets, stays breed-scoped.
+ *
+ * @type {Array<{registryId: string, breed: string, url: string,
+ *   fingerprint: string, attempts: Array<object>}>}
+ */
+const transportFailures = [];
+
 function noteUnusableResponse(event) {
   unusableResponses.push(event);
   if (DIAGNOSTICS) console.log(`\n${formatDiagnostic(event.diagnostic)}`);
@@ -290,6 +320,54 @@ const CORRELATED_MIN_URLS = 3;
  * one unrelated FCI page 200s a maintenance stub produces one incident and one
  * breed-scoped entry, not one muddled aggregate.
  */
+function foldTransportFailures() {
+  const groups = new Map();
+  for (const f of transportFailures) {
+    const key = `${f.registryId}\n${f.fingerprint}`;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(f);
+  }
+
+  for (const failures of groups.values()) {
+    const urls = [...new Set(failures.map((f) => f.url))];
+    const breeds = failures.map((f) => f.breed).sort();
+    const attemptCount = failures.reduce((n, f) => n + (f.attempts?.length ?? 0), 0);
+
+    if (urls.length >= CORRELATED_MIN_URLS) {
+      degraded.push({
+        scope: "registry-egress",
+        registryId: failures[0].registryId,
+        url: `${urls.length} distinct URLs`,
+        kind: "fetched",
+        reason: failures[0].fingerprint.split(":")[1] ?? "transport",
+        error:
+          `${urls.length} ${failures[0].registryId.toUpperCase()} URLs failed identically at the transport layer ` +
+          `(${failures[0].fingerprint})`,
+        fingerprint: failures[0].fingerprint,
+        distinctUrls: urls.length,
+        attemptCount,
+        affectedRecords: failures.length,
+        breeds,
+        examples: urls.slice(0, 3),
+        attempts: failures[0].attempts ?? [],
+      });
+      continue;
+    }
+    // Not correlated: one URL's own problem, reported as that breed's.
+    for (const f of failures) {
+      degraded.push({
+        scope: "breed",
+        breed: f.breed,
+        registryId: f.registryId,
+        url: f.url,
+        kind: "fetched",
+        error: f.error,
+        attempts: f.attempts ?? [],
+      });
+    }
+  }
+}
+
 function foldTemplateGaps() {
   const groups = new Map();
   for (const gap of templateGaps) {
@@ -640,7 +718,7 @@ function checkAkcMeasurements(breed, rec, html) {
 /* ---------------------------- FCI ---------------------------- */
 
 async function checkFci(breed, rec) {
-  const html = await fetchText(rec.registryUrl);
+  const html = await fetchText(fciUrl(rec.registryUrl));
   checked.fci += 1;
   const span = (id) => {
     const m = html.match(new RegExp(`<span id="ContentPlaceHolder1_${id}"[^>]*>(.*?)</span>`, "s"));
@@ -1143,6 +1221,20 @@ for (const breed of targets) {
     } catch (error) {
       if (isSharedSourceFailure(error)) {
         noteSharedFailure(error, rec.registryId);
+      } else if (error.transport) {
+        /*
+         * A transport failure may be this URL's problem or one condition
+         * affecting many. Which it is cannot be known until every record has
+         * been tried, so it is held and folded once, on the fingerprint.
+         */
+        transportFailures.push({
+          registryId: rec.registryId,
+          breed: breed.id,
+          url: rec.registryUrl,
+          fingerprint: transportFingerprint(error.attempts?.find((a) => !a.ok) ?? {}),
+          error: String(error.message),
+          attempts: error.attempts ?? [],
+        });
       } else {
         reportDegraded(breed, rec.registryId, rec.registryUrl, String(error.message), error.attempts);
       }
@@ -1163,6 +1255,7 @@ for (const breed of targets) {
  */
 foldUnusableResponses();
 foldTemplateGaps();
+foldTransportFailures();
 
 process.stdout.write("\n\n");
 console.log(
@@ -1226,7 +1319,11 @@ if (degraded.length > 0) {
        * to be inferred from the absence of findings.
        */
       const reg = d.registryId.toUpperCase();
-      console.log(`  ${reg} registry responses unusable from this runner`);
+      console.log(
+        d.kind === "fetched"
+          ? `  ${reg} URLs failed identically at the transport layer`
+          : `  ${reg} registry responses unusable from this runner`,
+      );
       console.log(`      ${d.affectedRecords} records left unverified`);
       console.log(`      ${d.distinctUrls} distinct URLs / ${d.attemptCount} attempts`);
       console.log(`      one DEGRADED incident`);
@@ -1236,6 +1333,13 @@ if (degraded.length > 0) {
       console.log(`      fingerprint: ${d.fingerprint}`);
       if (d.examples?.length) {
         console.log(`      examples: ${d.examples.join("  ")}`);
+      }
+      /*
+       * An aggregate that does not say which records it covers is a summary,
+       * not a signal: the reader cannot tell whether their breed is in it.
+       */
+      if (d.breeds?.length) {
+        console.log(`      affected: ${d.breeds.join(", ")}`);
       }
       continue;
     }

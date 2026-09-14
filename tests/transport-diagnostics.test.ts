@@ -233,3 +233,105 @@ test("control: no test in this suite reaches a live registry", () => {
   }
   assert.deepEqual(offenders, [], offenders.join("\n"));
 });
+
+/* ================================================================ *
+ * Aggregation, through the real run loop
+ * ================================================================ */
+
+import { execFile } from "node:child_process";
+import { BREEDS } from "../src/lib/pet-intelligence/index.ts";
+
+const REPO = path.resolve(import.meta.dirname, "..");
+const fciBreeds = BREEDS.filter((b) =>
+  b.recognition.some((r) => r.registryId === "fci" && r.registryUrl),
+);
+const fciPath = (b: (typeof fciBreeds)[number]) =>
+  new URL(b.recognition.find((r) => r.registryId === "fci")!.registryUrl!).pathname;
+
+/** A minimal FCI page the checker reads without complaint. */
+const fciPage = (b: (typeof fciBreeds)[number]) => {
+  const rec = b.recognition.find((r) => r.registryId === "fci")!;
+  const group = /Group (\d+)/.exec(rec.registryGroup ?? "")?.[1] ?? "1";
+  return [
+    "<html><body>",
+    `<span id="ContentPlaceHolder1_NumeroLabel">${rec.registryBreedCode ?? ""}</span>`,
+    `<span id="ContentPlaceHolder1_StatutLabel">Definitive</span>`,
+    `<a id="ContentPlaceHolder1_GroupeHyperLink">Group n°${group}</a>`,
+    "</body></html>",
+  ].join("\n");
+};
+
+/** Run the verifier over FCI only, with `fail` deciding which paths break. */
+async function runFci(fail: (p: string) => "reset" | "404" | null) {
+  const server = http.createServer((req, res) => {
+    const p = req.url ?? "";
+    const mode = fail(p);
+    if (mode === "reset") return void res.socket?.destroy();
+    if (mode === "404") return void res.writeHead(404).end("gone");
+    const breed = fciBreeds.find((b) => fciPath(b) === p);
+    if (!breed) return void res.writeHead(404).end("no");
+    res.writeHead(200, { "Content-Type": "text/html" }).end(fciPage(breed));
+  });
+  await new Promise<void>((r) => server.listen(0, "127.0.0.1", r));
+  const { port } = server.address() as AddressInfo;
+  try {
+    const stdout = await new Promise<string>((resolve) => {
+      execFile(
+        "node",
+        ["scripts/verify-breed-registry.mjs"],
+        {
+          cwd: REPO,
+          maxBuffer: 32 * 1024 * 1024,
+          env: {
+            ...process.env,
+            FAUNAHUB_FCI_BASE_URL: `http://127.0.0.1:${port}`,
+            FAUNAHUB_VERIFY_ONLY: "fci",
+            FAUNAHUB_VERIFY_DELAY_MS: "0",
+          },
+        },
+        (_e, out) => resolve(out),
+      );
+    });
+    const counts = /(\d+) disagreement\(s\), (\d+) unreachable source\(s\)/.exec(stdout);
+    return {
+      stdout,
+      disagreements: Number(counts?.[1] ?? -1),
+      unreachable: Number(counts?.[2] ?? -1),
+      aggregated: /URLs failed identically at the transport layer/.test(stdout),
+      breedScoped: [...stdout.matchAll(/^ {2}(dog-\S+) {2}fci {2}/gm)].map((m) => m[1]),
+    };
+  } finally {
+    await new Promise<void>((r) => server.close(() => r()));
+  }
+}
+
+const firstN = (n: number) => new Set(fciBreeds.slice(0, n).map(fciPath));
+
+test("control: three identical transport failures become one signal", async () => {
+  const bad = firstN(3);
+  const r = await runFci((p) => (bad.has(p) ? "reset" : null));
+  assert.equal(r.disagreements, 0, "a transport failure never contradicts a record");
+  assert.equal(r.unreachable, 1, "one condition, one signal");
+  assert.ok(r.aggregated, r.stdout.slice(-500));
+  assert.match(r.stdout, /3 distinct URLs/);
+  // The aggregate must still name every breed it covers.
+  for (const b of fciBreeds.slice(0, 3)) assert.match(r.stdout, new RegExp(b.id));
+});
+
+test("control: two identical failures are NOT aggregated", async () => {
+  const bad = firstN(2);
+  const r = await runFci((p) => (bad.has(p) ? "reset" : null));
+  assert.equal(r.unreachable, 2, "two is not a pattern");
+  assert.ok(!r.aggregated);
+  assert.deepEqual(r.breedScoped.sort(), fciBreeds.slice(0, 2).map((b) => b.id).sort());
+});
+
+test("control: an isolated 404 stays breed-scoped beside an aggregate", async () => {
+  const reset = firstN(3);
+  const gone = fciPath(fciBreeds[5]);
+  const r = await runFci((p) => (reset.has(p) ? "reset" : p === gone ? "404" : null));
+  assert.equal(r.disagreements, 0);
+  assert.ok(r.aggregated, "the three resets still aggregate");
+  assert.deepEqual(r.breedScoped, [fciBreeds[5].id], "the 404 is its own URL's problem");
+  assert.equal(r.unreachable, 2, "one aggregate plus one breed-scoped");
+});
