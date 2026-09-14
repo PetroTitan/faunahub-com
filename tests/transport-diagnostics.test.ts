@@ -167,8 +167,13 @@ test("control: a socket reset keeps its cause and is retried", async () => {
   });
   assert.equal(r.ok, false);
   assert.equal(hits, 2, "attempted twice");
-  const codes = r.attempts.map((a: { causeCode?: string }) => a.causeCode);
-  assert.ok(codes.every((c) => c !== undefined), `cause lost: ${JSON.stringify(r.attempts)}`);
+  const codes: Array<string | undefined> = r.attempts.map(
+    (a: { causeCode?: string }) => a.causeCode,
+  );
+  assert.ok(
+    codes.every((c: string | undefined) => c !== undefined),
+    `cause lost: ${JSON.stringify(r.attempts)}`,
+  );
   assert.ok(r.attempts.every((a: { elapsedMs?: number }) => typeof a.elapsedMs === "number"));
 });
 
