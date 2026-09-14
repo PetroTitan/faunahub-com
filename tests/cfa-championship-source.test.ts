@@ -58,10 +58,17 @@ const cfaRecord = (b: (typeof cfaBreeds)[number]) =>
  */
 function showRulesPdf(
   { breeds = [] as string[], aovBreeds = [] as string[], provisional = [] as string[],
-    includeArticle = true, includeRule = true, padding = 0 } = {},
+    includeArticle = true, includeRule = true, padding = 0,
+    season = "(April 27, 2026 - April 25, 2027)" as string | null } = {},
 ): Buffer {
   const esc = (s: string) => s.replace(/([()\\])/g, "\\$1");
   const parts: string[] = [];
+  /*
+   * The cover marker. Nested parentheses MUST be escaped — a PDF string literal
+   * ends at the first unescaped ")", so an unescaped marker truncates the
+   * document and the reader sees a different failure than the one under test.
+   */
+  if (season) parts.push(`(${esc("2026 - 2027 Show Season " + season)}) Tj`);
   if (includeArticle) parts.push(`(${esc(ARTICLE_START)}) Tj`);
   if (includeRule) parts.push(`(${esc(RULE_30_01 + ".")}) Tj`);
   parts.push("(LONGHAIR SPECIALTY BREEDS) Tj");
@@ -73,14 +80,45 @@ function showRulesPdf(
   for (const b of provisional) parts.push(`(${esc(b)}) Tj`);
   // A long document that is simply not the Show Rules reaches a different
   // branch from one with no readable text at all.
-  if (padding > 0) parts.push(`(${"filler text about cats ".repeat(padding)}) Tj`);
+  // Always clear the readability floor; `padding` only makes it longer.
+  parts.push(`(${"Additional show rule text for the season. ".repeat(40 + padding)}) Tj`);
 
-  const body = Buffer.from(parts.join(" "), "latin1");
+  return pdfOf(parts.join(" "));
+}
+
+/**
+ * Wrap content-stream operators as a PDF the extractor will read.
+ *
+ * Uncompressed on purpose: every page of the real Addendum is an uncompressed
+ * `<</Length N>>` stream, and a reader that only inflates sees none of it.
+ */
+function pdfOf(body: string): Buffer {
   return Buffer.concat([
-    Buffer.from("%PDF-1.4\n1 0 obj\n<< /Filter /FlateDecode >>\nstream\n"),
-    zlib.deflateSync(body),
-    Buffer.from("\nendstream\nendobj\ntrailer\n%%EOF\n"),
+    Buffer.from("%PDF-1.4\n1 0 obj\n<< /Length 999 >>\nstream\nBT "),
+    Buffer.from(body, "latin1"),
+    Buffer.from(" ET\nendstream\nendobj\ntrailer\n%%EOF\n"),
   ]);
+}
+
+/**
+ * The season's OTHER official document.
+ *
+ * `articleXxx` makes it amend the Championship list. `articleXxxvi` is the trap:
+ * the real addendum names Article XXXVI three times and `XXXVI` contains `XXX`,
+ * so a detector that fires on it would put every run into permanent manual
+ * review — indistinguishable, in practice, from no check at all.
+ */
+function addendumPdf(
+  { season = "2026-2027 SHOW RULE ADDENDUM" as string | null,
+    articleXxx = false, articleXxxvi = true, championshipWord = true } = {},
+): Buffer {
+  const parts: string[] = [];
+  if (season) parts.push(`(${season} TO THE PRINTED SHOW RULES) Tj`);
+  if (articleXxxvi) parts.push("(Article XXXVI - National/Regional/Divisional Awards Program) Tj");
+  if (championshipWord) parts.push("(Cats shown in the Championship class must be eight months of age.) Tj");
+  if (articleXxx) parts.push("(30.01 Amend the list of breeds entitled to Championship competition.) Tj");
+  parts.push(`(${"Exceptions and additions for the season. ".repeat(40)}) Tj`);
+  return pdfOf(parts.join(" "));
 }
 
 /** Every heading the real corpus needs, derived the way the verifier derives it. */
@@ -145,6 +183,7 @@ interface Run {
   stdout: string;
   code: number | null;
   pdfRequests: number;
+  addendumRequests: number;
   verdict: string;
   disagreements: number;
   unreachable: number;
@@ -157,21 +196,33 @@ async function run(
   opts: {
     pdf?: Buffer | null;
     pdfStatus?: number;
+    addendum?: Buffer | null;
+    addendumStatus?: number;
+    now?: string;
     page?: (b: (typeof cfaBreeds)[number]) => string;
-    only?: string[];
   } = {},
 ): Promise<Run> {
   let pdfRequests = 0;
+  let addendumRequests = 0;
   const server = http.createServer((req, res) => {
     const url = req.url ?? "/";
-    if (url.startsWith("/show-rules")) {
-      pdfRequests += 1;
-      if (opts.pdfStatus && opts.pdfStatus !== 200) {
-        res.writeHead(opts.pdfStatus).end("nope");
+    if (url.includes("show-rules")) {
+      // Path, not a single stub URL: the season package is two documents and a
+      // run has to be able to say which of them it could not read.
+      const isAddendum = url.includes("addendum");
+      if (isAddendum) addendumRequests += 1;
+      else pdfRequests += 1;
+      const status = isAddendum ? opts.addendumStatus : opts.pdfStatus;
+      if (status && status !== 200) {
+        res.writeHead(status).end("nope");
         return;
       }
       res.writeHead(200, { "Content-Type": "application/pdf" });
-      res.end(opts.pdf ?? showRulesPdf({ breeds: headingsForTwelve() }));
+      res.end(
+        isAddendum
+          ? (opts.addendum ?? addendumPdf())
+          : (opts.pdf ?? showRulesPdf({ breeds: headingsForTwelve() })),
+      );
       return;
     }
     const breed = cfaBreeds.find((b) => new URL(cfaRecord(b).registryUrl!).pathname === url);
@@ -193,7 +244,8 @@ async function run(
           env: {
             ...process.env,
             FAUNAHUB_CFA_BASE_URL: `http://127.0.0.1:${port}`,
-            FAUNAHUB_GROUP_SOURCE_URL: `http://127.0.0.1:${port}/show-rules.pdf`,
+            FAUNAHUB_GROUP_SOURCE_URL: `http://127.0.0.1:${port}`,
+            ...(opts.now ? { FAUNAHUB_VERIFY_NOW: opts.now } : {}),
             FAUNAHUB_VERIFY_ONLY: "cfa",
             FAUNAHUB_VERIFY_DELAY_MS: "0",
           },
@@ -211,6 +263,7 @@ async function run(
       stdout,
       code,
       pdfRequests,
+      addendumRequests,
       verdict: /VERDICT: (\w+)/.exec(stdout)?.[1] ?? "NONE",
       disagreements: Number(counts?.[1] ?? -1),
       unreachable: Number(counts?.[2] ?? -1),
@@ -414,4 +467,202 @@ test("control 9: coat, weight, year and standard still come from the profile pag
   assert.equal(r.byField["cfa:standard"], undefined, "the PDF link is still read from the page");
   assert.equal(r.byField["cfa:recognizedYear"], undefined);
   assert.equal(r.byField["cfa:group"], undefined, "the group claim is unaffected by a coat change");
+});
+
+/* ================================================================ *
+ * Time-bounded validity — a cited document that expired is not evidence
+ * ================================================================ */
+
+import { checkValidity, parseDateOnly, resolveNow, EX_USAGE as VALIDITY_EX_USAGE }
+  from "../scripts/lib/source-validity.mjs";
+import { articleXxxAmended, documentIsForSeason } from "../scripts/lib/cfa-show-rules.mjs";
+
+const GOVERNING = () => getBreedSource(GROUP_SOURCE_ID)!;
+
+/** Narrow resolveNow's union: these call sites all expect a usable date. */
+function nowAt(date: string): number {
+  const r = resolveNow({ FAUNAHUB_VERIFY_NOW: date });
+  assert.ok(r.ok, `expected ${date} to be a usable date`);
+  return (r as { ok: true; at: number }).at;
+}
+const ADDENDUM_ID = "cfa-show-rules-2026-27-addendum";
+
+test("the governing package declares machine-readable validity, not prose", () => {
+  const head = GOVERNING();
+  assert.equal(head.validFrom, "2026-04-27");
+  assert.equal(head.validThrough, "2027-04-25");
+  assert.ok(head.seasonMarker, "an edition marker is required to tell seasons apart");
+  assert.equal(head.amendedBy, ADDENDUM_ID);
+
+  const add = getBreedSource(ADDENDUM_ID);
+  assert.ok(add, "the amendment must be its own source record");
+  assert.equal(add!.validFrom, "2026-04-27");
+  assert.equal(add!.validThrough, "2027-04-25");
+
+  // The dates must be real dates, and the window must not be inverted.
+  for (const s of [head, add!]) {
+    const from = parseDateOnly(s.validFrom!);
+    const through = parseDateOnly(s.validThrough!);
+    assert.ok(from !== null && through !== null, `${s.id} has unparseable bounds`);
+    assert.ok(from! < through!, `${s.id} window is inverted`);
+  }
+});
+
+test("the window is inclusive on both ends, in UTC", () => {
+  const src = { validFrom: "2026-04-27", validThrough: "2027-04-25" };
+  const on = (d: string) => checkValidity(src, nowAt(d)).inForce;
+  assert.equal(on("2026-04-26"), false, "the day before");
+  assert.equal(on("2026-04-27"), true, "the first day counts");
+  assert.equal(on("2027-04-25"), true, "the last day counts in full");
+  assert.equal(on("2027-04-26"), false, "the day after");
+});
+
+test("a source with no bounds is always in force", () => {
+  assert.equal(checkValidity({}, nowAt("2099-01-01")).inForce, true);
+});
+
+test("an impossible injected date is refused, not rounded", () => {
+  // Date.parse("2026-02-30") rolls into March in some engines; a verifier that
+  // accepted it would report a verdict about a day that does not exist.
+  assert.equal(parseDateOnly("2026-02-30"), null);
+  assert.equal(parseDateOnly("2026-13-01"), null);
+  assert.equal(parseDateOnly("not-a-date"), null);
+  assert.equal(resolveNow({ FAUNAHUB_VERIFY_NOW: "2026-02-30" }).ok, false);
+  const live = resolveNow({});
+  assert.ok(live.ok);
+  assert.equal((live as { ok: true; source: string }).source, "clock", "real time by default");
+  assert.equal(VALIDITY_EX_USAGE, 64);
+});
+
+/* ================================================================ *
+ * The amendment detector — and the trap it must not fall into
+ * ================================================================ */
+
+test("Article XXXVI and the bare word Championship are not amendments", () => {
+  /*
+   * The real 2026-27 addendum names Article XXXVI three times and uses
+   * "Championship" four times in the ordinary sense. `XXXVI` contains `XXX`.
+   * A detector that fires on either puts every run into permanent manual
+   * review, which is indistinguishable from no check at all.
+   */
+  const text = extractPdfText(addendumPdf());
+  assert.match(text, /Article XXXVI/, "the trap must actually be present");
+  assert.match(text, /Championship/, "and so must the ordinary word");
+  assert.equal(articleXxxAmended(text), null);
+});
+
+test("a real amendment to Article XXX is detected", () => {
+  const text = extractPdfText(addendumPdf({ articleXxx: true }));
+  const hits = articleXxxAmended(text);
+  assert.ok(hits, "a 30.xx rule is an amendment to the Championship list");
+  assert.ok(hits!.includes("30.01"));
+});
+
+test("a rule number must have digit boundaries", () => {
+  assert.equal(articleXxxAmended("see 130.011 and 230.05x"), null);
+  assert.ok(articleXxxAmended("30.01 amended"));
+});
+
+test("an edition is told apart by its marker, not by its contents", () => {
+  // The previous season's rules list the same twelve breeds under the same
+  // article, so content alone cannot distinguish them.
+  const current = extractPdfText(showRulesPdf({ breeds: headingsForTwelve() }));
+  const stale = extractPdfText(showRulesPdf({ breeds: headingsForTwelve(), season: null }));
+  assert.ok(championshipSpan(stale), "the stale document still parses and still lists the breeds");
+  assert.equal(documentIsForSeason(current, GOVERNING().seasonMarker!), true);
+  assert.equal(documentIsForSeason(stale, GOVERNING().seasonMarker!), false);
+});
+
+/* ================================================================ *
+ * Phase 4 — the required proofs, through the real run loop
+ * ================================================================ */
+
+const IN_FORCE = "2026-09-14";
+
+test("proof: in force, with the current addendum, twelve pass", async () => {
+  const r = await run({ now: IN_FORCE });
+  assert.equal(r.byField["cfa:group"], undefined, `blamed: ${r.blamed.join(", ")}`);
+  assert.equal(r.unreachable, 0);
+  assert.equal(r.pdfRequests, 1, "the rules are fetched once for twelve records");
+  assert.equal(r.addendumRequests, 1, "and so is the addendum");
+});
+
+test("proof: the last day in force still passes", async () => {
+  const r = await run({ now: "2027-04-25" });
+  assert.equal(r.byField["cfa:group"], undefined);
+  assert.equal(r.unreachable, 0);
+  assert.equal(r.pdfRequests, 1);
+});
+
+test("proof: the day after expiry is one DEGRADED, and nothing is requested", async () => {
+  const r = await run({ now: "2027-04-26" });
+  assert.equal(r.disagreements, 0, "an expired document cannot contradict a record");
+  assert.equal(r.unreachable, 1, "one signal for twelve records");
+  assert.deepEqual(r.byField, {}, "zero breeds blamed");
+  assert.equal(r.verdict, "DEGRADED");
+  assert.equal(r.code, 2);
+  assert.equal(r.pdfRequests, 0, "nothing is downloaded once we know we may not rely on it");
+  assert.equal(r.addendumRequests, 0);
+  assert.match(r.stdout, /NOT IN FORCE on this date/);
+  assert.match(r.stdout, /in force only through 2027-04-25/);
+});
+
+test("proof: before the effective date is one DEGRADED, and nothing is requested", async () => {
+  const r = await run({ now: "2026-04-26" });
+  assert.equal(r.disagreements, 0);
+  assert.equal(r.unreachable, 1);
+  assert.deepEqual(r.byField, {});
+  assert.equal(r.pdfRequests, 0);
+  assert.match(r.stdout, /effective from 2026-04-27/);
+});
+
+test("proof: an unavailable addendum is one DEGRADED", async () => {
+  const r = await run({ now: IN_FORCE, addendumStatus: 503 });
+  assert.equal(r.disagreements, 0, "we cannot know whether the list still stands");
+  assert.equal(r.unreachable, 1);
+  assert.deepEqual(r.byField, {}, "zero breeds blamed");
+  assert.equal(r.verdict, "DEGRADED");
+  assert.match(r.stdout, /addendum/);
+});
+
+test("proof: an unusable addendum is one DEGRADED", async () => {
+  // Right URL, wrong document: a 200 that is not this season's addendum.
+  const r = await run({ now: IN_FORCE, addendum: addendumPdf({ season: null }) });
+  assert.equal(r.disagreements, 0);
+  assert.equal(r.unreachable, 1);
+  assert.deepEqual(r.byField, {});
+  assert.match(r.stdout, /not the cited edition/);
+});
+
+test("proof: an addendum that amends Article XXX asks for a person", async () => {
+  const r = await run({ now: IN_FORCE, addendum: addendumPdf({ articleXxx: true }) });
+  assert.equal(r.disagreements, 0, "never guess what the amendment did");
+  assert.equal(r.unreachable, 1, "one manual-review signal");
+  assert.deepEqual(r.byField, {}, "zero breeds blamed");
+  assert.match(r.stdout, /amends the Championship breed list/);
+  assert.match(r.stdout, /a person must read it/);
+  assert.equal(r.verdict, "DEGRADED");
+});
+
+test("proof: an Article XXXVI-only addendum passes", async () => {
+  const r = await run({ now: IN_FORCE, addendum: addendumPdf({ articleXxxvi: true, articleXxx: false }) });
+  assert.equal(r.byField["cfa:group"], undefined, "XXXVI is not XXX");
+  assert.equal(r.unreachable, 0);
+  assert.equal(r.verdict, "CLEAN");
+});
+
+test("proof: a different season's PDF at the same URL is one DEGRADED", async () => {
+  const r = await run({ now: IN_FORCE, pdf: showRulesPdf({ breeds: headingsForTwelve(), season: null }) });
+  assert.equal(r.disagreements, 0, "finding the breeds is not proof of the right document");
+  assert.equal(r.unreachable, 1);
+  assert.deepEqual(r.byField, {}, "zero breeds blamed");
+  assert.match(r.stdout, /not the cited edition/);
+  assert.equal(r.verdict, "DEGRADED");
+});
+
+test("proof: an impossible injected date exits EX_USAGE, not a verdict", async () => {
+  const r = await run({ now: "2026-02-30" });
+  assert.equal(r.code, 64, "a usage error must not read as CLEAN or DEGRADED");
+  assert.equal(r.verdict, "NONE", "no verdict is reached");
+  assert.equal(r.pdfRequests, 0);
 });

@@ -71,17 +71,48 @@ export function extractPdfText(buffer) {
     const end = bytes.indexOf("endstream", start);
     if (end === -1) break;
 
+    /*
+     * The stream's own dictionary says what it is, and reading it is the
+     * difference between text and noise. The first version of this inflated
+     * every Flate stream and concatenated the result, which on the Show Rules
+     * happened to work and on the Addendum produced 28 kB of font-program
+     * bytes that contained not one readable word — a document the verifier
+     * would have called unreadable when the fault was here.
+     */
+    const dictStart = bytes.lastIndexOf("<<", start);
+    const dict = dictStart === -1 ? "" : bytes.subarray(dictStart, start).toString("latin1");
+
     let from = start + "stream".length;
-    // The keyword is followed by CRLF or LF before the data begins.
     if (bytes[from] === 0x0d) from += 1;
     if (bytes[from] === 0x0a) from += 1;
-
-    try {
-      decoded += zlib.inflateSync(bytes.subarray(from, end)).toString("latin1");
-    } catch {
-      // Not a Flate stream, or not a stream at all. Nothing to read here.
-    }
+    const raw = bytes.subarray(from, end);
     cursor = end + "endstream".length;
+
+    // `/Length1` is the uncompressed size of an embedded FONT PROGRAM. Metadata
+    // and images are not page text either.
+    if (/\/Length1\b|\/Subtype\s*\/(XML|Image)\b|\/FontFile/.test(dict)) continue;
+
+    let body;
+    if (/\/Filter\s*\/FlateDecode/.test(dict)) {
+      try {
+        body = zlib.inflateSync(raw).toString("latin1");
+      } catch {
+        continue;
+      }
+    } else if (/\/Filter/.test(dict)) {
+      continue; // some other filter; not one we decode
+    } else {
+      /*
+       * UNCOMPRESSED CONTENT STREAMS ARE REAL. Every page of the Addendum is
+       * one — `<</Length 10221>>` with no filter at all — so a reader that only
+       * inflates sees none of the document it was pointed at.
+       */
+      body = raw.toString("latin1");
+    }
+
+    // A content stream draws text: BT/ET blocks with a showing operator.
+    if (!/\bBT\b[\s\S]*?\bET\b/.test(body) || !/\bT[jJ]\b/.test(body)) continue;
+    decoded += body;
   }
 
   const pieces = [];
@@ -89,6 +120,47 @@ export function extractPdfText(buffer) {
     pieces.push(match[0].slice(1, -1).replace(/\\([()\\])/g, "$1"));
   }
   return pieces.join("").replace(/\s+/g, " ");
+}
+
+/**
+ * Is this document the edition we cited, or a later one at the same URL?
+ *
+ * CFA republishes the Show Rules every season and the previous season's file
+ * lists the same twelve breeds under the same Article XXX — so finding the
+ * breeds proves nothing about WHICH document was read. The marker is a string
+ * only the intended edition prints: for the rules, the effective dates from the
+ * cover; for the addendum, its own season title.
+ */
+export function documentIsForSeason(text, marker) {
+  return Boolean(text && marker && text.includes(marker));
+}
+
+/**
+ * Does this addendum touch the Championship breed list?
+ *
+ * An addendum is a small document of numbered exceptions. If one of them amends
+ * Article XXX, the published list is no longer the whole rule and no automatic
+ * reading of it is trustworthy — so this reports "a person must look", never a
+ * guess at what the amendment did.
+ *
+ * WHAT MUST NOT TRIGGER IT.
+ *
+ * The 2026-27 addendum names "Article XXXVI" three times, and `XXXVI` contains
+ * `XXX`. It also uses the word "Championship" four times in the ordinary sense
+ * of the competitive class. Neither is an amendment to the breed list, and a
+ * detector that fires on either would put every run into permanent manual
+ * review — which is indistinguishable, in practice, from no check at all.
+ *
+ * So: the Roman numeral must not continue (`XXX` not followed by I, V or L),
+ * and a rule number must be a 30.xx with digit boundaries.
+ */
+export function articleXxxAmended(text) {
+  if (!text) return null;
+  const rules = [...text.matchAll(/(?<!\d)30\.\d{2}(?!\d)/g)].map((m) => m[0]);
+  const articles = [...text.matchAll(/Article\s+XXX(?![IVL])/g)].map((m) => m[0]);
+  const listHeading = text.includes(ARTICLE_START) ? [ARTICLE_START] : [];
+  const hits = [...new Set([...rules, ...articles, ...listHeading])];
+  return hits.length > 0 ? hits : null;
 }
 
 /**

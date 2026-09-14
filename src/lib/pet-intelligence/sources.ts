@@ -2257,7 +2257,43 @@ export const BREED_SOURCES: readonly BreedSource[] = [
     scope:
       "Which breeds CFA states are entitled to Championship competition. Rule 30.01: \u201cThe following breeds and colors are recognized as entitled to win Championship or Premiership honors.\u201d Cited ONLY for the registryGroup claim; every other CFA value keeps citing the breed profile page.",
     notes:
-      "Effective for the 2026-2027 show season (April 27, 2026 \u2013 April 25, 2027); linked from CFA\u2019s own Resources page at cfa.org/cfa-manuals/. Article XXXII lists Provisional breeds (Khao Manee alone) and Article XXXIII Miscellaneous breeds (none), so presence in Article XXX is the Championship entitlement and not an inference from absence elsewhere. A breed named later under Article XXXI (Any Other Variety) is NOT entitled by that mention.",
+      "Linked from CFA\u2019s own Resources page at cfa.org/cfa-manuals/. Article XXXII lists Provisional breeds (Khao Manee alone) and Article XXXIII Miscellaneous breeds (none), so presence in Article XXX is the Championship entitlement and not an inference from absence elsewhere. A breed named later under Article XXXI (Any Other Variety) is NOT entitled by that mention.",
+    // The season this edition governs, as dates a machine can compare rather
+    // than a sentence a reader has to notice.
+    validFrom: "2026-04-27",
+    validThrough: "2027-04-25",
+    // Printed on the cover of this edition and no other. The 2025-2026 file
+    // lists the same twelve breeds, so content alone cannot tell them apart.
+    seasonMarker: "(April 27, 2026 - April 25, 2027)",
+    // A season's rules are the printed document PLUS its addendum.
+    amendedBy: "cfa-show-rules-2026-27-addendum",
+  },
+  {
+    /*
+     * THE OTHER HALF OF THE SAME RULE.
+     *
+     * CFA issues a season's show rules as a printed document and an addendum of
+     * exceptions, both official and both current. Reading only the first is
+     * reading half the rule — an amendment to Article XXX would be invisible.
+     *
+     * It is a SEPARATE source rather than a second URL on the one above because
+     * it is a separate document that can separately fail, and the run has to be
+     * able to say which of the two it could not read. No breed cites it
+     * directly: records cite the governing document, which names this one.
+     */
+    id: "cfa-show-rules-2026-27-addendum",
+    title: "CFA Show Rule Addendum to the Printed Show Rules, 2026-2027 Show Season",
+    organization: "The Cat Fanciers' Association",
+    url: "https://cfa.org/wp-content/uploads/2026/04/26-27show-rules-addendum.pdf",
+    sourceType: "registry-standard",
+    accessedAt: "2026-09-14",
+    scope:
+      "Exceptions and additions to the printed Show Rules for the 2026-2027 season. Read together with cfa-show-rules-2026-27 so that an amendment to Article XXX cannot pass unnoticed.",
+    notes:
+      "Linked from cfa.org/cfa-manuals/ beside the printed rules. As read on 2026-09-14 it amends rules 2.06, 2.26, 3.02, 3.12, 3.13, 4.04, 6.36, 12.01, 12.07, 12.08, 12.15, 13.08 and 20.05, and Article XXXVI (awards). It contains no rule 30.xx and no reference to Article XXX, so the Championship breed list is unamended. Note that \u201cArticle XXXVI\u201d contains the substring \u201cXXX\u201d and the word \u201cChampionship\u201d appears in its ordinary sense: neither is an amendment to the breed list.",
+    validFrom: "2026-04-27",
+    validThrough: "2027-04-25",
+    seasonMarker: "2026-2027 SHOW RULE ADDENDUM",
   },
   {
     id: "cfa-abyssinian",

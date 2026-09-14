@@ -392,6 +392,46 @@ export interface BreedSource {
   /** What this source is being cited FOR, so over-citation is visible. */
   scope: string;
   notes?: string;
+
+  /* ---------------- time-bounded documents ---------------- */
+
+  /**
+   * Inclusive UTC date-only window a time-bounded document governs.
+   *
+   * CFA republishes its Show Rules every season, and the 2026-2027 edition
+   * governs 27 April 2026 to 25 April 2027 and no other day. These dates used
+   * to live in `notes` as prose, which meant nothing read them: a run in 2028
+   * would have fetched the same file, found the same breeds and reported CLEAN.
+   * A stale document agreeing with a stale record is not verification.
+   *
+   * Machine-readable and checked BEFORE the fetch. Both bounds are INCLUSIVE:
+   * a document in force "through" its final day is good for all of that day.
+   * Omit both for a source that is simply current, like a breed page.
+   */
+  validFrom?: string;
+  validThrough?: string;
+
+  /**
+   * A string only THIS edition of the document prints.
+   *
+   * Finding the expected content is not proof of having read the expected
+   * document: the previous season's Show Rules list the same twelve breeds
+   * under the same article, so a stale file at the same URL would satisfy every
+   * content check. The marker is what distinguishes editions — the effective
+   * dates from the cover, or the document's own season title.
+   */
+  seasonMarker?: string;
+
+  /**
+   * Another source that AMENDS this one; the two are read together.
+   *
+   * CFA publishes a season's rules as a printed document plus an addendum of
+   * exceptions. Citing only the first is citing half the rule. This keeps the
+   * corpus pointing at ONE id — records cite the governing document — while the
+   * verifier resolves the amendment as its own shared source, so each can fail
+   * and be reported independently.
+   */
+  amendedBy?: string;
 }
 
 /* ------------------------------------------------------------------ *
