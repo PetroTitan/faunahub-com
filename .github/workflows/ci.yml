@@ -59,9 +59,6 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
-      - name: Tests
-        run: npm test
-
       # The generated corpora must already match their sources in the commit,
       # not merely after a build regenerates them.
       - name: Breed index is committed and current
@@ -76,10 +73,33 @@ jobs:
       - name: Animal Finder index is committed and current
         run: npm run finder:check
 
-      # `prebuild` runs all three generators, so this also proves the build's own
-      # generation step agrees with what is committed.
+      # THE BUILD RUNS BEFORE THE TESTS, and that order is load-bearing.
+      #
+      # Three of the strongest guards read the real build artifact — the breed
+      # hub's prerendered HTML, the prerender manifest against the search index,
+      # and the emitted /animals URLs against what Next actually built. Each
+      # skips when `.next` is absent rather than passing silently, which is
+      # correct behaviour and was invisible here: this workflow's first run
+      # tested before it built, so all three skipped and the job still went
+      # green. 509 passed, 3 skipped, and the skipped ones were the checks that
+      # touch reality.
+      #
+      # `prebuild` also runs all three generators, so this step proves the
+      # build's own generation agrees with what is committed.
       - name: Production build
         run: npm run build
+
+      - name: Tests
+        run: |
+          set -o pipefail
+          npm test 2>&1 | tee /tmp/test-output.txt
+          # A skipped test is not a passing test. If a guard cannot run in CI,
+          # that is a CI defect to fix, not a result to accept.
+          if ! grep -qE 'skipped 0$' /tmp/test-output.txt; then
+            echo "::error::tests were skipped — every guard must execute in CI"
+            grep -E '^[^0-9].*# ' /tmp/test-output.txt | head -20 || true
+            exit 1
+          fi
 
       # Nothing the build touched may differ from the commit, except the one
       # `generatedAt` date stamp two indexes carry. A bare `git diff
