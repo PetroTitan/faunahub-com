@@ -29,7 +29,12 @@ concurrency:
 
 jobs:
   verify:
-    name: Lint, types, tests, gates, build
+    # The job NAME is the status-check context branch protection binds to, so it
+    # is deliberately short and stable. A descriptive label here ("Lint, types,
+    # tests, gates, build") becomes the required-check string, and renaming it
+    # later silently detaches the protection rule — the rule keeps waiting for a
+    # check that no longer exists, or stops blocking entirely.
+    name: verify
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
