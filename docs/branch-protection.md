@@ -15,7 +15,7 @@ of it: several of these exist because something went wrong once.
 | Force pushes | blocked | History on `main` is evidence. |
 | Deletions | blocked | — |
 | Linear history | off | Merge commits carry the PR context. |
-| Signed commits | off | Not adopted; GitHub-authored merge commits are verified anyway. |
+| Signed commits | off | Not adopted. Merge commits GitHub creates are verified; commits pushed from a laptop are not, so this covers less than it appears to. |
 
 ## Why conversation resolution
 
