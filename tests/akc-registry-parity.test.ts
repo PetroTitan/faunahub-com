@@ -251,6 +251,7 @@ function akcPage(
     noProps = false,
     groupName = undefined as string | undefined,
     colourCode = undefined as string | undefined,
+    noSettings = false,
   } = {},
 ): string {
   const rec = akcRecord(breed);
@@ -294,7 +295,9 @@ function akcPage(
         : { basics, traits: { [key]: { traits: traitEntries } } },
     },
   };
-  const encoded = malformedProps
+  const encoded = noSettings
+    ? JSON.stringify({ notSettings: true }).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;")
+    : malformedProps
     ? "{not json"
     : JSON.stringify(props).replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
 
@@ -680,4 +683,23 @@ test("no unit test reaches a real registry", () => {
     }
   }
   assert.deepEqual(offenders, [], `tests fetching a live registry:\n${offenders.join("\n")}`);
+});
+
+test("control: props that parse but carry no settings are DEGRADED, never a disagreement", async () => {
+  /*
+   * Reported on #33 by an automated review, and correct: the rewrite that added
+   * field-level resolution replaced an explicit two-reason check with
+   * `reason !== "no-basics-container"`, which quietly dropped `no-props`.
+   *
+   * A blob that parses but has no `settings` object is the page having changed
+   * shape — there is nothing to read, and nothing was concluded about the dog.
+   * Reporting it as `akc:basics` says AKC contradicts the record, and exits 1
+   * where it should exit 2.
+   */
+  const r = await runAkc(VLCIAK, (b) => akcPage(b, { noSettings: true }));
+  assert.equal(r.disagreements, 0, "a shape change does not contradict the breed");
+  assert.equal(r.byField["akc:basics"], undefined);
+  assert.equal(r.unreachable, 1);
+  assert.equal(r.verdict, "DEGRADED");
+  assert.equal(r.code, 2, "exit 2, not 1");
 });

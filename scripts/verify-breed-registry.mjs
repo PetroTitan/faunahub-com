@@ -467,11 +467,39 @@ async function checkAkc(breed, rec) {
   checkAkcMeasurements(breed, rec, html);
 
   const resolved = resolveAkcBasics(data, rec.registryUrl);
-  if (!resolved.ok && resolved.reason !== "no-basics-container") {
-    // The records exist and this breed is not among them, or two identities
-    // both match. Either is a claim about the breed, and neither is agreement.
-    report(breed, "akc:basics", "a basics record", resolved.detail);
-    return;
+  if (!resolved.ok) {
+    /*
+     * TWO SHAPE FAILURES, NOT ONE.
+     *
+     * `no-props` — the blob parsed but carries no `settings` object at all, so
+     * there is nothing on this page to read, not even the second
+     * representations below.
+     *
+     * `no-basics-container` — `settings` is there and `basics` is not, which
+     * still leaves breed group and AKC code published elsewhere on the page.
+     *
+     * Both are the page changing shape and neither contradicts the breed, so
+     * both are DEGRADED. An earlier draft of this function collapsed the test
+     * to `reason !== "no-basics-container"` and silently moved `no-props` into
+     * the disagreement branch — exit 1 for a page that said nothing at all.
+     */
+    if (resolved.reason === "no-props") {
+      reportDegraded(
+        breed,
+        rec.registryId,
+        rec.registryUrl,
+        `the breedPage props blob carries no settings object: ${resolved.detail}`,
+        [{ attempt: 1, status: 200, ok: true }],
+        "unusable",
+      );
+      return;
+    }
+    if (resolved.reason !== "no-basics-container") {
+      // The records exist and this breed is not among them, or two identities
+      // both match. Either is a claim about the breed, and neither is agreement.
+      report(breed, "akc:basics", "a basics record", resolved.detail);
+      return;
+    }
   }
 
   const settings = data.settings ?? {};
