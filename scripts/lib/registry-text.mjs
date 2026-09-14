@@ -143,7 +143,21 @@ export function toText(html) {
 export function verifiablePart(statedAs, kind) {
   if (kind !== "citation") return statedAs;
   const comma = statedAs.indexOf(", ");
-  return comma === -1 ? statedAs : statedAs.slice(comma + 2);
+  const afterLabel = comma === -1 ? statedAs : statedAs.slice(comma + 2);
+  /*
+   * A trailing parenthetical is OURS too.
+   *
+   * The Bengal reads "CFA breed profile, Coat Length: Shorthair (a longhair is
+   * recognised only as an AOV)". The prefix is our source label and the
+   * parenthetical is our gloss explaining why the field says what it says;
+   * only "Coat Length: Shorthair" is CFA's. Keeping the gloss in the needle
+   * meant the record failed for quoting our own commentary back at the page.
+   *
+   * A field value that legitimately contains " (" is verified up to that
+   * point rather than not at all, which is weaker but never wrong.
+   */
+  const gloss = afterLabel.indexOf(" (");
+  return gloss === -1 ? afterLabel : afterLabel.slice(0, gloss);
 }
 
 export function pageSupports(text, statedAs, kind, limit = 60) {

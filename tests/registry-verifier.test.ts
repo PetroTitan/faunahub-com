@@ -465,3 +465,17 @@ test("the degraded sentence reads correctly for one source and for many", () => 
   assert.match(one, /1 source was unreachable and remains unverified/);
   assert.match(many, /2 sources were unreachable and remain unverified/);
 });
+
+test("a citation's editorial gloss is ours, not the page's", () => {
+  // The Bengal: "CFA breed profile, Coat Length: Shorthair (a longhair is
+  // recognised only as an AOV)". Only "Coat Length: Shorthair" is CFA's.
+  const stated = "CFA breed profile, Coat Length: Shorthair (a longhair is recognised only as an AOV)";
+  assert.equal(verifiablePart(stated, "citation"), "Coat Length: Shorthair");
+
+  const page = toText("<p>Bengal Coat Length: Shorthair Characteristics: spotted</p>");
+  assert.ok(pageSupports(page, stated, "citation").ok, "the gloss must not be sought on the page");
+
+  // Still fails when the underlying value is wrong.
+  const wrong = toText("<p>Bengal Coat Length: Longhair</p>");
+  assert.ok(!pageSupports(wrong, stated, "citation").ok);
+});

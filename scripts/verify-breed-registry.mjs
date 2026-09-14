@@ -56,8 +56,19 @@ import {
 import { buildVerdict } from "./lib/registry-verdict.mjs";
 
 const slugFilter = (() => {
+  /*
+   * Accept both `--slug shiba-inu` and `--slug=shiba-inu`.
+   *
+   * Only the space-separated form was handled, so `--slug=akita` silently
+   * matched nothing, the filter stayed null, and the "single breed" spot-check
+   * quietly verified all 274 against four live registries — five minutes and
+   * 311 requests to answer a question about one breed. A flag that is ignored
+   * rather than rejected is worse than one that errors.
+   */
+  const inline = process.argv.find((a) => a.startsWith("--slug="));
+  if (inline) return inline.slice("--slug=".length) || null;
   const i = process.argv.indexOf("--slug");
-  return i === -1 ? null : process.argv[i + 1];
+  return i === -1 ? null : (process.argv[i + 1] ?? null);
 })();
 
 const problems = [];
@@ -264,7 +275,10 @@ let fifeListing = null;
 async function fifeText() {
   if (fifeListing === null) {
     const html = await fetchText("https://fifeweb.org/cats/breeds/");
-    // The shared pipeline decodes &#8211;/&ndash; to an en dash; FIFe writes its\n    // code/name separator that way, so it is folded to a hyphen for matching.\n    fifeListing = toText(html).replace(/\u2013/g, "-");
+      // The shared pipeline decodes &#8211; / &ndash; to a real en dash; FIFe
+      // separates a breed code from its name that way, so it is folded to a
+      // hyphen here to keep the code/name matching below simple.
+      fifeListing = toText(html).replace(/\u2013/g, "-");
   }
   return fifeListing;
 }
@@ -274,10 +288,18 @@ async function checkFife(breed, rec) {
   checked.fife += 1;
 
   if (!text || text.length < 5000) {
-    // The page shape changed or the fetch returned a stub. Say so rather than
-    // letting every comparison below pass because there is nothing to compare.
-    report(breed, "fife:page", "fifeweb.org/cats/breeds/", "breed listing could not be read");
-    return;
+    /*
+     * THROW, do not report. An unreadable listing says nothing about whether
+     * any record is right, so turning it into a disagreement per breed is the
+     * same mistake the FCI timeouts made — and worse, because FIFe is fetched
+     * once and cached, so one bad read becomes 35 identical "disagreements".
+     *
+     * Throwing routes it to the run loop, which records it as DEGRADED: one
+     * unreachable source, named once, with the page it could not read.
+     */
+    const error = new Error("FIFe breed listing could not be read (page shape changed or stub response)");
+    error.transient = true;
+    throw error;
   }
 
   const code = rec.registryBreedCode;
@@ -364,7 +386,9 @@ async function checkFife(breed, rec) {
 const targets = BREEDS.filter((b) => !slugFilter || b.slug === slugFilter);
 if (slugFilter && targets.length === 0) {
   console.error(`no breed with slug "${slugFilter}"`);
-  process.exit(2);
+  // 64 is EX_USAGE. Exit 2 now means DEGRADED, and a mistyped slug must never
+  // be mistaken for "a registry was unreachable".
+  process.exit(64);
 }
 
 for (const breed of targets) {
