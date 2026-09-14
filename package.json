@@ -24,7 +24,8 @@
     "breeds:index": "node scripts/generate-breed-index.mjs",
     "breeds:index:check": "node scripts/generate-breed-index.mjs --check",
     "audit:policy": "node scripts/audit-policy.mjs",
-    "generated:check": "node scripts/check-generated-clean.mjs"
+    "generated:check": "node scripts/check-generated-clean.mjs",
+    "registry:diagnose": "node scripts/diagnose-registry-response.mjs"
   },
   "dependencies": {
     "next": "^15.5.18",

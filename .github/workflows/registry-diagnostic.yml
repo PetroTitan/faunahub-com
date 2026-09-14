@@ -1,0 +1,68 @@
+name: Registry response diagnostic
+
+# WHAT DID THE RUNNER ACTUALLY RECEIVE?
+#
+# On 2026-09-14 the weekly registry run reported 185 disagreements from a
+# GitHub-hosted runner while the same commit reported 15 from a laptop. All 45
+# CFA records failed, including breeds whose pages read correctly seconds later
+# from another network. Nothing recorded what the runner had actually been
+# served, so "CFA changed its template" and "this runner was handed an
+# interstitial" were equally consistent with the evidence.
+#
+# This workflow answers that, and nothing else. It fetches FOUR pages — not the
+# full 277 — and prints a safe description of each: status, final URL after
+# redirects, byte count, SHA-256, what the document says it is, which structural
+# markers are present, and which infrastructure headers answered.
+#
+# It is DISPATCH-ONLY and deliberately not scheduled. It exists to be run when
+# somebody has a question, and re-running the full 277-URL verification to
+# answer that question is exactly the blind rerun this replaces.
+#
+# WHAT IT NEVER PRINTS
+#
+#   response bodies, Set-Cookie, Cookie, Authorization, request headers, tokens.
+#   See scripts/lib/registry-diagnostics.mjs — the header list is an allowlist,
+#   and everything about the body is reduced to a number, a hash or a boolean.
+#
+# It compares nothing against the corpus, writes nothing, and cannot fail a gate.
+
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: 'Space-separated URLs to describe (blank = the four defaults)'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+concurrency:
+  group: registry-diagnostic
+  cancel-in-progress: false
+
+jobs:
+  describe:
+    name: Describe what this runner receives
+    runs-on: ubuntu-latest
+    # Four requests. A minute is generous; this must never look like the
+    # 45-minute verification job.
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Describe registry responses
+        run: node scripts/diagnose-registry-response.mjs ${{ inputs.urls }}
+
+      # The same four, as JSON, so the result can be diffed against a local run
+      # rather than read and compared by eye.
+      - name: Machine-readable copy
+        run: node scripts/diagnose-registry-response.mjs --json ${{ inputs.urls }}

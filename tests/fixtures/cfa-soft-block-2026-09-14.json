@@ -1,0 +1,231 @@
+{
+  "$comment": [
+    "The 2026-09-14 divergence, preserved so the fix can be tested against what",
+    "actually happened rather than against a memory of it.",
+    "",
+    "NO THIRD-PARTY HTML IS STORED HERE. Every field is either a number this",
+    "repository produced, a message this repository's own code emitted, or a",
+    "measurement of a response (size, presence/absence) taken at the time. The",
+    "registry pages themselves are not ours to vendor."
+  ],
+  "capturedAt": "2026-09-14",
+  "commit": "719dcbb1a60d2f16c89f5bfdb30d2f3ca9bfc5b7",
+  "tree": "26f08f54d2a4f69ae6d88e5053a81a6b46fbb0fd",
+  "localReviewedResult": {
+    "$comment": "Run from a residential IP on a tree byte-identical to origin/main. This is the reviewed truth: 12 genuine cfa:group findings plus 3 known AKC ones.",
+    "environment": "residential",
+    "verdict": "DISAGREEMENT",
+    "exitCode": 1,
+    "breedsChecked": 274,
+    "recordsChecked": {
+      "akc": 219,
+      "fci": 12,
+      "cfa": 45,
+      "fife": 35
+    },
+    "counts": {
+      "problems": 15,
+      "degraded": 0,
+      "fetches": 277,
+      "retried": 0,
+      "recovered": 0
+    },
+    "byField": {
+      "cfa:group": 12,
+      "akc:weight": 1,
+      "akc:height": 1,
+      "akc:basics": 1
+    }
+  },
+  "githubRunnerResult": {
+    "$comment": "Run 34853750161, same commit, GitHub-hosted runner. 182 of the 185 findings are CFA fields that the local run did not produce.",
+    "environment": "github-hosted-runner",
+    "runId": "34853750161",
+    "verdict": "DISAGREEMENT",
+    "exitCode": 1,
+    "breedsChecked": 274,
+    "recordsChecked": {
+      "akc": 219,
+      "fci": 10,
+      "cfa": 45,
+      "fife": 35
+    },
+    "counts": {
+      "problems": 185,
+      "degraded": 2,
+      "fetches": 277,
+      "retried": 6,
+      "recovered": 4
+    },
+    "byField": {
+      "cfa:standard": 45,
+      "cfa:group": 45,
+      "cfa:coat": 42,
+      "cfa:recognizedYear": 29,
+      "cfa:weight": 21,
+      "akc:weight": 1,
+      "akc:height": 1,
+      "akc:basics": 1
+    },
+    "unreachable": [
+      {
+        "breed": "dog-chihuahua",
+        "registryId": "fci",
+        "url": "https://www.fci.be/en/nomenclature/CHIHUAHUA-218.html",
+        "attempts": [
+          "#1 fetch failed",
+          "#2 fetch failed"
+        ]
+      },
+      {
+        "breed": "dog-golden-retriever",
+        "registryId": "fci",
+        "url": "https://www.fci.be/en/nomenclature/GOLDEN-RETRIEVER-111.html",
+        "attempts": [
+          "#1 fetch failed",
+          "#2 fetch failed"
+        ]
+      }
+    ]
+  },
+  "repeatedCfaFailureCategories": {
+    "$comment": "Every CFA finding on the runner carried one of exactly six messages. Two of them hit 45 of 45 CFA records — the uniformity is the tell: 45 independent editorial changes do not land in one week, and they do not all land on breeds whose pages read correctly from another network.",
+    "cfaRecordsTotal": 45,
+    "categories": [
+      {
+        "field": "cfa:standard",
+        "message": "no standard PDF on the page",
+        "count": 45,
+        "ofRecords": 45
+      },
+      {
+        "field": "cfa:group",
+        "message": "class no longer named on the page",
+        "count": 45,
+        "ofRecords": 45
+      },
+      {
+        "field": "cfa:coat",
+        "message": "the cited field and value are not on the page",
+        "count": 38,
+        "ofRecords": 45
+      },
+      {
+        "field": "cfa:recognizedYear",
+        "message": "no sentence on the page ties that year to recognition",
+        "count": 29,
+        "ofRecords": 45
+      },
+      {
+        "field": "cfa:weight",
+        "message": "quoted weight wording not found on the page",
+        "count": 21,
+        "ofRecords": 45
+      },
+      {
+        "field": "cfa:coat",
+        "message": "quoted coat wording not found on the page",
+        "count": 4,
+        "ofRecords": 45
+      }
+    ]
+  },
+  "controlBreeds": {
+    "$comment": "Three CFA pages read from a residential IP on 2026-09-14, chosen because they separate a real finding from a fetch artefact. If a change makes Abyssinian and Siamese stop disagreeing, or makes American Bobtail start, it has broken the check rather than fixed it. Byte counts are ranges: repeated fetches of the same URL minutes apart differed by up to 10%, which is why the plausibility floor is an order of magnitude below the smallest.",
+    "measuredFrom": "residential",
+    "breeds": [
+      {
+        "slug": "cat-abyssinian",
+        "url": "https://cfa.org/breed/abyssinian/",
+        "pageValid": true,
+        "championshipPresent": false,
+        "expectedFinding": "cfa:group",
+        "observedBytes": [
+          325773,
+          354979
+        ],
+        "identity": {
+          "h1": "Abyssinian",
+          "canonicalMatchesRequest": true,
+          "siteIdentityInTitle": true
+        }
+      },
+      {
+        "slug": "cat-siamese",
+        "url": "https://cfa.org/breed/siamese/",
+        "pageValid": true,
+        "championshipPresent": false,
+        "expectedFinding": "cfa:group",
+        "observedBytes": [
+          311293
+        ],
+        "identity": {
+          "h1": "Siamese",
+          "canonicalMatchesRequest": true,
+          "siteIdentityInTitle": true
+        }
+      },
+      {
+        "slug": "cat-american-bobtail",
+        "url": "https://cfa.org/breed/american-bobtail/",
+        "pageValid": true,
+        "championshipPresent": true,
+        "expectedFinding": null,
+        "observedBytes": [
+          140333
+        ],
+        "identity": {
+          "h1": "American Bobtail",
+          "canonicalMatchesRequest": true,
+          "siteIdentityInTitle": true
+        }
+      }
+    ]
+  },
+  "measuredRealPageShape": {
+    "$comment": "Six live CFA breed pages sampled 2026-09-14 from a residential IP. These numbers, not a guess, set CFA_MIN_BYTES. Note ambientMarkers: a captcha widget is present on every ordinary CFA page, which is why captcha presence can never be a block signal.",
+    "sampleSize": 6,
+    "byteRange": [
+      134533,
+      960999
+    ],
+    "allHadCanonicalMatchingRequest": true,
+    "allHadH1": true,
+    "allHadSiteIdentityInTitle": true,
+    "allHadWordpressAssets": true,
+    "ambientMarkersOnEveryRealPage": [
+      "captchaWidget"
+    ],
+    "blockingMarkersOnRealPages": []
+  },
+  "reproduction": {
+    "$comment": [
+      "The hypothesis, tested. The verifier WITHOUT the plausibility gate was run",
+      "against a stub serving nothing but a Cloudflare-style interstitial for every",
+      "CFA URL. It reproduced the runner's by-field breakdown exactly — all five",
+      "fields, all five counts. A bot challenge is therefore sufficient to explain",
+      "the entire 182-finding CFA incident; no editorial change at CFA is needed to",
+      "account for any part of it.",
+      "",
+      "This does NOT prove the runner received a Cloudflare challenge specifically.",
+      "It proves that an interstitial of this class produces precisely this output,",
+      "and that the gate removes it."
+    ],
+    "method": "challenge-page stub, plausibility gate disabled",
+    "byField": {
+      "cfa:standard": 45,
+      "cfa:group": 45,
+      "cfa:coat": 42,
+      "cfa:recognizedYear": 29,
+      "cfa:weight": 21
+    },
+    "totalFindings": 182,
+    "withGateEnabled": {
+      "disagreements": 0,
+      "degradedIncidents": 1,
+      "scope": "registry-egress",
+      "recordsLeftUnverified": 45,
+      "verdict": "DEGRADED"
+    }
+  }
+}

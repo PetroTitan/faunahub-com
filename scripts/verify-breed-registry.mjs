@@ -47,12 +47,15 @@ const UA =
 import {
   decodeEntities,
   fetchAttempts,
+  fetchPage,
   fetchText,
   isTransient,
   pageSupports,
   toText,
   verifiablePart,
 } from "./lib/registry-text.mjs";
+import { describeResponse, formatDiagnostic } from "./lib/registry-diagnostics.mjs";
+import { cfaPagePlausibility, cfaShapeMarkers } from "./lib/registry-plausibility.mjs";
 import { buildVerdict } from "./lib/registry-verdict.mjs";
 import {
   createSharedSource,
@@ -72,7 +75,30 @@ import {
  */
 const FIFE_LISTING_URL =
   process.env.FAUNAHUB_FIFE_LISTING_URL ?? "https://fifeweb.org/cats/breeds/";
-const ONLY_REGISTRY = process.env.FAUNAHUB_VERIFY_ONLY ?? null;
+/**
+ * Restrict the run to one or more registries, comma-separated.
+ *
+ * A list rather than a single id because the interesting regressions are
+ * BETWEEN registries: a FIFe shared-source failure and a CFA egress incident in
+ * the same run must produce two distinct signals, and that cannot be exercised
+ * one registry at a time.
+ */
+const ONLY_REGISTRIES = process.env.FAUNAHUB_VERIFY_ONLY
+  ? new Set(process.env.FAUNAHUB_VERIFY_ONLY.split(",").map((r) => r.trim()).filter(Boolean))
+  : null;
+
+/**
+ * Point CFA breed-page fetches at a stub. Test-only, inert unless set.
+ *
+ * The plausibility gate compares a page's declared canonical against the URL
+ * requested BY PATH ONLY, so a stub on 127.0.0.1 can serve a body declaring
+ * `https://cfa.org/breed/abyssinian/` and still be judged exactly as the real
+ * page would be. Without this seam the soft-block behaviour could only be
+ * tested by being blocked.
+ */
+const CFA_BASE_URL = process.env.FAUNAHUB_CFA_BASE_URL ?? null;
+const cfaUrl = (url) =>
+  CFA_BASE_URL ? url.replace(/^https?:\/\/(?:www\.)?cfa\.org/i, CFA_BASE_URL) : url;
 /** Rate-limit pause between records. Only a test against a stub sets this to 0. */
 const RECORD_DELAY_MS = Number(process.env.FAUNAHUB_VERIFY_DELAY_MS ?? 900);
 /**
@@ -131,6 +157,104 @@ function reportDegraded(breed, registryId, url, error, attempts) {
     error,
     attempts: attempts ?? [],
   });
+}
+
+/**
+ * Opt-in per-response diagnostics.
+ *
+ * Off by default: a normal run prints one dot per breed, and 277 response
+ * descriptors would bury the verdict. Set FAUNAHUB_REGISTRY_DIAGNOSTICS=1 to
+ * print a safe descriptor for every response — no bodies, no cookies, no
+ * credentials; see registry-diagnostics.mjs for exactly what is kept.
+ *
+ * An UNUSABLE response is described whether or not this is set, because the
+ * descriptor is the entire evidence for the DEGRADED entry it produces.
+ */
+const DIAGNOSTICS = process.env.FAUNAHUB_REGISTRY_DIAGNOSTICS === "1";
+
+/**
+ * Responses that arrived but could not be read as the page we asked for.
+ *
+ * Held rather than reported, because whether one of these is a broken page or
+ * a registry-wide incident is not knowable until every record has been tried.
+ * Folded once, after the loop, by `foldUnusableResponses`.
+ *
+ * @type {Array<{registryId: string, breed: string, url: string, reason: string,
+ *   detail: string, fingerprint: string, attempts: Array<object>, diagnostic: object}>}
+ */
+const unusableResponses = [];
+
+function noteUnusableResponse(event) {
+  unusableResponses.push(event);
+  if (DIAGNOSTICS) console.log(`\n${formatDiagnostic(event.diagnostic)}`);
+}
+
+/**
+ * How many distinct URLs must fail the SAME way to count as one incident.
+ *
+ * Two could be coincidence — two pages genuinely retired the same week. Three
+ * distinct URLs returning an identically-classified unusable response is a
+ * pattern, and reporting a pattern as N separate breed failures is the mistake
+ * this whole change exists to stop making.
+ *
+ * The threshold is on DISTINCT URLS SHARING A FINGERPRINT, never on how many
+ * findings appeared. A high finding count is what the old behaviour produced;
+ * using it as the trigger would make the cure depend on the symptom.
+ */
+const CORRELATED_MIN_URLS = 3;
+
+/**
+ * Turn held unusable responses into either one registry incident or several
+ * breed-scoped failures.
+ *
+ * Grouping is by registry AND fingerprint, so a run where CFA is blocked while
+ * one unrelated FCI page 200s a maintenance stub produces one incident and one
+ * breed-scoped entry, not one muddled aggregate.
+ */
+function foldUnusableResponses() {
+  const groups = new Map();
+  for (const event of unusableResponses) {
+    const key = `${event.registryId}\n${event.fingerprint}`;
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(event);
+  }
+
+  for (const events of groups.values()) {
+    const urls = new Set(events.map((e) => e.url));
+    const attemptCount = events.reduce((n, e) => n + (e.attempts?.length ?? 1), 0);
+
+    if (urls.size >= CORRELATED_MIN_URLS) {
+      degraded.push({
+        scope: "registry-egress",
+        registryId: events[0].registryId,
+        url: `${urls.size} distinct URLs`,
+        kind: "unusable",
+        reason: events[0].reason,
+        error: `${events[0].registryId.toUpperCase()} registry responses unusable from this runner: ${events[0].detail}`,
+        fingerprint: events[0].fingerprint,
+        distinctUrls: urls.size,
+        attemptCount,
+        affectedRecords: events.length,
+        examples: [...urls].slice(0, 3),
+        attempts: events[0].attempts ?? [],
+      });
+      continue;
+    }
+
+    // Not correlated: each one is its own breed's problem, as before.
+    for (const event of events) {
+      degraded.push({
+        scope: "breed",
+        breed: event.breed,
+        registryId: event.registryId,
+        url: event.url,
+        kind: "unusable",
+        reason: event.reason,
+        error: event.detail,
+        attempts: event.attempts ?? [],
+      });
+    }
+  }
 }
 
 /**
@@ -279,7 +403,52 @@ async function checkFci(breed, rec) {
  * verify the coat wording and the standard PDF link.
  */
 async function checkCfa(breed, rec) {
-  const html = await fetchText(rec.registryUrl);
+  const requestedUrl = cfaUrl(rec.registryUrl);
+  const { body: html, finalUrl, headers, attempts } = await fetchPage(requestedUrl);
+
+  /*
+   * NOTHING BELOW RUNS UNTIL THE RESPONSE IS PLAUSIBLY THIS PAGE.
+   *
+   * Every check after this point asks whether CFA still SAYS something. Asked
+   * of a bot challenge, of a login wall, of a CDN error shell, each one answers
+   * "no" — truthfully, and about entirely the wrong document. That is how one
+   * blocked runner produced 182 disagreements against 45 pages that were fine.
+   *
+   * Plausibility is decided on identity and shape only; see
+   * registry-plausibility.mjs for why it must never consult the values under
+   * verification.
+   */
+  const plausibility = cfaPagePlausibility({
+    requestedUrl,
+    finalUrl,
+    contentType: headers?.get?.("content-type"),
+    body: html,
+  });
+
+  if (!plausibility.plausible) {
+    noteUnusableResponse({
+      registryId: "cfa",
+      breed: breed.id,
+      url: rec.registryUrl,
+      reason: plausibility.reason,
+      detail: plausibility.detail,
+      fingerprint: plausibility.fingerprint,
+      attempts,
+      diagnostic: describeResponse({
+        registryId: "cfa",
+        requestedUrl,
+        finalUrl,
+        status: 200,
+        headers,
+        body: html,
+        shapeMarkers: cfaShapeMarkers(html),
+      }),
+    });
+    // No comparisons, and no `checked.cfa` increment: this record was fetched,
+    // not verified, and the summary must not imply otherwise.
+    return;
+  }
+
   checked.cfa += 1;
 
   const text = toText(html);
@@ -468,7 +637,7 @@ if (slugFilter && targets.length === 0) {
 for (const breed of targets) {
   for (const rec of breed.recognition) {
     if (!rec.registryUrl) continue;
-    if (ONLY_REGISTRY && rec.registryId !== ONLY_REGISTRY) continue;
+    if (ONLY_REGISTRIES && !ONLY_REGISTRIES.has(rec.registryId)) continue;
     try {
       if (rec.registryId === "akc") await checkAkc(breed, rec);
       else if (rec.registryId === "fci") await checkFci(breed, rec);
@@ -492,6 +661,13 @@ for (const breed of targets) {
   }
   process.stdout.write(".");
 }
+
+/*
+ * Decide, now that every record has been tried, whether the unusable responses
+ * were isolated pages or one incident. Before this point there is not enough
+ * information to tell the two apart.
+ */
+foldUnusableResponses();
 
 process.stdout.write("\n\n");
 console.log(
@@ -532,6 +708,27 @@ if (problems.length > 0) {
 if (degraded.length > 0) {
   console.log(`\n${degraded.length} source(s) unreachable after a retry:\n`);
   for (const d of degraded) {
+    if (d.scope === "registry-egress") {
+      /*
+       * The shape of this block is the point. Someone skimming a red run must
+       * be able to tell, without opening the log, that nothing was concluded
+       * about any cat — so the two zeroes are stated outright rather than left
+       * to be inferred from the absence of findings.
+       */
+      const reg = d.registryId.toUpperCase();
+      console.log(`  ${reg} registry responses unusable from this runner`);
+      console.log(`      ${d.affectedRecords} records left unverified`);
+      console.log(`      ${d.distinctUrls} distinct URLs / ${d.attemptCount} attempts`);
+      console.log(`      one DEGRADED incident`);
+      console.log(`      zero breeds blamed`);
+      console.log(`      zero ${reg} field disagreements inferred`);
+      console.log(`      cause: ${d.error}`);
+      console.log(`      fingerprint: ${d.fingerprint}`);
+      if (d.examples?.length) {
+        console.log(`      examples: ${d.examples.join("  ")}`);
+      }
+      continue;
+    }
     if (d.scope === "registry") {
       const label =
         d.kind === "processing"
