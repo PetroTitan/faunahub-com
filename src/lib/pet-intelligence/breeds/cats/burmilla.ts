@@ -34,6 +34,7 @@ export const breed: Breed = {
   },
   coat: {
     length: "variable",
+    statedAsKind: "citation",
     statedAs: "CFA breed profile, Coat Length: Longhair and Shorthair",
     sourceId: "cfa-burmilla",
   },

@@ -27,6 +27,7 @@ export const breed: Breed = {
     // Shorthair. Filing it as "variable" put the breed in the both-coats
     // collection and out of the short-haired one.
     length: "short",
+    statedAsKind: "citation",
     statedAs: "CFA breed profile, Coat Length: Shorthair (a longhair is recognised only as an AOV)",
     sourceId: "cfa-bengal-cat",
   },

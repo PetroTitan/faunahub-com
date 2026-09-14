@@ -52,11 +52,44 @@ jobs:
 
       - run: npm ci
 
-      # `continue-on-error` so a registry outage does not page anyone, while the
-      # step still shows red in the run and the log names every disagreement.
+      # THREE OUTCOMES, NOT TWO.
+      #
+      # This step used to carry `continue-on-error: true`, which made GitHub
+      # report the step's conclusion as SUCCESS whatever happened. The first
+      # weekly run exited 1 with 64 findings and the badge was green; the only
+      # place the truth appeared was line 215 of the raw log.
+      #
+      # The verifier now distinguishes them by exit code:
+      #   0  CLEAN         every cited source still says what the record claims
+      #   1  DISAGREEMENT  a source and a record disagree — a person must look
+      #   2  DEGRADED      a source would not answer, so it said nothing at all
+      #
+      # DISAGREEMENT fails the job. DEGRADED does not, because an unreachable
+      # registry is not evidence of anything — but it is surfaced as a warning
+      # annotation and in the job summary, so it can never read as CLEAN.
       - name: Verify published records against their cited sources
-        continue-on-error: true
-        run: npm run breeds:verify
+        id: verify
+        run: |
+          set +e
+          npm run breeds:verify
+          code=$?
+          set -e
+          case "$code" in
+            0) echo "verdict=CLEAN" >> "$GITHUB_OUTPUT" ;;
+            1) echo "verdict=DISAGREEMENT" >> "$GITHUB_OUTPUT"
+               echo "::error::Registry verification found disagreements — see the job summary"
+               exit 1 ;;
+            2) echo "verdict=DEGRADED" >> "$GITHUB_OUTPUT"
+               echo "::warning::Registry verification DEGRADED — one or more sources were unreachable after a retry. No disagreement was found, and no record was changed." ;;
+            *) echo "verdict=ERROR" >> "$GITHUB_OUTPUT"
+               echo "::error::Registry verification exited unexpectedly with $code"
+               exit "$code" ;;
+          esac
+
+      - name: Verdict
+        if: always()
+        run: |
+          echo "Registry verification verdict: ${{ steps.verify.outputs.verdict || 'ERROR' }}"
 
       # Offline diagnostics, safe to run unconditionally.
       - name: Facet coverage report

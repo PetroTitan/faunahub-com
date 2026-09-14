@@ -27,6 +27,7 @@ export const breed: Breed = {
   ],
   coat: {
     length: "long",
+    statedAsKind: "citation",
     statedAs: "CFA breed profile, Coat Length: Longhair",
     sourceId: "cfa-birman",
   },
