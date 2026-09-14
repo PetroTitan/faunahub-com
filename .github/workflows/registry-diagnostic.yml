@@ -83,3 +83,18 @@ jobs:
       # rather than read and compared by eye.
       - name: Machine-readable copy
         run: node scripts/diagnose-registry-response.mjs --json ${{ inputs.urls }}
+
+      # FOUR REQUESTS CANNOT SEE A VOLUME-TRIGGERED BLOCK.
+      #
+      # The first runner diagnostic fetched three CFA pages and got three valid
+      # ones, byte-identical to a laptop's. But the run that produced 185
+      # findings made forty-five CFA requests at 900 ms. Mitigation that
+      # triggers on volume is invisible to a probe that never reaches the
+      # threshold, so the sweep walks every CFA URL at the verifier's own
+      # cadence and reports where, if anywhere, responses stop being readable.
+      #
+      # Forty-five requests over forty seconds — the same traffic the weekly
+      # verification already sends, and a fraction of its 277.
+      - name: Sweep every CFA URL at the verifier's cadence
+        if: inputs.urls == ''
+        run: node scripts/diagnose-registry-response.mjs --sweep
