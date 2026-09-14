@@ -54,7 +54,11 @@ import {
   verifiablePart,
 } from "./lib/registry-text.mjs";
 import { buildVerdict } from "./lib/registry-verdict.mjs";
-import { createSharedSource, isSharedSourceFailure } from "./lib/shared-source.mjs";
+import {
+  createSharedSource,
+  isSharedSourceFailure,
+  sharedSourceFailureKind,
+} from "./lib/shared-source.mjs";
 
 /**
  * Test seams. Neither changes how a normal run behaves.
@@ -71,6 +75,18 @@ const FIFE_LISTING_URL =
 const ONLY_REGISTRY = process.env.FAUNAHUB_VERIFY_ONLY ?? null;
 /** Rate-limit pause between records. Only a test against a stub sets this to 0. */
 const RECORD_DELAY_MS = Number(process.env.FAUNAHUB_VERIFY_DELAY_MS ?? 900);
+/**
+ * Inject a fault into the shared listing's processing. Test-only, inert unless set.
+ *
+ * `parse` and `validate` run on a body that already arrived, so no response a
+ * stub can serve will make them throw — `toText` accepts any string and the
+ * length check cannot fail. Without a seam, the one path where a processing
+ * exception escapes the shared-source wrapper could not be exercised through
+ * the real run loop at all, which is exactly how it survived the last fix.
+ *
+ * @type {"parse" | "validate" | null}
+ */
+const FIFE_FAULT = process.env.FAUNAHUB_FIFE_FAULT ?? null;
 
 const slugFilter = (() => {
   /*
@@ -139,6 +155,9 @@ function noteSharedFailure(error, registryId) {
     scope: "registry",
     registryId,
     url,
+    // "fetched" | "unusable" | "processing" — see shared-source.mjs. A
+    // processing fault is OUR bug and must not read as a registry outage.
+    kind: sharedSourceFailureKind(error),
     error: String(error.message),
     attempts: error.attempts ?? [],
     affectedRecords: 1,
@@ -333,17 +352,22 @@ const fifeListing = createSharedSource({
   // The shared pipeline decodes &#8211; / &ndash; to a real en dash; FIFe
   // separates a breed code from its name that way, so it is folded to a hyphen
   // here to keep the code/name matching below simple.
-  parse: (html) => toText(html).replace(/\u2013/g, "-"),
+  parse: (html) => {
+    if (FIFE_FAULT === "parse") throw new TypeError("injected parse fault");
+    return toText(html).replace(/\u2013/g, "-");
+  },
   /*
    * A 200 is not the same as a usable page. A maintenance stub, a login wall or
    * a redesigned template all answer 200 with something far shorter than the
    * real listing, and treating that as readable would let every comparison
    * below pass against nothing — the exact bug the docstring above describes.
    */
-  validate: (text) =>
-    !text || text.length < 5000
+  validate: (text) => {
+    if (FIFE_FAULT === "validate") throw new RangeError("injected validate fault");
+    return !text || text.length < 5000
       ? "breed listing could not be read (page shape changed or stub response)"
-      : null,
+      : null;
+  },
 });
 
 async function checkFife(breed, rec) {
@@ -509,7 +533,13 @@ if (degraded.length > 0) {
   console.log(`\n${degraded.length} source(s) unreachable after a retry:\n`);
   for (const d of degraded) {
     if (d.scope === "registry") {
-      console.log(`  ${d.registryId} shared source  ${d.url}`);
+      const label =
+        d.kind === "processing"
+          ? "shared source — OUR PROCESSING FAULT"
+          : d.kind === "unusable"
+            ? "shared source — answered but unusable"
+            : "shared source — could not be fetched";
+      console.log(`  ${d.registryId} ${label}  ${d.url}`);
       console.log(`      ${d.error}`);
       console.log(`      affected verification scope: ${d.affectedRecords} ${d.registryId.toUpperCase()} records`);
     } else {

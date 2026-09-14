@@ -100,6 +100,7 @@ interface RunResult {
  */
 async function runAgainstStub(
   handler: (n: number, res: http.ServerResponse) => void,
+  extraEnv: Record<string, string> = {},
 ): Promise<RunResult> {
   let requests = 0;
   const server = http.createServer((_req, res) => {
@@ -123,6 +124,7 @@ async function runAgainstStub(
               FAUNAHUB_FIFE_LISTING_URL: `http://127.0.0.1:${port}/cats/breeds/`,
               FAUNAHUB_VERIFY_ONLY: "fife",
               FAUNAHUB_VERIFY_DELAY_MS: "0",
+              ...extraEnv,
             },
           },
           (_error, stdout) => resolve({ stdout, code: child.exitCode }),
@@ -344,4 +346,173 @@ test("a breed-scoped failure is not folded into a registry-scoped one", () => {
   assert.match(summary, /`dog-border-collie`/, "the breed-scoped failure keeps its breed");
   assert.match(summary, /\| Fetch attempts \| 3 \|/, "attempts and URLs are counted separately");
   assert.match(summary, /\| Fetches \(distinct URLs\) \| 2 \|/);
+});
+
+/* ---------------------------------------------------------------- *
+ * Processing exceptions — the path that bypassed the wrapper
+ * ---------------------------------------------------------------- */
+
+/**
+ * `load()` guarded the fetch and turned a validation *result* into a marked
+ * failure, but `parse()` and `validate()` were called outside any try/catch. An
+ * exception thrown by either escaped unmarked, so `isSharedSourceFailure()`
+ * said no and the run loop fell back to `reportDegraded` — once per record.
+ *
+ * One TypeError in a parser became 35 breed-scoped findings, each naming a cat
+ * whose own source was fine. The cache worked perfectly; it cached the wrong
+ * kind of error.
+ */
+
+test("a parse() that throws is still one cached shared-source failure", async () => {
+  let fetches = 0;
+  const source = createSharedSource({
+    id: "stub",
+    url: "https://example.test/listing",
+    fetchText: async () => {
+      fetches += 1;
+      return "x".repeat(6000);
+    },
+    parse: () => {
+      throw new TypeError("parser blew up");
+    },
+  });
+
+  const errors: unknown[] = [];
+  for (let i = 0; i < FIFE_RECORD_COUNT; i += 1) {
+    await source.resolve().catch((e) => errors.push(e));
+  }
+
+  assert.equal(fetches, 1, `${FIFE_RECORD_COUNT} callers caused ${fetches} fetches`);
+  assert.equal(source.state, "failed");
+  assert.equal(errors.length, FIFE_RECORD_COUNT, "every caller still learns it failed");
+  assert.equal(new Set(errors).size, 1, "one cached error object, so it can deduplicate");
+  assert.ok(
+    isSharedSourceFailure(errors[0]),
+    "a processing exception must be marked as a shared-source failure",
+  );
+  assert.equal((errors[0] as Error).cause instanceof TypeError, true, "original kept as cause");
+  assert.match((errors[0] as Error).message, /processing failed/i);
+});
+
+test("a validate() that throws is treated the same way", async () => {
+  let fetches = 0;
+  const source = createSharedSource({
+    id: "stub",
+    url: "https://example.test/listing",
+    fetchText: async () => {
+      fetches += 1;
+      return "x".repeat(6000);
+    },
+    parse: (body) => body,
+    validate: () => {
+      throw new RangeError("validator blew up");
+    },
+  });
+
+  const errors: unknown[] = [];
+  for (let i = 0; i < FIFE_RECORD_COUNT; i += 1) {
+    await source.resolve().catch((e) => errors.push(e));
+  }
+
+  assert.equal(fetches, 1);
+  assert.equal(new Set(errors).size, 1);
+  assert.ok(isSharedSourceFailure(errors[0]));
+  assert.equal((errors[0] as Error).cause instanceof RangeError, true);
+});
+
+test("the three failure kinds are distinguishable by message", async () => {
+  /*
+   * They need different remedies. A fetch failure is the registry's problem and
+   * may fix itself; an unusable body means the page changed; a processing
+   * exception is OUR bug and will not fix itself. A summary that called all
+   * three "unreachable" would send someone to the wrong place.
+   */
+  const build = (opts: Record<string, unknown>) =>
+    createSharedSource({
+      id: "stub",
+      url: "https://example.test/listing",
+      parse: (body: string) => body,
+      ...opts,
+    } as Parameters<typeof createSharedSource>[0]);
+
+  const fetchFailed = build({
+    fetchText: async () => {
+      throw new Error("HTTP 503");
+    },
+  });
+  const unusable = build({
+    fetchText: async () => "short",
+    validate: () => "breed listing could not be read",
+  });
+  const threw = build({
+    fetchText: async () => "x".repeat(6000),
+    parse: () => {
+      throw new TypeError("boom");
+    },
+  });
+
+  const messageOf = async (s: ReturnType<typeof createSharedSource>) =>
+    s.resolve().then(
+      () => "(no error)",
+      (e: Error) => e.message,
+    );
+
+  const [a, b, c] = await Promise.all([
+    messageOf(fetchFailed),
+    messageOf(unusable),
+    messageOf(threw),
+  ]);
+  assert.match(a, /could not be fetched/i);
+  assert.match(b, /could not be read/i);
+  assert.match(c, /processing failed/i);
+  assert.equal(new Set([a, b, c]).size, 3, "all three must read differently");
+});
+
+test("a processing exception is not retried", async () => {
+  // Retrying a parser that throws just throws again, more slowly.
+  let fetches = 0;
+  const source = createSharedSource({
+    id: "stub",
+    url: "https://example.test/listing",
+    fetchText: async () => {
+      fetches += 1;
+      return "x".repeat(6000);
+    },
+    parse: () => {
+      throw new Error("deterministic");
+    },
+  });
+  await source.resolve().catch(() => {});
+  await source.resolve().catch(() => {});
+  await source.resolve().catch(() => {});
+  assert.equal(fetches, 1, `expected a single fetch, got ${fetches}`);
+});
+
+/* --- and through the real verifier ------------------------------- */
+
+test("the real verifier emits ONE registry-scoped signal when parse throws", async () => {
+  const r = await runAgainstStub((n, res) => ok(n, res, listingHtml()), {
+    FAUNAHUB_FIFE_FAULT: "parse",
+  });
+  assert.equal(r.requests, 1, `stub hit ${r.requests} times for one shared page`);
+  assert.equal(
+    r.unreachable,
+    1,
+    `one shared source failed once, but ${r.unreachable} entries were recorded`,
+  );
+  assert.equal(r.disagreements, 0, "a processing fault is never a disagreement");
+  assert.equal(r.verdict, "DEGRADED");
+  assert.match(r.stdout, /shared source/, "reported against the registry");
+  assert.match(r.stdout, /affected verification scope: 35 FIFE records/);
+  assert.doesNotMatch(r.stdout, /^\s+cat-[a-z-]+\s+fife\s/m, "no breed may be blamed");
+});
+
+test("the real verifier emits ONE registry-scoped signal when validate throws", async () => {
+  const r = await runAgainstStub((n, res) => ok(n, res, listingHtml()), {
+    FAUNAHUB_FIFE_FAULT: "validate",
+  });
+  assert.equal(r.requests, 1);
+  assert.equal(r.unreachable, 1, `expected one entry, got ${r.unreachable}`);
+  assert.equal(r.verdict, "DEGRADED");
+  assert.match(r.stdout, /affected verification scope: 35 FIFE records/);
 });

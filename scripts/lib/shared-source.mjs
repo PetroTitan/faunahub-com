@@ -45,12 +45,24 @@ export function createSharedSource({ id, url, fetchText, parse, validate }) {
   /** @type {{kind: SharedSourceState, value?: string, error?: Error, promise?: Promise<string>}} */
   let state = { kind: "uninitialized" };
 
-  /** Everything the summary needs to describe one shared-source failure. */
-  function failure(message, attempts) {
-    const error = new Error(message);
+  /**
+   * Everything the summary needs to describe one shared-source failure.
+   *
+   * `kind` separates three situations that need different remedies, and that a
+   * single "unreachable" label would send someone to the wrong place for:
+   *
+   *   fetched     the registry did not answer — theirs, and may fix itself
+   *   unusable    it answered with something that is not the listing — the
+   *               page changed, so the check needs rewriting
+   *   processing  our own code threw while handling a body that did arrive —
+   *               a bug here, and it will not fix itself
+   */
+  function failure(kind, message, { attempts, cause } = {}) {
+    const error = new Error(message, cause === undefined ? undefined : { cause });
     error[SHARED_SOURCE_FAILURE] = true;
     error.sharedSourceId = id;
     error.sharedSourceUrl = url;
+    error.sharedSourceFailureKind = kind;
     error.attempts = attempts ?? [];
     return error;
   }
@@ -62,11 +74,51 @@ export function createSharedSource({ id, url, fetchText, parse, validate }) {
     } catch (error) {
       // A fetch that failed after its retries. Cache it: asking again once per
       // record is what turned one outage into seventy requests.
-      throw failure(`could not be fetched: ${error.message}`, error.attempts);
+      throw failure("fetched", `could not be fetched: ${error.message}`, {
+        attempts: error.attempts,
+        cause: error,
+      });
     }
-    const parsed = parse(body);
-    const problem = validate?.(parsed);
-    if (problem) throw failure(problem, [{ attempt: 1, status: 200, ok: true }]);
+
+    /*
+     * EVERYTHING AFTER THE FETCH IS GUARDED TOO.
+     *
+     * `parse` and `validate` used to run outside any try/catch, so an exception
+     * from either escaped unmarked. The cache stored it faithfully — and then
+     * `isSharedSourceFailure()` said no, the run loop fell back to the
+     * breed-scoped path, and one TypeError in a parser became 35 findings, each
+     * naming a cat whose own source was fine.
+     *
+     * A returned validation *problem* was already handled; a *thrown* one was
+     * not. The distinction was invisible because nothing in this repository
+     * threw from either function.
+     *
+     * Not retried, deliberately: re-running a parser that throws just throws
+     * again, more slowly.
+     */
+    const arrived = [{ attempt: 1, status: 200, ok: true }];
+    let parsed;
+    try {
+      parsed = parse(body);
+    } catch (error) {
+      throw failure("processing", `shared-source processing failed while parsing: ${error.message}`, {
+        attempts: arrived,
+        cause: error,
+      });
+    }
+
+    let problem;
+    try {
+      problem = validate?.(parsed);
+    } catch (error) {
+      throw failure(
+        "processing",
+        `shared-source processing failed while validating: ${error.message}`,
+        { attempts: arrived, cause: error },
+      );
+    }
+
+    if (problem) throw failure("unusable", problem, { attempts: arrived });
     return parsed;
   }
 
@@ -111,4 +163,12 @@ export function createSharedSource({ id, url, fetchText, parse, validate }) {
 /** True when this error came from a shared source rather than one breed's page. */
 export function isSharedSourceFailure(error) {
   return Boolean(error?.[SHARED_SOURCE_FAILURE]);
+}
+
+/**
+ * Which of the three situations this was: "fetched", "unusable" or
+ * "processing". Undefined for anything that is not a shared-source failure.
+ */
+export function sharedSourceFailureKind(error) {
+  return error?.sharedSourceFailureKind;
 }
