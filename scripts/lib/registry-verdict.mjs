@@ -71,7 +71,15 @@ const countBy = (rows, key) => {
 };
 
 const describeAttempts = (attempts) =>
-  attempts.map((a) => `#${a.attempt} ${a.status ?? a.error ?? (a.ok ? "ok" : "failed")}`).join("; ");
+  attempts
+    .map((a) => {
+      if (a.ok) return `#${a.attempt} ok ${a.status ?? ""}`.trim();
+      // The transport class is the whole point: "fetch failed" is what DNS,
+      // a connect timeout, a reset and an expired certificate all look like.
+      const what = a.transport ?? a.status ?? a.error ?? "failed";
+      return `#${a.attempt} ${what}${a.causeCode ? ` (${a.causeCode})` : ""}`;
+    })
+    .join("; ");
 
 /**
  * @param {{problems?: Problem[], degraded?: Degraded[], fetchAttempts?: Array<{url: string, attempts: Array<Record<string, unknown>>}>, breedsChecked?: number, checked?: Record<string, number>}} [input]
